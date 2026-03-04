@@ -73,6 +73,14 @@ export const useAchievementStore = defineStore('achievement', () => {
     return partyDefinitions.value.some((a) => a.id === id)
   }
 
+  function getName(id: string): string {
+    const g = globalDefinitions.value.find((a) => a.id === id)
+    if (g) return g.name
+    const p = partyDefinitions.value.find((a) => a.id === id)
+    if (p) return p.name
+    return id
+  }
+
   function removeAchievement(id: string) {
     if (!campaignStore.currentCampaign) return
     if (isGlobalDefined(id)) {
@@ -92,6 +100,7 @@ export const useAchievementStore = defineStore('achievement', () => {
     isPartyAchieved,
     isGlobalDefined,
     isPartyDefined,
+    getName,
     toggleGlobal,
     toggleParty,
     awardGlobal,

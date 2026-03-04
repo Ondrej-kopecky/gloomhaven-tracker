@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { ScenarioStatus } from '@/models/types'
 import { useScenarioStore } from '@/stores/scenarioStore'
+import { useAchievementStore } from '@/stores/achievementStore'
 
 const props = defineProps<{
   scenarioId: string
@@ -12,6 +13,7 @@ const emit = defineEmits<{
 }>()
 
 const scenarioStore = useScenarioStore()
+const achievementStore = useAchievementStore()
 
 const scenario = computed(() => scenarioStore.getDefinition(props.scenarioId))
 const state = computed(() => scenarioStore.getState(props.scenarioId))
@@ -141,7 +143,7 @@ function inputValue(e: Event): string {
     <div v-if="scenario.achievementsAwarded?.length" class="mb-4">
       <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-2">Udělené úspěchy</h4>
       <div v-for="a in scenario.achievementsAwarded" :key="a" class="text-sm text-green-400/90 flex items-center gap-1.5">
-        <span class="w-1 h-1 rounded-full bg-green-400/60" /> {{ a }}
+        <span class="w-1 h-1 rounded-full bg-green-400/60" /> {{ achievementStore.getName(a) }}
       </div>
     </div>
 
@@ -149,7 +151,7 @@ function inputValue(e: Event): string {
     <div v-if="scenario.achievementsLost?.length" class="mb-4">
       <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-2">Ztracené úspěchy</h4>
       <div v-for="a in scenario.achievementsLost" :key="a" class="text-sm text-red-400/90 flex items-center gap-1.5">
-        <span class="w-1 h-1 rounded-full bg-red-400/60" /> {{ a }}
+        <span class="w-1 h-1 rounded-full bg-red-400/60" /> {{ achievementStore.getName(a) }}
       </div>
     </div>
 
