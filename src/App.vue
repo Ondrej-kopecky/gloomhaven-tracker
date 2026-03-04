@@ -1,0 +1,35 @@
+<script setup lang="ts">
+import { onMounted } from 'vue'
+import AppHeader from '@/components/layout/AppHeader.vue'
+import { useProfileStore } from '@/stores/profileStore'
+
+const profileStore = useProfileStore()
+
+onMounted(() => {
+  profileStore.init()
+})
+</script>
+
+<template>
+  <div class="min-h-screen bg-gh-dark text-gray-100">
+    <AppHeader />
+    <main class="max-w-7xl mx-auto px-4 pb-24 md:pb-8 pt-2">
+      <router-view v-slot="{ Component }">
+        <transition name="page" mode="out-in">
+          <component :is="Component" />
+        </transition>
+      </router-view>
+    </main>
+  </div>
+</template>
+
+<style scoped>
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.15s ease;
+}
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+}
+</style>

@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "name": "Intro"
+  },
+  {
+    "id": 2,
+    "name": "The Merchant"
+  },
+  {
+    "id": 3,
+    "name": "Demon and Rift"
+  },
+  {
+    "id": 4,
+    "name": "Sewers"
+  },
+  {
+    "id": 5,
+    "name": "Rebellion Rises"
+  },
+  {
+    "id": 6,
+    "name": "Under Oceans"
+  },
+  {
+    "id": 7,
+    "name": "Through Jungles"
+  },
+  {
+    "id": 8,
+    "name": "Atop Mountains"
+  },
+  {
+    "id": 9,
+    "name": "Dragons"
+  },
+  {
+    "id": 10,
+    "name": "Voice"
+  },
+  {
+    "id": 100,
+    "name": "Solo Scenarios"
+  },
+  {
+    "id": 101,
+    "name": "Personal Quests"
+  },
+  {
+    "id": 102,
+    "name": "Random Scenarios"
+  },
+  {
+    "id": 103,
+    "name": "Sealed"
+  },
+  {
+    "id": 104,
+    "name": "Road Events"
+  },
+  {
+    "id": 105,
+    "name": "City Events"
+  },
+  {
+    "id": 20,
+    "name": "Diviner"
+  },
+  {
+    "id": 21,
+    "name": "Orchid society"
+  },
+  {
+    "id": 22,
+    "name": "Citizens of Gloomhaven"
+  },
+  {
+    "id": 23,
+    "name": "The rift device"
+  },
+  {
+    "id": 24,
+    "name": "Tainted crypt"
+  },
+  {
+    "id": 25,
+    "name": "Corruption"
+  }
+]
