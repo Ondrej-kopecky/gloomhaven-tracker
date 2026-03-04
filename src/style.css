@@ -254,7 +254,7 @@ select.gh-input option {
   transform: translate(-10.8px, 0);
 }
 
-/* Node text positioning (mirrors reference) */
+/* Node text positioning */
 .storyline-container circle.node + text {
   font-size: 11px;
   transform: translate(0px, 9px);

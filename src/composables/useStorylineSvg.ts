@@ -38,6 +38,12 @@ export function useStorylineSvg(containerRef: Ref<HTMLElement | null>) {
     return containerRef.value?.querySelector(`#chapter${id}`) ?? null
   }
 
+  // ViewBox values matching gloomhaven-storyline reference
+  const VIEWBOX = {
+    portrait: '0 -70 420 1080',
+    landscape: '0 -40 610 700',
+  }
+
   // ── Init ──
 
   function initSvg() {
@@ -47,14 +53,19 @@ export function useStorylineSvg(containerRef: Ref<HTMLElement | null>) {
     // Insert raw SVG
     container.innerHTML = storylineSvgRaw
 
-    // Remove portrait or landscape groups based on screen width
-    // SVG has 5 groups of each (one per side-scenario chapter)
+    const svg = getSvgEl()
+    if (!svg) return
+
+    // Remove portrait or landscape groups based on screen orientation
     const isPortrait = window.innerHeight > window.innerWidth
     const removeClass = isPortrait ? 'landscape' : 'portrait'
     const toRemove = container.querySelectorAll(`g.${removeClass}`)
     for (const el of toRemove) {
       el.remove()
     }
+
+    // Set correct viewBox for orientation
+    svg.setAttribute('viewBox', isPortrait ? VIEWBOX.portrait : VIEWBOX.landscape)
 
     // Attach click listeners
     container.addEventListener('click', handleClick)
@@ -77,10 +88,24 @@ export function useStorylineSvg(containerRef: Ref<HTMLElement | null>) {
       mouseWheelZoomEnabled: true,
       dblClickZoomEnabled: true,
       minZoom: 0.5,
-      maxZoom: 3,
+      maxZoom: 4,
       zoomScaleSensitivity: 0.3,
       fit: true,
       center: true,
+      beforePan(_oldPan, newPan) {
+        const gutter = 100
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const sizes = (this as any).getSizes()
+        const vb = sizes.viewBox
+        const leftLimit = -((vb.x + vb.width) * sizes.realZoom) + gutter
+        const rightLimit = sizes.width - gutter - (vb.x * sizes.realZoom)
+        const topLimit = -((vb.y + vb.height) * sizes.realZoom) + gutter
+        const bottomLimit = sizes.height - gutter - (vb.y * sizes.realZoom)
+        return {
+          x: Math.max(leftLimit, Math.min(rightLimit, newPan.x)),
+          y: Math.max(topLimit, Math.min(bottomLimit, newPan.y)),
+        }
+      },
     })
   }
 
@@ -330,8 +355,6 @@ export function useStorylineSvg(containerRef: Ref<HTMLElement | null>) {
   function fitView() {
     panZoomInstance?.resetZoom()
     panZoomInstance?.resetPan()
-    panZoomInstance?.fit()
-    panZoomInstance?.center()
   }
 
   function destroy() {
