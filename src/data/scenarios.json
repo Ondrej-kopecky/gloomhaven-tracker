@@ -1,0 +1,4539 @@
+[
+  {
+    "id": "1",
+    "name": "Černá mohyla",
+    "location": "G-10",
+    "isSide": false,
+    "coordinates": {
+      "name": "G-10",
+      "x": 45.19126,
+      "y": 41.6
+    },
+    "linksTo": [
+      2
+    ],
+    "linkedFrom": [],
+    "treasures": [
+      {
+        "id": "7",
+        "description": "Random Side Scenario"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [
+        "first_steps"
+      ]
+    },
+    "summary": "Družina dorazila ke staré hrobce na okraji Gloomhavenu. Uvnitř čekaly skupiny banditů, kteří si zde zřídili základnu. Po jejich poražení se otevřela cesta hlouběji do podzemí.",
+    "isRoot": true,
+    "chapterId": 1,
+    "pages": [
+      "gh/3"
+    ],
+    "achievementsAwarded": [
+      "first_steps"
+    ],
+    "quests": [
+      1
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Mohylové doupě",
+    "location": "G-11",
+    "isSide": false,
+    "coordinates": {
+      "name": "G-11",
+      "x": 49.31775,
+      "y": 41
+    },
+    "linksTo": [
+      3,
+      4
+    ],
+    "linkedFrom": [
+      1
+    ],
+    "treasures": [
+      {
+        "id": "67",
+        "description": "Gain 10 Gold"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 1,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "10 gold each",
+        "+1 prosperity"
+      ]
+    },
+    "summary": "Družina sestoupila hlouběji do kurhanu, kde narazila na doupě banditů. V hlubinách čekala silná nemrtvá bytost. Po vítězství družina získala cenný poklad a pověst ochránců.",
+    "chapterId": 1,
+    "pages": [
+      "gh/4",
+      "gh/5"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "first_steps"
+        ]
+      }
+    ],
+    "hasBoss": true,
+    "quests": [
+      1
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Tábor inoxů",
+    "location": "G-3",
+    "isSide": false,
+    "coordinates": {
+      "name": "G-3",
+      "x": 13.88521,
+      "y": 43.585
+    },
+    "linksTo": [
+      8,
+      9
+    ],
+    "linkedFrom": [
+      2
+    ],
+    "treasures": [
+      {
+        "id": "65",
+        "description": "“Horned Helm” design (Item 107)"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "15 gold each",
+        "+1 prosperity"
+      ]
+    },
+    "summary": "Na popud Jekserah se družina vydala do tábora Inoxů v horách. Situace se vyostřila a družina musela čelit náporu divokých Inoxů, kteří bránili svůj domov.",
+    "chapterId": 2,
+    "regionIds": [
+      2
+    ],
+    "pages": [
+      "gh/5",
+      "gh/6"
+    ],
+    "requiredBy": [
+      {
+        "incomplete": [
+          "the_merchant_flees"
+        ]
+      }
+    ],
+    "blocksOn": [
+      {
+        "complete": [
+          "the_merchant_flees"
+        ]
+      }
+    ],
+    "achievementsAwarded": [
+      "jekserahs_plans"
+    ],
+    "quests": [
+      2
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Krypta zatracených",
+    "location": "E-11",
+    "isSide": false,
+    "coordinates": {
+      "name": "E-11",
+      "x": 45.57246,
+      "y": 31.19
+    },
+    "linksTo": [
+      6,
+      5
+    ],
+    "linkedFrom": [
+      2
+    ],
+    "treasures": [
+      {
+        "id": "38",
+        "description": "“Ring of Skulls” design (Item 123)"
+      },
+      {
+        "id": "46",
+        "description": "Suffer 3 damage and gain {POISON}"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": []
+    },
+    "summary": "Družina pronikla do prastaré krypty plné nemrtvých. Temná magie prostupovala celým místem a oživovala mrtvoly. Po vyčištění krypty se ukázalo, že zdroj magie pochází z hlubších pater.",
+    "regionIds": [
+      7
+    ],
+    "pages": [
+      "gh/7"
+    ],
+    "quests": [
+      3
+    ]
+  },
+  {
+    "id": "5",
+    "name": "Zřícená krypta",
+    "location": "D-6",
+    "isSide": false,
+    "coordinates": {
+      "name": "D-6",
+      "x": 26.89366,
+      "y": 26.58
+    },
+    "linksTo": [
+      14,
+      19,
+      10
+    ],
+    "linkedFrom": [
+      4
+    ],
+    "treasures": [
+      {
+        "id": "4",
+        "description": "Gain 15 Gold"
+      },
+      {
+        "id": "28",
+        "description": "Gain 15 Gold"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": []
+    },
+    "summary": "Starodávný chrám ukrýval mocné živelné síly. Družina musela projít zkouškami ohně, ledu a větru, aby se dostala k centru chrámu, kde čekalo odhalení o povaze živelné magie.",
+    "chapterId": 3,
+    "regionIds": [
+      7
+    ],
+    "pages": [
+      "gh/8"
+    ],
+    "quests": [
+      4
+    ]
+  },
+  {
+    "id": "6",
+    "name": "Zapáchající krypta",
+    "location": "F-10",
+    "isSide": false,
+    "coordinates": {
+      "name": "F-10",
+      "x": 41.97965,
+      "y": 38.3
+    },
+    "linksTo": [
+      8
+    ],
+    "linkedFrom": [
+      4
+    ],
+    "treasures": [
+      {
+        "id": "50",
+        "description": "Gain “Second Skin” (Item 101)"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "5 gold each"
+      ]
+    },
+    "summary": "V rozpadající se kryptě se družina střetla s temnou silou, která oživovala mrtvé. Hluboké chodby ukrývaly starodávné rituální místo, kde se schylovalo k probuzení pradávného zla.",
+    "chapterId": 2,
+    "regionIds": [
+      7
+    ],
+    "pages": [
+      "gh/9",
+      "gh/10"
+    ],
+    "achievementsAwarded": [
+      "jekserahs_plans",
+      "dark_bounty"
+    ],
+    "quests": [
+      3
+    ]
+  },
+  {
+    "id": "7",
+    "name": "Živoucí sluj",
+    "location": "C-12",
+    "isSide": false,
+    "coordinates": {
+      "name": "C-12",
+      "x": 55.04528,
+      "y": 19.85
+    },
+    "linksTo": [
+      20
+    ],
+    "linkedFrom": [
+      8
+    ],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": []
+    },
+    "summary": "Družina pronikla do bujné jeskyně plné zářivé vegetace a nebezpečných tvorů. Skřeti zde střežili svou pevnost a poklady ukryté v hlubinách podzemního lesa.",
+    "chapterId": 2,
+    "regionIds": [
+      5
+    ],
+    "pages": [
+      "gh/10",
+      "gh/11"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "the_power_of_enhancement",
+          "the_merchant_flees"
+        ]
+      }
+    ],
+    "quests": [
+      9
+    ]
+  },
+  {
+    "id": "8",
+    "name": "Gloomhavenské skladiště",
+    "location": "C-18",
+    "isSide": false,
+    "coordinates": {
+      "name": "C-18",
+      "x": 80.03294,
+      "y": 18.1
+    },
+    "linksTo": [
+      7,
+      13,
+      14
+    ],
+    "linkedFrom": [
+      3,
+      6
+    ],
+    "treasures": [
+      {
+        "id": "51",
+        "description": "Random Side Scenario"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "+2 reputation"
+      ]
+    },
+    "summary": "Sklad v Gloomhavenu se stal terčem záhadných krádeží. Družina vyšetřovala stopy a zjistila, že za krádežemi stojí organizovaná skupina, která zásobuje temné síly ve městě.",
+    "chapterId": 2,
+    "regionIds": [
+      1
+    ],
+    "pages": [
+      "gh/12"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "jekserahs_plans"
+        ],
+        "incomplete": [
+          "the_dead_invade"
+        ]
+      }
+    ],
+    "blocksOn": [
+      {
+        "complete": [
+          "the_dead_invade"
+        ]
+      }
+    ],
+    "achievementsAwarded": [
+      "the_merchant_flees"
+    ],
+    "hasBoss": true,
+    "quests": [
+      6
+    ]
+  },
+  {
+    "id": "9",
+    "name": "Diamantový důl",
+    "location": "L-2",
+    "isSide": false,
+    "coordinates": {
+      "name": "L-2",
+      "x": 10.0065,
+      "y": 70.65
+    },
+    "linksTo": [
+      11,
+      12
+    ],
+    "linkedFrom": [
+      3
+    ],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "20 gold each",
+        "+1 prosperity"
+      ]
+    },
+    "summary": "Diamantový důl v horách lákal dobrodruhy svým bohatstvím. Družina se musela probít přes nestvůry a pasti, aby získala vzácné drahokamy ukryté v nejhlubších štolách.",
+    "chapterId": 2,
+    "regionIds": [
+      4
+    ],
+    "pages": [
+      "gh/13"
+    ],
+    "requiredBy": [
+      {
+        "incomplete": [
+          "the_merchant_flees"
+        ]
+      }
+    ],
+    "blocksOn": [
+      {
+        "complete": [
+          "the_merchant_flees"
+        ]
+      }
+    ],
+    "achievementsAwarded": [
+      "the_dead_invade"
+    ],
+    "hasBoss": true,
+    "quests": [
+      7
+    ]
+  },
+  {
+    "id": "10",
+    "name": "Sféra moci živlů",
+    "location": "C-7",
+    "isSide": false,
+    "coordinates": {
+      "name": "C-7",
+      "x": 29.711681,
+      "y": 23.56
+    },
+    "linksTo": [
+      21,
+      22
+    ],
+    "linkedFrom": [
+      5
+    ],
+    "treasures": [
+      {
+        "id": "11",
+        "description": "Random Item Design"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": []
+    },
+    "summary": "Na rovině živelné moci se družina střetla s bytostmi z jiného světa. Elementální energie zde byla tak silná, že deformovala samotný prostor. Vítězství přineslo cenné poznatky o povaze dimenzí.",
+    "chapterId": 3,
+    "pages": [
+      "gh/14"
+    ],
+    "requiredBy": [
+      {
+        "incomplete": [
+          "the_rift_neutralized"
+        ]
+      }
+    ],
+    "blocksOn": [
+      {
+        "complete": [
+          "the_rift_neutralized"
+        ]
+      }
+    ],
+    "achievementsAwarded": [
+      "a_demons_errand"
+    ],
+    "quests": [
+      8
+    ]
+  },
+  {
+    "id": "11",
+    "name": "Gloomhavenské náměstí A",
+    "location": "B-16",
+    "isSide": false,
+    "coordinates": {
+      "name": "B-16",
+      "x": 72.8092,
+      "y": 14.65
+    },
+    "linksTo": [
+      16,
+      18
+    ],
+    "linkedFrom": [
+      9
+    ],
+    "treasures": [
+      {
+        "id": "5",
+        "description": "Gain “Chainmail” (Item 023)"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "15 gold each",
+        "-2 reputation",
+        "+2 prosperity",
+        "“Skullbane Axe” design (Item 113)"
+      ]
+    },
+    "summary": "Jekserah je nadšená z diamantu, který jste jí přinesli. Teď se ptá, jestli jste připraveni svrhnout vojenskou správu Gloomhavenu a předat kontrolu nad městem do rukou Obchodnického cechu. S pomocí nekromantického svitku a diamantu jako zaostřovacího krystalu může přivolat celou armádu nemrtvých. Je na vás, zda se k jejímu plánu připojíte.",
+    "chapterId": 2,
+    "regionIds": [
+      1
+    ],
+    "pages": [
+      "gh/15",
+      "gh/16"
+    ],
+    "coupled": 12,
+    "requiredBy": [
+      {
+        "incomplete": [
+          "end_of_the_invasion"
+        ]
+      }
+    ],
+    "blocksOn": [
+      {
+        "complete": [
+          "end_of_the_invasion"
+        ]
+      }
+    ],
+    "achievementsAwarded": [
+      "city_rule_economic",
+      "end_of_the_invasion"
+    ],
+    "hasBoss": true,
+    "quests": [
+      10
+    ]
+  },
+  {
+    "id": "12",
+    "name": "Gloomhavenské náměstí B",
+    "location": "B-16",
+    "isSide": false,
+    "coordinates": {
+      "name": "B-16",
+      "x": 72.8092,
+      "y": 14.65
+    },
+    "linksTo": [
+      16,
+      28,
+      18
+    ],
+    "linkedFrom": [
+      9
+    ],
+    "treasures": [
+      {
+        "id": "34",
+        "description": "Gain “Amulet of Life” (Item 024)"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "+4 reputation",
+        "“Skullbane Axe” design (Item 113)"
+      ]
+    },
+    "summary": "Rozhodli jste se nepomáhat Jekserah s jejími plány. Místo toho chcete varovat město před armádou nemrtvých, kterou se chystá přivolat. Musíte jednat rychle a spojit se s městskou stráží, než bude pozdě.",
+    "chapterId": 2,
+    "regionIds": [
+      1
+    ],
+    "pages": [
+      "gh/16",
+      "gh/17"
+    ],
+    "coupled": 11,
+    "requiredBy": [
+      {
+        "incomplete": [
+          "end_of_the_invasion"
+        ]
+      }
+    ],
+    "blocksOn": [
+      {
+        "complete": [
+          "end_of_the_invasion"
+        ]
+      }
+    ],
+    "achievementsAwarded": [
+      "end_of_the_invasion"
+    ],
+    "hasBoss": true,
+    "quests": [
+      11
+    ]
+  },
+  {
+    "id": "13",
+    "name": "Prorokův chrám",
+    "location": "N-3",
+    "isSide": false,
+    "coordinates": {
+      "name": "N-3",
+      "x": 17.36366,
+      "y": 84.42
+    },
+    "linksTo": [
+      15,
+      17,
+      20
+    ],
+    "linkedFrom": [
+      8
+    ],
+    "treasures": [
+      {
+        "id": "10",
+        "description": "Gain 10 Experience"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": []
+    },
+    "summary": "Přes své kontakty jste získali podivnou informaci o tom, kde se Jekserah skrývá. Stopa vede k odlehlému chrámu na severu, kde se údajně uchýlila. Místní proroci možná vědí víc o jejích plánech.",
+    "chapterId": 2,
+    "regionIds": [
+      4
+    ],
+    "pages": [
+      "gh/18"
+    ],
+    "choices": [
+      15,
+      17,
+      20
+    ],
+    "quests": [
+      12
+    ]
+  },
+  {
+    "id": "14",
+    "name": "Mrazivá prázdnota",
+    "location": "C-10",
+    "isSide": false,
+    "coordinates": {
+      "name": "C-10",
+      "x": 45.31515,
+      "y": 19.33
+    },
+    "linksTo": [],
+    "linkedFrom": [
+      5,
+      8,
+      18
+    ],
+    "treasures": [
+      {
+        "id": "26",
+        "description": "Gain 20 Gold"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": []
+    },
+    "summary": "Je třeba najít zaklínače. Podle zpráv o aestherské čarodějce v Kotlářské čtvrti se vydáváte na pátrání. Aesther by mohla pomoci s uzavřením dimenzionální trhliny a zastavením kultistů.",
+    "regionIds": [
+      5
+    ],
+    "pages": [
+      "gh/19",
+      "gh/20"
+    ],
+    "achievementsAwarded": [
+      "the_power_of_enhancement"
+    ],
+    "quests": [
+      13
+    ]
+  },
+  {
+    "id": "15",
+    "name": "Svatyně síly",
+    "location": "B-11",
+    "isSide": false,
+    "coordinates": {
+      "name": "B-11",
+      "x": 48.76501,
+      "y": 16.8
+    },
+    "linksTo": [],
+    "linkedFrom": [
+      13,
+      39
+    ],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "20 experience each"
+      ]
+    },
+    "summary": "Vysoko v údolí hluboko v horách Copperneků se nachází svatyně. Kamenné průčelí stavby zdobí reliéfy živlů. Říká se, že uvnitř přebývá mocná síla, která čeká na toho, kdo prokáže svou hodnotu.",
+    "chapterId": 2,
+    "regionIds": [
+      5
+    ],
+    "pages": [
+      "gh/20",
+      "gh/21"
+    ],
+    "quests": [
+      14
+    ]
+  },
+  {
+    "id": "16",
+    "name": "Horský průsmyk",
+    "location": "B-6",
+    "isSide": false,
+    "coordinates": {
+      "name": "B-6",
+      "x": 27.11285,
+      "y": 18.92
+    },
+    "linksTo": [
+      25,
+      24
+    ],
+    "linkedFrom": [
+      11,
+      12,
+      20
+    ],
+    "treasures": [
+      {
+        "id": "1",
+        "description": "Random Item Design"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": []
+    },
+    "summary": "Doslechli jste se o drakovi, který si udělal doupě v horách Copperneků. Zprávy stojí za prošetření — ať už kvůli pokladu, nebo kvůli hrozbě, kterou představuje pro okolní kraj.",
+    "regionIds": [
+      5
+    ],
+    "pages": [
+      "gh/22"
+    ],
+    "quests": [
+      15
+    ]
+  },
+  {
+    "id": "17",
+    "name": "Ztracený ostrov",
+    "location": "K-17",
+    "isSide": false,
+    "coordinates": {
+      "name": "K-17",
+      "x": 80.38555,
+      "y": 59.235
+    },
+    "linksTo": [],
+    "linkedFrom": [
+      13
+    ],
+    "treasures": [
+      {
+        "id": "71",
+        "description": "Random Side Scenario"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "25 gold each"
+      ]
+    },
+    "summary": "Víte o ostrově v Mlžném moři, který údajně skrývá nesmírné bohatství. Čas vyrazit na výpravu přes nebezpečné vody!",
+    "chapterId": 2,
+    "regionIds": [
+      6
+    ],
+    "pages": [
+      "gh/23"
+    ],
+    "treasuresFrom": [
+      37
+    ],
+    "quests": [
+      16
+    ]
+  },
+  {
+    "id": "18",
+    "name": "Opuštěné stoky",
+    "location": "C-14",
+    "isSide": false,
+    "coordinates": {
+      "name": "C-14",
+      "x": 65.087994,
+      "y": 20.895
+    },
+    "linksTo": [
+      23,
+      14,
+      43,
+      26
+    ],
+    "linkedFrom": [
+      11,
+      12,
+      20
+    ],
+    "treasures": [
+      {
+        "id": "63",
+        "description": "Random Item Design"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": []
+    },
+    "summary": "Všimli jste si, že zásobování vodou je otrávené. Abyste zjistili zdroj jedu, musíte prozkoumat kanalizaci pod městem. Temné chodby skrývají víc než jen špínu.",
+    "chapterId": 4,
+    "regionIds": [
+      1
+    ],
+    "pages": [
+      "gh/24"
+    ],
+    "quests": [
+      17
+    ]
+  },
+  {
+    "id": "19",
+    "name": "Zapomenutá krypta",
+    "location": "M-7",
+    "isSide": false,
+    "coordinates": {
+      "name": "M-7",
+      "x": 32.9738,
+      "y": 74.64
+    },
+    "linksTo": [
+      27
+    ],
+    "linkedFrom": [
+      5
+    ],
+    "treasures": [
+      {
+        "id": "17",
+        "description": "Gain 20 Gold"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "+1 prosperity"
+      ]
+    },
+    "summary": "S cílem zastavit elementální kultisty vstupujete do krypty a objevíte děsivý pohled — skupina kultistů provádí rituální zaříkávání před černou zející trhlinou v realitě. Temná energie proudí z trhliny a přitahuje bytosti z jiných dimenzí.",
+    "chapterId": 3,
+    "regionIds": [
+      3,
+      7
+    ],
+    "pages": [
+      "gh/25",
+      "gh/26"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "the_power_of_enhancement"
+        ]
+      }
+    ],
+    "achievementsAwarded": [
+      "scrolls_of_corrosion"
+    ],
+    "quests": [
+      18
+    ]
+  },
+  {
+    "id": "20",
+    "name": "Nekromantčina svatyně",
+    "location": "H-13",
+    "isSide": false,
+    "coordinates": {
+      "name": "H-13",
+      "x": 56.227,
+      "y": 44.9
+    },
+    "linksTo": [
+      28,
+      16,
+      18
+    ],
+    "linkedFrom": [
+      7,
+      13
+    ],
+    "treasures": [
+      {
+        "id": "60",
+        "description": "Gain “Skullbane Axe” (Item 113)"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "20 gold each",
+        "+2 reputation",
+        "+1 prosperity"
+      ]
+    },
+    "summary": "Jekserah vyhrožuje, že se vrátí do Gloomhavenu s legií nemrtvých za zády, a prchá z města. Musíte ji najít a zastavit, než splní svou hrozbu.",
+    "chapterId": 2,
+    "pages": [
+      "gh/26",
+      "gh/27"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "the_merchant_flees"
+        ]
+      }
+    ],
+    "hasBoss": true,
+    "quests": [
+      9
+    ]
+  },
+  {
+    "id": "21",
+    "name": "Pekelný trůn",
+    "location": "C-7",
+    "isSide": false,
+    "coordinates": {
+      "name": "C-7",
+      "x": 32.64025,
+      "y": 22.6
+    },
+    "linksTo": [],
+    "linkedFrom": [
+      10
+    ],
+    "treasures": [
+      {
+        "id": "15",
+        "description": "Gain “Pendant of Dark Pacts” (Item 045)"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "50 gold each",
+        "+1 prosperity",
+        "Add City Event 78 to the deck"
+      ]
+    },
+    "summary": "Vydáváte se na výpravu s cílem zabít mocného démona, který ohrožuje celý kraj. Cesta vede do pekelných hlubin, kde se musíte střetnout s ďábelskými silami.",
+    "chapterId": 3,
+    "pages": [
+      "gh/28",
+      "gh/29"
+    ],
+    "requiredBy": [
+      {
+        "incomplete": [
+          "the_rift_neutralized"
+        ]
+      }
+    ],
+    "blocksOn": [
+      {
+        "complete": [
+          "the_rift_neutralized"
+        ]
+      }
+    ],
+    "achievementsAwarded": [
+      "the_rift_neutralized",
+      "the_artifact_recovered_2"
+    ],
+    "hasBoss": true,
+    "quests": [
+      19
+    ]
+  },
+  {
+    "id": "22",
+    "name": "Chrám živlů",
+    "location": "K-8",
+    "isSide": false,
+    "coordinates": {
+      "name": "K-8",
+      "x": 37.99611,
+      "y": 64.25
+    },
+    "linksTo": [
+      35,
+      31,
+      36
+    ],
+    "linkedFrom": [
+      10,
+      26
+    ],
+    "treasures": [
+      {
+        "id": "21",
+        "description": "Suffer 5 Damage"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": []
+    },
+    "summary": "U řeky Hadí polibek se nachází záhadný předmět velké moci. Může vám pomoci na vašich dalších výpravách — pokud se k němu dokážete dostat přes strážce.",
+    "pages": [
+      "gh/29",
+      "gh/30"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "a_demons_errand"
+        ]
+      },
+      {
+        "complete": [
+          "following_clues"
+        ]
+      }
+    ],
+    "achievementsAwarded": [
+      "the_artifact_recovered"
+    ],
+    "quests": [
+      20,
+      28
+    ]
+  },
+  {
+    "id": "23",
+    "name": "Trosky v hlubinách",
+    "location": "C-15",
+    "isSide": false,
+    "coordinates": {
+      "name": "C-15",
+      "x": 69.9502,
+      "y": 19.85
+    },
+    "linksTo": [
+      26
+    ],
+    "linkedFrom": [
+      18
+    ],
+    "treasures": [
+      {
+        "id": "39",
+        "description": "Suffer 5 damage"
+      },
+      {
+        "id": "72",
+        "description": "“Fueled Falchion” design (Item 116)"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": []
+    },
+    "summary": "Při hledání zdroje otrávené vody se cesta v kanalizaci otevírá do spleti rozvětvených chodeb. Hluboko pod městem se ukrývá něco, co kontaminuje zásoby pitné vody.",
+    "chapterId": 4,
+    "regionIds": [
+      1
+    ],
+    "pages": [
+      "gh/31",
+      "gh/32"
+    ],
+    "achievementsAwarded": [
+      "ancient_technology",
+      "the_ruins"
+    ],
+    "quests": [
+      21
+    ]
+  },
+  {
+    "id": "24",
+    "name": "Komnata ozvěn",
+    "location": "C-6",
+    "isSide": false,
+    "coordinates": {
+      "name": "C-6",
+      "x": 23.87265,
+      "y": 19.67
+    },
+    "linksTo": [
+      32,
+      30
+    ],
+    "linkedFrom": [
+      16
+    ],
+    "treasures": [
+      {
+        "id": "70",
+        "description": "Random Side Scenario"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": []
+    },
+    "summary": "Při cestě k Ledovému hřebenu nacházíte hrubé škrábance odkazující na jakýsi Hlas. Cítíte jemné, ale silné nutkání zjistit více o této záhadné entitě.",
+    "chapterId": 10,
+    "regionIds": [
+      5
+    ],
+    "pages": [
+      "gh/32",
+      "gh/33"
+    ],
+    "achievementsAwarded": [
+      "the_voice_command"
+    ],
+    "quests": [
+      22
+    ]
+  },
+  {
+    "id": "25",
+    "name": "Výstup na Ledovou stěnu",
+    "location": "A-5",
+    "isSide": false,
+    "coordinates": {
+      "name": "A-5",
+      "x": 19.88911,
+      "y": 13.07
+    },
+    "linksTo": [
+      33,
+      34
+    ],
+    "linkedFrom": [
+      16
+    ],
+    "treasures": [
+      {
+        "id": "58",
+        "description": "Gain “Drakescale Helm” (Item 108)"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": []
+    },
+    "summary": "Doslechli jste se o drakovi, který si udělal doupě v horách Copperneků. Výstup na ledovou stěnu je jediná cesta, jak se k jeho doupěti dostat. Bude to nebezpečná cesta plná mrazivých bytostí.",
+    "chapterId": 9,
+    "regionIds": [
+      5
+    ],
+    "pages": [
+      "gh/34",
+      "gh/35"
+    ],
+    "prompt": "dragon",
+    "achievementsAwarded": [
+      "the_drakes_command"
+    ],
+    "quests": [
+      15
+    ]
+  },
+  {
+    "id": "26",
+    "name": "Prastará nádrž",
+    "location": "D-15",
+    "isSide": false,
+    "coordinates": {
+      "name": "D-15",
+      "x": 70.0455,
+      "y": 23.3
+    },
+    "linksTo": [
+      22
+    ],
+    "linkedFrom": [
+      18
+    ],
+    "treasures": [
+      {
+        "id": "66",
+        "description": "Gain “Volatile Bomb” (Item 033)"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "10 gold each",
+        "+1 reputation",
+        "+2 prosperity"
+      ]
+    },
+    "summary": "Při vyšetřování otráveného vodovodu se dostáváte hlouběji do podzemí. Prastará nádrž ukrývá zdroj kontaminace — a něco mnohem horšího.",
+    "chapterId": 4,
+    "regionIds": [
+      1
+    ],
+    "pages": [
+      "gh/35",
+      "gh/36"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "water_breathing"
+        ]
+      },
+      {
+        "complete": [
+          "the_ruins"
+        ]
+      }
+    ],
+    "achievementsAwarded": [
+      "following_clues"
+    ],
+    "quests": [
+      17
+    ]
+  },
+  {
+    "id": "27",
+    "name": "Trhlina",
+    "location": "E-6",
+    "isSide": false,
+    "coordinates": {
+      "name": "E-6",
+      "x": 27.84666,
+      "y": 30.6
+    },
+    "linksTo": [],
+    "linkedFrom": [
+      19
+    ],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "+1 prosperity",
+        "100 gold each This money must immediately be spent on enhancements"
+      ]
+    },
+    "summary": "S cílem zastavit elementální kultisty vstupujete do krypty a objevíte děsivý pohled — trhlina v realitě se rozrůstá. Musíte ji uzavřít, než přes ni pronikne něco, co nelze zastavit.",
+    "chapterId": 3,
+    "pages": [
+      "gh/37"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "scrolls_of_corrosion"
+        ],
+        "incomplete": [
+          "the_artifact_lost"
+        ]
+      }
+    ],
+    "achievementsAwarded": [
+      "the_rift_neutralized"
+    ],
+    "quests": [
+      18
+    ]
+  },
+  {
+    "id": "28",
+    "name": "Vnější rituální komnata",
+    "location": "E-4",
+    "isSide": false,
+    "coordinates": {
+      "name": "E-4",
+      "x": 17.29695,
+      "y": 32.1
+    },
+    "linksTo": [
+      29
+    ],
+    "linkedFrom": [
+      12,
+      20
+    ],
+    "treasures": [
+      {
+        "id": "32",
+        "description": "Random Item Design"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": []
+    },
+    "summary": "Výkřiky velitele banditů o Chmuru během bitvy vám nedají spát. Při prohledávání trosek po bitvě jste našli skrýš svitků v neznámém prastarém jazyce. Mezi svitky byla mapa severního venkova s jasně vyznačeným místem zájmu u ohybu Tiché řeky.",
+    "chapterId": 2,
+    "regionIds": [
+      2
+    ],
+    "pages": [
+      "gh/38"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "dark_bounty"
+        ]
+      }
+    ],
+    "achievementsAwarded": [
+      "an_invitation"
+    ],
+    "quests": [
+      3
+    ]
+  },
+  {
+    "id": "29",
+    "name": "Útočiště Chmuru",
+    "location": "E-3",
+    "isSide": false,
+    "coordinates": {
+      "name": "E-3",
+      "x": 13.2467,
+      "y": 32.5
+    },
+    "linksTo": [],
+    "linkedFrom": [
+      28
+    ],
+    "treasures": [
+      {
+        "id": "41",
+        "description": "Gain “Black Knife” (Item 053)"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "15 experience each"
+      ]
+    },
+    "summary": "Stopy po kultu Chmuru vás dovedly až k jeho tajnému útočišti. Zde se skrývá vůdce kultu a jeho nejbližší následovníci. Je čas skoncovat s touto hrozbou jednou provždy.",
+    "chapterId": 2,
+    "regionIds": [
+      2
+    ],
+    "pages": [
+      "gh/39"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "an_invitation"
+        ]
+      }
+    ],
+    "achievementsAwarded": [
+      "the_edge_of_darkness"
+    ],
+    "quests": [
+      3
+    ]
+  },
+  {
+    "id": "30",
+    "name": "Svatyně hlubin",
+    "location": "N-15",
+    "isSide": false,
+    "coordinates": {
+      "name": "N-15",
+      "x": 69.42605,
+      "y": 79.37
+    },
+    "linksTo": [
+      42
+    ],
+    "linkedFrom": [
+      24
+    ],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "10 gold each"
+      ]
+    },
+    "summary": "Rozhodli jste se zjistit, co přesně Hlas je, místo abyste si jen pohrávali se silami, kterým nerozumíte. Stopa vede do svatyně hluboko pod zemí.",
+    "chapterId": 10,
+    "regionIds": [
+      6
+    ],
+    "pages": [
+      "gh/40",
+      "gh/41"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "the_voice_command"
+        ]
+      }
+    ],
+    "blocksOn": [
+      {}
+    ],
+    "achievementsAwarded": [
+      "the_scepter_and_the_voice"
+    ],
+    "quests": [
+      23
+    ]
+  },
+  {
+    "id": "31",
+    "name": "Sféra noci",
+    "location": "A-16",
+    "isSide": false,
+    "coordinates": {
+      "name": "A-16",
+      "x": 72.86638,
+      "y": 8.912
+    },
+    "linksTo": [
+      39,
+      37,
+      38,
+      43
+    ],
+    "linkedFrom": [
+      22
+    ],
+    "treasures": [
+      {
+        "id": "69",
+        "description": "Gain “Robes of Summoning” (Item 100)"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": []
+    },
+    "summary": "Z artefaktu cítíte mocnou temnotu a za ní hluboký smutek. Artefakt byl zkažen a jeho původní účel překroucen. Musíte najít způsob, jak přerušit jeho spojení se Sférou noci.",
+    "regionIds": [
+      1
+    ],
+    "pages": [
+      "gh/41",
+      "gh/42"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "the_power_of_enhancement",
+          "the_artifact_recovered"
+        ]
+      },
+      {
+        "complete": [
+          "the_power_of_enhancement",
+          "the_artifact_recovered_2"
+        ]
+      }
+    ],
+    "achievementsAwarded": [
+      "the_artifact_cleansed"
+    ],
+    "quests": [
+      24
+    ]
+  },
+  {
+    "id": "32",
+    "name": "Práchnivějící les",
+    "location": "L-11",
+    "isSide": false,
+    "coordinates": {
+      "name": "L-11",
+      "x": 51.86226,
+      "y": 67.9
+    },
+    "linksTo": [
+      33,
+      40
+    ],
+    "linkedFrom": [
+      24
+    ],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": []
+    },
+    "summary": "Hlas, který jste našli v jeskyni v horách Copperneků, vás žádá o pomoc s útěkem ze svého vězení. Na oplátku slibuje cenné informace o hrozbách, které sužují Gloomhaven.",
+    "chapterId": 10,
+    "regionIds": [
+      3
+    ],
+    "pages": [
+      "gh/43"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "the_voice_command"
+        ]
+      }
+    ],
+    "blocksOn": [
+      {}
+    ],
+    "quests": [
+      25
+    ]
+  },
+  {
+    "id": "33",
+    "name": "Savvasská zbrojnice",
+    "location": "A-7",
+    "isSide": false,
+    "coordinates": {
+      "name": "A-7",
+      "x": 29.09509,
+      "y": 10.3
+    },
+    "linksTo": [],
+    "linkedFrom": [
+      25,
+      32
+    ],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": []
+    },
+    "summary": "Hlas vás žádá o pomoc a naznačuje, že klíč k jeho osvobození se nachází v savvasské zbrojnici. Musíte se tam dostat a najít artefakt, který Hlasu vrátí svobodu.",
+    "regionIds": [
+      5
+    ],
+    "pages": [
+      "gh/44"
+    ],
+    "prompt": "dragon",
+    "requiredBy": [
+      {
+        "complete": [
+          "the_voice_command"
+        ]
+      },
+      {
+        "complete": [
+          "the_drakes_command"
+        ]
+      }
+    ],
+    "blocksOn": [
+      {}
+    ],
+    "achievementsAwarded": [
+      "the_voices_trail",
+      "ptdt"
+    ],
+    "quests": [
+      25,
+      26,
+      27
+    ]
+  },
+  {
+    "id": "34",
+    "name": "Sežehlý vrch",
+    "location": "A-4",
+    "isSide": false,
+    "coordinates": {
+      "name": "A-4",
+      "x": 16.21053,
+      "y": 9.27
+    },
+    "linksTo": [],
+    "linkedFrom": [
+      25
+    ],
+    "treasures": [
+      {
+        "id": "23",
+        "description": "Gain “Drakescale Armor” (Item 103)"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "20 gold each",
+        "+2 reputation",
+        "+1 prosperity"
+      ]
+    },
+    "summary": "Stojíte před mohutným, hrdým drakem a nevidíte důvod k vyjednávání. Pokud chce vaši pomoc, bude muset nejdříve dokázat, že si ji zaslouží — silou nebo moudrostí.",
+    "chapterId": 9,
+    "regionIds": [
+      5
+    ],
+    "pages": [
+      "gh/45"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "the_drakes_command"
+        ],
+        "incomplete": [
+          "the_drake_aided"
+        ]
+      }
+    ],
+    "blocksOn": [
+      {
+        "complete": [
+          "the_drake_aided"
+        ]
+      }
+    ],
+    "achievementsAwarded": [
+      "the_drake_slain"
+    ],
+    "achievementsLost": [
+      "the_drakes_command"
+    ],
+    "hasBoss": true,
+    "quests": [
+      27
+    ]
+  },
+  {
+    "id": "35",
+    "name": "Gloomhavenské cimbuří A",
+    "location": "A-14",
+    "isSide": false,
+    "coordinates": {
+      "name": "A-14",
+      "x": 64.0416,
+      "y": 9.42
+    },
+    "linksTo": [
+      45
+    ],
+    "linkedFrom": [
+      22
+    ],
+    "treasures": [
+      {
+        "id": "61",
+        "description": "Gain “Versatile Dagger” (Item 040)"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "30 gold each",
+        "5 reputation",
+        "-2 prosperity",
+        "Add City Event 79 to the deck"
+      ]
+    },
+    "summary": "V zapomenutém chrámu podél řeky Hadí polibek se nachází artefakt velké moci. Můžete ho získat, ale chrám střeží pradávní strážci, kteří nenechají nikoho projít bez boje.",
+    "chapterId": 3,
+    "regionIds": [
+      1
+    ],
+    "pages": [
+      "gh/46",
+      "gh/47"
+    ],
+    "coupled": 36,
+    "requiredBy": [
+      {
+        "complete": [
+          "a_demons_errand"
+        ],
+        "incomplete": [
+          "the_rift_neutralized"
+        ]
+      }
+    ],
+    "blocksOn": [
+      {
+        "complete": [
+          "the_rift_neutralized"
+        ]
+      },
+      {}
+    ],
+    "achievementsAwarded": [
+      "city_rule_demonic",
+      "the_artifact_lost"
+    ],
+    "achievementsLost": [
+      "a_demons_errand"
+    ],
+    "hasBoss": true,
+    "quests": [
+      28
+    ]
+  },
+  {
+    "id": "36",
+    "name": "Gloomhavenské cimbuří B",
+    "location": "B-14",
+    "isSide": false,
+    "coordinates": {
+      "name": "B-14",
+      "x": 64.0416,
+      "y": 9.42
+    },
+    "linksTo": [],
+    "linkedFrom": [
+      22
+    ],
+    "treasures": [
+      {
+        "id": "2",
+        "description": "Gain “Tower Shield” (Item 032)"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "10 gold each",
+        "+4 reputation",
+        "Add City Event 78 to the deck"
+      ]
+    },
+    "summary": "V zapomenutém chrámu podél řeky Hadí polibek se nachází artefakt velké moci. Tentokrát přicházíte z jiné strany a musíte čelit novým nástrahám na cestě k artefaktu.",
+    "chapterId": 3,
+    "regionIds": [
+      1
+    ],
+    "pages": [
+      "gh/47",
+      "gh/48"
+    ],
+    "coupled": 35,
+    "requiredBy": [
+      {
+        "complete": [
+          "a_demons_errand"
+        ],
+        "incomplete": [
+          "the_rift_neutralized"
+        ]
+      }
+    ],
+    "blocksOn": [
+      {
+        "complete": [
+          "the_rift_neutralized"
+        ]
+      },
+      {}
+    ],
+    "achievementsAwarded": [
+      "the_rift_neutralized"
+    ],
+    "achievementsLost": [
+      "a_demons_errand"
+    ],
+    "hasBoss": true,
+    "quests": [
+      28
+    ]
+  },
+  {
+    "id": "37",
+    "name": "Příkop zkázy",
+    "location": "G-18",
+    "isSide": false,
+    "coordinates": {
+      "name": "G-18",
+      "x": 81.34808,
+      "y": 39.795
+    },
+    "linksTo": [
+      47
+    ],
+    "linkedFrom": [
+      31
+    ],
+    "treasures": [
+      {
+        "id": "49",
+        "description": "New Scenario: {SCENARIO 17}"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": []
+    },
+    "summary": "S pomocí Krupobití se vám podařilo přerušit spojení artefaktu se Sférou noci. Krupobití vás nyní posílá do Příkopu zkázy, kde musíte zničit zbytky temné energie.",
+    "chapterId": 6,
+    "regionIds": [
+      6
+    ],
+    "pages": [
+      "gh/49"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "water_breathing"
+        ]
+      }
+    ],
+    "achievementsAwarded": [
+      "pttt"
+    ],
+    "treasuresTo": {
+      "49": [
+        17
+      ]
+    },
+    "quests": [
+      30
+    ]
+  },
+  {
+    "id": "38",
+    "name": "Otrokářské ohrady",
+    "location": "G-2",
+    "isSide": false,
+    "coordinates": {
+      "name": "G-2",
+      "x": 10.62595,
+      "y": 43
+    },
+    "linksTo": [
+      48,
+      44
+    ],
+    "linkedFrom": [
+      31
+    ],
+    "treasures": [
+      {
+        "id": "29",
+        "description": "Gain “Endurance Footwraps” (Item 097)"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "+1 reputation"
+      ]
+    },
+    "summary": "S pomocí Krupobití se vám podařilo přerušit spojení artefaktu se Sférou noci. Další stopa vede k otrokářským ohradám, kde se temná energie stále drží.",
+    "chapterId": 7,
+    "regionIds": [
+      2
+    ],
+    "pages": [
+      "gh/50",
+      "gh/51"
+    ],
+    "achievementsAwarded": [
+      "redthorns_accounting"
+    ],
+    "quests": [
+      31
+    ]
+  },
+  {
+    "id": "39",
+    "name": "Zrádná past",
+    "location": "B-11",
+    "isSide": false,
+    "coordinates": {
+      "name": "B-11",
+      "x": 47.5547,
+      "y": 12.73
+    },
+    "linksTo": [
+      46,
+      15
+    ],
+    "linkedFrom": [
+      31
+    ],
+    "treasures": [
+      {
+        "id": "73",
+        "description": "Random Item Design"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "10 experience each"
+      ]
+    },
+    "summary": "S pomocí Krupobití byl artefakt očištěn od svého zkaženého vlivu. Krupobití však zmínila tři místa, která přitahovala temnou energii. Musíte je prozkoumat a neutralizovat zbývající hrozby.",
+    "chapterId": 8,
+    "regionIds": [
+      5
+    ],
+    "pages": [
+      "gh/51",
+      "gh/52"
+    ],
+    "achievementsAwarded": [
+      "across_the_divide"
+    ],
+    "quests": [
+      32
+    ]
+  },
+  {
+    "id": "40",
+    "name": "Prastaré obranné systémy",
+    "location": "F-12",
+    "isSide": false,
+    "coordinates": {
+      "name": "F-12",
+      "x": 54.321,
+      "y": 35.1
+    },
+    "linksTo": [
+      41
+    ],
+    "linkedFrom": [
+      32
+    ],
+    "treasures": [
+      {
+        "id": "47",
+        "description": "Gain “Steam Armor” (Item 104)"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": []
+    },
+    "summary": "Hlas z jeskyně vás opět žádá o pomoc. Tentokrát vás vede k prastarým obranným systémům, které chrání cestu k jeho vězení. Musíte je deaktivovat.",
+    "chapterId": 10,
+    "regionIds": [
+      5
+    ],
+    "pages": [
+      "gh/53",
+      "gh/54"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "the_voice_command",
+          "the_voices_trail"
+        ]
+      }
+    ],
+    "blocksOn": [
+      {}
+    ],
+    "achievementsAwarded": [
+      "ancient_technology"
+    ],
+    "quests": [
+      25
+    ]
+  },
+  {
+    "id": "41",
+    "name": "Věkovitá hrobka",
+    "location": "F-13",
+    "isSide": false,
+    "coordinates": {
+      "name": "F-13",
+      "x": 58.39031,
+      "y": 34.9
+    },
+    "linksTo": [],
+    "linkedFrom": [
+      40
+    ],
+    "treasures": [
+      {
+        "id": "24",
+        "description": "Suffer 5 damage"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "50 gold each",
+        "25 experience each",
+        "2 ✔ each",
+        "+2 prosperity"
+      ]
+    },
+    "summary": "Hlas z jeskyně vás navádí k věkovité hrobce, kde se nachází poslední překážka na cestě k jeho osvobození. Pradávní strážci stále plní svůj úkol.",
+    "chapterId": 10,
+    "regionIds": [
+      5
+    ],
+    "pages": [
+      "gh/54",
+      "gh/55"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "the_voice_command"
+        ]
+      }
+    ],
+    "blocksOn": [
+      {}
+    ],
+    "achievementsAwarded": [
+      "the_voice_freed"
+    ],
+    "quests": [
+      25
+    ]
+  },
+  {
+    "id": "42",
+    "name": "Říše Hlasu",
+    "location": "C-5",
+    "isSide": false,
+    "coordinates": {
+      "name": "C-5",
+      "x": 18.6788,
+      "y": 19.4
+    },
+    "linksTo": [],
+    "linkedFrom": [
+      30
+    ],
+    "treasures": [
+      {
+        "id": "30",
+        "description": "Gain 1 ✔"
+      },
+      {
+        "id": "55",
+        "description": "Gain 1 ✔"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "{NOTE_42}"
+      ]
+    },
+    "summary": "Od chvíle, co na vás ten Hlas začal mluvit v jeskyni v horách Copperneků, chcete se ho zbavit. Cesta vede do jeho říše, kde se s ním můžete konfrontovat tváří v tvář.",
+    "chapterId": 10,
+    "regionIds": [
+      5
+    ],
+    "pages": [
+      "gh/56"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "the_scepter_and_the_voice"
+        ],
+        "incomplete": [
+          "the_voice_freed"
+        ]
+      }
+    ],
+    "blocksOn": [
+      {
+        "complete": [
+          "the_voice_freed"
+        ]
+      }
+    ],
+    "achievementsAwarded": [
+      "the_voice_silenced"
+    ],
+    "achievementsLost": [
+      "the_voice_command"
+    ],
+    "quests": [
+      33
+    ]
+  },
+  {
+    "id": "43",
+    "name": "Dračí hnízdo",
+    "location": "D-4",
+    "isSide": false,
+    "coordinates": {
+      "name": "D-4",
+      "x": 14.41889,
+      "y": 29.3
+    },
+    "linksTo": [],
+    "linkedFrom": [
+      18,
+      31
+    ],
+    "treasures": [
+      {
+        "id": "35",
+        "description": "Gain “Drakescale Boots” (Item 098)"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": []
+    },
+    "summary": "Dýchání pod vodou nepatří mezi vaše schopnosti. Krupobití vám jistě pomůže dostat se do dračího hnízda pod hladinou, kde se skrývá mocný artefakt.",
+    "regionIds": [
+      2
+    ],
+    "pages": [
+      "gh/57",
+      "gh/58"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "the_power_of_enhancement"
+        ]
+      }
+    ],
+    "achievementsAwarded": [
+      "water_breathing"
+    ],
+    "quests": [
+      34
+    ]
+  },
+  {
+    "id": "44",
+    "name": "Kmen útočí",
+    "location": "F-3",
+    "isSide": false,
+    "coordinates": {
+      "name": "F-3",
+      "x": 14.82868,
+      "y": 37.9
+    },
+    "linksTo": [],
+    "linkedFrom": [
+      38
+    ],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "Open envelope {DS}",
+        "+2 reputation"
+      ]
+    },
+    "summary": "Orchidej, kterého jste osvobodili z Dýkového lesa, vás žádá o pomoc s osvobozením svého lidu ze sousední vesnice. Otrokáři drží jeho příbuzné v zajetí.",
+    "chapterId": 7,
+    "regionIds": [
+      2
+    ],
+    "pages": [
+      "gh/58",
+      "gh/59"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "redthorns_accounting"
+        ]
+      }
+    ],
+    "quests": [
+      35
+    ]
+  },
+  {
+    "id": "45",
+    "name": "Bažina povstalců",
+    "location": "M-9",
+    "isSide": false,
+    "coordinates": {
+      "name": "M-9",
+      "x": 39.7401,
+      "y": 72.25
+    },
+    "linksTo": [
+      49,
+      50
+    ],
+    "linkedFrom": [
+      35
+    ],
+    "treasures": [
+      {
+        "id": "74",
+        "description": "Random Item Design"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "20 gold each",
+        "-2 reputation"
+      ]
+    },
+    "summary": "Jednoho dne se probudíte a nad vámi stojí zdeformovaný démon, který drží pergamen z jakési kůže. Na pergamenu je rozkaz od démonického pána — musíte splnit jeho úkol, nebo čelit následkům.",
+    "chapterId": 5,
+    "regionIds": [
+      3
+    ],
+    "pages": [
+      "gh/60"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "city_rule_demonic"
+        ]
+      }
+    ],
+    "quests": [
+      36
+    ]
+  },
+  {
+    "id": "46",
+    "name": "Vrch hrůzy",
+    "location": "A-11",
+    "isSide": false,
+    "coordinates": {
+      "name": "A-11",
+      "x": 47.50705,
+      "y": 7.34
+    },
+    "linksTo": [
+      51
+    ],
+    "linkedFrom": [
+      39
+    ],
+    "treasures": [
+      {
+        "id": "48",
+        "description": "Gain 30 gold"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": []
+    },
+    "summary": "S pomocí Krupobití byl artefakt očištěn od svého zkaženého vlivu. Krupobití však zmínila tři místa, která přitahovala temnou energii. Další stopa vede na Vrch hrůzy.",
+    "chapterId": 8,
+    "regionIds": [
+      5
+    ],
+    "pages": [
+      "gh/61"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "across_the_divide"
+        ]
+      }
+    ],
+    "achievementsAwarded": [
+      "geoc"
+    ],
+    "hasBoss": true,
+    "quests": [
+      32
+    ]
+  },
+  {
+    "id": "47",
+    "name": "Doupě Nevidoucího oka",
+    "location": "H-18",
+    "isSide": false,
+    "coordinates": {
+      "name": "H-18",
+      "x": 81.8627,
+      "y": 43.47
+    },
+    "linksTo": [
+      51
+    ],
+    "linkedFrom": [
+      37
+    ],
+    "treasures": [
+      {
+        "id": "18",
+        "description": "Gain 15 gold"
+      },
+      {
+        "id": "57",
+        "description": "Gain 15 gold"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": []
+    },
+    "summary": "S pomocí Krupobití se vám podařilo přerušit spojení artefaktu se Sférou noci. Další stopa vede k Doupěti Nevidoucího oka, kde se skrývá tajemný kult.",
+    "chapterId": 6,
+    "regionIds": [
+      6
+    ],
+    "pages": [
+      "gh/62"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "pttt"
+        ]
+      }
+    ],
+    "achievementsAwarded": [
+      "geoc"
+    ],
+    "hasBoss": true,
+    "quests": [
+      30
+    ]
+  },
+  {
+    "id": "48",
+    "name": "Teskná mýtina",
+    "location": "E-1",
+    "isSide": false,
+    "coordinates": {
+      "name": "E-1",
+      "x": 5.6227,
+      "y": 32.7
+    },
+    "linksTo": [
+      51
+    ],
+    "linkedFrom": [
+      38
+    ],
+    "treasures": [
+      {
+        "id": "64",
+        "description": "Gain 30 gold"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": []
+    },
+    "summary": "S pomocí Krupobití se vám podařilo přerušit spojení artefaktu se Sférou noci. Další stopa vede k Teskné mýtině na okraji lesa, kde se děje něco nepřirozeného.",
+    "chapterId": 7,
+    "regionIds": [
+      2
+    ],
+    "pages": [
+      "gh/63"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "redthorns_accounting"
+        ]
+      }
+    ],
+    "achievementsAwarded": [
+      "geoc"
+    ],
+    "hasBoss": true,
+    "quests": [
+      31
+    ]
+  },
+  {
+    "id": "49",
+    "name": "Tábor povstalců",
+    "location": "N-7",
+    "isSide": false,
+    "coordinates": {
+      "name": "N-7",
+      "x": 33.1644,
+      "y": 80.15
+    },
+    "linksTo": [],
+    "linkedFrom": [
+      45
+    ],
+    "treasures": [
+      {
+        "id": "44",
+        "description": "Random Side Scenario"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "50 gold each",
+        "-3 reputation"
+      ]
+    },
+    "summary": "Na rozkaz démonického pána se vydáváte do Váhavé bažiny, abyste zničili poslední zbytky odporu proti démonické nadvládě. V bažině se skrývá tábor povstalců.",
+    "chapterId": 5,
+    "regionIds": [
+      3
+    ],
+    "pages": [
+      "gh/64"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "city_rule_demonic"
+        ]
+      }
+    ],
+    "blocksOn": [
+      {}
+    ],
+    "achievementsAwarded": [
+      "gaoo"
+    ],
+    "quests": [
+      37
+    ]
+  },
+  {
+    "id": "50",
+    "name": "Pevnost duchů",
+    "location": "C-17",
+    "isSide": false,
+    "coordinates": {
+      "name": "C-17",
+      "x": 75.74444,
+      "y": 14.65
+    },
+    "linksTo": [],
+    "linkedFrom": [
+      45
+    ],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "+3 reputation",
+        "-2 prosperity"
+      ]
+    },
+    "summary": "Na rozkaz démonického pána se vydáváte do Váhavé bažiny. Místo povstalců však nacházíte pevnost duchů — přízraky padlých válečníků, kteří odmítají zemřít.",
+    "chapterId": 5,
+    "regionIds": [
+      1
+    ],
+    "pages": [
+      "gh/65",
+      "gh/66"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "city_rule_demonic"
+        ],
+        "incomplete": [
+          "gaoo"
+        ]
+      }
+    ],
+    "blocksOn": [
+      {
+        "complete": [
+          "gaoo"
+        ]
+      }
+    ],
+    "achievementsAwarded": [
+      "city_rule_militaristic"
+    ],
+    "quests": [
+      38
+    ]
+  },
+  {
+    "id": "51",
+    "name": "Prázdnota",
+    "location": "A-15",
+    "isSide": false,
+    "coordinates": {
+      "name": "A-15",
+      "x": 68.9019,
+      "y": 9.15
+    },
+    "linksTo": [],
+    "linkedFrom": [
+      46,
+      47,
+      48
+    ],
+    "treasures": [
+      {
+        "id": "56",
+        "description": "Gain “Star Earring” (Item 069)"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "+5 reputation",
+        "+5 prosperity",
+        "Add City Event 81 to the deck",
+        "Add Road Event 69 to the deck"
+      ]
+    },
+    "summary": "Spojení mezi zkaženým artefaktem a Sférou noci bylo přerušeno. Krupobití zmiňuje tři místa, která přitahovala temnou energii. Všechna vedou do Prázdnoty — dimenze mimo prostor a čas, kde se musíte střetnout s ultimátní hrozbou.",
+    "regionIds": [
+      1
+    ],
+    "pages": [
+      "gh/66",
+      "gh/67"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "end_of_corruption_3"
+        ]
+      }
+    ],
+    "achievementsAwarded": [
+      "end_of_gloom"
+    ],
+    "hasBoss": true,
+    "quests": [
+      39
+    ]
+  },
+  {
+    "id": "52",
+    "name": "Zatuchlé sklepení",
+    "location": "D-14",
+    "isSide": true,
+    "coordinates": {
+      "name": "D-14",
+      "x": 62.6121,
+      "y": 21.643
+    },
+    "linksTo": [
+      53
+    ],
+    "linkedFrom": [],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": []
+    },
+    "summary": "",
+    "chapterId": 101,
+    "regionIds": [
+      1
+    ],
+    "pages": [
+      "gh/68",
+      "gh/69"
+    ]
+  },
+  {
+    "id": "53",
+    "name": "Základy krypty",
+    "location": "F-11",
+    "isSide": false,
+    "coordinates": {
+      "name": "F-11",
+      "x": 49.42258,
+      "y": 34.1
+    },
+    "linksTo": [
+      54
+    ],
+    "linkedFrom": [
+      52
+    ],
+    "treasures": [
+      {
+        "id": "31",
+        "description": "Random Item Design"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "The Seeker of Xorn receives: “Staff of Xorn” (Item 114) The Seeker cannot sell this item."
+      ]
+    },
+    "summary": "",
+    "chapterId": 101,
+    "regionIds": [
+      7
+    ],
+    "pages": [
+      "gh/69",
+      "gh/70"
+    ]
+  },
+  {
+    "id": "54",
+    "name": "Ledový palác",
+    "location": "D-8",
+    "isSide": false,
+    "coordinates": {
+      "name": "D-8",
+      "x": 38.5965,
+      "y": 23.34
+    },
+    "linksTo": [],
+    "linkedFrom": [
+      53
+    ],
+    "treasures": [
+      {
+        "id": "25",
+        "description": "Gain 25 gold"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "Immediately retire the Seeker of Xorn",
+        "Add City and Road Events 59 to the decks instead of the normal retirement events for the class",
+        "Open envelope {PH}"
+      ]
+    },
+    "summary": "",
+    "chapterId": 101,
+    "regionIds": [
+      5
+    ],
+    "pages": [
+      "gh/71"
+    ]
+  },
+  {
+    "id": "55",
+    "name": "Mlžné houštiny",
+    "location": "G-5",
+    "isSide": true,
+    "coordinates": {
+      "name": "G-5",
+      "x": 21.7284,
+      "y": 43.15
+    },
+    "linksTo": [
+      56
+    ],
+    "linkedFrom": [],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "10 collective gold"
+      ]
+    },
+    "summary": "",
+    "chapterId": 101,
+    "regionIds": [
+      2
+    ],
+    "pages": [
+      "gh/72"
+    ]
+  },
+  {
+    "id": "56",
+    "name": "Hvozd zbojníků",
+    "location": "G-4",
+    "isSide": false,
+    "coordinates": {
+      "name": "G-4",
+      "x": 18.04029,
+      "y": 44.67
+    },
+    "linksTo": [],
+    "linkedFrom": [
+      55
+    ],
+    "treasures": [
+      {
+        "id": "45",
+        "description": "Random Item Design"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "“Take Back the Trees” quest complete",
+        "Open envelope {DS}",
+        "10 gold each",
+        "+2 reputation"
+      ]
+    },
+    "summary": "",
+    "chapterId": 101,
+    "regionIds": [
+      2
+    ],
+    "pages": [
+      "gh/73"
+    ]
+  },
+  {
+    "id": "57",
+    "name": "Vyšetřování",
+    "location": "D-14",
+    "isSide": true,
+    "coordinates": {
+      "name": "D-14",
+      "x": 62.7074,
+      "y": 24.5
+    },
+    "linksTo": [
+      58
+    ],
+    "linkedFrom": [],
+    "treasures": [
+      {
+        "id": "3",
+        "description": "Gain “Splintmail” (Item 044)"
+      },
+      {
+        "id": "22",
+        "description": "Random Item Design"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "+1 reputation"
+      ]
+    },
+    "summary": "",
+    "chapterId": 101,
+    "regionIds": [
+      1
+    ],
+    "pages": [
+      "gh/74"
+    ]
+  },
+  {
+    "id": "58",
+    "name": "Krvavá chatrč",
+    "location": "E-15",
+    "isSide": false,
+    "coordinates": {
+      "name": "E-15",
+      "x": 68.916195,
+      "y": 30.105
+    },
+    "linksTo": [],
+    "linkedFrom": [
+      57
+    ],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "“Vengeance” quest complete",
+        "Open envelope X",
+        "+2 reputation"
+      ]
+    },
+    "summary": "",
+    "chapterId": 101,
+    "regionIds": [
+      1
+    ],
+    "pages": [
+      "gh/75"
+    ]
+  },
+  {
+    "id": "59",
+    "name": "Zapomenutý háj",
+    "location": "F-1",
+    "isSide": true,
+    "coordinates": {
+      "name": "F-1",
+      "x": 4.62205,
+      "y": 38.7
+    },
+    "linksTo": [
+      60
+    ],
+    "linkedFrom": [],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": []
+    },
+    "summary": "",
+    "chapterId": 101,
+    "regionIds": [
+      2
+    ],
+    "pages": [
+      "gh/76"
+    ]
+  },
+  {
+    "id": "60",
+    "name": "Alchymistická laboratoř",
+    "location": "B-15",
+    "isSide": false,
+    "coordinates": {
+      "name": "B-15",
+      "x": 68.7113,
+      "y": 13.5
+    },
+    "linksTo": [],
+    "linkedFrom": [
+      59
+    ],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "“Finding the Cure” quest complete",
+        "Open envelope X",
+        "+1 prosperity"
+      ]
+    },
+    "summary": "",
+    "chapterId": 101,
+    "regionIds": [
+      1
+    ],
+    "pages": [
+      "gh/77",
+      "gh/78"
+    ]
+  },
+  {
+    "id": "61",
+    "name": "Mizející maják",
+    "location": "N-11",
+    "isSide": true,
+    "coordinates": {
+      "name": "N-11",
+      "x": 53.2727,
+      "y": 79.6
+    },
+    "linksTo": [
+      62
+    ],
+    "linkedFrom": [],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": []
+    },
+    "summary": "",
+    "chapterId": 101,
+    "regionIds": [
+      3
+    ],
+    "pages": [
+      "gh/78",
+      "gh/79"
+    ]
+  },
+  {
+    "id": "62",
+    "name": "Jáma duší",
+    "location": "O-11",
+    "isSide": false,
+    "coordinates": {
+      "name": "O-11",
+      "x": 54.46395,
+      "y": 83.55
+    },
+    "linksTo": [],
+    "linkedFrom": [
+      61
+    ],
+    "treasures": [
+      {
+        "id": "59",
+        "description": "Random Item Design"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "“The Fall of Man” quest complete",
+        "Open envelope {NS}",
+        "10 experience each"
+      ]
+    },
+    "summary": "",
+    "chapterId": 101,
+    "regionIds": [
+      3
+    ],
+    "pages": [
+      "gh/80"
+    ]
+  },
+  {
+    "id": "63",
+    "name": "Srdce vulkánu",
+    "location": "M-1",
+    "isSide": true,
+    "coordinates": {
+      "name": "M-1",
+      "x": 6.25168,
+      "y": 78.15
+    },
+    "linksTo": [],
+    "linkedFrom": [],
+    "treasures": [
+      {
+        "id": "12",
+        "description": "Gain “Magma Waders” (Item 099)"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "15 gold each"
+      ]
+    },
+    "summary": "",
+    "chapterId": 102,
+    "regionIds": [
+      4
+    ],
+    "pages": [
+      "gh/81"
+    ]
+  },
+  {
+    "id": "64",
+    "name": "Podvodní laguna",
+    "location": "K-16",
+    "isSide": true,
+    "coordinates": {
+      "name": "K-16",
+      "x": 75.68726,
+      "y": 60.63
+    },
+    "linksTo": [],
+    "linkedFrom": [],
+    "treasures": [
+      {
+        "id": "9",
+        "description": "Gain “Wave Crest” (Item 111)"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "10 experience each"
+      ]
+    },
+    "summary": "",
+    "chapterId": 102,
+    "regionIds": [
+      6
+    ],
+    "pages": [
+      "gh/82"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "water_breathing"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "65",
+    "name": "Důl na síru",
+    "location": "L-5",
+    "isSide": true,
+    "coordinates": {
+      "name": "L-5",
+      "x": 23.00542,
+      "y": 71.7
+    },
+    "linksTo": [],
+    "linkedFrom": [],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "“Ancient Drill” design (Item 112)"
+      ]
+    },
+    "summary": "",
+    "chapterId": 102,
+    "regionIds": [
+      4
+    ],
+    "pages": [
+      "gh/83",
+      "gh/84"
+    ],
+    "achievementsAwarded": [
+      "ancient_technology"
+    ]
+  },
+  {
+    "id": "66",
+    "name": "Hodinářova zátoka",
+    "location": "G-14",
+    "isSide": true,
+    "coordinates": {
+      "name": "G-14",
+      "x": 64.5181,
+      "y": 41.35
+    },
+    "linksTo": [],
+    "linkedFrom": [],
+    "treasures": [
+      {
+        "id": "16",
+        "description": "Gain 10 gold"
+      },
+      {
+        "id": "36",
+        "description": "“Rocket Boots” design (Item 096)"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": []
+    },
+    "summary": "",
+    "chapterId": 102,
+    "regionIds": [
+      5
+    ],
+    "pages": [
+      "gh/84",
+      "gh/85"
+    ],
+    "achievementsAwarded": [
+      "ancient_technology"
+    ]
+  },
+  {
+    "id": "67",
+    "name": "Tajemná komnata",
+    "location": "K-2",
+    "isSide": true,
+    "coordinates": {
+      "name": "K-2",
+      "x": 9.57765,
+      "y": 63.4
+    },
+    "linksTo": [],
+    "linkedFrom": [],
+    "treasures": [
+      {
+        "id": "14",
+        "description": "Gain 10 Experience"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "“Power Core” (Item 132)"
+      ]
+    },
+    "summary": "",
+    "chapterId": 102,
+    "pages": [
+      "gh/86"
+    ],
+    "achievementsAwarded": [
+      "ancient_technology"
+    ]
+  },
+  {
+    "id": "68",
+    "name": "Otrávená slať",
+    "location": "N-8",
+    "isSide": true,
+    "coordinates": {
+      "name": "N-8",
+      "x": 39.31125,
+      "y": 79.5
+    },
+    "linksTo": [],
+    "linkedFrom": [],
+    "treasures": [
+      {
+        "id": "33",
+        "description": "Gain “Weighted Net” (Item 019)"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "2 “Major Healing Potions” (Item 027)"
+      ]
+    },
+    "summary": "",
+    "chapterId": 102,
+    "regionIds": [
+      3
+    ],
+    "pages": [
+      "gh/87"
+    ]
+  },
+  {
+    "id": "69",
+    "name": "Studna nešťastníků",
+    "location": "F-8",
+    "isSide": true,
+    "coordinates": {
+      "name": "F-8",
+      "x": 36.4046,
+      "y": 34.935
+    },
+    "linksTo": [],
+    "linkedFrom": [],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "15 gold each"
+      ]
+    },
+    "summary": "",
+    "chapterId": 102,
+    "pages": [
+      "gh/88"
+    ]
+  },
+  {
+    "id": "70",
+    "name": "Spoutaný ostrov",
+    "location": "J-17",
+    "isSide": true,
+    "coordinates": {
+      "name": "J-17",
+      "x": 75.675824,
+      "y": 53.4027
+    },
+    "linksTo": [],
+    "linkedFrom": [],
+    "treasures": [
+      {
+        "id": "6",
+        "description": "Gain “Hooked Chain” (Item 039)"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "+2 prosperity"
+      ]
+    },
+    "summary": "",
+    "chapterId": 102,
+    "regionIds": [
+      6
+    ],
+    "pages": [
+      "gh/89",
+      "gh/90"
+    ]
+  },
+  {
+    "id": "71",
+    "name": "Větrné vrchy",
+    "location": "K-5",
+    "isSide": true,
+    "coordinates": {
+      "name": "K-5",
+      "x": 26.23609,
+      "y": 67.17
+    },
+    "linksTo": [],
+    "linkedFrom": [],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "2 “Major Power Potions” (Item 041)"
+      ]
+    },
+    "summary": "",
+    "chapterId": 102,
+    "pages": [
+      "gh/90",
+      "gh/91"
+    ]
+  },
+  {
+    "id": "72",
+    "name": "Slizký háj",
+    "location": "H-12",
+    "isSide": true,
+    "coordinates": {
+      "name": "H-12",
+      "x": 51.53824,
+      "y": 45.35
+    },
+    "linksTo": [],
+    "linkedFrom": [],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "+1 reputation",
+        "+1 prosperity"
+      ]
+    },
+    "summary": "Knihovník Domenik se chce zapojit do dění v Gloomhavenu a do střetu mezi obchodníky a vojenskou správou. Požádal vás o pomoc s průzkumem Slizkého háje, kde se údajně nachází důležité dokumenty.",
+    "chapterId": 103,
+    "pages": [
+      "gh/92"
+    ],
+    "quests": [
+      72
+    ]
+  },
+  {
+    "id": "73",
+    "name": "Hřbet kamenných lavin",
+    "location": "N-5",
+    "isSide": true,
+    "coordinates": {
+      "name": "N-5",
+      "x": 25.89301,
+      "y": 79.61
+    },
+    "linksTo": [],
+    "linkedFrom": [],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "+1 reputation"
+      ]
+    },
+    "summary": "Domenik zjistil, že existuje písemný záznam aestherského příběhu v Kodexu směrnic. Kopie údajně leží na Hřbetu kamenných lavin. Musíte ji najít dříve než ostatní.",
+    "chapterId": 103,
+    "regionIds": [
+      4
+    ],
+    "pages": [
+      "gh/93"
+    ],
+    "quests": [
+      73
+    ]
+  },
+  {
+    "id": "74",
+    "name": "Obchodní loď",
+    "location": "I-14",
+    "isSide": true,
+    "coordinates": {
+      "name": "I-14",
+      "x": 64.18455,
+      "y": 52.95
+    },
+    "linksTo": [],
+    "linkedFrom": [],
+    "treasures": [
+      {
+        "id": "20",
+        "description": "Random Item Design"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "10 gold each",
+        "+2 prosperity"
+      ]
+    },
+    "summary": "",
+    "chapterId": 105,
+    "regionIds": [
+      6
+    ],
+    "pages": [
+      "gh/94"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "high_sea_escort"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "75",
+    "name": "Zarostlý hřbitov",
+    "location": "G-12",
+    "isSide": true,
+    "coordinates": {
+      "name": "G-12",
+      "x": 57.7518,
+      "y": 41.78
+    },
+    "linksTo": [],
+    "linkedFrom": [],
+    "treasures": [
+      {
+        "id": "53",
+        "description": "Random Item Design"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "60 gold each"
+      ]
+    },
+    "summary": "",
+    "chapterId": 105,
+    "pages": [
+      "gh/95"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "grave_job"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "76",
+    "name": "Trýznitelský úl",
+    "location": "L-3",
+    "isSide": true,
+    "coordinates": {
+      "name": "L-3",
+      "x": 16.7728,
+      "y": 71.4
+    },
+    "linksTo": [],
+    "linkedFrom": [],
+    "treasures": [
+      {
+        "id": "75",
+        "description": "Cryptogram Found (See scenario book page 121)"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": []
+    },
+    "summary": "",
+    "chapterId": 103,
+    "regionIds": [
+      4
+    ],
+    "pages": [
+      "gh/96",
+      "gh/97"
+    ]
+  },
+  {
+    "id": "77",
+    "name": "Pokladnice tajemství",
+    "location": "B-17",
+    "isSide": true,
+    "coordinates": {
+      "name": "B-17",
+      "x": 75.71585,
+      "y": 10.49
+    },
+    "linksTo": [],
+    "linkedFrom": [],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "5 experience each"
+      ]
+    },
+    "summary": "Domenikova práce byla z velké části zničena Hlídkou, která také zabavila Kodex a jeho knihu. Po stopách se vydáváte do Pokladnice tajemství, kde by mohly být ukryty zbývající záznamy.",
+    "chapterId": 103,
+    "regionIds": [
+      1
+    ],
+    "pages": [
+      "gh/97",
+      "gh/98"
+    ],
+    "quests": [
+      77
+    ]
+  },
+  {
+    "id": "78",
+    "name": "Jáma obětování",
+    "location": "B-14",
+    "isSide": true,
+    "coordinates": {
+      "name": "B-14",
+      "x": 62.3262,
+      "y": 13.815
+    },
+    "linksTo": [],
+    "linkedFrom": [],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "+3 reputation"
+      ]
+    },
+    "summary": "",
+    "chapterId": 105,
+    "regionIds": [
+      1
+    ],
+    "pages": [
+      "gh/99"
+    ]
+  },
+  {
+    "id": "79",
+    "name": "Ztracený chrám",
+    "location": "K-12",
+    "isSide": true,
+    "coordinates": {
+      "name": "K-12",
+      "x": 57.22765,
+      "y": 61.5
+    },
+    "linksTo": [],
+    "linkedFrom": [],
+    "treasures": [
+      {
+        "id": "52",
+        "description": "Gain “Heart of the Betrayer” (Item 131)"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "15 gold each"
+      ]
+    },
+    "summary": "",
+    "chapterId": 105,
+    "regionIds": [
+      3
+    ],
+    "pages": [
+      "gh/100",
+      "gh/101"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "fishs_aid"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "80",
+    "name": "Bdělá hlídka",
+    "location": "K-1",
+    "isSide": true,
+    "coordinates": {
+      "name": "K-1",
+      "x": 5.4321,
+      "y": 66.58
+    },
+    "linksTo": [],
+    "linkedFrom": [],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "10 experience each"
+      ]
+    },
+    "summary": "",
+    "chapterId": 104,
+    "regionIds": [
+      4
+    ],
+    "pages": [
+      "gh/101",
+      "gh/102"
+    ]
+  },
+  {
+    "id": "81",
+    "name": "Chrám zatmění",
+    "location": "D-2",
+    "isSide": true,
+    "coordinates": {
+      "name": "D-2",
+      "x": 8.69136,
+      "y": 27.18
+    },
+    "linksTo": [],
+    "linkedFrom": [],
+    "treasures": [
+      {
+        "id": "68",
+        "description": "Gain “Helix Ring” (Item 130)"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "10 experience each"
+      ]
+    },
+    "summary": "",
+    "chapterId": 105,
+    "regionIds": [
+      2
+    ],
+    "pages": [
+      "gh/103"
+    ]
+  },
+  {
+    "id": "82",
+    "name": "Planoucí hora",
+    "location": "M-6",
+    "isSide": true,
+    "coordinates": {
+      "name": "M-6",
+      "x": 28.85684,
+      "y": 76.5
+    },
+    "linksTo": [],
+    "linkedFrom": [],
+    "treasures": [
+      {
+        "id": "62",
+        "description": "Gain “Helm of the Mountain” (Item 110) and “Mountain Hammer” (Item 115)"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        [
+          "+1 reputation"
+        ],
+        [
+          "-1 reputation",
+          "-2 prosperity"
+        ]
+      ]
+    },
+    "summary": "",
+    "chapterId": 104,
+    "regionIds": [
+      4
+    ],
+    "pages": [
+      "gh/104"
+    ],
+    "prompt": "burningMountain"
+  },
+  {
+    "id": "83",
+    "name": "Noc stínů",
+    "location": "C-15",
+    "isSide": true,
+    "coordinates": {
+      "name": "C-15",
+      "x": 65.88089,
+      "y": 18.7
+    },
+    "linksTo": [],
+    "linkedFrom": [],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "40 collective gold"
+      ]
+    },
+    "summary": "",
+    "chapterId": 105,
+    "regionIds": [
+      1
+    ],
+    "pages": [
+      "gh/105"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "bad_business"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "84",
+    "name": "Krystalová jeskyně",
+    "location": "D-12",
+    "isSide": true,
+    "coordinates": {
+      "name": "D-12",
+      "x": 55.82674,
+      "y": 26.45
+    },
+    "linksTo": [],
+    "linkedFrom": [],
+    "treasures": [
+      {
+        "id": "42",
+        "description": "Random Item Design"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "“Resonant Crystal” (Item 133)",
+        "+1 prosperity"
+      ]
+    },
+    "summary": "",
+    "chapterId": 103,
+    "regionIds": [
+      5
+    ],
+    "pages": [
+      "gh/106"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "tremors"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "85",
+    "name": "Chrám slunce",
+    "location": "M-3",
+    "isSide": true,
+    "coordinates": {
+      "name": "M-3",
+      "x": 17.67815,
+      "y": 77
+    },
+    "linksTo": [],
+    "linkedFrom": [],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "“Orb of Dawn” (Item 121)"
+      ]
+    },
+    "summary": "",
+    "chapterId": 104,
+    "regionIds": [
+      4
+    ],
+    "pages": [
+      "gh/107",
+      "gh/108"
+    ]
+  },
+  {
+    "id": "86",
+    "name": "Sužovaná vesnice",
+    "location": "D-15",
+    "isSide": true,
+    "coordinates": {
+      "name": "D-15",
+      "x": 67.1865,
+      "y": 26.95
+    },
+    "linksTo": [
+      87
+    ],
+    "linkedFrom": [],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "+2 reputation"
+      ]
+    },
+    "summary": "",
+    "chapterId": 105,
+    "regionIds": [
+      1
+    ],
+    "pages": [
+      "gh/108",
+      "gh/109"
+    ],
+    "achievementsAwarded": [
+      "the_poisons_source"
+    ]
+  },
+  {
+    "id": "87",
+    "name": "Zátoka zkaženosti",
+    "location": "I-9",
+    "isSide": true,
+    "coordinates": {
+      "name": "I-9",
+      "x": 43.49492,
+      "y": 55.32
+    },
+    "linksTo": [],
+    "linkedFrom": [
+      86
+    ],
+    "treasures": [
+      {
+        "id": "40",
+        "description": "Random Item Design"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "+1 reputation",
+        "+1 prosperity"
+      ]
+    },
+    "summary": "",
+    "chapterId": 105,
+    "pages": [
+      "gh/110"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "the_poisons_source"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "88",
+    "name": "Sféra vody",
+    "location": "D-16",
+    "isSide": true,
+    "coordinates": {
+      "name": "D-16",
+      "x": 74.529365,
+      "y": 23.212
+    },
+    "linksTo": [],
+    "linkedFrom": [],
+    "treasures": [
+      {
+        "id": "8",
+        "description": "Gain 1 ✔"
+      },
+      {
+        "id": "37",
+        "description": "Gain 1 ✔"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "“Staff of Summoning” (Item 120)"
+      ]
+    },
+    "summary": "",
+    "chapterId": 105,
+    "regionIds": [
+      1
+    ],
+    "pages": [
+      "gh/111"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "water_breathing",
+          "water_staff"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "89",
+    "name": "Úkryt Syndikátu",
+    "location": "C-17",
+    "isSide": true,
+    "coordinates": {
+      "name": "C-17",
+      "x": 76.1447,
+      "y": 19.3
+    },
+    "linksTo": [],
+    "linkedFrom": [],
+    "treasures": [
+      {
+        "id": "13",
+        "description": "Suffer 5 Damage and gain {POISON} and {WOUND}"
+      },
+      {
+        "id": "27",
+        "description": "Gain “Orb of Twilight” (Item 122)"
+      },
+      {
+        "id": "43",
+        "description": "Suffer 5 damage gain {POISON} and {WOUND}"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "50 collective gold"
+      ]
+    },
+    "summary": "",
+    "chapterId": 105,
+    "regionIds": [
+      1
+    ],
+    "pages": [
+      "gh/112"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "sin_ra"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "90",
+    "name": "Brána démonů",
+    "location": "J-7",
+    "isSide": true,
+    "coordinates": {
+      "name": "J-7",
+      "x": 32.81179,
+      "y": 58.86
+    },
+    "linksTo": [],
+    "linkedFrom": [],
+    "treasures": [
+      {
+        "id": "19",
+        "description": "Random Item Design"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "“Black Censer” (Item 128)"
+      ]
+    },
+    "summary": "",
+    "chapterId": 104,
+    "pages": [
+      "gh/113"
+    ]
+  },
+  {
+    "id": "91",
+    "name": "Divoký střet",
+    "location": "E-2",
+    "isSide": true,
+    "coordinates": {
+      "name": "E-2",
+      "x": 9.85402,
+      "y": 31.74
+    },
+    "linksTo": [],
+    "linkedFrom": [],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "2 ✔ each"
+      ]
+    },
+    "summary": "",
+    "chapterId": 105,
+    "regionIds": [
+      2
+    ],
+    "pages": [
+      "gh/114"
+    ]
+  },
+  {
+    "id": "92",
+    "name": "Rvačka v postranní uličce",
+    "location": "C-14",
+    "isSide": true,
+    "coordinates": {
+      "name": "C-14",
+      "x": 63.5651,
+      "y": 17.5
+    },
+    "linksTo": [],
+    "linkedFrom": [],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "10 gold each",
+        "-3 reputation"
+      ]
+    },
+    "summary": "",
+    "chapterId": 105,
+    "regionIds": [
+      1
+    ],
+    "pages": [
+      "gh/115"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "debt_collection"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "93",
+    "name": "Potopená loď",
+    "location": "N-17",
+    "isSide": true,
+    "coordinates": {
+      "name": "N-17",
+      "x": 76.4306,
+      "y": 78.263
+    },
+    "linksTo": [],
+    "linkedFrom": [],
+    "treasures": [
+      {
+        "id": "54",
+        "description": "Gain “Doomed Compass” (Item 124)"
+      }
+    ],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "10 experience each"
+      ]
+    },
+    "summary": "",
+    "chapterId": 105,
+    "regionIds": [
+      6
+    ],
+    "pages": [
+      "gh/116"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "a_map_to_treasure"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "94",
+    "name": "Hnízdo krysáků",
+    "location": "F-12",
+    "isSide": true,
+    "coordinates": {
+      "name": "F-12",
+      "x": 53.22505,
+      "y": 38.9
+    },
+    "linksTo": [
+      95
+    ],
+    "linkedFrom": [],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": []
+    },
+    "summary": "",
+    "chapterId": 105,
+    "pages": [
+      "gh/117"
+    ],
+    "achievementsAwarded": [
+      "through_the_nest"
+    ]
+  },
+  {
+    "id": "95",
+    "name": "Čas splácet",
+    "location": "G-12",
+    "isSide": false,
+    "coordinates": {
+      "name": "G-12",
+      "x": 56.227,
+      "y": 38.65
+    },
+    "linksTo": [],
+    "linkedFrom": [
+      94
+    ],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "“Skull of Hatred” (Item 119)"
+      ]
+    },
+    "summary": "",
+    "chapterId": 105,
+    "pages": [
+      "gh/118",
+      "gh/119"
+    ],
+    "requiredBy": [
+      {
+        "complete": [
+          "through_the_nest"
+        ]
+      }
+    ]
+  }
+]

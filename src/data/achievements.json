@@ -1,0 +1,471 @@
+{
+  "global": [
+    {
+      "id": "the_merchant_flees",
+      "name": "Obchodník prchá",
+      "type": "global"
+    },
+    {
+      "id": "the_dead_invade",
+      "name": "Invaze mrtvých",
+      "type": "global"
+    },
+    {
+      "id": "city_rule_economic",
+      "name": "Vládnoucí režim: Obchodníci",
+      "type": "global",
+      "group": "cr"
+    },
+    {
+      "id": "city_rule_militaristic",
+      "name": "Vládnoucí režim: Armáda",
+      "type": "global",
+      "group": "cr"
+    },
+    {
+      "id": "end_of_the_invasion",
+      "name": "Konec vpádu",
+      "type": "global"
+    },
+    {
+      "id": "the_power_of_enhancement",
+      "name": "Síla vylepšení",
+      "type": "global"
+    },
+    {
+      "id": "the_rift_neutralized",
+      "name": "Trhlina zneškodněna",
+      "type": "global"
+    },
+    {
+      "id": "the_artifact_recovered",
+      "name": "Artefakt: Znovunabyt",
+      "type": "global",
+      "group": "art"
+    },
+    {
+      "id": "the_artifact_recovered_2",
+      "name": "Artefakt: Znovunabyt (dříve ztracen)",
+      "type": "global",
+      "group": "art",
+      "requirement": "the_artifact_lost"
+    },
+    {
+      "id": "the_artifact_lost",
+      "name": "Artefakt: Ztracen",
+      "type": "global",
+      "group": "art"
+    },
+    {
+      "id": "ancient_technology",
+      "name": "Starobylá technologie",
+      "type": "global",
+      "upgrades": [
+        "gat2",
+        "gat3",
+        "gat4",
+        "gat5"
+      ],
+      "isManual": true
+    },
+    {
+      "id": "gat2",
+      "name": "Starobylá technologie x2",
+      "type": "global",
+      "hidden": true
+    },
+    {
+      "id": "gat3",
+      "name": "Starobylá technologie x3",
+      "type": "global",
+      "hidden": true
+    },
+    {
+      "id": "gat4",
+      "name": "Starobylá technologie x4",
+      "type": "global",
+      "hidden": true
+    },
+    {
+      "id": "gat5",
+      "name": "Starobylá technologie x5",
+      "type": "global",
+      "hidden": true
+    },
+    {
+      "id": "the_edge_of_darkness",
+      "name": "Na pokraji temnoty",
+      "type": "global"
+    },
+    {
+      "id": "the_artifact_cleansed",
+      "name": "Artefakt: Očištěn",
+      "type": "global",
+      "group": "art"
+    },
+    {
+      "id": "the_drake_slain",
+      "name": "Drak: Drakobijci",
+      "type": "global"
+    },
+    {
+      "id": "the_drake_aided",
+      "name": "Drak: Pomoc Drakovi",
+      "type": "global"
+    },
+    {
+      "id": "city_rule_demonic",
+      "name": "Vládnoucí režim: Démoni",
+      "type": "global",
+      "group": "cr"
+    },
+    {
+      "id": "the_voice_freed",
+      "name": "Hlas: Osvobozen",
+      "type": "global"
+    },
+    {
+      "id": "the_voice_silenced",
+      "name": "Hlas: Umlčen",
+      "type": "global"
+    },
+    {
+      "id": "water_breathing",
+      "name": "Dýchání pod vodou",
+      "type": "global"
+    },
+    {
+      "id": "geoc",
+      "name": "Konec zkaženosti",
+      "type": "global",
+      "upgrades": [
+        "end_of_corruption_2",
+        "end_of_corruption_3"
+      ]
+    },
+    {
+      "id": "end_of_corruption_2",
+      "name": "Konec zkaženosti 2",
+      "type": "global",
+      "hidden": true
+    },
+    {
+      "id": "end_of_corruption_3",
+      "name": "Konec zkaženosti 3",
+      "type": "global",
+      "hidden": true
+    },
+    {
+      "id": "gaoo",
+      "name": "Zánik Řádu",
+      "type": "global"
+    },
+    {
+      "id": "end_of_gloom",
+      "name": "Konec Chmuru",
+      "type": "global"
+    },
+    {
+      "id": "gttp",
+      "name": "Skrz portál",
+      "type": "global"
+    },
+    {
+      "id": "gkip",
+      "name": "Vědění je síla",
+      "type": "global",
+      "upgrades": [
+        "gkip2",
+        "gkip3",
+        "gkip4"
+      ]
+    },
+    {
+      "id": "gkip2",
+      "name": "Vědění je síla x2",
+      "type": "global",
+      "hidden": true
+    },
+    {
+      "id": "gkip3",
+      "name": "Vědění je síla x3",
+      "type": "global",
+      "hidden": true
+    },
+    {
+      "id": "gkip4",
+      "name": "Vědění je síla x4",
+      "type": "global",
+      "hidden": true
+    },
+    {
+      "id": "gpoa",
+      "name": "Části artefaktu",
+      "type": "global",
+      "upgrades": [
+        "gpoa2",
+        "gpoa3"
+      ]
+    },
+    {
+      "id": "gpoa2",
+      "name": "Části artefaktu x2",
+      "type": "global",
+      "hidden": true
+    },
+    {
+      "id": "gpoa3",
+      "name": "Části artefaktu x3",
+      "type": "global",
+      "hidden": true
+    },
+    {
+      "id": "gpa",
+      "name": "Odvrácené nebezpečí",
+      "type": "global",
+      "upgrades": [
+        "gpa2",
+        "gpa3",
+        "gpa4"
+      ]
+    },
+    {
+      "id": "gpa2",
+      "name": "Odvrácené nebezpečí x2",
+      "type": "global",
+      "hidden": true
+    },
+    {
+      "id": "gpa3",
+      "name": "Odvrácené nebezpečí x3",
+      "type": "global",
+      "hidden": true
+    },
+    {
+      "id": "gpa4",
+      "name": "Odvrácené nebezpečí x4",
+      "type": "global",
+      "hidden": true
+    },
+    {
+      "id": "gms",
+      "name": "Mechanická nádhera",
+      "type": "global"
+    },
+    {
+      "id": "gst",
+      "name": "Přerušené vazby",
+      "type": "global"
+    }
+  ],
+  "party": [
+    {
+      "id": "first_steps",
+      "name": "Dětské krůčky",
+      "type": "party"
+    },
+    {
+      "id": "jekserahs_plans",
+      "name": "Jekseřiny plány",
+      "type": "party"
+    },
+    {
+      "id": "dark_bounty",
+      "name": "Temná odměna",
+      "type": "party"
+    },
+    {
+      "id": "a_demons_errand",
+      "name": "Démonova pochůzka",
+      "type": "party"
+    },
+    {
+      "id": "scrolls_of_corrosion",
+      "name": "Balvaštěpova kadelnice",
+      "type": "party"
+    },
+    {
+      "id": "the_ruins",
+      "name": "Cesta rozvalinami",
+      "type": "party"
+    },
+    {
+      "id": "the_voice_command",
+      "name": "Ve jménu Hlasu",
+      "type": "party"
+    },
+    {
+      "id": "the_drakes_command",
+      "name": "Dračí záležitost",
+      "type": "party"
+    },
+    {
+      "id": "following_clues",
+      "name": "Sledování stop",
+      "type": "party"
+    },
+    {
+      "id": "an_invitation",
+      "name": "Pozvání",
+      "type": "party"
+    },
+    {
+      "id": "the_scepter_and_the_voice",
+      "name": "Žezlo a Hlas",
+      "type": "party"
+    },
+    {
+      "id": "the_voices_trail",
+      "name": "Poklad Hlasu",
+      "type": "party"
+    },
+    {
+      "id": "ptdt",
+      "name": "Dračí poklad",
+      "type": "party"
+    },
+    {
+      "id": "pttt",
+      "name": "Skrze příkop",
+      "type": "party"
+    },
+    {
+      "id": "redthorns_accounting",
+      "name": "Rudotrnova pomoc",
+      "type": "party"
+    },
+    {
+      "id": "across_the_divide",
+      "name": "Přes propast",
+      "type": "party"
+    },
+    {
+      "id": "through_the_nest",
+      "name": "Hnízdem Krysáků",
+      "type": "party"
+    },
+    {
+      "id": "a_map_to_treasure",
+      "name": "Mapa k pokladu",
+      "type": "party",
+      "isManual": true
+    },
+    {
+      "id": "bad_business",
+      "name": "Zlá věc",
+      "type": "party",
+      "isManual": true
+    },
+    {
+      "id": "the_poisons_source",
+      "name": "Zdroj otravy",
+      "type": "party",
+      "isManual": true
+    },
+    {
+      "id": "psb",
+      "name": "Požehnané slunce",
+      "type": "party",
+      "isManual": true
+    },
+    {
+      "id": "sin_ra",
+      "name": "Sin-Ra",
+      "type": "party",
+      "isManual": true
+    },
+    {
+      "id": "debt_collection",
+      "name": "Vymáhání dluhu",
+      "type": "party",
+      "isManual": true
+    },
+    {
+      "id": "water_staff",
+      "name": "Vodní hůl",
+      "type": "party",
+      "isManual": true
+    },
+    {
+      "id": "fishs_aid",
+      "name": "Rybova pomoc",
+      "type": "party",
+      "isManual": true
+    },
+    {
+      "id": "tremors",
+      "name": "Otřesy",
+      "type": "party",
+      "isManual": true
+    },
+    {
+      "id": "high_sea_escort",
+      "name": "Doprovod na širém moři",
+      "type": "party",
+      "isManual": true
+    },
+    {
+      "id": "grave_job",
+      "name": "Hrobařská práce",
+      "type": "party",
+      "isManual": true
+    },
+    {
+      "id": "northern_expedition",
+      "name": "Severní expedice",
+      "type": "party",
+      "isManual": true
+    },
+    {
+      "id": "po",
+      "name": "Oportunisté",
+      "type": "party",
+      "isManual": true
+    },
+    {
+      "id": "pad",
+      "name": "Andělé smrti",
+      "type": "party"
+    },
+    {
+      "id": "pc",
+      "name": "Strážci",
+      "type": "party"
+    },
+    {
+      "id": "php",
+      "name": "Lovená kořist",
+      "type": "party"
+    },
+    {
+      "id": "pgd",
+      "name": "Strážní hlídka",
+      "type": "party"
+    },
+    {
+      "id": "pde",
+      "name": "Dimenzionální rovnováha",
+      "type": "party"
+    },
+    {
+      "id": "holding_the_husk",
+      "name": "Lov lovce",
+      "type": "party"
+    },
+    {
+      "id": "pxa",
+      "name": "Xangrothova pomoc",
+      "type": "party"
+    },
+    {
+      "id": "pda",
+      "name": "Diamařina pomoc",
+      "type": "party"
+    },
+    {
+      "id": "pbf",
+      "name": "Krása ve svobodě",
+      "type": "party"
+    }
+  ]
+}

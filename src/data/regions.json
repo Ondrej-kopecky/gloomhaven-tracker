@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Gloomhaven"
+  },
+  {
+    "id": 2,
+    "name": "Dagger Forest"
+  },
+  {
+    "id": 3,
+    "name": "Lingering Swamp"
+  },
+  {
+    "id": 4,
+    "name": "Watcher Mountains"
+  },
+  {
+    "id": 5,
+    "name": "Copperneck Mountains"
+  },
+  {
+    "id": 6,
+    "name": "Misty Sea"
+  },
+  {
+    "id": 7,
+    "name": "Crypt"
+  },
+  {
+    "id": 8,
+    "name": "East Continent"
+  },
+  {
+    "id": 9,
+    "name": "Serpents Kiss River"
+  },
+  {
+    "id": 10,
+    "name": "Merchants Bay"
+  },
+  {
+    "id": 11,
+    "name": "East Coast"
+  },
+  {
+    "id": 12,
+    "name": "different Dimension"
+  }
+]

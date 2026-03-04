@@ -1,0 +1,382 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+@theme {
+  --color-gh-dark: #0a0813;
+  --color-gh-dark-alt: #0f0c1e;
+  --color-gh-card: #13112a;
+  --color-gh-card-hover: #1a1735;
+  --color-gh-border: #251f45;
+  --color-gh-border-light: #352d5a;
+  --color-gh-primary: #c4a35a;
+  --color-gh-primary-light: #d9be78;
+  --color-gh-primary-dim: #8b7340;
+  --color-gh-primary-glow: rgba(196, 163, 90, 0.15);
+  --color-gh-completed: #22c55e;
+  --color-gh-available: #3b82f6;
+  --color-gh-locked: #6b7280;
+  --color-gh-blocked: #ef4444;
+  --color-gh-required: #eab308;
+  --color-gh-attempted: #f97316;
+  --font-family-display: 'Cinzel', 'Georgia', serif;
+  --font-family-body: 'Inter', 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-family-body);
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(196, 163, 90, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 100%, rgba(59, 130, 246, 0.02) 0%, transparent 50%),
+    linear-gradient(180deg, #0a0813 0%, #0f0c1e 30%, #0a0813 100%);
+  background-attachment: fixed;
+  color: #e2e8f0;
+}
+
+/* Fantasy display headings */
+.font-display {
+  font-family: var(--font-family-display);
+  letter-spacing: 0.05em;
+}
+
+/* Consistent card style */
+.gh-card {
+  background: linear-gradient(135deg, #13112a 0%, #0f0c1e 100%);
+  border: 1px solid #251f45;
+  border-radius: 0.875rem;
+  transition: all 0.3s ease;
+}
+.gh-card:hover {
+  border-color: rgba(196, 163, 90, 0.25);
+  box-shadow: 0 0 20px rgba(196, 163, 90, 0.05), 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Interactive card (clickable) */
+.gh-card-interactive {
+  cursor: pointer;
+}
+.gh-card-interactive:hover {
+  border-color: rgba(196, 163, 90, 0.35);
+  box-shadow: 0 0 25px rgba(196, 163, 90, 0.08), 0 8px 30px rgba(0, 0, 0, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Glow button */
+.gh-btn-primary {
+  background: linear-gradient(135deg, #c4a35a 0%, #8b7340 100%);
+  color: #0a0813;
+  font-weight: 600;
+  border-radius: 0.625rem;
+  padding: 0.625rem 1.25rem;
+  transition: all 0.3s ease;
+  border: none;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+.gh-btn-primary:hover {
+  box-shadow: 0 0 25px rgba(196, 163, 90, 0.35), 0 4px 15px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #d9be78 0%, #c4a35a 100%);
+}
+
+.gh-btn-secondary {
+  background: rgba(196, 163, 90, 0.08);
+  color: #c4a35a;
+  border: 1px solid rgba(196, 163, 90, 0.2);
+  font-weight: 500;
+  border-radius: 0.625rem;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+}
+.gh-btn-secondary:hover {
+  background: rgba(196, 163, 90, 0.15);
+  border-color: rgba(196, 163, 90, 0.4);
+  box-shadow: 0 0 15px rgba(196, 163, 90, 0.1);
+}
+
+.gh-btn-ghost {
+  background: rgba(255, 255, 255, 0.03);
+  color: #94a3b8;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  font-weight: 500;
+  border-radius: 0.625rem;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease;
+}
+.gh-btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: #e2e8f0;
+}
+
+/* Consistent input style */
+.gh-input {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid #251f45;
+  border-radius: 0.625rem;
+  padding: 0.625rem 0.875rem;
+  color: #e2e8f0;
+  transition: all 0.3s ease;
+  outline: none;
+}
+.gh-input::placeholder {
+  color: #4a5568;
+}
+.gh-input:focus {
+  border-color: rgba(196, 163, 90, 0.5);
+  box-shadow: 0 0 0 3px rgba(196, 163, 90, 0.08), 0 0 20px rgba(196, 163, 90, 0.06);
+}
+select.gh-input option {
+  background: #1a1730;
+  color: #e2e8f0;
+}
+
+/* Section divider with ornament */
+.gh-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #4a5568;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+.gh-divider::before,
+.gh-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #251f45, transparent);
+}
+
+/* Page header decoration */
+.gh-page-header {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-top: 0.5rem;
+}
+.gh-page-header::after {
+  content: '';
+  display: block;
+  width: 3rem;
+  height: 2px;
+  margin-top: 0.75rem;
+  background: linear-gradient(90deg, #c4a35a, transparent);
+  border-radius: 1px;
+}
+
+/* Status badge base */
+.gh-badge {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  letter-spacing: 0.02em;
+}
+
+/* Subtle glow for active/highlighted elements */
+.gh-glow-gold {
+  box-shadow: 0 0 20px rgba(196, 163, 90, 0.12);
+}
+.gh-glow-green {
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.12);
+}
+.gh-glow-blue {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.12);
+}
+
+/* Stat card for numbers */
+.gh-stat {
+  text-align: center;
+  padding: 1.25rem;
+}
+.gh-stat-value {
+  font-family: var(--font-family-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.gh-stat-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #64748b;
+  margin-top: 0.5rem;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #251f45;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #352d5a;
+}
+
+/* ── Storyline SVG ── */
+.storyline-container svg {
+  width: 100%;
+  height: 100%;
+}
+
+.storyline-container text {
+  font-family: 'Cinzel', 'Georgia', serif;
+  fill: #c4a35a;
+  font-size: 11px;
+}
+
+.storyline-container text.label {
+  font-size: 10px;
+  fill: #8b7340;
+}
+
+.storyline-container .line {
+  fill: none;
+  stroke: #251f45;
+  stroke-width: 1;
+}
+
+.storyline-container .arrow {
+  fill: #251f45;
+  stroke: #251f45;
+}
+
+/* Node circles */
+.storyline-container circle.node {
+  fill: #0a0813;
+  stroke: #4a5568;
+  stroke-width: 1.5;
+  transform: translate(-10.8px, 0);
+}
+
+/* Node text positioning (mirrors reference) */
+.storyline-container circle.node + text {
+  font-size: 11px;
+  transform: translate(0px, 9px);
+}
+
+/* Blocked/required indicator positioning */
+.storyline-container circle.node ~ .blocked {
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  transform: translate(-10px, -5px);
+  display: none;
+}
+
+.storyline-container circle.node ~ .required {
+  font-size: 12px;
+  font-weight: bold;
+  transform: translate(-7px, -5px);
+  display: none;
+}
+
+/* Chapter rectangles */
+.storyline-container .chapter rect {
+  fill: #13112a;
+  stroke: #251f45;
+  opacity: 0.7;
+}
+
+/* Scenario hover */
+.storyline-container .scenario {
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.storyline-container .scenario:hover circle.node {
+  filter: brightness(1.4);
+}
+
+/* ── Scenario state styles ── */
+
+/* Completed: green */
+.storyline-container .scenario.complete circle.node {
+  stroke: #22c55e;
+  fill: rgba(34, 197, 94, 0.15);
+}
+.storyline-container .scenario.complete text {
+  fill: #22c55e;
+}
+
+/* Available (incomplete): blue */
+.storyline-container .scenario.incomplete circle.node {
+  stroke: #3b82f6;
+  stroke-width: 2;
+  fill: rgba(59, 130, 246, 0.12);
+}
+.storyline-container .scenario.incomplete text {
+  fill: #3b82f6;
+}
+
+/* Blocked: red + × */
+.storyline-container .scenario.blocked circle.node {
+  stroke: #ef4444;
+  fill: rgba(239, 68, 68, 0.1);
+}
+.storyline-container .scenario.blocked text {
+  fill: #ef4444;
+}
+.storyline-container .scenario.blocked .blocked {
+  display: block;
+  fill: #ef4444;
+}
+
+/* Required: yellow + ! */
+.storyline-container .scenario.required circle.node {
+  stroke: #eab308;
+  fill: rgba(234, 179, 8, 0.1);
+}
+.storyline-container .scenario.required text {
+  fill: #eab308;
+}
+.storyline-container .scenario.required .required {
+  display: block;
+  fill: #eab308;
+}
+
+/* Attempted: orange */
+.storyline-container .scenario.attempted circle.node {
+  stroke: #f97316;
+  fill: rgba(249, 115, 22, 0.1);
+}
+.storyline-container .scenario.attempted text {
+  fill: #f97316;
+}
+
+/* Dim not-unlocked side scenarios */
+.storyline-container .scenario.opacity-50 {
+  opacity: 0.3;
+}
+
+/* Completed edges: green glow */
+.storyline-container .edge.visible .line {
+  stroke: rgba(34, 197, 94, 0.6);
+  stroke-width: 1.5;
+}
+.storyline-container .edge.visible .arrow {
+  fill: rgba(34, 197, 94, 0.6);
+  stroke: rgba(34, 197, 94, 0.6);
+}
+
+/* Selected node highlight */
+.storyline-container .scenario.selected circle.node {
+  stroke: #c4a35a;
+  stroke-width: 3;
+  filter: drop-shadow(0 0 6px rgba(196, 163, 90, 0.4));
+}
+
+/* Smooth transitions */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Selection */
+::selection {
+  background: rgba(196, 163, 90, 0.3);
+  color: #fff;
+}

@@ -1,0 +1,1607 @@
+[
+  {
+    "id": 1,
+    "name": "Krokovací boty",
+    "cost": 20,
+    "count": 2,
+    "slot": "legs",
+    "source": "Prosperity 1",
+    "description": "Během tvého pohybu přidej +2 {MOVE} k pohybu.",
+    "spent": true,
+    "faq": "Krokovací boty přidávají pouze k číselné hodnotě existující jednotlivé pohybové schopnosti. Neposkytují volnou pohybovou akci."
+  },
+  {
+    "id": 2,
+    "name": "Okřídlené boty",
+    "cost": 20,
+    "count": 2,
+    "slot": "legs",
+    "source": "Prosperity 1",
+    "description": "Během tvého pohybu přidej {JUMP} k pohybu.",
+    "spent": true,
+    "faq": "Okřídlené boty lze použít pouze pro jednu pohybovou schopnost, ne pro více pohybových schopností jedné akce (např. akce s Pohybem, Útokem, Pohybem)."
+  },
+  {
+    "id": 3,
+    "name": "Kožená zbroj",
+    "cost": 10,
+    "count": 2,
+    "slot": "body",
+    "source": "Prosperity 1",
+    "description": "Na další dva zdroje zranění z útoků získej {SHIELD} 1. Přidej 2 {-1} do svého balíčku modifikátorů útoku.",
+    "spent": true,
+    "faq": "Kožená zbroj poskytuje štít pouze na útok, ne do konce kola."
+  },
+  {
+    "id": 4,
+    "name": "Kožené brnění",
+    "cost": 20,
+    "count": 2,
+    "slot": "body",
+    "source": "Prosperity 1",
+    "description": "Při útoku na tebe získá útočník Nevýhodu na útok.",
+    "spent": true,
+    "faq": "Kožené brnění musí být použito předtím, než nepřítel vytáhne kartu modifikátoru útoku."
+  },
+  {
+    "id": 5,
+    "name": "Plášť neviditelnosti",
+    "cost": 20,
+    "count": 2,
+    "slot": "body",
+    "source": "Prosperity 1",
+    "description": "Během svého tahu získej {INVISIBLE}.",
+    "consumed": true
+  },
+  {
+    "id": 6,
+    "name": "Orlí brýle",
+    "cost": 30,
+    "count": 2,
+    "slot": "head",
+    "source": "Prosperity 1",
+    "description": "Během svého útoku získej Výhodu na celou útočnou akci.",
+    "spent": true
+  },
+  {
+    "id": 7,
+    "name": "Železná helma",
+    "cost": 10,
+    "count": 2,
+    "slot": "head",
+    "source": "Prosperity 1",
+    "description": "Při útoku na tebe považuj jakoukoli kartu modifikátoru {2X_WHITE}, kterou nepřítel vytáhne, za {+0_WHITE}."
+  },
+  {
+    "id": 8,
+    "name": "Kavalírský štít",
+    "cost": 20,
+    "count": 2,
+    "slot": "one_hand",
+    "source": "Prosperity 1",
+    "description": "Při zranění útokem získej {SHIELD} 1 na tento útok.",
+    "spent": true
+  },
+  {
+    "id": 9,
+    "name": "Průbojný luk",
+    "cost": 30,
+    "count": 2,
+    "slot": "two_hands",
+    "source": "Prosperity 1",
+    "description": "Během svého útoku na dálku ignoruj všechny hodnoty Štítu na celou útočnou akci.",
+    "consumed": true
+  },
+  {
+    "id": 10,
+    "name": "Válečné kladivo",
+    "cost": 30,
+    "count": 2,
+    "slot": "two_hands",
+    "source": "Prosperity 1",
+    "description": "Během svého útoku na blízko přidej {STUN} k celé útočné akci.",
+    "consumed": true
+  },
+  {
+    "id": 11,
+    "name": "Jedová dýka",
+    "cost": 20,
+    "count": 2,
+    "slot": "one_hand",
+    "source": "Prosperity 1",
+    "description": "Během svého útoku na blízko přidej {POISON} k jednomu útoku.",
+    "spent": true
+  },
+  {
+    "id": 12,
+    "name": "Slabý léčivý lektvar",
+    "cost": 10,
+    "count": 4,
+    "slot": "small_item",
+    "source": "Prosperity 1",
+    "description": "Během svého tahu proveď akci „{HEAL} 3, sebe\".",
+    "consumed": true
+  },
+  {
+    "id": 13,
+    "name": "Slabý lektvar výdrže",
+    "cost": 10,
+    "count": 4,
+    "slot": "small_item",
+    "source": "Prosperity 1",
+    "description": "Během svého tahu {RECOVER} až dvě ze svých odložených karet.",
+    "consumed": true,
+    "faq": "[Errata] Předmět by měl umožnit obnovit pouze jednu odloženou kartu. Tato změna je v nadcházejícím rozšíření, ale může být použita i pro základní hru."
+  },
+  {
+    "id": 14,
+    "name": "Slabý lektvar síly",
+    "cost": 10,
+    "count": 4,
+    "slot": "small_item",
+    "source": "Prosperity 1",
+    "description": "Během svého útoku přidej +1 {ATTACK} k celé útočné akci.",
+    "consumed": true
+  },
+  {
+    "id": 15,
+    "name": "Boty rychlosti",
+    "cost": 30,
+    "count": 2,
+    "slot": "legs",
+    "source": "Prosperity 2",
+    "description": "Na začátku kola, poté co byly odhaleny všechny karty schopností, zvyš nebo sniž svou vedoucí hodnotu iniciativy o 10.",
+    "spent": true
+  },
+  {
+    "id": 16,
+    "name": "Plášť s kapsami",
+    "cost": 20,
+    "count": 2,
+    "slot": "body",
+    "source": "Prosperity 2",
+    "description": "Můžeš nést dva další {SMALL-ITEM} předměty."
+  },
+  {
+    "id": 17,
+    "name": "Posilující talisman",
+    "cost": 45,
+    "count": 2,
+    "slot": "head",
+    "source": "Prosperity 2",
+    "description": "Během svého tahu {REFRESH} jeden ze svých spotřebovaných {SMALL-ITEM} předmětů.",
+    "consumed": true
+  },
+  {
+    "id": 18,
+    "name": "Bojová sekera",
+    "cost": 20,
+    "count": 2,
+    "slot": "one_hand",
+    "source": "Prosperity 2",
+    "description": "Během svého útoku na blízko na jeden cíl změň útok na následující: {AOE.CONE_0_1}",
+    "consumed": true
+  },
+  {
+    "id": 19,
+    "name": "Závaží síť",
+    "cost": 20,
+    "count": 2,
+    "slot": "two_hands",
+    "source": "Prosperity 2",
+    "description": "Během svého útoku na dálku přidej {IMMOBILIZE} k jednomu útoku.",
+    "spent": true
+  },
+  {
+    "id": 20,
+    "name": "Slabý lektvar many",
+    "cost": 10,
+    "count": 4,
+    "slot": "small_item",
+    "source": "Prosperity 2",
+    "description": "Během svého tahu vytvoř libovolný živel. {ANY}",
+    "consumed": true
+  },
+  {
+    "id": 21,
+    "name": "Omračovací prach",
+    "cost": 20,
+    "count": 2,
+    "slot": "small_item",
+    "source": "Prosperity 2",
+    "description": "Během svého útoku přidej {STUN} k jednomu útoku.",
+    "consumed": true
+  },
+  {
+    "id": 22,
+    "name": "Těžké holeně",
+    "cost": 20,
+    "count": 2,
+    "slot": "legs",
+    "source": "Prosperity 3",
+    "description": "Jsi imunní vůči veškerému vynucenému pohybu způsobenému nepřáteli nebo efekty scénáře. Přidej 1 {-1} do svého balíčku modifikátorů útoku."
+  },
+  {
+    "id": 23,
+    "name": "Kroužková zbroj",
+    "cost": 20,
+    "count": 2,
+    "slot": "body",
+    "source": "Prosperity 3",
+    "description": "Na další tři zdroje zranění z útoků získej {SHIELD} 1. Přidej 3 {-1} do svého balíčku modifikátorů útoku.",
+    "spent": true,
+    "faq": "Kroužková zbroj poskytuje štít pouze na útok, ne do konce kola."
+  },
+  {
+    "id": 24,
+    "name": "Amulet života",
+    "cost": 20,
+    "count": 2,
+    "slot": "head",
+    "source": "Prosperity 3",
+    "description": "Během svého tahu {HEAL} 1 zranění.",
+    "spent": true
+  },
+  {
+    "id": 25,
+    "name": "Zubatý meč",
+    "cost": 30,
+    "count": 2,
+    "slot": "one_hand",
+    "source": "Prosperity 3",
+    "description": "Během svého útoku na blízko přidej {WOUND} k jednomu útoku.",
+    "spent": true
+  },
+  {
+    "id": 26,
+    "name": "Dlouhé kopí",
+    "cost": 30,
+    "count": 2,
+    "slot": "two_hands",
+    "source": "Prosperity 3",
+    "description": "Změň útok na blízko na jeden cíl na následující: {AOE.LINE_0_1_1}",
+    "spent": true
+  },
+  {
+    "id": 27,
+    "name": "Silný léčivý lektvar",
+    "cost": 30,
+    "count": 4,
+    "slot": "small_item",
+    "source": "Prosperity 3",
+    "description": "Během svého tahu proveď akci „{HEAL} 5, sebe\".",
+    "consumed": true
+  },
+  {
+    "id": 28,
+    "name": "Měsíční náušnice",
+    "cost": 20,
+    "count": 2,
+    "slot": "small_item",
+    "source": "Prosperity 3",
+    "description": "Během svého tahu {REFRESH} všechny své utracené předměty.",
+    "consumed": true
+  },
+  {
+    "id": 29,
+    "name": "Pohodlné boty",
+    "cost": 30,
+    "count": 2,
+    "slot": "legs",
+    "source": "Prosperity 4",
+    "description": "Kdykoli použiješ výchozí spodní akci karty schopnosti, proveď akci {MOVE} 3 místo {MOVE} 2."
+  },
+  {
+    "id": 30,
+    "name": "Vybíjená kůže",
+    "cost": 30,
+    "count": 2,
+    "slot": "body",
+    "source": "Prosperity 4",
+    "description": "Při útoku na tebe získá útočník Nevýhodu na útok a ty získáš {SHIELD} 1 na tento útok.",
+    "spent": true
+  },
+  {
+    "id": 31,
+    "name": "Jestřábí helma",
+    "cost": 20,
+    "count": 2,
+    "slot": "head",
+    "source": "Prosperity 4",
+    "description": "Během svého útoku na dálku přidej +1 {RANGE} k celé útočné akci.",
+    "spent": true
+  },
+  {
+    "id": 32,
+    "name": "Věžový štít",
+    "cost": 40,
+    "count": 2,
+    "slot": "one_hand",
+    "source": "Prosperity 4",
+    "description": "Při zranění útokem získej {SHIELD} 2 na tento útok.",
+    "spent": true
+  },
+  {
+    "id": 33,
+    "name": "Nestabilní bomba",
+    "cost": 30,
+    "count": 2,
+    "slot": "one_hand",
+    "source": "Prosperity 4",
+    "description": "Během svého útoku na dálku na jeden cíl změň útok na následující: {AOE.CONE_1_1}",
+    "consumed": true
+  },
+  {
+    "id": 34,
+    "name": "Silný lektvar výdrže",
+    "cost": 30,
+    "count": 4,
+    "slot": "small_item",
+    "source": "Prosperity 4",
+    "description": "Během svého tahu {RECOVER} až tři ze svých odložených karet.",
+    "consumed": true,
+    "faq": "[Errata] Předmět by měl umožnit obnovit pouze dvě odložené karty. Tato změna je v nadcházejícím rozšíření, ale může být použita i pro základní hru."
+  },
+  {
+    "id": 35,
+    "name": "Sokolí figurka",
+    "cost": 50,
+    "count": 2,
+    "slot": "small_item",
+    "source": "Prosperity 4\n{SCENARIO 98} (Treasure #79)",
+    "description": "Přivolej Nefritového sokola ({FLYING})",
+    "consumed": true,
+    "faq": "Karta je považována za trvalý bonus a umisťuje se do aktivní oblasti, dokud není přivolaný tvor zabit nebo karta odebrána (tím se odstraní přivolaný tvor a spotřebuje předmět). Pokud je karta obnovena a je aktivní přivolaný tvor z karty, aktivní přivolaný tvor zmizí."
+  },
+  {
+    "id": 36,
+    "name": "Boty úprku",
+    "cost": 40,
+    "count": 2,
+    "slot": "legs",
+    "source": "Prosperity 5",
+    "description": "Během tvého pohybu přidej +3 {MOVE} k pohybu.",
+    "spent": true
+  },
+  {
+    "id": 37,
+    "name": "Roucho evokace",
+    "cost": 40,
+    "count": 2,
+    "slot": "body",
+    "source": "Prosperity 5",
+    "description": "Během svého útoku {ANY_X} přidej +1 {ATTACK} k celé útočné akci.",
+    "spent": true
+  },
+  {
+    "id": 38,
+    "name": "Těžký bacinet",
+    "cost": 30,
+    "count": 2,
+    "slot": "head",
+    "source": "Prosperity 5",
+    "description": "Jsi imunní vůči {STUN} a {MUDDLE}. Přidej 2 {-1} do svého balíčku modifikátorů útoku."
+  },
+  {
+    "id": 39,
+    "name": "Hákový řetěz",
+    "cost": 40,
+    "count": 2,
+    "slot": "two_hands",
+    "source": "Prosperity 5",
+    "description": "Během svého útoku na dálku přidej {PULL} 2 k celé útočné akci.",
+    "spent": true
+  },
+  {
+    "id": 40,
+    "name": "Všestranná dýka",
+    "cost": 25,
+    "count": 2,
+    "slot": "one_hand",
+    "source": "Prosperity 5",
+    "description": "Kdykoli použiješ výchozí horní akci karty schopnosti, proveď akci {ATTACK} 3 místo {ATTACK} 2."
+  },
+  {
+    "id": 41,
+    "name": "Silný lektvar síly",
+    "cost": 40,
+    "count": 4,
+    "slot": "small_item",
+    "source": "Prosperity 5\n{SCENARIO 105} (Treasure #83)",
+    "description": "Během svého útoku přidej +2 {ATTACK} k celé útočné akci.",
+    "consumed": true
+  },
+  {
+    "id": 42,
+    "name": "Prsten spěchu",
+    "cost": 30,
+    "count": 2,
+    "slot": "small_item",
+    "source": "Prosperity 5",
+    "description": "Na konci svého tahu zahraj jednu kartu z ruky a okamžitě proveď spodní akci karty.",
+    "consumed": true
+  },
+  {
+    "id": 43,
+    "name": "Boty hbitosti",
+    "cost": 75,
+    "count": 2,
+    "slot": "legs",
+    "source": "Prosperity 6",
+    "description": "Na začátku kola, poté co byly odhaleny všechny karty schopností, zvyš nebo sniž svou vedoucí hodnotu iniciativy o 20.",
+    "spent": true
+  },
+  {
+    "id": 44,
+    "name": "Lamelová zbroj",
+    "cost": 35,
+    "count": 2,
+    "slot": "body",
+    "source": "Prosperity 6",
+    "description": "Na další čtyři zdroje zranění z útoků získej {SHIELD} 1. Přidej 4 {-1} do svého balíčku modifikátorů útoku."
+  },
+  {
+    "id": 45,
+    "name": "Přívěsek temných paktů",
+    "cost": 75,
+    "count": 2,
+    "slot": "head",
+    "source": "Prosperity 6",
+    "description": "Během svého tahu {REFRESH} dva ze svých spotřebovaných {SMALL-ITEM} předmětů. Získej {CURSE}.",
+    "consumed": true,
+    "faq": "Perk, který ignoruje efekty předmětů, nezabraňuje získání kletby."
+  },
+  {
+    "id": 46,
+    "name": "Ostnatý štít",
+    "cost": 40,
+    "count": 2,
+    "slot": "one_hand",
+    "source": "Prosperity 6",
+    "description": "Při zranění útokem získej {SHIELD} 1 a {RETALIATE} 2 na tento útok.",
+    "spent": true
+  },
+  {
+    "id": 47,
+    "name": "Žací kosa",
+    "cost": 40,
+    "count": 2,
+    "slot": "two_hands",
+    "source": "Prosperity 6",
+    "description": "Během svého útoku na blízko na jeden cíl změň útok na následující: {AOE.CLEAVE_0_1}",
+    "consumed": true
+  },
+  {
+    "id": 48,
+    "name": "Silný lektvar many",
+    "cost": 30,
+    "count": 4,
+    "slot": "small_item",
+    "source": "Prosperity 6\nReward from {SCENARIO 104}",
+    "description": "Během svého tahu vytvoř libovolné dva živly. {ANY} {ANY}",
+    "consumed": true
+  },
+  {
+    "id": 49,
+    "name": "Sluneční náušnice",
+    "cost": 40,
+    "count": 2,
+    "slot": "small_item",
+    "source": "Prosperity 6",
+    "description": "Během svého tahu {REFRESH} všechny své utracené předměty a {HEAL} 3 zranění.",
+    "consumed": true
+  },
+  {
+    "id": 50,
+    "name": "Ocelové sabatony",
+    "cost": 60,
+    "count": 2,
+    "slot": "legs",
+    "source": "Prosperity 7",
+    "description": "Pokud se pohneš o 1 nebo méně hexů ve svém tahu, získej {SHIELD} 1 na kolo. Přidej 2 {-1} do svého balíčku modifikátorů útoku."
+  },
+  {
+    "id": 51,
+    "name": "Stínová zbroj",
+    "cost": 30,
+    "count": 2,
+    "slot": "body",
+    "source": "Prosperity 7",
+    "description": "Když jsi zraněn útokem, neutrp žádné zranění.",
+    "consumed": true
+  },
+  {
+    "id": 52,
+    "name": "Ochranný amulet",
+    "cost": 60,
+    "count": 2,
+    "slot": "head",
+    "source": "Prosperity 7\nReward from {SCENARIO 109}",
+    "description": "Jsi imunní vůči {POISON} a {WOUND}."
+  },
+  {
+    "id": 53,
+    "name": "Černý nůž",
+    "cost": 25,
+    "count": 2,
+    "slot": "one_hand",
+    "source": "Prosperity 7",
+    "description": "Během svého útoku na blízko přidej {CURSE} k jednomu útoku.",
+    "spent": true
+  },
+  {
+    "id": 54,
+    "name": "Hůl vznešenosti",
+    "cost": 60,
+    "count": 2,
+    "slot": "two_hands",
+    "source": "Prosperity 7",
+    "description": "Během svého útoku na dálku {ANY_X} přidej +1 {ATTACK} k celé útočné akci.",
+    "spent": true
+  },
+  {
+    "id": 55,
+    "name": "Mocný léčivý lektvar",
+    "cost": 50,
+    "count": 4,
+    "slot": "small_item",
+    "source": "Prosperity 7",
+    "description": "Během svého tahu proveď akci „{HEAL} 7, sebe\".",
+    "consumed": true
+  },
+  {
+    "id": 56,
+    "name": "Prsten brutality",
+    "cost": 40,
+    "count": 2,
+    "slot": "small_item",
+    "source": "Prosperity 7",
+    "description": "Na konci svého tahu zahraj jednu kartu z ruky a okamžitě proveď horní akci karty.",
+    "consumed": true
+  },
+  {
+    "id": 57,
+    "name": "Klidné sandály",
+    "cost": 75,
+    "count": 2,
+    "slot": "legs",
+    "source": "Prosperity 8",
+    "description": "Kdykoli použiješ výchozí spodní akci karty schopnosti, proveď akci {MOVE} 4 místo {MOVE} 2."
+  },
+  {
+    "id": 58,
+    "name": "Plášť prostupnosti",
+    "cost": 75,
+    "count": 2,
+    "slot": "body",
+    "source": "Prosperity 8",
+    "description": "Získej {FLYING}. Pokud stojíš na překážkovém hexu, jsi považován za {INVISIBLE} a nemůžeš útočit."
+  },
+  {
+    "id": 59,
+    "name": "Teleskopická čočka",
+    "cost": 50,
+    "count": 2,
+    "slot": "head",
+    "source": "Prosperity 8\nOption from {SCENARIO 100}",
+    "description": "Během svého útoku na dálku přidej +2 {RANGE} k celé útočné akci.",
+    "spent": true
+  },
+  {
+    "id": 60,
+    "name": "Nestabilní výbušniny",
+    "cost": 45,
+    "count": 2,
+    "slot": "one_hand",
+    "source": "Prosperity 8",
+    "description": "Změň útok na dálku na jeden cíl na následující: {AOE.CUBE_2_2}. Všichni spojenci v oblasti útoku utrpí 3 zranění.",
+    "consumed": true
+  },
+  {
+    "id": 61,
+    "name": "Hradební štít",
+    "cost": 60,
+    "count": 2,
+    "slot": "two_hands",
+    "source": "Prosperity 8",
+    "description": "Při zranění útokem získej {SHIELD} 4 na tento útok.",
+    "spent": true
+  },
+  {
+    "id": 62,
+    "name": "Prach zkázy",
+    "cost": 40,
+    "count": 2,
+    "slot": "small_item",
+    "source": "Prosperity 8",
+    "description": "Během svého útoku přidej {STUN}, {POISON} a {CURSE} k jednomu útoku.",
+    "consumed": true
+  },
+  {
+    "id": 63,
+    "name": "Šťastné oko",
+    "cost": 60,
+    "count": 2,
+    "slot": "small_item",
+    "source": "Prosperity 8",
+    "description": "Během svého tahu {STRENGTHEN} sebe a všechny sousední spojence.",
+    "consumed": true
+  },
+  {
+    "id": 64,
+    "name": "Boty sprintu",
+    "cost": 75,
+    "count": 2,
+    "slot": "legs",
+    "source": "Prosperity 9",
+    "description": "Během tvého pohybu přidej +4 {MOVE} k pohybu.",
+    "spent": true
+  },
+  {
+    "id": 65,
+    "name": "Plátová zbroj",
+    "cost": 50,
+    "count": 2,
+    "slot": "body",
+    "source": "Prosperity 9",
+    "description": "Na dalších pět zdrojů zranění z útoků získej {SHIELD} 1. Přidej 5 {-1} do svého balíčku modifikátorů útoku.",
+    "spent": true
+  },
+  {
+    "id": 66,
+    "name": "Maska hrůzy",
+    "cost": 50,
+    "count": 2,
+    "slot": "head",
+    "source": "Prosperity 9\n{SCENARIO 110} (Treasure #84)",
+    "description": "Během svého útoku na blízko přidej {PUSH} 1."
+  },
+  {
+    "id": 67,
+    "name": "Vyvážená čepel",
+    "cost": 60,
+    "count": 2,
+    "slot": "one_hand",
+    "source": "Prosperity 9",
+    "description": "Kdykoli použiješ výchozí horní akci karty schopnosti, proveď akci {ATTACK} 4 místo {ATTACK} 2."
+  },
+  {
+    "id": 68,
+    "name": "Halapartna",
+    "cost": 60,
+    "count": 2,
+    "slot": "two_hands",
+    "source": "Prosperity 9\n{SCENARIO 111} (Treasure #92)\nSection 132 -> g106 “Strangler's Park” in book",
+    "description": "Během svého útoku na blízko na jeden cíl můžeš zaútočit na jednoho nepřítele do 2 hexů."
+  },
+  {
+    "id": 69,
+    "name": "Hvězdná náušnice",
+    "cost": 70,
+    "count": 2,
+    "slot": "small_item",
+    "source": "Prosperity 9",
+    "description": "Během svého tahu {REFRESH} všechny své utracené předměty, {HEAL} 3 zranění a {RECOVER} až dvě ze svých odložených karet."
+  },
+  {
+    "id": 70,
+    "name": "Prsten druhé šance",
+    "cost": 75,
+    "count": 2,
+    "slot": "small_item",
+    "source": "Prosperity 9\nFC Challenge Scenario, Rift Card 12 (Treasure #89)\nSection 103 -> 84 “Gateway to the Firmament” in book",
+    "description": "Na konci svého tahu zahraj dvě karty z ruky a proveď další tah v tomto kole na základě své nové vedoucí iniciativy (která musí být pozdější než tvá předchozí iniciativa)."
+  },
+  {
+    "id": 71,
+    "name": "Boty levitace",
+    "cost": 50,
+    "count": 2,
+    "slot": "legs",
+    "source": "Random Item",
+    "description": "Získej {FLYING}."
+  },
+  {
+    "id": 72,
+    "name": "Boty štěstí",
+    "cost": 50,
+    "count": 2,
+    "slot": "legs",
+    "source": "Random Item",
+    "description": "Pokud se pohneš o 6 nebo více hexů ve svém tahu, získej {exp1}."
+  },
+  {
+    "id": 73,
+    "name": "Blikající plášť",
+    "cost": 50,
+    "count": 2,
+    "slot": "body",
+    "source": "Random Item",
+    "description": "Během svého tahu proveď akci „{MOVE} 4, {JUMP}\".",
+    "consumed": true
+  },
+  {
+    "id": 74,
+    "name": "Zbroj s čepelemi",
+    "cost": 40,
+    "count": 2,
+    "slot": "body",
+    "source": "Random Item",
+    "description": "Na další tři zdroje zranění z útoků na tebe získej {SHIELD} 1, {RETALIATE} 1. Přidej 4 {-1} do svého balíčku modifikátorů útoku.",
+    "spent": true
+  },
+  {
+    "id": 75,
+    "name": "Čelenka živlů",
+    "cost": 25,
+    "count": 2,
+    "slot": "head",
+    "source": "Random Item",
+    "description": "Během svého tahu {ANY_X} vytvoř libovolný živel. {ANY}",
+    "spent": true
+  },
+  {
+    "id": 76,
+    "name": "Kroužková kapuce",
+    "cost": 40,
+    "count": 2,
+    "slot": "head",
+    "source": "Random Item",
+    "description": "Pokud sousedíš se třemi nebo více nestvůrami, získej {SHIELD} 1. Přidej 1 {-1} do svého balíčku modifikátorů útoku."
+  },
+  {
+    "id": 77,
+    "name": "Mrazivá čepel",
+    "cost": 30,
+    "count": 2,
+    "slot": "one_hand",
+    "source": "Random Item",
+    "description": "Během svého útoku na blízko {ICE_X} přidej +2 {ATTACK} k jednomu útoku."
+  },
+  {
+    "id": 78,
+    "name": "Bouřková čepel",
+    "cost": 30,
+    "count": 2,
+    "slot": "one_hand",
+    "source": "Random Item",
+    "description": "Během svého útoku na blízko {WIND_X} přidej +2 {ATTACK} k jednomu útoku."
+  },
+  {
+    "id": 79,
+    "name": "Pekelná čepel",
+    "cost": 30,
+    "count": 2,
+    "slot": "one_hand",
+    "source": "Random Item",
+    "description": "Během svého útoku na blízko {FIRE_X} přidej +2 {ATTACK} k jednomu útoku."
+  },
+  {
+    "id": 80,
+    "name": "Zemětřasná čepel",
+    "cost": 30,
+    "count": 2,
+    "slot": "one_hand",
+    "source": "Random Item",
+    "description": "Během svého útoku na blízko {EARTH_X} přidej +2 {ATTACK} k jednomu útoku."
+  },
+  {
+    "id": 81,
+    "name": "Zářivá čepel",
+    "cost": 30,
+    "count": 2,
+    "slot": "one_hand",
+    "source": "Random Item",
+    "description": "Během svého útoku na blízko {LIGHT_X} přidej +2 {ATTACK} k jednomu útoku."
+  },
+  {
+    "id": 82,
+    "name": "Noční čepel",
+    "cost": 30,
+    "count": 2,
+    "slot": "one_hand",
+    "source": "Random Item",
+    "description": "Během svého útoku na blízko {DARK_X} přidej +2 {ATTACK} k jednomu útoku."
+  },
+  {
+    "id": 83,
+    "name": "Hůlka mrazu",
+    "cost": 30,
+    "count": 2,
+    "slot": "one_hand",
+    "source": "Random Item",
+    "description": "Během svého tahu vytvoř Led. {ICE}",
+    "spent": true
+  },
+  {
+    "id": 84,
+    "name": "Hůlka bouří",
+    "cost": 30,
+    "count": 2,
+    "slot": "one_hand",
+    "source": "Random Item",
+    "description": "Během svého tahu vytvoř Vítr. {WIND}",
+    "spent": true
+  },
+  {
+    "id": 85,
+    "name": "Hůlka pekel",
+    "cost": 30,
+    "count": 2,
+    "slot": "one_hand",
+    "source": "Random Item",
+    "description": "Během svého tahu vytvoř Oheň. {FIRE}",
+    "spent": true
+  },
+  {
+    "id": 86,
+    "name": "Hůlka otřesů",
+    "cost": 30,
+    "count": 2,
+    "slot": "one_hand",
+    "source": "Random Item",
+    "description": "Během svého tahu vytvoř Zemi. {EARTH}",
+    "spent": true
+  },
+  {
+    "id": 87,
+    "name": "Hůlka záře",
+    "cost": 30,
+    "count": 2,
+    "slot": "one_hand",
+    "source": "Random Item",
+    "description": "Během svého tahu vytvoř Světlo. {LIGHT}",
+    "spent": true
+  },
+  {
+    "id": 88,
+    "name": "Hůlka temnoty",
+    "cost": 30,
+    "count": 2,
+    "slot": "one_hand",
+    "source": "Random Item",
+    "description": "Během svého tahu vytvoř Tmu. {DARK}",
+    "spent": true
+  },
+  {
+    "id": 89,
+    "name": "Slabý lektvar léčby",
+    "cost": 10,
+    "count": 2,
+    "slot": "small_item",
+    "source": "Random Item",
+    "description": "Během svého tahu odstraň jeden negativní stav na sobě. Lze použít, i když máš {STUN}.",
+    "consumed": true
+  },
+  {
+    "id": 90,
+    "name": "Silný lektvar léčby",
+    "cost": 30,
+    "count": 2,
+    "slot": "small_item",
+    "source": "Random Item\n{SCENARIO 102} (Treasure #77)",
+    "description": "Během svého tahu odstraň všechny negativní stavy na sobě. Lze použít, i když máš {STUN}.",
+    "consumed": true
+  },
+  {
+    "id": 91,
+    "name": "Ocelový prsten",
+    "cost": 20,
+    "count": 2,
+    "slot": "small_item",
+    "source": "Random Item",
+    "description": "Při zranění útokem na tebe získej {SHIELD} 4 na tento útok.",
+    "consumed": true
+  },
+  {
+    "id": 92,
+    "name": "Tlumící prsten",
+    "cost": 25,
+    "count": 2,
+    "slot": "small_item",
+    "source": "Random Item",
+    "description": "Předtím, než by nepřítel spotřeboval živel, spotřebuj tento živel místo něj bez účinku.",
+    "consumed": true
+  },
+  {
+    "id": 93,
+    "name": "Svitek síly",
+    "cost": 30,
+    "count": 2,
+    "slot": "small_item",
+    "source": "Random Item",
+    "description": "Během útoku spojence přidej +1 {ATTACK} k celé jeho útočné akci.",
+    "consumed": true
+  },
+  {
+    "id": 94,
+    "name": "Svitek léčení",
+    "cost": 30,
+    "count": 2,
+    "slot": "small_item",
+    "source": "Random Item",
+    "description": "Během svého tahu proveď akci „{HEAL} 3, {RANGE} 5\".",
+    "consumed": true
+  },
+  {
+    "id": 95,
+    "name": "Svitek výdrže",
+    "cost": 50,
+    "count": 2,
+    "slot": "small_item",
+    "source": "Random Item",
+    "description": "Během svého tahu může spojenec do {RANGE} 5 {RECOVER} až dvě ze svých odložených karet.",
+    "consumed": true
+  },
+  {
+    "id": 96,
+    "name": "Raketové boty",
+    "cost": 80,
+    "count": 2,
+    "slot": "legs",
+    "source": "{SCENARIO 66} (Treasure #36)",
+    "description": "Během tvého pohybu přidej +3 {MOVE} a {JUMP} k jednomu pohybu.",
+    "spent": true
+  },
+  {
+    "id": 97,
+    "name": "Vytrvalostní ovinovačky",
+    "cost": 40,
+    "count": 1,
+    "slot": "legs",
+    "source": "{SCENARIO 38} (Treasure #29)",
+    "description": "Pokud se pohneš o 4 nebo více hexů ve svém tahu, proveď akci „{HEAL} 1, sebe\"."
+  },
+  {
+    "id": 98,
+    "name": "Dračí šupinové boty",
+    "cost": 50,
+    "count": 1,
+    "slot": "legs",
+    "source": "{SCENARIO 43} (Treasure #35)",
+    "description": "Nejsi ovlivněn obtížným a nebezpečným terénem."
+  },
+  {
+    "id": 99,
+    "name": "Magmatické holínky",
+    "cost": 50,
+    "count": 1,
+    "slot": "legs",
+    "source": "{SCENARIO 63} (Treasure #12)",
+    "description": "Ignoruj zraňující efekty nebezpečného terénu a proveď akci „{HEAL} 2, sebe\" v jakémkoli tahu, ve kterém jsi vstoupil na hex s nebezpečným terénem."
+  },
+  {
+    "id": 100,
+    "name": "Roucho přivolávání",
+    "cost": 40,
+    "count": 1,
+    "slot": "body",
+    "source": "{SCENARIO 31} (Treasure #69)",
+    "description": "Během svého tahu proveď akci „{HEAL} 2, cíl libovolný přivolaný spojenec\".",
+    "spent": true
+  },
+  {
+    "id": 101,
+    "name": "Druhá kůže",
+    "cost": 30,
+    "count": 1,
+    "slot": "body",
+    "source": "{SCENARIO 06} (Treasure #50)",
+    "description": "Odeber dva {-1} ze svého balíčku modifikátorů útoku."
+  },
+  {
+    "id": 102,
+    "name": "Obětní roucho",
+    "cost": 50,
+    "count": 1,
+    "slot": "body",
+    "source": "City Event 40",
+    "description": "Během svého útoku na dálku utrp 3 zranění a přidej +1 {ATTACK} k celé útočné akci.",
+    "spent": true
+  },
+  {
+    "id": 103,
+    "name": "Dračí šupinová zbroj",
+    "cost": 50,
+    "count": 1,
+    "slot": "body",
+    "source": "{SCENARIO 34} (Treasure #23)",
+    "description": "Jsi imunní vůči {POISON} a {WOUND}."
+  },
+  {
+    "id": 104,
+    "name": "Parní zbroj",
+    "cost": 50,
+    "count": 1,
+    "slot": "body",
+    "source": "{SCENARIO 40} (Treasure #47)",
+    "description": "Na dalších pět zdrojů zranění z útoků na tebe získej {SHIELD} 1.",
+    "consumed": true
+  },
+  {
+    "id": 105,
+    "name": "Zavšivený šál",
+    "cost": 10,
+    "count": 1,
+    "slot": "body",
+    "source": "City Event 30",
+    "description": "Pro účely zaměření nepřátel jsi považován za postavu s iniciativou 99.",
+    "faq": "Předmět ve skutečnosti nemění iniciativu postavy, takže neovlivňuje iniciativu jejích přivolaných tvorů. Mění pouze to, jak nestvůry zacházejí s postavou při vyhodnocování zaměření."
+  },
+  {
+    "id": 106,
+    "name": "Náhrdelník ze zubů",
+    "cost": 40,
+    "count": 1,
+    "slot": "head",
+    "source": "Road Event 05",
+    "description": "Pokaždé, když zabiješ nepřítele během svého tahu, proveď akci „{HEAL} 1, sebe\"."
+  },
+  {
+    "id": 107,
+    "name": "Rohatá helma",
+    "cost": 30,
+    "count": 2,
+    "slot": "head",
+    "source": "{SCENARIO 03} (Treasure #65)",
+    "description": "Po pohybu o 4 nebo více hexů ve svém tahu přidej +1 {ATTACK} ke svému dalšímu útoku na blízko v tomto tahu.",
+    "faq": "Tento bonus musí být použit v tahu, kdy byl získán. Nelze ho uschovat. Pokud provedeš více pohybových schopností, můžeš předmět použít, pokud ses celkem pohnul alespoň o 4 hexy. Předmět lze použít pouze jednou během tvého tahu, i když se pohneš o 4 hexy vícekrát."
+  },
+  {
+    "id": 108,
+    "name": "Dračí šupinová helma",
+    "cost": 50,
+    "count": 1,
+    "slot": "head",
+    "source": "{SCENARIO 25} (Treasure #58)",
+    "description": "Kdykoli získáš {MUDDLE}, získej místo toho {STRENGTHEN}."
+  },
+  {
+    "id": 109,
+    "name": "Zlodějova kapuce",
+    "cost": 20,
+    "count": 1,
+    "slot": "head",
+    "source": "City Event 62",
+    "description": "Během své schopnosti {LOOT 1} proveď místo toho schopnost {LOOT 2}.",
+    "consumed": true
+  },
+  {
+    "id": 110,
+    "name": "Helma hory",
+    "cost": 50,
+    "count": 1,
+    "slot": "head",
+    "source": "{SCENARIO 82} (Treasure #62)",
+    "description": "Při útoku na tebe, pokud je {EARTH} silný, {IMMOBILIZE} útočníka."
+  },
+  {
+    "id": 111,
+    "name": "Hřeben vln",
+    "cost": 50,
+    "count": 1,
+    "slot": "head",
+    "source": "{SCENARIO 64} (Treasure #09)",
+    "description": "Při útoku na tebe, pokud je {ICE} silný, proveď akci „{PUSH} 2\" cílící na útočníka."
+  },
+  {
+    "id": 112,
+    "name": "Starověký vrták",
+    "cost": 30,
+    "count": 2,
+    "slot": "two_hands",
+    "source": "Reward From {SCENARIO 65}\nOption from {SCENARIO 100}",
+    "description": "Během svého útoku na blízko přidej +2 {ATTACK} a {PIERCE} 2 k celé útočné akci.",
+    "consumed": true
+  },
+  {
+    "id": 113,
+    "name": "Sekera smrti nemrtvých",
+    "cost": 50,
+    "count": 1,
+    "slot": "two_hands",
+    "source": "Reward From {SCENARIO 11}\nReward From {SCENARIO 12}",
+    "description": "Během svého útoku na blízko cílícího na Živou mrtvolu, Živého ducha nebo Živé kosti přidej +5 k jednomu útoku.",
+    "spent": true
+  },
+  {
+    "id": 114,
+    "name": "Hůl Xorna",
+    "cost": 50,
+    "count": 1,
+    "slot": "two_hands",
+    "source": "Reward from {SCENARIO 53}",
+    "description": "Během svého útoku na dálku přidej {POISON} a {MUDDLE} k celé útočné akci.",
+    "consumed": true
+  },
+  {
+    "id": 115,
+    "name": "Horské kladivo",
+    "cost": 50,
+    "count": 1,
+    "slot": "two_hands",
+    "source": "{SCENARIO 82} (Treasure #62)",
+    "description": "Přivolej Válečnického ducha.",
+    "consumed": true,
+    "faq": "Karta je považována za trvalý bonus a umisťuje se do aktivní oblasti, dokud není přivolaný tvor zabit nebo karta odebrána (tím se odstraní přivolaný tvor a spotřebuje předmět). Pokud je karta obnovena a je aktivní přivolaný tvor z karty, aktivní přivolaný tvor zmizí."
+  },
+  {
+    "id": 116,
+    "name": "Poháněný falchion",
+    "cost": 20,
+    "count": 2,
+    "slot": "one_hand",
+    "source": "{SCENARIO 23} (Treasure #72)",
+    "description": "Během svého útoku na blízko na jeden cíl utrpí cíl a všichni nepřátelé sousedící s cílem 1 zranění.",
+    "consumed": true
+  },
+  {
+    "id": 117,
+    "name": "Krvavá sekera",
+    "cost": 40,
+    "count": 2,
+    "slot": "one_hand",
+    "source": "City Event 53\nRoad Event 53",
+    "description": "Během svého útoku na blízko utrp 2 zranění a přidej +1 {ATTACK} k celé útočné akci.",
+    "spent": true
+  },
+  {
+    "id": 118,
+    "name": "Hůl živlů",
+    "cost": 50,
+    "count": 2,
+    "slot": "two_hands",
+    "source": "City Event 57",
+    "description": "Během svého tahu vytvoř libovolný živel. {ANY}",
+    "spent": true
+  },
+  {
+    "id": 119,
+    "name": "Lebka nenávisti",
+    "cost": 50,
+    "count": 1,
+    "slot": "one_hand",
+    "source": "Reward From {SCENARIO 95}",
+    "description": "Během svého tahu {CURSE} všechny sousední nepřátele.",
+    "consumed": true
+  },
+  {
+    "id": 120,
+    "name": "Hůl přivolávání",
+    "cost": 60,
+    "count": 1,
+    "slot": "two_hands",
+    "source": "Reward From {SCENARIO 88}",
+    "description": "Během svého tahu přivolaný spojenec do {RANGE} 3 provede akci „{MOVE} 3\", kterou řídíš ty.",
+    "spent": true
+  },
+  {
+    "id": 121,
+    "name": "Koule úsvitu",
+    "cost": 50,
+    "count": 1,
+    "slot": "one_hand",
+    "source": "Reward From {SCENARIO 85}",
+    "description": "Během svého tahu {DARK_X} vytvoř Světlo. {LIGHT}"
+  },
+  {
+    "id": 122,
+    "name": "Koule soumraku",
+    "cost": 50,
+    "count": 1,
+    "slot": "one_hand",
+    "source": "{SCENARIO 89} (Treasure #27)",
+    "description": "Během svého tahu {LIGHT_X} vytvoř Tmu. {DARK}"
+  },
+  {
+    "id": 123,
+    "name": "Prsten lebek",
+    "cost": 50,
+    "count": 2,
+    "slot": "small_item",
+    "source": "{SCENARIO 04} (Treasure #38)",
+    "description": "Přivolej Kostlivce.",
+    "consumed": true,
+    "faq": "Karta je považována za trvalý bonus a umisťuje se do aktivní oblasti, dokud není přivolaný tvor zabit nebo karta odebrána (tím se odstraní přivolaný tvor a spotřebuje předmět). Pokud je karta obnovena a je aktivní přivolaný tvor z karty, aktivní přivolaný tvor zmizí."
+  },
+  {
+    "id": 124,
+    "name": "Prokletý kompas",
+    "cost": 50,
+    "count": 1,
+    "slot": "small_item",
+    "source": "{SCENARIO 93} (Treasure #54)",
+    "description": "Během svého tahu přinuť nepřítele do {RANGE} 5 provést akci „{MOVE} 2\", kterou řídíš ty.",
+    "consumed": true
+  },
+  {
+    "id": 125,
+    "name": "Podivný mechanismus",
+    "cost": 50,
+    "count": 1,
+    "slot": "small_item",
+    "source": "City Event 03\nOption from {SCENARIO 100}",
+    "description": "Během svého tahu zneškodni všechny pasti do {RANGE} 2.",
+    "consumed": true
+  },
+  {
+    "id": 126,
+    "name": "Vzdálený pavouk",
+    "cost": 40,
+    "count": 1,
+    "slot": "small_item",
+    "source": "City Event 43\nOption from {SCENARIO 100}",
+    "description": "Během svého tahu {POISON} všechny sousední nepřátele.",
+    "consumed": true
+  },
+  {
+    "id": 127,
+    "name": "Obří vzdálený pavouk",
+    "cost": 60,
+    "count": 1,
+    "slot": "small_item",
+    "source": "City Event 61",
+    "description": "Během svého tahu proveď akci {LOOT 1}.",
+    "consumed": true
+  },
+  {
+    "id": 128,
+    "name": "Černý kadidelník",
+    "cost": 50,
+    "count": 1,
+    "slot": "small_item",
+    "source": "Reward From {SCENARIO 90}",
+    "description": "Během svého tahu {MUDDLE} všechny nepřátele do {RANGE} 2.",
+    "consumed": true
+  },
+  {
+    "id": 129,
+    "name": "Černá karta",
+    "cost": 75,
+    "count": 1,
+    "slot": "small_item",
+    "source": "Road Event 51",
+    "description": "Během svého tahu polož žeton postavy na sousedního normálního nebo elitního nepřítele. Přidáš +1 {ATTACK} ke všem svým útokům na tohoto nepřítele.",
+    "consumed": true
+  },
+  {
+    "id": 130,
+    "name": "Prsten šroubovice",
+    "cost": 50,
+    "count": 1,
+    "slot": "small_item",
+    "source": "{SCENARIO 81} (Treasure #68)",
+    "description": "Během svého tahu {LIGHT_X} {DARK_X} proveď akci „{HEAL} 25, sebe\".",
+    "consumed": true
+  },
+  {
+    "id": 131,
+    "name": "Srdce zrádce",
+    "cost": 60,
+    "count": 1,
+    "slot": "small_item",
+    "source": "{SCENARIO 79} (Treasure #52)",
+    "description": "Při útoku sousedním normálním nepřítelem přinuť nepřítele zaútočit místo toho na jednoho ze svých spojenců v jeho dosahu.",
+    "consumed": true,
+    "faq": "Tento předmět nelze použít, pokud není v dosahu žádný další nepřítel, na kterého by se útočilo."
+  },
+  {
+    "id": 132,
+    "name": "Jádro síly",
+    "cost": 75,
+    "count": 1,
+    "slot": "small_item",
+    "source": "{SCENARIO 67}",
+    "description": "Přivolej Ocelový konstrukt.",
+    "consumed": true,
+    "faq": "Karta je považována za trvalý bonus a umisťuje se do aktivní oblasti, dokud není přivolaný tvor zabit nebo karta odebrána (tím se odstraní přivolaný tvor a spotřebuje předmět). Pokud je karta obnovena a je aktivní přivolaný tvor z karty, aktivní přivolaný tvor zmizí."
+  },
+  {
+    "id": 133,
+    "name": "Rezonanční krystal",
+    "cost": 20,
+    "count": 1,
+    "slot": "small_item",
+    "source": "{SCENARIO 84}",
+    "description": "Během svého tahu znič sousední překážku.",
+    "consumed": true
+  },
+  {
+    "id": 134,
+    "name": "Impozantní čepel",
+    "cost": 50,
+    "count": 1,
+    "slot": "one_hand",
+    "source": "Reward from Solo Scenario - {BR}",
+    "description": "Pokaždé, když zabiješ nepřítele během svého tahu, získej {SHIELD} 1 do konce kola."
+  },
+  {
+    "id": 135,
+    "name": "Zaostřovací paprsek",
+    "cost": 50,
+    "count": 1,
+    "slot": "one_hand",
+    "source": "Reward from Solo Scenario - {TI}",
+    "description": "Během své léčivé akce zdvojnásob hodnotu léčení.",
+    "consumed": true
+  },
+  {
+    "id": 136,
+    "name": "Nestabilní elixír",
+    "cost": 50,
+    "count": 1,
+    "slot": "small_item",
+    "source": "Reward from Solo Scenario - {SW}",
+    "description": "Během svého útoku na dálku přidej +2 {ATTACK} a získej Výhodu na celou útočnou akci, ale utrp 2 zranění za každý provedený útok.",
+    "consumed": true
+  },
+  {
+    "id": 137,
+    "name": "Tichý stilet",
+    "cost": 50,
+    "count": 1,
+    "slot": "one_hand",
+    "source": "Reward from Solo Scenario - {SC}",
+    "description": "Pokaždé, když provedeš útok na blízko, přidej {PIERCE} 1 k útoku."
+  },
+  {
+    "id": 138,
+    "name": "Kamenný amulet",
+    "cost": 50,
+    "count": 1,
+    "slot": "head",
+    "source": "Reward from Solo Scenario - {CH}",
+    "description": "Během své akce, kde se tvoří překážka, vytvoř jednu další překážku a aplikuj na ni všechny efekty akce.",
+    "spent": true
+  },
+  {
+    "id": 139,
+    "name": "Psychický nůž",
+    "cost": 50,
+    "count": 1,
+    "slot": "one_hand",
+    "source": "Reward from Solo Scenario - {MT}",
+    "description": "Pokaždé, když provedeš akci {AUGMENT}, přidej +1 {ATTACK} k celé akci."
+  },
+  {
+    "id": 140,
+    "name": "Sluneční štít",
+    "cost": 50,
+    "count": 1,
+    "slot": "one_hand",
+    "source": "Reward from Solo Scenario - {SK}",
+    "description": "Při zranění útokem můžeš {LIGHT_X} získat {SHIELD} 3 na tento útok."
+  },
+  {
+    "id": 141,
+    "name": "Užitkový opasek",
+    "cost": 50,
+    "count": 1,
+    "slot": "small_item",
+    "source": "Reward from Solo Scenario - {QM}",
+    "description": "Během svého tahu ty nebo libovolný jeden spojenec může {REFRESH} jeden ze svých utracených nebo spotřebovaných předmětů.",
+    "consumed": true,
+    "faq": "Tento předmět nelze obnovit."
+  },
+  {
+    "id": 142,
+    "name": "Fázový idol",
+    "cost": 50,
+    "count": 1,
+    "slot": "small_item",
+    "source": "Reward from Solo Scenario - {SU}",
+    "description": "Když je tvůj přivolaný tvor zraněn útokem, neutrpí místo toho žádné zranění.",
+    "consumed": true
+  },
+  {
+    "id": 143,
+    "name": "Kouřový elixír",
+    "cost": 50,
+    "count": 1,
+    "slot": "small_item",
+    "source": "Reward from Solo Scenario - {NS}",
+    "description": "Během svého tahu získej {INVISIBLE} a vytvoř Tmu. {DARK}",
+    "consumed": true
+  },
+  {
+    "id": 144,
+    "name": "Přívěsek moru",
+    "cost": 50,
+    "count": 1,
+    "slot": "head",
+    "source": "Reward from Solo Scenario - {PH}",
+    "description": "Během svého tahu {POISON} a {CURSE} jednoho nepřítele do {RANGE} 3.",
+    "spent": true
+  },
+  {
+    "id": 145,
+    "name": "Maska smrti",
+    "cost": 50,
+    "count": 1,
+    "slot": "head",
+    "source": "Reward from Solo Scenario - {BE}",
+    "description": "Pokaždé, když provedeš útok na blízko a máš přesně 1 životní bod, přidej +2 {ATTACK} k útoku."
+  },
+  {
+    "id": 146,
+    "name": "Mistrova loutna",
+    "cost": 50,
+    "count": 1,
+    "slot": "two_hands",
+    "source": "Reward from Solo Scenario - {SS}",
+    "description": "Po provedení jakékoli akce {SONG} okamžitě proveď akci {ATTACK} 2 nebo {MOVE} 2."
+  },
+  {
+    "id": 147,
+    "name": "Plášť lovce",
+    "cost": 50,
+    "count": 1,
+    "slot": "body",
+    "source": "Reward from Solo Scenario - {DS}",
+    "description": "Pokaždé, když provedeš akci {DOOM}, {MUDDLE} cíl akce {DOOM}."
+  },
+  {
+    "id": 148,
+    "name": "Doktorský plášť",
+    "cost": 50,
+    "count": 1,
+    "slot": "body",
+    "source": "Reward from Solo Scenario - {SB}",
+    "description": "Pokaždé, když spojenec provede akci Lékárnička nebo Velká lékárnička, přidá +1 {HEAL} ke svému léčení."
+  },
+  {
+    "id": 149,
+    "name": "Živelné boty",
+    "cost": 50,
+    "count": 1,
+    "slot": "legs",
+    "source": "Reward from Solo Scenario - {EL}",
+    "description": "Pokud se pohneš o 5 nebo více hexů ve svém tahu, vytvoř libovolný živel. {ANY}",
+    "spent": true
+  },
+  {
+    "id": 150,
+    "name": "Hůl velení",
+    "cost": 50,
+    "count": 1,
+    "slot": "two_hands",
+    "source": "Reward from Solo Scenario - {BT}",
+    "description": "Po provedení akce {COMMAND} zahraj jednu kartu z ruky a okamžitě proveď stejnou stranu karty (horní nebo spodní) jako akci {COMMAND}.",
+    "spent": true
+  },
+  {
+    "id": 151,
+    "name": "Meč písků",
+    "cost": 50,
+    "count": 1,
+    "slot": "one_hand",
+    "source": "Reward from Solo Scenario - {BS}",
+    "description": "Během svého útoku na blízko přidej {POISON} a {WOUND} k celé útočné akci.",
+    "spent": true
+  },
+  {
+    "id": 152,
+    "name": "Prsten duality",
+    "cost": 50,
+    "count": 1,
+    "slot": "small_item",
+    "source": "Reward from {SCENARIO 97}\nSection 125 “A locked chest” in book",
+    "description": "Po provedení horní akce jakékoli karty schopnosti můžeš okamžitě provést spodní akci stejné karty. Tento předmět nelze použít, pokud obě akce vyvolají ikonu ztracené karty {CONSUMED}.",
+    "consumed": true
+  },
+  {
+    "id": 153,
+    "name": "Slabý protijed",
+    "cost": 25,
+    "count": 2,
+    "slot": "small_item",
+    "source": "Reward From {SCENARIO 99}",
+    "description": "Příštích třikrát, co bys získal {POISON}, zabraň tomuto stavu."
+  },
+  {
+    "id": 154,
+    "name": "Silný protijed",
+    "cost": 50,
+    "count": 2,
+    "slot": "small_item",
+    "source": "Reward from {SCENARIO 105}",
+    "description": "Příštích pětkrát, co bys získal {POISON}, zabraň tomuto stavu."
+  },
+  {
+    "id": 155,
+    "name": "Zbroj proti kletbám",
+    "cost": 75,
+    "count": 1,
+    "slot": "body",
+    "source": "Reward from {SCENARIO 108}",
+    "description": "Jsi imunní vůči {CURSE}, i když je předmět utracen. Na další tři zdroje zranění z útoků na tebe získej {SHIELD} 1. Přidej 3 {-1} do svého balíčku modifikátorů útoku.",
+    "spent": true
+  },
+  {
+    "id": 156,
+    "name": "Živelný claymore",
+    "cost": 50,
+    "count": 2,
+    "slot": "two_hands",
+    "source": "Unknown",
+    "description": "Během svého útoku na blízko {ANY_X} přidej +2 {ATTACK} k jednomu útoku."
+  },
+  {
+    "id": 157,
+    "name": "Starověký luk",
+    "cost": 40,
+    "count": 2,
+    "slot": "two_hands",
+    "source": "{SCENARIO 107} (Treasure #78)\nSection 32 “Collapsed Atrium” in book",
+    "description": "Během svého útoku na dálku přidej +2 {ATTACK}, {CURSE} a {WOUND} k jednomu útoku.",
+    "consumed": true
+  },
+  {
+    "id": 158,
+    "name": "Omlazovací holeně",
+    "cost": 35,
+    "count": 2,
+    "slot": "legs",
+    "source": "{SCENARIO 111} (Treasure #82)",
+    "description": "Během tvého pohybu přidej +2 {MOVE} k pohybu a získej {REGENERATE}.",
+    "spent": true
+  },
+  {
+    "id": 159,
+    "name": "Svitek rychlosti",
+    "cost": 30,
+    "count": 2,
+    "slot": "small_item",
+    "source": "{SCENARIO 103} (Treasure #81)",
+    "description": "Během pohybu libovolného jednoho spojence přidej +2 {MOVE} k pohybu.",
+    "consumed": true
+  },
+  {
+    "id": 160,
+    "name": "Zlodějská dýka",
+    "cost": 45,
+    "count": 1,
+    "slot": "one_hand",
+    "source": "Unknown",
+    "description": "Když zabiješ nestvůru během svého tahu, získej jeden peněžní žeton.",
+    "spent": true
+  },
+  {
+    "id": 161,
+    "name": "Vrhací sekera",
+    "cost": 35,
+    "count": 2,
+    "slot": "one_hand",
+    "source": "Reward from {SCENARIO 108}",
+    "description": "Během svého útoku na blízko na jeden cíl přidej {RANGE} 3 k útoku.",
+    "consumed": true
+  },
+  {
+    "id": 162,
+    "name": "Trhlinové zařízení",
+    "cost": 50,
+    "count": 1,
+    "slot": "small_item",
+    "source": "Reward from {SCENARIO 112}\nSection 62 “Mechanical Splendor” in book.",
+    "description": "Během svého tahu se {TELEPORT} na libovolný neobsazený hex do 4 hexů od tebe.",
+    "consumed": true
+  },
+  {
+    "id": 163,
+    "name": "Křišťálová tiára",
+    "cost": 75,
+    "count": 1,
+    "slot": "head",
+    "source": "Reward from {SCENARIO 110}",
+    "description": "Když provedeš dlouhý nebo krátký odpočinek, získej {STRENGTHEN}."
+  },
+  {
+    "id": 164,
+    "name": "Mísa proroctví",
+    "cost": 50,
+    "count": 1,
+    "slot": "two_hands",
+    "source": "Reward from Solo Scenario - {DR}",
+    "description": "Když odhaluješ karty z jakéhokoli balíčku, odhal jednu kartu navíc."
+  }
+]
