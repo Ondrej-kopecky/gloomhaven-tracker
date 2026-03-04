@@ -74,6 +74,12 @@ export const useScenarioStore = defineStore('scenario', () => {
         continue
       }
 
+      // Random side scenarios (no linkedFrom) are always available
+      if (scenario.isSide && scenario.linkedFrom.length === 0) {
+        statuses[scenario.id] = ScenarioStatus.AVAILABLE
+        continue
+      }
+
       // Check if any parent (linkedFrom) is completed
       const isUnlocked = scenario.linkedFrom.some((parentId) => {
         const parentDef = getDefinition(String(parentId))
@@ -109,9 +115,9 @@ export const useScenarioStore = defineStore('scenario', () => {
       }
     }
 
-    // Pass 3: Check blocks_on conditions
+    // Pass 3: Check blocks_on conditions (only block scenarios that would be AVAILABLE)
     for (const scenario of scenarioDefinitions.value) {
-      if (statuses[scenario.id] === ScenarioStatus.COMPLETED) continue
+      if (statuses[scenario.id] !== ScenarioStatus.AVAILABLE) continue
       if (!scenario.blocksOn?.length) continue
 
       const isBlocked = checkAnyConditionMet(scenario.blocksOn)
@@ -134,7 +140,7 @@ export const useScenarioStore = defineStore('scenario', () => {
     // Pass 5: Check coupled scenarios (if one is completed, block the other)
     for (const scenario of scenarioDefinitions.value) {
       if (!scenario.coupled) continue
-      if (statuses[scenario.id] === ScenarioStatus.COMPLETED) continue
+      if (statuses[scenario.id] !== ScenarioStatus.AVAILABLE) continue
       if (statuses[String(scenario.coupled)] === ScenarioStatus.COMPLETED) {
         statuses[scenario.id] = ScenarioStatus.BLOCKED
       }

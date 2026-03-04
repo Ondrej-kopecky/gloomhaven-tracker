@@ -30,7 +30,7 @@ function handleFitView() {
 </script>
 
 <template>
-  <div v-if="campaignStore.hasCampaign" class="flex flex-col h-[calc(100vh-56px)]">
+  <div v-if="campaignStore.hasCampaign" class="flex flex-col h-[calc(100dvh-4rem)]">
     <!-- Toolbar -->
     <div class="px-4 py-2 flex items-center justify-between border-b border-gh-border bg-gh-dark/50">
       <FlowchartControls @fit-view="handleFitView" />
