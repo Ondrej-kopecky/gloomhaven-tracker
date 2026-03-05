@@ -13,6 +13,7 @@
     "@vue-leaflet/vue-leaflet": "^0.10.1",
     "@vueuse/core": "^14.2.1",
     "leaflet": "^1.9.4",
+    "panzoom": "^9.4.3",
     "pinia": "^3.0.4",
     "svg-pan-zoom": "^3.6.2",
     "vue": "^3.5.25",
