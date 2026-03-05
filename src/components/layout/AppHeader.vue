@@ -7,6 +7,7 @@ const campaignStore = useCampaignStore()
 
 const navItems = [
   { to: '/prehled', label: 'Přehled', icon: '&#x2B21;' },
+  { to: '/mapa', label: 'Mapa', icon: '&#x1F5FA;' },
   { to: '/scenare', label: 'Scénáře', icon: '&#x1F4DC;' },
   { to: '/predmety', label: 'Předměty', icon: '&#x1F392;' },
   { to: '/druzina', label: 'Družina', icon: '&#x2691;' },
