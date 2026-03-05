@@ -28,8 +28,9 @@ const newProfileName = ref('')
 const showNewProfile = ref(false)
 
 onMounted(async () => {
-  if (!campaignStore.hasCampaign) router.push('/kampan')
-  await scenarioStore.loadScenarioData()
+  if (campaignStore.hasCampaign) {
+    await scenarioStore.loadScenarioData()
+  }
 })
 
 function inputValue(e: Event): string {
@@ -168,7 +169,7 @@ function formatDate(iso: string): string {
 </script>
 
 <template>
-  <div v-if="campaignStore.hasCampaign" class="max-w-2xl mx-auto">
+  <div class="max-w-2xl mx-auto">
     <div class="gh-page-header">
       <h1 class="font-display text-2xl font-bold text-gh-primary tracking-wide">Nastavení</h1>
     </div>
@@ -278,7 +279,7 @@ function formatDate(iso: string): string {
     </div>
 
     <!-- ── Kampaň ── -->
-    <div class="gh-card relative overflow-hidden p-6 mb-5">
+    <div v-if="campaignStore.hasCampaign" class="gh-card relative overflow-hidden p-6 mb-5">
       <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-gh-primary"></div>
       <div class="flex items-center gap-2 mb-4">
         <div class="w-7 h-7 rounded-lg bg-gh-primary/15 flex items-center justify-center">
@@ -347,7 +348,7 @@ function formatDate(iso: string): string {
     </div>
 
     <!-- ── Statistiky ── -->
-    <div class="gh-card relative overflow-hidden p-6 mb-5">
+    <div v-if="campaignStore.hasCampaign" class="gh-card relative overflow-hidden p-6 mb-5">
       <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-green-500"></div>
       <div class="flex items-center gap-2 mb-5">
         <div class="w-7 h-7 rounded-lg bg-green-500/15 flex items-center justify-center">
@@ -431,7 +432,7 @@ function formatDate(iso: string): string {
       </div>
 
       <div class="flex flex-col sm:flex-row gap-3">
-        <button class="gh-btn-secondary flex-1 text-sm" @click="handleExport">
+        <button v-if="campaignStore.hasCampaign" class="gh-btn-secondary flex-1 text-sm" @click="handleExport">
           <span class="flex items-center justify-center gap-2">
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
@@ -491,7 +492,7 @@ function formatDate(iso: string): string {
     </div>
 
     <!-- ── Nebezpečná zóna ── -->
-    <div class="rounded-2xl p-6 border border-red-900/25 bg-red-900/[0.04]">
+    <div v-if="campaignStore.hasCampaign" class="rounded-2xl p-6 border border-red-900/25 bg-red-900/[0.04]">
       <h3 class="text-[11px] font-semibold text-red-400/60 uppercase tracking-wider mb-4">Nebezpečná zóna</h3>
       <p class="text-xs text-gray-500 mb-4 leading-relaxed">Smazání kampaně je nevratné. Před smazáním si doporučujeme exportovat data.</p>
       <button
