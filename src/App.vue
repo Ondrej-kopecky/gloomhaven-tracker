@@ -2,11 +2,14 @@
 import { onMounted } from 'vue'
 import AppHeader from '@/components/layout/AppHeader.vue'
 import { useProfileStore } from '@/stores/profileStore'
+import { useAuthStore } from '@/stores/authStore'
 
 const profileStore = useProfileStore()
+const authStore = useAuthStore()
 
-onMounted(() => {
+onMounted(async () => {
   profileStore.init()
+  await authStore.init()
 })
 </script>
 

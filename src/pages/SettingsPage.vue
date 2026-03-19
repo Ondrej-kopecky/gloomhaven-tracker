@@ -7,10 +7,12 @@ import { usePartyStore } from '@/stores/partyStore'
 import { useCharacterStore } from '@/stores/characterStore'
 import { useAchievementStore } from '@/stores/achievementStore'
 import { useScenarioStore } from '@/stores/scenarioStore'
+import { useAuthStore } from '@/stores/authStore'
 
 const router = useRouter()
 const campaignStore = useCampaignStore()
 const profileStore = useProfileStore()
+const authStore = useAuthStore()
 const partyStore = usePartyStore()
 const characterStore = useCharacterStore()
 const achievementStore = useAchievementStore()
@@ -21,6 +23,9 @@ const showDeleteProfileConfirm = ref(false)
 const importError = ref('')
 const exportSuccess = ref(false)
 const importSuccess = ref(false)
+
+const syncResult = ref<{ synced: number; error: string | null } | null>(null)
+const isSyncing = ref(false)
 
 const editingCampaignName = ref(false)
 const editingProfileName = ref(false)
@@ -159,6 +164,25 @@ async function resetCampaign() {
   router.push('/kampan')
 }
 
+async function handleSync() {
+  isSyncing.value = true
+  syncResult.value = null
+  try {
+    syncResult.value = await authStore.syncCampaigns()
+    if (!syncResult.value.error) {
+      await campaignStore.loadCampaignList()
+    }
+  } finally {
+    isSyncing.value = false
+    setTimeout(() => (syncResult.value = null), 5000)
+  }
+}
+
+function handleLogout() {
+  authStore.logout()
+  campaignStore.loadCampaignList()
+}
+
 function formatDate(iso: string): string {
   return new Date(iso).toLocaleDateString('cs-CZ', {
     day: 'numeric',
@@ -172,6 +196,63 @@ function formatDate(iso: string): string {
   <div class="max-w-2xl mx-auto">
     <div class="gh-page-header">
       <h1 class="font-display text-2xl font-bold text-gh-primary tracking-wide">Nastavení</h1>
+    </div>
+
+    <!-- ── Účet ── -->
+    <div class="gh-card relative overflow-hidden p-6 mb-5">
+      <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-emerald-500"></div>
+      <div class="flex items-center gap-2 mb-4">
+        <div class="w-7 h-7 rounded-lg bg-emerald-500/15 flex items-center justify-center">
+          <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z" />
+          </svg>
+        </div>
+        <h3 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider">Účet &amp; Cloud sync</h3>
+      </div>
+
+      <!-- Logged in -->
+      <template v-if="authStore.isLoggedIn">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 text-sm font-bold uppercase">
+            {{ authStore.user?.username?.charAt(0) ?? '?' }}
+          </div>
+          <div>
+            <div class="text-sm font-medium text-gray-200">{{ authStore.user?.username }}</div>
+            <div class="text-[11px] text-gray-600">{{ authStore.user?.email }}</div>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <button
+            class="gh-btn-secondary text-xs flex items-center gap-1.5"
+            :disabled="isSyncing"
+            @click="handleSync"
+          >
+            <svg class="w-3.5 h-3.5" :class="{ 'animate-spin': isSyncing }" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182M2.985 19.644l3.181-3.182" />
+            </svg>
+            {{ isSyncing ? 'Synchronizuji...' : 'Synchronizovat' }}
+          </button>
+          <button class="gh-btn-ghost text-xs !text-gray-600 hover:!text-red-400" @click="handleLogout">
+            Odhlásit se
+          </button>
+        </div>
+        <p v-if="syncResult && !syncResult.error" class="mt-3 text-xs text-green-400 flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+          </svg>
+          Synchronizováno ({{ syncResult.synced }} {{ syncResult.synced === 1 ? 'kampaň' : syncResult.synced < 5 ? 'kampaně' : 'kampaní' }})
+        </p>
+        <p v-if="syncResult?.error" class="mt-3 text-xs text-red-400">{{ syncResult.error }}</p>
+      </template>
+
+      <!-- Not logged in -->
+      <template v-else>
+        <p class="text-sm text-gray-400 mb-4">Přihlaste se pro synchronizaci kampaní napříč zařízeními.</p>
+        <div class="flex gap-2">
+          <router-link to="/prihlaseni" class="gh-btn-primary text-xs">Přihlásit se</router-link>
+          <router-link to="/registrace" class="gh-btn-ghost text-xs">Registrace</router-link>
+        </div>
+      </template>
     </div>
 
     <!-- ── Profil hráče ── -->

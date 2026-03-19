@@ -3,14 +3,28 @@ import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useCampaignStore } from '@/stores/campaignStore'
 import { useProfileStore } from '@/stores/profileStore'
+import { useAuthStore } from '@/stores/authStore'
 
 const router = useRouter()
 const campaignStore = useCampaignStore()
 const profileStore = useProfileStore()
+const authStore = useAuthStore()
 
 const newCampaignName = ref('')
 const showCreate = ref(false)
 const showDeleteConfirm = ref<string | null>(null)
+
+const loginEmail = ref('')
+const loginPassword = ref('')
+
+async function handleQuickLogin() {
+  if (!loginEmail.value.trim() || !loginPassword.value) return
+  const ok = await authStore.login(loginEmail.value.trim(), loginPassword.value)
+  if (ok) {
+    await authStore.syncCampaigns()
+    await campaignStore.loadCampaignList()
+  }
+}
 
 onMounted(async () => {
   await campaignStore.loadCampaignList()
@@ -92,6 +106,63 @@ function formatDate(iso: string): string {
       >
         {{ p.name }}
       </button>
+    </div>
+
+    <!-- Logged in: cloud sync badge -->
+    <div v-if="authStore.isLoggedIn" class="flex items-center justify-center gap-3 mb-8">
+      <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+        <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z" />
+        </svg>
+        <span class="text-[11px] text-emerald-400 font-medium">{{ authStore.user?.username }}</span>
+      </div>
+    </div>
+
+    <!-- Not logged in: inline login card -->
+    <div v-else class="gh-card relative overflow-hidden p-5 mb-8">
+      <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-emerald-500"></div>
+      <div class="flex items-start gap-4">
+        <div class="w-9 h-9 rounded-xl bg-emerald-500/15 flex items-center justify-center shrink-0 mt-0.5">
+          <svg class="w-4.5 h-4.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z" />
+          </svg>
+        </div>
+        <div class="flex-1 min-w-0">
+          <h3 class="text-sm font-semibold text-gray-200 mb-1">Přihlaste se pro cloud sync</h3>
+          <p class="text-[11px] text-gray-600 mb-3">Synchronizujte kampaně napříč zařízeními</p>
+
+          <form @submit.prevent="handleQuickLogin" class="flex flex-col sm:flex-row gap-2">
+            <input
+              v-model="loginEmail"
+              type="email"
+              placeholder="Email"
+              class="gh-input text-xs flex-1"
+              autocomplete="email"
+            />
+            <input
+              v-model="loginPassword"
+              type="password"
+              placeholder="Heslo"
+              class="gh-input text-xs flex-1"
+              autocomplete="current-password"
+            />
+            <button
+              type="submit"
+              class="gh-btn-primary text-xs whitespace-nowrap"
+              :disabled="authStore.isLoading"
+            >
+              {{ authStore.isLoading ? '...' : 'Přihlásit' }}
+            </button>
+          </form>
+          <p v-if="authStore.error" class="text-xs text-red-400 mt-2">{{ authStore.error }}</p>
+          <p class="text-[11px] text-gray-600 mt-2">
+            Nemáte účet?
+            <router-link to="/registrace" class="text-gh-primary hover:text-gh-primary-light transition-colors">
+              Zaregistrujte se
+            </router-link>
+          </p>
+        </div>
+      </div>
     </div>
 
     <!-- Create new campaign -->
