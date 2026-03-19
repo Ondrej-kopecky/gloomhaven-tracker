@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
 import { useCampaignStore } from '@/stores/campaignStore'
+import { useAuthStore } from '@/stores/authStore'
 
 const route = useRoute()
 const campaignStore = useCampaignStore()
+const authStore = useAuthStore()
 
 const navItems = [
   { to: '/prehled', label: 'Přehled', icon: '&#x2B21;' },
@@ -87,6 +89,16 @@ const isActive = (path: string) => route.path === path
               {{ campaignStore.hideSpoilers ? 'Spoilery skryté' : 'Spoilery viditelné' }}
             </div>
           </div>
+
+          <!-- User avatar -->
+          <router-link
+            v-if="authStore.isLoggedIn"
+            to="/nastaveni"
+            class="w-8 h-8 rounded-full bg-gh-primary/20 flex items-center justify-center text-gh-primary text-xs font-bold uppercase hover:bg-gh-primary/30 transition-colors"
+            title="Účet"
+          >
+            {{ authStore.user?.username?.charAt(0) ?? '?' }}
+          </router-link>
 
           <!-- Settings -->
           <router-link

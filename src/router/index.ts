@@ -67,6 +67,18 @@ const router = createRouter({
       component: () => import('@/pages/CampaignSelectPage.vue'),
       meta: { title: 'Výběr kampaně' },
     },
+    {
+      path: '/prihlaseni',
+      name: 'login',
+      component: () => import('@/pages/LoginPage.vue'),
+      meta: { title: 'Přihlášení' },
+    },
+    {
+      path: '/registrace',
+      name: 'register',
+      component: () => import('@/pages/RegisterPage.vue'),
+      meta: { title: 'Registrace' },
+    },
   ],
 })
 

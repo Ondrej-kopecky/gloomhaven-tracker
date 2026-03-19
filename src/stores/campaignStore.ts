@@ -6,8 +6,6 @@ import { useStorage } from '@/composables/useStorage'
 import { useDebounceFn } from '@vueuse/core'
 
 export const useCampaignStore = defineStore('campaign', () => {
-  const storage = useStorage()
-
   const campaigns = ref<CampaignSummary[]>([])
   const currentCampaign = ref<CampaignState | null>(null)
   const isLoading = ref(false)
@@ -23,7 +21,7 @@ export const useCampaignStore = defineStore('campaign', () => {
   }
 
   async function loadCampaignList() {
-    campaigns.value = await storage.listCampaigns()
+    campaigns.value = await useStorage().listCampaigns()
   }
 
   async function createCampaign(name: string): Promise<CampaignState> {
@@ -56,7 +54,7 @@ export const useCampaignStore = defineStore('campaign', () => {
       notes: '',
     }
 
-    await storage.saveCampaign(campaign)
+    await useStorage().saveCampaign(campaign)
     currentCampaign.value = campaign
     await loadCampaignList()
     return campaign
@@ -65,7 +63,7 @@ export const useCampaignStore = defineStore('campaign', () => {
   async function loadCampaign(id: string) {
     isLoading.value = true
     try {
-      const campaign = await storage.loadCampaign(id)
+      const campaign = await useStorage().loadCampaign(id)
       if (campaign) {
         currentCampaign.value = campaign
       }
@@ -75,7 +73,7 @@ export const useCampaignStore = defineStore('campaign', () => {
   }
 
   async function deleteCampaign(id: string) {
-    await storage.deleteCampaign(id)
+    await useStorage().deleteCampaign(id)
     if (currentCampaign.value?.id === id) {
       currentCampaign.value = null
     }
@@ -85,7 +83,7 @@ export const useCampaignStore = defineStore('campaign', () => {
   const debouncedSave = useDebounceFn(async () => {
     if (currentCampaign.value) {
       currentCampaign.value.lastPlayedAt = new Date().toISOString()
-      await storage.saveCampaign(currentCampaign.value)
+      await useStorage().saveCampaign(currentCampaign.value)
     }
   }, 300)
 
@@ -95,11 +93,11 @@ export const useCampaignStore = defineStore('campaign', () => {
 
   async function exportCampaign(): Promise<string> {
     if (!currentCampaign.value) throw new Error('Žádná kampaň není načtena')
-    return storage.exportCampaign(currentCampaign.value.id)
+    return useStorage().exportCampaign(currentCampaign.value.id)
   }
 
   async function importCampaign(json: string) {
-    const campaign = await storage.importCampaign(json)
+    const campaign = await useStorage().importCampaign(json)
     currentCampaign.value = campaign
     await loadCampaignList()
   }
