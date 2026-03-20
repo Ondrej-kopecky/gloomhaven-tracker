@@ -74,11 +74,8 @@ export const useScenarioStore = defineStore('scenario', () => {
         continue
       }
 
-      // Random side scenarios (no linkedFrom) are always available
-      if (scenario.isSide && scenario.linkedFrom.length === 0) {
-        statuses[scenario.id] = ScenarioStatus.AVAILABLE
-        continue
-      }
+      // Random side scenarios (no linkedFrom) stay locked until explicitly unlocked
+      // They are unlocked via city/road events or other game mechanics
 
       // Check if any parent (linkedFrom) is completed
       const isUnlocked = scenario.linkedFrom.some((parentId) => {

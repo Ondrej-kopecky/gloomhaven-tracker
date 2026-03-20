@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { ScenarioStatus } from '@/models/types'
 import { useCampaignStore } from '@/stores/campaignStore'
 import { useScenarioStore } from '@/stores/scenarioStore'
@@ -8,6 +8,7 @@ import { useFlowchartStore } from '@/stores/flowchartStore'
 import { useAchievementStore } from '@/stores/achievementStore'
 
 const router = useRouter()
+const route = useRoute()
 const campaignStore = useCampaignStore()
 const scenarioStore = useScenarioStore()
 const flowchartStore = useFlowchartStore()
@@ -68,6 +69,15 @@ onMounted(async () => {
     return
   }
   await scenarioStore.loadScenarioData()
+
+  // Open scenario detail if ?open=ID is in query
+  const openId = route.query.open as string | undefined
+  if (openId) {
+    const scenario = scenarioStore.allScenarios.find(s => s.id === openId)
+    if (scenario) {
+      openModal(scenario)
+    }
+  }
 })
 
 const SPOILER_VISIBLE_STATUSES = new Set([

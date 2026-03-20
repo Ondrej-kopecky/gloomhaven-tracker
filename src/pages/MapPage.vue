@@ -22,10 +22,8 @@ const MAP_WIDTH = 2606
 const MAP_HEIGHT = 2155
 const MAP_Y_OFFSET = 184
 
-// Sticker offset: original stickers are 133x90px scaled 0.79 = ~105x71px
-// Coordinates point to top-left corner; offset to align marker with sticker number
-const STICKER_OFFSET_X = 20
-const STICKER_OFFSET_Y = 12
+// Sticker scale from reference project (133x90 stickers scaled to ~105x71)
+const STICKER_SCALE = 0.79
 
 onMounted(async () => {
   if (!campaignStore.hasCampaign) {
@@ -107,6 +105,22 @@ const selectedScenario = computed(() => {
   return scenarioStore.allScenarios.find((s) => s.id === selectedId.value) ?? null
 })
 
+function stickerSrc(id: string, status: ScenarioStatus): string {
+  const suffix = status === ScenarioStatus.COMPLETED ? '_c' : ''
+  return `/img/stickers/${id}${suffix}.png`
+}
+
+function statusGlow(status: ScenarioStatus): string {
+  switch (status) {
+    case ScenarioStatus.COMPLETED: return 'drop-shadow(0 0 6px rgba(34,197,94,0.6))'
+    case ScenarioStatus.AVAILABLE: return 'drop-shadow(0 0 6px rgba(196,163,90,0.5))'
+    case ScenarioStatus.ATTEMPTED: return 'drop-shadow(0 0 6px rgba(245,158,11,0.5))'
+    case ScenarioStatus.BLOCKED: return 'drop-shadow(0 0 6px rgba(239,68,68,0.5))'
+    case ScenarioStatus.REQUIRED: return 'drop-shadow(0 0 6px rgba(168,85,247,0.5))'
+    default: return ''
+  }
+}
+
 function markerColor(status: ScenarioStatus): string {
   switch (status) {
     case ScenarioStatus.COMPLETED: return '#22c55e'
@@ -115,17 +129,6 @@ function markerColor(status: ScenarioStatus): string {
     case ScenarioStatus.BLOCKED: return '#ef4444'
     case ScenarioStatus.REQUIRED: return '#a855f7'
     default: return '#6b7280'
-  }
-}
-
-function markerBorder(status: ScenarioStatus): string {
-  switch (status) {
-    case ScenarioStatus.COMPLETED: return '#166534'
-    case ScenarioStatus.AVAILABLE: return '#92722d'
-    case ScenarioStatus.ATTEMPTED: return '#b45309'
-    case ScenarioStatus.BLOCKED: return '#991b1b'
-    case ScenarioStatus.REQUIRED: return '#7e22ce'
-    default: return '#374151'
   }
 }
 
@@ -170,31 +173,22 @@ function goToScenarios(id: string) {
         :style="{ top: -MAP_Y_OFFSET + 'px', width: '100%' }"
       />
 
-      <!-- Scenario markers -->
-      <div
+      <!-- Scenario stickers (positioned exactly like reference project) -->
+      <img
         v-for="s in visibleScenarios"
         :key="s.id"
-        class="absolute"
+        :src="stickerSrc(s.id, s.computedStatus)"
+        :alt="s.name"
+        class="absolute cursor-pointer transition-transform duration-150 hover:scale-110"
         :style="{
-          left: 'calc(' + s.coordinates.x + '% + ' + STICKER_OFFSET_X + 'px)',
-          top: 'calc(' + s.coordinates.y + '% + ' + STICKER_OFFSET_Y + 'px)',
+          left: s.coordinates.x + '%',
+          top: s.coordinates.y + '%',
+          transform: 'scale(' + STICKER_SCALE + ')',
+          filter: statusGlow(s.computedStatus),
+          zIndex: selectedId === s.id ? 30 : 10,
         }"
-      >
-        <button
-          class="flex items-center justify-center rounded-full cursor-pointer transition-transform duration-150 hover:scale-125 focus:outline-none -translate-x-1/2 -translate-y-1/2"
-          :style="{
-            width: '28px',
-            height: '28px',
-            backgroundColor: markerColor(s.computedStatus),
-            border: '2.5px solid ' + markerBorder(s.computedStatus),
-            boxShadow: '0 0 8px ' + markerColor(s.computedStatus) + '80',
-            zIndex: selectedId === s.id ? 30 : 10,
-          }"
-          @click.stop="onMarkerClick(s.id)"
-        >
-          <span class="text-[10px] font-bold text-white drop-shadow-sm leading-none">{{ s.id }}</span>
-        </button>
-      </div>
+        @click.stop="onMarkerClick(s.id)"
+      />
     </div>
 
     <!-- Tooltip popup -->
