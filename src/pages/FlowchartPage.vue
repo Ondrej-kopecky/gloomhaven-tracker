@@ -39,14 +39,19 @@ function handleFitView() {
   <div v-if="campaignStore.hasCampaign" class="fixed inset-0 top-16 z-40 flex flex-col bg-gh-dark">
     <!-- Toolbar -->
     <div class="px-2 py-1.5 border-b border-gh-border bg-gh-dark shrink-0">
-      <!-- Desktop -->
+      <!-- Desktop: controls + legend side by side -->
       <div class="hidden lg:flex items-center justify-between">
         <FlowchartControls @fit-view="handleFitView" />
-        <div class="hidden lg:block"><FlowchartLegend /></div>
+        <FlowchartLegend />
       </div>
-      <!-- Mobile: all filters in one scrollable row -->
-      <div class="lg:hidden flex items-center gap-1 overflow-x-auto scrollbar-hide">
-        <FlowchartControls @fit-view="handleFitView" />
+      <!-- Mobile/tablet: controls scrollable, legend below -->
+      <div class="lg:hidden">
+        <div class="flex items-center gap-1 overflow-x-auto scrollbar-hide">
+          <FlowchartControls @fit-view="handleFitView" />
+        </div>
+        <div class="mt-1.5 pt-1.5 border-t border-gh-border/30">
+          <FlowchartLegend />
+        </div>
       </div>
     </div>
 
