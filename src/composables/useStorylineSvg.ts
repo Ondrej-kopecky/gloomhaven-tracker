@@ -70,15 +70,22 @@ export function useStorylineSvg(containerRef: Ref<HTMLElement | null>) {
     // Attach click listeners
     container.addEventListener('click', handleClick)
 
-    // Mobile touch: tap detection + pinch-to-zoom
+    // Mobile touch: tap detection + smooth pinch-to-zoom
     let touchStartTarget: EventTarget | null = null
-    let touchMoved = false
+    let touchStartX = 0
+    let touchStartY = 0
+    let isPinching = false
     let lastPinchDist = 0
+    const TAP_THRESHOLD = 15 // px — finger wobble tolerance
 
     container.addEventListener('touchstart', (e: TouchEvent) => {
-      touchStartTarget = e.target
-      touchMoved = false
+      if (e.touches.length === 1) {
+        touchStartTarget = e.target
+        touchStartX = e.touches[0].clientX
+        touchStartY = e.touches[0].clientY
+      }
       if (e.touches.length === 2) {
+        isPinching = true
         lastPinchDist = Math.hypot(
           e.touches[0].clientX - e.touches[1].clientX,
           e.touches[0].clientY - e.touches[1].clientY
@@ -87,36 +94,51 @@ export function useStorylineSvg(containerRef: Ref<HTMLElement | null>) {
     }, { passive: true })
 
     container.addEventListener('touchmove', (e: TouchEvent) => {
-      touchMoved = true
-      // Pinch-to-zoom
+      // Smooth pinch-to-zoom using zoomAtPointBy
       if (e.touches.length === 2 && panZoomInstance && lastPinchDist > 0) {
         e.preventDefault()
+        isPinching = true
         const dist = Math.hypot(
           e.touches[0].clientX - e.touches[1].clientX,
           e.touches[0].clientY - e.touches[1].clientY
         )
         const scale = dist / lastPinchDist
-        if (scale > 1.02) {
-          panZoomInstance.zoomIn()
-          lastPinchDist = dist
-        } else if (scale < 0.98) {
-          panZoomInstance.zoomOut()
+        if (Math.abs(scale - 1) > 0.01) {
+          // Zoom at the midpoint between two fingers
+          const svg = getSvgEl()
+          if (svg) {
+            const rect = svg.getBoundingClientRect()
+            const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2 - rect.left
+            const midY = (e.touches[0].clientY + e.touches[1].clientY) / 2 - rect.top
+            panZoomInstance.zoomAtPointBy(scale, { x: midX, y: midY })
+          }
           lastPinchDist = dist
         }
       }
     }, { passive: false })
 
     container.addEventListener('touchend', (e: TouchEvent) => {
-      if (!touchMoved) {
-        const target = (touchStartTarget ?? e.target) as Element
-        if (target.closest('.scenario')) {
-          e.preventDefault()
-          e.stopPropagation()
-          handleClick({ target } as unknown as Event)
+      if (e.touches.length === 0) {
+        // Tap detection (only if it wasn't a pinch gesture)
+        if (!isPinching && touchStartTarget) {
+          const endX = e.changedTouches[0].clientX
+          const endY = e.changedTouches[0].clientY
+          const dist = Math.hypot(endX - touchStartX, endY - touchStartY)
+
+          if (dist < TAP_THRESHOLD) {
+            const target = touchStartTarget as Element
+            const scenarioEl = target.closest?.('.scenario')
+            if (scenarioEl) {
+              e.preventDefault()
+              e.stopPropagation()
+              handleClick({ target } as unknown as Event)
+            }
+          }
         }
+        touchStartTarget = null
+        isPinching = false
+        lastPinchDist = 0
       }
-      touchStartTarget = null
-      lastPinchDist = 0
     })
 
     // Initial render

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch, computed } from 'vue'
+import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useCampaignStore } from '@/stores/campaignStore'
 import { useAuthStore } from '@/stores/authStore'
@@ -28,13 +28,6 @@ const navItems = [
   { to: '/achievementy', label: 'Úspěchy', svg: 'M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z' },
   { to: '/nastaveni', label: 'Nastavení', svg: 'M12.22 2h-.44a2 2 0 00-2 2v.18a2 2 0 01-1 1.73l-.43.25a2 2 0 01-2 0l-.15-.08a2 2 0 00-2.73.73l-.22.38a2 2 0 00.73 2.73l.15.1a2 2 0 011 1.72v.51a2 2 0 01-1 1.74l-.15.09a2 2 0 00-.73 2.73l.22.38a2 2 0 002.73.73l.15-.08a2 2 0 012 0l.43.25a2 2 0 011 1.73V20a2 2 0 002 2h.44a2 2 0 002-2v-.18a2 2 0 011-1.73l.43-.25a2 2 0 012 0l.15.08a2 2 0 002.73-.73l.22-.39a2 2 0 00-.73-2.73l-.15-.08a2 2 0 01-1-1.74v-.5a2 2 0 011-1.74l.15-.09a2 2 0 00.73-2.73l-.22-.38a2 2 0 00-2.73-.73l-.15.08a2 2 0 01-2 0l-.43-.25a2 2 0 01-1-1.73V4a2 2 0 00-2-2z M15 12a3 3 0 11-6 0 3 3 0 016 0z' },
 ]
-
-// On mobile, "Přehled" links to /scenare (flowchart SVG needs desktop)
-const mobileNavItems = computed(() =>
-  navItems.map(item =>
-    item.to === '/prehled' ? { ...item, to: '/scenare' } : item
-  )
-)
 
 const isActive = (path: string) => route.path === path
 </script>
@@ -177,7 +170,7 @@ const isActive = (path: string) => route.path === path
           <!-- Nav links -->
           <div class="flex-1 py-3 px-3 overflow-hidden">
             <router-link
-              v-for="item in mobileNavItems"
+              v-for="item in navItems"
               :key="item.to"
               :to="item.to"
               class="flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-200 min-h-[48px]"
