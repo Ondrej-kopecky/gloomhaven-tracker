@@ -82,14 +82,18 @@ function formatDate(iso: string): string {
       <h1 class="font-display text-3xl sm:text-5xl font-bold text-gh-primary tracking-wider mb-3">
         GLOOMHAVEN
       </h1>
-      <p class="text-sm text-gray-500 tracking-[0.25em] uppercase font-light">Campaign Tracker</p>
+      <p class="text-sm text-gray-500 tracking-[0.25em] uppercase font-light">Tracker</p>
 
       <!-- Ornamental divider -->
-      <div class="flex items-center justify-center gap-3 mt-6">
+      <div class="flex items-center justify-center gap-3 mt-5">
         <div class="w-16 h-px bg-gradient-to-r from-transparent to-gh-primary/40" />
         <div class="w-1.5 h-1.5 rotate-45 border border-gh-primary/50" />
         <div class="w-16 h-px bg-gradient-to-l from-transparent to-gh-primary/40" />
       </div>
+
+      <p class="text-sm text-gray-500 mt-5 max-w-md mx-auto leading-relaxed">
+        Sledujte postup vaší kampaně — scénáře, postavy, předměty, úspěchy a mapu světa. Vše offline, přímo v prohlížeči.
+      </p>
     </div>
 
     <!-- Profile switcher -->

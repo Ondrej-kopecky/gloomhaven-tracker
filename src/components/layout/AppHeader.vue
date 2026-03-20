@@ -53,8 +53,9 @@ const isActive = (path: string) => route.path === path
             </svg>
             <div class="absolute inset-0 bg-gh-primary/20 blur-lg rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           </div>
-          <span class="hidden sm:block font-display text-lg font-bold tracking-widest text-gh-primary group-hover:text-gh-primary-light transition-colors duration-300 uppercase">
-            Gloomhaven
+          <span class="hidden sm:flex items-baseline gap-1.5 font-display font-bold tracking-widest group-hover:text-gh-primary-light transition-colors duration-300 uppercase">
+            <span class="text-lg text-gh-primary">Gloomhaven</span>
+            <span class="text-xs text-gray-500 tracking-wider">Tracker</span>
           </span>
         </router-link>
 
