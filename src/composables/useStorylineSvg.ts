@@ -202,7 +202,7 @@ export function useStorylineSvg(containerRef: Ref<HTMLElement | null>) {
       for (const cls of STATE_CLASSES) {
         node.classList.remove(cls)
       }
-      node.classList.remove('opacity-50')
+      el.style.opacity = ''
 
       // Side scenarios: ALWAYS visible, but dimmed when hidden/locked
       // Main scenarios: hidden when locked/hidden
@@ -215,8 +215,8 @@ export function useStorylineSvg(containerRef: Ref<HTMLElement | null>) {
         // Side scenarios always shown
         el.style.display = ''
         if (isHiddenOrLocked) {
-          // Dimmed appearance for locked side scenarios
-          node.classList.add('opacity-50')
+          // Dimmed but still visible for locked side scenarios
+          el.style.opacity = '0.7'
         } else {
           const stateClass = STATUS_CLASS_MAP[status]
           if (stateClass) {

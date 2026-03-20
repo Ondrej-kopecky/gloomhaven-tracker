@@ -59,7 +59,7 @@ const isActive = (path: string) => route.path === path
         </router-link>
 
         <!-- Desktop nav -->
-        <nav class="hidden md:flex items-center gap-1">
+        <nav class="hidden lg:flex items-center gap-1">
           <router-link
             v-for="item in navItems"
             :key="item.to"
@@ -106,7 +106,7 @@ const isActive = (path: string) => route.path === path
           <router-link
             v-if="authStore.isLoggedIn"
             to="/nastaveni"
-            class="hidden md:flex w-8 h-8 rounded-full bg-gh-primary/20 items-center justify-center text-gh-primary text-xs font-bold uppercase hover:bg-gh-primary/30 transition-colors"
+            class="hidden lg:flex w-8 h-8 rounded-full bg-gh-primary/20 items-center justify-center text-gh-primary text-xs font-bold uppercase hover:bg-gh-primary/30 transition-colors"
             title="Účet"
           >
             {{ authStore.user?.username?.charAt(0) ?? '?' }}
@@ -115,7 +115,7 @@ const isActive = (path: string) => route.path === path
           <!-- Settings icon (desktop only) -->
           <router-link
             to="/nastaveni"
-            class="hidden md:block p-2.5 rounded-lg transition-all duration-200"
+            class="hidden lg:block p-2.5 rounded-lg transition-all duration-200"
             :class="isActive('/nastaveni')
               ? 'text-gh-primary bg-gh-primary/10'
               : 'text-gray-500 hover:text-gray-300 hover:bg-white/[0.03]'"
@@ -129,7 +129,7 @@ const isActive = (path: string) => route.path === path
 
           <!-- Hamburger button (mobile only) -->
           <button
-            class="md:hidden p-2.5 rounded-lg text-gray-400 hover:text-gray-200 hover:bg-white/[0.05] transition-all duration-200"
+            class="lg:hidden p-2.5 rounded-lg text-gray-400 hover:text-gray-200 hover:bg-white/[0.05] transition-all duration-200"
             @click="mobileMenuOpen = true"
           >
             <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
@@ -145,14 +145,14 @@ const isActive = (path: string) => route.path === path
       <transition name="drawer-backdrop">
         <div
           v-if="mobileMenuOpen"
-          class="fixed inset-0 z-[90] bg-black/60 backdrop-blur-sm md:hidden"
+          class="fixed inset-0 z-[90] bg-black/60 backdrop-blur-sm lg:hidden"
           @click="mobileMenuOpen = false"
         />
       </transition>
       <transition name="drawer">
         <nav
           v-if="mobileMenuOpen"
-          class="fixed top-0 right-0 bottom-0 z-[100] w-72 bg-gh-dark border-l border-gh-border/60 flex flex-col md:hidden safe-area-top"
+          class="fixed top-0 right-0 bottom-0 z-[100] w-72 bg-gh-dark border-l border-gh-border/60 flex flex-col lg:hidden safe-area-top"
         >
           <!-- Drawer header -->
           <div class="flex items-center justify-between px-5 h-16 border-b border-gh-border/40">

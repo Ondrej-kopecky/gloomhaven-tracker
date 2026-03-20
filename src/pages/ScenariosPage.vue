@@ -306,14 +306,14 @@ function goToFlowchart(id: string) {
       <Transition name="modal">
         <div
           v-if="selectedScenario"
-          class="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-4"
+          class="fixed inset-0 z-50 flex items-center justify-center p-0 lg:p-4"
           @click.self="closeModal"
         >
           <!-- backdrop -->
           <div class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
 
           <!-- modal panel -->
-          <div class="relative w-full h-full rounded-none md:max-w-lg md:max-h-[85vh] md:rounded-2xl bg-gh-card border border-gh-border shadow-2xl overflow-hidden flex flex-col">
+          <div class="relative w-full h-full rounded-none lg:max-w-lg lg:max-h-[85vh] lg:rounded-2xl bg-gh-card border border-gh-border shadow-2xl overflow-hidden flex flex-col">
             <!-- header -->
             <div class="relative px-6 pt-5 pb-4 border-b border-gh-border">
               <!-- left accent -->
