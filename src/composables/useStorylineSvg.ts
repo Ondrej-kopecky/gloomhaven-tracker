@@ -39,9 +39,9 @@ export function useStorylineSvg(containerRef: Ref<HTMLElement | null>) {
     return containerRef.value?.querySelector(`#chapter${id}`) ?? null
   }
 
-  // ViewBox values
+  // ViewBox — must include ALL content (main + side scenarios)
   const VIEWBOX = {
-    portrait: '0 -40 320 550',
+    portrait: '0 -70 420 1080',
     landscape: '0 -40 610 700',
   }
 
