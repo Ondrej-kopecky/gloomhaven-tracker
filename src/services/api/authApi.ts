@@ -29,6 +29,14 @@ export function login(username: string, password: string) {
   return apiPostForm<LoginResponse>('/auth/login', { username, password })
 }
 
+export function forgotPassword(email: string) {
+  return apiPost<{ message: string }>('/auth/forgot-password', { email })
+}
+
+export function resetPassword(email: string, code: string, newPassword: string) {
+  return apiPost<{ message: string }>('/auth/reset-password', { email, code, new_password: newPassword })
+}
+
 export function getMe() {
   return apiGet<AuthUser>('/auth/me')
 }
