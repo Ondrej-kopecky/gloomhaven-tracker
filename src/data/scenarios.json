@@ -5,9 +5,9 @@
     "location": "G-10",
     "isSide": false,
     "coordinates": {
-      "name": "G-10",
       "x": 45.19126,
-      "y": 41.6
+      "y": 41.6,
+      "name": "G-10"
     },
     "linksTo": [
       2
@@ -48,9 +48,9 @@
     "location": "G-11",
     "isSide": false,
     "coordinates": {
-      "name": "G-11",
       "x": 49.31775,
-      "y": 41
+      "y": 41,
+      "name": "G-11"
     },
     "linksTo": [
       3,
@@ -101,9 +101,9 @@
     "location": "G-3",
     "isSide": false,
     "coordinates": {
-      "name": "G-3",
       "x": 13.88521,
-      "y": 43.585
+      "y": 43.585,
+      "name": "G-3"
     },
     "linksTo": [
       8,
@@ -166,9 +166,9 @@
     "location": "E-11",
     "isSide": false,
     "coordinates": {
-      "name": "E-11",
       "x": 45.57246,
-      "y": 31.19
+      "y": 31.19,
+      "name": "E-11"
     },
     "linksTo": [
       6,
@@ -212,9 +212,9 @@
     "location": "D-6",
     "isSide": false,
     "coordinates": {
-      "name": "D-6",
       "x": 26.89366,
-      "y": 26.58
+      "y": 26.58,
+      "name": "D-6"
     },
     "linksTo": [
       14,
@@ -260,9 +260,9 @@
     "location": "F-10",
     "isSide": false,
     "coordinates": {
-      "name": "F-10",
       "x": 41.97965,
-      "y": 38.3
+      "y": 38.3,
+      "name": "F-10"
     },
     "linksTo": [
       8
@@ -310,9 +310,9 @@
     "location": "C-12",
     "isSide": false,
     "coordinates": {
-      "name": "C-12",
       "x": 55.04528,
-      "y": 19.85
+      "y": 19.85,
+      "name": "C-12"
     },
     "linksTo": [
       20
@@ -356,9 +356,9 @@
     "location": "C-18",
     "isSide": false,
     "coordinates": {
-      "name": "C-18",
       "x": 80.03294,
-      "y": 18.1
+      "y": 18.1,
+      "name": "C-18"
     },
     "linksTo": [
       7,
@@ -425,9 +425,9 @@
     "location": "L-2",
     "isSide": false,
     "coordinates": {
-      "name": "L-2",
       "x": 10.0065,
-      "y": 70.65
+      "y": 70.65,
+      "name": "L-2"
     },
     "linksTo": [
       11,
@@ -485,9 +485,9 @@
     "location": "C-7",
     "isSide": false,
     "coordinates": {
-      "name": "C-7",
       "x": 29.711681,
-      "y": 23.56
+      "y": 23.56,
+      "name": "C-7"
     },
     "linksTo": [
       21,
@@ -542,9 +542,9 @@
     "location": "B-16",
     "isSide": false,
     "coordinates": {
-      "name": "B-16",
       "x": 72.8092,
-      "y": 14.65
+      "y": 14.65,
+      "name": "B-16"
     },
     "linksTo": [
       16,
@@ -612,9 +612,9 @@
     "location": "B-16",
     "isSide": false,
     "coordinates": {
-      "name": "B-16",
       "x": 72.8092,
-      "y": 14.65
+      "y": 14.65,
+      "name": "B-16"
     },
     "linksTo": [
       16,
@@ -680,9 +680,9 @@
     "location": "N-3",
     "isSide": false,
     "coordinates": {
-      "name": "N-3",
       "x": 17.36366,
-      "y": 84.42
+      "y": 84.42,
+      "name": "N-3"
     },
     "linksTo": [
       15,
@@ -729,9 +729,9 @@
     "location": "C-10",
     "isSide": false,
     "coordinates": {
-      "name": "C-10",
       "x": 45.31515,
-      "y": 19.33
+      "y": 19.33,
+      "name": "C-10"
     },
     "linksTo": [],
     "linkedFrom": [
@@ -774,9 +774,9 @@
     "location": "B-11",
     "isSide": false,
     "coordinates": {
-      "name": "B-11",
       "x": 48.76501,
-      "y": 16.8
+      "y": 16.8,
+      "name": "B-11"
     },
     "linksTo": [],
     "linkedFrom": [
@@ -814,9 +814,9 @@
     "location": "B-6",
     "isSide": false,
     "coordinates": {
-      "name": "B-6",
       "x": 27.11285,
-      "y": 18.92
+      "y": 18.92,
+      "name": "B-6"
     },
     "linksTo": [
       25,
@@ -858,9 +858,9 @@
     "location": "K-17",
     "isSide": false,
     "coordinates": {
-      "name": "K-17",
       "x": 80.38555,
-      "y": 59.235
+      "y": 59.235,
+      "name": "K-17"
     },
     "linksTo": [],
     "linkedFrom": [
@@ -904,9 +904,9 @@
     "location": "C-14",
     "isSide": false,
     "coordinates": {
-      "name": "C-14",
       "x": 65.087994,
-      "y": 20.895
+      "y": 20.895,
+      "name": "C-14"
     },
     "linksTo": [
       23,
@@ -951,9 +951,9 @@
     "location": "M-7",
     "isSide": false,
     "coordinates": {
-      "name": "M-7",
       "x": 32.9738,
-      "y": 74.64
+      "y": 74.64,
+      "name": "M-7"
     },
     "linksTo": [
       27
@@ -1008,9 +1008,9 @@
     "location": "H-13",
     "isSide": false,
     "coordinates": {
-      "name": "H-13",
       "x": 56.227,
-      "y": 44.9
+      "y": 44.9,
+      "name": "H-13"
     },
     "linksTo": [
       28,
@@ -1064,9 +1064,9 @@
     "location": "C-7",
     "isSide": false,
     "coordinates": {
-      "name": "C-7",
       "x": 32.64025,
-      "y": 22.6
+      "y": 22.6,
+      "name": "C-7"
     },
     "linksTo": [],
     "linkedFrom": [
@@ -1126,9 +1126,9 @@
     "location": "K-8",
     "isSide": false,
     "coordinates": {
-      "name": "K-8",
       "x": 37.99611,
-      "y": 64.25
+      "y": 64.25,
+      "name": "K-8"
     },
     "linksTo": [
       35,
@@ -1184,9 +1184,9 @@
     "location": "C-15",
     "isSide": false,
     "coordinates": {
-      "name": "C-15",
       "x": 69.9502,
-      "y": 19.85
+      "y": 19.85,
+      "name": "C-15"
     },
     "linksTo": [
       26
@@ -1235,9 +1235,9 @@
     "location": "C-6",
     "isSide": false,
     "coordinates": {
-      "name": "C-6",
       "x": 23.87265,
-      "y": 19.67
+      "y": 19.67,
+      "name": "C-6"
     },
     "linksTo": [
       32,
@@ -1282,9 +1282,9 @@
     "location": "A-5",
     "isSide": false,
     "coordinates": {
-      "name": "A-5",
       "x": 19.88911,
-      "y": 13.07
+      "y": 13.07,
+      "name": "A-5"
     },
     "linksTo": [
       33,
@@ -1330,9 +1330,9 @@
     "location": "D-15",
     "isSide": false,
     "coordinates": {
-      "name": "D-15",
       "x": 70.0455,
-      "y": 23.3
+      "y": 23.3,
+      "name": "D-15"
     },
     "linksTo": [
       22
@@ -1393,9 +1393,9 @@
     "location": "E-6",
     "isSide": false,
     "coordinates": {
-      "name": "E-6",
       "x": 27.84666,
-      "y": 30.6
+      "y": 30.6,
+      "name": "E-6"
     },
     "linksTo": [],
     "linkedFrom": [
@@ -1442,9 +1442,9 @@
     "location": "E-4",
     "isSide": false,
     "coordinates": {
-      "name": "E-4",
       "x": 17.29695,
-      "y": 32.1
+      "y": 32.1,
+      "name": "E-4"
     },
     "linksTo": [
       29
@@ -1495,9 +1495,9 @@
     "location": "E-3",
     "isSide": false,
     "coordinates": {
-      "name": "E-3",
       "x": 13.2467,
-      "y": 32.5
+      "y": 32.5,
+      "name": "E-3"
     },
     "linksTo": [],
     "linkedFrom": [
@@ -1548,9 +1548,9 @@
     "location": "N-15",
     "isSide": false,
     "coordinates": {
-      "name": "N-15",
       "x": 69.42605,
-      "y": 79.37
+      "y": 79.37,
+      "name": "N-15"
     },
     "linksTo": [
       42
@@ -1602,9 +1602,9 @@
     "location": "A-16",
     "isSide": false,
     "coordinates": {
-      "name": "A-16",
       "x": 72.86638,
-      "y": 8.912
+      "y": 8.912,
+      "name": "A-16"
     },
     "linksTo": [
       39,
@@ -1664,9 +1664,9 @@
     "location": "L-11",
     "isSide": false,
     "coordinates": {
-      "name": "L-11",
       "x": 51.86226,
-      "y": 67.9
+      "y": 67.9,
+      "name": "L-11"
     },
     "linksTo": [
       33,
@@ -1712,9 +1712,9 @@
     "location": "A-7",
     "isSide": false,
     "coordinates": {
-      "name": "A-7",
       "x": 29.09509,
-      "y": 10.3
+      "y": 10.3,
+      "name": "A-7"
     },
     "linksTo": [],
     "linkedFrom": [
@@ -1769,9 +1769,9 @@
     "location": "A-4",
     "isSide": false,
     "coordinates": {
-      "name": "A-4",
       "x": 16.21053,
-      "y": 9.27
+      "y": 9.27,
+      "name": "A-4"
     },
     "linksTo": [],
     "linkedFrom": [
@@ -1838,9 +1838,9 @@
     "location": "A-14",
     "isSide": false,
     "coordinates": {
-      "name": "A-14",
       "x": 64.0416,
-      "y": 9.42
+      "y": 9.42,
+      "name": "A-14"
     },
     "linksTo": [
       45
@@ -1914,9 +1914,9 @@
     "location": "B-14",
     "isSide": false,
     "coordinates": {
-      "name": "B-14",
       "x": 64.0416,
-      "y": 9.42
+      "y": 9.42,
+      "name": "B-14"
     },
     "linksTo": [],
     "linkedFrom": [
@@ -1986,9 +1986,9 @@
     "location": "G-18",
     "isSide": false,
     "coordinates": {
-      "name": "G-18",
       "x": 81.34808,
-      "y": 39.795
+      "y": 39.795,
+      "name": "G-18"
     },
     "linksTo": [
       47
@@ -2043,9 +2043,9 @@
     "location": "G-2",
     "isSide": false,
     "coordinates": {
-      "name": "G-2",
       "x": 10.62595,
-      "y": 43
+      "y": 43,
+      "name": "G-2"
     },
     "linksTo": [
       48,
@@ -2093,9 +2093,9 @@
     "location": "B-11",
     "isSide": false,
     "coordinates": {
-      "name": "B-11",
       "x": 47.5547,
-      "y": 12.73
+      "y": 12.73,
+      "name": "B-11"
     },
     "linksTo": [
       46,
@@ -2143,9 +2143,9 @@
     "location": "F-12",
     "isSide": false,
     "coordinates": {
-      "name": "F-12",
       "x": 54.321,
-      "y": 35.1
+      "y": 35.1,
+      "name": "F-12"
     },
     "linksTo": [
       41
@@ -2200,9 +2200,9 @@
     "location": "F-13",
     "isSide": false,
     "coordinates": {
-      "name": "F-13",
       "x": 58.39031,
-      "y": 34.9
+      "y": 34.9,
+      "name": "F-13"
     },
     "linksTo": [],
     "linkedFrom": [
@@ -2260,9 +2260,9 @@
     "location": "C-5",
     "isSide": false,
     "coordinates": {
-      "name": "C-5",
       "x": 18.6788,
-      "y": 19.4
+      "y": 19.4,
+      "name": "C-5"
     },
     "linksTo": [],
     "linkedFrom": [
@@ -2330,9 +2330,9 @@
     "location": "D-4",
     "isSide": false,
     "coordinates": {
-      "name": "D-4",
       "x": 14.41889,
-      "y": 29.3
+      "y": 29.3,
+      "name": "D-4"
     },
     "linksTo": [],
     "linkedFrom": [
@@ -2381,9 +2381,9 @@
     "location": "F-3",
     "isSide": false,
     "coordinates": {
-      "name": "F-3",
       "x": 14.82868,
-      "y": 37.9
+      "y": 37.9,
+      "name": "F-3"
     },
     "linksTo": [],
     "linkedFrom": [
@@ -2428,9 +2428,9 @@
     "location": "M-9",
     "isSide": false,
     "coordinates": {
-      "name": "M-9",
       "x": 39.7401,
-      "y": 72.25
+      "y": 72.25,
+      "name": "M-9"
     },
     "linksTo": [
       49,
@@ -2482,9 +2482,9 @@
     "location": "A-11",
     "isSide": false,
     "coordinates": {
-      "name": "A-11",
       "x": 47.50705,
-      "y": 7.34
+      "y": 7.34,
+      "name": "A-11"
     },
     "linksTo": [
       51
@@ -2535,9 +2535,9 @@
     "location": "H-18",
     "isSide": false,
     "coordinates": {
-      "name": "H-18",
       "x": 81.8627,
-      "y": 43.47
+      "y": 43.47,
+      "name": "H-18"
     },
     "linksTo": [
       51
@@ -2592,9 +2592,9 @@
     "location": "E-1",
     "isSide": false,
     "coordinates": {
-      "name": "E-1",
       "x": 5.6227,
-      "y": 32.7
+      "y": 32.7,
+      "name": "E-1"
     },
     "linksTo": [
       51
@@ -2645,9 +2645,9 @@
     "location": "N-7",
     "isSide": false,
     "coordinates": {
-      "name": "N-7",
       "x": 33.1644,
-      "y": 80.15
+      "y": 80.15,
+      "name": "N-7"
     },
     "linksTo": [],
     "linkedFrom": [
@@ -2702,9 +2702,9 @@
     "location": "C-17",
     "isSide": false,
     "coordinates": {
-      "name": "C-17",
       "x": 75.74444,
-      "y": 14.65
+      "y": 14.65,
+      "name": "C-17"
     },
     "linksTo": [],
     "linkedFrom": [
@@ -2762,9 +2762,9 @@
     "location": "A-15",
     "isSide": false,
     "coordinates": {
-      "name": "A-15",
       "x": 68.9019,
-      "y": 9.15
+      "y": 9.15,
+      "name": "A-15"
     },
     "linksTo": [],
     "linkedFrom": [
@@ -2821,9 +2821,9 @@
     "location": "D-14",
     "isSide": true,
     "coordinates": {
-      "name": "D-14",
       "x": 62.6121,
-      "y": 21.643
+      "y": 21.643,
+      "name": "D-14"
     },
     "linksTo": [
       53
@@ -2854,9 +2854,9 @@
     "location": "F-11",
     "isSide": false,
     "coordinates": {
-      "name": "F-11",
       "x": 49.42258,
-      "y": 34.1
+      "y": 34.1,
+      "name": "F-11"
     },
     "linksTo": [
       54
@@ -2897,9 +2897,9 @@
     "location": "D-8",
     "isSide": false,
     "coordinates": {
-      "name": "D-8",
       "x": 38.5965,
-      "y": 23.34
+      "y": 23.34,
+      "name": "D-8"
     },
     "linksTo": [],
     "linkedFrom": [
@@ -2939,9 +2939,9 @@
     "location": "G-5",
     "isSide": true,
     "coordinates": {
-      "name": "G-5",
       "x": 21.7284,
-      "y": 43.15
+      "y": 43.15,
+      "name": "G-5"
     },
     "linksTo": [
       56
@@ -2974,9 +2974,9 @@
     "location": "G-4",
     "isSide": false,
     "coordinates": {
-      "name": "G-4",
       "x": 18.04029,
-      "y": 44.67
+      "y": 44.67,
+      "name": "G-4"
     },
     "linksTo": [],
     "linkedFrom": [
@@ -3017,9 +3017,9 @@
     "location": "D-14",
     "isSide": true,
     "coordinates": {
-      "name": "D-14",
       "x": 62.7074,
-      "y": 24.5
+      "y": 24.5,
+      "name": "D-14"
     },
     "linksTo": [
       58
@@ -3061,9 +3061,9 @@
     "location": "E-15",
     "isSide": false,
     "coordinates": {
-      "name": "E-15",
       "x": 68.916195,
-      "y": 30.105
+      "y": 30.105,
+      "name": "E-15"
     },
     "linksTo": [],
     "linkedFrom": [
@@ -3098,9 +3098,9 @@
     "location": "F-1",
     "isSide": true,
     "coordinates": {
-      "name": "F-1",
       "x": 4.62205,
-      "y": 38.7
+      "y": 38.7,
+      "name": "F-1"
     },
     "linksTo": [
       60
@@ -3130,9 +3130,9 @@
     "location": "B-15",
     "isSide": false,
     "coordinates": {
-      "name": "B-15",
       "x": 68.7113,
-      "y": 13.5
+      "y": 13.5,
+      "name": "B-15"
     },
     "linksTo": [],
     "linkedFrom": [
@@ -3168,9 +3168,9 @@
     "location": "N-11",
     "isSide": true,
     "coordinates": {
-      "name": "N-11",
       "x": 53.2727,
-      "y": 79.6
+      "y": 79.6,
+      "name": "N-11"
     },
     "linksTo": [
       62
@@ -3201,9 +3201,9 @@
     "location": "O-11",
     "isSide": false,
     "coordinates": {
-      "name": "O-11",
       "x": 54.46395,
-      "y": 83.55
+      "y": 83.55,
+      "name": "O-11"
     },
     "linksTo": [],
     "linkedFrom": [
@@ -3243,9 +3243,9 @@
     "location": "M-1",
     "isSide": true,
     "coordinates": {
-      "name": "M-1",
       "x": 6.25168,
-      "y": 78.15
+      "y": 78.15,
+      "name": "M-1"
     },
     "linksTo": [],
     "linkedFrom": [],
@@ -3281,9 +3281,9 @@
     "location": "K-16",
     "isSide": true,
     "coordinates": {
-      "name": "K-16",
       "x": 75.68726,
-      "y": 60.63
+      "y": 60.63,
+      "name": "K-16"
     },
     "linksTo": [],
     "linkedFrom": [],
@@ -3326,9 +3326,9 @@
     "location": "L-5",
     "isSide": true,
     "coordinates": {
-      "name": "L-5",
       "x": 23.00542,
-      "y": 71.7
+      "y": 71.7,
+      "name": "L-5"
     },
     "linksTo": [],
     "linkedFrom": [],
@@ -3363,9 +3363,9 @@
     "location": "G-14",
     "isSide": true,
     "coordinates": {
-      "name": "G-14",
       "x": 64.5181,
-      "y": 41.35
+      "y": 41.35,
+      "name": "G-14"
     },
     "linksTo": [],
     "linkedFrom": [],
@@ -3406,9 +3406,9 @@
     "location": "K-2",
     "isSide": true,
     "coordinates": {
-      "name": "K-2",
       "x": 9.57765,
-      "y": 63.4
+      "y": 63.4,
+      "name": "K-2"
     },
     "linksTo": [],
     "linkedFrom": [],
@@ -3444,9 +3444,9 @@
     "location": "N-8",
     "isSide": true,
     "coordinates": {
-      "name": "N-8",
       "x": 39.31125,
-      "y": 79.5
+      "y": 79.5,
+      "name": "N-8"
     },
     "linksTo": [],
     "linkedFrom": [],
@@ -3482,9 +3482,9 @@
     "location": "F-8",
     "isSide": true,
     "coordinates": {
-      "name": "F-8",
       "x": 36.4046,
-      "y": 34.935
+      "y": 34.935,
+      "name": "F-8"
     },
     "linksTo": [],
     "linkedFrom": [],
@@ -3512,9 +3512,9 @@
     "location": "J-17",
     "isSide": true,
     "coordinates": {
-      "name": "J-17",
       "x": 75.675824,
-      "y": 53.4027
+      "y": 53.4027,
+      "name": "J-17"
     },
     "linksTo": [],
     "linkedFrom": [],
@@ -3551,9 +3551,9 @@
     "location": "K-5",
     "isSide": true,
     "coordinates": {
-      "name": "K-5",
       "x": 26.23609,
-      "y": 67.17
+      "y": 67.17,
+      "name": "K-5"
     },
     "linksTo": [],
     "linkedFrom": [],
@@ -3582,9 +3582,9 @@
     "location": "H-12",
     "isSide": true,
     "coordinates": {
-      "name": "H-12",
       "x": 51.53824,
-      "y": 45.35
+      "y": 45.35,
+      "name": "H-12"
     },
     "linksTo": [],
     "linkedFrom": [],
@@ -3616,9 +3616,9 @@
     "location": "N-5",
     "isSide": true,
     "coordinates": {
-      "name": "N-5",
       "x": 25.89301,
-      "y": 79.61
+      "y": 79.61,
+      "name": "N-5"
     },
     "linksTo": [],
     "linkedFrom": [],
@@ -3652,9 +3652,9 @@
     "location": "I-14",
     "isSide": true,
     "coordinates": {
-      "name": "I-14",
       "x": 64.18455,
-      "y": 52.95
+      "y": 52.95,
+      "name": "I-14"
     },
     "linksTo": [],
     "linkedFrom": [],
@@ -3698,9 +3698,9 @@
     "location": "G-12",
     "isSide": true,
     "coordinates": {
-      "name": "G-12",
       "x": 57.7518,
-      "y": 41.78
+      "y": 41.78,
+      "name": "G-12"
     },
     "linksTo": [],
     "linkedFrom": [],
@@ -3740,9 +3740,9 @@
     "location": "L-3",
     "isSide": true,
     "coordinates": {
-      "name": "L-3",
       "x": 16.7728,
-      "y": 71.4
+      "y": 71.4,
+      "name": "L-3"
     },
     "linksTo": [],
     "linkedFrom": [],
@@ -3776,9 +3776,9 @@
     "location": "B-17",
     "isSide": true,
     "coordinates": {
-      "name": "B-17",
       "x": 75.71585,
-      "y": 10.49
+      "y": 10.49,
+      "name": "B-17"
     },
     "linksTo": [],
     "linkedFrom": [],
@@ -3813,9 +3813,9 @@
     "location": "B-14",
     "isSide": true,
     "coordinates": {
-      "name": "B-14",
       "x": 62.3262,
-      "y": 13.815
+      "y": 13.815,
+      "name": "B-14"
     },
     "linksTo": [],
     "linkedFrom": [],
@@ -3846,9 +3846,9 @@
     "location": "K-12",
     "isSide": true,
     "coordinates": {
-      "name": "K-12",
       "x": 57.22765,
-      "y": 61.5
+      "y": 61.5,
+      "name": "K-12"
     },
     "linksTo": [],
     "linkedFrom": [],
@@ -3892,9 +3892,9 @@
     "location": "K-1",
     "isSide": true,
     "coordinates": {
-      "name": "K-1",
       "x": 5.4321,
-      "y": 66.58
+      "y": 66.58,
+      "name": "K-1"
     },
     "linksTo": [],
     "linkedFrom": [],
@@ -3926,9 +3926,9 @@
     "location": "D-2",
     "isSide": true,
     "coordinates": {
-      "name": "D-2",
       "x": 8.69136,
-      "y": 27.18
+      "y": 27.18,
+      "name": "D-2"
     },
     "linksTo": [],
     "linkedFrom": [],
@@ -3964,9 +3964,9 @@
     "location": "M-6",
     "isSide": true,
     "coordinates": {
-      "name": "M-6",
       "x": 28.85684,
-      "y": 76.5
+      "y": 76.5,
+      "name": "M-6"
     },
     "linksTo": [],
     "linkedFrom": [],
@@ -4009,9 +4009,9 @@
     "location": "C-15",
     "isSide": true,
     "coordinates": {
-      "name": "C-15",
       "x": 65.88089,
-      "y": 18.7
+      "y": 18.7,
+      "name": "C-15"
     },
     "linksTo": [],
     "linkedFrom": [],
@@ -4049,9 +4049,9 @@
     "location": "D-12",
     "isSide": true,
     "coordinates": {
-      "name": "D-12",
       "x": 55.82674,
-      "y": 26.45
+      "y": 26.45,
+      "name": "D-12"
     },
     "linksTo": [],
     "linkedFrom": [],
@@ -4095,9 +4095,9 @@
     "location": "M-3",
     "isSide": true,
     "coordinates": {
-      "name": "M-3",
       "x": 17.67815,
-      "y": 77
+      "y": 77,
+      "name": "M-3"
     },
     "linksTo": [],
     "linkedFrom": [],
@@ -4129,9 +4129,9 @@
     "location": "D-15",
     "isSide": true,
     "coordinates": {
-      "name": "D-15",
       "x": 67.1865,
-      "y": 26.95
+      "y": 26.95,
+      "name": "D-15"
     },
     "linksTo": [
       87
@@ -4168,9 +4168,9 @@
     "location": "I-9",
     "isSide": true,
     "coordinates": {
-      "name": "I-9",
       "x": 43.49492,
-      "y": 55.32
+      "y": 55.32,
+      "name": "I-9"
     },
     "linksTo": [],
     "linkedFrom": [
@@ -4213,9 +4213,9 @@
     "location": "D-16",
     "isSide": true,
     "coordinates": {
-      "name": "D-16",
       "x": 74.529365,
-      "y": 23.212
+      "y": 23.212,
+      "name": "D-16"
     },
     "linksTo": [],
     "linkedFrom": [],
@@ -4263,9 +4263,9 @@
     "location": "C-17",
     "isSide": true,
     "coordinates": {
-      "name": "C-17",
       "x": 76.1447,
-      "y": 19.3
+      "y": 19.3,
+      "name": "C-17"
     },
     "linksTo": [],
     "linkedFrom": [],
@@ -4316,9 +4316,9 @@
     "location": "J-7",
     "isSide": true,
     "coordinates": {
-      "name": "J-7",
       "x": 32.81179,
-      "y": 58.86
+      "y": 58.86,
+      "name": "J-7"
     },
     "linksTo": [],
     "linkedFrom": [],
@@ -4351,9 +4351,9 @@
     "location": "E-2",
     "isSide": true,
     "coordinates": {
-      "name": "E-2",
       "x": 9.85402,
-      "y": 31.74
+      "y": 31.74,
+      "name": "E-2"
     },
     "linksTo": [],
     "linkedFrom": [],
@@ -4384,9 +4384,9 @@
     "location": "C-14",
     "isSide": true,
     "coordinates": {
-      "name": "C-14",
       "x": 63.5651,
-      "y": 17.5
+      "y": 17.5,
+      "name": "C-14"
     },
     "linksTo": [],
     "linkedFrom": [],
@@ -4425,9 +4425,9 @@
     "location": "N-17",
     "isSide": true,
     "coordinates": {
-      "name": "N-17",
       "x": 76.4306,
-      "y": 78.263
+      "y": 78.263,
+      "name": "N-17"
     },
     "linksTo": [],
     "linkedFrom": [],
@@ -4470,9 +4470,9 @@
     "location": "F-12",
     "isSide": true,
     "coordinates": {
-      "name": "F-12",
       "x": 53.22505,
-      "y": 38.9
+      "y": 38.9,
+      "name": "F-12"
     },
     "linksTo": [
       95
@@ -4502,9 +4502,9 @@
     "location": "G-12",
     "isSide": false,
     "coordinates": {
-      "name": "G-12",
       "x": 56.227,
-      "y": 38.65
+      "y": 38.65,
+      "name": "G-12"
     },
     "linksTo": [],
     "linkedFrom": [
