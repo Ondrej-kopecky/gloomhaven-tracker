@@ -3,6 +3,7 @@ import { ref, computed } from 'vue'
 import type { CharacterDefinition, CharacterState } from '@/models/Character'
 import type { CharacterClass, ItemSlot } from '@/models/types'
 import type { ItemDefinition } from '@/models/Item'
+import { uuid } from '@/utils/uuid'
 import charactersData from '@/data/characters.json'
 import itemsData from '@/data/items.json'
 import { useCampaignStore } from './campaignStore'
@@ -40,7 +41,7 @@ export const useCharacterStore = defineStore('character', () => {
     if (!def) return
 
     const character: CharacterState = {
-      uuid: crypto.randomUUID(),
+      uuid: uuid(),
       classId,
       playerName,
       level: 1,

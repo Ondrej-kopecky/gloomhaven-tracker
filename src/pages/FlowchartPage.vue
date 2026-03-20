@@ -32,10 +32,15 @@ function handleFitView() {
 <template>
   <div v-if="campaignStore.hasCampaign" class="flex flex-col flowchart-height">
     <!-- Toolbar -->
-    <div class="px-4 py-2 flex items-center justify-between border-b border-gh-border bg-gh-dark/50">
-      <FlowchartControls @fit-view="handleFitView" />
-      <div class="hidden lg:block">
-        <FlowchartLegend />
+    <div class="px-2 py-1.5 border-b border-gh-border bg-gh-dark/50">
+      <!-- Desktop -->
+      <div class="hidden md:flex items-center justify-between">
+        <FlowchartControls @fit-view="handleFitView" />
+        <div class="hidden lg:block"><FlowchartLegend /></div>
+      </div>
+      <!-- Mobile: all filters in one scrollable row -->
+      <div class="md:hidden flex items-center gap-1 overflow-x-auto scrollbar-hide">
+        <FlowchartControls @fit-view="handleFitView" />
       </div>
     </div>
 
@@ -46,16 +51,16 @@ function handleFitView() {
         <StorylineSvg ref="flowchartRef" />
       </div>
 
-      <!-- Detail panel -->
+      <!-- Detail panel: side on desktop, bottom sheet on mobile -->
       <transition
-        enter-active-class="transition-transform duration-200"
-        leave-active-class="transition-transform duration-200"
-        enter-from-class="translate-x-full"
-        leave-to-class="translate-x-full"
+        enter-active-class="transition-all duration-200"
+        leave-active-class="transition-all duration-200"
+        enter-from-class="translate-x-full md:translate-x-full"
+        leave-to-class="translate-x-full md:translate-x-full"
       >
         <div
           v-if="flowchartStore.selectedNodeId"
-          class="absolute right-0 top-0 bottom-0 z-10 p-2"
+          class="absolute right-0 top-0 bottom-0 z-10 p-2 hidden md:block"
         >
           <ScenarioDetail
             :scenario-id="flowchartStore.selectedNodeId"
@@ -65,8 +70,30 @@ function handleFitView() {
       </transition>
     </div>
 
-    <!-- Mobile legend -->
-    <div class="lg:hidden px-4 py-2 border-t border-gh-border bg-gh-dark/50">
+    <!-- Mobile detail: bottom sheet -->
+    <Teleport to="body">
+      <transition name="sheet">
+        <div
+          v-if="flowchartStore.selectedNodeId"
+          class="fixed inset-0 z-50 flex items-end md:hidden"
+          @click.self="flowchartStore.selectNode(null)"
+        >
+          <div class="absolute inset-0 bg-black/50" @click="flowchartStore.selectNode(null)" />
+          <div class="relative w-full max-h-[70vh] bg-gh-card rounded-t-2xl border-t border-gh-border overflow-y-auto overscroll-contain">
+            <div class="flex justify-center pt-3 pb-1" @click="flowchartStore.selectNode(null)">
+              <div class="w-10 h-1 rounded-full bg-white/20"></div>
+            </div>
+            <ScenarioDetail
+              :scenario-id="flowchartStore.selectedNodeId"
+              @close="flowchartStore.selectNode(null)"
+            />
+          </div>
+        </div>
+      </transition>
+    </Teleport>
+
+    <!-- Legend: hidden on mobile (saves space) -->
+    <div class="hidden lg:block px-4 py-2 border-t border-gh-border bg-gh-dark/50">
       <FlowchartLegend />
     </div>
   </div>
@@ -76,9 +103,20 @@ function handleFitView() {
 .flowchart-height {
   height: calc(100dvh - 4rem);
 }
-@media (max-width: 767px) {
-  .flowchart-height {
-    height: calc(100dvh - 4rem - 4rem - env(safe-area-inset-bottom, 0px));
-  }
+.sheet-enter-active,
+.sheet-leave-active {
+  transition: opacity 0.2s ease;
+}
+.sheet-enter-active > :last-child,
+.sheet-leave-active > :last-child {
+  transition: transform 0.25s ease;
+}
+.sheet-enter-from,
+.sheet-leave-to {
+  opacity: 0;
+}
+.sheet-enter-from > :last-child,
+.sheet-leave-to > :last-child {
+  transform: translateY(100%);
 }
 </style>
