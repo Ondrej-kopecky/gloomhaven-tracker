@@ -33,7 +33,7 @@ const isActive = (path: string) => route.path === path
 </script>
 
 <template>
-  <header class="sticky top-0 z-50 border-b border-gh-border/60 bg-gh-dark/85 backdrop-blur-xl safe-area-top">
+  <header class="fixed top-0 left-0 right-0 z-50 border-b border-gh-border/60 bg-gh-dark/85 backdrop-blur-xl safe-area-top">
     <div class="max-w-7xl mx-auto px-4">
       <div class="flex items-center justify-between h-16">
         <!-- Logo -->
