@@ -1,5 +1,6 @@
 import { watch, nextTick, type Ref } from 'vue'
-import svgPanZoom from 'svg-pan-zoom'
+import panzoom from 'panzoom'
+import type { PanZoom } from 'panzoom'
 import { useScenarioStore } from '@/stores/scenarioStore'
 import { useFlowchartStore } from '@/stores/flowchartStore'
 import { ScenarioStatus } from '@/models/types'
@@ -19,7 +20,7 @@ const STATE_CLASSES = ['complete', 'incomplete', 'blocked', 'required', 'attempt
 export function useStorylineSvg(containerRef: Ref<HTMLElement | null>) {
   const scenarioStore = useScenarioStore()
   const flowchartStore = useFlowchartStore()
-  let panZoomInstance: ReturnType<typeof svgPanZoom> | null = null
+  let pzInstance: PanZoom | null = null
   let previousSelectedNode: Element | null = null
 
   function getSvgEl(): SVGSVGElement | null {
@@ -38,7 +39,7 @@ export function useStorylineSvg(containerRef: Ref<HTMLElement | null>) {
     return containerRef.value?.querySelector(`#chapter${id}`) ?? null
   }
 
-  // ViewBox values — portrait tighter for mobile readability
+  // ViewBox values
   const VIEWBOX = {
     portrait: '0 -40 320 550',
     landscape: '0 -40 610 700',
@@ -67,79 +68,12 @@ export function useStorylineSvg(containerRef: Ref<HTMLElement | null>) {
     // Set correct viewBox for orientation
     svg.setAttribute('viewBox', isPortrait ? VIEWBOX.portrait : VIEWBOX.landscape)
 
-    // Attach click listeners
+    // Make SVG fill the container
+    svg.style.width = '100%'
+    svg.style.height = '100%'
+
+    // Attach click listeners (works on desktop)
     container.addEventListener('click', handleClick)
-
-    // Mobile touch: tap detection + smooth pinch-to-zoom
-    let touchStartTarget: EventTarget | null = null
-    let touchStartX = 0
-    let touchStartY = 0
-    let isPinching = false
-    let lastPinchDist = 0
-    const TAP_THRESHOLD = 15 // px — finger wobble tolerance
-
-    container.addEventListener('touchstart', (e: TouchEvent) => {
-      if (e.touches.length === 1) {
-        touchStartTarget = e.target
-        touchStartX = e.touches[0].clientX
-        touchStartY = e.touches[0].clientY
-      }
-      if (e.touches.length === 2) {
-        isPinching = true
-        lastPinchDist = Math.hypot(
-          e.touches[0].clientX - e.touches[1].clientX,
-          e.touches[0].clientY - e.touches[1].clientY
-        )
-      }
-    }, { passive: true })
-
-    container.addEventListener('touchmove', (e: TouchEvent) => {
-      // Smooth pinch-to-zoom using zoomAtPointBy
-      if (e.touches.length === 2 && panZoomInstance && lastPinchDist > 0) {
-        e.preventDefault()
-        isPinching = true
-        const dist = Math.hypot(
-          e.touches[0].clientX - e.touches[1].clientX,
-          e.touches[0].clientY - e.touches[1].clientY
-        )
-        const scale = dist / lastPinchDist
-        if (Math.abs(scale - 1) > 0.01) {
-          // Zoom at the midpoint between two fingers
-          const svg = getSvgEl()
-          if (svg) {
-            const rect = svg.getBoundingClientRect()
-            const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2 - rect.left
-            const midY = (e.touches[0].clientY + e.touches[1].clientY) / 2 - rect.top
-            panZoomInstance.zoomAtPointBy(scale, { x: midX, y: midY })
-          }
-          lastPinchDist = dist
-        }
-      }
-    }, { passive: false })
-
-    container.addEventListener('touchend', (e: TouchEvent) => {
-      if (e.touches.length === 0) {
-        // Tap detection (only if it wasn't a pinch gesture)
-        if (!isPinching && touchStartTarget) {
-          const endX = e.changedTouches[0].clientX
-          const endY = e.changedTouches[0].clientY
-          const dist = Math.hypot(endX - touchStartX, endY - touchStartY)
-
-          if (dist < TAP_THRESHOLD) {
-            const target = touchStartTarget as Element
-            const scenarioEl = target.closest?.('.scenario')
-            if (scenarioEl) {
-              e.preventDefault()
-              e.stopPropagation()
-              handleClick({ target } as unknown as Event)
-            }
-          }
-        }
-        touchStartTarget = null
-        isPinching = false
-        lastPinchDist = 0
-      }
-    })
 
     // Initial render
     nextTick(() => {
@@ -152,32 +86,17 @@ export function useStorylineSvg(containerRef: Ref<HTMLElement | null>) {
     const svg = getSvgEl()
     if (!svg) return
 
-    const isMobile = window.innerWidth < 768
-
-    panZoomInstance = svgPanZoom(svg, {
-      zoomEnabled: true,
-      panEnabled: true,
-      controlIconsEnabled: false,
-      mouseWheelZoomEnabled: true,
-      dblClickZoomEnabled: true,
-      minZoom: isMobile ? 0.8 : 0.5,
-      maxZoom: isMobile ? 6 : 4,
-      zoomScaleSensitivity: 0.3,
-      fit: true,
-      center: true,
-      beforePan(_oldPan, newPan) {
-        const gutter = 100
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const sizes = (this as any).getSizes()
-        const vb = sizes.viewBox
-        const leftLimit = -((vb.x + vb.width) * sizes.realZoom) + gutter
-        const rightLimit = sizes.width - gutter - (vb.x * sizes.realZoom)
-        const topLimit = -((vb.y + vb.height) * sizes.realZoom) + gutter
-        const bottomLimit = sizes.height - gutter - (vb.y * sizes.realZoom)
-        return {
-          x: Math.max(leftLimit, Math.min(rightLimit, newPan.x)),
-          y: Math.max(topLimit, Math.min(bottomLimit, newPan.y)),
-        }
+    pzInstance = panzoom(svg, {
+      minZoom: 0.5,
+      maxZoom: 6,
+      bounds: true,
+      boundsPadding: 0.1,
+      smoothScroll: false,
+      beforeTouch(e: TouchEvent) {
+        // Return true to let the touch event pass through to the element
+        // (cancels panzoom handling for this touch) — enables tap on scenarios
+        const target = e.target as Element
+        return !!target.closest('.scenario')
       },
     })
   }
@@ -426,14 +345,14 @@ export function useStorylineSvg(containerRef: Ref<HTMLElement | null>) {
   // ── Public API ──
 
   function fitView() {
-    panZoomInstance?.resetZoom()
-    panZoomInstance?.resetPan()
+    pzInstance?.moveTo(0, 0)
+    pzInstance?.zoomAbs(0, 0, 1)
   }
 
   function destroy() {
     containerRef.value?.removeEventListener('click', handleClick)
-    panZoomInstance?.destroy()
-    panZoomInstance = null
+    pzInstance?.dispose()
+    pzInstance = null
   }
 
   return { initSvg, fitView, destroy }
