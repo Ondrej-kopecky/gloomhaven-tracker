@@ -72,8 +72,55 @@ export function useStorylineSvg(containerRef: Ref<HTMLElement | null>) {
     svg.style.width = '100%'
     svg.style.height = '100%'
 
-    // Attach click listeners (works on desktop)
+    // Desktop: click handler
     container.addEventListener('click', handleClick)
+
+    // Mobile: separate tap detection (runs alongside panzoom)
+    let tapStartX = 0
+    let tapStartY = 0
+    let tapStartTarget: EventTarget | null = null
+    let tapStartTime = 0
+    const TAP_THRESHOLD = 15
+    const TAP_MAX_TIME = 300
+
+    container.addEventListener('touchstart', (e: TouchEvent) => {
+      if (e.touches.length === 1) {
+        tapStartX = e.touches[0].clientX
+        tapStartY = e.touches[0].clientY
+        tapStartTarget = e.target
+        tapStartTime = Date.now()
+      } else {
+        // Multi-touch = not a tap
+        tapStartTarget = null
+      }
+    }, { passive: true })
+
+    container.addEventListener('touchend', (e: TouchEvent) => {
+      if (!tapStartTarget || e.changedTouches.length !== 1) return
+
+      const dx = e.changedTouches[0].clientX - tapStartX
+      const dy = e.changedTouches[0].clientY - tapStartY
+      const dist = Math.hypot(dx, dy)
+      const elapsed = Date.now() - tapStartTime
+
+      if (dist < TAP_THRESHOLD && elapsed < TAP_MAX_TIME) {
+        const target = tapStartTarget as Element
+        const scenarioEl = target.closest?.('.scenario')
+        if (scenarioEl) {
+          const nodeId = scenarioEl.id?.replace('node', '')
+          if (nodeId) {
+            e.preventDefault()
+            if (previousSelectedNode) {
+              previousSelectedNode.classList.remove('selected')
+            }
+            scenarioEl.classList.add('selected')
+            previousSelectedNode = scenarioEl
+            flowchartStore.selectNode(nodeId)
+          }
+        }
+      }
+      tapStartTarget = null
+    }, { passive: false })
 
     // Initial render
     nextTick(() => {
@@ -92,12 +139,7 @@ export function useStorylineSvg(containerRef: Ref<HTMLElement | null>) {
       bounds: true,
       boundsPadding: 0.1,
       smoothScroll: false,
-      beforeTouch(e: TouchEvent) {
-        // Return true to let the touch event pass through to the element
-        // (cancels panzoom handling for this touch) — enables tap on scenarios
-        const target = e.target as Element
-        return !!target.closest('.scenario')
-      },
+      // No beforeTouch — panzoom handles ALL touch gestures (pan + pinch)
     })
   }
 
