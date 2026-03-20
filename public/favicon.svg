@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+  <!-- Gloomhaven sword favicon - dark gold theme -->
+  <defs>
+    <linearGradient id="gold" x1="24" y1="2" x2="24" y2="46" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#e8d48b"/>
+      <stop offset="50%" stop-color="#c4a35a"/>
+      <stop offset="100%" stop-color="#8b7332"/>
+    </linearGradient>
+    <linearGradient id="blade" x1="24" y1="4" x2="24" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#d4c78a"/>
+      <stop offset="100%" stop-color="#a08840"/>
+    </linearGradient>
+  </defs>
+  <!-- Blade -->
+  <path d="M24 4 L28 28 L24 32 L20 28 Z" fill="url(#blade)" opacity="0.95"/>
+  <!-- Blade center line -->
+  <line x1="24" y1="6" x2="24" y2="30" stroke="#e8d48b" stroke-width="0.8" opacity="0.6"/>
+  <!-- Cross guard -->
+  <rect x="14" y="30" width="20" height="3" rx="1.5" fill="url(#gold)"/>
+  <!-- Guard ornaments -->
+  <circle cx="14" cy="31.5" r="2" fill="#c4a35a"/>
+  <circle cx="34" cy="31.5" r="2" fill="#c4a35a"/>
+  <!-- Grip -->
+  <rect x="21.5" y="33" width="5" height="8" rx="1" fill="#8b7332"/>
+  <!-- Grip wrapping -->
+  <line x1="22" y1="35" x2="26" y2="35" stroke="#a08840" stroke-width="0.8"/>
+  <line x1="22" y1="37" x2="26" y2="37" stroke="#a08840" stroke-width="0.8"/>
+  <line x1="22" y1="39" x2="26" y2="39" stroke="#a08840" stroke-width="0.8"/>
+  <!-- Pommel -->
+  <circle cx="24" cy="43" r="3" fill="url(#gold)"/>
+  <circle cx="24" cy="43" r="1.5" fill="#e8d48b" opacity="0.5"/>
+</svg>
