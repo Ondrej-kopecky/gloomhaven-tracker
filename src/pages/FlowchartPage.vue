@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import StorylineSvg from '@/components/flowchart/StorylineSvg.vue'
 import FlowchartControls from '@/components/flowchart/FlowchartControls.vue'
@@ -21,7 +21,13 @@ onMounted(async () => {
     router.push('/kampan')
     return
   }
+  // Prevent body scroll — keeps header fixed, prevents browser chrome shifts
+  document.body.style.overflow = 'hidden'
   await scenarioStore.loadScenarioData()
+})
+
+onUnmounted(() => {
+  document.body.style.overflow = ''
 })
 
 function handleFitView() {
