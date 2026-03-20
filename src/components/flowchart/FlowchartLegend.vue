@@ -10,10 +10,10 @@ const items = [
 </script>
 
 <template>
-  <div class="flex flex-wrap gap-3 text-xs text-gray-400">
-    <div v-for="item in items" :key="item.label" class="flex items-center gap-1.5">
+  <div class="flex flex-wrap gap-x-3 gap-y-1 text-[11px] text-gray-400">
+    <div v-for="item in items" :key="item.label" class="flex items-center gap-1">
       <span
-        class="w-3 h-3 rounded-full border"
+        class="w-2.5 h-2.5 rounded-full border"
         :style="{ backgroundColor: item.color + '30', borderColor: item.color }"
       />
       <span>{{ item.label }}</span>
