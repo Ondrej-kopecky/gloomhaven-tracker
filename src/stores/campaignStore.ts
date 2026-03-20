@@ -3,6 +3,7 @@ import { ref, computed } from 'vue'
 import type { CampaignState, CampaignSummary } from '@/models/Campaign'
 import type { PartyState } from '@/models/Party'
 import { useStorage } from '@/composables/useStorage'
+import { uuid } from '@/utils/uuid'
 import { useDebounceFn } from '@vueuse/core'
 
 export const useCampaignStore = defineStore('campaign', () => {
@@ -25,7 +26,7 @@ export const useCampaignStore = defineStore('campaign', () => {
   }
 
   async function createCampaign(name: string): Promise<CampaignState> {
-    const id = crypto.randomUUID()
+    const id = uuid()
     const now = new Date().toISOString()
 
     const defaultParty: PartyState = {

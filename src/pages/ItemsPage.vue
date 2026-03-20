@@ -550,17 +550,12 @@ function confirmBuy() {
 
     <!-- Detail modal -->
     <Teleport to="body">
-      <div v-if="detailItem" class="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-4 bg-black/70 backdrop-blur-sm" @click.self="detailItem = null">
-        <div class="detail-modal w-full h-full md:h-auto rounded-none md:max-w-lg md:max-h-[85vh] md:rounded-2xl mx-0 md:mx-4 overflow-y-auto overscroll-contain" @keydown.escape="detailItem = null">
-          <!-- Close button -->
-          <button
-            class="absolute top-3 right-3 z-10 w-8 h-8 flex items-center justify-center rounded-lg bg-white/[0.06] text-gray-500 hover:text-gray-200 hover:bg-white/[0.12] transition-all border border-white/[0.06]"
-            @click="detailItem = null"
-          >
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-            </svg>
-          </button>
+      <div v-if="detailItem" class="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/70 backdrop-blur-sm" @click.self="detailItem = null">
+        <div class="detail-modal w-full max-h-[85vh] rounded-t-2xl sm:rounded-2xl sm:max-w-lg mx-0 sm:mx-4 overflow-y-auto overscroll-contain" @keydown.escape="detailItem = null">
+          <!-- Swipe indicator (mobile) -->
+          <div class="flex justify-center pt-3 pb-1 sm:hidden" @click="detailItem = null">
+            <div class="w-10 h-1 rounded-full bg-white/20"></div>
+          </div>
 
           <!-- Header -->
           <div class="detail-header">
@@ -572,8 +567,18 @@ function confirmBuy() {
                   <span class="text-sm text-gray-400">{{ slotLabels[detailItem.slot] }}</span>
                 </div>
               </div>
-              <div class="detail-price">
-                <span>{{ detailItem.cost }}</span>
+              <div class="flex items-center gap-3">
+                <div class="detail-price">
+                  <span>{{ detailItem.cost }}</span>
+                </div>
+                <button
+                  class="w-8 h-8 flex items-center justify-center rounded-full bg-white/[0.08] text-gray-400 hover:text-white hover:bg-white/[0.15] transition-all"
+                  @click="detailItem = null"
+                >
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                  </svg>
+                </button>
               </div>
             </div>
             <h2 class="font-display text-xl font-bold text-item-name tracking-wide">

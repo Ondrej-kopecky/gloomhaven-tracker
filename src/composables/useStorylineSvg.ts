@@ -70,26 +70,53 @@ export function useStorylineSvg(containerRef: Ref<HTMLElement | null>) {
     // Attach click listeners
     container.addEventListener('click', handleClick)
 
-    // Mobile: svg-pan-zoom intercepts touch events, so taps on scenario nodes
-    // don't fire click events. Detect taps (touchstart+touchend without move)
-    // and manually dispatch a click.
+    // Mobile touch: tap detection + pinch-to-zoom
     let touchStartTarget: EventTarget | null = null
     let touchMoved = false
+    let lastPinchDist = 0
+
     container.addEventListener('touchstart', (e: TouchEvent) => {
       touchStartTarget = e.target
       touchMoved = false
+      if (e.touches.length === 2) {
+        lastPinchDist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        )
+      }
     }, { passive: true })
-    container.addEventListener('touchmove', () => {
+
+    container.addEventListener('touchmove', (e: TouchEvent) => {
       touchMoved = true
-    }, { passive: true })
+      // Pinch-to-zoom
+      if (e.touches.length === 2 && panZoomInstance && lastPinchDist > 0) {
+        e.preventDefault()
+        const dist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        )
+        const scale = dist / lastPinchDist
+        if (scale > 1.02) {
+          panZoomInstance.zoomIn()
+          lastPinchDist = dist
+        } else if (scale < 0.98) {
+          panZoomInstance.zoomOut()
+          lastPinchDist = dist
+        }
+      }
+    }, { passive: false })
+
     container.addEventListener('touchend', (e: TouchEvent) => {
-      if (!touchMoved && touchStartTarget === e.target) {
-        const target = e.target as Element
+      if (!touchMoved) {
+        const target = (touchStartTarget ?? e.target) as Element
         if (target.closest('.scenario')) {
-          handleClick(e)
+          e.preventDefault()
+          e.stopPropagation()
+          handleClick({ target } as unknown as Event)
         }
       }
       touchStartTarget = null
+      lastPinchDist = 0
     })
 
     // Initial render

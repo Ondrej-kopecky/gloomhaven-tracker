@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import { resetStorageAdapter } from '@/composables/useStorage'
+import { uuid } from '@/utils/uuid'
 
 export interface ProfileState {
   id: string
@@ -84,7 +85,7 @@ export const useProfileStore = defineStore('profile', () => {
 
   function createProfile(name: string): ProfileState {
     const profile: ProfileState = {
-      id: crypto.randomUUID(),
+      id: uuid(),
       name: name.trim(),
       createdAt: new Date().toISOString(),
     }

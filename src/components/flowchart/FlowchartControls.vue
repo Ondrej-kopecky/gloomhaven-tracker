@@ -24,9 +24,9 @@ const storyFilters: { label: string; value: StoryFilter }[] = [
 </script>
 
 <template>
-  <div class="flex flex-wrap items-center gap-2">
+  <div class="flex items-center gap-2 shrink-0">
     <!-- Story filter -->
-    <div class="flex gap-0.5 bg-black/30 rounded-lg p-0.5 border border-gh-border">
+    <div class="flex gap-0.5 bg-black/30 rounded-lg p-0.5 border border-gh-border shrink-0">
       <button
         v-for="f in storyFilters"
         :key="f.value"
@@ -41,7 +41,7 @@ const storyFilters: { label: string; value: StoryFilter }[] = [
     </div>
 
     <!-- Status filter -->
-    <div class="flex gap-0.5 bg-black/30 rounded-lg p-0.5 border border-gh-border">
+    <div class="flex gap-0.5 bg-black/30 rounded-lg p-0.5 border border-gh-border shrink-0">
       <button
         v-for="f in statusFilters"
         :key="f.value"

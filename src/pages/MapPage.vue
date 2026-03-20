@@ -192,6 +192,7 @@ function goToScenarios(id: string) {
           zIndex: selectedId === s.id ? 30 : 10,
         }"
         @click.stop="onMarkerClick(s.id)"
+        @touchend.stop.prevent="onMarkerClick(s.id)"
       />
     </div>
 
@@ -200,7 +201,7 @@ function goToScenarios(id: string) {
       <transition name="popup">
         <div
           v-if="selectedScenario"
-          class="fixed bottom-20 md:bottom-4 left-1/2 -translate-x-1/2 z-[100] w-[min(360px,calc(100vw-2rem))]"
+          class="fixed bottom-4 left-1/2 -translate-x-1/2 z-[100] w-[min(360px,calc(100vw-2rem))]"
           @click.stop
         >
           <div class="gh-card p-4 relative overflow-hidden shadow-2xl border border-white/[0.08]">
@@ -293,11 +294,6 @@ function goToScenarios(id: string) {
 <style scoped>
 .map-height {
   height: calc(100dvh - 4rem);
-}
-@media (max-width: 767px) {
-  .map-height {
-    height: calc(100dvh - 4rem - 4rem - env(safe-area-inset-bottom, 0px));
-  }
 }
 
 .popup-enter-active,
