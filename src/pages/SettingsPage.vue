@@ -395,7 +395,7 @@ function formatDate(iso: string): string {
         />
       </div>
 
-      <div class="flex gap-4 text-xs text-gray-600">
+      <div class="flex flex-col gap-1 sm:flex-row sm:gap-4 text-xs text-gray-600">
         <span>Vytvořeno: {{ formatDate(campaignStore.currentCampaign?.createdAt ?? '') }}</span>
         <span>Naposledy: {{ formatDate(campaignStore.currentCampaign?.lastPlayedAt ?? '') }}</span>
       </div>

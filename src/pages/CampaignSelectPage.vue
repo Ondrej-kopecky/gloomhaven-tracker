@@ -67,10 +67,10 @@ function formatDate(iso: string): string {
 <template>
   <div class="max-w-2xl mx-auto">
     <!-- Hero -->
-    <div class="text-center pt-16 pb-12">
+    <div class="text-center pt-8 pb-6 sm:pt-16 sm:pb-12">
       <!-- Decorative swords icon -->
       <div class="relative inline-block mb-6">
-        <svg class="w-16 h-16 text-gh-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+        <svg class="w-10 h-10 sm:w-16 sm:h-16 text-gh-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
           <path d="M14.5 17.5L3 6V3h3l11.5 11.5" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M13 19l6-6M16 16l3.5 3.5" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M9.5 17.5L21 6V3h-3L6.5 14.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -79,7 +79,7 @@ function formatDate(iso: string): string {
         <div class="absolute inset-0 bg-gh-primary/15 blur-2xl rounded-full" />
       </div>
 
-      <h1 class="font-display text-5xl font-bold text-gh-primary tracking-wider mb-3">
+      <h1 class="font-display text-3xl sm:text-5xl font-bold text-gh-primary tracking-wider mb-3">
         GLOOMHAVEN
       </h1>
       <p class="text-sm text-gray-500 tracking-[0.25em] uppercase font-light">Campaign Tracker</p>

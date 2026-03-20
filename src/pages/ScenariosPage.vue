@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { ScenarioStatus } from '@/models/types'
 import { useCampaignStore } from '@/stores/campaignStore'
@@ -19,6 +19,11 @@ const search = ref('')
 /* ── Modal ── */
 type ScenarioItem = (typeof scenarioStore.allScenarios)['value'][number]
 const selectedScenario = ref<ScenarioItem | null>(null)
+
+// Lock body scroll when modal is open
+watch(selectedScenario, (val) => {
+  document.body.style.overflow = val ? 'hidden' : ''
+})
 
 function openModal(s: ScenarioItem) {
   selectedScenario.value = s
@@ -216,11 +221,11 @@ function goToFlowchart(id: string) {
     </div>
 
     <!-- ── Filter tabs ── -->
-    <div class="flex flex-wrap gap-1.5 mb-6 bg-white/[0.03] rounded-xl p-1 w-fit">
+    <div class="flex overflow-x-auto scrollbar-hide gap-1.5 mb-6 bg-white/[0.03] rounded-xl p-1 w-fit">
       <button
         v-for="tab in filterTabs"
         :key="tab.key"
-        class="px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200"
+        class="px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 shrink-0"
         :class="filterStatus === tab.key
           ? 'bg-gh-primary/20 text-gh-primary'
           : 'text-gray-500 hover:text-gray-300 hover:bg-white/[0.04]'"
@@ -300,14 +305,14 @@ function goToFlowchart(id: string) {
       <Transition name="modal">
         <div
           v-if="selectedScenario"
-          class="fixed inset-0 z-50 flex items-center justify-center p-4"
+          class="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-4"
           @click.self="closeModal"
         >
           <!-- backdrop -->
           <div class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
 
           <!-- modal panel -->
-          <div class="relative w-full max-w-lg bg-gh-card border border-gh-border rounded-2xl shadow-2xl overflow-hidden max-h-[85vh] flex flex-col">
+          <div class="relative w-full h-full rounded-none md:max-w-lg md:max-h-[85vh] md:rounded-2xl bg-gh-card border border-gh-border shadow-2xl overflow-hidden flex flex-col">
             <!-- header -->
             <div class="relative px-6 pt-5 pb-4 border-b border-gh-border">
               <!-- left accent -->
