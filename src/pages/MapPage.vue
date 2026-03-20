@@ -107,7 +107,7 @@ const selectedScenario = computed(() => {
 
 function stickerSrc(id: string, status: ScenarioStatus): string {
   const suffix = status === ScenarioStatus.COMPLETED ? '_c' : ''
-  return `/img/stickers/${id}${suffix}.png`
+  return `/img/stickers/${id}${suffix}.png?v=1`
 }
 
 function statusGlow(status: ScenarioStatus): string {
