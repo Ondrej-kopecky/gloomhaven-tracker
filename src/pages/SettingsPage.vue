@@ -572,6 +572,32 @@ function formatDate(iso: string): string {
       </div>
     </div>
 
+    <!-- ── Podpořte vývoj ── -->
+    <div class="gh-card relative overflow-hidden p-6 mb-5">
+      <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-gh-primary to-yellow-600"></div>
+      <div class="flex items-center gap-2 mb-4">
+        <div class="w-7 h-7 rounded-lg bg-gh-primary/10 flex items-center justify-center">
+          <svg class="w-4 h-4 text-gh-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+          </svg>
+        </div>
+        <h3 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider">Podpořte vývoj</h3>
+      </div>
+      <p class="text-sm text-gray-400 leading-relaxed mb-5">
+        Pokud vám aplikace pomáhá s hraním Gloomhavenu, můžete podpořit její další vývoj. Stačí naskenovat QR kód přes Revolut.
+      </p>
+      <div class="flex flex-col items-center gap-4">
+        <img
+          src="/img/qr-donate.png"
+          alt="Revolut QR kód"
+          class="w-52 h-52 rounded-xl"
+        />
+        <p class="text-xs text-gray-500 text-center">
+          Revolut · @ondejqv70
+        </p>
+      </div>
+    </div>
+
     <!-- ── Nebezpečná zóna ── -->
     <div v-if="campaignStore.hasCampaign" class="rounded-2xl p-6 border border-red-900/25 bg-red-900/[0.04]">
       <h3 class="text-[11px] font-semibold text-red-400/60 uppercase tracking-wider mb-4">Nebezpečná zóna</h3>
