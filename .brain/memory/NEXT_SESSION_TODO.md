@@ -15,6 +15,10 @@
 - [x] **Reaktivní modál** — computed selectedScenario místo statického snapshotu
 - [x] **Donate sekce** — Revolut QR kód v nastavení
 - [x] **Duplikátní legenda** — odstraněna spodní
+- [x] **Breakpoint md→lg** — hamburger od 1024px, nav se vejde na tablet
+- [x] **Vedlejší scénáře jasnější** — opacity 0.7
+- [x] **Legenda pod filtry** — na mobilu/tabletu vždy viditelná
+- [x] **Branding** — "GLOOMHAVEN TRACKER" v headeru + popis na úvodní stránce
 
 ## Co pořád nefunguje 100% na mobilu
 - [ ] **Flowchart pinch-to-zoom** — panzoom by měl fungovat, ale potřeba ověřit na fyzickém telefonu
