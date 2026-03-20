@@ -30,9 +30,9 @@ function handleFitView() {
 </script>
 
 <template>
-  <div v-if="campaignStore.hasCampaign" class="flex flex-col flowchart-height">
+  <div v-if="campaignStore.hasCampaign" class="fixed inset-0 top-16 z-40 flex flex-col bg-gh-dark">
     <!-- Toolbar -->
-    <div class="px-2 py-1.5 border-b border-gh-border bg-gh-dark/50">
+    <div class="px-2 py-1.5 border-b border-gh-border bg-gh-dark shrink-0">
       <!-- Desktop -->
       <div class="hidden md:flex items-center justify-between">
         <FlowchartControls @fit-view="handleFitView" />
@@ -98,9 +98,6 @@ function handleFitView() {
 </template>
 
 <style scoped>
-.flowchart-height {
-  height: calc(100svh - 4rem - env(safe-area-inset-top, 0px));
-}
 .sheet-enter-active,
 .sheet-leave-active {
   transition: opacity 0.2s ease;
