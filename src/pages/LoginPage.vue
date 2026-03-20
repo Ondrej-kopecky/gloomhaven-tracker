@@ -68,6 +68,12 @@ async function handleLogin() {
     </form>
 
     <p class="text-center text-sm text-gray-500 mt-6">
+      <router-link to="/zapomenute-heslo" class="text-gh-primary/70 hover:text-gh-primary transition-colors">
+        Zapomenuté heslo?
+      </router-link>
+    </p>
+
+    <p class="text-center text-sm text-gray-500 mt-3">
       Nemáte účet?
       <router-link to="/registrace" class="text-gh-primary hover:text-gh-primary-light transition-colors">
         Zaregistrujte se
