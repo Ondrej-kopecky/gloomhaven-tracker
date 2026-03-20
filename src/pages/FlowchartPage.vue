@@ -99,7 +99,7 @@ function handleFitView() {
 
 <style scoped>
 .flowchart-height {
-  height: calc(100svh - 4rem);
+  height: calc(100svh - 4rem - env(safe-area-inset-top, 0px));
 }
 .sheet-enter-active,
 .sheet-leave-active {

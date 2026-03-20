@@ -38,9 +38,9 @@ export function useStorylineSvg(containerRef: Ref<HTMLElement | null>) {
     return containerRef.value?.querySelector(`#chapter${id}`) ?? null
   }
 
-  // ViewBox values matching gloomhaven-storyline reference
+  // ViewBox values — portrait tighter for mobile readability
   const VIEWBOX = {
-    portrait: '0 -70 420 1080',
+    portrait: '0 -40 320 550',
     landscape: '0 -40 610 700',
   }
 
@@ -152,14 +152,16 @@ export function useStorylineSvg(containerRef: Ref<HTMLElement | null>) {
     const svg = getSvgEl()
     if (!svg) return
 
+    const isMobile = window.innerWidth < 768
+
     panZoomInstance = svgPanZoom(svg, {
       zoomEnabled: true,
       panEnabled: true,
       controlIconsEnabled: false,
       mouseWheelZoomEnabled: true,
       dblClickZoomEnabled: true,
-      minZoom: 0.5,
-      maxZoom: 4,
+      minZoom: isMobile ? 0.8 : 0.5,
+      maxZoom: isMobile ? 6 : 4,
       zoomScaleSensitivity: 0.3,
       fit: true,
       center: true,
