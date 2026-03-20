@@ -70,6 +70,28 @@ export function useStorylineSvg(containerRef: Ref<HTMLElement | null>) {
     // Attach click listeners
     container.addEventListener('click', handleClick)
 
+    // Mobile: svg-pan-zoom intercepts touch events, so taps on scenario nodes
+    // don't fire click events. Detect taps (touchstart+touchend without move)
+    // and manually dispatch a click.
+    let touchStartTarget: EventTarget | null = null
+    let touchMoved = false
+    container.addEventListener('touchstart', (e: TouchEvent) => {
+      touchStartTarget = e.target
+      touchMoved = false
+    }, { passive: true })
+    container.addEventListener('touchmove', () => {
+      touchMoved = true
+    }, { passive: true })
+    container.addEventListener('touchend', (e: TouchEvent) => {
+      if (!touchMoved && touchStartTarget === e.target) {
+        const target = e.target as Element
+        if (target.closest('.scenario')) {
+          handleClick(e)
+        }
+      }
+      touchStartTarget = null
+    })
+
     // Initial render
     nextTick(() => {
       renderAll()

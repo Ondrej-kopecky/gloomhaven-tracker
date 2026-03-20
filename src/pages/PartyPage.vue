@@ -149,7 +149,7 @@ function getClassName(classId: string): string {
           <div class="mb-3">
             <span
               v-if="!editingRep"
-              class="font-display text-5xl font-bold cursor-pointer hover:opacity-80 transition-opacity"
+              class="font-display text-4xl sm:text-5xl font-bold cursor-pointer hover:opacity-80 transition-opacity"
               :class="partyStore.reputation >= 0 ? 'text-green-400' : 'text-red-400'"
               @click="editingRep = true"
             >
@@ -161,7 +161,7 @@ function getClassName(classId: string): string {
               :value="partyStore.reputation"
               min="-20"
               max="20"
-              class="font-display text-5xl font-bold text-center bg-transparent border-b-2 border-gh-primary/40 outline-none w-24 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+              class="font-display text-4xl sm:text-5xl font-bold text-center bg-transparent border-b-2 border-gh-primary/40 outline-none w-24 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
               :class="partyStore.reputation >= 0 ? 'text-green-400' : 'text-red-400'"
               @focus="selectAllOnFocus"
               @blur="editingRep = false"
@@ -215,7 +215,7 @@ function getClassName(classId: string): string {
         </div>
 
         <div class="text-center">
-          <span class="font-display text-5xl font-bold text-gh-primary">{{ partyStore.prosperityLevel }}</span>
+          <span class="font-display text-4xl sm:text-5xl font-bold text-gh-primary">{{ partyStore.prosperityLevel }}</span>
           <span class="text-gray-500 text-sm ml-1">úroveň</span>
 
           <!-- level milestones -->
@@ -274,7 +274,7 @@ function getClassName(classId: string): string {
           <div class="mb-1">
             <span
               v-if="!editingDonations"
-              class="font-display text-5xl font-bold text-yellow-400 cursor-pointer hover:opacity-80 transition-opacity"
+              class="font-display text-4xl sm:text-5xl font-bold text-yellow-400 cursor-pointer hover:opacity-80 transition-opacity"
               @click="editingDonations = true"
             >{{ partyStore.donations }}</span>
             <input
@@ -282,7 +282,7 @@ function getClassName(classId: string): string {
               type="number"
               :value="partyStore.donations"
               min="0"
-              class="font-display text-5xl font-bold text-yellow-400 text-center bg-transparent border-b-2 border-yellow-500/40 outline-none w-24 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+              class="font-display text-4xl sm:text-5xl font-bold text-yellow-400 text-center bg-transparent border-b-2 border-yellow-500/40 outline-none w-24 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
               @focus="selectAllOnFocus"
               @blur="editingDonations = false"
               @change="setDonations(numericInput($event))"

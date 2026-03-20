@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useCampaignStore } from '@/stores/campaignStore'
 import { usePartyStore } from '@/stores/partyStore'
@@ -325,12 +325,27 @@ function translateDescription(desc: string): string {
 // --- Detail modal ---
 const detailItem = ref<ItemDefinition | null>(null)
 
+// Lock body scroll when detail modal is open
+watch(detailItem, (val) => {
+  document.body.style.overflow = val ? 'hidden' : ''
+})
+
 function openDetail(item: ItemDefinition) {
   detailItem.value = item
 }
 
 // --- Buy / Add flow ---
 const buyingItem = ref<ItemDefinition | null>(null)
+
+// Lock body scroll when buy modal is open
+watch(buyingItem, (val) => {
+  // Only restore if detailItem isn't also open
+  if (val) {
+    document.body.style.overflow = 'hidden'
+  } else if (!detailItem.value) {
+    document.body.style.overflow = ''
+  }
+})
 const buyForCharacter = ref('')
 const buyMode = ref<'buy' | 'free'>('buy')
 
@@ -406,7 +421,7 @@ function confirmBuy() {
     </div>
 
     <!-- Toggle & Stats -->
-    <div class="flex items-center justify-between mb-6">
+    <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between mb-6">
       <div class="flex gap-5 text-sm">
         <span class="text-gray-600">Celkem: <span class="text-gray-400">{{ stats.total }}</span></span>
         <span class="text-green-500/60">Dostupné: <span class="text-green-400">{{ stats.available }}</span></span>
@@ -535,11 +550,14 @@ function confirmBuy() {
 
     <!-- Detail modal -->
     <Teleport to="body">
-      <div v-if="detailItem" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm" @click.self="detailItem = null">
-        <div class="detail-modal mx-4" @keydown.escape="detailItem = null">
+      <div v-if="detailItem" class="fixed inset-0 z-50 flex items-center justify-center p-0 md:p-4 bg-black/70 backdrop-blur-sm" @click.self="detailItem = null">
+        <div class="detail-modal w-full h-full md:h-auto rounded-none md:max-w-lg md:max-h-[85vh] md:rounded-2xl mx-0 md:mx-4 overflow-y-auto overscroll-contain" @keydown.escape="detailItem = null">
           <!-- Close button -->
-          <button class="absolute top-3 right-3 text-gray-500 hover:text-gray-300 transition-colors z-10" @click="detailItem = null">
-            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <button
+            class="absolute top-3 right-3 z-10 w-8 h-8 flex items-center justify-center rounded-lg bg-white/[0.06] text-gray-500 hover:text-gray-200 hover:bg-white/[0.12] transition-all border border-white/[0.06]"
+            @click="detailItem = null"
+          >
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
             </svg>
           </button>

@@ -158,7 +158,7 @@ function pctBar(count: number, total: number): number {
 
     <!-- ── Global achievements ── -->
     <div class="mb-10">
-      <div class="flex items-center justify-between mb-4">
+      <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between mb-4">
         <div class="flex items-center gap-3">
           <div class="w-8 h-8 rounded-lg bg-green-500/15 flex items-center justify-center">
             <svg class="w-4 h-4 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -240,7 +240,7 @@ function pctBar(count: number, total: number): number {
 
     <!-- ── Party achievements ── -->
     <div class="mb-10">
-      <div class="flex items-center justify-between mb-4">
+      <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between mb-4">
         <div class="flex items-center gap-3">
           <div class="w-8 h-8 rounded-lg bg-blue-500/15 flex items-center justify-center">
             <svg class="w-4 h-4 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

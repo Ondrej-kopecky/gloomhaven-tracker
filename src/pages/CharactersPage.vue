@@ -293,11 +293,11 @@ const availableClasses = computed(() => {
 
         <!-- Expanded detail -->
         <div v-if="selectedUuid === char.uuid" class="border-t border-gh-border/50 p-5">
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-6">
             <div class="bg-white/[0.03] rounded-xl p-3 text-center border border-white/[0.04]">
               <div class="text-[11px] text-gray-500 uppercase tracking-wider mb-2 font-semibold">Zkušenosti</div>
               <div class="flex items-center justify-center gap-1">
-                <button class="w-7 h-7 bg-white/[0.04] text-gray-400 rounded-md hover:bg-white/[0.08] hover:text-gray-200 text-xs border border-gh-border/40 transition-colors active:scale-95" @click="characterStore.updateXp(char.uuid, -5)">-5</button>
+                <button class="hidden sm:inline-flex w-7 h-7 bg-white/[0.04] text-gray-400 rounded-md hover:bg-white/[0.08] hover:text-gray-200 text-xs border border-gh-border/40 transition-colors active:scale-95 items-center justify-center" @click="characterStore.updateXp(char.uuid, -5)">-5</button>
                 <button class="w-7 h-7 bg-white/[0.04] text-gray-400 rounded-md hover:bg-white/[0.08] hover:text-gray-200 text-xs border border-gh-border/40 transition-colors active:scale-95" @click="characterStore.updateXp(char.uuid, -1)">-1</button>
                 <input
                   type="number"
@@ -307,13 +307,13 @@ const availableClasses = computed(() => {
                   @focus="selectAllOnFocus"
                 />
                 <button class="w-7 h-7 bg-blue-900/20 text-blue-400 rounded-md hover:bg-blue-900/40 text-xs border border-blue-800/30 transition-colors active:scale-95" @click="characterStore.updateXp(char.uuid, 1)">+1</button>
-                <button class="w-7 h-7 bg-blue-900/20 text-blue-400 rounded-md hover:bg-blue-900/40 text-xs border border-blue-800/30 transition-colors active:scale-95" @click="characterStore.updateXp(char.uuid, 5)">+5</button>
+                <button class="hidden sm:inline-flex w-7 h-7 bg-blue-900/20 text-blue-400 rounded-md hover:bg-blue-900/40 text-xs border border-blue-800/30 transition-colors active:scale-95 items-center justify-center" @click="characterStore.updateXp(char.uuid, 5)">+5</button>
               </div>
             </div>
             <div class="bg-white/[0.03] rounded-xl p-3 text-center border border-white/[0.04]">
               <div class="text-[11px] text-gray-500 uppercase tracking-wider mb-2 font-semibold">Zlaťáky</div>
               <div class="flex items-center justify-center gap-1">
-                <button class="w-7 h-7 bg-white/[0.04] text-gray-400 rounded-md hover:bg-white/[0.08] hover:text-gray-200 text-xs border border-gh-border/40 transition-colors active:scale-95" @click="characterStore.updateGold(char.uuid, -5)">-5</button>
+                <button class="hidden sm:inline-flex w-7 h-7 bg-white/[0.04] text-gray-400 rounded-md hover:bg-white/[0.08] hover:text-gray-200 text-xs border border-gh-border/40 transition-colors active:scale-95 items-center justify-center" @click="characterStore.updateGold(char.uuid, -5)">-5</button>
                 <button class="w-7 h-7 bg-white/[0.04] text-gray-400 rounded-md hover:bg-white/[0.08] hover:text-gray-200 text-xs border border-gh-border/40 transition-colors active:scale-95" @click="characterStore.updateGold(char.uuid, -1)">-1</button>
                 <input
                   type="number"
@@ -323,7 +323,7 @@ const availableClasses = computed(() => {
                   @focus="selectAllOnFocus"
                 />
                 <button class="w-7 h-7 bg-yellow-900/20 text-yellow-400 rounded-md hover:bg-yellow-900/40 text-xs border border-yellow-800/30 transition-colors active:scale-95" @click="characterStore.updateGold(char.uuid, 1)">+1</button>
-                <button class="w-7 h-7 bg-yellow-900/20 text-yellow-400 rounded-md hover:bg-yellow-900/40 text-xs border border-yellow-800/30 transition-colors active:scale-95" @click="characterStore.updateGold(char.uuid, 5)">+5</button>
+                <button class="hidden sm:inline-flex w-7 h-7 bg-yellow-900/20 text-yellow-400 rounded-md hover:bg-yellow-900/40 text-xs border border-yellow-800/30 transition-colors active:scale-95 items-center justify-center" @click="characterStore.updateGold(char.uuid, 5)">+5</button>
               </div>
             </div>
             <div class="bg-white/[0.03] rounded-xl p-3 text-center border border-white/[0.04]">
@@ -418,7 +418,7 @@ const availableClasses = computed(() => {
                   <span class="text-[10px] text-gray-600">#{{ itemId }}</span>
                 </div>
                 <button
-                  class="text-[10px] text-red-400/50 hover:text-red-400 transition-colors opacity-0 group-hover:opacity-100"
+                  class="text-[10px] text-red-400/50 hover:text-red-400 transition-colors md:opacity-0 md:group-hover:opacity-100"
                   @click="characterStore.sellItem(char.uuid, itemId)"
                 >
                   Prodat ({{ Math.floor((characterStore.getItemDef(itemId)?.cost ?? 0) / 2) }} zl.)

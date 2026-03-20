@@ -50,6 +50,11 @@ function initPanzoom() {
     maxZoom: 4,
     bounds: true,
     boundsPadding: 0.1,
+    beforeTouch: function(e: TouchEvent) {
+      // Return true to cancel panzoom handling — lets click fire on sticker images
+      const target = e.target as HTMLElement
+      return target.tagName === 'IMG' && target.classList.contains('cursor-pointer')
+    },
   })
   centerMap()
 }
@@ -154,8 +159,7 @@ function goToScenarios(id: string) {
   <div
     v-if="campaignStore.hasCampaign"
     ref="mapContainer"
-    class="relative w-full overflow-hidden bg-gh-dark"
-    style="height: calc(100dvh - 4rem)"
+    class="relative w-full overflow-hidden bg-gh-dark map-height"
     @click="selectedId = null"
   >
     <!-- Pan-zoom map -->
@@ -196,7 +200,7 @@ function goToScenarios(id: string) {
       <transition name="popup">
         <div
           v-if="selectedScenario"
-          class="fixed bottom-4 left-1/2 -translate-x-1/2 z-[100] w-[min(360px,calc(100vw-2rem))]"
+          class="fixed bottom-20 md:bottom-4 left-1/2 -translate-x-1/2 z-[100] w-[min(360px,calc(100vw-2rem))]"
           @click.stop
         >
           <div class="gh-card p-4 relative overflow-hidden shadow-2xl border border-white/[0.08]">
@@ -287,6 +291,15 @@ function goToScenarios(id: string) {
 </template>
 
 <style scoped>
+.map-height {
+  height: calc(100dvh - 4rem);
+}
+@media (max-width: 767px) {
+  .map-height {
+    height: calc(100dvh - 4rem - 4rem - env(safe-area-inset-bottom, 0px));
+  }
+}
+
 .popup-enter-active,
 .popup-leave-active {
   transition: opacity 0.2s ease, transform 0.2s ease;
