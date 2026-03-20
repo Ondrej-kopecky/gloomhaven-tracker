@@ -17,19 +17,23 @@ const achievementStore = useAchievementStore()
 const search = ref('')
 
 /* ── Modal ── */
-type ScenarioItem = (typeof scenarioStore.allScenarios)['value'][number]
-const selectedScenario = ref<ScenarioItem | null>(null)
+const selectedScenarioId = ref<string | null>(null)
+const selectedScenario = computed(() =>
+  selectedScenarioId.value
+    ? scenarioStore.allScenarios.find(s => s.id === selectedScenarioId.value) ?? null
+    : null
+)
 
 // Lock body scroll when modal is open
-watch(selectedScenario, (val) => {
+watch(selectedScenarioId, (val) => {
   document.body.style.overflow = val ? 'hidden' : ''
 })
 
-function openModal(s: ScenarioItem) {
-  selectedScenario.value = s
+function openModal(s: { id: string }) {
+  selectedScenarioId.value = s.id
 }
 function closeModal() {
-  selectedScenario.value = null
+  selectedScenarioId.value = null
 }
 function onEsc(e: KeyboardEvent) {
   if (e.key === 'Escape') closeModal()
@@ -78,10 +82,7 @@ onMounted(async () => {
   // Open scenario detail if ?open=ID is in query
   const openId = route.query.open as string | undefined
   if (openId) {
-    const scenario = scenarioStore.allScenarios.find(s => s.id === openId)
-    if (scenario) {
-      openModal(scenario)
-    }
+    openModal({ id: openId })
   }
 })
 
@@ -491,23 +492,55 @@ function goToFlowchart(id: string) {
               </div>
             </div>
 
-            <!-- footer -->
-            <div class="px-6 py-4 border-t border-gh-border flex items-center justify-between gap-3">
-              <button
-                class="text-xs text-gray-500 hover:text-gh-primary transition-colors flex items-center gap-1.5"
-                @click="closeModal(); goToFlowchart(selectedScenario?.id ?? '')"
-              >
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 3.75H6A2.25 2.25 0 0 0 3.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0 1 20.25 6v1.5m0 9V18A2.25 2.25 0 0 1 18 20.25h-1.5m-9 0H6A2.25 2.25 0 0 1 3.75 18v-1.5" />
-                </svg>
-                Zobrazit na diagramu
-              </button>
-              <button
-                class="gh-btn-secondary text-xs px-4 py-2"
-                @click="closeModal"
-              >
-                Zavřít
-              </button>
+            <!-- actions -->
+            <div class="px-6 py-4 border-t border-gh-border space-y-3">
+              <div class="flex flex-col gap-2">
+                <button
+                  v-if="selectedScenario.computedStatus === ScenarioStatus.LOCKED || selectedScenario.computedStatus === ScenarioStatus.BLOCKED"
+                  class="w-full py-2.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg font-medium hover:shadow-[0_0_20px_rgba(59,130,246,0.25)] transition-all text-sm"
+                  @click="scenarioStore.unlockScenario(selectedScenario.id)"
+                >
+                  Odemknout scénář
+                </button>
+                <button
+                  v-if="selectedScenario.computedStatus === ScenarioStatus.AVAILABLE || selectedScenario.computedStatus === ScenarioStatus.ATTEMPTED"
+                  class="w-full py-2.5 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-lg font-medium hover:shadow-[0_0_20px_rgba(34,197,94,0.25)] transition-all text-sm"
+                  @click="scenarioStore.completeScenario(selectedScenario.id)"
+                >
+                  Označit jako dokončené
+                </button>
+                <button
+                  v-if="selectedScenario.computedStatus === ScenarioStatus.AVAILABLE"
+                  class="w-full py-2 bg-orange-600/15 text-orange-400 border border-orange-600/30 rounded-lg font-medium hover:bg-orange-600/25 transition-colors text-sm"
+                  @click="scenarioStore.markAttempted(selectedScenario.id)"
+                >
+                  Označit jako pokus
+                </button>
+                <button
+                  v-if="selectedScenario.computedStatus === ScenarioStatus.COMPLETED || selectedScenario.computedStatus === ScenarioStatus.ATTEMPTED"
+                  class="w-full py-1.5 bg-white/[0.03] text-gray-500 rounded-lg text-xs hover:bg-white/[0.06] hover:text-gray-400 transition-colors border border-gh-border/40"
+                  @click="scenarioStore.resetScenario(selectedScenario.id)"
+                >
+                  Resetovat scénář
+                </button>
+              </div>
+              <div class="flex items-center justify-between gap-3">
+                <button
+                  class="text-xs text-gray-500 hover:text-gh-primary transition-colors flex items-center gap-1.5"
+                  @click="closeModal(); goToFlowchart(selectedScenario?.id ?? '')"
+                >
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 3.75H6A2.25 2.25 0 0 0 3.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0 1 20.25 6v1.5m0 9V18A2.25 2.25 0 0 1 18 20.25h-1.5m-9 0H6A2.25 2.25 0 0 1 3.75 18v-1.5" />
+                  </svg>
+                  Zobrazit na diagramu
+                </button>
+                <button
+                  class="gh-btn-secondary text-xs px-4 py-2"
+                  @click="closeModal"
+                >
+                  Zavřít
+                </button>
+              </div>
             </div>
           </div>
         </div>

@@ -70,38 +70,36 @@ function handleFitView() {
       </transition>
     </div>
 
-    <!-- Mobile detail: bottom sheet -->
+    <!-- Mobile detail: fullscreen overlay -->
     <Teleport to="body">
       <transition name="sheet">
         <div
           v-if="flowchartStore.selectedNodeId"
-          class="fixed inset-0 z-50 flex items-end md:hidden"
-          @click.self="flowchartStore.selectNode(null)"
+          class="fixed inset-0 z-50 flex flex-col md:hidden"
         >
-          <div class="absolute inset-0 bg-black/50" @click="flowchartStore.selectNode(null)" />
-          <div class="relative w-full max-h-[70vh] bg-gh-card rounded-t-2xl border-t border-gh-border overflow-y-auto overscroll-contain">
-            <div class="flex justify-center pt-3 pb-1" @click="flowchartStore.selectNode(null)">
+          <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" @click="flowchartStore.selectNode(null)" />
+          <div class="relative flex-1 flex flex-col mt-12 bg-gh-card rounded-t-2xl border-t border-gh-border overflow-hidden safe-area-bottom">
+            <div class="flex justify-center pt-3 pb-1 shrink-0" @click="flowchartStore.selectNode(null)">
               <div class="w-10 h-1 rounded-full bg-white/20"></div>
             </div>
-            <ScenarioDetail
-              :scenario-id="flowchartStore.selectedNodeId"
-              @close="flowchartStore.selectNode(null)"
-            />
+            <div class="flex-1 overflow-hidden">
+              <ScenarioDetail
+                :scenario-id="flowchartStore.selectedNodeId"
+                class="!rounded-none !border-0 !shadow-none !bg-transparent"
+                @close="flowchartStore.selectNode(null)"
+              />
+            </div>
           </div>
         </div>
       </transition>
     </Teleport>
 
-    <!-- Legend: hidden on mobile (saves space) -->
-    <div class="hidden lg:block px-4 py-2 border-t border-gh-border bg-gh-dark/50">
-      <FlowchartLegend />
-    </div>
   </div>
 </template>
 
 <style scoped>
 .flowchart-height {
-  height: calc(100dvh - 4rem);
+  height: calc(100svh - 4rem);
 }
 .sheet-enter-active,
 .sheet-leave-active {

@@ -54,13 +54,15 @@ export const useScenarioStore = defineStore('scenario', () => {
     const campaign = campaignStore.currentCampaign
     if (!campaign) return statuses
 
-    // Pass 1: Set completed and attempted from saved state
+    // Pass 1: Set completed, attempted, and manually unlocked from saved state
     for (const scenario of scenarioDefinitions.value) {
       const state = campaign.scenarios[scenario.id]
       if (state?.status === ScenarioStatus.COMPLETED) {
         statuses[scenario.id] = ScenarioStatus.COMPLETED
       } else if (state?.status === ScenarioStatus.ATTEMPTED) {
         statuses[scenario.id] = ScenarioStatus.ATTEMPTED
+      } else if (state?.status === ScenarioStatus.AVAILABLE) {
+        statuses[scenario.id] = ScenarioStatus.AVAILABLE
       }
     }
 
@@ -275,6 +277,18 @@ export const useScenarioStore = defineStore('scenario', () => {
     campaignStore.autoSave()
   }
 
+  function unlockScenario(id: string) {
+    if (!campaignStore.currentCampaign) return
+    const existing = campaignStore.currentCampaign.scenarios[id]
+    campaignStore.currentCampaign.scenarios[id] = {
+      id,
+      status: ScenarioStatus.AVAILABLE,
+      notes: existing?.notes ?? '',
+      treasuresLooted: existing?.treasuresLooted ?? [],
+    }
+    campaignStore.autoSave()
+  }
+
   function resetScenario(id: string) {
     if (!campaignStore.currentCampaign) return
     delete campaignStore.currentCampaign.scenarios[id]
@@ -338,6 +352,7 @@ export const useScenarioStore = defineStore('scenario', () => {
     completeScenario,
     setChoice,
     markAttempted,
+    unlockScenario,
     resetScenario,
     lootTreasure,
     setNotes,
