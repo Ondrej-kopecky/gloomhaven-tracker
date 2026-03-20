@@ -40,12 +40,12 @@ function handleFitView() {
     <!-- Toolbar -->
     <div class="px-2 py-1.5 border-b border-gh-border bg-gh-dark shrink-0">
       <!-- Desktop -->
-      <div class="hidden md:flex items-center justify-between">
+      <div class="hidden lg:flex items-center justify-between">
         <FlowchartControls @fit-view="handleFitView" />
         <div class="hidden lg:block"><FlowchartLegend /></div>
       </div>
       <!-- Mobile: all filters in one scrollable row -->
-      <div class="md:hidden flex items-center gap-1 overflow-x-auto scrollbar-hide">
+      <div class="lg:hidden flex items-center gap-1 overflow-x-auto scrollbar-hide">
         <FlowchartControls @fit-view="handleFitView" />
       </div>
     </div>
@@ -66,7 +66,7 @@ function handleFitView() {
       >
         <div
           v-if="flowchartStore.selectedNodeId"
-          class="absolute right-0 top-0 bottom-0 z-10 p-2 hidden md:block"
+          class="absolute right-0 top-0 bottom-0 z-10 p-2 hidden lg:block"
         >
           <ScenarioDetail
             :scenario-id="flowchartStore.selectedNodeId"
@@ -81,7 +81,7 @@ function handleFitView() {
       <transition name="sheet">
         <div
           v-if="flowchartStore.selectedNodeId"
-          class="fixed inset-0 z-50 flex flex-col md:hidden"
+          class="fixed inset-0 z-50 flex flex-col lg:hidden"
         >
           <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" @click="flowchartStore.selectNode(null)" />
           <div class="relative flex-1 flex flex-col mt-12 bg-gh-card rounded-t-2xl border-t border-gh-border overflow-hidden safe-area-bottom">

@@ -74,7 +74,7 @@ function inputValue(e: Event): string {
 <template>
   <div
     v-if="scenario"
-    class="bg-gh-dark/95 backdrop-blur-xl border border-gh-border rounded-2xl w-full md:w-80 h-full md:h-auto md:max-h-[80vh] shadow-2xl shadow-black/60 flex flex-col"
+    class="bg-gh-dark/95 backdrop-blur-xl border border-gh-border rounded-2xl w-full lg:w-80 h-full lg:h-auto lg:max-h-[80vh] shadow-2xl shadow-black/60 flex flex-col"
   >
     <!-- Header (fixed) -->
     <div class="px-5 pt-5 pb-3 shrink-0">
