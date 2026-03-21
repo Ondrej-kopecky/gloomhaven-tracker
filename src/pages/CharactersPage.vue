@@ -172,9 +172,23 @@ const availableClasses = computed(() => {
         </svg>
         Nová postava
       </h3>
+      <!-- Player select (if players exist in campaign) -->
+      <div v-if="campaignStore.currentCampaign?.players?.length" class="mb-4">
+        <label class="text-[11px] text-gray-500 uppercase tracking-wider mb-1.5 block font-semibold">Hráč</label>
+        <select
+          class="gh-input w-full text-sm"
+          @change="newName = ($event.target as HTMLSelectElement).value"
+        >
+          <option value="">-- Vyberte hráče --</option>
+          <option v-for="player in campaignStore.currentCampaign.players" :key="player" :value="player">
+            {{ player }}
+          </option>
+        </select>
+      </div>
+
       <div class="grid sm:grid-cols-2 gap-4 mb-5">
         <div>
-          <label class="text-[11px] text-gray-500 uppercase tracking-wider mb-1.5 block font-semibold">Jméno</label>
+          <label class="text-[11px] text-gray-500 uppercase tracking-wider mb-1.5 block font-semibold">Jméno postavy</label>
           <input
             v-model="newName"
             type="text"

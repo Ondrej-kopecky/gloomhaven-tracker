@@ -18,6 +18,21 @@ const newCityEvent = ref('')
 const newRoadEvent = ref('')
 const showCityRemoved = ref(false)
 const showRoadRemoved = ref(false)
+const newPlayerName = ref('')
+
+function addPlayer() {
+  if (!newPlayerName.value.trim() || !campaignStore.currentCampaign) return
+  if (!campaignStore.currentCampaign.players) campaignStore.currentCampaign.players = []
+  campaignStore.currentCampaign.players.push(newPlayerName.value.trim())
+  newPlayerName.value = ''
+  campaignStore.autoSave()
+}
+
+function removePlayer(idx: number) {
+  if (!campaignStore.currentCampaign?.players) return
+  campaignStore.currentCampaign.players.splice(idx, 1)
+  campaignStore.autoSave()
+}
 const pendingRemove = ref<{ type: 'city' | 'road'; id: number } | null>(null)
 
 function confirmRemoveEvent(type: 'city' | 'road', id: number) {
@@ -337,6 +352,58 @@ function getClassName(classId: string): string {
             </span>
           </button>
         </div>
+      </div>
+    </div>
+
+    <!-- ── Players ── -->
+    <div class="gh-card relative overflow-hidden p-5 mt-5 mb-5">
+      <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-purple-500"></div>
+      <div class="flex items-center gap-2 mb-4">
+        <div class="w-7 h-7 rounded-lg bg-purple-500/15 flex items-center justify-center">
+          <svg class="w-4 h-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
+          </svg>
+        </div>
+        <h3 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider">Hráči</h3>
+        <span class="ml-auto text-sm font-display font-bold text-purple-400">
+          {{ campaignStore.currentCampaign?.players?.length ?? 0 }}
+        </span>
+      </div>
+
+      <!-- Player list -->
+      <div v-if="campaignStore.currentCampaign?.players?.length" class="flex flex-wrap gap-2 mb-3">
+        <div
+          v-for="(player, idx) in campaignStore.currentCampaign.players"
+          :key="idx"
+          class="flex items-center gap-2 bg-purple-900/15 border border-purple-800/20 rounded-lg px-3 py-1.5"
+        >
+          <span class="text-sm text-purple-300 font-medium">{{ player }}</span>
+          <button
+            class="text-purple-500/50 hover:text-red-400 transition-colors text-xs"
+            @click="removePlayer(idx)"
+          >
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Add player -->
+      <div class="flex gap-2">
+        <input
+          v-model="newPlayerName"
+          type="text"
+          placeholder="Jméno hráče..."
+          class="gh-input flex-1 text-sm"
+          @keyup.enter="addPlayer"
+        />
+        <button
+          class="gh-btn-ghost text-xs"
+          @click="addPlayer"
+        >
+          Přidat
+        </button>
       </div>
     </div>
 
