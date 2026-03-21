@@ -566,22 +566,39 @@ const availableClasses = computed(() => {
             <p v-else class="text-xs text-gray-600 italic">Žádné předměty</p>
           </div>
 
-          <!-- Notes & Retire -->
-          <div class="flex items-end gap-3 pt-4 border-t border-gh-border/30">
-            <div class="flex-1">
-              <textarea
-                :value="char.notes"
-                placeholder="Poznámky..."
-                class="gh-input w-full resize-y min-h-[40px] text-sm"
-                @input="characterStore.setNotes(char.uuid, inputValue($event))"
-              />
+          <!-- Owner & Notes & Retire -->
+          <div class="pt-4 border-t border-gh-border/30 space-y-3">
+            <!-- Owner select -->
+            <div v-if="campaignStore.currentCampaign?.players?.length" class="flex items-center gap-3">
+              <label class="text-[11px] text-gray-500 uppercase tracking-wider font-semibold shrink-0">Hráč</label>
+              <select
+                class="gh-input flex-1 text-sm"
+                :value="char.owner ?? ''"
+                @change="char.owner = ($event.target as HTMLSelectElement).value || undefined; campaignStore.autoSave()"
+              >
+                <option value="">-- Nepřiřazeno --</option>
+                <option v-for="player in campaignStore.currentCampaign.players" :key="player" :value="player">
+                  {{ player }}
+                </option>
+              </select>
             </div>
-            <button
-              class="py-2 px-4 bg-red-900/15 text-red-400/80 rounded-lg hover:bg-red-900/30 hover:text-red-400 transition-all text-xs border border-red-900/25 shrink-0"
-              @click="characterStore.retireCharacter(char.uuid)"
-            >
-              Penzionovat
-            </button>
+
+            <div class="flex items-end gap-3">
+              <div class="flex-1">
+                <textarea
+                  :value="char.notes"
+                  placeholder="Poznámky..."
+                  class="gh-input w-full resize-y min-h-[40px] text-sm"
+                  @input="characterStore.setNotes(char.uuid, inputValue($event))"
+                />
+              </div>
+              <button
+                class="py-2 px-4 bg-red-900/15 text-red-400/80 rounded-lg hover:bg-red-900/30 hover:text-red-400 transition-all text-xs border border-red-900/25 shrink-0"
+                @click="characterStore.retireCharacter(char.uuid)"
+              >
+                Penzionovat
+              </button>
+            </div>
           </div>
         </div>
       </div>
