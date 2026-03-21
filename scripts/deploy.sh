@@ -34,6 +34,11 @@ echo "→ Building container..."
 ssh $SERVER "cd $REMOTE_DIR && docker compose build gloomhaven --quiet && docker compose up -d gloomhaven"
 echo "  ✓ Container deployed"
 
+# 5. Copy item images into container (not in git, hosted on server)
+echo "→ Copying item images..."
+ssh $SERVER "docker cp $GLOOM_DIR/public/img/items gloomhaven:/srv/img/ 2>/dev/null || true"
+echo "  ✓ Item images copied"
+
 echo ""
 echo "=== Deploy complete! ==="
 echo "→ https://gloomhaven.ongy.cz"
