@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "Krokovací boty",
+    "name": "Chodcovy boty",
     "cost": 20,
     "count": 2,
     "slot": "legs",
@@ -12,7 +12,7 @@
   },
   {
     "id": 2,
-    "name": "Okřídlené boty",
+    "name": "Okřídlené střevíce",
     "cost": 20,
     "count": 2,
     "slot": "legs",
@@ -23,7 +23,7 @@
   },
   {
     "id": 3,
-    "name": "Kožená zbroj",
+    "name": "Zbroj z kožešiny",
     "cost": 10,
     "count": 2,
     "slot": "body",
@@ -34,7 +34,7 @@
   },
   {
     "id": 4,
-    "name": "Kožené brnění",
+    "name": "Kožená zbroj",
     "cost": 20,
     "count": 2,
     "slot": "body",
@@ -55,7 +55,7 @@
   },
   {
     "id": 6,
-    "name": "Orlí brýle",
+    "name": "Orlí oči",
     "cost": 30,
     "count": 2,
     "slot": "head",
@@ -65,7 +65,7 @@
   },
   {
     "id": 7,
-    "name": "Železná helma",
+    "name": "Železná přilba",
     "cost": 10,
     "count": 2,
     "slot": "head",
@@ -74,7 +74,7 @@
   },
   {
     "id": 8,
-    "name": "Kavalírský štít",
+    "name": "Jezdecký štít",
     "cost": 20,
     "count": 2,
     "slot": "one_hand",
@@ -84,7 +84,7 @@
   },
   {
     "id": 9,
-    "name": "Průbojný luk",
+    "name": "Průrazný luk",
     "cost": 30,
     "count": 2,
     "slot": "two_hands",
@@ -104,7 +104,7 @@
   },
   {
     "id": 11,
-    "name": "Jedová dýka",
+    "name": "Otrávená dýka",
     "cost": 20,
     "count": 2,
     "slot": "one_hand",
@@ -114,7 +114,7 @@
   },
   {
     "id": 12,
-    "name": "Slabý léčivý lektvar",
+    "name": "Malý lektvar léčení",
     "cost": 10,
     "count": 4,
     "slot": "small_item",
@@ -124,7 +124,7 @@
   },
   {
     "id": 13,
-    "name": "Slabý lektvar výdrže",
+    "name": "Malý lektvar výdrže",
     "cost": 10,
     "count": 4,
     "slot": "small_item",
@@ -135,7 +135,7 @@
   },
   {
     "id": 14,
-    "name": "Slabý lektvar síly",
+    "name": "Malý lektvar síly",
     "cost": 10,
     "count": 4,
     "slot": "small_item",
@@ -174,7 +174,7 @@
   },
   {
     "id": 18,
-    "name": "Bojová sekera",
+    "name": "Bitevní sekera",
     "cost": 20,
     "count": 2,
     "slot": "one_hand",
@@ -184,7 +184,7 @@
   },
   {
     "id": 19,
-    "name": "Závaží síť",
+    "name": "Síť se závažím",
     "cost": 20,
     "count": 2,
     "slot": "two_hands",
@@ -194,7 +194,7 @@
   },
   {
     "id": 20,
-    "name": "Slabý lektvar many",
+    "name": "Malý lektvar many",
     "cost": 10,
     "count": 4,
     "slot": "small_item",
@@ -204,7 +204,7 @@
   },
   {
     "id": 21,
-    "name": "Omračovací prach",
+    "name": "Ochromující prášek",
     "cost": 20,
     "count": 2,
     "slot": "small_item",
@@ -214,7 +214,7 @@
   },
   {
     "id": 22,
-    "name": "Těžké holeně",
+    "name": "Železné boty",
     "cost": 20,
     "count": 2,
     "slot": "legs",
@@ -264,7 +264,7 @@
   },
   {
     "id": 27,
-    "name": "Silný léčivý lektvar",
+    "name": "Velký lektvar léčení",
     "cost": 30,
     "count": 4,
     "slot": "small_item",
@@ -293,7 +293,7 @@
   },
   {
     "id": 30,
-    "name": "Vybíjená kůže",
+    "name": "Pobitá zbroj",
     "cost": 30,
     "count": 2,
     "slot": "body",
@@ -303,7 +303,7 @@
   },
   {
     "id": 31,
-    "name": "Jestřábí helma",
+    "name": "Jestřábí přilba",
     "cost": 20,
     "count": 2,
     "slot": "head",
@@ -313,7 +313,7 @@
   },
   {
     "id": 32,
-    "name": "Věžový štít",
+    "name": "Vyztužený štít",
     "cost": 40,
     "count": 2,
     "slot": "one_hand",
@@ -323,7 +323,7 @@
   },
   {
     "id": 33,
-    "name": "Nestabilní bomba",
+    "name": "Těkavá bomba",
     "cost": 30,
     "count": 2,
     "slot": "one_hand",
@@ -333,7 +333,7 @@
   },
   {
     "id": 34,
-    "name": "Silný lektvar výdrže",
+    "name": "Velký lektvar výdrže",
     "cost": 30,
     "count": 4,
     "slot": "small_item",
@@ -344,7 +344,7 @@
   },
   {
     "id": 35,
-    "name": "Sokolí figurka",
+    "name": "Soška sokola",
     "cost": 50,
     "count": 2,
     "slot": "small_item",
@@ -355,7 +355,7 @@
   },
   {
     "id": 36,
-    "name": "Boty úprku",
+    "name": "Mrštné boty",
     "cost": 40,
     "count": 2,
     "slot": "legs",
@@ -365,7 +365,7 @@
   },
   {
     "id": 37,
-    "name": "Roucho evokace",
+    "name": "Roucho vyvolání",
     "cost": 40,
     "count": 2,
     "slot": "body",
@@ -375,7 +375,7 @@
   },
   {
     "id": 38,
-    "name": "Těžký bacinet",
+    "name": "Těžký bascinet",
     "cost": 30,
     "count": 2,
     "slot": "head",
@@ -384,7 +384,7 @@
   },
   {
     "id": 39,
-    "name": "Hákový řetěz",
+    "name": "Ostnatý řetěz",
     "cost": 40,
     "count": 2,
     "slot": "two_hands",
@@ -394,7 +394,7 @@
   },
   {
     "id": 40,
-    "name": "Všestranná dýka",
+    "name": "Nenápadná dýka",
     "cost": 25,
     "count": 2,
     "slot": "one_hand",
@@ -403,7 +403,7 @@
   },
   {
     "id": 41,
-    "name": "Silný lektvar síly",
+    "name": "Velký lektvar moci",
     "cost": 40,
     "count": 4,
     "slot": "small_item",
@@ -423,7 +423,7 @@
   },
   {
     "id": 43,
-    "name": "Boty hbitosti",
+    "name": "Boty spěchu",
     "cost": 75,
     "count": 2,
     "slot": "legs",
@@ -433,7 +433,7 @@
   },
   {
     "id": 44,
-    "name": "Lamelová zbroj",
+    "name": "Lamelový pancíř",
     "cost": 35,
     "count": 2,
     "slot": "body",
@@ -442,7 +442,7 @@
   },
   {
     "id": 45,
-    "name": "Přívěsek temných paktů",
+    "name": "Přívěsek temné úmluvy",
     "cost": 75,
     "count": 2,
     "slot": "head",
@@ -463,7 +463,7 @@
   },
   {
     "id": 47,
-    "name": "Žací kosa",
+    "name": "Žencova kosa",
     "cost": 40,
     "count": 2,
     "slot": "two_hands",
@@ -473,7 +473,7 @@
   },
   {
     "id": 48,
-    "name": "Silný lektvar many",
+    "name": "Velký lektvar many",
     "cost": 30,
     "count": 4,
     "slot": "small_item",
@@ -512,7 +512,7 @@
   },
   {
     "id": 52,
-    "name": "Ochranný amulet",
+    "name": "Ochranný přívěsek",
     "cost": 60,
     "count": 2,
     "slot": "head",
@@ -531,7 +531,7 @@
   },
   {
     "id": 54,
-    "name": "Hůl vznešenosti",
+    "name": "Hůl věhlasu",
     "cost": 60,
     "count": 2,
     "slot": "two_hands",
@@ -541,7 +541,7 @@
   },
   {
     "id": 55,
-    "name": "Mocný léčivý lektvar",
+    "name": "Úžasný lektvar léčení",
     "cost": 50,
     "count": 4,
     "slot": "small_item",
@@ -551,7 +551,7 @@
   },
   {
     "id": 56,
-    "name": "Prsten brutality",
+    "name": "Prsten surovosti",
     "cost": 40,
     "count": 2,
     "slot": "small_item",
@@ -561,7 +561,7 @@
   },
   {
     "id": 57,
-    "name": "Klidné sandály",
+    "name": "Jemné sandály",
     "cost": 75,
     "count": 2,
     "slot": "legs",
@@ -570,7 +570,7 @@
   },
   {
     "id": 58,
-    "name": "Plášť prostupnosti",
+    "name": "Fázující plášť",
     "cost": 75,
     "count": 2,
     "slot": "body",
@@ -579,7 +579,7 @@
   },
   {
     "id": 59,
-    "name": "Teleskopická čočka",
+    "name": "Teleskopické okuláry",
     "cost": 50,
     "count": 2,
     "slot": "head",
@@ -589,7 +589,7 @@
   },
   {
     "id": 60,
-    "name": "Nestabilní výbušniny",
+    "name": "Nestabilní výbušnina",
     "cost": 45,
     "count": 2,
     "slot": "one_hand",
@@ -599,7 +599,7 @@
   },
   {
     "id": 61,
-    "name": "Hradební štít",
+    "name": "Pavéza",
     "cost": 60,
     "count": 2,
     "slot": "two_hands",
@@ -609,7 +609,7 @@
   },
   {
     "id": 62,
-    "name": "Prach zkázy",
+    "name": "Zkázonosný prach",
     "cost": 40,
     "count": 2,
     "slot": "small_item",
@@ -629,7 +629,7 @@
   },
   {
     "id": 64,
-    "name": "Boty sprintu",
+    "name": "Boty ohnivé čáry",
     "cost": 75,
     "count": 2,
     "slot": "legs",
@@ -712,7 +712,7 @@
   },
   {
     "id": 73,
-    "name": "Blikající plášť",
+    "name": "Kápě teleportace",
     "cost": 50,
     "count": 2,
     "slot": "body",
@@ -722,7 +722,7 @@
   },
   {
     "id": 74,
-    "name": "Zbroj s čepelemi",
+    "name": "Čepelové brnění",
     "cost": 40,
     "count": 2,
     "slot": "body",
@@ -732,7 +732,7 @@
   },
   {
     "id": 75,
-    "name": "Čelenka živlů",
+    "name": "Diadém živlů",
     "cost": 25,
     "count": 2,
     "slot": "head",
@@ -751,7 +751,7 @@
   },
   {
     "id": 77,
-    "name": "Mrazivá čepel",
+    "name": "Ledová čepel",
     "cost": 30,
     "count": 2,
     "slot": "one_hand",
@@ -760,7 +760,7 @@
   },
   {
     "id": 78,
-    "name": "Bouřková čepel",
+    "name": "Hromová čepel",
     "cost": 30,
     "count": 2,
     "slot": "one_hand",
@@ -778,7 +778,7 @@
   },
   {
     "id": 80,
-    "name": "Zemětřasná čepel",
+    "name": "Čepel otřesů",
     "cost": 30,
     "count": 2,
     "slot": "one_hand",
@@ -796,7 +796,7 @@
   },
   {
     "id": 82,
-    "name": "Noční čepel",
+    "name": "Čepel noci",
     "cost": 30,
     "count": 2,
     "slot": "one_hand",
@@ -805,7 +805,7 @@
   },
   {
     "id": 83,
-    "name": "Hůlka mrazu",
+    "name": "Ledová hůlka",
     "cost": 30,
     "count": 2,
     "slot": "one_hand",
@@ -815,7 +815,7 @@
   },
   {
     "id": 84,
-    "name": "Hůlka bouří",
+    "name": "Hromová hůlka",
     "cost": 30,
     "count": 2,
     "slot": "one_hand",
@@ -825,7 +825,7 @@
   },
   {
     "id": 85,
-    "name": "Hůlka pekel",
+    "name": "Pekelná hůlka",
     "cost": 30,
     "count": 2,
     "slot": "one_hand",
@@ -845,7 +845,7 @@
   },
   {
     "id": 87,
-    "name": "Hůlka záře",
+    "name": "Zářivá hůlka",
     "cost": 30,
     "count": 2,
     "slot": "one_hand",
@@ -865,7 +865,7 @@
   },
   {
     "id": 89,
-    "name": "Slabý lektvar léčby",
+    "name": "Malý lektvar uzdravení",
     "cost": 10,
     "count": 2,
     "slot": "small_item",
@@ -875,7 +875,7 @@
   },
   {
     "id": 90,
-    "name": "Silný lektvar léčby",
+    "name": "Velký lektvar uzdravení",
     "cost": 30,
     "count": 2,
     "slot": "small_item",
@@ -895,7 +895,7 @@
   },
   {
     "id": 92,
-    "name": "Tlumící prsten",
+    "name": "Prsten utlumení",
     "cost": 25,
     "count": 2,
     "slot": "small_item",
@@ -905,7 +905,7 @@
   },
   {
     "id": 93,
-    "name": "Svitek síly",
+    "name": "Svitek moci",
     "cost": 30,
     "count": 2,
     "slot": "small_item",
@@ -945,7 +945,7 @@
   },
   {
     "id": 97,
-    "name": "Vytrvalostní ovinovačky",
+    "name": "Onuce vytrvalosti",
     "cost": 40,
     "count": 1,
     "slot": "legs",
@@ -954,7 +954,7 @@
   },
   {
     "id": 98,
-    "name": "Dračí šupinové boty",
+    "name": "Boty z dračích šupin",
     "cost": 50,
     "count": 1,
     "slot": "legs",
@@ -963,7 +963,7 @@
   },
   {
     "id": 99,
-    "name": "Magmatické holínky",
+    "name": "Planoucí boty",
     "cost": 50,
     "count": 1,
     "slot": "legs",
@@ -972,7 +972,7 @@
   },
   {
     "id": 100,
-    "name": "Roucho přivolávání",
+    "name": "Róba přivolání",
     "cost": 40,
     "count": 1,
     "slot": "body",
@@ -991,7 +991,7 @@
   },
   {
     "id": 102,
-    "name": "Obětní roucho",
+    "name": "Róba obětování",
     "cost": 50,
     "count": 1,
     "slot": "body",
@@ -1001,7 +1001,7 @@
   },
   {
     "id": 103,
-    "name": "Dračí šupinová zbroj",
+    "name": "Brnění z dračích šupin",
     "cost": 50,
     "count": 1,
     "slot": "body",
@@ -1010,7 +1010,7 @@
   },
   {
     "id": 104,
-    "name": "Parní zbroj",
+    "name": "Parní skafandr",
     "cost": 50,
     "count": 1,
     "slot": "body",
@@ -1020,7 +1020,7 @@
   },
   {
     "id": 105,
-    "name": "Zavšivený šál",
+    "name": "Zablešený plášť",
     "cost": 10,
     "count": 1,
     "slot": "body",
@@ -1039,7 +1039,7 @@
   },
   {
     "id": 107,
-    "name": "Rohatá helma",
+    "name": "Rohatá přilbice",
     "cost": 30,
     "count": 2,
     "slot": "head",
@@ -1049,7 +1049,7 @@
   },
   {
     "id": 108,
-    "name": "Dračí šupinová helma",
+    "name": "Helma z dračích šupin",
     "cost": 50,
     "count": 1,
     "slot": "head",
@@ -1058,7 +1058,7 @@
   },
   {
     "id": 109,
-    "name": "Zlodějova kapuce",
+    "name": "Zlodějská kápě",
     "cost": 20,
     "count": 1,
     "slot": "head",
@@ -1068,7 +1068,7 @@
   },
   {
     "id": 110,
-    "name": "Helma hory",
+    "name": "Přilbice z Hory",
     "cost": 50,
     "count": 1,
     "slot": "head",
@@ -1077,7 +1077,7 @@
   },
   {
     "id": 111,
-    "name": "Hřeben vln",
+    "name": "Znamení vln",
     "cost": 50,
     "count": 1,
     "slot": "head",
@@ -1086,7 +1086,7 @@
   },
   {
     "id": 112,
-    "name": "Starověký vrták",
+    "name": "Prastarý vrták",
     "cost": 30,
     "count": 2,
     "slot": "two_hands",
@@ -1096,7 +1096,7 @@
   },
   {
     "id": 113,
-    "name": "Sekera smrti nemrtvých",
+    "name": "Lebkolam",
     "cost": 50,
     "count": 1,
     "slot": "two_hands",
@@ -1106,7 +1106,7 @@
   },
   {
     "id": 114,
-    "name": "Hůl Xorna",
+    "name": "Xornova hůl",
     "cost": 50,
     "count": 1,
     "slot": "two_hands",
@@ -1116,7 +1116,7 @@
   },
   {
     "id": 115,
-    "name": "Horské kladivo",
+    "name": "Kladivo z hor",
     "cost": 50,
     "count": 1,
     "slot": "two_hands",
@@ -1127,7 +1127,7 @@
   },
   {
     "id": 116,
-    "name": "Poháněný falchion",
+    "name": "Zápalný falchion",
     "cost": 20,
     "count": 2,
     "slot": "one_hand",
@@ -1167,7 +1167,7 @@
   },
   {
     "id": 120,
-    "name": "Hůl přivolávání",
+    "name": "Hůl vyvolávání",
     "cost": 60,
     "count": 1,
     "slot": "two_hands",
@@ -1177,7 +1177,7 @@
   },
   {
     "id": 121,
-    "name": "Koule úsvitu",
+    "name": "Hvězda úsvitu",
     "cost": 50,
     "count": 1,
     "slot": "one_hand",
@@ -1186,7 +1186,7 @@
   },
   {
     "id": 122,
-    "name": "Koule soumraku",
+    "name": "Hvězda soumraku",
     "cost": 50,
     "count": 1,
     "slot": "one_hand",
@@ -1206,7 +1206,7 @@
   },
   {
     "id": 124,
-    "name": "Prokletý kompas",
+    "name": "Kompas zkázy",
     "cost": 50,
     "count": 1,
     "slot": "small_item",
@@ -1226,7 +1226,7 @@
   },
   {
     "id": 126,
-    "name": "Vzdálený pavouk",
+    "name": "Obří mechapavouk",
     "cost": 40,
     "count": 1,
     "slot": "small_item",
@@ -1246,7 +1246,7 @@
   },
   {
     "id": 128,
-    "name": "Černý kadidelník",
+    "name": "Černá kadidelnice",
     "cost": 50,
     "count": 1,
     "slot": "small_item",
@@ -1256,7 +1256,7 @@
   },
   {
     "id": 129,
-    "name": "Černá karta",
+    "name": "Černý Petr",
     "cost": 75,
     "count": 1,
     "slot": "small_item",
@@ -1266,7 +1266,7 @@
   },
   {
     "id": 130,
-    "name": "Prsten šroubovice",
+    "name": "Prsten světla a temnoty",
     "cost": 50,
     "count": 1,
     "slot": "small_item",
@@ -1276,7 +1276,7 @@
   },
   {
     "id": 131,
-    "name": "Srdce zrádce",
+    "name": "Zrádcovo srdce",
     "cost": 60,
     "count": 1,
     "slot": "small_item",
@@ -1287,7 +1287,7 @@
   },
   {
     "id": 132,
-    "name": "Jádro síly",
+    "name": "Energetické jádro",
     "cost": 75,
     "count": 1,
     "slot": "small_item",
@@ -1298,7 +1298,7 @@
   },
   {
     "id": 133,
-    "name": "Rezonanční krystal",
+    "name": "Rezonující krystal",
     "cost": 20,
     "count": 1,
     "slot": "small_item",
@@ -1308,7 +1308,7 @@
   },
   {
     "id": 134,
-    "name": "Impozantní čepel",
+    "name": "Výstavní čepel",
     "cost": 50,
     "count": 1,
     "slot": "one_hand",
@@ -1317,7 +1317,7 @@
   },
   {
     "id": 135,
-    "name": "Zaostřovací paprsek",
+    "name": "Soustředěný paprsek",
     "cost": 50,
     "count": 1,
     "slot": "one_hand",
@@ -1327,7 +1327,7 @@
   },
   {
     "id": 136,
-    "name": "Nestabilní elixír",
+    "name": "Těkavý elixír",
     "cost": 50,
     "count": 1,
     "slot": "small_item",
@@ -1337,7 +1337,7 @@
   },
   {
     "id": 137,
-    "name": "Tichý stilet",
+    "name": "Tichá dýka",
     "cost": 50,
     "count": 1,
     "slot": "one_hand",
@@ -1356,7 +1356,7 @@
   },
   {
     "id": 139,
-    "name": "Psychický nůž",
+    "name": "Okultní nůž",
     "cost": 50,
     "count": 1,
     "slot": "one_hand",
@@ -1374,7 +1374,7 @@
   },
   {
     "id": 141,
-    "name": "Užitkový opasek",
+    "name": "Pás s nářadím",
     "cost": 50,
     "count": 1,
     "slot": "small_item",
@@ -1385,7 +1385,7 @@
   },
   {
     "id": 142,
-    "name": "Fázový idol",
+    "name": "Fázová soška",
     "cost": 50,
     "count": 1,
     "slot": "small_item",
@@ -1405,7 +1405,7 @@
   },
   {
     "id": 144,
-    "name": "Přívěsek moru",
+    "name": "Medailon nákazy",
     "cost": 50,
     "count": 1,
     "slot": "head",
@@ -1433,7 +1433,7 @@
   },
   {
     "id": 147,
-    "name": "Plášť lovce",
+    "name": "Lovcův plášť",
     "cost": 50,
     "count": 1,
     "slot": "body",
@@ -1461,7 +1461,7 @@
   },
   {
     "id": 150,
-    "name": "Hůl velení",
+    "name": "Hůl rozkazů",
     "cost": 50,
     "count": 1,
     "slot": "two_hands",
