@@ -52,6 +52,7 @@ export const useCampaignStore = defineStore('campaign', () => {
       characters: [],
       archivedCharacters: [],
       scenarios: {},
+      personalQuests: {},
       notes: '',
     }
 

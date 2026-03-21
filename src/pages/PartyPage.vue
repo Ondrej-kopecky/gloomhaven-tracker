@@ -14,6 +14,10 @@ const characterStore = useCharacterStore()
 
 const editingRep = ref(false)
 const editingDonations = ref(false)
+const newCityEvent = ref('')
+const newRoadEvent = ref('')
+const showCityRemoved = ref(false)
+const showRoadRemoved = ref(false)
 
 function inputValue(e: Event): string {
   return (e.target as HTMLInputElement).value
@@ -353,6 +357,163 @@ function getClassName(classId: string): string {
           class="gh-input w-full resize-y min-h-[60px]"
           @input="partyStore.setNotes(inputValue($event))"
         />
+      </div>
+    </div>
+
+    <!-- ── Event Decks ── -->
+    <div class="grid md:grid-cols-2 gap-4 mt-5">
+      <!-- City Events -->
+      <div class="gh-card relative overflow-hidden p-5">
+        <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-blue-500"></div>
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-7 h-7 rounded-lg bg-blue-500/15 flex items-center justify-center">
+            <svg class="w-4 h-4 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3H21m-3.75 3H21" />
+            </svg>
+          </div>
+          <h3 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider">Městské události</h3>
+          <span class="ml-auto text-sm font-display font-bold text-blue-400">
+            {{ partyStore.cityEventsAvailable.length }}
+          </span>
+        </div>
+
+        <!-- Add/Remove event -->
+        <div class="flex gap-2 mb-3">
+          <input
+            v-model="newCityEvent"
+            type="number"
+            placeholder="#"
+            min="1"
+            class="gh-input w-16 text-center text-sm [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+          />
+          <button
+            class="gh-btn-secondary text-xs flex-1"
+            @click="if (newCityEvent) { partyStore.removeEvent('city', Number(newCityEvent)); newCityEvent = '' }"
+          >
+            Odebrat
+          </button>
+          <button
+            class="gh-btn-ghost text-xs"
+            @click="if (newCityEvent) { partyStore.addEvent('city', Number(newCityEvent)); newCityEvent = '' }"
+          >
+            Přidat
+          </button>
+        </div>
+
+        <!-- Available events preview -->
+        <div class="flex flex-wrap gap-1 mb-3">
+          <span
+            v-for="id in partyStore.cityEventsAvailable"
+            :key="id"
+            class="w-7 h-7 rounded-md bg-blue-900/20 text-blue-400/80 text-[10px] font-bold flex items-center justify-center border border-blue-800/20"
+          >
+            {{ id }}
+          </span>
+        </div>
+
+        <!-- Removed events (collapsible) -->
+        <div v-if="partyStore.cityEventsRemoved.length">
+          <button
+            class="text-[10px] text-gray-600 hover:text-gray-400 transition-colors flex items-center gap-1"
+            @click="showCityRemoved = !showCityRemoved"
+          >
+            <svg
+              class="w-3 h-3 transition-transform" :class="{ 'rotate-90': showCityRemoved }"
+              fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+            </svg>
+            Odebrané ({{ partyStore.cityEventsRemoved.length }})
+          </button>
+          <div v-if="showCityRemoved" class="flex flex-wrap gap-1 mt-2">
+            <span
+              v-for="id in partyStore.cityEventsRemoved"
+              :key="id"
+              class="w-7 h-7 rounded-md bg-white/[0.03] text-gray-600 text-[10px] font-bold flex items-center justify-center border border-white/[0.04] cursor-pointer hover:border-blue-800/30 hover:text-blue-400/50 transition-colors"
+              title="Vrátit do balíčku"
+              @click="partyStore.returnEvent('city', id)"
+            >
+              {{ id }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Road Events -->
+      <div class="gh-card relative overflow-hidden p-5">
+        <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-amber-600"></div>
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-7 h-7 rounded-lg bg-amber-600/15 flex items-center justify-center">
+            <svg class="w-4 h-4 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498 4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 0 0-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0Z" />
+            </svg>
+          </div>
+          <h3 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider">Cestovní události</h3>
+          <span class="ml-auto text-sm font-display font-bold text-amber-500">
+            {{ partyStore.roadEventsAvailable.length }}
+          </span>
+        </div>
+
+        <!-- Add/Remove event -->
+        <div class="flex gap-2 mb-3">
+          <input
+            v-model="newRoadEvent"
+            type="number"
+            placeholder="#"
+            min="1"
+            class="gh-input w-16 text-center text-sm [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+          />
+          <button
+            class="gh-btn-secondary text-xs flex-1"
+            @click="if (newRoadEvent) { partyStore.removeEvent('road', Number(newRoadEvent)); newRoadEvent = '' }"
+          >
+            Odebrat
+          </button>
+          <button
+            class="gh-btn-ghost text-xs"
+            @click="if (newRoadEvent) { partyStore.addEvent('road', Number(newRoadEvent)); newRoadEvent = '' }"
+          >
+            Přidat
+          </button>
+        </div>
+
+        <!-- Available events preview -->
+        <div class="flex flex-wrap gap-1 mb-3">
+          <span
+            v-for="id in partyStore.roadEventsAvailable"
+            :key="id"
+            class="w-7 h-7 rounded-md bg-amber-900/20 text-amber-500/80 text-[10px] font-bold flex items-center justify-center border border-amber-800/20"
+          >
+            {{ id }}
+          </span>
+        </div>
+
+        <!-- Removed events (collapsible) -->
+        <div v-if="partyStore.roadEventsRemoved.length">
+          <button
+            class="text-[10px] text-gray-600 hover:text-gray-400 transition-colors flex items-center gap-1"
+            @click="showRoadRemoved = !showRoadRemoved"
+          >
+            <svg
+              class="w-3 h-3 transition-transform" :class="{ 'rotate-90': showRoadRemoved }"
+              fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+            </svg>
+            Odebrané ({{ partyStore.roadEventsRemoved.length }})
+          </button>
+          <div v-if="showRoadRemoved" class="flex flex-wrap gap-1 mt-2">
+            <span
+              v-for="id in partyStore.roadEventsRemoved"
+              :key="id"
+              class="w-7 h-7 rounded-md bg-white/[0.03] text-gray-600 text-[10px] font-bold flex items-center justify-center border border-white/[0.04] cursor-pointer hover:border-amber-800/30 hover:text-amber-500/50 transition-colors"
+              title="Vrátit do balíčku"
+              @click="partyStore.returnEvent('road', id)"
+            >
+              {{ id }}
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   </div>

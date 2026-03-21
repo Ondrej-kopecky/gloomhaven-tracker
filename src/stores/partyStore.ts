@@ -49,6 +49,76 @@ export const usePartyStore = defineStore('party', () => {
     campaignStore.autoSave()
   }
 
+  // ── Event management ──
+
+  const cityEventsAvailable = computed(() => party.value?.cityEventsAvailable ?? [])
+  const cityEventsRemoved = computed(() => party.value?.cityEventsRemoved ?? [])
+  const roadEventsAvailable = computed(() => party.value?.roadEventsAvailable ?? [])
+  const roadEventsRemoved = computed(() => party.value?.roadEventsRemoved ?? [])
+
+  function removeEvent(type: 'city' | 'road', eventId: number) {
+    if (!campaignStore.currentCampaign?.party) return
+    const p = campaignStore.currentCampaign.party
+    if (type === 'city') {
+      const idx = p.cityEventsAvailable.indexOf(eventId)
+      if (idx !== -1) {
+        p.cityEventsAvailable.splice(idx, 1)
+        p.cityEventsRemoved.push(eventId)
+        p.cityEventsRemoved.sort((a, b) => a - b)
+      }
+    } else {
+      const idx = p.roadEventsAvailable.indexOf(eventId)
+      if (idx !== -1) {
+        p.roadEventsAvailable.splice(idx, 1)
+        p.roadEventsRemoved.push(eventId)
+        p.roadEventsRemoved.sort((a, b) => a - b)
+      }
+    }
+    campaignStore.autoSave()
+  }
+
+  function addEvent(type: 'city' | 'road', eventId: number) {
+    if (!campaignStore.currentCampaign?.party) return
+    const p = campaignStore.currentCampaign.party
+    if (type === 'city') {
+      if (!p.cityEventsAvailable.includes(eventId)) {
+        p.cityEventsAvailable.push(eventId)
+        p.cityEventsAvailable.sort((a, b) => a - b)
+      }
+    } else {
+      if (!p.roadEventsAvailable.includes(eventId)) {
+        p.roadEventsAvailable.push(eventId)
+        p.roadEventsAvailable.sort((a, b) => a - b)
+      }
+    }
+    campaignStore.autoSave()
+  }
+
+  function returnEvent(type: 'city' | 'road', eventId: number) {
+    if (!campaignStore.currentCampaign?.party) return
+    const p = campaignStore.currentCampaign.party
+    if (type === 'city') {
+      const idx = p.cityEventsRemoved.indexOf(eventId)
+      if (idx !== -1) {
+        p.cityEventsRemoved.splice(idx, 1)
+        if (!p.cityEventsAvailable.includes(eventId)) {
+          p.cityEventsAvailable.push(eventId)
+          p.cityEventsAvailable.sort((a, b) => a - b)
+        }
+      }
+    } else {
+      const idx = p.roadEventsRemoved.indexOf(eventId)
+      if (idx !== -1) {
+        p.roadEventsRemoved.splice(idx, 1)
+        if (!p.roadEventsAvailable.includes(eventId)) {
+          p.roadEventsAvailable.push(eventId)
+          p.roadEventsAvailable.sort((a, b) => a - b)
+        }
+      }
+    }
+    campaignStore.autoSave()
+  }
+
   return {
     party,
     reputation,
@@ -61,5 +131,12 @@ export const usePartyStore = defineStore('party', () => {
     addProsperity,
     setPartyName,
     setNotes,
+    cityEventsAvailable,
+    cityEventsRemoved,
+    roadEventsAvailable,
+    roadEventsRemoved,
+    removeEvent,
+    addEvent,
+    returnEvent,
   }
 })

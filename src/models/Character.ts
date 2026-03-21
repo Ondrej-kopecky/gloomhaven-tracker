@@ -40,4 +40,5 @@ export interface CharacterState {
   isRetired: boolean
   retiredAt?: string
   createdAt: string
+  personalQuestId?: number
 }

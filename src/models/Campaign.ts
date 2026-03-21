@@ -1,6 +1,7 @@
 import type { CharacterState } from './Character'
 import type { PartyState } from './Party'
 import type { ScenarioState } from './Scenario'
+import type { PersonalQuestState } from './PersonalQuest'
 
 export interface CampaignState {
   id: string
@@ -14,6 +15,7 @@ export interface CampaignState {
   characters: CharacterState[]
   archivedCharacters: CharacterState[]
   scenarios: Record<string, ScenarioState>
+  personalQuests: Record<string, PersonalQuestState>
   notes: string
   hideSpoilers?: boolean
 }
