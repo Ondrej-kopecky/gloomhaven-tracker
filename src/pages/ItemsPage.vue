@@ -198,7 +198,6 @@ const aoePatterns: Record<string, { cells: HexCell[]; label: string }> = {
       { q: 0, r: 0, type: 'player' },
       { q: 0, r: -1, type: 'hit' },
       { q: 0, r: -2, type: 'hit' },
-      { q: 0, r: -3, type: 'hit' },
     ],
   },
   'AOE.CUBE_2_2': {
