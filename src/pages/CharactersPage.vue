@@ -17,6 +17,7 @@ const pqStore = usePersonalQuestStore()
 const showCreate = ref(false)
 const showQuestPicker = ref<string | null>(null)
 const newName = ref('')
+const newOwner = ref('')
 const newClass = ref<CharacterClass>(CharacterClass.BRUTE)
 const selectedUuid = ref<string | null>(null)
 const showDropdown = ref(false)
@@ -107,8 +108,9 @@ function selectClass(key: string) {
 
 function createCharacter() {
   if (!newName.value.trim()) return
-  characterStore.createCharacter(newClass.value, newName.value.trim())
+  characterStore.createCharacter(newClass.value, newName.value.trim(), newOwner.value.trim() || undefined)
   newName.value = ''
+  newOwner.value = ''
   showCreate.value = false
 }
 
@@ -176,8 +178,8 @@ const availableClasses = computed(() => {
       <div v-if="campaignStore.currentCampaign?.players?.length" class="mb-4">
         <label class="text-[11px] text-gray-500 uppercase tracking-wider mb-1.5 block font-semibold">Hráč</label>
         <select
+          v-model="newOwner"
           class="gh-input w-full text-sm"
-          @change="newName = ($event.target as HTMLSelectElement).value"
         >
           <option value="">-- Vyberte hráče --</option>
           <option v-for="player in campaignStore.currentCampaign.players" :key="player" :value="player">
@@ -283,6 +285,7 @@ const availableClasses = computed(() => {
               <p class="text-sm text-gray-500 flex items-center gap-1.5 mt-0.5">
                 <ClassIcon :class-id="char.classId" :size="14" class="opacity-60" />
                 {{ classNames[char.classId] }}
+                <span v-if="char.owner" class="text-purple-400/70 ml-1">· {{ char.owner }}</span>
               </p>
             </div>
 

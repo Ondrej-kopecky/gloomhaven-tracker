@@ -34,7 +34,7 @@ export const useCharacterStore = defineStore('character', () => {
     return definitions.value.find((d) => d.classId === classId)
   }
 
-  function createCharacter(classId: CharacterClass, playerName: string) {
+  function createCharacter(classId: CharacterClass, playerName: string, owner?: string) {
     if (!campaignStore.currentCampaign) return
 
     const def = getDefinition(classId)
@@ -54,6 +54,7 @@ export const useCharacterStore = defineStore('character', () => {
       checks: 0,
       isRetired: false,
       createdAt: new Date().toISOString(),
+      owner,
     }
 
     campaignStore.currentCampaign.characters.push(character)
