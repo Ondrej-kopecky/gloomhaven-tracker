@@ -31,6 +31,11 @@ export class HybridStorageAdapter implements StorageAdapter {
     this.cloud.deleteCampaign(id).catch(() => {})
   }
 
+  /** Delete only from local storage, preserve cloud data */
+  async deleteLocalOnly(id: string): Promise<void> {
+    await this.local.deleteCampaign(id)
+  }
+
   async exportCampaign(id: string): Promise<string> {
     return this.local.exportCampaign(id)
   }

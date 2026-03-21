@@ -201,7 +201,7 @@ function goToFlowchart(id: string) {
         </div>
         <div class="flex items-center gap-2">
           <div class="w-2.5 h-2.5 rounded-full bg-gray-600"></div>
-          <span class="text-xs text-gray-500">Zamčeno <span class="text-gray-400 font-medium">{{ scenarioStore.allScenarios.length - scenarioStore.completedScenarios.length - scenarioStore.availableScenarios.length }}</span></span>
+          <span class="text-xs text-gray-500">Zamčeno <span class="text-gray-400 font-medium">{{ scenarioStore.allScenarios.filter(s => s.computedStatus === 'locked' || s.computedStatus === 'hidden').length }}</span></span>
         </div>
       </div>
     </div>

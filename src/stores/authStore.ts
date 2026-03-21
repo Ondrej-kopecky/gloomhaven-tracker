@@ -5,6 +5,7 @@ import type { AuthUser } from '@/services/api/authApi'
 import * as campaignApiMod from '@/services/api/campaignApi'
 import { setToken, clearToken, hasToken } from '@/services/api/apiClient'
 import { useStorage, enableCloudSync, disableCloudSync } from '@/composables/useStorage'
+import { LocalStorageAdapter } from '@/services/storage/LocalStorageAdapter'
 
 export const useAuthStore = defineStore('auth', () => {
   const user = ref<AuthUser | null>(null)
@@ -97,17 +98,18 @@ export const useAuthStore = defineStore('auth', () => {
   }
 
   function logout() {
+    // Switch to local-only FIRST to prevent cloud operations
+    disableCloudSync()
     clearToken()
     user.value = null
     error.value = ''
-    // Clear local campaigns (safe on server)
-    const storage = useStorage()
-    storage.listCampaigns().then(async (list) => {
+    // Clear only local campaigns — never touch server data on logout
+    const local = new LocalStorageAdapter('default')
+    local.listCampaigns().then(async (list) => {
       for (const c of list) {
-        await storage.deleteCampaign(c.id)
+        await local.deleteCampaign(c.id)
       }
     })
-    disableCloudSync()
   }
 
   /**
@@ -148,9 +150,10 @@ export const useAuthStore = defineStore('auth', () => {
       }
     }
 
-    // Step 2: Clear all local campaigns
+    // Step 2: Clear only local campaigns (never delete from cloud here)
+    const localStorage = new LocalStorageAdapter('default')
     for (const local of localList) {
-      await storage.deleteCampaign(local.id)
+      await localStorage.deleteCampaign(local.id)
     }
 
     // Step 3: Download everything from server (= single source of truth)
