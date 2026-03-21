@@ -557,41 +557,30 @@ function formatDate(iso: string): string {
         <h3 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider">Podpořte vývoj</h3>
       </div>
 
-      <div class="flex flex-col sm:flex-row items-center gap-6">
-        <!-- QR kód s rámečkem -->
-        <div class="shrink-0">
-          <div class="relative p-3 rounded-2xl bg-gradient-to-br from-gh-primary/10 to-yellow-600/5 border border-gh-primary/20">
-            <div class="p-2 bg-white rounded-xl">
-              <img
-                src="/img/qr-donate.png"
-                alt="Revolut QR kód"
-                class="w-36 h-36 sm:w-40 sm:h-40 rounded-lg"
-                style="filter: invert(1);"
-              />
-            </div>
-            <!-- Rohové dekorace -->
-            <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-gh-primary/40 rounded-tl-2xl" />
-            <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-gh-primary/40 rounded-tr-2xl" />
-            <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-gh-primary/40 rounded-bl-2xl" />
-            <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-gh-primary/40 rounded-br-2xl" />
-          </div>
-        </div>
+      <p class="text-sm text-gray-400 leading-relaxed mb-5">
+        Pokud vám aplikace pomáhá s hraním Gloomhavenu, můžete podpořit její další vývoj. Naskenujte QR kód v aplikaci Revolut.
+      </p>
 
-        <!-- Text -->
-        <div class="text-center sm:text-left">
-          <p class="text-sm text-gray-400 leading-relaxed mb-3">
-            Pokud vám aplikace pomáhá s hraním Gloomhavenu, můžete podpořit její další vývoj.
-          </p>
-          <p class="text-xs text-gray-500 mb-4">
-            Naskenujte QR kód v aplikaci Revolut nebo pošlete na:
-          </p>
-          <div class="inline-flex items-center gap-2 bg-white/[0.04] border border-white/[0.08] rounded-lg px-4 py-2.5">
-            <svg class="w-4 h-4 text-gh-primary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-            </svg>
-            <span class="text-gh-primary font-display font-semibold text-sm tracking-wide">@ondejqv70</span>
-          </div>
-          <p class="text-[10px] text-gray-600 mt-2">Revolut</p>
+      <!-- QR kód na plnou šířku -->
+      <div class="flex justify-center mb-4">
+        <div class="relative p-4 rounded-2xl bg-gradient-to-br from-gh-primary/10 to-yellow-600/5 border border-gh-primary/20 w-full max-w-xs">
+          <img
+            src="/img/qr-donate.png"
+            alt="Revolut QR kód"
+            class="w-full rounded-xl"
+          />
+          <!-- Rohové dekorace -->
+          <div class="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-gh-primary/40 rounded-tl-2xl" />
+          <div class="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 border-gh-primary/40 rounded-tr-2xl" />
+          <div class="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2 border-gh-primary/40 rounded-bl-2xl" />
+          <div class="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 border-gh-primary/40 rounded-br-2xl" />
+        </div>
+      </div>
+
+      <div class="flex justify-center">
+        <div class="inline-flex items-center gap-2 bg-white/[0.04] border border-white/[0.08] rounded-lg px-4 py-2.5">
+          <span class="text-xs text-gray-500">Revolut</span>
+          <span class="text-gh-primary font-display font-semibold text-sm tracking-wide">@ondejqv70</span>
         </div>
       </div>
     </div>
