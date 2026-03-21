@@ -182,7 +182,7 @@ function goToScenarios(id: string) {
         v-for="s in visibleScenarios"
         :key="s.id"
         :src="stickerSrc(s.id, s.computedStatus)"
-        :alt="s.name"
+        :alt="s.displayName"
         class="absolute cursor-pointer transition-transform duration-150 hover:scale-110"
         :style="{
           left: s.coordinates.x + '%',
@@ -226,7 +226,7 @@ function goToScenarios(id: string) {
                     {{ statusLabels[selectedScenario.computedStatus] ?? selectedScenario.computedStatus }}
                   </span>
                 </div>
-                <h3 class="text-sm font-semibold text-gray-200">{{ selectedScenario.name }}</h3>
+                <h3 class="text-sm font-semibold text-gray-200">{{ selectedScenario.displayName }}</h3>
                 <span v-if="selectedScenario.location" class="text-[11px] text-gray-500">{{ selectedScenario.location }}</span>
               </div>
               <button

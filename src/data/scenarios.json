@@ -40,7 +40,8 @@
     ],
     "quests": [
       1
-    ]
+    ],
+    "nameCz": "Černá mohyla"
   },
   {
     "id": "2",
@@ -93,7 +94,8 @@
     "hasBoss": true,
     "quests": [
       1
-    ]
+    ],
+    "nameCz": "Mohylové doupě"
   },
   {
     "id": "3",
@@ -158,7 +160,8 @@
     ],
     "quests": [
       2
-    ]
+    ],
+    "nameCz": "Tábor inoxů"
   },
   {
     "id": "4",
@@ -204,7 +207,8 @@
     ],
     "quests": [
       3
-    ]
+    ],
+    "nameCz": "Krypta zatracených"
   },
   {
     "id": "5",
@@ -252,7 +256,8 @@
     ],
     "quests": [
       4
-    ]
+    ],
+    "nameCz": "Zřícená krypta"
   },
   {
     "id": "6",
@@ -302,7 +307,8 @@
     ],
     "quests": [
       3
-    ]
+    ],
+    "nameCz": "Zapáchající krypta"
   },
   {
     "id": "7",
@@ -348,7 +354,8 @@
     ],
     "quests": [
       9
-    ]
+    ],
+    "nameCz": "Živoucí sluj"
   },
   {
     "id": "8",
@@ -417,7 +424,8 @@
     "hasBoss": true,
     "quests": [
       6
-    ]
+    ],
+    "nameCz": "Gloomhavenské skladiště"
   },
   {
     "id": "9",
@@ -477,7 +485,8 @@
     "hasBoss": true,
     "quests": [
       7
-    ]
+    ],
+    "nameCz": "Diamantový důl"
   },
   {
     "id": "10",
@@ -534,7 +543,8 @@
     ],
     "quests": [
       8
-    ]
+    ],
+    "nameCz": "Sféra moci živlů"
   },
   {
     "id": "11",
@@ -604,7 +614,8 @@
     "hasBoss": true,
     "quests": [
       10
-    ]
+    ],
+    "nameCz": "Gloomhavenské náměstí A"
   },
   {
     "id": "12",
@@ -672,7 +683,8 @@
     "hasBoss": true,
     "quests": [
       11
-    ]
+    ],
+    "nameCz": "Gloomhavenské náměstí B"
   },
   {
     "id": "13",
@@ -721,7 +733,8 @@
     ],
     "quests": [
       12
-    ]
+    ],
+    "nameCz": "Prorokův chrám"
   },
   {
     "id": "14",
@@ -766,7 +779,8 @@
     ],
     "quests": [
       13
-    ]
+    ],
+    "nameCz": "Mrazivá prázdnota"
   },
   {
     "id": "15",
@@ -806,7 +820,8 @@
     ],
     "quests": [
       14
-    ]
+    ],
+    "nameCz": "Svatyně síly"
   },
   {
     "id": "16",
@@ -850,7 +865,8 @@
     ],
     "quests": [
       15
-    ]
+    ],
+    "nameCz": "Horský průsmyk"
   },
   {
     "id": "17",
@@ -896,7 +912,8 @@
     ],
     "quests": [
       16
-    ]
+    ],
+    "nameCz": "Ztracený ostrov"
   },
   {
     "id": "18",
@@ -943,7 +960,8 @@
     ],
     "quests": [
       17
-    ]
+    ],
+    "nameCz": "Opuštěné stoky"
   },
   {
     "id": "19",
@@ -1000,7 +1018,8 @@
     ],
     "quests": [
       18
-    ]
+    ],
+    "nameCz": "Zapomenutá krypta"
   },
   {
     "id": "20",
@@ -1056,7 +1075,8 @@
     "hasBoss": true,
     "quests": [
       9
-    ]
+    ],
+    "nameCz": "Nekromantčina svatyně"
   },
   {
     "id": "21",
@@ -1118,7 +1138,8 @@
     "hasBoss": true,
     "quests": [
       19
-    ]
+    ],
+    "nameCz": "Pekelný trůn"
   },
   {
     "id": "22",
@@ -1176,7 +1197,8 @@
     "quests": [
       20,
       28
-    ]
+    ],
+    "nameCz": "Chrám živlů"
   },
   {
     "id": "23",
@@ -1227,7 +1249,8 @@
     ],
     "quests": [
       21
-    ]
+    ],
+    "nameCz": "Trosky v hlubinách"
   },
   {
     "id": "24",
@@ -1274,7 +1297,8 @@
     ],
     "quests": [
       22
-    ]
+    ],
+    "nameCz": "Komnata ozvěn"
   },
   {
     "id": "25",
@@ -1322,7 +1346,8 @@
     ],
     "quests": [
       15
-    ]
+    ],
+    "nameCz": "Výstup na Ledovou stěnu"
   },
   {
     "id": "26",
@@ -1385,7 +1410,8 @@
     ],
     "quests": [
       17
-    ]
+    ],
+    "nameCz": "Prastará nádrž"
   },
   {
     "id": "27",
@@ -1434,7 +1460,8 @@
     ],
     "quests": [
       18
-    ]
+    ],
+    "nameCz": "Trhlina"
   },
   {
     "id": "28",
@@ -1487,7 +1514,8 @@
     ],
     "quests": [
       3
-    ]
+    ],
+    "nameCz": "Vnější rituální komnata"
   },
   {
     "id": "29",
@@ -1540,7 +1568,8 @@
     ],
     "quests": [
       3
-    ]
+    ],
+    "nameCz": "Útočiště Chmuru"
   },
   {
     "id": "30",
@@ -1594,7 +1623,8 @@
     ],
     "quests": [
       23
-    ]
+    ],
+    "nameCz": "Svatyně hlubin"
   },
   {
     "id": "31",
@@ -1656,7 +1686,8 @@
     ],
     "quests": [
       24
-    ]
+    ],
+    "nameCz": "Sféna noci"
   },
   {
     "id": "32",
@@ -1704,7 +1735,8 @@
     ],
     "quests": [
       25
-    ]
+    ],
+    "nameCz": "Práchnivějící les"
   },
   {
     "id": "33",
@@ -1761,7 +1793,8 @@
       25,
       26,
       27
-    ]
+    ],
+    "nameCz": "Savvasská zbrojnice"
   },
   {
     "id": "34",
@@ -1830,7 +1863,8 @@
     "hasBoss": true,
     "quests": [
       27
-    ]
+    ],
+    "nameCz": "Sežehlý vrch"
   },
   {
     "id": "35",
@@ -1906,7 +1940,8 @@
     "hasBoss": true,
     "quests": [
       28
-    ]
+    ],
+    "nameCz": "Cimbuří Gloomhavenu A"
   },
   {
     "id": "36",
@@ -1978,7 +2013,8 @@
     "hasBoss": true,
     "quests": [
       28
-    ]
+    ],
+    "nameCz": "Cimbuří Gloomhavenu B"
   },
   {
     "id": "37",
@@ -2035,7 +2071,8 @@
     },
     "quests": [
       30
-    ]
+    ],
+    "nameCz": "Příkop zkázy"
   },
   {
     "id": "38",
@@ -2085,7 +2122,8 @@
     ],
     "quests": [
       31
-    ]
+    ],
+    "nameCz": "Otrokářské ohrady"
   },
   {
     "id": "39",
@@ -2135,7 +2173,8 @@
     ],
     "quests": [
       32
-    ]
+    ],
+    "nameCz": "Zrádná propast"
   },
   {
     "id": "40",
@@ -2192,7 +2231,8 @@
     ],
     "quests": [
       25
-    ]
+    ],
+    "nameCz": "Prastaré obranné systémy"
   },
   {
     "id": "41",
@@ -2252,7 +2292,8 @@
     ],
     "quests": [
       25
-    ]
+    ],
+    "nameCz": "Věkovitá hrobka"
   },
   {
     "id": "42",
@@ -2322,7 +2363,8 @@
     ],
     "quests": [
       33
-    ]
+    ],
+    "nameCz": "Říše Hlasu"
   },
   {
     "id": "43",
@@ -2373,7 +2415,8 @@
     ],
     "quests": [
       34
-    ]
+    ],
+    "nameCz": "Dračí hnízdo"
   },
   {
     "id": "44",
@@ -2420,7 +2463,8 @@
     ],
     "quests": [
       35
-    ]
+    ],
+    "nameCz": "Kmen útočí"
   },
   {
     "id": "45",
@@ -2474,7 +2518,8 @@
     ],
     "quests": [
       36
-    ]
+    ],
+    "nameCz": "Bažina povstalců"
   },
   {
     "id": "46",
@@ -2527,7 +2572,8 @@
     "hasBoss": true,
     "quests": [
       32
-    ]
+    ],
+    "nameCz": "Vrch hrůzy"
   },
   {
     "id": "47",
@@ -2584,7 +2630,8 @@
     "hasBoss": true,
     "quests": [
       30
-    ]
+    ],
+    "nameCz": "Doupě Nevidoucího oka"
   },
   {
     "id": "48",
@@ -2637,7 +2684,8 @@
     "hasBoss": true,
     "quests": [
       31
-    ]
+    ],
+    "nameCz": "Teskná mýtina"
   },
   {
     "id": "49",
@@ -2694,7 +2742,8 @@
     ],
     "quests": [
       37
-    ]
+    ],
+    "nameCz": "Tábor povstalců"
   },
   {
     "id": "50",
@@ -2754,7 +2803,8 @@
     ],
     "quests": [
       38
-    ]
+    ],
+    "nameCz": "Pevnost duchů"
   },
   {
     "id": "51",
@@ -2813,7 +2863,8 @@
     "hasBoss": true,
     "quests": [
       39
-    ]
+    ],
+    "nameCz": "Prázdnota"
   },
   {
     "id": "52",
@@ -2846,7 +2897,8 @@
     "pages": [
       "gh/68",
       "gh/69"
-    ]
+    ],
+    "nameCz": "Zatuchlé sklepení"
   },
   {
     "id": "53",
@@ -2889,7 +2941,8 @@
     "pages": [
       "gh/69",
       "gh/70"
-    ]
+    ],
+    "nameCz": "Základy krypty"
   },
   {
     "id": "54",
@@ -2931,7 +2984,8 @@
     ],
     "pages": [
       "gh/71"
-    ]
+    ],
+    "nameCz": "Ledový palác"
   },
   {
     "id": "55",
@@ -2966,7 +3020,8 @@
     ],
     "pages": [
       "gh/72"
-    ]
+    ],
+    "nameCz": "Mlžné houštiny"
   },
   {
     "id": "56",
@@ -3009,7 +3064,8 @@
     ],
     "pages": [
       "gh/73"
-    ]
+    ],
+    "nameCz": "Hvozd zbojníků"
   },
   {
     "id": "57",
@@ -3053,7 +3109,8 @@
     ],
     "pages": [
       "gh/74"
-    ]
+    ],
+    "nameCz": "Vyšetřování"
   },
   {
     "id": "58",
@@ -3090,7 +3147,8 @@
     ],
     "pages": [
       "gh/75"
-    ]
+    ],
+    "nameCz": "Krvavá chatrč"
   },
   {
     "id": "59",
@@ -3122,7 +3180,8 @@
     ],
     "pages": [
       "gh/76"
-    ]
+    ],
+    "nameCz": "Zapomenutý háj"
   },
   {
     "id": "60",
@@ -3160,7 +3219,8 @@
     "pages": [
       "gh/77",
       "gh/78"
-    ]
+    ],
+    "nameCz": "Alchymistická laboratoř"
   },
   {
     "id": "61",
@@ -3193,7 +3253,8 @@
     "pages": [
       "gh/78",
       "gh/79"
-    ]
+    ],
+    "nameCz": "Mizející maják"
   },
   {
     "id": "62",
@@ -3235,7 +3296,8 @@
     ],
     "pages": [
       "gh/80"
-    ]
+    ],
+    "nameCz": "Jáma duší"
   },
   {
     "id": "63",
@@ -3273,7 +3335,8 @@
     ],
     "pages": [
       "gh/81"
-    ]
+    ],
+    "nameCz": "Srdce vulkánu"
   },
   {
     "id": "64",
@@ -3318,7 +3381,8 @@
           "water_breathing"
         ]
       }
-    ]
+    ],
+    "nameCz": "Podvodní laguna"
   },
   {
     "id": "65",
@@ -3355,7 +3419,8 @@
     ],
     "achievementsAwarded": [
       "ancient_technology"
-    ]
+    ],
+    "nameCz": "Důl na síru"
   },
   {
     "id": "66",
@@ -3398,7 +3463,8 @@
     ],
     "achievementsAwarded": [
       "ancient_technology"
-    ]
+    ],
+    "nameCz": "Hodinářova zátoka"
   },
   {
     "id": "67",
@@ -3436,7 +3502,8 @@
     ],
     "achievementsAwarded": [
       "ancient_technology"
-    ]
+    ],
+    "nameCz": "Tajemná knihovna"
   },
   {
     "id": "68",
@@ -3474,7 +3541,8 @@
     ],
     "pages": [
       "gh/87"
-    ]
+    ],
+    "nameCz": "Otrávená slať"
   },
   {
     "id": "69",
@@ -3504,7 +3572,8 @@
     "chapterId": 102,
     "pages": [
       "gh/88"
-    ]
+    ],
+    "nameCz": "Studna nešťastníků"
   },
   {
     "id": "70",
@@ -3543,7 +3612,8 @@
     "pages": [
       "gh/89",
       "gh/90"
-    ]
+    ],
+    "nameCz": "Spoutaný ostrov"
   },
   {
     "id": "71",
@@ -3574,7 +3644,8 @@
     "pages": [
       "gh/90",
       "gh/91"
-    ]
+    ],
+    "nameCz": "Větrné vrchy"
   },
   {
     "id": "72",
@@ -3608,7 +3679,8 @@
     ],
     "quests": [
       72
-    ]
+    ],
+    "nameCz": "Slizký háj"
   },
   {
     "id": "73",
@@ -3644,7 +3716,8 @@
     ],
     "quests": [
       73
-    ]
+    ],
+    "nameCz": "Hřbet kamenných lavin"
   },
   {
     "id": "74",
@@ -3690,7 +3763,8 @@
           "high_sea_escort"
         ]
       }
-    ]
+    ],
+    "nameCz": "Obchodní loď"
   },
   {
     "id": "75",
@@ -3732,7 +3806,8 @@
           "grave_job"
         ]
       }
-    ]
+    ],
+    "nameCz": "Zarostlý hřbitov"
   },
   {
     "id": "76",
@@ -3768,7 +3843,8 @@
     "pages": [
       "gh/96",
       "gh/97"
-    ]
+    ],
+    "nameCz": "Trýznitelský úl"
   },
   {
     "id": "77",
@@ -3805,7 +3881,8 @@
     ],
     "quests": [
       77
-    ]
+    ],
+    "nameCz": "Pokladnice tajemství"
   },
   {
     "id": "78",
@@ -3838,7 +3915,8 @@
     ],
     "pages": [
       "gh/99"
-    ]
+    ],
+    "nameCz": "Jáma obětování"
   },
   {
     "id": "79",
@@ -3884,7 +3962,8 @@
           "fishs_aid"
         ]
       }
-    ]
+    ],
+    "nameCz": "Ztracený chrám"
   },
   {
     "id": "80",
@@ -3918,7 +3997,8 @@
     "pages": [
       "gh/101",
       "gh/102"
-    ]
+    ],
+    "nameCz": "Bdělá hlídka"
   },
   {
     "id": "81",
@@ -3956,7 +4036,8 @@
     ],
     "pages": [
       "gh/103"
-    ]
+    ],
+    "nameCz": "Chrám zatmění"
   },
   {
     "id": "82",
@@ -4001,7 +4082,8 @@
     "pages": [
       "gh/104"
     ],
-    "prompt": "burningMountain"
+    "prompt": "burningMountain",
+    "nameCz": "Planoucí hora"
   },
   {
     "id": "83",
@@ -4041,7 +4123,8 @@
           "bad_business"
         ]
       }
-    ]
+    ],
+    "nameCz": "Noc stínů"
   },
   {
     "id": "84",
@@ -4087,7 +4170,8 @@
           "tremors"
         ]
       }
-    ]
+    ],
+    "nameCz": "Krystalová jeskyně"
   },
   {
     "id": "85",
@@ -4121,7 +4205,8 @@
     "pages": [
       "gh/107",
       "gh/108"
-    ]
+    ],
+    "nameCz": "Chrám slunce"
   },
   {
     "id": "86",
@@ -4160,7 +4245,8 @@
     ],
     "achievementsAwarded": [
       "the_poisons_source"
-    ]
+    ],
+    "nameCz": "Sužovaná vesnice"
   },
   {
     "id": "87",
@@ -4205,7 +4291,8 @@
           "the_poisons_source"
         ]
       }
-    ]
+    ],
+    "nameCz": "Zátoka zkaženosti"
   },
   {
     "id": "88",
@@ -4255,7 +4342,8 @@
           "water_staff"
         ]
       }
-    ]
+    ],
+    "nameCz": "Sféra vody"
   },
   {
     "id": "89",
@@ -4308,7 +4396,8 @@
           "sin_ra"
         ]
       }
-    ]
+    ],
+    "nameCz": "Úkryt Syndikátu"
   },
   {
     "id": "90",
@@ -4343,7 +4432,8 @@
     "chapterId": 104,
     "pages": [
       "gh/113"
-    ]
+    ],
+    "nameCz": "Brána démonů"
   },
   {
     "id": "91",
@@ -4376,7 +4466,8 @@
     ],
     "pages": [
       "gh/114"
-    ]
+    ],
+    "nameCz": "Divoký střet"
   },
   {
     "id": "92",
@@ -4417,7 +4508,8 @@
           "debt_collection"
         ]
       }
-    ]
+    ],
+    "nameCz": "Rvačka v postranní uličce"
   },
   {
     "id": "93",
@@ -4462,7 +4554,8 @@
           "a_map_to_treasure"
         ]
       }
-    ]
+    ],
+    "nameCz": "Potopená loď"
   },
   {
     "id": "94",
@@ -4494,7 +4587,8 @@
     ],
     "achievementsAwarded": [
       "through_the_nest"
-    ]
+    ],
+    "nameCz": "Hnízdo krysáků"
   },
   {
     "id": "95",
@@ -4534,6 +4628,7 @@
           "through_the_nest"
         ]
       }
-    ]
+    ],
+    "nameCz": "Čas splácet"
   }
 ]

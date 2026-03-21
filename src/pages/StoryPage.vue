@@ -180,7 +180,7 @@ const statusColors: Record<string, string> = {
                 >
                   <div class="flex items-center gap-2 min-w-0">
                     <span class="text-gh-primary font-display font-bold text-xs shrink-0">#{{ s.id }}</span>
-                    <span class="text-sm text-gray-300 truncate">{{ s.name }}</span>
+                    <span class="text-sm text-gray-300 truncate">{{ s.displayName }}</span>
                   </div>
                   <span
                     :class="[
@@ -250,7 +250,7 @@ const statusColors: Record<string, string> = {
                 :key="s.id"
                 class="text-[10px] text-gray-500 bg-white/[0.04] px-2 py-1 rounded border border-white/[0.06]"
               >
-                #{{ s.id }} {{ s.name }}
+                #{{ s.id }} {{ s.displayName }}
               </span>
             </div>
           </div>
@@ -310,7 +310,7 @@ const statusColors: Record<string, string> = {
             <div class="flex items-start justify-between mb-2">
               <div>
                 <span class="text-gh-primary font-display font-bold text-sm">#{{ s.id }}</span>
-                <h3 class="font-display text-lg font-semibold text-gray-200 tracking-wide">{{ s.name }}</h3>
+                <h3 class="font-display text-lg font-semibold text-gray-200 tracking-wide">{{ s.displayName }}</h3>
                 <p v-if="s.location" class="text-xs text-gray-600 mt-0.5">{{ s.location }}</p>
               </div>
               <span v-if="s.state.completedAt" class="text-[10px] text-gray-600 shrink-0 mt-1">

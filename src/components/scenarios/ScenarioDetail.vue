@@ -86,7 +86,7 @@ function inputValue(e: Event): string {
               {{ statusLabels[status] }}
             </span>
           </div>
-          <h3 class="font-display text-lg font-semibold text-gray-200 mt-1.5 tracking-wide">{{ scenario.name }}</h3>
+          <h3 class="font-display text-lg font-semibold text-gray-200 mt-1.5 tracking-wide">{{ scenario.nameCz ?? scenario.name }}</h3>
           <p class="text-xs text-gray-500 mt-0.5">{{ scenario.location }}</p>
         </div>
         <button
@@ -194,7 +194,7 @@ function inputValue(e: Event): string {
           >
             Scénář #{{ choiceId }}
             <span class="text-gray-500 text-xs">
-              {{ scenarioStore.getDefinition(String(choiceId))?.name }}
+              {{ scenarioStore.getDefinition(String(choiceId))?.nameCz ?? scenarioStore.getDefinition(String(choiceId))?.name }}
             </span>
           </button>
         </div>
@@ -205,7 +205,7 @@ function inputValue(e: Event): string {
         <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-2">Odemyká</h4>
         <div v-for="s in linksFrom" :key="s.id" class="text-sm text-gray-400 py-0.5">
           <span class="text-gh-primary/60 font-display">#{{ s.id }}</span>
-          <span class="text-gray-600 ml-1">{{ s.name }}</span>
+          <span class="text-gray-600 ml-1">{{ s.nameCz ?? s.name }}</span>
         </div>
       </div>
 
@@ -214,7 +214,7 @@ function inputValue(e: Event): string {
         <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-2">Odemčeno z</h4>
         <div v-for="s in linksTo" :key="s.id" class="text-sm text-gray-400 py-0.5">
           <span class="text-gh-primary/60 font-display">#{{ s.id }}</span>
-          <span class="text-gray-600 ml-1">{{ s.name }}</span>
+          <span class="text-gray-600 ml-1">{{ s.nameCz ?? s.name }}</span>
         </div>
       </div>
 
