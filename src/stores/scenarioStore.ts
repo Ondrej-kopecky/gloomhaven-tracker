@@ -191,6 +191,7 @@ export const useScenarioStore = defineStore('scenario', () => {
   const allScenarios = computed(() =>
     scenarioDefinitions.value.map((def) => ({
       ...def,
+      displayName: def.nameCz ?? def.name,
       state: getState(def.id),
       computedStatus: computedStatuses.value[def.id] ?? ScenarioStatus.LOCKED,
     }))

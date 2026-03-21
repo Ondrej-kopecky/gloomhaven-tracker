@@ -239,7 +239,7 @@ export function useStorylineSvg(containerRef: Ref<HTMLElement | null>) {
       // Add tooltip if not already present
       if (!node.querySelector('title')) {
         const title = document.createElementNS('http://www.w3.org/2000/svg', 'title')
-        title.textContent = `${scenario.id}. ${scenario.name}`
+        title.textContent = `${scenario.id}. ${scenario.nameCz ?? scenario.name}`
         node.insertBefore(title, node.firstChild)
       }
     }

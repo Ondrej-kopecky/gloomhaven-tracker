@@ -28,6 +28,7 @@ export interface ScenarioReward {
 export interface ScenarioData {
   id: string
   name: string
+  nameCz?: string
   location: string
   isSide: boolean
   isRoot?: boolean

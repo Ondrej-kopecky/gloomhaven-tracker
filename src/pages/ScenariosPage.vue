@@ -109,7 +109,7 @@ const filteredScenarios = computed(() => {
     }
     if (search.value) {
       const q = search.value.toLowerCase()
-      return s.name.toLowerCase().includes(q) || s.id.includes(q)
+      return s.displayName.toLowerCase().includes(q) || s.name.toLowerCase().includes(q) || s.id.includes(q)
     }
     return true
   })
@@ -260,7 +260,7 @@ function goToFlowchart(id: string) {
           <!-- info -->
           <div class="flex-1 min-w-0">
             <div class="flex items-center gap-2 mb-0.5">
-              <span class="text-sm font-medium text-gray-300 truncate">{{ s.name }}</span>
+              <span class="text-sm font-medium text-gray-300 truncate">{{ s.displayName }}</span>
               <span v-if="s.isSide" class="shrink-0 text-[10px] text-gray-500 bg-white/[0.04] px-1.5 py-0.5 rounded border border-white/[0.06]">vedlejší</span>
             </div>
             <div class="flex items-center gap-3 text-[11px] text-gray-600">
@@ -333,7 +333,7 @@ function goToFlowchart(id: string) {
                       {{ statusLabels[selectedScenario.computedStatus] ?? selectedScenario.computedStatus }}
                     </span>
                   </div>
-                  <h2 class="text-lg font-semibold text-gray-200">{{ selectedScenario.name }}</h2>
+                  <h2 class="text-lg font-semibold text-gray-200">{{ selectedScenario.displayName }}</h2>
                   <div class="flex items-center gap-2 mt-1">
                     <span v-if="selectedScenario.location" class="text-xs text-gray-500">{{ selectedScenario.location }}</span>
                     <span v-if="selectedScenario.isSide" class="text-[10px] text-gray-500 bg-white/[0.04] px-1.5 py-0.5 rounded border border-white/[0.06]">vedlejší</span>
