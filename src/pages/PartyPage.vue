@@ -23,6 +23,7 @@ const newPlayerName = ref('')
 function addPlayer() {
   if (!newPlayerName.value.trim() || !campaignStore.currentCampaign) return
   if (!campaignStore.currentCampaign.players) campaignStore.currentCampaign.players = []
+  if (campaignStore.currentCampaign.players.length >= 4) return
   campaignStore.currentCampaign.players.push(newPlayerName.value.trim())
   newPlayerName.value = ''
   campaignStore.autoSave()
@@ -389,8 +390,8 @@ function getClassName(classId: string): string {
         </div>
       </div>
 
-      <!-- Add player -->
-      <div class="flex gap-2">
+      <!-- Add player (max 4) -->
+      <div v-if="(campaignStore.currentCampaign?.players?.length ?? 0) < 4" class="flex gap-2">
         <input
           v-model="newPlayerName"
           type="text"
@@ -405,6 +406,7 @@ function getClassName(classId: string): string {
           Přidat
         </button>
       </div>
+      <p v-else class="text-[10px] text-gray-600">Maximum 4 hráči ve skupině.</p>
     </div>
 
     <!-- Party name & Notes -->
