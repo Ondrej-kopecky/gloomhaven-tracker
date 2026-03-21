@@ -13,6 +13,21 @@ const authStore = useAuthStore()
 const newCampaignName = ref('')
 const showCreate = ref(false)
 const showDeleteConfirm = ref<string | null>(null)
+const importError = ref('')
+const importFileRef = ref<HTMLInputElement | null>(null)
+
+async function handleImport(e: Event) {
+  const file = (e.target as HTMLInputElement).files?.[0]
+  if (!file) return
+  importError.value = ''
+  try {
+    const text = await file.text()
+    await campaignStore.importCampaign(text)
+    router.push('/prehled')
+  } catch {
+    importError.value = 'Neplatný soubor kampaně.'
+  }
+}
 
 const loginEmail = ref('')
 const loginPassword = ref('')
@@ -169,20 +184,41 @@ function formatDate(iso: string): string {
       </div>
     </div>
 
-    <!-- Create new campaign -->
-    <div class="mb-8">
-      <button
-        v-if="!showCreate"
-        class="w-full py-4 px-5 rounded-xl font-medium transition-all duration-300 border-2 border-dashed border-gh-primary/20 text-gh-primary/80 bg-gh-primary/[0.03] hover:bg-gh-primary/[0.07] hover:border-gh-primary/40 hover:shadow-[0_0_40px_rgba(196,163,90,0.08)] group"
-        @click="showCreate = true"
-      >
-        <span class="flex items-center justify-center gap-2">
-          <svg class="w-5 h-5 opacity-60 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-          </svg>
-          Nová kampaň
-        </span>
-      </button>
+    <!-- Create / Import campaign -->
+    <div class="mb-8 space-y-3">
+      <div v-if="!showCreate" class="flex gap-3">
+        <button
+          class="flex-1 py-4 px-5 rounded-xl font-medium transition-all duration-300 border-2 border-dashed border-gh-primary/20 text-gh-primary/80 bg-gh-primary/[0.03] hover:bg-gh-primary/[0.07] hover:border-gh-primary/40 hover:shadow-[0_0_40px_rgba(196,163,90,0.08)] group"
+          @click="showCreate = true"
+        >
+          <span class="flex items-center justify-center gap-2">
+            <svg class="w-5 h-5 opacity-60 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+            Nová kampaň
+          </span>
+        </button>
+
+        <button
+          class="py-4 px-5 rounded-xl font-medium transition-all duration-300 border-2 border-dashed border-blue-500/20 text-blue-400/80 bg-blue-500/[0.03] hover:bg-blue-500/[0.07] hover:border-blue-500/40 group"
+          @click="importFileRef?.click()"
+        >
+          <span class="flex items-center justify-center gap-2">
+            <svg class="w-5 h-5 opacity-60 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" />
+            </svg>
+            Importovat
+          </span>
+        </button>
+        <input
+          ref="importFileRef"
+          type="file"
+          accept=".json"
+          class="hidden"
+          @change="handleImport"
+        />
+      </div>
+      <p v-if="importError" class="text-xs text-red-400">{{ importError }}</p>
 
       <div
         v-else
