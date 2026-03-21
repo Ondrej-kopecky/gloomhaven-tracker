@@ -27,3 +27,15 @@ dist-ssr
 *.sln
 *.sw?
 .playwright-cli/
+
+# Item card photos (too large for git, hosted on server directly)
+public/img/items/
+
+# Game rules PDFs (copyright)
+pravidla/
+
+# Raw photos
+fotky-predmety/
+
+# Test results
+test-results/
