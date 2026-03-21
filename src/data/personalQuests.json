@@ -6,7 +6,7 @@
     "progress": [
       {
         "type": "checkbox",
-        "name": "Dokončete tři scénáře v kryptách.",
+        "name": "Úspěšně dokonči 3 scénáře v kryptách.",
         "scenario_unlock": 52,
         "value": [
           0,
@@ -16,7 +16,7 @@
       },
       {
         "type": "checkbox",
-        "name": "Odemkněte scénář 52 a dovedete ho ke konci.",
+        "name": "Zpřístupněte Zamořený sklep (scénář 52) a pokračujte dle instrukcí.",
         "value": [
           0
         ]
@@ -25,12 +25,12 @@
   },
   {
     "id": 511,
-    "name": "Obchodnická třída",
+    "name": "Kupec",
     "character_unlock": "QM",
     "progress": [
       {
         "type": "checkbox",
-        "name": "Vlastněte dva předměty {BODY}.",
+        "name": "Vlastni 2 předměty na tělo.",
         "value": [
           0,
           0
@@ -38,7 +38,7 @@
       },
       {
         "type": "checkbox",
-        "name": "Vlastněte dva předměty {HEAD}.",
+        "name": "Vlastni 2 předměty na hlavu.",
         "value": [
           0,
           0
@@ -46,7 +46,7 @@
       },
       {
         "type": "checkbox",
-        "name": "Vlastněte dva předměty {LEGS}.",
+        "name": "Vlastni 2 předměty na nohy.",
         "value": [
           0,
           0
@@ -54,7 +54,7 @@
       },
       {
         "type": "checkbox",
-        "name": "Vlastněte tři předměty {ONE-HAND} nebo {TWO-HANDS}.",
+        "name": "Vlastni 3 předměty na jednu nebo dvě ruce.",
         "value": [
           0,
           0,
@@ -63,7 +63,7 @@
       },
       {
         "type": "checkbox",
-        "name": "Vlastněte čtyři předměty {SMALL-ITEM}.",
+        "name": "Vlastni 4 drobné předměty.",
         "value": [
           0,
           0,
@@ -75,12 +75,12 @@
   },
   {
     "id": 512,
-    "name": "Chamtivost je dobrá",
+    "name": "Chamtivost není hřích",
     "character_unlock": "QM",
     "progress": [
       {
         "type": "number",
-        "name": "Mějte u sebe 200 zlaťáků.",
+        "name": "Vlastni 200 zlaťáků.",
         "value": 0,
         "target": 200
       }
@@ -93,7 +93,7 @@
     "progress": [
       {
         "type": "checkbox",
-        "name": "Zabijte osm lesních impů.",
+        "name": "Zabij 8 lesních rarachů.",
         "scenario_unlock": 59,
         "value": [
           0,
@@ -108,7 +108,7 @@
       },
       {
         "type": "checkbox",
-        "name": "Odemkněte scénář 59 a dovedete ho ke konci.",
+        "name": "Zpřístupněte Zapomenutý háj (scénář 59) a pokračujte dle instrukcí.",
         "value": [
           0
         ]
@@ -117,12 +117,12 @@
   },
   {
     "id": 514,
-    "name": "Studium anatomie",
+    "name": "Studie o krvavé",
     "character_unlock": "SB",
     "progress": [
       {
         "type": "number",
-        "name": "Vaši spoluhráči se vyčerpají celkem patnáctkrát.",
+        "name": "Členové tvojí družiny se musí 15krát vyčerpat.",
         "value": 0,
         "target": 15
       }
@@ -130,12 +130,12 @@
   },
   {
     "id": 515,
-    "name": "Vykonavatel zákona",
+    "name": "Zákonodárce",
     "character_unlock": "SK",
     "progress": [
       {
         "type": "number",
-        "name": "Zabijte dvacet lupičů nebo kultistů.",
+        "name": "Zabij dohromady 20 zbojníků a kultistů.",
         "value": 0,
         "target": 20
       }
@@ -143,12 +143,12 @@
   },
   {
     "id": 516,
-    "name": "Libry masa",
+    "name": "Oko za oko",
     "character_unlock": "BE",
     "progress": [
       {
         "type": "number",
-        "name": "Zabijte patnáct krysáků.",
+        "name": "Zabij 15 krysáků.",
         "value": 0,
         "target": 15
       }
@@ -156,12 +156,12 @@
   },
   {
     "id": 517,
-    "name": "Lov trofejí",
+    "name": "Sběratel trofejí",
     "character_unlock": "BT",
     "progress": [
       {
         "type": "number",
-        "name": "Zabijte dvacet různých typů příšer.",
+        "name": "Zabij 20 nestvůr, z nichž každá bude různého typu.",
         "value": 0,
         "target": 20
       }
@@ -174,7 +174,7 @@
     "progress": [
       {
         "type": "number",
-        "name": "Dokončete patnáct různých scénářů.",
+        "name": "Dokonči 15 různých scénářů.",
         "value": 0,
         "target": 15
       }
@@ -182,12 +182,12 @@
   },
   {
     "id": 519,
-    "name": "Bitevní legenda",
+    "name": "Legendární válečník",
     "character_unlock": "SS",
     "progress": [
       {
         "type": "number",
-        "name": "Získejte patnáct fajfek za splněné bitevní cíle.",
+        "name": "Získej 15 fajfek za splněné malé úkoly.",
         "value": 0,
         "target": 15
       }
@@ -200,14 +200,14 @@
     "progress": [
       {
         "type": "checkbox",
-        "name": "Najděte Sekeru ničitelku lebek v Nekromantčině svatyni.",
+        "name": "Najdi v Nekromantčině svatyni Lebkolam.",
         "value": [
           0
         ]
       },
       {
         "type": "checkbox",
-        "name": "Použijte ji k zabití sedmi živých kostí, živých mrtvol nebo živých duchů.",
+        "name": "Zabij s ním 7 živoucích koster, živoucích mrtvol nebo živoucích přízraků.",
         "value": [
           0,
           0,
@@ -222,12 +222,12 @@
   },
   {
     "id": 521,
-    "name": "Dobyjte zpět stromy",
+    "name": "Obránce lesa",
     "character_unlock": "DS",
     "progress": [
       {
         "type": "checkbox",
-        "name": "Dokončete tři scénáře v Dýkovém lese.",
+        "name": "Dokonči 3 scénáře v Dýkovém hvozdě.",
         "scenario_unlock": 55,
         "value": [
           0,
@@ -237,7 +237,7 @@
       },
       {
         "type": "checkbox",
-        "name": "Odemkněte scénář 55 a dovedete ho ke konci.",
+        "name": "Zpřístupněte Mlžné houštiny (scénář 55) a pokračujte dle instrukcí.",
         "value": [
           0
         ]
@@ -246,12 +246,12 @@
   },
   {
     "id": 522,
-    "name": "Tenká místa",
+    "name": "Tenký závoj",
     "character_unlock": "NS",
     "progress": [
       {
         "type": "checkbox",
-        "name": "Dokončete šest vedlejších scénářů.",
+        "name": "Dokonči 6 vedlejších scénářů (číslo vyšší než 51).",
         "value": [
           0,
           0,
@@ -265,47 +265,47 @@
   },
   {
     "id": 523,
-    "name": "Zabiják démonů",
+    "name": "Lovec démonů",
     "character_unlock": "EL",
     "progress": [
       {
         "type": "checkbox",
-        "name": "Zabijte jednoho ohnivého démona.",
+        "name": "Zabij démona plamene.",
         "value": [
           0
         ]
       },
       {
         "type": "checkbox",
-        "name": "Zabijte jednoho ledového démona.",
+        "name": "Zabij démona mrazu.",
         "value": [
           0
         ]
       },
       {
         "type": "checkbox",
-        "name": "Zabijte jednoho větrného démona.",
+        "name": "Zabij démona vichru.",
         "value": [
           0
         ]
       },
       {
         "type": "checkbox",
-        "name": "Zabijte jednoho zemního démona.",
+        "name": "Zabij démona země.",
         "value": [
           0
         ]
       },
       {
         "type": "checkbox",
-        "name": "Zabijte jednoho nočního démona.",
+        "name": "Zabij démona noci.",
         "value": [
           0
         ]
       },
       {
         "type": "checkbox",
-        "name": "Zabijte jednoho slunečního démona.",
+        "name": "Zabij démona slunce.",
         "value": [
           0
         ]
@@ -314,12 +314,12 @@
   },
   {
     "id": 524,
-    "name": "Nebojácný postoj",
+    "name": "Bez bázně a hany",
     "character_unlock": "BT",
     "progress": [
       {
         "type": "number",
-        "name": "Zabijte dvacet elitních příšer.",
+        "name": "Zabij 20 elitních nestvůr.",
         "value": 0,
         "target": 20
       }
@@ -327,12 +327,12 @@
   },
   {
     "id": 525,
-    "name": "Zbožnost ve všem",
+    "name": "Zbožnost nade vše",
     "character_unlock": "SB",
     "progress": [
       {
         "type": "number",
-        "name": "Darujte 120 zlaťáků Svatyni Velkého dubu.",
+        "name": "Přispěj 120 zlaťáky Svatyni Velkého dubu.",
         "value": 0,
         "target": 120
       }
@@ -345,7 +345,7 @@
     "progress": [
       {
         "type": "checkbox",
-        "name": "Dokončete čtyři scénáře v Gloomhavenu.",
+        "name": "Dokonči 4 scénáře v Gloomhavenu.",
         "scenario_unlock": 57,
         "value": [
           0,
@@ -356,7 +356,7 @@
       },
       {
         "type": "checkbox",
-        "name": "Odemkněte scénář 57 a dovedete ho ke konci.",
+        "name": "Zpřístupněte Vyšetřování (scénář 57) a pokračujte dle instrukcí.",
         "value": [
           0
         ]
@@ -365,12 +365,12 @@
   },
   {
     "id": 527,
-    "name": "Fanatik krvavého boha",
+    "name": "Uctívač Krvavého boha",
     "character_unlock": "BE",
     "progress": [
       {
         "type": "number",
-        "name": "Vyčerpejte se celkem dvanáctkrát.",
+        "name": "12krát se vyčerpej.",
         "value": 0,
         "target": 12
       }
@@ -383,7 +383,7 @@
     "progress": [
       {
         "type": "checkbox",
-        "name": "Dokončete čtyři scénáře s bossem.",
+        "name": "Dokonči 4 scénáře s bossem.",
         "value": [
           0,
           0,
@@ -395,12 +395,12 @@
   },
   {
     "id": 529,
-    "name": "Pád člověka",
+    "name": "Konec civilizace",
     "character_unlock": "NS",
     "progress": [
       {
         "type": "checkbox",
-        "name": "Dokončete dva scénáře v Teskných bažinách.",
+        "name": "Dokonči 2 scénáře v Nekonečných močálech.",
         "scenario_unlock": 61,
         "value": [
           0,
@@ -409,7 +409,7 @@
       },
       {
         "type": "checkbox",
-        "name": "Odemkněte scénář 61 a dovedete ho ke konci.",
+        "name": "Zpřístupněte Mizející maják (scénář 61) a pokračujte dle instrukcí.",
         "value": [
           0
         ]
@@ -423,7 +423,7 @@
     "progress": [
       {
         "type": "checkbox",
-        "name": "Zakupte čtyři vylepšení.",
+        "name": "Pořiď si 4 vylepšení schopností.",
         "value": [
           0,
           0,
@@ -435,47 +435,47 @@
   },
   {
     "id": 531,
-    "name": "Živelné vzorky",
+    "name": "Vzorky živlů",
     "character_unlock": "EL",
     "progress": [
       {
         "type": "checkbox",
-        "name": "Dokončete scénář v Gloomhavenu.",
+        "name": "Dokonči scénář v Gloomhavenu.",
         "value": [
           0
         ]
       },
       {
         "type": "checkbox",
-        "name": "Dokončete scénář v Dýkovém lese.",
+        "name": "Dokonči scénář v Dýkovém hvozdě.",
         "value": [
           0
         ]
       },
       {
         "type": "checkbox",
-        "name": "Dokončete scénář v Teskných bažinách.",
+        "name": "Dokonči scénář v Nekonečných močálech.",
         "value": [
           0
         ]
       },
       {
         "type": "checkbox",
-        "name": "Dokončete scénář ve Strážných horách.",
+        "name": "Dokonči scénář ve Strážných horách.",
         "value": [
           0
         ]
       },
       {
         "type": "checkbox",
-        "name": "Dokončete scénář v Měděnkových horách.",
+        "name": "Dokonči scénář v Měděných horách.",
         "value": [
           0
         ]
       },
       {
         "type": "checkbox",
-        "name": "Dokončete scénář u Mlžného moře.",
+        "name": "Dokonči scénář u Mlžného moře.",
         "value": [
           0
         ]
@@ -489,7 +489,7 @@
     "progress": [
       {
         "type": "checkbox",
-        "name": "Zažijte, jak dvě jiné postavy splní svůj osobní quest.",
+        "name": "Další 2 hrdinové musí splnit své velké úkoly.",
         "value": [
           0,
           0
@@ -504,7 +504,7 @@
     "progress": [
       {
         "type": "checkbox",
-        "name": "Zabijte tři hleny.",
+        "name": "Zabij 3 slizy, 3 číhavce a 3 plivající draky.",
         "value": [
           0,
           0,
