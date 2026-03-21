@@ -449,6 +449,17 @@ function confirmBuy() {
         :class="{ 'unavailable': !isItemAvailable(item) }"
         @click="openDetail(item)"
       >
+        <!-- Card photo -->
+        <div class="item-card-photo">
+          <img
+            :src="`/img/items/${item.id}.jpg`"
+            :alt="item.name"
+            class="w-full h-32 object-cover rounded-t-xl"
+            loading="lazy"
+            @error="($event.target as HTMLImageElement).style.display = 'none'"
+          />
+        </div>
+
         <!-- Card header - parchment style -->
         <div class="item-card-header">
           <div class="flex items-center justify-between mb-2">
@@ -555,6 +566,17 @@ function confirmBuy() {
           <!-- Swipe indicator (mobile) -->
           <div class="flex justify-center pt-3 pb-1 sm:hidden" @click="detailItem = null">
             <div class="w-10 h-1 rounded-full bg-white/20"></div>
+          </div>
+
+          <!-- Item photo in detail -->
+          <div class="flex justify-center px-6 pt-2">
+            <img
+              :src="`/img/items/${detailItem.id}.jpg`"
+              :alt="detailItem.name"
+              class="max-h-64 rounded-xl shadow-lg"
+              loading="lazy"
+              @error="($event.target as HTMLImageElement).style.display = 'none'"
+            />
           </div>
 
           <!-- Header -->
