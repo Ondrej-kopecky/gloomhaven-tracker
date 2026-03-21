@@ -72,11 +72,14 @@ export const useCampaignStore = defineStore('campaign', () => {
         if (!campaign.personalQuests) campaign.personalQuests = {}
         if (!campaign.players) campaign.players = []
 
-        // Sync players from characters (backward compat / fix missing entries)
-        for (const char of campaign.characters ?? []) {
-          if (char.playerName?.trim() && !campaign.players.includes(char.playerName.trim())) {
-            campaign.players.push(char.playerName.trim())
-          }
+        // Auto-populate players from character owners if players list is empty
+        if (campaign.players.length === 0) {
+          const owners = new Set(
+            (campaign.characters ?? [])
+              .map((c) => c.owner?.trim())
+              .filter(Boolean)
+          )
+          campaign.players = [...owners]
         }
 
         currentCampaign.value = campaign

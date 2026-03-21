@@ -58,15 +58,6 @@ export const useCharacterStore = defineStore('character', () => {
     }
 
     campaignStore.currentCampaign.characters.push(character)
-
-    // Auto-add player to campaign.players if not already there
-    if (playerName.trim()) {
-      if (!campaignStore.currentCampaign.players) campaignStore.currentCampaign.players = []
-      if (!campaignStore.currentCampaign.players.includes(playerName.trim())) {
-        campaignStore.currentCampaign.players.push(playerName.trim())
-      }
-    }
-
     campaignStore.autoSave()
   }
 
