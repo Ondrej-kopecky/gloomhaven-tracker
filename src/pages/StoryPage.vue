@@ -216,7 +216,7 @@ const statusColors: Record<string, string> = {
                   </svg>
                   <div v-else class="w-4 h-4 rounded border border-gray-600 shrink-0" />
                   <span :class="check.completed ? 'text-gray-400' : 'text-gray-600'">
-                    {{ check.expression }}
+                    {{ campaignStore.hideSpoilers ? (check.completed ? 'Splněno' : 'Nesplněno') : check.expression }}
                   </span>
                 </div>
               </div>
@@ -257,8 +257,8 @@ const statusColors: Record<string, string> = {
         </div>
       </div>
 
-      <!-- Not Started -->
-      <div v-if="questStore.notStartedQuests.length">
+      <!-- Not Started (hidden in spoiler mode) -->
+      <div v-if="questStore.notStartedQuests.length && !campaignStore.hideSpoilers">
         <h2 class="font-display text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">
           Neodkryté questy
         </h2>

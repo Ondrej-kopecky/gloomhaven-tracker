@@ -8,11 +8,15 @@ import ScenarioDetail from '@/components/scenarios/ScenarioDetail.vue'
 import { useScenarioStore } from '@/stores/scenarioStore'
 import { useFlowchartStore } from '@/stores/flowchartStore'
 import { useCampaignStore } from '@/stores/campaignStore'
+import { useCharacterStore } from '@/stores/characterStore'
+import { usePartyStore } from '@/stores/partyStore'
 
 const router = useRouter()
 const scenarioStore = useScenarioStore()
 const flowchartStore = useFlowchartStore()
 const campaignStore = useCampaignStore()
+const characterStore = useCharacterStore()
+const partyStore = usePartyStore()
 
 const flowchartRef = ref<InstanceType<typeof StorylineSvg> | null>(null)
 
@@ -37,6 +41,30 @@ function handleFitView() {
 
 <template>
   <div v-if="campaignStore.hasCampaign" class="fixed inset-0 top-16 z-40 flex flex-col bg-gh-dark">
+    <!-- Stats bar -->
+    <div class="flex items-center justify-center gap-4 sm:gap-6 px-3 py-1 border-b border-gh-border/50 bg-white/[0.02] text-[10px] sm:text-xs text-gray-500 shrink-0">
+      <span>
+        <span class="text-green-400 font-bold">{{ scenarioStore.completedScenarios.length }}</span>
+        <span class="hidden sm:inline"> dokončeno</span><span class="sm:hidden">/{{ scenarioStore.allScenarios.length }}</span>
+      </span>
+      <span>
+        <span class="text-blue-400 font-bold">{{ scenarioStore.availableScenarios.length }}</span>
+        <span class="hidden sm:inline"> dostupných</span>
+      </span>
+      <span v-if="characterStore.activeCharacters.length">
+        <span class="text-gray-300 font-bold">{{ characterStore.activeCharacters.length }}</span>
+        <span class="hidden sm:inline"> postav</span>
+      </span>
+      <span>
+        <span class="text-gh-primary font-bold">{{ partyStore.prosperityLevel }}</span>
+        <span class="hidden sm:inline"> prosperita</span>
+      </span>
+      <span :class="partyStore.reputation >= 0 ? 'text-green-400' : 'text-red-400'">
+        {{ partyStore.reputation > 0 ? '+' : '' }}{{ partyStore.reputation }}
+        <span class="hidden sm:inline"> rep.</span>
+      </span>
+    </div>
+
     <!-- Toolbar -->
     <div class="px-2 py-1.5 border-b border-gh-border bg-gh-dark shrink-0">
       <!-- Desktop: controls + legend side by side -->

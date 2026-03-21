@@ -18,6 +18,18 @@ const newCityEvent = ref('')
 const newRoadEvent = ref('')
 const showCityRemoved = ref(false)
 const showRoadRemoved = ref(false)
+const pendingRemove = ref<{ type: 'city' | 'road'; id: number } | null>(null)
+
+function confirmRemoveEvent(type: 'city' | 'road', id: number) {
+  if (pendingRemove.value?.type === type && pendingRemove.value?.id === id) {
+    // Second tap — confirm removal
+    partyStore.removeEvent(type, id)
+    pendingRemove.value = null
+  } else {
+    // First tap — mark as pending
+    pendingRemove.value = { type, id }
+  }
+}
 
 function inputValue(e: Event): string {
   return (e.target as HTMLInputElement).value
@@ -378,15 +390,20 @@ function getClassName(classId: string): string {
         </div>
 
         <!-- Tap hint -->
-        <p class="text-[10px] text-gray-600 mb-2">Klikni na cislo = odebrat z balicku</p>
+        <p class="text-[10px] text-gray-600 mb-2">Klikni 2x na cislo = odebrat z balicku</p>
 
-        <!-- Available events (tappable) -->
+        <!-- Available events (two-tap to remove) -->
         <div class="flex flex-wrap gap-1.5 mb-3">
           <button
             v-for="id in partyStore.cityEventsAvailable"
             :key="id"
-            class="w-8 h-8 rounded-lg bg-blue-900/20 text-blue-400/80 text-xs font-bold flex items-center justify-center border border-blue-800/20 hover:bg-red-900/30 hover:text-red-400 hover:border-red-800/30 active:scale-90 transition-all cursor-pointer"
-            @click="partyStore.removeEvent('city', id)"
+            :class="[
+              'w-8 h-8 rounded-lg text-xs font-bold flex items-center justify-center border active:scale-90 transition-all cursor-pointer',
+              pendingRemove?.type === 'city' && pendingRemove?.id === id
+                ? 'bg-red-900/40 text-red-400 border-red-700/50 animate-pulse'
+                : 'bg-blue-900/20 text-blue-400/80 border-blue-800/20 hover:bg-blue-900/30'
+            ]"
+            @click="confirmRemoveEvent('city', id)"
           >
             {{ id }}
           </button>
@@ -453,15 +470,20 @@ function getClassName(classId: string): string {
         </div>
 
         <!-- Tap hint -->
-        <p class="text-[10px] text-gray-600 mb-2">Klikni na cislo = odebrat z balicku</p>
+        <p class="text-[10px] text-gray-600 mb-2">Klikni 2x na cislo = odebrat z balicku</p>
 
-        <!-- Available events (tappable) -->
+        <!-- Available events (two-tap to remove) -->
         <div class="flex flex-wrap gap-1.5 mb-3">
           <button
             v-for="id in partyStore.roadEventsAvailable"
             :key="id"
-            class="w-8 h-8 rounded-lg bg-amber-900/20 text-amber-500/80 text-xs font-bold flex items-center justify-center border border-amber-800/20 hover:bg-red-900/30 hover:text-red-400 hover:border-red-800/30 active:scale-90 transition-all cursor-pointer"
-            @click="partyStore.removeEvent('road', id)"
+            :class="[
+              'w-8 h-8 rounded-lg text-xs font-bold flex items-center justify-center border active:scale-90 transition-all cursor-pointer',
+              pendingRemove?.type === 'road' && pendingRemove?.id === id
+                ? 'bg-red-900/40 text-red-400 border-red-700/50 animate-pulse'
+                : 'bg-amber-900/20 text-amber-500/80 border-amber-800/20 hover:bg-amber-900/30'
+            ]"
+            @click="confirmRemoveEvent('road', id)"
           >
             {{ id }}
           </button>

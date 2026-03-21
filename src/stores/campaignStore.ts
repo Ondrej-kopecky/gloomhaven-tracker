@@ -67,6 +67,8 @@ export const useCampaignStore = defineStore('campaign', () => {
     try {
       const campaign = await useStorage().loadCampaign(id)
       if (campaign) {
+        // Ensure newer fields exist (backward compat)
+        if (!campaign.personalQuests) campaign.personalQuests = {}
         currentCampaign.value = campaign
       }
     } finally {
@@ -100,6 +102,8 @@ export const useCampaignStore = defineStore('campaign', () => {
 
   async function importCampaign(json: string) {
     const campaign = await useStorage().importCampaign(json)
+    // Ensure newer fields exist (backward compat with older exports)
+    if (!campaign.personalQuests) campaign.personalQuests = {}
     currentCampaign.value = campaign
     await loadCampaignList()
   }

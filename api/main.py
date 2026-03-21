@@ -524,7 +524,7 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends(), request: Reque
     # Rate limit: 10 per hour per IP
     if request:
         ip = get_client_ip(request)
-        if not rate_limiter.check(f"login:{ip}", 10, 3600):
+        if not rate_limiter.check(f"login:{ip}", 30, 3600):
             raise HTTPException(status_code=429, detail="Příliš mnoho pokusů o přihlášení. Zkus to za hodinu.")
 
     query = users.select().where(users.c.email == form_data.username)
