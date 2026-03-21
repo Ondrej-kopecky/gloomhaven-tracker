@@ -377,38 +377,36 @@ function getClassName(classId: string): string {
           </span>
         </div>
 
-        <!-- Add/Remove event -->
-        <div class="flex gap-2 mb-3">
+        <!-- Tap hint -->
+        <p class="text-[10px] text-gray-600 mb-2">Klikni na cislo = odebrat z balicku</p>
+
+        <!-- Available events (tappable) -->
+        <div class="flex flex-wrap gap-1.5 mb-3">
+          <button
+            v-for="id in partyStore.cityEventsAvailable"
+            :key="id"
+            class="w-8 h-8 rounded-lg bg-blue-900/20 text-blue-400/80 text-xs font-bold flex items-center justify-center border border-blue-800/20 hover:bg-red-900/30 hover:text-red-400 hover:border-red-800/30 active:scale-90 transition-all cursor-pointer"
+            @click="partyStore.removeEvent('city', id)"
+          >
+            {{ id }}
+          </button>
+        </div>
+
+        <!-- Add event -->
+        <div class="flex gap-2">
           <input
             v-model="newCityEvent"
             type="number"
-            placeholder="#"
+            placeholder="Pridat #"
             min="1"
-            class="gh-input w-16 text-center text-sm [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+            class="gh-input flex-1 text-center text-sm [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
           />
-          <button
-            class="gh-btn-secondary text-xs flex-1"
-            @click="if (newCityEvent) { partyStore.removeEvent('city', Number(newCityEvent)); newCityEvent = '' }"
-          >
-            Odebrat
-          </button>
           <button
             class="gh-btn-ghost text-xs"
             @click="if (newCityEvent) { partyStore.addEvent('city', Number(newCityEvent)); newCityEvent = '' }"
           >
-            Přidat
+            Pridat
           </button>
-        </div>
-
-        <!-- Available events preview -->
-        <div class="flex flex-wrap gap-1 mb-3">
-          <span
-            v-for="id in partyStore.cityEventsAvailable"
-            :key="id"
-            class="w-7 h-7 rounded-md bg-blue-900/20 text-blue-400/80 text-[10px] font-bold flex items-center justify-center border border-blue-800/20"
-          >
-            {{ id }}
-          </span>
         </div>
 
         <!-- Removed events (collapsible) -->
@@ -454,38 +452,36 @@ function getClassName(classId: string): string {
           </span>
         </div>
 
-        <!-- Add/Remove event -->
-        <div class="flex gap-2 mb-3">
+        <!-- Tap hint -->
+        <p class="text-[10px] text-gray-600 mb-2">Klikni na cislo = odebrat z balicku</p>
+
+        <!-- Available events (tappable) -->
+        <div class="flex flex-wrap gap-1.5 mb-3">
+          <button
+            v-for="id in partyStore.roadEventsAvailable"
+            :key="id"
+            class="w-8 h-8 rounded-lg bg-amber-900/20 text-amber-500/80 text-xs font-bold flex items-center justify-center border border-amber-800/20 hover:bg-red-900/30 hover:text-red-400 hover:border-red-800/30 active:scale-90 transition-all cursor-pointer"
+            @click="partyStore.removeEvent('road', id)"
+          >
+            {{ id }}
+          </button>
+        </div>
+
+        <!-- Add event -->
+        <div class="flex gap-2">
           <input
             v-model="newRoadEvent"
             type="number"
-            placeholder="#"
+            placeholder="Pridat #"
             min="1"
-            class="gh-input w-16 text-center text-sm [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+            class="gh-input flex-1 text-center text-sm [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
           />
-          <button
-            class="gh-btn-secondary text-xs flex-1"
-            @click="if (newRoadEvent) { partyStore.removeEvent('road', Number(newRoadEvent)); newRoadEvent = '' }"
-          >
-            Odebrat
-          </button>
           <button
             class="gh-btn-ghost text-xs"
             @click="if (newRoadEvent) { partyStore.addEvent('road', Number(newRoadEvent)); newRoadEvent = '' }"
           >
-            Přidat
+            Pridat
           </button>
-        </div>
-
-        <!-- Available events preview -->
-        <div class="flex flex-wrap gap-1 mb-3">
-          <span
-            v-for="id in partyStore.roadEventsAvailable"
-            :key="id"
-            class="w-7 h-7 rounded-md bg-amber-900/20 text-amber-500/80 text-[10px] font-bold flex items-center justify-center border border-amber-800/20"
-          >
-            {{ id }}
-          </span>
         </div>
 
         <!-- Removed events (collapsible) -->
