@@ -235,7 +235,7 @@ describe('personalQuestStore', () => {
       { id: 511, name: 'No Unlock', progress: [] },
     ]
 
-    expect(pqStore.getUnlockClassName(510)).toBe('Plagueherald')
+    expect(pqStore.getUnlockClassName(510)).toBe('Trýznitelský moronoš')
     expect(pqStore.getUnlockClassName(511)).toBeUndefined()
   })
 })

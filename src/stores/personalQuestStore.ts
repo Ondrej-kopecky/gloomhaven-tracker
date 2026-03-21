@@ -126,17 +126,17 @@ export const usePersonalQuestStore = defineStore('personalQuest', () => {
 
   // Character unlock code → class name mapping
   const unlockCodeToClass: Record<string, string> = {
-    PH: 'Plagueherald',
-    QM: 'Quartermaster',
-    SB: 'Sawbones',
-    SK: 'Sunkeeper',
-    BE: 'Berserker',
-    BT: 'Beast Tyrant',
-    SU: 'Summoner',
-    SS: 'Soothsinger',
-    DS: 'Doomstalker',
-    NS: 'Nightshroud',
-    EL: 'Elementalist',
+    PH: 'Trýznitelský moronoš',
+    QM: 'Valrathský zbrojmistr',
+    SB: 'Lidský kostiřez',
+    SK: 'Valrathská světlonoška',
+    BE: 'Inoxská fúrie',
+    BT: 'Krysácký zvěropán',
+    SU: 'Aestherská vyvolávačka',
+    SS: 'Quatrylská čaropěvkyně',
+    DS: 'Orchidský zkázolov',
+    NS: 'Aestherský stínochodec',
+    EL: 'Savvasská vládkyně živlů',
   }
 
   function getUnlockClassName(questId: number): string | undefined {
