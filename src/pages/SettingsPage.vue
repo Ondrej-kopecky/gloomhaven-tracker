@@ -610,15 +610,19 @@ function formatDate(iso: string): string {
       <div class="space-y-2 text-sm">
         <div class="flex justify-between">
           <span class="text-gray-500">Verze</span>
-          <span class="text-gray-300 font-medium">1.0.0</span>
+          <span class="text-gray-300 font-medium">2.0.0</span>
         </div>
         <div class="flex justify-between">
           <span class="text-gray-500">Technologie</span>
-          <span class="text-gray-400">Vue 3 + Tailwind CSS</span>
+          <span class="text-gray-400">Vue 3 + Vite + Tailwind + PWA</span>
         </div>
         <div class="flex justify-between">
           <span class="text-gray-500">Data</span>
-          <span class="text-gray-400">localStorage (offline)</span>
+          <span class="text-gray-400">localStorage + cloud sync</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-gray-500">Testy</span>
+          <span class="text-gray-400">95 unit + 9 E2E</span>
         </div>
       </div>
     </div>
