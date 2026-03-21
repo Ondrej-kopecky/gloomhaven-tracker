@@ -77,6 +77,40 @@ describe('LocalStorageAdapter', () => {
     const imported = await adapter.importCampaign(json)
     expect(imported.name).toBe('Export Test')
   })
+
+  it('exports and imports campaign with personalQuests', async () => {
+    const adapter = new LocalStorageAdapter('test')
+    const campaign = makeCampaign('c1', 'PQ Test') as any
+    campaign.personalQuests = {
+      'char-1': { questId: 510, characterUuid: 'char-1', progress: [{ checkboxValues: [true, false, false] }], isCompleted: false },
+    }
+    await adapter.saveCampaign(campaign)
+
+    const json = await adapter.exportCampaign('c1')
+    mockLocalStorage.clear()
+    const imported = await adapter.importCampaign(json)
+
+    expect(imported.personalQuests).toBeDefined()
+    expect(imported.personalQuests['char-1'].questId).toBe(510)
+    expect(imported.personalQuests['char-1'].progress[0].checkboxValues[0]).toBe(true)
+  })
+
+  it('imports old campaign without personalQuests field', async () => {
+    const adapter = new LocalStorageAdapter('test')
+    // Simulate old export without personalQuests
+    const oldCampaign = {
+      id: 'old1', name: 'Old Campaign', createdAt: '', lastPlayedAt: '',
+      prosperityIndex: 0, globalAchievements: {}, partyAchievements: {},
+      party: { name: '', reputation: 0, donations: 0, cityEventsAvailable: [], cityEventsRemoved: [], roadEventsAvailable: [], roadEventsRemoved: [], notes: '' },
+      characters: [], archivedCharacters: [], scenarios: {}, notes: '',
+    }
+    const json = JSON.stringify(oldCampaign)
+    const imported = await adapter.importCampaign(json)
+
+    // Should import without error — personalQuests will be undefined but that's OK
+    expect(imported.name).toBe('Old Campaign')
+    expect(imported.id).toBe('old1')
+  })
 })
 
 describe('HybridStorageAdapter - cloud safety', () => {
