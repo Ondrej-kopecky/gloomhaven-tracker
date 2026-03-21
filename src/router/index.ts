@@ -88,4 +88,11 @@ const router = createRouter({
   ],
 })
 
+// GoatCounter SPA tracking
+router.afterEach((to) => {
+  if (typeof window !== 'undefined' && (window as any).goatcounter) {
+    ;(window as any).goatcounter.count({ path: to.fullPath })
+  }
+})
+
 export default router
