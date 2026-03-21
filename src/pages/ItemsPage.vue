@@ -354,15 +354,15 @@ const buyPrice = computed(() => {
 })
 
 const buyValidation = computed(() => {
-  if (!buyingItem.value || !buyForCharacter.value) return { ok: false, reason: '' }
+  if (!buyingItem.value || !buyForCharacter.value) return { ok: false, reason: '', warning: '' }
   const itemId = String(buyingItem.value.id)
   const check = characterStore.canEquipItem(buyForCharacter.value, itemId)
-  if (!check.ok) return check
+  if (!check.ok) return { ok: false, reason: check.reason ?? '', warning: '' }
   if (buyMode.value === 'buy') {
     const char = characterStore.getCharacter(buyForCharacter.value)
-    if (char && char.gold < buyPrice.value) return { ok: false, reason: 'Nedostatek zlaťáků' }
+    if (char && char.gold < buyPrice.value) return { ok: false, reason: 'Nedostatek zlaťáků', warning: '' }
   }
-  return { ok: true }
+  return { ok: true, warning: check.warning ?? '' }
 })
 
 function openBuy(item: ItemDefinition, mode: 'buy' | 'free' = 'buy') {
@@ -725,6 +725,9 @@ function confirmBuy() {
 
           <p v-if="buyForCharacter && buyValidation.reason" class="text-red-400 text-xs mb-3">
             {{ buyValidation.reason }}
+          </p>
+          <p v-if="buyForCharacter && buyValidation.warning" class="text-yellow-400/80 text-xs mb-3">
+            {{ buyValidation.warning }}
           </p>
 
           <div class="flex gap-2 mt-4">

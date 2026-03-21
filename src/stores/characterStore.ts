@@ -199,7 +199,7 @@ export const useCharacterStore = defineStore('character', () => {
     return result
   }
 
-  function canEquipItem(uuid: string, itemId: string): { ok: boolean; reason?: string } {
+  function canEquipItem(uuid: string, itemId: string): { ok: boolean; warning?: string; reason?: string } {
     const char = getCharacter(uuid)
     if (!char) return { ok: false, reason: 'Postava nenalezena' }
     const def = getItemDef(itemId)
@@ -207,17 +207,15 @@ export const useCharacterStore = defineStore('character', () => {
     if (char.items.includes(itemId)) return { ok: false, reason: 'Již vlastníte tento předmět' }
     if (getAvailableCount(itemId) <= 0) return { ok: false, reason: 'Žádný volný kus' }
 
+    // Slot warnings (not blocking — you can own more than slot limit)
     const slots = getSlotCounts(uuid)
-    // Hand conflict checks
-    if (def.slot === 'two_hands' && (slots.one_hand.used > 0)) {
-      return { ok: false, reason: 'Nelze kombinovat s jednoručními předměty' }
-    }
-    if (def.slot === 'one_hand' && (slots.two_hands.used > 0)) {
-      return { ok: false, reason: 'Nelze kombinovat s dvouručním předmětem' }
+    const slotNames: Record<string, string> = {
+      head: 'Hlava', body: 'Tělo', legs: 'Nohy',
+      one_hand: 'Jedna ruka', two_hands: 'Dvě ruce', small_item: 'Drobný předmět',
     }
     const slotInfo = slots[def.slot]
     if (slotInfo && slotInfo.used >= slotInfo.max) {
-      return { ok: false, reason: `Slot "${def.slot}" je plný` }
+      return { ok: true, warning: `Slot "${slotNames[def.slot] ?? def.slot}" je plný — do scénáře si vezmete jen ${slotInfo.max}` }
     }
     return { ok: true }
   }
