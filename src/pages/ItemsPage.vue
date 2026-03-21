@@ -451,7 +451,7 @@ function confirmBuy() {
         <!-- Card photo -->
         <div class="item-card-photo">
           <img
-            :src="`/img/items/${item.id}.jpg?v=2`"
+            :src="`/img/items/${item.id}.jpg?v=3`"
             :alt="item.name"
             class="w-full h-32 object-cover rounded-t-xl"
             loading="lazy"
@@ -570,7 +570,7 @@ function confirmBuy() {
           <!-- Item photo in detail -->
           <div class="flex justify-center px-6 pt-2">
             <img
-              :src="`/img/items/${detailItem.id}.jpg?v=2`"
+              :src="`/img/items/${detailItem.id}.jpg?v=3`"
               :alt="detailItem.name"
               class="max-h-64 rounded-xl shadow-lg"
               loading="lazy"
