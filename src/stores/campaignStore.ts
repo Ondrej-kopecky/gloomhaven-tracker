@@ -53,6 +53,7 @@ export const useCampaignStore = defineStore('campaign', () => {
       archivedCharacters: [],
       scenarios: {},
       personalQuests: {},
+      players: [],
       notes: '',
     }
 
@@ -69,6 +70,7 @@ export const useCampaignStore = defineStore('campaign', () => {
       if (campaign) {
         // Ensure newer fields exist (backward compat)
         if (!campaign.personalQuests) campaign.personalQuests = {}
+        if (!campaign.players) campaign.players = []
         currentCampaign.value = campaign
       }
     } finally {
@@ -104,6 +106,7 @@ export const useCampaignStore = defineStore('campaign', () => {
     const campaign = await useStorage().importCampaign(json)
     // Ensure newer fields exist (backward compat with older exports)
     if (!campaign.personalQuests) campaign.personalQuests = {}
+    if (!campaign.players) campaign.players = []
     currentCampaign.value = campaign
     await loadCampaignList()
   }

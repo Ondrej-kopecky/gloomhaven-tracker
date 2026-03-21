@@ -184,6 +184,7 @@ class CampaignData(BaseModel):
     scenarios: Optional[dict] = {}
     notes: Optional[str] = ""
     personalQuests: Optional[dict] = {}
+    players: Optional[list] = []
     hideSpoilers: Optional[bool] = False
 
 

@@ -16,6 +16,7 @@ export interface CampaignState {
   archivedCharacters: CharacterState[]
   scenarios: Record<string, ScenarioState>
   personalQuests: Record<string, PersonalQuestState>
+  players: string[]
   notes: string
   hideSpoilers?: boolean
 }
