@@ -40,7 +40,7 @@ function handleFitView() {
 </script>
 
 <template>
-  <div v-if="campaignStore.hasCampaign" class="fixed inset-0 top-16 z-40 flex flex-col bg-gh-dark">
+  <div v-if="campaignStore.hasCampaign" class="fixed inset-0 top-14 z-40 flex flex-col bg-gh-dark">
     <!-- Stats bar -->
     <div class="flex items-center justify-center gap-4 sm:gap-6 px-3 py-1 border-b border-gh-border/50 bg-white/[0.02] text-[10px] sm:text-xs text-gray-500 shrink-0">
       <span>
