@@ -104,6 +104,26 @@ function toggleForgottenCircles() {
   campaignStore.autoSave()
 }
 
+function toggleEnvelope(key: string) {
+  if (!campaignStore.currentCampaign) return
+  const envelopes = campaignStore.currentCampaign.openedEnvelopes ?? {}
+  envelopes[key] = !envelopes[key]
+  campaignStore.currentCampaign.openedEnvelopes = { ...envelopes }
+  campaignStore.autoSave()
+}
+
+function isEnvelopeOpen(key: string): boolean {
+  return campaignStore.currentCampaign?.openedEnvelopes?.[key] ?? false
+}
+
+const envelopes = [
+  { key: 'A', label: 'Obálka A', condition: '5× úspěch Ancient Technology', color: 'text-red-400', bg: 'bg-red-500/15', border: 'border-red-800/30' },
+  { key: 'B', label: 'Obálka B', condition: 'Darovat celkem 100 zl. v chrámu', color: 'text-blue-400', bg: 'bg-blue-500/15', border: 'border-blue-800/30' },
+  { key: 'sun', label: 'Obálka ☀', condition: 'Reputace +10 nebo víc', color: 'text-yellow-400', bg: 'bg-yellow-500/15', border: 'border-yellow-800/30' },
+  { key: 'moon', label: 'Obálka ☾', condition: 'Reputace -10 nebo míň', color: 'text-purple-400', bg: 'bg-purple-500/15', border: 'border-purple-800/30' },
+  { key: 'X', label: 'Obálka X', condition: 'Tajné podmínky (viz uvnitř)', color: 'text-gray-400', bg: 'bg-white/[0.06]', border: 'border-white/[0.08]' },
+]
+
 /* ── Profile ── */
 function setProfileName(name: string) {
   if (!name.trim()) return
@@ -386,6 +406,43 @@ function formatDate(iso: string): string {
               :class="{ 'translate-x-5': campaignStore.currentCampaign?.forgottenCircles }"
             />
           </button>
+        </div>
+      </div>
+
+      <!-- Sealed envelopes -->
+      <div class="mt-3 pt-3 border-t border-gh-border/30">
+        <div class="flex items-center gap-2 mb-3">
+          <div class="text-sm text-gray-300 font-medium">Zapečetěné obálky</div>
+        </div>
+        <p class="text-[11px] text-gray-600 mb-3 leading-relaxed">Obálky otevřete, když splníte podmínku. Obsah najdete ve fyzické hře.</p>
+        <div class="space-y-1.5">
+          <div
+            v-for="env in envelopes"
+            :key="env.key"
+            class="flex items-center gap-3 px-3 py-2 rounded-lg cursor-pointer hover:bg-white/[0.03] transition-colors group"
+            @click="toggleEnvelope(env.key)"
+          >
+            <span
+              class="w-6 h-6 rounded-md flex items-center justify-center transition-all duration-200 shrink-0"
+              :class="isEnvelopeOpen(env.key)
+                ? `${env.bg} ${env.border} border`
+                : 'border border-gray-600 bg-white/[0.03] group-hover:border-gray-500'"
+            >
+              <svg
+                v-if="isEnvelopeOpen(env.key)"
+                class="w-3.5 h-3.5" :class="env.color" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+              </svg>
+            </span>
+            <div class="flex-1 min-w-0">
+              <span class="text-sm" :class="isEnvelopeOpen(env.key) ? env.color : 'text-gray-400 group-hover:text-gray-300'">
+                {{ env.label }}
+              </span>
+              <span v-if="isEnvelopeOpen(env.key)" class="text-[10px] text-green-500/70 ml-2">otevřeno</span>
+            </div>
+            <span class="text-[10px] text-gray-600 hidden sm:block">{{ env.condition }}</span>
+          </div>
         </div>
       </div>
 
