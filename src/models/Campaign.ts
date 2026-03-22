@@ -21,6 +21,7 @@ export interface CampaignState {
   hideSpoilers?: boolean
   unlockedItemDesigns?: number[]
   manuallyUnlockedScenarios?: string[]
+  forgottenCircles?: boolean
 }
 
 export interface CampaignSummary {
