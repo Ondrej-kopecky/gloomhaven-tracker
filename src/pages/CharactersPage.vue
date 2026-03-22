@@ -73,8 +73,11 @@ function getColor(classId: CharacterClass): string {
 
 function xpPercent(xp: number, level: number): number {
   if (level >= 9) return 100
-  const needed = XP_THRESHOLDS[level] ?? 999
-  return Math.min((xp / needed) * 100, 100)
+  const currentThreshold = XP_THRESHOLDS[level - 1] ?? 0
+  const nextThreshold = XP_THRESHOLDS[level] ?? 999
+  const progress = xp - currentThreshold
+  const needed = nextThreshold - currentThreshold
+  return needed > 0 ? Math.min((progress / needed) * 100, 100) : 100
 }
 
 // SVG circle progress helpers
@@ -138,7 +141,8 @@ function createCharacter() {
 
 function getXpToNext(level: number): number {
   if (level >= 9) return 0
-  return XP_THRESHOLDS[level] ?? 999
+  const currentThreshold = XP_THRESHOLDS[level - 1] ?? 0
+  return (XP_THRESHOLDS[level] ?? 999) - currentThreshold
 }
 
 function inputValue(e: Event): string {
