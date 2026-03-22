@@ -43,25 +43,25 @@ function handleFitView() {
   <div v-if="campaignStore.hasCampaign" class="fixed inset-0 top-14 z-40 flex flex-col bg-gh-dark">
     <!-- Stats bar -->
     <div class="flex items-center justify-center gap-4 sm:gap-6 px-3 py-1 border-b border-gh-border/50 bg-white/[0.02] text-[10px] sm:text-xs text-gray-500 shrink-0">
-      <span>
-        <span class="text-green-400 font-bold">{{ scenarioStore.completedScenarios.length }}</span>
-        <span class="hidden sm:inline"> dokončeno</span><span class="sm:hidden">/{{ scenarioStore.allScenarios.length }}</span>
+      <span title="Dokončené scénáře">
+        <span class="text-green-400 font-bold">{{ scenarioStore.completedScenarios.length }}</span><span class="sm:hidden text-gray-600">/{{ scenarioStore.allScenarios.length }}</span>
+        <span class="hidden sm:inline"> dokončeno</span><span class="sm:hidden"> sc.</span>
       </span>
-      <span>
+      <span title="Dostupné scénáře">
         <span class="text-blue-400 font-bold">{{ scenarioStore.availableScenarios.length }}</span>
-        <span class="hidden sm:inline"> dostupných</span>
+        <span class="hidden sm:inline"> dostupných</span><span class="sm:hidden"> dost.</span>
       </span>
-      <span v-if="characterStore.activeCharacters.length">
+      <span v-if="characterStore.activeCharacters.length" title="Aktivní postavy">
         <span class="text-gray-300 font-bold">{{ characterStore.activeCharacters.length }}</span>
-        <span class="hidden sm:inline"> postav</span>
+        <span class="hidden sm:inline"> postav</span><span class="sm:hidden"> post.</span>
       </span>
-      <span>
+      <span title="Úroveň prosperity">
         <span class="text-gh-primary font-bold">{{ partyStore.prosperityLevel }}</span>
-        <span class="hidden sm:inline"> prosperita</span>
+        <span class="hidden sm:inline"> prosperita</span><span class="sm:hidden"> prosp.</span>
       </span>
-      <span :class="partyStore.reputation >= 0 ? 'text-green-400' : 'text-red-400'">
+      <span :class="partyStore.reputation >= 0 ? 'text-green-400' : 'text-red-400'" title="Reputace družiny">
         {{ partyStore.reputation > 0 ? '+' : '' }}{{ partyStore.reputation }}
-        <span class="hidden sm:inline"> rep.</span>
+        <span class="hidden sm:inline"> rep.</span><span class="sm:hidden"> rep.</span>
       </span>
     </div>
 
