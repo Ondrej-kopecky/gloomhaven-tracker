@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, nextTick } from 'vue'
+import QRCode from 'qrcode'
 import { useRouter } from 'vue-router'
 import { useCampaignStore } from '@/stores/campaignStore'
 import { useProfileStore } from '@/stores/profileStore'
@@ -18,6 +19,7 @@ const characterStore = useCharacterStore()
 const achievementStore = useAchievementStore()
 const scenarioStore = useScenarioStore()
 
+const btcQrCanvas = ref<HTMLCanvasElement | null>(null)
 const showResetConfirm = ref(false)
 const showDeleteProfileConfirm = ref(false)
 const importError = ref('')
@@ -35,6 +37,14 @@ const showNewProfile = ref(false)
 onMounted(async () => {
   if (campaignStore.hasCampaign) {
     await scenarioStore.loadScenarioData()
+  }
+  await nextTick()
+  if (btcQrCanvas.value) {
+    QRCode.toCanvas(btcQrCanvas.value, 'bitcoin:bc1qhypsfmnw0a4g8aar2evx6tdvq30jvnen96few2', {
+      width: 160,
+      margin: 2,
+      color: { dark: '#f97316', light: '#00000000' },
+    })
   }
 })
 
@@ -496,12 +506,15 @@ function formatDate(iso: string): string {
 
         <!-- Bitcoin -->
         <div class="px-4 py-3 rounded-xl bg-orange-500/10 border border-orange-500/20">
-          <div class="flex items-center gap-3 mb-2">
+          <div class="flex items-center gap-3 mb-3">
             <span class="text-2xl">&#8383;</span>
             <div>
               <span class="text-sm font-semibold text-orange-400">Bitcoin</span>
-              <p class="text-[11px] text-gray-500">Poslat BTC na adresu</p>
+              <p class="text-[11px] text-gray-500">Naskenuj QR nebo zkopíruj adresu</p>
             </div>
+          </div>
+          <div class="flex justify-center mb-3">
+            <canvas ref="btcQrCanvas" class="rounded-lg" />
           </div>
           <div class="bg-black/30 rounded-lg px-3 py-2 font-mono text-[11px] text-orange-300/80 break-all select-all cursor-pointer" title="Klikni pro zkopírování">
             bc1qhypsfmnw0a4g8aar2evx6tdvq30jvnen96few2
