@@ -104,12 +104,29 @@ function toggleForgottenCircles() {
   campaignStore.autoSave()
 }
 
+const envelopeConfirm = ref<string | null>(null)
+
 function toggleEnvelope(key: string) {
   if (!campaignStore.currentCampaign) return
+  // If already open, allow closing without confirm
+  if (isEnvelopeOpen(key)) {
+    const envelopes = campaignStore.currentCampaign.openedEnvelopes ?? {}
+    envelopes[key] = false
+    campaignStore.currentCampaign.openedEnvelopes = { ...envelopes }
+    campaignStore.autoSave()
+    return
+  }
+  // Show confirm dialog before opening
+  envelopeConfirm.value = key
+}
+
+function confirmOpenEnvelope() {
+  if (!campaignStore.currentCampaign || !envelopeConfirm.value) return
   const envelopes = campaignStore.currentCampaign.openedEnvelopes ?? {}
-  envelopes[key] = !envelopes[key]
+  envelopes[envelopeConfirm.value] = true
   campaignStore.currentCampaign.openedEnvelopes = { ...envelopes }
   campaignStore.autoSave()
+  envelopeConfirm.value = null
 }
 
 function isEnvelopeOpen(key: string): boolean {
@@ -456,6 +473,28 @@ function formatDate(iso: string): string {
                 <span class="text-gray-500 font-medium">Obsah:</span> {{ env.content }}
               </div>
             </div>
+          </div>
+        </div>
+
+        <!-- Confirm dialog -->
+        <div v-if="envelopeConfirm" class="mt-3 p-3 rounded-lg bg-amber-900/10 border border-amber-800/20">
+          <div class="flex items-center gap-2 mb-2">
+            <svg class="w-4 h-4 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+            </svg>
+            <span class="text-sm font-medium text-amber-300">
+              Otevřít {{ envelopes.find(e => e.key === envelopeConfirm)?.label }}?
+            </span>
+          </div>
+          <p class="text-[11px] text-gray-500 mb-3">Zobrazí se podmínka a obsah obálky. Obsahuje spoilery!</p>
+          <div class="flex gap-2">
+            <button
+              class="py-1.5 px-3 bg-amber-600 text-white rounded-lg hover:bg-amber-500 transition-colors text-xs font-medium"
+              @click="confirmOpenEnvelope"
+            >
+              Otevřít obálku
+            </button>
+            <button class="gh-btn-ghost text-xs" @click="envelopeConfirm = null">Zrušit</button>
           </div>
         </div>
       </div>
