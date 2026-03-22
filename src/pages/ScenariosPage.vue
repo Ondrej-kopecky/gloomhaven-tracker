@@ -455,8 +455,8 @@ function goToFlowchart(id: string) {
                 </div>
               </div>
 
-              <!-- treasures -->
-              <div v-if="selectedScenario.treasures?.length">
+              <!-- treasures (hidden for uncompleted in spoiler mode) -->
+              <div v-if="selectedScenario.treasures?.length && (!campaignStore.hideSpoilers || selectedScenario.computedStatus === 'completed')">
                 <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Poklady</h3>
                 <div class="space-y-1.5">
                   <div
