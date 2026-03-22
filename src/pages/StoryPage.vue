@@ -6,6 +6,7 @@ import { useScenarioStore } from '@/stores/scenarioStore'
 import { useQuestStore } from '@/stores/questStore'
 import type { QuestProgress } from '@/stores/questStore'
 import { ScenarioStatus } from '@/models/types'
+import questStorylines from '@/data/questStorylines.json'
 
 const router = useRouter()
 const campaignStore = useCampaignStore()
@@ -49,6 +50,19 @@ function toggleQuestDetail(questId: number) {
 /** Find scenarios linked to a quest */
 function getScenariosForQuest(questId: number) {
   return scenarioStore.allScenarios.filter((s) => s.quests?.includes(questId))
+}
+
+/** Get storyline text for quest based on progress */
+function getQuestStoryText(quest: QuestProgress): string | null {
+  const storyline = (questStorylines as Record<string, { sections: Record<string, string>, stages?: Record<string, string> }>)[String(quest.id)]
+  if (!storyline?.sections || !storyline?.stages) return null
+  const stageKey = String(quest.completedCount)
+  const stagePattern = storyline.stages[stageKey]
+  if (!stagePattern) return null
+  // Resolve pattern like "{1}{2}{3}" into concatenated section texts
+  return stagePattern.replace(/\{(\d+)\}/g, (_, num) => {
+    return storyline.sections[num] || ''
+  }).trim() || null
 }
 
 const statusLabels: Record<string, string> = {
@@ -167,6 +181,10 @@ const statusColors: Record<string, string> = {
 
           <!-- Quest Detail (expanded) -->
           <div v-if="selectedQuestId === quest.id" class="border-t border-gh-border/50 p-4 bg-white/[0.01]">
+            <!-- Storyline text -->
+            <p v-if="getQuestStoryText(quest)" class="text-sm text-gray-400 italic leading-relaxed mb-4 p-3 rounded-lg bg-white/[0.02] border-l-2 border-gh-primary/30">
+              {{ getQuestStoryText(quest) }}
+            </p>
             <!-- Linked scenarios -->
             <div v-if="getScenariosForQuest(quest.id).length">
               <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-2">
