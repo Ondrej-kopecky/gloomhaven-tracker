@@ -635,11 +635,14 @@ function confirmBuy() {
     <!-- Detail modal -->
     <Teleport to="body">
       <div v-if="detailItem" class="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/70 backdrop-blur-sm" @click.self="detailItem = null">
-        <div class="detail-modal w-full max-h-[85vh] rounded-t-2xl sm:rounded-2xl sm:max-w-lg mx-0 sm:mx-4 overflow-y-auto overscroll-contain" @keydown.escape="detailItem = null">
+        <div class="detail-modal w-full max-h-[85vh] rounded-t-2xl sm:rounded-2xl sm:max-w-lg mx-0 sm:mx-4 flex flex-col overscroll-contain" @keydown.escape="detailItem = null">
           <!-- Swipe indicator (mobile) -->
-          <div class="flex justify-center pt-3 pb-1 sm:hidden" @click="detailItem = null">
+          <div class="flex justify-center pt-3 pb-1 sm:hidden shrink-0" @click="detailItem = null">
             <div class="w-10 h-1 rounded-full bg-white/20"></div>
           </div>
+
+          <!-- Scrollable content -->
+          <div class="overflow-y-auto flex-1 min-h-0">
 
           <!-- Item photo in detail -->
           <div class="flex justify-center px-6 pt-2">
@@ -747,8 +750,10 @@ function confirmBuy() {
             </div>
           </div>
 
-          <!-- Actions -->
-          <div v-if="characterStore.activeCharacters.length > 0 && characterStore.getAvailableCount(String(detailItem.id)) > 0" class="detail-actions">
+          </div><!-- /scrollable content -->
+
+          <!-- Actions (sticky bottom) -->
+          <div v-if="characterStore.activeCharacters.length > 0 && characterStore.getAvailableCount(String(detailItem.id)) > 0" class="detail-actions shrink-0 border-t border-white/[0.06]">
             <button
               class="gh-btn-primary text-sm flex-1"
               @click="detailItem && openBuy(detailItem, 'buy'); detailItem = null"
