@@ -8,6 +8,7 @@ import { CharacterClass } from '@/models/types'
 import { XP_THRESHOLDS } from '@/utils/prosperityTable'
 import SlotIcon from '@/components/items/SlotIcon.vue'
 import ClassIcon from '@/components/characters/ClassIcon.vue'
+import { computeDeck, getDeckStats } from '@/utils/attackModifierDeck'
 
 const router = useRouter()
 const campaignStore = useCampaignStore()
@@ -405,6 +406,103 @@ const availableClasses = computed(() => {
                   </span>
                 </div>
                 <span class="text-gray-400 group-hover:text-gray-300 transition-colors">{{ perk.description }}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Attack Modifier Deck -->
+          <div class="mb-5">
+            <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-3 flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 text-gh-primary/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
+              </svg>
+              Útočný balíček
+            </h4>
+
+            <div class="bg-white/[0.02] rounded-xl border border-white/[0.05] p-4">
+              <!-- Top stats row -->
+              <div class="grid grid-cols-4 gap-2 mb-4">
+                <div class="text-center">
+                  <div class="text-[10px] text-gray-600 uppercase tracking-wider mb-1">Karet</div>
+                  <div class="font-display text-lg font-bold text-gray-300">{{ getDeckStats(computeDeck(char.perksSelected)).total }}</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-[10px] text-gray-600 uppercase tracking-wider mb-1">Miss</div>
+                  <div class="font-display text-lg font-bold text-red-400">{{ getDeckStats(computeDeck(char.perksSelected)).missChance.toFixed(0) }}%</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-[10px] text-gray-600 uppercase tracking-wider mb-1">Krit</div>
+                  <div class="font-display text-lg font-bold text-yellow-400">{{ getDeckStats(computeDeck(char.perksSelected)).critChance.toFixed(0) }}%</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-[10px] text-gray-600 uppercase tracking-wider mb-1">Rolling</div>
+                  <div class="font-display text-lg font-bold text-blue-400">{{ getDeckStats(computeDeck(char.perksSelected)).rollingCount }}</div>
+                </div>
+              </div>
+
+              <!-- Proportion bar -->
+              <div class="flex h-2 rounded-full overflow-hidden mb-4">
+                <div
+                  class="bg-red-500/70 transition-all duration-500"
+                  :style="{ width: getDeckStats(computeDeck(char.perksSelected)).negativeCount / getDeckStats(computeDeck(char.perksSelected)).total * 100 + '%' }"
+                />
+                <div
+                  class="bg-gray-500/50 transition-all duration-500"
+                  :style="{ width: getDeckStats(computeDeck(char.perksSelected)).neutralCount / getDeckStats(computeDeck(char.perksSelected)).total * 100 + '%' }"
+                />
+                <div
+                  class="bg-green-500/70 transition-all duration-500"
+                  :style="{ width: getDeckStats(computeDeck(char.perksSelected)).positiveCount / getDeckStats(computeDeck(char.perksSelected)).total * 100 + '%' }"
+                />
+                <div
+                  v-if="getDeckStats(computeDeck(char.perksSelected)).rollingCount > 0"
+                  class="bg-blue-500/60 transition-all duration-500"
+                  :style="{ width: getDeckStats(computeDeck(char.perksSelected)).rollingCount / getDeckStats(computeDeck(char.perksSelected)).total * 100 + '%' }"
+                />
+              </div>
+
+              <!-- Cards grid -->
+              <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-1.5">
+                <div
+                  v-for="card in computeDeck(char.perksSelected)"
+                  :key="card.label"
+                  class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg transition-colors"
+                  :class="{
+                    'bg-green-500/[0.07]': card.type === 'positive',
+                    'bg-red-500/[0.07]': card.type === 'negative',
+                    'bg-white/[0.03]': card.type === 'neutral',
+                    'bg-yellow-500/[0.1]': card.type === 'crit',
+                    'bg-red-500/[0.12]': card.type === 'miss',
+                    'bg-blue-500/[0.07]': card.type === 'rolling',
+                  }"
+                >
+                  <span
+                    class="w-6 h-6 rounded flex items-center justify-center text-[11px] font-bold shrink-0"
+                    :class="{
+                      'bg-green-500/20 text-green-400': card.type === 'positive',
+                      'bg-red-500/20 text-red-400': card.type === 'negative',
+                      'bg-white/[0.08] text-gray-400': card.type === 'neutral',
+                      'bg-yellow-500/25 text-yellow-300': card.type === 'crit',
+                      'bg-red-500/25 text-red-300': card.type === 'miss',
+                      'bg-blue-500/20 text-blue-400': card.type === 'rolling',
+                    }"
+                  >
+                    {{ card.count }}
+                  </span>
+                  <span
+                    class="text-xs truncate"
+                    :class="{
+                      'text-green-400/80': card.type === 'positive',
+                      'text-red-400/80': card.type === 'negative',
+                      'text-gray-500': card.type === 'neutral',
+                      'text-yellow-300/90': card.type === 'crit',
+                      'text-red-300/90': card.type === 'miss',
+                      'text-blue-400/80': card.type === 'rolling',
+                    }"
+                  >
+                    {{ card.label }}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
