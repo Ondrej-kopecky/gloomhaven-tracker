@@ -25,6 +25,7 @@ const navItems = [
   { to: '/druzina', label: 'Družina' },
   { to: '/postavy', label: 'Postavy' },
   { to: '/achievementy', label: 'Úspěchy' },
+  { to: '/pribeh', label: 'Příběh' },
 ]
 
 const mobileNavItems = [
