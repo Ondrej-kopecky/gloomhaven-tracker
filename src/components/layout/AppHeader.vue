@@ -14,7 +14,21 @@ watch(() => route.path, () => {
   mobileMenuOpen.value = false
 })
 watch(mobileMenuOpen, (open) => {
-  document.body.style.overflow = open ? 'hidden' : ''
+  const html = document.documentElement
+  const body = document.body
+  if (open) {
+    html.style.overflow = 'hidden'
+    body.style.overflow = 'hidden'
+    body.style.position = 'fixed'
+    body.style.inset = '0'
+    body.style.touchAction = 'none'
+  } else {
+    html.style.overflow = ''
+    body.style.overflow = ''
+    body.style.position = ''
+    body.style.inset = ''
+    body.style.touchAction = ''
+  }
 })
 
 const navItems = [
