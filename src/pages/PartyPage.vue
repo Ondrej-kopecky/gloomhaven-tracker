@@ -43,6 +43,10 @@ function removePlayer(idx: number) {
   campaignStore.autoSave()
 }
 const pendingRemove = ref<{ type: 'city' | 'road'; id: number } | null>(null)
+const isTouchDevice = ref(false)
+onMounted(() => {
+  isTouchDevice.value = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+})
 
 // Event outcome modal
 const eventOutcome = ref<{ type: 'city' | 'road'; id: number } | null>(null)
@@ -176,12 +180,15 @@ function closeEventOutcome() {
 }
 
 function confirmRemoveEvent(type: 'city' | 'road', id: number) {
-  if (pendingRemove.value?.type === type && pendingRemove.value?.id === id) {
-    // Second tap — open outcome modal (don't remove yet)
+  if (isTouchDevice.value) {
+    // Mobile: single tap opens modal directly
+    eventOutcome.value = { type, id }
+  } else if (pendingRemove.value?.type === type && pendingRemove.value?.id === id) {
+    // Desktop: second click — open outcome modal
     pendingRemove.value = null
     eventOutcome.value = { type, id }
   } else {
-    // First tap — mark as pending
+    // Desktop: first click — mark as pending
     pendingRemove.value = { type, id }
   }
 }
@@ -601,7 +608,7 @@ function getClassName(classId: string): string {
         </div>
 
         <!-- Tap hint -->
-        <p class="text-[10px] text-gray-600 mb-2">Klikni 2x na cislo = odebrat z balicku</p>
+        <p class="text-[10px] text-gray-600 mb-2">Klikni na číslo = odehrát událost</p>
 
         <!-- Available events (two-tap to remove) -->
         <div class="flex flex-wrap gap-1.5 mb-3">
@@ -681,7 +688,7 @@ function getClassName(classId: string): string {
         </div>
 
         <!-- Tap hint -->
-        <p class="text-[10px] text-gray-600 mb-2">Klikni 2x na cislo = odebrat z balicku</p>
+        <p class="text-[10px] text-gray-600 mb-2">Klikni na číslo = odehrát událost</p>
 
         <!-- Available events (two-tap to remove) -->
         <div class="flex flex-wrap gap-1.5 mb-3">
