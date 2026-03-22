@@ -1,9 +1,9 @@
 {
   "1": {
     "sections": {
-      "1": "Valrathsky obchodnik Jekserah vam nabidl deset zlatych za navraceni ukradenych zbozi. Po dukladnem vyslechu mistnich rvacu jste zjistili, ze zlodeji se skryvaji v Cernem tumulu v Mrtvem lese.",
-      "2": "Ve tumulu jste svuj cil nalezli, ale vyklouzl vam z rukou. Pri pronasledovani jste objevili duvod, proc si bandite vybrali prave tento tumulus: ozivle kosti. Presto jste je i jejich proklete spojence pobili. Vas cil mezi mrtvymi nebyl, ale ze tmy se vynoruje pruchod hloubeji do katakomb.",
-      "3": "Porazili jste velitele banditu. Na jeho chovani bylo neco neprirozeného a v prubehu souboje zminoval \"Chmuru\". V skrysi v jeho komnate jste nasli ukradene svitky a dorucili je Jekserah za dohodnutou odmenu."
+      "1": "Valrathský obchodník Jekserah vám nabídl deset zlatých za navrácení ukradených zboží. Po důkladném vyslechnutí místních rváčů jste zjistili, že zloději se skrývají v Černém tumulu v Mrtvém lese.",
+      "2": "Ve tumulu jste svůj cíl nalezli, ale vyklouzl vám z rukou. Při pronásledování jste objevili důvod, proč si bandité vybrali právě tento tumulus: oživlé kosti. Přesto jste je i jejich prokleté spojence pobili. Váš cíl mezi mrtvými nebyl, ale ze tmy se vynořuje průchod hlouběji do katakomb.",
+      "3": "Porazili jste velitele banditů. Na jeho chování bylo něco nepřirozeného a v průběhu souboje zmiňoval \"Chmuru\". V skrýši v jeho komnatě jste našli ukradené svitky a doručili je Jekserah za dohodnutou odměnu."
     },
     "stages": {
       "0": "{1}",
@@ -13,9 +13,9 @@
   },
   "2": {
     "sections": {
-      "1": "Pote, co jste splnili prvni ukol, nabidne vam Jekserah dalsi praci. Kmen Inoxu z Dykoveho lesa prepadl nekolik jejich karavan miricich do Hlavniho mesta.",
-      "2": "Kmen Inoxu je mrtev. Dali jste jim krutou lekci a Jekserahiny karavany budou chvili v bezpeci.",
-      "3": "Jekserah uprchla z Gloomhavenu a prisahala vam pomstu."
+      "1": "Poté, co jste splnili první úkol, nabídne vám Jekserah další práci. Kmen Inoxů z Dýkového lesa přepadl několik jejich karavan mířících do Hlavního města.",
+      "2": "Kmen Inoxů je mrtev. Dali jste jim krutou lekci a Jekserahiny karavany budou chvíli v bezpečí.",
+      "3": "Jekserah uprchla z Gloomhavenu a přísahala vám pomstu."
     },
     "stages": {
       "0": "{1}",
@@ -25,14 +25,14 @@
   },
   "3": {
     "sections": {
-      "1": "Zvolani velitele banditu o \"Chmure\" vam nedaji spat. Mezi svitky jste nalezli mapu severniho venkova s bodem zajmu.",
-      "2": "Mapa vedla ke krypte plne demonu a kultistu. Bandite zjevne patri k nejakemu kultu.",
-      "3": "Po bitve se nemrtvymi se objevila zahalena postava. Kultiste chteji smrt nekromantky Jekserah.",
-      "4": "Zabili jste Jekserah. \"Netusite, co prichazi...\"",
-      "5": "Zabili jste Jekserah. Je cas prinest jeji hlavu na zakladnu kultu.",
-      "6": "Pridali jste se na stranu Jekserah a prevzali kontrolu nad mestem.",
-      "7": "Zahalena postava vas zradila privolanim hordy tvoru. Chmura promluvila: \"Vstupte do meho sveta. Prijmete nevyhnutelne.\" Troufate si vstoupit?",
-      "8": "Vstoupili jste do cerne trhliny. \"Shnijete zde, odriznuti od domu.\" Po nekonecne bitve jste se ocitli zpet. \"Vase houževnatost me zaujala.\""
+      "1": "Zvolání velitele banditů o \"Chmuře\" vám nedají spát. Mezi svitky jste nalezli mapu severního venkova s bodem zájmu.",
+      "2": "Mapa vedla ke kryptě plné démonů a kultistů. Bandité zjevně patří k nějakému kultu.",
+      "3": "Po bitvě se nemrtvými se objevila zahalená postava. Kultisté chtějí smrt nekromantky Jekserah.",
+      "4": "Zabili jste Jekserah. \"Netušíte, co přichází...\"",
+      "5": "Zabili jste Jekserah. Je čas přinést její hlavu na základnu kultu.",
+      "6": "Přidali jste se na stranu Jekserah a převzali kontrolu nad městem.",
+      "7": "Zahalená postava vás zradila přivoláním hordy tvorů. Chmura promluvila: \"Vstupte do mého světa. Přijměte nevyhnutelné.\" Troufáte si vstoupit?",
+      "8": "Vstoupili jste do černé trhliny. \"Shnijete zde, odříznuti od domů.\" Po nekonečné bitvě jste se ocitli zpět. \"Vaše houževnatost mě zaujala.\""
     },
     "stages": {
       "0": "{1}",
@@ -48,8 +48,8 @@
   },
   "4": {
     "sections": {
-      "1": "Pri patrani po \"Chmure\" jste zjistili, ze bandite jsou spojeni s kultem. Mate prilezitost narusit dalsi aktivity kultu.",
-      "2": "Zapisky vas dovedly ke stare krypte. Temna trhlina je nyni klidna."
+      "1": "Při pátrání po \"Chmuře\" jste zjistili, že bandité jsou spojeni s kultem. Máte příležitost narušit další aktivity kultu.",
+      "2": "Zápisky vás dovedly ke staré kryptě. Temná trhlina je nyní klidná."
     },
     "stages": {
       "0": "{1}",
@@ -58,9 +58,9 @@
   },
   "6": {
     "sections": {
-      "1": "Mestska straz vam rekla, ze Jekserah se pokusi svrhnout vojenskou spravu a chysta neco zlovestneho.",
-      "2": "Sklad byl plny nemrtvych. Jekserah uprchla a pohrozila, ze se vrati s legii nemrtvych.",
-      "3": "Ignorovali jste varovani a nadale pracujete pro Jekserah. \"Stedra odmena\" prebiji \"zlovestne machinace\"."
+      "1": "Městská stráž vám řekla, že Jekserah se pokusí svrhnout vojenskou správu a chystá něco zlověstného.",
+      "2": "Sklad byl plný nemrtvých. Jekserah uprchla a pohrozila, že se vrátí s legií nemrtvých.",
+      "3": "Ignorovali jste varování a nadále pracujete pro Jekserah. \"Štědrá odměna\" přebíjí \"zlověstné machinace\"."
     },
     "stages": {
       "0": "{1}",
@@ -70,9 +70,9 @@
   },
   "7": {
     "sections": {
-      "1": "Jekserah potrebuje velky diamant z dolu zamoreného Vermlingy. Strazna vas ale varovala pred jejimi zlovestnymi zamery.",
-      "2": "Diamant jste ziskali. Jekserah rekla: \"S timhle mohu privolat celou armadu nemrtvych! Jste pripraveni svrhnout vojenskou spravu?\"",
-      "3": "Rozhodli jste se, ze \"zlovestne machinace\" prevazuji. Odhalili jste Jekserahin tajny plan. Uprchla z mesta."
+      "1": "Jekserah potřebuje velký diamant z dolů zamořeného Vermlingy. Strážná vás ale varovala před jejími zlověstnými záměry.",
+      "2": "Diamant jste získali. Jekserah řekla: \"S tímhle mohu přivolat celou armádu nemrtvých! Jste připraveni svrhnout vojenskou správu?\"",
+      "3": "Rozhodli jste se, že \"zlověstné machinace\" převažují. Odhalili jste Jekserahin tajný plán. Uprchla z města."
     },
     "stages": {
       "0": "{1}",
@@ -82,9 +82,9 @@
   },
   "8": {
     "sections": {
-      "1": "Narazili jste na cernou trhlinu v realite. Kultiste prováděli ritual. Troufate si vstoupit?",
-      "2": "Cesta nebyla prijemna. Priserne stvoreni vas pozadalo o artefakt - jinak vas zabije.",
-      "3": "Kdo zdraveho rozumu by se vrhal do trhlin? Rozhodli jste se trhlinu neutralizovat."
+      "1": "Narazili jste na černou trhlinu v realitě. Kultisté prováděli rituál. Troufáte si vstoupit?",
+      "2": "Cesta nebyla příjemná. Příšerné stvoření vás požádalo o artefakt - jinak vás zabije.",
+      "3": "Kdo zdravého rozumu by se vrhal do trhlin? Rozhodli jste se trhlinu neutralizovat."
     },
     "stages": {
       "0": "{1}",
@@ -94,11 +94,11 @@
   },
   "9": {
     "sections": {
-      "1": "Jekserah hrozi, ze se vrati s legii nemrtvych. Musite ji dopadnout.",
-      "2": "Hail vam jiste pomuze najit Jekserah.",
-      "3": "V Chramu Vestce vas zajem smeroval jinam. Jedina cesta je pomoc carodejky.",
-      "4": "Jekserahova poloha je v Mrtvem lese. Zastavme jeji nekromancii!",
-      "5": "Oddelite jeji hlavu od tela a obdrzite stedrou odmenu."
+      "1": "Jekserah hrozí, že se vrátí s legií nemrtvých. Musíte ji dopadnout.",
+      "2": "Hail vám jistě pomůže najít Jekserah.",
+      "3": "V Chrámu Věštce vás zájem směřoval jinam. Jediná cesta je pomoc čarodějky.",
+      "4": "Jekserahova poloha je v Mrtvém lese. Zastavme její nekromancii!",
+      "5": "Oddělte její hlavu od těla a obdržíte štědrou odměnu."
     },
     "stages": {
       "0": "{1}",
@@ -111,9 +111,9 @@
   },
   "10": {
     "sections": {
-      "1": "Jekserah je spokojena s diamantem. Jste pripraveni svrhnout vojenskou spravu?",
-      "2": "Obchodnicky cech nyni vladne mestu. Vy jste nova prava ruka.",
-      "3": "Jekserahiny plany nejsou vase vec. Pozvednete poplach. Jekserah umira vasi rukou."
+      "1": "Jekserah je spokojena s diamantem. Jste připraveni svrhnout vojenskou správu?",
+      "2": "Obchodnický cech nyní vládne městu. Vy jste nová pravá ruka.",
+      "3": "Jekserahiny plány nejsou vaše věc. Pozvednete poplach. Jekserah umírá vaší rukou."
     },
     "stages": {
       "0": "{1}",
@@ -123,9 +123,9 @@
   },
   "11": {
     "sections": {
-      "1": "Rozhodli jste se Jekserah nepomáhat. Varujete mesto pred armadou nemrtvych.",
-      "2": "S mestskou strazi bojujete az k Jekserahinu sidlu. Umira vasi rukou.",
-      "3": "Rozpolceni se nakonec rozhodujete pridat na jeji stranu."
+      "1": "Rozhodli jste se Jekserah nepomáhat. Varujete město před armádou nemrtvých.",
+      "2": "S městskou stráží bojujete až k Jekserahinu sídlu. Umírá vaší rukou.",
+      "3": "Rozpolceni se nakonec rozhodujete přidat na její stranu."
     },
     "stages": {
       "0": "{1}",
@@ -135,11 +135,11 @@
   },
   "12": {
     "sections": {
-      "1": "Kontakty vam prozradily o chramu ve Straznych horach, ktery dokaze odpovedět na jakékoli otazky.",
-      "2": "\"Zodpovim vam jedinou otazku.\" Co si vyberete? Velkou moc, bohatstvi, nebo polohu nekromantky?",
-      "3": "Velka moc. Hlas mluvi o svatyni v horach Copperneck.",
-      "4": "Bohatstvi. Hlas mluvi o ostrove v Mlznem mori.",
-      "5": "Poloha nekromantky. Hlas mluvi o svatostanku v Mrtvem lese."
+      "1": "Kontakty vám prozradily o chrámu ve Strážných horách, který dokáže odpovědět na jakékoli otázky.",
+      "2": "\"Zodpovím vám jedinou otázku.\" Co si vyberete? Velkou moc, bohatství, nebo polohu nekromantky?",
+      "3": "Velká moc. Hlas mluví o svatyni v horách Copperneck.",
+      "4": "Bohatství. Hlas mluví o ostrově v Mlžném moři.",
+      "5": "Poloha nekromantky. Hlas mluví o svatostánku v Mrtvém lese."
     },
     "stages": {
       "0": "{1}",
@@ -150,8 +150,8 @@
   },
   "13": {
     "sections": {
-      "1": "Byl povolan zaklinac. Ocitate se pred Aesther zenou.",
-      "2": "Je znama svou vystrednosti. S vasi pomoci pri hledani orbu je Hail zvedava na to, co chcete."
+      "1": "Byl povolán zaklínač. Ocitáte se před Aesther ženou.",
+      "2": "Je známa svou výstředností. S vaší pomocí při hledání orbu je Hail zvědavá na to, co chcete."
     },
     "stages": {
       "0": "{1}",
@@ -160,8 +160,8 @@
   },
   "14": {
     "sections": {
-      "1": "V horach Copperneck se nachazi svatyne se symboly moci a sily.",
-      "2": "Spatrujete obrazy podivne runove abecedy. Co tyto symboly znamenaji?"
+      "1": "V horách Copperneck se nachází svatyně se symboly moci a síly.",
+      "2": "Spatřujete obrazy podivné runové abecedy. Co tyto symboly znamenají?"
     },
     "stages": {
       "0": "{1}",
@@ -170,9 +170,9 @@
   },
   "15": {
     "sections": {
-      "1": "Doslechli jste se o draku v horach Copperneck. Stoji za prozkoumani.",
-      "2": "Vasim cilem je Ledovy stit. Ze skryte jeskyne se vynori skupina Inoxu s demony.",
-      "3": "Obri okridleny jester zada o pomoc: \"Savvas mi odebrali plamennou zlazu. Nebo me muzete napadnout, ale s nejvetsi pravdepodobnosti zemrete.\""
+      "1": "Doslechli jste se o draku v horách Copperneck. Stojí za prozkoumání.",
+      "2": "Vaším cílem je Ledový štít. Ze skryté jeskyně se vynoří skupina Inoxů s démony.",
+      "3": "Obří okřídlený ještěr žádá o pomoc: \"Savvas mi odebrali plamennou žlázu. Nebo mě můžete napadnout, ale s největší pravděpodobností zemřete.\""
     },
     "stages": {
       "0": "{1}",
@@ -182,8 +182,8 @@
   },
   "16": {
     "sections": {
-      "1": "Vite o ostrove v Mlznem mori s obrovskym bohatstvim. Vyrazme!",
-      "2": "Na ostrove vidite Vermlingy a zablesk zlata."
+      "1": "Víte o ostrově v Mlžném moři s obrovským bohatstvím. Vyražme!",
+      "2": "Na ostrově vidíte Vermlingy a záblesk zlata."
     },
     "stages": {
       "0": "{1}",
@@ -192,11 +192,11 @@
   },
   "17": {
     "sections": {
-      "1": "Zasobovani vodou je otraveno. Musite projit stokami.",
-      "2": "Ve stokach vas cekaji hadi, sliz a Vermlingove. Musite dychat pod vodou.",
-      "3": "Hail vam mozna pomuze s dychanim pod vodou.",
-      "4": "Zdroj jedu je znam. Cas na ocistu!",
-      "5": "Temna pritomnost je odstranena."
+      "1": "Zásobování vodou je otráveno. Musíte projít stokami.",
+      "2": "Ve stokách vás čekají hadi, sliz a Vermlingové. Musíte dýchat pod vodou.",
+      "3": "Hail vám možná pomůže s dýcháním pod vodou.",
+      "4": "Zdroj jedu je znám. Čas na očistu!",
+      "5": "Temná přítomnost je odstraněna."
     },
     "stages": {
       "0": "{1}",
@@ -208,11 +208,11 @@
   },
   "18": {
     "sections": {
-      "1": "V krypte odhalite skupinu kultistu pred cernou trhlinou. S nimi mrtvymi je trhlina klidna. Hail vam pomuze uzavrit trhlinu?",
-      "2": "Hail vam urcite pomuze trhlinu uzavrit?",
-      "3": "Hail potrebovala kadidelnici z krypty. Nyni je pripravena na trhlinu.",
-      "4": "Demonicti pani Gloomhavenu odnesli artefakt. Musite ho ziskat od Prvniho demona.",
-      "5": "Behem ritualu jsou na vas utoceni demoni. Jakmile je ritual dokoncen, demoni jsou nasati do trhliny a ta zmizi."
+      "1": "V kryptě odhalíte skupinu kultistů před černou trhlinou. S nimi mrtvými je trhlina klidná. Hail vám pomůže uzavřít trhlinu?",
+      "2": "Hail vám určitě pomůže trhlinu uzavřít?",
+      "3": "Hail potřebovala kadidelnici z krypty. Nyní je připravena na trhlinu.",
+      "4": "Démoničtí páni Gloomhavenu odnesli artefakt. Musíte ho získat od Prvního démona.",
+      "5": "Během rituálu jsou na vás útočeni démoni. Jakmile je rituál dokončen, démoni jsou nasáti do trhliny a ta zmizí."
     },
     "stages": {
       "0": "{1}",
@@ -224,9 +224,9 @@
   },
   "19": {
     "sections": {
-      "1": "Vydavate se zabit mocneho demona.",
-      "2": "Trhlina byla neutralizovana driv, nez jste stihli demona zabit.",
-      "3": "Utok na demona v jeho risi byl zaludny, ale rozbiti oltare z cerneho skla ho znicilo."
+      "1": "Vydáváte se zabít mocného démona.",
+      "2": "Trhlina byla neutralizována dříve, než jste stihli démona zabít.",
+      "3": "Útok na démona v jeho říši byl záludný, ale rozbití oltáře z černého skla ho zničilo."
     },
     "stages": {
       "0": "{1}",
@@ -236,8 +236,8 @@
   },
   "20": {
     "sections": {
-      "1": "Pobliz reky Hadi polibek se nachazi zahadny predmet.",
-      "2": "Kultiste se zmocnili Chramu zivlu. Nahnutí po nadobe ve vas vyvolá negativni pocity."
+      "1": "Poblíž řeky Hadí polibek se nachází záhadný předmět.",
+      "2": "Kultisté se zmocnili Chrámu živlů. Nahnutí po nádobě ve vás vyvolá negativní pocity."
     },
     "stages": {
       "0": "{1}",
@@ -246,8 +246,8 @@
   },
   "21": {
     "sections": {
-      "1": "Cesta stokami se otevrira do rozvetvenych chodeb. Tajny pruchod vas pritahuje.",
-      "2": "Stroje se probuzeji k zivotu. Rychle plavani vas zavede hloubeji."
+      "1": "Cesta stokami se otevírá do rozvětvených chodeb. Tajný průchod vás přitahuje.",
+      "2": "Stroje se probouzejí k životu. Rychlé plavání vás zavede hlouběji."
     },
     "stages": {
       "0": "{1}",
@@ -256,8 +256,8 @@
   },
   "22": {
     "sections": {
-      "1": "Nalezate napisy odkazujici na \"hlas\". Silna touha vas vola prozkoumat jeskyni.",
-      "2": "Hlas vas zada o pomoc. Neni jiste, zda mu lze duvěřovat."
+      "1": "Nalézáte nápisy odkazující na \"hlas\". Silná touha vás volá prozkoumat jeskyni.",
+      "2": "Hlas vás žádá o pomoc. Není jisté, zda mu lze důvěřovat."
     },
     "stages": {
       "0": "{1}",
@@ -266,8 +266,8 @@
   },
   "23": {
     "sections": {
-      "1": "Chcete zjistit, cim presne Hlas je.",
-      "2": "Quatryl na Univerzite nedoporucuje osvobodit tvora. Existuje žezlo pro posileni ritualu. Dychtive ho chcete prinest do Ozvenne komnaty."
+      "1": "Chcete zjistit, čím přesně Hlas je.",
+      "2": "Quatryl na Univerzitě nedoporučuje osvobodit tvora. Existuje žezlo pro posílení rituálu. Dychtivě ho chcete přinést do Ozvěnné komnaty."
     },
     "stages": {
       "0": "{1}",
@@ -276,11 +276,11 @@
   },
   "24": {
     "sections": {
-      "1": "Z artefaktu citite mocnou temnotu a hluboky smutek. Byl zkazen.",
-      "2": "Hail vam pomuze. Prvni demon ma vsak prednost.",
-      "3": "Artefakt jste odnesli k prvnimu demonovi driv nez ho mohla zaklinacka prozkoumat.",
-      "4": "Hail vam pomuze. Snad vi vice o artefaktu.",
-      "5": "Spojeni artefaktu s rovinou noci je preruseno. Hail vam dava mista, ktera cerpala zkazenou moc."
+      "1": "Z artefaktu cítíte mocnou temnotu a hluboký smutek. Byl zkažen.",
+      "2": "Hail vám pomůže. První démon má však přednost.",
+      "3": "Artefakt jste odnesli k prvnímu démonovi dříve než ho mohla zaklínačka prozkoumat.",
+      "4": "Hail vám pomůže. Snad ví více o artefaktu.",
+      "5": "Spojení artefaktu s rovinou noci je přerušeno. Hail vám dává místa, která čerpala zkaženou moc."
     },
     "stages": {
       "0": "{1}",
@@ -292,12 +292,12 @@
   },
   "25": {
     "sections": {
-      "1": "Hlas z jeskyne vas zada o pomoc pri uteku z vezeni.",
-      "2": "Znici padli. Nalezli jste hlineny dzban. Hlas dava druhe misto.",
-      "3": "Savvas zvladnuti. \"Zbyva uz jen jedna nadoba.\"",
-      "4": "Aktivujete prepinace. Stred podlahy se odsouvá. \"Cesta do hrobky je volna.\"",
-      "5": "Se tremi nadobami se vracelite do Ozvenne komnaty. Zablesk svetla — zelena mlha rici: \"Temer jsem zapomnel, jake to je nebyt uveznen.\" Zelene svetlo vas ozari. Zbyla jen kamenna deska se zahadnymi znackami.",
-      "6": "Zablokujete Hlasovy lzi. Nota disonance zazni, pak nastane ticho."
+      "1": "Hlas z jeskyně vás žádá o pomoc při útěku z vězení.",
+      "2": "Zničíš padlí. Nalezli jste hliněný džbán. Hlas dává druhé místo.",
+      "3": "Savvas zvládnutí. \"Zbývá už jen jedna nádoba.\"",
+      "4": "Aktivujete přepínače. Střed podlahy se odsouvá. \"Cesta do hrobky je volná.\"",
+      "5": "Se třemi nádobami se vracíte do Ozvěnné komnaty. Záblesk světla — zelená mlha řičí: \"Téměř jsem zapomněl, jaké to je nebýt uvězněn.\" Zelené světlo vás ozáří. Zbyla jen kamenná deska se záhadnými značkami.",
+      "6": "Zablokujete Hlasovy lži. Nóta disonance zazní, pak nastane ticho."
     },
     "stages": {
       "0": "{1}",
@@ -310,10 +310,10 @@
   },
   "26": {
     "sections": {
-      "1": "Vloupat se do arsenalu Savvas, nebo neuposlechnout hlas?",
-      "2": "Tvor je znicen, vliv pryc. Arsenal je mozna prilis velka vyzva.",
-      "3": "Obe stvoreni znicena. Arsenal vas uz nezajima.",
-      "4": "Splnili jste, co tvor zadal. Poklad je vas."
+      "1": "Vloupal se do arzenálu Savvas, nebo neuposlechnout hlas?",
+      "2": "Tvor je zničen, vliv pryč. Arzenál je možná příliš velká výzva.",
+      "3": "Obě stvoření zničena. Arzenál vás už nezajímá.",
+      "4": "Splnili jste, co tvor žádal. Poklad je váš."
     },
     "stages": {
       "0": "{1}",
@@ -324,9 +324,9 @@
   },
   "27": {
     "sections": {
-      "1": "Pred velkym drakem nenachodite nic k diskuzi. Pripravujete zbrane.",
-      "2": "Mozna tento drak neni tak spatny?",
-      "3": "Sarkaticke predpovedi draka se nenaplnily. Obdrzite skromnou odmenu."
+      "1": "Před velkým drakem nenacházíte nic k diskuzi. Připravujete zbraně.",
+      "2": "Možná tento drak není tak špatný?",
+      "3": "Sarkastické předpovědi draka se nenaplnily. Obdržíte skromnou odměnu."
     },
     "stages": {
       "0": "{1}",
@@ -336,11 +336,11 @@
   },
   "28": {
     "sections": {
-      "1": "V zapomenutem chramu se nachazi artefakt velke moci. Chcete ho ziskat?",
-      "2": "Artefakt byl zkazen. Budete bojovat pro zlo, nebo proti nemu?",
-      "3": "Trhlina exploduje a nici vsechny demony. Tomuto demonovi jste neduverovali.",
-      "4": "Nikdy jste nemeli prinest artefakt. Demon pada. Priste premyslejte dele.",
-      "5": "Demon se stava vladcem Gloomhavenu."
+      "1": "V zapomenutém chrámu se nachází artefakt velké moci. Chcete ho získat?",
+      "2": "Artefakt byl zkažen. Budete bojovat pro zlo, nebo proti němu?",
+      "3": "Trhlina exploduje a ničí všechny démony. Tomuto démonovi jste nedůvěřovali.",
+      "4": "Nikdy jste neměli přinést artefakt. Démon padá. Příště přemýšlejte déle.",
+      "5": "Démon se stává vládcem Gloomhavenu."
     },
     "stages": {
       "0": "{1}",
@@ -351,10 +351,10 @@
   },
   "30": {
     "sections": {
-      "1": "Prvnim mistem na mape je dno Mlzneho more. Dychani pod vodou nepatri mezi vase schopnosti.",
-      "2": "Nepohodli z dychani skrze orb ustupuje. Postupujete dal.",
-      "3": "Na dne prikopu se vynoreji stinove postavy. Vynorujete se do vzduchove kapsy s masivni kamennou stavbou.",
-      "4": "Neco prastarého na vas ceka. Se smrti obriho oka vsichni prisluhovaci umiraji. Vracelite se do Gloomhavenu."
+      "1": "Prvním místem na mapě je dno Mlžného moře. Dýchání pod vodou nepatří mezi vaše schopnosti.",
+      "2": "Nepohodlí z dýchání skrze orb ustupuje. Postupujete dál.",
+      "3": "Na dně příkopu se vynoří stínové postavy. Vynořujete se do vzduchové kapsy s masivní kamennou stavbou.",
+      "4": "Něco prastarého na vás čeká. Se smrtí obřího oka všichni přisluhovači umírají. Vracíte se do Gloomhavenu."
     },
     "stages": {
       "0": "{1}",
@@ -365,9 +365,9 @@
   },
   "31": {
     "sections": {
-      "1": "Dykovy les je druhym mistem na mape.",
-      "2": "Hail rika, ze potrebujete pruvodce. V tabore Orchidu nachodite masakr. Sledujete stopy Inoxu a osvobodite Redthorna.",
-      "3": "Redthorn vas vede na mrtvou mytinu. \"Toto bylo kdysi srdce lesa.\" Bezhlavy prizrak se rozplyne po vasem uderu. \"Citim, jak les lehci.\""
+      "1": "Dýkový les je druhým místem na mapě.",
+      "2": "Hail říká, že potřebujete průvodce. V táboře Orchidů nacházíte masakr. Sledujete stopy Inoxů a osvobodíte Redthorna.",
+      "3": "Redthorn vás vede na mrtvou mýtinu. \"Toto bylo kdysi srdce lesa.\" Bezhlavý přízrak se rozplyne po vašem úderu. \"Cítím, jak les lehčí.\""
     },
     "stages": {
       "0": "{1}",
@@ -377,9 +377,9 @@
   },
   "32": {
     "sections": {
-      "1": "Artefakt byl ocisten. Jedno z mist je vysoko v horach Copperneck.",
-      "2": "Splehaete na zmrzle vrcholky. Demoni z ledu vas cekaji. Po zniceni zarejichiho bileho orbu se nebe vyjasni.",
-      "3": "Obrovsy demon s kridly pristane pred vami. \"Leta jsem cekal.\" Demon umira a nad oblasti se rozedni."
+      "1": "Artefakt byl očištěn. Jedno z míst je vysoko v horách Copperneck.",
+      "2": "Šplháte na zmrzlé vrcholky. Démoni z ledu vás čekají. Po zničení zářícího bílého orbu se nebe vyjasní.",
+      "3": "Obrovský démon s křídly přistane před vámi. \"Léta jsem čekal.\" Démon umírá a nad oblastí se rozední."
     },
     "stages": {
       "0": "{1}",
@@ -389,9 +389,9 @@
   },
   "33": {
     "sections": {
-      "1": "Od te doby, co k vam zacal promlouvat hlas, touzite se ho zbavit. Snad pomuze zezlo.",
-      "2": "Osvobodite hlas z jeho vezeni.",
-      "3": "Stojite pred jeskyni se zezlem. Hlas varuje. Cerná mlha vas obestere. Ocitnete se v temne risi. \"Moc Hlasu je moje!\" Nota disonance, pak ticho."
+      "1": "Od té doby, co k vám začal promlouvat hlas, toužíte se ho zbavit. Snad pomůže žezlo.",
+      "2": "Osvobodíte hlas z jeho vězení.",
+      "3": "Stojíte před jeskyní se žezlem. Hlas varuje. Černá mlha vás obestře. Ocitnete se v temné říši. \"Moc Hlasu je moje!\" Nóta disonance, pak ticho."
     },
     "stages": {
       "0": "{1}",
@@ -401,9 +401,9 @@
   },
   "34": {
     "sections": {
-      "1": "Dychani pod vodou neni vasi schopnosti. Hail pomuze.",
-      "2": "Hail je sverazna. Ruka ruku myje.",
-      "3": "Supiny z hnizda draku vam pomohou dychat pod vodou."
+      "1": "Dýchání pod vodou není vaší schopností. Hail pomůže.",
+      "2": "Hail je svérázná. Ruka ruku myje.",
+      "3": "Šupiny z hnízda draků vám pomohou dýchat pod vodou."
     },
     "stages": {
       "0": "{1}",
@@ -413,8 +413,8 @@
   },
   "35": {
     "sections": {
-      "1": "Orchid chce vasi pomoc pri osvobozeni sveho lidu.",
-      "2": "Redthorn vas vede do vesnice. Stihnete zachranit Orchidy pred Inoxi."
+      "1": "Orchid chce vaši pomoc při osvobození svého lidu.",
+      "2": "Redthorn vás vede do vesnice. Stihnete zachránit Orchidy před Inoxi."
     },
     "stages": {
       "0": "{1}",
@@ -423,9 +423,9 @@
   },
   "36": {
     "sections": {
-      "1": "Deformovany demon vas zada o pomoc s opozicinima silami v jiznich podhuri.",
-      "2": "Existuje rebelsky tabor. Jeste jste ho neprozkoumali.",
-      "3": "Nicite posledni zbytky odporu. Rebel vam prozradi polohu svych druhu."
+      "1": "Deformovaný démon vás žádá o pomoc s opozičními silami v jižních podhůří.",
+      "2": "Existuje rebelský tábor. Ještě jste ho neprozkoumali.",
+      "3": "Ničíte poslední zbytky odporu. Rebel vám prozradí polohu svých druhů."
     },
     "stages": {
       "0": "{1}",
@@ -435,9 +435,9 @@
   },
   "37": {
     "sections": {
-      "1": "Tezce zraneny strazce vam prozradi: \"Pomozte nam doby mesito zpet. Vydejte se ke Straznim horam.\"",
-      "2": "Pomaháte rebelum svrhnout demony.",
-      "3": "Snadno najdete rebelsky tabor a znicite jejich kanon. Vracelite se jako vitezové."
+      "1": "Těžce zraněný strážce vám prozradí: \"Pomozte nám dobýt město zpět. Vydejte se ke Strážním horám.\"",
+      "2": "Pomáháte rebelům svrhnout démony.",
+      "3": "Snadno najdete rebelský tábor a zničíte jejich kanón. Vracíte se jako vítězové."
     },
     "stages": {
       "0": "{1}",
@@ -447,10 +447,10 @@
   },
   "38": {
     "sections": {
-      "1": "Umirajici strazce vas poslal k rebelum. Pojdme jim pomoci!",
-      "2": "Rebelsti hlupáci si pomoc nezaslouzi. Zbavite Gloomhaven demonu.",
-      "3": "Rebelsti hlupáci si pomoc nezaslouzi. Vyvrazdite kazdeho rebela.",
-      "4": "Pomahate rebelum. S kanonem prorazite hradby, obsadite zbrojnici a vyzenete demony. Gloomhaven se vzpamatuje."
+      "1": "Umírající strážce vás poslal k rebelům. Pojďme jim pomoci!",
+      "2": "Rebelští hlupáci si pomoc nezaslouží. Zbavíte Gloomhaven démonů.",
+      "3": "Rebelští hlupáci si pomoc nezaslouží. Vyvraždíte každého rebela.",
+      "4": "Pomáháte rebelům. S kanónem prorazíte hradby, obsadíte zbrojnici a vyženete démony. Gloomhaven se vzpamatuje."
     },
     "stages": {
       "0": "{1}",
@@ -461,9 +461,9 @@
   },
   "39": {
     "sections": {
-      "1": "Spojeni artefaktu s Rovinou noci je preruseno. Hail zminuje tri mista.",
-      "2": "Zkaza na vsech trech mistech je znicena. Vydejme se za Hail.",
-      "3": "Hail vas posila bojovat proti Prrazdnote. Aesther se dvema cepelemi pada. \"Jsem vecny. Vratim se.\" Jeho telo se rozplyne. Vir cerneho pisku je pryc. Lide jasaji."
+      "1": "Spojení artefaktu s Rovinou noci je přerušeno. Hail zmiňuje tři místa.",
+      "2": "Zkáza na všech třech místech je zničena. Vydejme se za Hail.",
+      "3": "Hail vás posílá bojovat proti Prázdnotě. Aesther se dvěma čepelemi padá. \"Jsem věčný. Vrátím se.\" Jeho tělo se rozplyne. Vír černého písku je pryč. Lidé jásají."
     },
     "stages": {
       "0": "{1}",
@@ -473,8 +473,8 @@
   },
   "72": {
     "sections": {
-      "1": "Knihovnik Dominic zada o podporu radniho Greymaera.",
-      "2": "Neutralizovali jste hrozbu v Corpsewoodu. Doufejme, ze to Greymaerovi staci."
+      "1": "Knihovník Dominic žádá o podporu radního Greymaera.",
+      "2": "Neutralizovali jste hrozbu v Corpsewoodu. Doufejme, že to Greymaerovi stačí."
     },
     "stages": {
       "0": "{1}",
@@ -483,8 +483,8 @@
   },
   "73": {
     "sections": {
-      "1": "Dominic zjistil, ze existuje Kodex direktiv. Karavana s kopii byla prepadena Inoxi.",
-      "2": "Nacházite velky svazek. Dominic zacne Kodex studovat."
+      "1": "Dominic zjistil, že existuje Kodex direktiv. Karavána s kopií byla přepadena Inoxi.",
+      "2": "Nacházíte velký svazek. Dominic začne Kodex studovat."
     },
     "stages": {
       "0": "{1}",
@@ -493,8 +493,8 @@
   },
   "77": {
     "sections": {
-      "1": "Vigilie znicila Dominicovu praci a zkonfiskovala Kodex. Zadá vas o navraceni.",
-      "2": "V trezorových knihovnach nacházite Kodex i Dominicovu knihu."
+      "1": "Vigilie zničila Dominicovu práci a zkonfiskovala Kodex. Žádá vás o navrácení.",
+      "2": "V trezorových knihovnách nacházíte Kodex i Dominicovu knihu."
     },
     "stages": {
       "0": "{1}",
@@ -503,8 +503,8 @@
   },
   "96": {
     "sections": {
-      "1": "Prezili jste Kalamitu. Ve Spicim lvu se otevre trhlina a vtrhnou demoni, nasledovani Cassandrou.",
-      "2": "Cassandra vysvetluje historii Bastianovy veze a Aestheru. Zada o pomoc najit Bastianovu knihovnu v Prazdnu."
+      "1": "Přežili jste Kalamitu. Ve Spícím lvu se otevře trhlina a vtrhnou démoni, následováni Cassandrou.",
+      "2": "Cassandra vysvětluje historii Bastianovy věže a Aestheřů. Žádá o pomoc najít Bastianovu knihovnu v Prázdnu."
     },
     "stages": {
       "0": "{1}",
@@ -513,8 +513,8 @@
   },
   "97": {
     "sections": {
-      "1": "Cassandra ukazuje Trezor vedeni se ctyrmi svitky. Otvira portal.",
-      "2": "Kazdy svitek vede k jine stope. Vsechny je treba prozkoumat."
+      "1": "Cassandra ukazuje Trezor vědění se čtyřmi svitky. Otvírá portál.",
+      "2": "Každý svitek vede k jiné stopě. Všechny je třeba prozkoumat."
     },
     "stages": {
       "0": "{1}",
@@ -523,10 +523,10 @@
   },
   "98": {
     "sections": {
-      "1": "Orchidesjti vyzkumnici jsou prepadeni na lodi.",
-      "2": "Zachranili jste Zaznam uctu. Pristav Velcyll stoji za prozkoumani.",
-      "3": "Zachranili jste Zaznam dohod. Zahadna karavana nedorazila do cile.",
-      "4": "Zachranili jste oba zaznamy."
+      "1": "Orchidejští výzkumníci jsou přepadeni na lodi.",
+      "2": "Zachránili jste Záznam účtů. Přístav Velcyll stojí za prozkoumání.",
+      "3": "Zachránili jste Záznam dohod. Záhadná karavána nedorazila do cíle.",
+      "4": "Zachránili jste oba záznamy."
     },
     "stages": {
       "0": "{1}",
@@ -537,9 +537,9 @@
   },
   "99": {
     "sections": {
-      "1": "V Zahradach Sekhem se vynori nocni mury a utoci na civilisty.",
-      "2": "Prilis mnoho jich zemrelo. Cassandra pozada o pomoc Hail.",
-      "3": "Na plastich utocniku jste poznali insignii Kultu Prazdnoty."
+      "1": "V Zahradách Sekhem se vynoří noční můry a útočí na civilisty.",
+      "2": "Příliš mnoho jich zemřelo. Cassandra požádá o pomoc Hail.",
+      "3": "Na pláštích útočníků jste poznali insignii Kultu Prázdnoty."
     },
     "stages": {
       "0": "{1}",
@@ -549,9 +549,9 @@
   },
   "100": {
     "sections": {
-      "1": "Atlas vede k Bastianove dielne v horach Copperneck. Obranny system se aktivuje.",
-      "2": "Nachazelite cast trhlino-stroje. Dalsi dve casti chybi.",
-      "3": "Cassandra zjisti odpocitavani. Popadnete co muzete a uniknete."
+      "1": "Atlas vede k Bastianově dílně v horách Copperneck. Obranný systém se aktivuje.",
+      "2": "Nacházíte část trhlino-stroje. Další dvě části chybí.",
+      "3": "Cassandra zjistí odpočítávání. Popadnete co můžete a uniknete."
     },
     "stages": {
       "0": "{1}",
@@ -561,8 +561,8 @@
   },
   "101": {
     "sections": {
-      "1": "Zneklidneny Inox mluvi o poskrevene Krypte. Uvnitr slysite drakey.",
-      "2": "Znicite zdroj neprirozene tmy. Vdecny Inox vam da zlato a tomy."
+      "1": "Zneklidněný Inox mluví o poškvrnené Kryptě. Uvnitř slyšíte drápky.",
+      "2": "Zničíte zdroj nepřirozené tmy. Vděčný Inox vám dá zlato a tómy."
     },
     "stages": {
       "0": "{1}",
@@ -571,8 +571,8 @@
   },
   "102": {
     "sections": {
-      "1": "V pristavu Velcyll jsou trhy tak zive, ze ziskat informace je temer nemozne.",
-      "2": "Jediny zpusob, jak se setkat s Ashtoothem, je zvitezit v turnaji Kolosea."
+      "1": "V přístavu Velcyll jsou trhy tak živé, že získat informace je téměř nemožné.",
+      "2": "Jediný způsob, jak se setkat s Ashtoothem, je zvítězit v turnaji Kolosea."
     },
     "stages": {
       "0": "{1}",
@@ -581,8 +581,8 @@
   },
   "103": {
     "sections": {
-      "1": "Cassandra vas prenese do minulosti k orchidejske karavane.",
-      "2": "Potkate divku Terru, ktera vnima budoucnost. Odmita spolupracovat."
+      "1": "Cassandra vás přenese do minulosti k orchidejské karavaně.",
+      "2": "Potkáte dívku Terru, která vnímá budoucnost. Odmítá spolupracovat."
     },
     "stages": {
       "0": "{1}",
@@ -591,8 +591,8 @@
   },
   "104": {
     "sections": {
-      "1": "Hail a Cassandra maji bourlovou historii. Hrozba nove trhliny je presvedci ke spolupraci.",
-      "2": "Putujete skrze portaly. Hail je prilis vycerpana. Musite byt rychli."
+      "1": "Hail a Cassandra mají bouřlivou historii. Hrozba nové trhliny je přesvědčí ke spolupráci.",
+      "2": "Putujete skrze portály. Hail je příliš vyčerpaná. Musíte být rychlí."
     },
     "stages": {
       "0": "{1}",
@@ -601,8 +601,8 @@
   },
   "105": {
     "sections": {
-      "1": "Statecny Savvas vas nasmeruje ke Svatyni Velkeho Dubu. Cassandra nalezne ukryt kultistu.",
-      "2": "Najdete recept na vakcinu proti Zkaze. Odnasite informace na Univerzitu."
+      "1": "Statečný Savvas vás nasměruje ke Svatyni Velkého Dubu. Cassandra nalezne úkryt kultistů.",
+      "2": "Najdete recept na vakcínu proti Zkáze. Odnášíte informace na Univerzitu."
     },
     "stages": {
       "0": "{1}",
@@ -611,9 +611,9 @@
   },
   "106": {
     "sections": {
-      "1": "U majaku za Obchodnicskym zalivem vas prepadnou nepratele.",
-      "2": "Nic spojeneho s trhlinou nenajdete. Slepy konec.",
-      "3": "Nalézáte dalsi cast Bastianovy trhlino-stroje."
+      "1": "U majáku za Obchodnickým zálivem vás přepadnou nepřátelé.",
+      "2": "Nic spojeného s trhlinou nenajdete. Slepý konec.",
+      "3": "Nalézáte další část Bastianovy trhlino-stroje."
     },
     "stages": {
       "0": "{1}",
@@ -623,9 +623,9 @@
   },
   "107": {
     "sections": {
-      "1": "Cassandra vas teleportuje do Bastianovy podzemni facility.",
-      "2": "Nic nenajdete a musite se dostat ven odpadnimi tunely.",
-      "3": "Najdete dalsi cast trhlino-stroje. Vracite se skrze trhlinu."
+      "1": "Cassandra vás teleportuje do Bastianovy podzemní facility.",
+      "2": "Nic nenajdete a musíte se dostat ven odpadními tunely.",
+      "3": "Najdete další část trhlino-stroje. Vracíte se skrze trhlinu."
     },
     "stages": {
       "0": "{1}",
@@ -635,10 +635,10 @@
   },
   "108": {
     "sections": {
-      "1": "Jste preneseni do Bourivych plani Stormbrew v minulosti. Cilem je ziskat informace od Diamary a Xangrotha.",
-      "2": "Pobijete lidske vojaky a sejmete Diamaruv denik. Valku ridili Aestheri... Ale proc?",
-      "3": "Postavite se na stranu lidi a zabijete Xangrotha. Valku ridili Aestheri... Ale proc?",
-      "4": "Prohledate obe strany. Najdete oba deniky. Valku ridili Aestheri... Ale proc?"
+      "1": "Jste přeneseni do Bouřivých plání Stormbrew v minulosti. Cílem je získat informace od Diamary a Xangrotha.",
+      "2": "Pobijete lidské vojáky a sejmete Diamarův deník. Válku řídili Aestheři... Ale proč?",
+      "3": "Postavíte se na stranu lidí a zabijete Xangrotha. Válku řídili Aestheři... Ale proč?",
+      "4": "Prohledáte obě strany. Najdete oba deníky. Válku řídili Aestheři... Ale proč?"
     },
     "stages": {
       "0": "{1}",
@@ -649,9 +649,9 @@
   },
   "109": {
     "sections": {
-      "1": "Cassandra cte o Demonske valce. Jste preneseni na bojiste hledat jejiho manzela Nareeta.",
-      "2": "Nareet odešel. Cassandra vi, kde hledat zkorumpovane Aesthery.",
-      "3": "Bojiste nese znaky zkorumpovanych Aestheru. Cassandra vi, kde jsou."
+      "1": "Cassandra čte o Démonské válce. Jste přeneseni na bojiště hledat jejího manžela Nareeta.",
+      "2": "Nareet odešel. Cassandra ví, kde hledat zkorumpované Aesthery.",
+      "3": "Bojiště nese znaky zkorumpovaných Aestheřů. Cassandra ví, kde jsou."
     },
     "stages": {
       "0": "{1}",
@@ -661,8 +661,8 @@
   },
   "110": {
     "sections": {
-      "1": "Arena Kolosea je jina nez jste cekali. Vsichni mluvi o \"posadce Pozehnane kamenem\".",
-      "2": "Po vitezstvi se setkate s Ashtoothem. Cassandra prohlasuej, ze chape, jak zastavit Zkazu."
+      "1": "Aréna Kolosea je jiná než jste čekali. Všichni mluví o \"posádce Požehnané kamenem\".",
+      "2": "Po vítězství se setkáte s Ashtoothem. Cassandra prohlašuje, že chápe, jak zastavit Zkázu."
     },
     "stages": {
       "0": "{1}",
@@ -671,9 +671,9 @@
   },
   "111": {
     "sections": {
-      "1": "Na Novem trhu vas napadne Loupez — zkorumpovany Aesther s planoucimi nozi.",
-      "2": "Loupez se smeje a mizi v cernem dymu. Tento boj byl jen odlozen.",
-      "3": "Loupez padne. Cassandra vidi dalsi plány v pohybu."
+      "1": "Na Novém trhu vás napadne Loupež — zkorumpovaný Aesther s planoucími noži.",
+      "2": "Loupež se směje a mizí v černém dýmu. Tento boj byl jen odložen.",
+      "3": "Loupež padne. Cassandra vidí další plány v pohybu."
     },
     "stages": {
       "0": "{1}",
@@ -683,9 +683,9 @@
   },
   "112": {
     "sections": {
-      "1": "Cassandra se vraci do ruin sve stare laboratore. Bezpecnostni opatreni nelze deaktivovat.",
-      "2": "Paprsky aktivuji zdroj energie, ktery popadnete.",
-      "3": "Energie se vycerpala. Nezbývá nez se vratit."
+      "1": "Cassandra se vrací do ruin své staré laboratoře. Bezpečnostní opatření nelze deaktivovat.",
+      "2": "Paprsky aktivují zdroj energie, který popadnete.",
+      "3": "Energie se vyčerpala. Nezbývá než se vrátit."
     },
     "stages": {
       "0": "{1}",
@@ -694,8 +694,8 @@
   },
   "113": {
     "sections": {
-      "1": "Nareet se vznasi v bezvedomi, prikovan ke ctyrm krystalum.",
-      "2": "Osvobodite Nareeta. Cassandra ho zachyti. Je cas jit dal."
+      "1": "Nareet se vznáší v bezvědomí, přikován ke čtyřem krystalům.",
+      "2": "Osvobodíte Nareeta. Cassandra ho zachytí. Je čas jít dál."
     },
     "stages": {
       "0": "{1}",
@@ -704,8 +704,8 @@
   },
   "114": {
     "sections": {
-      "1": "Hail vnima blizici se agenty Zkazy. Ritite se ke Krive kosti zachranit Hail.",
-      "2": "Hail aktivuje zarizeni, ktere je porazi. Finalni boj je pred vami."
+      "1": "Hail vnímá blížící se agenty Zkázy. Řítíte se ke Křivé kosti zachránit Hail.",
+      "2": "Hail aktivuje zařízení, které je porazí. Finální boj je před vámi."
     },
     "stages": {
       "0": "{1}",
@@ -714,8 +714,8 @@
   },
   "115": {
     "sections": {
-      "1": "Nastal cas k utoku. Masa Zkazy roste a privolava armadu. Je cas jednat!",
-      "2": "Chapadla Zkazy se rozplynou. Cassandra ji spouta. Ve Spicim lvu si objednate pivo. \"Uzijte si svuj drink,\" rika Cassandra."
+      "1": "Nastal čas k útoku. Masa Zkázy roste a přivolává armádu. Je čas jednat!",
+      "2": "Chapadla Zkázy se rozplynou. Cassandra ji spoutá. Ve Spícím lvu si objednáte pivo. \"Užijte si svůj drink,\" říká Cassandra."
     },
     "stages": {
       "0": "{1}",
