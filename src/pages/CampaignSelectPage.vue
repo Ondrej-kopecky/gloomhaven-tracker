@@ -237,14 +237,21 @@ function formatDate(iso: string): string {
       <div
         v-for="campaign in campaignStore.campaigns"
         :key="campaign.id"
-        class="gh-card gh-card-interactive p-5"
+        class="gh-card relative overflow-hidden p-5 cursor-pointer hover:border-gh-border-light transition-colors"
+        :class="campaign.id === campaignStore.campaignId ? 'ring-1 ring-gh-primary/40' : ''"
         @click="loadCampaign(campaign.id)"
       >
+        <div v-if="campaign.id === campaignStore.campaignId" class="absolute left-0 top-0 bottom-0 w-[3px] bg-gh-primary" />
         <div class="flex items-center justify-between">
           <div class="flex-1 min-w-0">
-            <h3 class="font-display text-lg font-semibold text-gray-200 group-hover:text-gh-primary transition-colors truncate tracking-wide">
-              {{ campaign.name }}
-            </h3>
+            <div class="flex items-center gap-2">
+              <h3 class="font-display text-lg font-semibold truncate tracking-wide" :class="campaign.id === campaignStore.campaignId ? 'text-gh-primary' : 'text-gray-200'">
+                {{ campaign.name }}
+              </h3>
+              <span v-if="campaign.id === campaignStore.campaignId" class="text-[9px] px-1.5 py-0.5 rounded-full bg-gh-primary/15 text-gh-primary font-semibold uppercase tracking-wider shrink-0">
+                aktivní
+              </span>
+            </div>
             <p class="text-xs text-gray-600 mt-1.5 flex items-center gap-1.5">
               <svg class="w-3 h-3 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -258,7 +265,7 @@ function formatDate(iso: string): string {
               class="gh-btn-secondary text-sm"
               @click="loadCampaign(campaign.id)"
             >
-              Načíst
+              {{ campaign.id === campaignStore.campaignId ? 'Otevřít' : 'Načíst' }}
             </button>
             <button
               v-if="showDeleteConfirm !== campaign.id"
