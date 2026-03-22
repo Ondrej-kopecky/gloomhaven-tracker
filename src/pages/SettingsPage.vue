@@ -117,11 +117,11 @@ function isEnvelopeOpen(key: string): boolean {
 }
 
 const envelopes = [
-  { key: 'A', label: 'Obálka A', condition: '5× úspěch Ancient Technology', color: 'text-red-400', bg: 'bg-red-500/15', border: 'border-red-800/30' },
-  { key: 'B', label: 'Obálka B', condition: 'Darovat celkem 100 zl. v chrámu', color: 'text-blue-400', bg: 'bg-blue-500/15', border: 'border-blue-800/30' },
-  { key: 'sun', label: 'Obálka ☀', condition: 'Reputace +10 nebo víc', color: 'text-yellow-400', bg: 'bg-yellow-500/15', border: 'border-yellow-800/30' },
-  { key: 'moon', label: 'Obálka ☾', condition: 'Reputace -10 nebo míň', color: 'text-purple-400', bg: 'bg-purple-500/15', border: 'border-purple-800/30' },
-  { key: 'X', label: 'Obálka X', condition: 'Tajné podmínky (viz uvnitř)', color: 'text-gray-400', bg: 'bg-white/[0.06]', border: 'border-white/[0.08]' },
+  { key: 'A', label: 'Obálka A', condition: '5× úspěch Ancient Technology', content: 'Šifrovací puzzle — dešifrovací tabulka v krabici', color: 'text-red-400', bg: 'bg-red-500/15', border: 'border-red-800/30' },
+  { key: 'B', label: 'Obálka B', condition: 'Darovat celkem 100 zl. v chrámu', content: '+1 prosperita + samolepka na mapu — další donace generují prosperitu', color: 'text-blue-400', bg: 'bg-blue-500/15', border: 'border-blue-800/30' },
+  { key: 'sun', label: 'Obálka ☀', condition: 'Reputace +10 nebo víc', content: 'Odemkne třídu Sunkeeper (Světlonoška)', color: 'text-yellow-400', bg: 'bg-yellow-500/15', border: 'border-yellow-800/30' },
+  { key: 'moon', label: 'Obálka ☾', condition: 'Reputace -10 nebo míň', content: 'Odemkne třídu Nightshroud (Stínochodec)', color: 'text-purple-400', bg: 'bg-purple-500/15', border: 'border-purple-800/30' },
+  { key: 'X', label: 'Obálka X', condition: 'Vyřešte puzzle z 10 vodítek ve hře', content: 'Odemkne tajnou třídu', color: 'text-gray-400', bg: 'bg-white/[0.06]', border: 'border-white/[0.08]' },
 ]
 
 /* ── Profile ── */
@@ -414,34 +414,48 @@ function formatDate(iso: string): string {
         <div class="flex items-center gap-2 mb-3">
           <div class="text-sm text-gray-300 font-medium">Zapečetěné obálky</div>
         </div>
-        <p class="text-[11px] text-gray-600 mb-3 leading-relaxed">Obálky otevřete, když splníte podmínku. Obsah najdete ve fyzické hře.</p>
-        <div class="space-y-1.5">
+        <p class="text-[11px] text-gray-600 mb-3 leading-relaxed">Označte obálky, které jste ve hře otevřeli. Podmínky a obsah se zobrazí po otevření.</p>
+        <div class="space-y-1">
           <div
             v-for="env in envelopes"
             :key="env.key"
-            class="flex items-center gap-3 px-3 py-2 rounded-lg cursor-pointer hover:bg-white/[0.03] transition-colors group"
-            @click="toggleEnvelope(env.key)"
+            class="rounded-lg transition-colors"
+            :class="isEnvelopeOpen(env.key) ? 'bg-white/[0.02]' : ''"
           >
-            <span
-              class="w-6 h-6 rounded-md flex items-center justify-center transition-all duration-200 shrink-0"
-              :class="isEnvelopeOpen(env.key)
-                ? `${env.bg} ${env.border} border`
-                : 'border border-gray-600 bg-white/[0.03] group-hover:border-gray-500'"
+            <div
+              class="flex items-center gap-3 px-3 py-2.5 cursor-pointer hover:bg-white/[0.03] rounded-lg transition-colors group"
+              @click="toggleEnvelope(env.key)"
             >
-              <svg
-                v-if="isEnvelopeOpen(env.key)"
-                class="w-3.5 h-3.5" :class="env.color" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"
+              <span
+                class="w-6 h-6 rounded-md flex items-center justify-center transition-all duration-200 shrink-0"
+                :class="isEnvelopeOpen(env.key)
+                  ? `${env.bg} ${env.border} border`
+                  : 'border border-gray-600 bg-white/[0.03] group-hover:border-gray-500'"
               >
-                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-              </svg>
-            </span>
-            <div class="flex-1 min-w-0">
-              <span class="text-sm" :class="isEnvelopeOpen(env.key) ? env.color : 'text-gray-400 group-hover:text-gray-300'">
-                {{ env.label }}
+                <svg
+                  v-if="isEnvelopeOpen(env.key)"
+                  class="w-3.5 h-3.5" :class="env.color" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                </svg>
               </span>
-              <span v-if="isEnvelopeOpen(env.key)" class="text-[10px] text-green-500/70 ml-2">otevřeno</span>
+              <div class="flex-1 min-w-0">
+                <span class="text-sm" :class="isEnvelopeOpen(env.key) ? env.color : 'text-gray-400 group-hover:text-gray-300'">
+                  {{ env.label }}
+                </span>
+                <span v-if="!isEnvelopeOpen(env.key)" class="text-[10px] text-gray-600 ml-2">zapečetěno</span>
+                <span v-else class="text-[10px] text-green-500/70 ml-2">otevřeno</span>
+              </div>
             </div>
-            <span class="text-[10px] text-gray-600 hidden sm:block">{{ env.condition }}</span>
+            <!-- Revealed content after opening -->
+            <div v-if="isEnvelopeOpen(env.key)" class="px-3 pb-3 ml-9">
+              <div class="text-[11px] text-gray-600 leading-relaxed">
+                <span class="text-gray-500 font-medium">Podmínka:</span> {{ env.condition }}
+              </div>
+              <div class="text-[11px] leading-relaxed mt-0.5" :class="env.color" style="opacity: 0.7">
+                <span class="text-gray-500 font-medium">Obsah:</span> {{ env.content }}
+              </div>
+            </div>
           </div>
         </div>
       </div>
