@@ -31,6 +31,12 @@ scp -q -r \
   $SERVER:$GLOOM_DIR/
 echo "  ✓ Files uploaded"
 
+# 3b. Upload API (if changed)
+echo "→ Uploading API..."
+scp -q api/main.py $SERVER:$REMOTE_DIR/api/main.py
+ssh $SERVER "docker cp $REMOTE_DIR/api/main.py ongy-api:/app/main.py && docker compose -f $REMOTE_DIR/docker-compose.yml restart api"
+echo "  ✓ API updated"
+
 # 4. Restore item images on server (after upload)
 echo "→ Restoring item images..."
 ssh $SERVER "mkdir -p $GLOOM_DIR/public/img/items && cp $ITEMS_DIR/*.jpg $GLOOM_DIR/public/img/items/ 2>/dev/null || true"
