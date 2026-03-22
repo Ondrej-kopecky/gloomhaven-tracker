@@ -12,6 +12,19 @@ ITEMS_DIR="$REMOTE_DIR/gloomhaven-items"
 
 echo "=== Gloomhaven Tracker Deploy ==="
 
+# 0. Auto version bump
+echo "→ Version check..."
+NEW_VERSION=$(bash scripts/version-bump.sh "$1" 2>&1 | tail -1)
+if [[ "$NEW_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+  echo "  ✓ Version bumped to $NEW_VERSION"
+  git add package.json package-lock.json src/pages/SettingsPage.vue
+  git commit -m "chore: bump version to $NEW_VERSION"
+  git tag -a "v$NEW_VERSION" -m "v$NEW_VERSION"
+  git push origin main && git push origin main:master && git push origin "v$NEW_VERSION"
+else
+  echo "  · No version change needed"
+fi
+
 # 1. Build check
 echo "→ Checking local build..."
 npm run build --silent
