@@ -475,29 +475,33 @@ function formatDate(iso: string): string {
         Líbí se vám aplikace? Kupte mi pivo!
       </p>
 
-      <!-- Hlavní CTA -->
-      <a
-        href="https://buymeacoffee.com/ongy"
-        target="_blank"
-        rel="noopener"
-        class="block w-full py-3 bg-gradient-to-r from-gh-primary to-yellow-600 text-gh-dark rounded-xl font-display font-bold text-center text-sm hover:shadow-[0_0_24px_rgba(196,163,90,0.3)] transition-all mb-4"
-      >
-        Koupit pivo
-      </a>
-
-      <!-- Alternativy -->
-      <div class="flex items-center justify-center gap-6 text-xs text-gray-600">
-        <a href="https://revolut.me/ondejqv70" target="_blank" rel="noopener" class="hover:text-gray-400 transition-colors">
+      <div class="grid grid-cols-3 gap-2 mb-4">
+        <a
+          href="https://buymeacoffee.com/ongy"
+          target="_blank"
+          rel="noopener"
+          class="py-2.5 rounded-lg bg-gradient-to-b from-gh-primary/20 to-gh-primary/5 border border-gh-primary/30 text-gh-primary text-xs font-semibold text-center hover:border-gh-primary/60 hover:shadow-[0_0_12px_rgba(196,163,90,0.15)] transition-all"
+        >
+          Karta
+        </a>
+        <a
+          href="https://revolut.me/ondejqv70"
+          target="_blank"
+          rel="noopener"
+          class="py-2.5 rounded-lg bg-gradient-to-b from-blue-500/15 to-blue-500/5 border border-blue-500/25 text-blue-400 text-xs font-semibold text-center hover:border-blue-400/50 transition-all"
+        >
           Revolut
         </a>
-        <span class="text-gray-700">|</span>
-        <button class="hover:text-gray-400 transition-colors" @click="showBtc = !showBtc">
+        <button
+          class="py-2.5 rounded-lg bg-gradient-to-b from-orange-500/15 to-orange-500/5 border border-orange-500/25 text-orange-400 text-xs font-semibold text-center hover:border-orange-400/50 transition-all"
+          @click="showBtc = !showBtc"
+        >
           Bitcoin
         </button>
       </div>
 
       <!-- BTC detail (collapsible) -->
-      <div v-if="showBtc" class="mt-4 flex items-center gap-3 p-3 rounded-xl bg-white/[0.02] border border-gh-border/50">
+      <div v-if="showBtc" class="flex items-center gap-3 p-3 rounded-lg bg-white/[0.02] border border-gh-border/40">
         <canvas ref="btcQrCanvas" class="rounded shrink-0" />
         <p class="font-mono text-[10px] text-gray-500 break-all select-all cursor-pointer leading-relaxed" title="Klikni pro zkopírování">bc1qhypsfmnw0a4g8aar2evx6tdvq30jvnen96few2</p>
       </div>
