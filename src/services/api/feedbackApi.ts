@@ -6,6 +6,10 @@ export interface FeedbackPayload {
   email?: string
   page?: string
   userAgent?: string
+  screenSize?: string
+  username?: string
+  campaignName?: string
+  appVersion?: string
 }
 
 export function submitFeedback(payload: FeedbackPayload) {
