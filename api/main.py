@@ -62,6 +62,7 @@ campaigns = sqlalchemy.Table(
     sqlalchemy.Column("last_played_at", sqlalchemy.String, nullable=False),
     sqlalchemy.Column("data", sqlalchemy.Text, nullable=False),
     sqlalchemy.Column("updated_at", sqlalchemy.DateTime, default=datetime.utcnow),
+    sqlalchemy.Column("share_code", sqlalchemy.String, unique=True, nullable=True),
 )
 
 # Create index for campaigns.user_id
