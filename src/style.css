@@ -223,14 +223,20 @@ select.gh-input option {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: rgba(0, 0, 0, 0.2);
 }
 ::-webkit-scrollbar-thumb {
-  background: #251f45;
+  background: var(--color-gh-primary-dim);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #352d5a;
+  background: var(--color-gh-primary);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-gh-primary-dim) rgba(0, 0, 0, 0.2);
 }
 
 /* ── Storyline SVG ── */
