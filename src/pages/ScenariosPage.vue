@@ -265,15 +265,17 @@ function goToFlowchart(id: string) {
             </div>
             <div class="flex items-center gap-3 text-[11px] text-gray-600">
               <span v-if="s.location">{{ s.location }}</span>
-              <!-- reward hints -->
-              <span v-if="s.rewards.gold" class="flex items-center gap-0.5">
-                <svg class="w-3 h-3 text-yellow-500/50" fill="currentColor" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8"/></svg>
-                {{ s.rewards.gold }}
-              </span>
-              <span v-if="s.rewards.xp" class="flex items-center gap-0.5">
-                <svg class="w-3 h-3 text-blue-400/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
-                {{ s.rewards.xp }} ZK
-              </span>
+              <!-- reward hints (hidden for uncompleted scenarios in spoiler mode) -->
+              <template v-if="!campaignStore.hideSpoilers || s.computedStatus === 'completed'">
+                <span v-if="s.rewards.gold" class="flex items-center gap-0.5">
+                  <svg class="w-3 h-3 text-yellow-500/50" fill="currentColor" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8"/></svg>
+                  {{ s.rewards.gold }}
+                </span>
+                <span v-if="s.rewards.xp" class="flex items-center gap-0.5">
+                  <svg class="w-3 h-3 text-blue-400/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
+                  {{ s.rewards.xp }} ZK
+                </span>
+              </template>
             </div>
           </div>
 
@@ -359,8 +361,8 @@ function goToFlowchart(id: string) {
                 <p class="text-sm text-gray-300 leading-relaxed italic">{{ selectedScenario.summary }}</p>
               </div>
 
-              <!-- rewards -->
-              <div v-if="selectedScenario.rewards.gold || selectedScenario.rewards.xp || selectedScenario.rewards.reputation || selectedScenario.rewards.prosperity">
+              <!-- rewards (hidden for uncompleted in spoiler mode) -->
+              <div v-if="(!campaignStore.hideSpoilers || selectedScenario.computedStatus === 'completed') && (selectedScenario.rewards.gold || selectedScenario.rewards.xp || selectedScenario.rewards.reputation || selectedScenario.rewards.prosperity)">
                 <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Odměny</h3>
                 <div class="flex flex-wrap gap-2">
                   <span v-if="selectedScenario.rewards.gold" class="inline-flex items-center gap-1.5 bg-yellow-900/20 text-yellow-400 text-xs px-2.5 py-1.5 rounded-lg border border-yellow-800/30">
@@ -382,8 +384,8 @@ function goToFlowchart(id: string) {
                 </div>
               </div>
 
-              <!-- item designs -->
-              <div v-if="selectedScenario.rewards.itemDesigns?.length">
+              <!-- item designs (hidden for uncompleted in spoiler mode) -->
+              <div v-if="(!campaignStore.hideSpoilers || selectedScenario.computedStatus === 'completed') && selectedScenario.rewards.itemDesigns?.length">
                 <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Návrhy předmětů</h3>
                 <div class="flex flex-wrap gap-1.5">
                   <span
