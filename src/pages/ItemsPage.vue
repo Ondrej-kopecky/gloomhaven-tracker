@@ -456,7 +456,7 @@ function confirmBuy() {
           <img
             :src="`/img/items/${item.id}.jpg?v=3`"
             :alt="item.name"
-            class="w-full h-32 object-cover rounded-t-xl"
+            class="w-full h-32 object-cover object-top rounded-t-xl"
             loading="lazy"
             @error="($event.target as HTMLImageElement).style.display = 'none'"
           />
