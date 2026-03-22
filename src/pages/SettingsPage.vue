@@ -507,39 +507,8 @@ function formatDate(iso: string): string {
       </div>
     </div>
 
-    <!-- ── O aplikaci ── -->
-    <div class="gh-card relative overflow-hidden p-6 mb-5">
-      <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-gray-600"></div>
-      <div class="flex items-center gap-2 mb-4">
-        <div class="w-7 h-7 rounded-lg bg-white/[0.06] flex items-center justify-center">
-          <svg class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
-          </svg>
-        </div>
-        <h3 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider">O aplikaci</h3>
-      </div>
-      <div class="space-y-2 text-sm">
-        <div class="flex justify-between">
-          <span class="text-gray-500">Verze</span>
-          <span class="text-gray-300 font-medium">2.0.0</span>
-        </div>
-        <div class="flex justify-between">
-          <span class="text-gray-500">Technologie</span>
-          <span class="text-gray-400">Vue 3 + Vite + Tailwind + PWA</span>
-        </div>
-        <div class="flex justify-between">
-          <span class="text-gray-500">Data</span>
-          <span class="text-gray-400">localStorage + cloud sync</span>
-        </div>
-        <div class="flex justify-between">
-          <span class="text-gray-500">Testy</span>
-          <span class="text-gray-400">95 unit + 9 E2E</span>
-        </div>
-      </div>
-    </div>
-
     <!-- ── Nebezpečná zóna ── -->
-    <div v-if="campaignStore.hasCampaign" class="gh-card relative overflow-hidden p-6">
+    <div v-if="campaignStore.hasCampaign" class="gh-card relative overflow-hidden p-6 mb-5">
       <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-red-600"></div>
       <div class="flex items-center gap-2 mb-4">
         <div class="w-7 h-7 rounded-lg bg-red-600/15 flex items-center justify-center">
@@ -570,6 +539,37 @@ function formatDate(iso: string): string {
         >
           Zrušit
         </button>
+      </div>
+    </div>
+
+    <!-- ── O aplikaci ── -->
+    <div class="gh-card relative overflow-hidden p-6">
+      <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-gray-600"></div>
+      <div class="flex items-center gap-2 mb-4">
+        <div class="w-7 h-7 rounded-lg bg-white/[0.06] flex items-center justify-center">
+          <svg class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
+          </svg>
+        </div>
+        <h3 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider">O aplikaci</h3>
+      </div>
+      <div class="space-y-2 text-sm">
+        <div class="flex justify-between">
+          <span class="text-gray-500">Verze</span>
+          <span class="text-gray-300 font-medium">2.0.0</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-gray-500">Technologie</span>
+          <span class="text-gray-400">Vue 3 + Vite + Tailwind + PWA</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-gray-500">Data</span>
+          <span class="text-gray-400">localStorage + cloud sync</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-gray-500">Testy</span>
+          <span class="text-gray-400">105 unit + 9 E2E</span>
+        </div>
       </div>
     </div>
   </div>

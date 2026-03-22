@@ -17,7 +17,7 @@ onMounted(async () => {
 <template>
   <div class="min-h-screen bg-gh-dark text-gray-100">
     <AppHeader />
-    <main class="max-w-7xl mx-auto px-4 pb-8 pt-18">
+    <main class="max-w-7xl mx-auto px-4 pb-8 pt-16">
       <router-view v-slot="{ Component }">
         <transition name="page" mode="out-in">
           <component :is="Component" />
