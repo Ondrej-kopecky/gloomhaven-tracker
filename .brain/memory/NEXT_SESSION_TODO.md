@@ -29,6 +29,9 @@
 6. [ ] **Anglická verze webu** — i18n, přepínání CZ/EN (nápad)
 7. [ ] **Obálky** — tracking odemčených obálek (A, B, X, Slunce, Měsíc)
 
+## Při startu session
+- [ ] **Zkontrolovat feedback** — `ssh server "docker exec ongy-api python3 -c \"import sqlite3; conn=sqlite3.connect('/app/data/app.db'); c=conn.cursor(); c.execute('SELECT * FROM feedback ORDER BY rowid DESC LIMIT 10'); [print(r) for r in c.fetchall()]; conn.close()\""`
+
 ## Poznámky
 - Server: `ssh server` (Tailscale)
 - Deploy: `bash scripts/deploy.sh` (fotky se automaticky kopírují z /gloomhaven-items/)
