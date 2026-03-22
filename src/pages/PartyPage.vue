@@ -4,13 +4,21 @@ import { ref, computed, onMounted } from 'vue'
 import { useCampaignStore } from '@/stores/campaignStore'
 import { usePartyStore } from '@/stores/partyStore'
 import { useCharacterStore } from '@/stores/characterStore'
+import { useScenarioStore } from '@/stores/scenarioStore'
 import { CharacterClass } from '@/models/types'
 import ClassIcon from '@/components/characters/ClassIcon.vue'
+import type { ItemDefinition } from '@/models/Item'
+import itemsData from '@/data/items.json'
+import eventsData from '@/data/events.json'
 
 const router = useRouter()
 const campaignStore = useCampaignStore()
 const partyStore = usePartyStore()
 const characterStore = useCharacterStore()
+const scenarioStore = useScenarioStore()
+
+const allItems = itemsData as ItemDefinition[]
+const designItems = allItems.filter((item) => item.id >= 71 && item.id <= 95)
 
 const editingRep = ref(false)
 const editingDonations = ref(false)
@@ -36,11 +44,63 @@ function removePlayer(idx: number) {
 }
 const pendingRemove = ref<{ type: 'city' | 'road'; id: number } | null>(null)
 
+// Event outcome modal
+const eventOutcome = ref<{ type: 'city' | 'road'; id: number } | null>(null)
+const eventItemSearch = ref('')
+const eventScenarioSearch = ref('')
+const showEventItemPicker = ref(false)
+const showEventScenarioPicker = ref(false)
+
+const eventItemResults = computed(() => {
+  const q = eventItemSearch.value.toLowerCase().trim()
+  if (!q) return designItems
+  return designItems.filter((item) =>
+    item.name.toLowerCase().includes(q) || String(item.id) === q
+  )
+})
+
+const eventScenarioResults = computed(() => {
+  const q = eventScenarioSearch.value.toLowerCase().trim()
+  if (!q) return [] as { id: string; displayName: string }[]
+  return scenarioStore.allScenarios
+    .filter((s) => s.displayName.toLowerCase().includes(q) || s.id === q)
+    .slice(0, 8)
+})
+
+function eventUnlockItem(itemId: number) {
+  campaignStore.unlockItemDesign(itemId)
+  eventItemSearch.value = ''
+  showEventItemPicker.value = false
+}
+
+function eventUnlockScenario(id: string) {
+  campaignStore.manuallyUnlockScenario(id)
+  eventScenarioSearch.value = ''
+  showEventScenarioPicker.value = false
+}
+
+const currentEventData = computed(() => {
+  if (!eventOutcome.value) return null
+  return eventsData.find(
+    (e: any) => e.id === eventOutcome.value!.id && e.type === eventOutcome.value!.type
+  ) as any | null
+})
+
+function closeEventOutcome() {
+  eventOutcome.value = null
+  showEventItemPicker.value = false
+  showEventScenarioPicker.value = false
+  eventItemSearch.value = ''
+  eventScenarioSearch.value = ''
+}
+
 function confirmRemoveEvent(type: 'city' | 'road', id: number) {
   if (pendingRemove.value?.type === type && pendingRemove.value?.id === id) {
     // Second tap — confirm removal
     partyStore.removeEvent(type, id)
     pendingRemove.value = null
+    // Show outcome modal
+    eventOutcome.value = { type, id }
   } else {
     // First tap — mark as pending
     pendingRemove.value = { type, id }
@@ -606,5 +666,121 @@ function getClassName(classId: string): string {
         </div>
       </div>
     </div>
+
+    <!-- Event Outcome Modal -->
+    <Teleport to="body">
+      <div
+        v-if="eventOutcome"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+        @click.self="closeEventOutcome"
+      >
+        <div class="bg-gh-dark border border-gh-border rounded-2xl w-full max-w-sm shadow-2xl shadow-black/60 p-5">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-display text-lg font-semibold text-gray-200">
+              {{ eventOutcome.type === 'city' ? 'Městská' : 'Cestovní' }} událost #{{ eventOutcome.id }}
+            </h3>
+            <button class="p-1 text-gray-600 hover:text-gray-300 transition-colors" @click="closeEventOutcome">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Event options A/B with effects -->
+          <div v-if="currentEventData" class="mb-4 max-h-[50vh] overflow-y-auto">
+            <div v-for="opt in currentEventData.options" :key="opt.label" class="mb-3">
+              <h4 class="text-sm font-semibold text-gray-300 mb-1.5">
+                Volba {{ opt.label }}
+                <span v-if="opt.returnToDeck" class="text-[10px] text-gray-600 font-normal ml-1">(vrátit do balíčku)</span>
+              </h4>
+              <div v-for="(outcome, oi) in opt.outcomes" :key="oi" class="ml-2 mb-2">
+                <p v-if="outcome.condition" class="text-[11px] text-yellow-400/80 mb-1">
+                  {{ outcome.condition }}:
+                </p>
+                <div v-for="(effect, ei) in outcome.effects" :key="ei" class="text-sm text-gray-400 py-0.5">
+                  <template v-if="effect.type === 'choose'">
+                    <span class="text-gray-500 text-xs">Vyber: </span>
+                    <span v-for="(o, idx) in effect.options" :key="idx">
+                      {{ o }}<span v-if="idx < effect.options.length - 1" class="text-gray-600"> nebo </span>
+                    </span>
+                  </template>
+                  <template v-else>
+                    <span class="flex items-center gap-1.5">
+                      <span class="w-1 h-1 rounded-full" :class="{
+                        'bg-yellow-400/60': effect.label?.includes('zl.'),
+                        'bg-blue-400/60': effect.label?.includes('ZK'),
+                        'bg-purple-400/60': effect.label?.includes('reputace'),
+                        'bg-green-400/60': effect.label?.includes('blahobyt') || effect.label?.includes('Odemkni'),
+                        'bg-red-400/60': effect.label?.includes('zranění') || effect.label?.includes('-'),
+                        'bg-gray-400/60': !effect.label?.includes('zl.') && !effect.label?.includes('ZK'),
+                      }" />
+                      {{ effect.label }}
+                    </span>
+                  </template>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p v-else class="text-xs text-gray-600 mb-4">Data pro tuto událost nejsou k dispozici.</p>
+
+          <!-- Quick actions: item/scenario pickers -->
+          <div class="border-t border-gh-border/40 pt-3 mb-4 flex flex-col gap-2">
+            <p class="text-[10px] text-gray-600 mb-1">Rychlé akce</p>
+
+            <!-- Item picker -->
+            <div v-if="!showEventItemPicker">
+              <button
+                class="w-full text-left text-xs px-3 py-2 rounded-lg border border-gh-border bg-white/[0.02] text-gray-500 hover:border-gh-border-light hover:text-gray-300 transition-colors flex items-center gap-1.5"
+                @click="showEventItemPicker = true"
+              >
+                <svg class="w-3.5 h-3.5 text-yellow-400/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+                Vylosovat náhodný předmět
+              </button>
+            </div>
+            <div v-else>
+              <input v-model="eventItemSearch" type="text" placeholder="Hledat předmět (název nebo #)..." class="gh-input w-full text-sm mb-1" />
+              <div class="rounded-lg border border-gh-border bg-gh-dark overflow-hidden max-h-36 overflow-y-auto">
+                <button v-for="item in eventItemResults" :key="item.id" class="w-full text-left px-3 py-1.5 text-sm hover:bg-white/[0.06] transition-colors border-b border-gh-border/20 last:border-0" @click="eventUnlockItem(item.id)">
+                  <span class="text-yellow-400/70 font-display">#{{ item.id }}</span>
+                  <span class="text-gray-300 ml-1">{{ item.name }}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Scenario picker -->
+            <div v-if="!showEventScenarioPicker">
+              <button
+                class="w-full text-left text-xs px-3 py-2 rounded-lg border border-gh-border bg-white/[0.02] text-gray-500 hover:border-gh-border-light hover:text-gray-300 transition-colors flex items-center gap-1.5"
+                @click="showEventScenarioPicker = true"
+              >
+                <svg class="w-3.5 h-3.5 text-gh-primary/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+                Odemknout náhodný scénář
+              </button>
+            </div>
+            <div v-else>
+              <input v-model="eventScenarioSearch" type="text" placeholder="Hledat scénář (název nebo #)..." class="gh-input w-full text-sm mb-1" />
+              <div v-if="eventScenarioResults.length > 0" class="rounded-lg border border-gh-border bg-gh-dark overflow-hidden max-h-36 overflow-y-auto">
+                <button v-for="s in eventScenarioResults" :key="s.id" class="w-full text-left px-3 py-1.5 text-sm hover:bg-white/[0.06] transition-colors border-b border-gh-border/20 last:border-0" @click="eventUnlockScenario(s.id)">
+                  <span class="text-gh-primary/70 font-display">#{{ s.id }}</span>
+                  <span class="text-gray-300 ml-1">{{ s.displayName }}</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Close -->
+          <button
+            class="w-full py-2.5 bg-gradient-to-r from-gh-primary/20 to-gh-primary/10 text-gh-primary border border-gh-primary/30 rounded-lg font-medium hover:from-gh-primary/30 transition-all text-sm"
+            @click="closeEventOutcome"
+          >
+            Hotovo
+          </button>
+        </div>
+      </div>
+    </Teleport>
   </div>
 </template>
