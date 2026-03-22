@@ -213,13 +213,18 @@ export const useCampaignStore = defineStore('campaign', () => {
     await loadCampaignList()
   }
 
-  async function joinCampaign(code: string): Promise<{ success: boolean; campaignName?: string; error?: string }> {
+  async function joinCampaign(code: string): Promise<{ success: boolean; campaignName?: string; campaignId?: string; error?: string }> {
     shareError.value = ''
     const { data, error } = await campaignApi.joinCampaign(code)
     if (error) return { success: false, error }
     if (data) {
+      // Download the shared campaign data locally
+      const { data: campaignData } = await campaignApi.getCampaign(data.campaignId)
+      if (campaignData) {
+        await useStorage().saveCampaign(campaignData)
+      }
       await loadCampaignList()
-      return { success: true, campaignName: data.campaignName }
+      return { success: true, campaignName: data.campaignName, campaignId: data.campaignId }
     }
     return { success: false, error: 'Neznámá chyba' }
   }
