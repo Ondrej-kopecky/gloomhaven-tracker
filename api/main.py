@@ -13,6 +13,7 @@ import secrets
 import smtplib
 import random
 import json
+import string
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from collections import defaultdict
@@ -66,6 +67,16 @@ campaigns = sqlalchemy.Table(
 # Create index for campaigns.user_id
 sqlalchemy.Index("idx_campaigns_user", campaigns.c.user_id)
 
+campaign_members = sqlalchemy.Table(
+    "campaign_members",
+    metadata,
+    sqlalchemy.Column("id", sqlalchemy.Integer, primary_key=True),
+    sqlalchemy.Column("campaign_id", sqlalchemy.String, sqlalchemy.ForeignKey("campaigns.id", ondelete="CASCADE"), nullable=False),
+    sqlalchemy.Column("user_id", sqlalchemy.Integer, sqlalchemy.ForeignKey("users.id"), nullable=False),
+    sqlalchemy.Column("joined_at", sqlalchemy.DateTime, default=datetime.utcnow),
+    sqlalchemy.UniqueConstraint("campaign_id", "user_id", name="uq_campaign_member"),
+)
+
 engine = sqlalchemy.create_engine(
     DATABASE_URL.replace("sqlite:///", "sqlite:///"),
     connect_args={"check_same_thread": False},
@@ -75,7 +86,7 @@ metadata.create_all(engine)
 
 # --- Migration for existing DB ---
 def migrate_db():
-    """Add new columns to existing users table if they don't exist."""
+    """Add new columns to existing tables if they don't exist."""
     with engine.connect() as conn:
         # Check existing columns in users table
         result = conn.execute(sqlalchemy.text("PRAGMA table_info(users)"))
@@ -93,6 +104,27 @@ def migrate_db():
             if col not in existing_columns:
                 conn.execute(sqlalchemy.text(sql))
                 conn.commit()
+
+        # Campaigns: add share_code column
+        result = conn.execute(sqlalchemy.text("PRAGMA table_info(campaigns)"))
+        campaign_columns = {row[1] for row in result}
+        if "share_code" not in campaign_columns:
+            conn.execute(sqlalchemy.text("ALTER TABLE campaigns ADD COLUMN share_code TEXT"))
+            conn.commit()
+            conn.execute(sqlalchemy.text("CREATE UNIQUE INDEX IF NOT EXISTS idx_campaigns_share_code ON campaigns(share_code)"))
+            conn.commit()
+
+        # Create campaign_members table if not exists
+        conn.execute(sqlalchemy.text("""
+            CREATE TABLE IF NOT EXISTS campaign_members (
+                id INTEGER PRIMARY KEY,
+                campaign_id TEXT NOT NULL REFERENCES campaigns(id) ON DELETE CASCADE,
+                user_id INTEGER NOT NULL REFERENCES users(id),
+                joined_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+                UNIQUE(campaign_id, user_id)
+            )
+        """))
+        conn.commit()
 
 
 migrate_db()
@@ -168,6 +200,21 @@ class CampaignSummary(BaseModel):
     name: str
     createdAt: str
     lastPlayedAt: str
+    isOwner: Optional[bool] = None
+    ownerUsername: Optional[str] = None
+    memberCount: Optional[int] = None
+    shareCode: Optional[str] = None
+
+
+class JoinCampaignRequest(BaseModel):
+    code: str
+
+
+class ShareInfo(BaseModel):
+    shareCode: Optional[str] = None
+    isShared: bool = False
+    members: list = []
+    ownerUsername: str = ""
 
 
 class CampaignData(BaseModel):
@@ -206,6 +253,13 @@ def create_access_token(data: dict) -> str:
 
 def generate_verification_code() -> str:
     return f"{random.randint(0, 999999):06d}"
+
+
+# Share code: 6 chars, uppercase + digits, no ambiguous (0/O/1/I/L)
+SHARE_CODE_CHARS = "ABCDEFGHJKMNPQRSTUVWXYZ23456789"
+
+def generate_share_code() -> str:
+    return "".join(random.choices(SHARE_CODE_CHARS, k=6))
 
 
 def send_verification_email(to_email: str, code: str):
@@ -303,6 +357,24 @@ async def get_current_user(token: str = Depends(oauth2_scheme)):
     if user is None:
         raise HTTPException(status_code=401, detail="User not found")
     return user
+
+
+async def get_campaign_role(campaign_id: str, user_id: int) -> Optional[str]:
+    """Returns 'owner', 'member', or None."""
+    row = await database.fetch_one(
+        campaigns.select().where(campaigns.c.id == campaign_id)
+    )
+    if not row:
+        return None
+    if row.user_id == user_id:
+        return "owner"
+    member = await database.fetch_one(
+        campaign_members.select().where(
+            (campaign_members.c.campaign_id == campaign_id) &
+            (campaign_members.c.user_id == user_id)
+        )
+    )
+    return "member" if member else None
 
 
 def get_client_ip(request: Request) -> str:
@@ -557,31 +629,68 @@ async def me(current_user=Depends(get_current_user)):
 # --- Campaign Routes ---
 @app.get("/api/campaigns/", response_model=list[CampaignSummary])
 async def list_campaigns(current_user=Depends(get_current_user)):
-    query = (
+    # Owned campaigns
+    owned_rows = await database.fetch_all(
         campaigns.select()
         .where(campaigns.c.user_id == current_user.id)
         .order_by(campaigns.c.last_played_at.desc())
     )
-    rows = await database.fetch_all(query)
-    return [
-        CampaignSummary(
+
+    result = []
+    for row in owned_rows:
+        member_count = await database.fetch_val(
+            sqlalchemy.select(sqlalchemy.func.count()).select_from(campaign_members).where(
+                campaign_members.c.campaign_id == row.id
+            )
+        )
+        result.append(CampaignSummary(
             id=row.id,
             name=row.name,
             createdAt=row.created_at,
             lastPlayedAt=row.last_played_at,
+            isOwner=True,
+            memberCount=member_count,
+            shareCode=row.share_code,
+        ))
+
+    # Shared campaigns (where I'm a member)
+    member_rows = await database.fetch_all(
+        campaign_members.select().where(campaign_members.c.user_id == current_user.id)
+    )
+    for mem in member_rows:
+        row = await database.fetch_one(
+            campaigns.select().where(campaigns.c.id == mem.campaign_id)
         )
-        for row in rows
-    ]
+        if row:
+            owner = await database.fetch_one(
+                users.select().where(users.c.id == row.user_id)
+            )
+            member_count = await database.fetch_val(
+                sqlalchemy.select(sqlalchemy.func.count()).select_from(campaign_members).where(
+                    campaign_members.c.campaign_id == row.id
+                )
+            )
+            result.append(CampaignSummary(
+                id=row.id,
+                name=row.name,
+                createdAt=row.created_at,
+                lastPlayedAt=row.last_played_at,
+                isOwner=False,
+                ownerUsername=owner.username if owner else None,
+                memberCount=member_count,
+            ))
+
+    return result
 
 
 @app.get("/api/campaigns/{campaign_id}")
 async def get_campaign(campaign_id: str, current_user=Depends(get_current_user)):
-    query = campaigns.select().where(
-        (campaigns.c.id == campaign_id) & (campaigns.c.user_id == current_user.id)
-    )
-    row = await database.fetch_one(query)
-    if not row:
+    role = await get_campaign_role(campaign_id, current_user.id)
+    if not role:
         raise HTTPException(status_code=404, detail="Kampaň nenalezena")
+    row = await database.fetch_one(
+        campaigns.select().where(campaigns.c.id == campaign_id)
+    )
     return json.loads(row.data)
 
 
@@ -597,14 +706,16 @@ async def save_campaign(
 
     campaign_json = campaign.model_dump_json()
 
-    # Check if campaign exists for this user
-    query = campaigns.select().where(
-        (campaigns.c.id == campaign.id) & (campaigns.c.user_id == current_user.id)
+    # Check if campaign exists
+    existing = await database.fetch_one(
+        campaigns.select().where(campaigns.c.id == campaign.id)
     )
-    existing = await database.fetch_one(query)
 
     if existing:
-        # Update (upsert)
+        # Owner or member can save
+        role = await get_campaign_role(campaign.id, current_user.id)
+        if not role:
+            raise HTTPException(status_code=403, detail="Nemáte přístup k této kampani")
         await database.execute(
             campaigns.update()
             .where(campaigns.c.id == campaign.id)
@@ -617,7 +728,7 @@ async def save_campaign(
             )
         )
     else:
-        # Insert
+        # Insert — new campaign, user becomes owner
         await database.execute(
             campaigns.insert().values(
                 id=campaign.id,
@@ -640,17 +751,193 @@ async def save_campaign(
 
 @app.delete("/api/campaigns/{campaign_id}")
 async def delete_campaign(campaign_id: str, current_user=Depends(get_current_user)):
+    # Only owner can delete
     query = campaigns.select().where(
         (campaigns.c.id == campaign_id) & (campaigns.c.user_id == current_user.id)
     )
     existing = await database.fetch_one(query)
     if not existing:
-        raise HTTPException(status_code=404, detail="Kampaň nenalezena")
+        raise HTTPException(status_code=404, detail="Kampaň nenalezena nebo nejste vlastník")
 
     await database.execute(
         campaigns.delete().where(campaigns.c.id == campaign_id)
     )
     return {"message": "Kampaň smazána"}
+
+
+# --- Campaign Sharing Routes ---
+@app.post("/api/campaigns/{campaign_id}/share")
+async def generate_share_code(campaign_id: str, current_user=Depends(get_current_user)):
+    """Generate a 6-char share code (owner only)."""
+    row = await database.fetch_one(
+        campaigns.select().where(
+            (campaigns.c.id == campaign_id) & (campaigns.c.user_id == current_user.id)
+        )
+    )
+    if not row:
+        raise HTTPException(status_code=404, detail="Kampaň nenalezena nebo nejste vlastník")
+
+    if row.share_code:
+        return {"shareCode": row.share_code}
+
+    # Generate unique code (retry on collision)
+    for _ in range(10):
+        code = generate_share_code()
+        exists = await database.fetch_one(
+            campaigns.select().where(campaigns.c.share_code == code)
+        )
+        if not exists:
+            break
+    else:
+        raise HTTPException(status_code=500, detail="Nepodařilo se vygenerovat kód")
+
+    await database.execute(
+        campaigns.update().where(campaigns.c.id == campaign_id).values(share_code=code)
+    )
+    return {"shareCode": code}
+
+
+@app.delete("/api/campaigns/{campaign_id}/share")
+async def revoke_share_code(campaign_id: str, current_user=Depends(get_current_user)):
+    """Revoke sharing — removes code and all members (owner only)."""
+    row = await database.fetch_one(
+        campaigns.select().where(
+            (campaigns.c.id == campaign_id) & (campaigns.c.user_id == current_user.id)
+        )
+    )
+    if not row:
+        raise HTTPException(status_code=404, detail="Kampaň nenalezena nebo nejste vlastník")
+
+    await database.execute(
+        campaigns.update().where(campaigns.c.id == campaign_id).values(share_code=None)
+    )
+    await database.execute(
+        campaign_members.delete().where(campaign_members.c.campaign_id == campaign_id)
+    )
+    return {"message": "Sdílení zrušeno"}
+
+
+@app.get("/api/campaigns/{campaign_id}/share")
+async def get_share_info(campaign_id: str, current_user=Depends(get_current_user)):
+    """Get sharing info + member list (owner or member)."""
+    role = await get_campaign_role(campaign_id, current_user.id)
+    if not role:
+        raise HTTPException(status_code=404, detail="Kampaň nenalezena")
+
+    row = await database.fetch_one(
+        campaigns.select().where(campaigns.c.id == campaign_id)
+    )
+    owner = await database.fetch_one(
+        users.select().where(users.c.id == row.user_id)
+    )
+
+    # Get members
+    member_rows = await database.fetch_all(
+        campaign_members.select().where(campaign_members.c.campaign_id == campaign_id)
+    )
+    members = []
+    for m in member_rows:
+        u = await database.fetch_one(users.select().where(users.c.id == m.user_id))
+        if u:
+            members.append({
+                "userId": u.id,
+                "username": u.username,
+                "joinedAt": m.joined_at.isoformat() if m.joined_at else None,
+            })
+
+    return ShareInfo(
+        shareCode=row.share_code if role == "owner" else None,
+        isShared=bool(row.share_code),
+        members=members,
+        ownerUsername=owner.username if owner else "",
+    )
+
+
+@app.post("/api/campaigns/join")
+async def join_campaign(data: JoinCampaignRequest, current_user=Depends(get_current_user)):
+    """Join a shared campaign using a 6-char code."""
+    code = data.code.strip().upper()
+    if len(code) != 6:
+        raise HTTPException(status_code=400, detail="Kód musí mít 6 znaků")
+
+    row = await database.fetch_one(
+        campaigns.select().where(campaigns.c.share_code == code)
+    )
+    if not row:
+        raise HTTPException(status_code=404, detail="Kampaň s tímto kódem nenalezena")
+
+    if row.user_id == current_user.id:
+        raise HTTPException(status_code=400, detail="Nemůžete se připojit k vlastní kampani")
+
+    # Check if already member
+    existing = await database.fetch_one(
+        campaign_members.select().where(
+            (campaign_members.c.campaign_id == row.id) &
+            (campaign_members.c.user_id == current_user.id)
+        )
+    )
+    if existing:
+        raise HTTPException(status_code=400, detail="Už jste členem této kampaně")
+
+    await database.execute(
+        campaign_members.insert().values(
+            campaign_id=row.id,
+            user_id=current_user.id,
+            joined_at=datetime.utcnow(),
+        )
+    )
+
+    owner = await database.fetch_one(users.select().where(users.c.id == row.user_id))
+    return {
+        "message": "Úspěšně připojeno",
+        "campaignId": row.id,
+        "campaignName": row.name,
+        "ownerUsername": owner.username if owner else None,
+    }
+
+
+@app.post("/api/campaigns/{campaign_id}/leave")
+async def leave_campaign(campaign_id: str, current_user=Depends(get_current_user)):
+    """Leave a shared campaign (member only, not owner)."""
+    row = await database.fetch_one(
+        campaigns.select().where(campaigns.c.id == campaign_id)
+    )
+    if not row:
+        raise HTTPException(status_code=404, detail="Kampaň nenalezena")
+
+    if row.user_id == current_user.id:
+        raise HTTPException(status_code=400, detail="Vlastník nemůže opustit kampaň. Použijte smazání.")
+
+    result = await database.execute(
+        campaign_members.delete().where(
+            (campaign_members.c.campaign_id == campaign_id) &
+            (campaign_members.c.user_id == current_user.id)
+        )
+    )
+    if not result:
+        raise HTTPException(status_code=404, detail="Nejste členem této kampaně")
+
+    return {"message": "Kampaň opuštěna"}
+
+
+@app.delete("/api/campaigns/{campaign_id}/members/{user_id}")
+async def kick_member(campaign_id: str, user_id: int, current_user=Depends(get_current_user)):
+    """Remove a member from campaign (owner only)."""
+    row = await database.fetch_one(
+        campaigns.select().where(
+            (campaigns.c.id == campaign_id) & (campaigns.c.user_id == current_user.id)
+        )
+    )
+    if not row:
+        raise HTTPException(status_code=404, detail="Kampaň nenalezena nebo nejste vlastník")
+
+    await database.execute(
+        campaign_members.delete().where(
+            (campaign_members.c.campaign_id == campaign_id) &
+            (campaign_members.c.user_id == user_id)
+        )
+    )
+    return {"message": "Člen odebrán"}
 
 
 # --- Feedback ---

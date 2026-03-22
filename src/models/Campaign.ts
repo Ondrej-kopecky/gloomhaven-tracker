@@ -29,4 +29,21 @@ export interface CampaignSummary {
   name: string
   createdAt: string
   lastPlayedAt: string
+  isOwner?: boolean
+  ownerUsername?: string
+  memberCount?: number
+  shareCode?: string
+}
+
+export interface ShareInfo {
+  shareCode: string | null
+  isShared: boolean
+  members: ShareMember[]
+  ownerUsername: string
+}
+
+export interface ShareMember {
+  userId: number
+  username: string
+  joinedAt: string | null
 }

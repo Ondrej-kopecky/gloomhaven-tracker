@@ -129,7 +129,7 @@ export const useAuthStore = defineStore('auth', () => {
       return { synced: 0, error: err ?? 'Nelze načíst vzdálené kampaně' }
     }
 
-    // Step 1: Upload local campaigns that don't exist on server
+    // Step 1: Upload local campaigns that don't exist on server (only owned ones)
     for (const local of localList) {
       const remote = remoteList.find((r) => r.id === local.id)
       if (!remote) {
@@ -137,8 +137,8 @@ export const useAuthStore = defineStore('auth', () => {
         if (campaign) {
           await campaignApiMod.upsertCampaign(campaign)
         }
-      } else {
-        // Both exist — push local if newer
+      } else if (remote.isOwner !== false) {
+        // Both exist and I'm the owner — push local if newer
         const localCampaign = await storage.loadCampaign(local.id)
         if (localCampaign) {
           const localTime = new Date(local.lastPlayedAt).getTime()

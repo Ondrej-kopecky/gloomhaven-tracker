@@ -29,6 +29,7 @@ const importSuccess = ref(false)
 
 const syncResult = ref<{ synced: number; error: string | null } | null>(null)
 const isSyncing = ref(false)
+const shareCodeCopied = ref(false)
 
 const editingCampaignName = ref(false)
 const editingProfileName = ref(false)
@@ -51,8 +52,36 @@ watch(showBtc, async (val) => {
 onMounted(async () => {
   if (campaignStore.hasCampaign) {
     await scenarioStore.loadScenarioData()
+    if (authStore.isLoggedIn) {
+      campaignStore.loadShareInfo()
+    }
   }
 })
+
+async function handleGenerateShareCode() {
+  await campaignStore.generateShareCode()
+}
+
+async function handleRevokeShare() {
+  await campaignStore.revokeShareCode()
+}
+
+async function handleLeaveCampaign() {
+  await campaignStore.leaveCampaign()
+  router.push('/kampan')
+}
+
+async function handleKickMember(userId: number) {
+  await campaignStore.kickMember(userId)
+}
+
+function copyShareCode() {
+  const code = campaignStore.currentCampaignSummary?.shareCode || campaignStore.shareInfo?.shareCode
+  if (!code) return
+  navigator.clipboard.writeText(code)
+  shareCodeCopied.value = true
+  setTimeout(() => (shareCodeCopied.value = false), 2000)
+}
 
 function inputValue(e: Event): string {
   return (e.target as HTMLInputElement).value
@@ -366,6 +395,146 @@ function formatDate(iso: string): string {
       >
         Přepnout kampaň
       </button>
+    </div>
+
+    <!-- ── Sdílení kampaně ── -->
+    <div v-if="campaignStore.hasCampaign && authStore.isLoggedIn" class="gh-card relative overflow-hidden p-6 mb-5">
+      <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-blue-500"></div>
+      <div class="flex items-center gap-2 mb-4">
+        <div class="w-7 h-7 rounded-lg bg-blue-500/15 flex items-center justify-center">
+          <svg class="w-4 h-4 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+          </svg>
+        </div>
+        <h3 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider">Sdílení kampaně</h3>
+      </div>
+
+      <!-- Owner view -->
+      <template v-if="campaignStore.isCurrentCampaignOwned">
+        <p class="text-sm text-gray-400 mb-4">Sdílejte kampaň s ostatními hráči pomocí kódu. Sdílí se scénáře, blahobyt, úspěchy a další společná data.</p>
+
+        <!-- No share code yet -->
+        <div v-if="!campaignStore.currentCampaignSummary?.shareCode && !campaignStore.shareInfo?.shareCode">
+          <button
+            class="gh-btn-primary text-sm flex items-center gap-2"
+            :disabled="campaignStore.shareLoading"
+            @click="handleGenerateShareCode"
+          >
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z" />
+            </svg>
+            Vygenerovat kód pro sdílení
+          </button>
+        </div>
+
+        <!-- Share code exists -->
+        <div v-else>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-500/10 border border-blue-500/20">
+              <span class="font-mono text-2xl font-bold text-blue-300 tracking-[0.3em]">
+                {{ campaignStore.currentCampaignSummary?.shareCode || campaignStore.shareInfo?.shareCode }}
+              </span>
+            </div>
+            <button
+              class="gh-btn-ghost text-xs flex items-center gap-1.5"
+              @click="copyShareCode"
+            >
+              <svg v-if="!shareCodeCopied" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.666 3.888A2.25 2.25 0 0 0 13.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 0 1-.75.75H9.75a.75.75 0 0 1-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 0 1 1.927-.184" />
+              </svg>
+              <svg v-else class="w-4 h-4 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+              </svg>
+              {{ shareCodeCopied ? 'Zkopírováno' : 'Kopírovat' }}
+            </button>
+          </div>
+
+          <!-- Member list -->
+          <div v-if="campaignStore.shareInfo && campaignStore.shareInfo.members.length > 0" class="mb-4">
+            <div class="text-[10px] text-gray-600 uppercase tracking-wider font-semibold mb-2">Členové ({{ campaignStore.shareInfo.members.length }})</div>
+            <div class="space-y-2">
+              <div
+                v-for="member in campaignStore.shareInfo.members"
+                :key="member.userId"
+                class="flex items-center justify-between py-2 px-3 rounded-lg bg-white/[0.02] border border-white/[0.04]"
+              >
+                <div class="flex items-center gap-2.5">
+                  <div class="w-7 h-7 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 text-[11px] font-bold uppercase">
+                    {{ member.username.charAt(0) }}
+                  </div>
+                  <span class="text-sm text-gray-300">{{ member.username }}</span>
+                </div>
+                <button
+                  class="text-[11px] text-gray-600 hover:text-red-400 transition-colors"
+                  @click="handleKickMember(member.userId)"
+                >
+                  Odebrat
+                </button>
+              </div>
+            </div>
+          </div>
+          <div v-else-if="campaignStore.shareInfo" class="mb-4">
+            <p class="text-xs text-gray-600">Zatím se nikdo nepřipojil. Sdílejte kód s ostatními hráči.</p>
+          </div>
+
+          <button
+            class="text-xs text-gray-600 hover:text-red-400 transition-colors"
+            @click="handleRevokeShare"
+          >
+            Zrušit sdílení
+          </button>
+        </div>
+      </template>
+
+      <!-- Member view (not owner) -->
+      <template v-else>
+        <div class="flex items-center gap-2.5 mb-4">
+          <div class="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 text-xs font-bold uppercase">
+            {{ campaignStore.shareInfo?.ownerUsername?.charAt(0) ?? '?' }}
+          </div>
+          <div>
+            <div class="text-sm text-gray-300">Sdílená kampaň</div>
+            <div class="text-[11px] text-gray-600">Vlastník: {{ campaignStore.shareInfo?.ownerUsername ?? campaignStore.currentCampaignSummary?.ownerUsername }}</div>
+          </div>
+        </div>
+
+        <!-- Member list -->
+        <div v-if="campaignStore.shareInfo && campaignStore.shareInfo.members.length > 0" class="mb-4">
+          <div class="text-[10px] text-gray-600 uppercase tracking-wider font-semibold mb-2">Členové</div>
+          <div class="flex flex-wrap gap-2">
+            <span
+              v-for="member in campaignStore.shareInfo.members"
+              :key="member.userId"
+              class="px-2.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.06] text-xs text-gray-400"
+            >
+              {{ member.username }}
+            </span>
+          </div>
+        </div>
+
+        <button
+          class="text-sm text-red-400/80 hover:text-red-400 transition-colors"
+          @click="handleLeaveCampaign"
+        >
+          Opustit kampaň
+        </button>
+      </template>
+
+      <p v-if="campaignStore.shareError" class="mt-3 text-xs text-red-400">{{ campaignStore.shareError }}</p>
+    </div>
+
+    <!-- Not logged in hint for sharing -->
+    <div v-if="campaignStore.hasCampaign && !authStore.isLoggedIn" class="gh-card relative overflow-hidden p-6 mb-5">
+      <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-blue-500/40"></div>
+      <div class="flex items-center gap-2 mb-3">
+        <div class="w-7 h-7 rounded-lg bg-blue-500/10 flex items-center justify-center">
+          <svg class="w-4 h-4 text-blue-400/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+          </svg>
+        </div>
+        <h3 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider">Sdílení kampaně</h3>
+      </div>
+      <p class="text-sm text-gray-500">Přihlaste se pro sdílení kampaně s ostatními hráči.</p>
     </div>
 
     <!-- ── Statistiky ── -->

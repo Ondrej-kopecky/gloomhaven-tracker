@@ -62,6 +62,11 @@ const isActive = (path: string) => route.path === path
           <span class="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0" />
           <span class="text-[10px] text-gray-600 shrink-0">Kampaň:</span>
           <span class="text-[11px] text-gh-primary/80 font-medium truncate max-w-40">{{ campaignStore.currentCampaign.name }}</span>
+          <span
+            v-if="campaignStore.currentCampaignSummary?.isOwner === false || campaignStore.currentCampaignSummary?.shareCode"
+            class="w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0"
+            :title="campaignStore.currentCampaignSummary?.isOwner === false ? 'Sdílená kampaň' : 'Sdílíte tuto kampaň'"
+          />
         </router-link>
 
         <!-- Desktop nav (centered) -->
@@ -127,7 +132,7 @@ const isActive = (path: string) => route.path === path
             to="/kampan"
             class="lg:hidden flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-gh-primary/[0.06] border border-gh-primary/15 min-w-0"
           >
-            <span class="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0" />
+            <span class="w-1.5 h-1.5 rounded-full shrink-0" :class="campaignStore.currentCampaignSummary?.isOwner === false || campaignStore.currentCampaignSummary?.shareCode ? 'bg-blue-400' : 'bg-green-500'" />
             <div class="min-w-0">
               <p class="text-[8px] text-gray-600 uppercase tracking-wider leading-none">Kampaň</p>
               <p class="text-[10px] text-gh-primary/80 font-medium truncate max-w-28 leading-tight">{{ campaignStore.currentCampaign.name }}</p>
