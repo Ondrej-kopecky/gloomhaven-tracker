@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, nextTick } from 'vue'
+import { ref, computed, onMounted, nextTick, watch } from 'vue'
 import QRCode from 'qrcode'
 import { useRouter } from 'vue-router'
 import { useCampaignStore } from '@/stores/campaignStore'
@@ -20,6 +20,7 @@ const achievementStore = useAchievementStore()
 const scenarioStore = useScenarioStore()
 
 const btcQrCanvas = ref<HTMLCanvasElement | null>(null)
+const showBtc = ref(false)
 const showResetConfirm = ref(false)
 const showDeleteProfileConfirm = ref(false)
 const importError = ref('')
@@ -34,17 +35,22 @@ const editingProfileName = ref(false)
 const newProfileName = ref('')
 const showNewProfile = ref(false)
 
+watch(showBtc, async (val) => {
+  if (val) {
+    await nextTick()
+    if (btcQrCanvas.value) {
+      QRCode.toCanvas(btcQrCanvas.value, 'bitcoin:bc1qhypsfmnw0a4g8aar2evx6tdvq30jvnen96few2', {
+        width: 80,
+        margin: 1,
+        color: { dark: '#c4a35a', light: '#00000000' },
+      })
+    }
+  }
+})
+
 onMounted(async () => {
   if (campaignStore.hasCampaign) {
     await scenarioStore.loadScenarioData()
-  }
-  await nextTick()
-  if (btcQrCanvas.value) {
-    QRCode.toCanvas(btcQrCanvas.value, 'bitcoin:bc1qhypsfmnw0a4g8aar2evx6tdvq30jvnen96few2', {
-      width: 96,
-      margin: 1,
-      color: { dark: '#f97316', light: '#00000000' },
-    })
   }
 })
 
@@ -466,40 +472,34 @@ function formatDate(iso: string): string {
       </div>
 
       <p class="text-sm text-gray-400 leading-relaxed mb-5">
-        Pokud vám aplikace pomáhá s hraním Gloomhavenu, kupte mi pivo!
+        Líbí se vám aplikace? Kupte mi pivo!
       </p>
 
-      <!-- Tlačítka vedle sebe -->
-      <div class="grid grid-cols-2 gap-3 mb-4">
-        <a
-          href="https://buymeacoffee.com/ongy"
-          target="_blank"
-          rel="noopener"
-          class="flex flex-col items-center gap-2 px-3 py-4 rounded-xl bg-white/[0.03] border border-gh-border hover:border-gh-primary/40 hover:bg-gh-primary/5 transition-all text-center group"
-        >
-          <span class="text-3xl">&#9749;</span>
-          <span class="text-xs font-semibold text-gh-primary">Buy Me a Coffee</span>
-          <span class="text-[10px] text-gray-600">kartou</span>
+      <!-- Hlavní CTA -->
+      <a
+        href="https://buymeacoffee.com/ongy"
+        target="_blank"
+        rel="noopener"
+        class="block w-full py-3 bg-gradient-to-r from-gh-primary to-yellow-600 text-gh-dark rounded-xl font-display font-bold text-center text-sm hover:shadow-[0_0_24px_rgba(196,163,90,0.3)] transition-all mb-4"
+      >
+        Koupit pivo
+      </a>
+
+      <!-- Alternativy -->
+      <div class="flex items-center justify-center gap-6 text-xs text-gray-600">
+        <a href="https://revolut.me/ondejqv70" target="_blank" rel="noopener" class="hover:text-gray-400 transition-colors">
+          Revolut
         </a>
-        <a
-          href="https://revolut.me/ondejqv70"
-          target="_blank"
-          rel="noopener"
-          class="flex flex-col items-center gap-2 px-3 py-4 rounded-xl bg-white/[0.03] border border-gh-border hover:border-blue-500/40 hover:bg-blue-500/5 transition-all text-center group"
-        >
-          <span class="text-3xl">&#127866;</span>
-          <span class="text-xs font-semibold text-blue-400">Revolut</span>
-          <span class="text-[10px] text-gray-600">@ondejqv70</span>
-        </a>
+        <span class="text-gray-700">|</span>
+        <button class="hover:text-gray-400 transition-colors" @click="showBtc = !showBtc">
+          Bitcoin
+        </button>
       </div>
 
-      <!-- Bitcoin -->
-      <div class="flex items-center gap-4 px-4 py-3 rounded-xl bg-white/[0.03] border border-gh-border">
-        <canvas ref="btcQrCanvas" class="rounded-lg shrink-0" />
-        <div class="min-w-0">
-          <p class="text-xs font-semibold text-orange-400 mb-1">Bitcoin</p>
-          <p class="font-mono text-[10px] text-gray-500 break-all select-all cursor-pointer leading-relaxed" title="Klikni pro zkopírování">bc1qhypsfmnw0a4g8aar2evx6tdvq30jvnen96few2</p>
-        </div>
+      <!-- BTC detail (collapsible) -->
+      <div v-if="showBtc" class="mt-4 flex items-center gap-3 p-3 rounded-xl bg-white/[0.02] border border-gh-border/50">
+        <canvas ref="btcQrCanvas" class="rounded shrink-0" />
+        <p class="font-mono text-[10px] text-gray-500 break-all select-all cursor-pointer leading-relaxed" title="Klikni pro zkopírování">bc1qhypsfmnw0a4g8aar2evx6tdvq30jvnen96few2</p>
       </div>
     </div>
 
