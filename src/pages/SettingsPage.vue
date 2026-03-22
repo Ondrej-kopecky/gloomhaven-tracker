@@ -493,6 +493,20 @@ function formatDate(iso: string): string {
             <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
           </svg>
         </a>
+
+        <!-- Bitcoin -->
+        <div class="px-4 py-3 rounded-xl bg-orange-500/10 border border-orange-500/20">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="text-2xl">&#8383;</span>
+            <div>
+              <span class="text-sm font-semibold text-orange-400">Bitcoin</span>
+              <p class="text-[11px] text-gray-500">Poslat BTC na adresu</p>
+            </div>
+          </div>
+          <div class="bg-black/30 rounded-lg px-3 py-2 font-mono text-[11px] text-orange-300/80 break-all select-all cursor-pointer" title="Klikni pro zkopírování">
+            bc1qhypsfmnw0a4g8aar2evx6tdvq30jvnen96few2
+          </div>
+        </div>
       </div>
     </div>
 
