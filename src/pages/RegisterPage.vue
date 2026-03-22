@@ -25,6 +25,10 @@ function handleCodeInput(e: Event) {
 
 async function handleRegister() {
   if (!email.value.trim() || !username.value.trim() || !password.value) return
+  if (password.value.length < 8) {
+    authStore.error = 'Heslo musí mít alespoň 8 znaků'
+    return
+  }
   const ok = await authStore.register(email.value.trim(), username.value.trim(), password.value)
   if (ok) {
     phase.value = 'verify'

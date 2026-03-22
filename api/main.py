@@ -17,10 +17,17 @@ import string
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from collections import defaultdict
+from starlette.middleware.base import BaseHTTPMiddleware
+import hmac
 import time
 
 # --- Config ---
-SECRET_KEY = os.environ.get("SECRET_KEY", secrets.token_hex(32))
+SECRET_KEY = os.environ.get("SECRET_KEY")
+if not SECRET_KEY:
+    if os.environ.get("ENV") == "production":
+        raise RuntimeError("SECRET_KEY environment variable must be set in production!")
+    SECRET_KEY = secrets.token_hex(32)
+    print("[WARN] SECRET_KEY not set, using random key (tokens won't survive restart)")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24  # 24 hodin
 
@@ -266,7 +273,7 @@ def make_share_code() -> str:
 def send_verification_email(to_email: str, code: str):
     """Send verification code via SMTP with dark fantasy HTML template."""
     if not SMTP_USER or not SMTP_PASSWORD:
-        print(f"[SMTP] SMTP not configured. Verification code for {to_email}: {code}")
+        print(f"[SMTP] SMTP not configured. Verification code not shown (set SMTP credentials).")
         return
 
     html = f"""<!DOCTYPE html>
@@ -386,21 +393,43 @@ def get_client_ip(request: Request) -> str:
 
 
 # --- App ---
-app = FastAPI(title="Ongy.cz API", docs_url="/api/docs", openapi_url="/api/openapi.json")
+_is_production = os.environ.get("ENV") == "production"
+app = FastAPI(
+    title="Ongy.cz API",
+    docs_url=None if _is_production else "/api/docs",
+    openapi_url=None if _is_production else "/api/openapi.json",
+)
+
+_cors_origins = [
+    "https://ongy.cz",
+    "https://www.ongy.cz",
+    "https://gloomhaven.ongy.cz",
+]
+if not _is_production:
+    _cors_origins += ["http://localhost:5173", "http://localhost"]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "https://ongy.cz",
-        "https://www.ongy.cz",
-        "https://gloomhaven.ongy.cz",
-        "http://localhost:5173",
-        "http://localhost",
-    ],
+    allow_origins=_cors_origins,
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["Authorization", "Content-Type"],
 )
+
+
+# --- Security Headers ---
+class SecurityHeadersMiddleware(BaseHTTPMiddleware):
+    async def dispatch(self, request, call_next):
+        response = await call_next(request)
+        response.headers["X-Content-Type-Options"] = "nosniff"
+        response.headers["X-Frame-Options"] = "DENY"
+        response.headers["X-XSS-Protection"] = "1; mode=block"
+        response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+        if _is_production:
+            response.headers["Strict-Transport-Security"] = "max-age=63072000; includeSubDomains"
+        return response
+
+app.add_middleware(SecurityHeadersMiddleware)
 
 
 @app.on_event("startup")
@@ -425,6 +454,9 @@ async def register(user: UserCreate, request: Request):
     ip = get_client_ip(request)
     if not rate_limiter.check(f"register:{ip}", 5, 3600):
         raise HTTPException(status_code=429, detail="Příliš mnoho registrací. Zkus to za hodinu.")
+
+    if len(user.password) < 8:
+        raise HTTPException(status_code=400, detail="Heslo musí mít alespoň 8 znaků")
 
     # Check if email exists
     existing_email = await database.fetch_one(
@@ -489,7 +521,7 @@ async def verify_email(data: VerifyRequest):
     if datetime.utcnow() > user.verification_code_expires_at:
         raise HTTPException(status_code=400, detail="Kód vypršel. Použij resend-code pro nový.")
 
-    if user.verification_code != data.code:
+    if not hmac.compare_digest(user.verification_code, data.code):
         raise HTTPException(status_code=400, detail="Nesprávný kód")
 
     # Mark as verified
@@ -581,12 +613,12 @@ async def reset_password(req: ResetPasswordRequest, request: Request):
     user = await database.fetch_one(users.select().where(users.c.email == req.email))
     if not user:
         raise HTTPException(400, "Neplatny pozadavek")
-    if not user.verification_code or user.verification_code != req.code:
+    if not user.verification_code or not hmac.compare_digest(user.verification_code, req.code):
         raise HTTPException(400, "Nespravny kod")
     if user.verification_code_expires_at and user.verification_code_expires_at < datetime.utcnow():
         raise HTTPException(400, "Kod vyprsel. Pozadejte o novy.")
-    if len(req.new_password) < 6:
-        raise HTTPException(400, "Heslo musi mit alespon 6 znaku")
+    if len(req.new_password) < 8:
+        raise HTTPException(400, "Heslo musí mít alespoň 8 znaků")
     hashed = hash_password(req.new_password)
     await database.execute(users.update().where(users.c.id == user.id).values(
         hashed_password=hashed, verification_code=None, verification_code_expires_at=None))

@@ -34,8 +34,8 @@ async function handleReset() {
     error.value = 'Hesla se neshodují'
     return
   }
-  if (newPassword.value.length < 6) {
-    error.value = 'Heslo musí mít alespoň 6 znaků'
+  if (newPassword.value.length < 8) {
+    error.value = 'Heslo musí mít alespoň 8 znaků'
     return
   }
   error.value = null
@@ -86,7 +86,7 @@ async function handleReset() {
       </div>
       <div>
         <label class="text-[11px] text-gray-500 uppercase tracking-wider font-semibold mb-1.5 block">Nové heslo</label>
-        <input v-model="newPassword" type="password" class="gh-input w-full" placeholder="Min. 6 znaků" autocomplete="new-password" />
+        <input v-model="newPassword" type="password" class="gh-input w-full" placeholder="Min. 8 znaků" autocomplete="new-password" />
       </div>
       <div>
         <label class="text-[11px] text-gray-500 uppercase tracking-wider font-semibold mb-1.5 block">Potvrzení hesla</label>
