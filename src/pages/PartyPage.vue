@@ -119,22 +119,17 @@ function applyEffects() {
       }
       switch (effect.type) {
         case 'reputation':
+        case 'reputationAdditional':
           partyStore.changeReputation(num(/([-+]?\d+)/))
           break
         case 'loseReputation':
           partyStore.changeReputation(-num(/(\d+)/))
           break
         case 'prosperity':
-          if (campaignStore.currentCampaign) {
-            campaignStore.currentCampaign.prosperityIndex += num(/(\d+)/) || 1
-            campaignStore.autoSave()
-          }
+          partyStore.addProsperity(num(/(\d+)/) || 1)
           break
         case 'loseProsperity':
-          if (campaignStore.currentCampaign) {
-            campaignStore.currentCampaign.prosperityIndex = Math.max(0, campaignStore.currentCampaign.prosperityIndex - (num(/(\d+)/) || 1))
-            campaignStore.autoSave()
-          }
+          partyStore.addProsperity(-(num(/(\d+)/) || 1))
           break
         case 'unlockScenario': {
           const id = effect.label?.match(/#(\d+)/)?.[1]
