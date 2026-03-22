@@ -24,7 +24,7 @@
 1. [x] **Forgotten Circles scénáře** — žádné FC scénáře v datech, nic k filtrování
 2. [x] **Feedback checker** — zkontrolováno, 1 testovací feedback, žádné bugy
 3. [x] **Sdílení družiny** — HOTOVO, implementace dokončena
-4. [ ] **Attack modifier deck** — vizualizace balíčku po percích
+4. [x] **Attack modifier deck** — vizualizace balíčku po percích — HOTOVO
 5. [ ] **České texty událostí** — přeložit příběhové texty (8700 řádků, nízká priorita)
 6. [ ] **Anglická verze webu** — i18n, přepínání CZ/EN (nápad)
 7. [ ] **Obálky** — tracking odemčených obálek (A, B, X, Slunce, Měsíc)
