@@ -59,11 +59,11 @@ function isItemAvailable(item: ItemDefinition): boolean {
     return prosperityLevel.value >= parseInt(prosMatch[1]!)
   }
 
-  // Random Item → vždy dostupné (základní obchod)
-  if (src.includes('Random Item')) return true
+  // Random Item → dostupné jen když vylosované (v unlockedItemDesigns)
+  if (src.includes('Random Item')) return false
 
-  // City/Road Event → nelze trackovat, vždy zobrazit
-  if (/City Event|Road Event/i.test(src)) return true
+  // City/Road Event → dostupné jen když odemčené manuálně
+  if (/City Event|Road Event/i.test(src)) return false
 
   // Scénářové předměty: poklady, odměny, volby
   // Najdi VŠECHNY zmínky scénářů ve zdroji
