@@ -27,8 +27,8 @@ if [ "$1" = "major" ]; then
   NEW="$((major + 1)).0.0"
   echo "→ Major bump: $CURRENT → $NEW"
   npm version "$NEW" --no-git-tag-version > /dev/null
-  # Update SettingsPage
-  sed -i "s/$CURRENT/$NEW/g" src/pages/SettingsPage.vue 2>/dev/null || true
+  # Update SettingsPage (only the version line, not SVG paths)
+  sed -i "s/font-medium\">$CURRENT/font-medium\">$NEW/" src/pages/SettingsPage.vue 2>/dev/null || true
   echo "$NEW"
   exit 0
 fi
@@ -72,7 +72,7 @@ echo "→ Auto $TYPE: $CURRENT → $NEW"
 # Update package.json
 npm version "$NEW" --no-git-tag-version > /dev/null
 
-# Update SettingsPage version display
-sed -i "s/$CURRENT/$NEW/g" src/pages/SettingsPage.vue 2>/dev/null || true
+# Update SettingsPage version display (only the version line, not SVG paths)
+sed -i "s/font-medium\">$CURRENT/font-medium\">$NEW/" src/pages/SettingsPage.vue 2>/dev/null || true
 
 echo "$NEW"
