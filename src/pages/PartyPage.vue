@@ -774,7 +774,17 @@ function getClassName(classId: string): string {
                 <span class="text-sm font-semibold" :class="opt.label === 'A' ? 'text-blue-400' : 'text-amber-400'">
                   Volba {{ opt.label }}
                 </span>
-                <p v-if="opt.choiceText" class="text-xs text-gray-500 mt-1 italic leading-relaxed">{{ opt.choiceText }}</p>
+                <div class="mt-1">
+                  <template v-for="(outcome, oi) in opt.outcomes" :key="oi">
+                    <p v-if="outcome.condition" class="text-[10px] text-yellow-400/60">{{ outcome.condition }}:</p>
+                    <template v-for="(effect, ei) in outcome.effects" :key="ei">
+                      <span v-if="effect.type === 'choose'" class="text-[11px] text-gray-500">
+                        {{ effect.options?.join(' nebo ') }}
+                      </span>
+                      <span v-else class="text-[11px] text-gray-500 block">{{ effect.label }}</span>
+                    </template>
+                  </template>
+                </div>
               </button>
             </div>
           </div>
