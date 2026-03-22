@@ -22,6 +22,7 @@ export interface CampaignState {
   unlockedItemDesigns?: number[]
   manuallyUnlockedScenarios?: string[]
   forgottenCircles?: boolean
+  openedEnvelopes?: Record<string, boolean>
 }
 
 export interface CampaignSummary {
