@@ -136,6 +136,15 @@ function applyEffects() {
           if (id) campaignStore.manuallyUnlockScenario(id)
           break
         }
+        case 'itemCollective':
+        case 'itemDesign': {
+          const id = effect.label?.match(/#(\d+)/)?.[1]
+          if (id) campaignStore.unlockItemDesign(parseInt(id))
+          break
+        }
+        case 'randomItemDesign':
+          showEventItemPicker.value = true
+          break
         case 'event': {
           const match = effect.label?.match(/(\d+)/)
           if (match) {
@@ -148,13 +157,15 @@ function applyEffects() {
     }
   }
   effectsApplied.value = true
+
+  // If card should return to deck, do it immediately
+  if (shouldReturnToDeck.value && eventOutcome.value) {
+    partyStore.returnEvent(eventOutcome.value.type, eventOutcome.value.id)
+  }
 }
 
 function closeEventOutcome() {
-  // If effects were applied and card should return to deck, return it
-  if (effectsApplied.value && shouldReturnToDeck.value && eventOutcome.value) {
-    partyStore.returnEvent(eventOutcome.value.type, eventOutcome.value.id)
-  }
+  // If modal closed without confirming, nothing was removed
   eventOutcome.value = null
   selectedOption.value = null
   effectsApplied.value = false
@@ -806,13 +817,13 @@ function getClassName(classId: string): string {
                 <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
                 </svg>
-                Karta se vrátí do balíčku
+                Karta vrácena na spodek balíčku (může přijít znovu)
               </p>
               <p v-else class="text-[10px] text-red-400/50 mt-1 flex items-center gap-1">
                 <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                 </svg>
-                Karta se odstraní ze hry
+                Karta odstraněna ze hry (trvale)
               </p>
             </div>
           </div>
