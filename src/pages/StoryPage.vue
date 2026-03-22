@@ -260,9 +260,12 @@ const statusColors: Record<string, string> = {
               <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
             </svg>
           </div>
-          <!-- Linked scenarios (inline when expanded) -->
-          <div v-if="selectedQuestId === quest.id && getScenariosForQuest(quest.id).length" class="mt-3 pt-3 border-t border-gh-border/30">
-            <div class="flex flex-wrap gap-2">
+          <!-- Expanded detail -->
+          <div v-if="selectedQuestId === quest.id" class="mt-3 pt-3 border-t border-gh-border/30 space-y-3">
+            <p v-if="getQuestStoryText(quest)" class="text-sm text-gray-400 italic leading-relaxed p-3 rounded-lg bg-white/[0.02] border-l-2 border-gh-primary/30">
+              {{ getQuestStoryText(quest) }}
+            </p>
+            <div v-if="getScenariosForQuest(quest.id).length" class="flex flex-wrap gap-2">
               <span
                 v-for="s in getScenariosForQuest(quest.id)"
                 :key="s.id"
