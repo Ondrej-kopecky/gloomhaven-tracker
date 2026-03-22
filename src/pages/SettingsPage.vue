@@ -41,8 +41,8 @@ onMounted(async () => {
   await nextTick()
   if (btcQrCanvas.value) {
     QRCode.toCanvas(btcQrCanvas.value, 'bitcoin:bc1qhypsfmnw0a4g8aar2evx6tdvq30jvnen96few2', {
-      width: 160,
-      margin: 2,
+      width: 96,
+      margin: 1,
       color: { dark: '#f97316', light: '#00000000' },
     })
   }
@@ -469,56 +469,36 @@ function formatDate(iso: string): string {
         Pokud vám aplikace pomáhá s hraním Gloomhavenu, kupte mi pivo!
       </p>
 
-      <div class="flex flex-col gap-3">
-        <!-- Buy Me a Coffee -->
+      <!-- Tlačítka vedle sebe -->
+      <div class="grid grid-cols-2 gap-3 mb-4">
         <a
           href="https://buymeacoffee.com/ongy"
           target="_blank"
           rel="noopener"
-          class="flex items-center gap-3 px-4 py-3 rounded-xl bg-[#FFDD00]/10 border border-[#FFDD00]/20 hover:bg-[#FFDD00]/20 transition-colors group"
+          class="flex flex-col items-center gap-2 px-3 py-4 rounded-xl bg-white/[0.03] border border-gh-border hover:border-gh-primary/40 hover:bg-gh-primary/5 transition-all text-center group"
         >
-          <span class="text-2xl">&#9749;</span>
-          <div class="flex-1">
-            <span class="text-sm font-semibold text-[#FFDD00] group-hover:text-[#FFE840] transition-colors">Buy Me a Coffee</span>
-            <p class="text-[11px] text-gray-500">Jednorázový příspěvek kartou</p>
-          </div>
-          <svg class="w-4 h-4 text-gray-600 group-hover:text-gray-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-          </svg>
+          <span class="text-3xl">&#9749;</span>
+          <span class="text-xs font-semibold text-gh-primary">Buy Me a Coffee</span>
+          <span class="text-[10px] text-gray-600">kartou</span>
         </a>
-
-        <!-- Revolut -->
         <a
           href="https://revolut.me/ondejqv70"
           target="_blank"
           rel="noopener"
-          class="flex items-center gap-3 px-4 py-3 rounded-xl bg-blue-500/10 border border-blue-500/20 hover:bg-blue-500/20 transition-colors group"
+          class="flex flex-col items-center gap-2 px-3 py-4 rounded-xl bg-white/[0.03] border border-gh-border hover:border-blue-500/40 hover:bg-blue-500/5 transition-all text-center group"
         >
-          <span class="text-2xl">&#127866;</span>
-          <div class="flex-1">
-            <span class="text-sm font-semibold text-blue-400 group-hover:text-blue-300 transition-colors">Revolut</span>
-            <p class="text-[11px] text-gray-500">Poslat přes @ondejqv70</p>
-          </div>
-          <svg class="w-4 h-4 text-gray-600 group-hover:text-gray-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-          </svg>
+          <span class="text-3xl">&#127866;</span>
+          <span class="text-xs font-semibold text-blue-400">Revolut</span>
+          <span class="text-[10px] text-gray-600">@ondejqv70</span>
         </a>
+      </div>
 
-        <!-- Bitcoin -->
-        <div class="px-4 py-3 rounded-xl bg-orange-500/10 border border-orange-500/20">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="text-2xl">&#8383;</span>
-            <div>
-              <span class="text-sm font-semibold text-orange-400">Bitcoin</span>
-              <p class="text-[11px] text-gray-500">Naskenuj QR nebo zkopíruj adresu</p>
-            </div>
-          </div>
-          <div class="flex justify-center mb-3">
-            <canvas ref="btcQrCanvas" class="rounded-lg" />
-          </div>
-          <div class="bg-black/30 rounded-lg px-3 py-2 font-mono text-[11px] text-orange-300/80 break-all select-all cursor-pointer" title="Klikni pro zkopírování">
-            bc1qhypsfmnw0a4g8aar2evx6tdvq30jvnen96few2
-          </div>
+      <!-- Bitcoin -->
+      <div class="flex items-center gap-4 px-4 py-3 rounded-xl bg-white/[0.03] border border-gh-border">
+        <canvas ref="btcQrCanvas" class="rounded-lg shrink-0" />
+        <div class="min-w-0">
+          <p class="text-xs font-semibold text-orange-400 mb-1">Bitcoin</p>
+          <p class="font-mono text-[10px] text-gray-500 break-all select-all cursor-pointer leading-relaxed" title="Klikni pro zkopírování">bc1qhypsfmnw0a4g8aar2evx6tdvq30jvnen96few2</p>
         </div>
       </div>
     </div>
