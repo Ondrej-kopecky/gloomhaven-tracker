@@ -21,6 +21,40 @@ export const useCampaignStore = defineStore('campaign', () => {
     autoSave()
   }
 
+  const unlockedItemDesigns = computed(() => currentCampaign.value?.unlockedItemDesigns ?? [])
+
+  function unlockItemDesign(itemId: number) {
+    if (!currentCampaign.value) return
+    const current = currentCampaign.value.unlockedItemDesigns ?? []
+    if (current.includes(itemId)) return
+    currentCampaign.value = { ...currentCampaign.value, unlockedItemDesigns: [...current, itemId] }
+    autoSave()
+  }
+
+  function removeItemDesign(itemId: number) {
+    if (!currentCampaign.value) return
+    const current = currentCampaign.value.unlockedItemDesigns ?? []
+    currentCampaign.value = { ...currentCampaign.value, unlockedItemDesigns: current.filter((id) => id !== itemId) }
+    autoSave()
+  }
+
+  const manuallyUnlockedScenarios = computed(() => currentCampaign.value?.manuallyUnlockedScenarios ?? [])
+
+  function manuallyUnlockScenario(scenarioId: string) {
+    if (!currentCampaign.value) return
+    const current = currentCampaign.value.manuallyUnlockedScenarios ?? []
+    if (current.includes(scenarioId)) return
+    currentCampaign.value = { ...currentCampaign.value, manuallyUnlockedScenarios: [...current, scenarioId] }
+    autoSave()
+  }
+
+  function removeManuallyUnlockedScenario(scenarioId: string) {
+    if (!currentCampaign.value) return
+    const current = currentCampaign.value.manuallyUnlockedScenarios ?? []
+    currentCampaign.value = { ...currentCampaign.value, manuallyUnlockedScenarios: current.filter((id) => id !== scenarioId) }
+    autoSave()
+  }
+
   async function loadCampaignList() {
     campaigns.value = await useStorage().listCampaigns()
   }
@@ -130,6 +164,12 @@ export const useCampaignStore = defineStore('campaign', () => {
     campaignId,
     hideSpoilers,
     setHideSpoilers,
+    unlockedItemDesigns,
+    unlockItemDesign,
+    removeItemDesign,
+    manuallyUnlockedScenarios,
+    manuallyUnlockScenario,
+    removeManuallyUnlockedScenario,
     loadCampaignList,
     createCampaign,
     loadCampaign,
