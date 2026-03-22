@@ -165,7 +165,7 @@ const isActive = (path: string) => route.path === path
       <transition name="drawer">
         <nav
           v-if="mobileMenuOpen"
-          class="fixed top-0 right-0 bottom-0 z-[100] w-72 bg-gh-dark border-l border-gh-border/60 flex flex-col lg:hidden safe-area-top"
+          class="fixed top-0 left-0 right-0 z-[100] bg-gh-dark border-b border-gh-border/60 flex flex-col lg:hidden safe-area-top max-h-[85vh] overflow-y-auto"
         >
           <!-- Drawer header -->
           <div class="flex items-center justify-between px-5 h-14 border-b border-gh-border/40">
@@ -267,7 +267,7 @@ const isActive = (path: string) => route.path === path
 }
 .drawer-enter-from,
 .drawer-leave-to {
-  transform: translateX(100%);
+  transform: translateY(-100%);
 }
 
 .drawer-backdrop-enter-active,

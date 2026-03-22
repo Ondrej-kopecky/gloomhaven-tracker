@@ -288,7 +288,7 @@ function getClassName(classId: string): string {
         <div
           v-for="char in characterStore.activeCharacters"
           :key="char.uuid"
-          class="flex items-center gap-3 bg-gh-card border border-gh-border rounded-xl px-4 py-3 min-w-[180px]"
+          class="flex items-center gap-3 bg-gh-card border border-gh-border rounded-xl px-4 py-3 w-full sm:w-auto sm:min-w-[180px]"
         >
           <div class="relative shrink-0">
             <ClassIcon :class-id="char.classId" :size="32" />
