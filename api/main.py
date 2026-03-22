@@ -979,6 +979,10 @@ class FeedbackData(BaseModel):
     email: Optional[str] = None
     page: Optional[str] = None
     userAgent: Optional[str] = None
+    screenSize: Optional[str] = None
+    username: Optional[str] = None
+    campaignName: Optional[str] = None
+    appVersion: Optional[str] = None
 
 feedback_table = sqlalchemy.Table(
     "feedback",
@@ -1015,10 +1019,19 @@ async def submit_feedback(data: FeedbackData, request: Request):
     # Optional: send email notification
     if SMTP_USER and SMTP_PASSWORD:
         try:
-            msg = MIMEText(
-                f"Typ: {data.type}\nStránka: {data.page}\nEmail: {data.email or 'neuvedeno'}\nIP: {ip}\n\n{data.message}",
-                "plain", "utf-8"
-            )
+            lines = [
+                f"Typ: {data.type}",
+                f"Stránka: {data.page}",
+                f"Email: {data.email or 'neuvedeno'}",
+                f"Uživatel: {data.username or 'nepřihlášen'}",
+                f"Kampaň: {data.campaignName or '-'}",
+                f"Verze: {data.appVersion or '?'}",
+                f"Obrazovka: {data.screenSize or '?'}",
+                f"IP: {ip}",
+                "",
+                data.message,
+            ]
+            msg = MIMEText("\n".join(lines), "plain", "utf-8")
             msg["From"] = f"GH Tracker <{SMTP_FROM}>"
             msg["To"] = NOTIFY_EMAIL
             msg["Subject"] = f"[GH Feedback] {data.type}: {data.message[:50]}"

@@ -2,11 +2,14 @@
 import { ref, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useAuthStore } from '@/stores/authStore'
+import { useProfileStore } from '@/stores/profileStore'
 import { submitFeedback } from '@/services/api/feedbackApi'
 import type { FeedbackPayload } from '@/services/api/feedbackApi'
+import { version } from '../../../package.json'
 
 const route = useRoute()
 const authStore = useAuthStore()
+const profileStore = useProfileStore()
 
 const isOpen = ref(false)
 const feedbackType = ref<FeedbackPayload['type']>('bug')
@@ -47,6 +50,10 @@ async function send() {
     email: email.value || undefined,
     page: route.fullPath,
     userAgent: navigator.userAgent,
+    screenSize: `${window.innerWidth}x${window.innerHeight}`,
+    username: authStore.user?.username || undefined,
+    campaignName: profileStore.activeProfile?.name || undefined,
+    appVersion: version,
   })
 
   isSending.value = false
