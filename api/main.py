@@ -259,7 +259,7 @@ def generate_verification_code() -> str:
 # Share code: 6 chars, uppercase + digits, no ambiguous (0/O/1/I/L)
 SHARE_CODE_CHARS = "ABCDEFGHJKMNPQRSTUVWXYZ23456789"
 
-def generate_share_code() -> str:
+def make_share_code() -> str:
     return "".join(random.choices(SHARE_CODE_CHARS, k=6))
 
 
@@ -783,7 +783,7 @@ async def generate_share_code(campaign_id: str, current_user=Depends(get_current
 
     # Generate unique code (retry on collision)
     for _ in range(10):
-        code = generate_share_code()
+        code = make_share_code()
         exists = await database.fetch_one(
             campaigns.select().where(campaigns.c.share_code == code)
         )
