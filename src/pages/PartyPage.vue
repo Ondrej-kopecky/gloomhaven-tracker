@@ -284,11 +284,11 @@ function getClassName(classId: string): string {
     <!-- ── Active members ── -->
     <div v-if="characterStore.activeCharacters.length > 0" class="mb-8">
       <h2 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-3">Aktivní členové</h2>
-      <div class="flex flex-wrap gap-3">
+      <div class="grid grid-cols-2 sm:flex sm:flex-wrap gap-3">
         <div
           v-for="char in characterStore.activeCharacters"
           :key="char.uuid"
-          class="flex items-center gap-3 bg-gh-card border border-gh-border rounded-xl px-4 py-3 w-full sm:w-auto sm:min-w-[180px]"
+          class="flex items-center gap-3 bg-gh-card border border-gh-border rounded-xl px-4 py-3 sm:min-w-[180px]"
         >
           <div class="relative shrink-0">
             <ClassIcon :class-id="char.classId" :size="32" />
