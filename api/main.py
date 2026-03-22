@@ -1016,7 +1016,7 @@ async def submit_feedback(data: FeedbackData, request: Request):
     if SMTP_USER and SMTP_PASSWORD:
         try:
             msg = MIMEText(
-                f"Typ: {data.type}\nStránka: {data.page}\nEmail: {data.email or neuvedeno}\nIP: {ip}\n\n{data.message}",
+                f"Typ: {data.type}\nStránka: {data.page}\nEmail: {data.email or 'neuvedeno'}\nIP: {ip}\n\n{data.message}",
                 "plain", "utf-8"
             )
             msg["From"] = f"GH Tracker <{SMTP_FROM}>"
