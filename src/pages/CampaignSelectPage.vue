@@ -15,6 +15,11 @@ const showCreate = ref(false)
 const showDeleteConfirm = ref<string | null>(null)
 const importError = ref('')
 const importFileRef = ref<HTMLInputElement | null>(null)
+const showJoin = ref(false)
+const joinCode = ref('')
+const joinError = ref('')
+const joinSuccess = ref('')
+const joinLoading = ref(false)
 
 async function handleImport(e: Event) {
   const file = (e.target as HTMLInputElement).files?.[0]
@@ -66,6 +71,27 @@ async function deleteCampaign(id: string) {
 function switchProfile(id: string) {
   profileStore.switchProfile(id)
   campaignStore.loadCampaignList()
+}
+
+async function handleJoin() {
+  if (!joinCode.value.trim()) return
+  joinLoading.value = true
+  joinError.value = ''
+  joinSuccess.value = ''
+  try {
+    const result = await campaignStore.joinCampaign(joinCode.value.trim())
+    if (result.success) {
+      joinSuccess.value = `Připojeno ke kampani "${result.campaignName}"`
+      joinCode.value = ''
+      showJoin.value = false
+      await campaignStore.loadCampaignList()
+      setTimeout(() => (joinSuccess.value = ''), 3000)
+    } else {
+      joinError.value = result.error ?? 'Neznámá chyba'
+    }
+  } finally {
+    joinLoading.value = false
+  }
 }
 
 function formatDate(iso: string): string {
@@ -211,7 +237,46 @@ function formatDate(iso: string): string {
           class="hidden"
           @change="handleImport"
         />
+
+        <!-- Join campaign -->
+        <template v-if="authStore.isLoggedIn">
+          <button
+            v-if="!showJoin"
+            class="w-full text-center text-xs text-blue-400/80 hover:text-blue-400 transition-colors py-1 mt-1"
+            @click="showJoin = true"
+          >
+            nebo se připojit ke kampani kódem
+          </button>
+          <div v-else class="mt-3 pt-3 border-t border-gh-border/30">
+            <div class="flex gap-2">
+              <input
+                v-model="joinCode"
+                type="text"
+                placeholder="6-místný kód..."
+                maxlength="6"
+                class="gh-input text-sm font-mono uppercase tracking-[0.2em] text-center flex-1"
+                @keyup.enter="handleJoin"
+              />
+              <button
+                class="gh-btn-primary text-sm whitespace-nowrap"
+                :disabled="joinLoading || joinCode.trim().length < 6"
+                @click="handleJoin"
+              >
+                {{ joinLoading ? '...' : 'Připojit' }}
+              </button>
+              <button class="gh-btn-ghost text-sm" @click="showJoin = false; joinError = ''">Zpět</button>
+            </div>
+            <p v-if="joinError" class="text-xs text-red-400 mt-2">{{ joinError }}</p>
+          </div>
+        </template>
+
         <p v-if="importError" class="text-xs text-red-400 mt-2 text-center">{{ importError }}</p>
+        <p v-if="joinSuccess" class="text-xs text-green-400 mt-2 text-center flex items-center justify-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+          </svg>
+          {{ joinSuccess }}
+        </p>
       </div>
 
       <div v-else class="gh-card p-6">
@@ -251,12 +316,22 @@ function formatDate(iso: string): string {
               <span v-if="campaign.id === campaignStore.campaignId" class="text-[9px] px-1.5 py-0.5 rounded-full bg-gh-primary/15 text-gh-primary font-semibold uppercase tracking-wider shrink-0">
                 aktivní
               </span>
+              <span v-if="campaign.isOwner === false" class="text-[9px] px-1.5 py-0.5 rounded-full bg-blue-500/15 text-blue-400 font-semibold uppercase tracking-wider shrink-0">
+                sdílená
+              </span>
+              <span v-else-if="campaign.shareCode" class="text-[9px] px-1.5 py-0.5 rounded-full bg-blue-500/10 text-blue-400/60 font-semibold uppercase tracking-wider shrink-0">
+                sdílíte
+              </span>
             </div>
             <p class="text-xs text-gray-600 mt-1.5 flex items-center gap-1.5">
               <svg class="w-3 h-3 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
               </svg>
               {{ formatDate(campaign.lastPlayedAt) }}
+              <template v-if="campaign.isOwner === false && campaign.ownerUsername">
+                <span class="text-gray-700">·</span>
+                <span class="text-blue-400/60">{{ campaign.ownerUsername }}</span>
+              </template>
             </p>
           </div>
 

@@ -1,15 +1,20 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import type { CampaignState, CampaignSummary } from '@/models/Campaign'
+import type { CampaignState, CampaignSummary, ShareInfo } from '@/models/Campaign'
 import type { PartyState } from '@/models/Party'
 import { useStorage } from '@/composables/useStorage'
 import { uuid } from '@/utils/uuid'
 import { useDebounceFn } from '@vueuse/core'
+import * as campaignApi from '@/services/api/campaignApi'
+import { hasToken } from '@/services/api/apiClient'
 
 export const useCampaignStore = defineStore('campaign', () => {
   const campaigns = ref<CampaignSummary[]>([])
   const currentCampaign = ref<CampaignState | null>(null)
   const isLoading = ref(false)
+  const shareInfo = ref<ShareInfo | null>(null)
+  const shareLoading = ref(false)
+  const shareError = ref('')
 
   const hasCampaign = computed(() => currentCampaign.value !== null)
   const campaignId = computed(() => currentCampaign.value?.id ?? null)
@@ -156,6 +161,93 @@ export const useCampaignStore = defineStore('campaign', () => {
     await loadCampaignList()
   }
 
+  // --- Sharing ---
+  const isCurrentCampaignOwned = computed(() => {
+    if (!currentCampaign.value) return true
+    const summary = campaigns.value.find((c) => c.id === currentCampaign.value?.id)
+    return summary?.isOwner !== false
+  })
+
+  const currentCampaignSummary = computed(() =>
+    campaigns.value.find((c) => c.id === currentCampaign.value?.id) ?? null
+  )
+
+  async function loadShareInfo() {
+    if (!currentCampaign.value || !hasToken()) return
+    shareLoading.value = true
+    shareError.value = ''
+    try {
+      const { data, error } = await campaignApi.getShareInfo(currentCampaign.value.id)
+      if (data) shareInfo.value = data
+      if (error) shareError.value = error
+    } finally {
+      shareLoading.value = false
+    }
+  }
+
+  async function generateShareCode(): Promise<string | null> {
+    if (!currentCampaign.value) return null
+    shareError.value = ''
+    const { data, error } = await campaignApi.generateShareCode(currentCampaign.value.id)
+    if (error) {
+      shareError.value = error
+      return null
+    }
+    if (data) {
+      await loadShareInfo()
+      await loadCampaignList()
+      return data.shareCode
+    }
+    return null
+  }
+
+  async function revokeShareCode() {
+    if (!currentCampaign.value) return
+    shareError.value = ''
+    const { error } = await campaignApi.revokeShareCode(currentCampaign.value.id)
+    if (error) {
+      shareError.value = error
+      return
+    }
+    shareInfo.value = null
+    await loadCampaignList()
+  }
+
+  async function joinCampaign(code: string): Promise<{ success: boolean; campaignName?: string; error?: string }> {
+    shareError.value = ''
+    const { data, error } = await campaignApi.joinCampaign(code)
+    if (error) return { success: false, error }
+    if (data) {
+      await loadCampaignList()
+      return { success: true, campaignName: data.campaignName }
+    }
+    return { success: false, error: 'Neznámá chyba' }
+  }
+
+  async function leaveCampaign() {
+    if (!currentCampaign.value) return
+    shareError.value = ''
+    const { error } = await campaignApi.leaveCampaign(currentCampaign.value.id)
+    if (error) {
+      shareError.value = error
+      return
+    }
+    currentCampaign.value = null
+    shareInfo.value = null
+    await loadCampaignList()
+  }
+
+  async function kickMember(userId: number) {
+    if (!currentCampaign.value) return
+    shareError.value = ''
+    const { error } = await campaignApi.kickMember(currentCampaign.value.id, userId)
+    if (error) {
+      shareError.value = error
+      return
+    }
+    await loadShareInfo()
+  }
+
   return {
     campaigns,
     currentCampaign,
@@ -177,5 +269,17 @@ export const useCampaignStore = defineStore('campaign', () => {
     autoSave,
     exportCampaign,
     importCampaign,
+    // Sharing
+    shareInfo,
+    shareLoading,
+    shareError,
+    isCurrentCampaignOwned,
+    currentCampaignSummary,
+    loadShareInfo,
+    generateShareCode,
+    revokeShareCode,
+    joinCampaign,
+    leaveCampaign,
+    kickMember,
   }
 })

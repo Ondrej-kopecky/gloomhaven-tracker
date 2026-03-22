@@ -23,7 +23,7 @@
 ## Co dál (priority)
 1. [x] **Forgotten Circles scénáře** — žádné FC scénáře v datech, nic k filtrování
 2. [x] **Feedback checker** — zkontrolováno, 1 testovací feedback, žádné bugy
-3. [ ] **Sdílení družiny** — ROZPRACOVÁNO, plán v .brain/memory/tasks/campaign-sharing.md
+3. [x] **Sdílení družiny** — HOTOVO, implementace dokončena
 4. [ ] **Attack modifier deck** — vizualizace balíčku po percích
 5. [ ] **České texty událostí** — přeložit příběhové texty (8700 řádků, nízká priorita)
 6. [ ] **Anglická verze webu** — i18n, přepínání CZ/EN (nápad)

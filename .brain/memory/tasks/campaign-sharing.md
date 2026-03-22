@@ -1,6 +1,6 @@
 # Task: Campaign Sharing (Multiplayer)
 
-**Status:** PLAN
+**Status:** DONE
 **Priority:** High
 **Created:** 2026-03-22
 
