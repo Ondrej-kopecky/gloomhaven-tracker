@@ -90,6 +90,8 @@ function isItemAvailable(item: ItemDefinition): boolean {
 
 const filteredItems = computed(() => {
   return allItems.filter((item) => {
+    // Forgotten Circles items (#152-164) only when FC enabled
+    if (item.id >= 152 && item.id <= 164 && !campaignStore.currentCampaign?.forgottenCircles) return false
     if (filterSlot.value !== 'all' && item.slot !== filterSlot.value) return false
     if (filterSource.value !== 'all' && primarySource(item.source) !== filterSource.value) return false
     if ((showOnlyAvailable.value || campaignStore.hideSpoilers) && !isItemAvailable(item)) return false

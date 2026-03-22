@@ -69,6 +69,12 @@ function setCampaignName(name: string) {
   campaignStore.autoSave()
 }
 
+function toggleForgottenCircles() {
+  if (!campaignStore.currentCampaign) return
+  campaignStore.currentCampaign.forgottenCircles = !campaignStore.currentCampaign.forgottenCircles
+  campaignStore.autoSave()
+}
+
 /* ── Profile ── */
 function setProfileName(name: string) {
   if (!name.trim()) return
@@ -329,6 +335,26 @@ function formatDate(iso: string): string {
             <span
               class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform duration-200"
               :class="{ 'translate-x-5': campaignStore.hideSpoilers }"
+            />
+          </button>
+        </div>
+      </div>
+
+      <!-- Forgotten Circles toggle -->
+      <div class="mt-3 pt-3 border-t border-gh-border/30">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="text-sm text-gray-300 font-medium">Forgotten Circles</div>
+            <div class="text-[11px] text-gray-600 mt-0.5">Rozšíření — předměty #152-164, Diviner</div>
+          </div>
+          <button
+            class="relative w-11 h-6 rounded-full transition-colors duration-200 shrink-0 ml-4"
+            :class="campaignStore.currentCampaign?.forgottenCircles ? 'bg-gh-primary' : 'bg-white/[0.1]'"
+            @click="toggleForgottenCircles"
+          >
+            <span
+              class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform duration-200"
+              :class="{ 'translate-x-5': campaignStore.currentCampaign?.forgottenCircles }"
             />
           </button>
         </div>
