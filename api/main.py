@@ -39,6 +39,7 @@ SMTP_PORT = int(os.environ.get("SMTP_PORT", "465"))
 SMTP_USER = os.environ.get("SMTP_USER", "")
 SMTP_PASSWORD = os.environ.get("SMTP_PASSWORD", "")
 SMTP_FROM = os.environ.get("SMTP_FROM", SMTP_USER)
+NOTIFY_EMAIL = os.environ.get("NOTIFY_EMAIL", "okkopecky@gmail.com")
 
 # --- Database ---
 database = databases.Database(DATABASE_URL)
@@ -1019,11 +1020,11 @@ async def submit_feedback(data: FeedbackData, request: Request):
                 "plain", "utf-8"
             )
             msg["From"] = f"GH Tracker <{SMTP_FROM}>"
-            msg["To"] = SMTP_USER
+            msg["To"] = NOTIFY_EMAIL
             msg["Subject"] = f"[GH Feedback] {data.type}: {data.message[:50]}"
             with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT) as server:
                 server.login(SMTP_USER, SMTP_PASSWORD)
-                server.sendmail(SMTP_FROM, SMTP_USER, msg.as_string())
+                server.sendmail(SMTP_FROM, NOTIFY_EMAIL, msg.as_string())
         except Exception as e:
             print(f"[SMTP] Failed to send feedback notification: {e}")
     
