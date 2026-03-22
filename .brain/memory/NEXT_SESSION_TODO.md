@@ -1,7 +1,7 @@
 # Next Session TODO
 
 **Date:** 2026-03-22
-**Last session:** Mega session — scenario detail, event system, item fix, donate, header redesign, FC toggle
+**Last session:** v3.0.0 — Campaign Sharing + auto versioning
 
 ## Co se udělalo 2026-03-22
 - [x] **Úroveň scénáře** — auto výpočet ceil(avg level / 2)
@@ -34,8 +34,10 @@
 
 ## Poznámky
 - Server: `ssh server` (Tailscale)
-- Deploy: `bash scripts/deploy.sh` (fotky se automaticky kopírují z /gloomhaven-items/)
+- Deploy: `bash scripts/deploy.sh` (auto version bump + frontend + API + fotky)
+- Deploy major: `bash scripts/deploy.sh major` (pro velké release)
 - Testy: `npm test` (105 unit) + `npm run test:e2e` (9 E2E)
+- Commity: `feat:` → minor, `fix:` → patch, `brain:/chore:` → žádný bump
 - Fotky: trvalá složka na serveru /home/ongy/Projekty/Server/gloomhaven-items/
 - Cloudflare cache: 4h, cache buster ?v=4
 - GoatCounter: gloomhaven.goatcounter.com (SPA tracking přes router.afterEach)
@@ -46,4 +48,5 @@
 - Předměty #134-151 = solo scénáře (per class), #152-164 = Forgotten Circles
 - Obálky: A (5x Ancient Tech), B (100zl donate), X (tajná třída), Slunce (+10 rep), Měsíc (-10 rep)
 - master branch synchronizován s main
-- Verze: 2.0.0, 105 testů
+- Verze: 3.0.0, 105 testů
+- 6 registrovaných uživatelů (Ongy, Ongy2, Milan, Laiedal, Toro + nový testovací)
