@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, watch } from 'vue'
+import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useCampaignStore } from '@/stores/campaignStore'
 import { usePartyStore } from '@/stores/partyStore'
@@ -13,10 +13,21 @@ const campaignStore = useCampaignStore()
 const partyStore = usePartyStore()
 const characterStore = useCharacterStore()
 
+function closeDropdowns(e: MouseEvent) {
+  const t = e.target as HTMLElement
+  if (!t.closest('.relative')) {
+    slotDropdownOpen.value = false
+    sourceDropdownOpen.value = false
+  }
+}
 onMounted(() => {
   if (!campaignStore.hasCampaign) {
     router.push('/kampan')
   }
+  document.addEventListener('click', closeDropdowns)
+})
+onUnmounted(() => {
+  document.removeEventListener('click', closeDropdowns)
 })
 
 const allItems = itemsData as ItemDefinition[]
@@ -25,6 +36,8 @@ const search = ref('')
 const filterSlot = ref<string>('all')
 const filterSource = ref<string>('all')
 const showOnlyAvailable = ref(false)
+const slotDropdownOpen = ref(false)
+const sourceDropdownOpen = ref(false)
 
 const prosperityLevel = computed(() => partyStore.prosperityLevel)
 
@@ -413,17 +426,71 @@ function confirmBuy() {
           class="gh-input w-full !pl-10"
         />
       </div>
-      <select v-model="filterSlot" class="gh-input min-w-[140px]">
-        <option value="all">Všechny sloty</option>
-        <option v-for="(label, key) in slotLabels" :key="key" :value="key">
-          {{ label }}
-        </option>
-      </select>
-      <select v-model="filterSource" class="gh-input min-w-[160px]">
-        <option value="all">Všechny zdroje</option>
-        <option v-for="s in sources" :key="s" :value="s">{{ translateSource(s) }}</option>
+      <!-- Slot filter dropdown -->
+      <div class="relative">
+        <button
+          class="gh-input min-w-[140px] w-full text-left flex items-center justify-between gap-2"
+          @click="slotDropdownOpen = !slotDropdownOpen; sourceDropdownOpen = false"
+        >
+          <span class="flex items-center gap-2">
+            <SlotIcon v-if="filterSlot !== 'all'" :slot="filterSlot" :size="16" class="text-amber-600/70" />
+            {{ filterSlot === 'all' ? 'Všechny sloty' : slotLabels[filterSlot] }}
+          </span>
+          <svg class="w-4 h-4 text-gray-500 shrink-0 transition-transform" :class="{ 'rotate-180': slotDropdownOpen }" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+          </svg>
+        </button>
+        <div v-if="slotDropdownOpen" class="absolute z-50 top-full left-0 right-0 mt-1 bg-gh-card border border-gh-border rounded-xl shadow-2xl shadow-black/50 overflow-hidden">
+          <button
+            class="w-full text-left px-3 py-2.5 text-sm transition-colors flex items-center gap-2.5"
+            :class="filterSlot === 'all' ? 'bg-gh-primary/10 text-gh-primary' : 'text-gray-400 hover:bg-white/[0.04] hover:text-gray-200'"
+            @click="filterSlot = 'all'; slotDropdownOpen = false"
+          >
+            Všechny sloty
+          </button>
+          <button
+            v-for="(label, key) in slotLabels"
+            :key="key"
+            class="w-full text-left px-3 py-2.5 text-sm transition-colors flex items-center gap-2.5"
+            :class="filterSlot === key ? 'bg-gh-primary/10 text-gh-primary' : 'text-gray-400 hover:bg-white/[0.04] hover:text-gray-200'"
+            @click="filterSlot = key; slotDropdownOpen = false"
+          >
+            <SlotIcon :slot="String(key)" :size="16" class="text-amber-600/60" />
+            {{ label }}
+          </button>
+        </div>
+      </div>
 
-      </select>
+      <!-- Source filter dropdown -->
+      <div class="relative">
+        <button
+          class="gh-input min-w-[160px] w-full text-left flex items-center justify-between gap-2"
+          @click="sourceDropdownOpen = !sourceDropdownOpen; slotDropdownOpen = false"
+        >
+          <span class="truncate">{{ filterSource === 'all' ? 'Všechny zdroje' : translateSource(filterSource) }}</span>
+          <svg class="w-4 h-4 text-gray-500 shrink-0 transition-transform" :class="{ 'rotate-180': sourceDropdownOpen }" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+          </svg>
+        </button>
+        <div v-if="sourceDropdownOpen" class="absolute z-50 top-full left-0 right-0 mt-1 bg-gh-card border border-gh-border rounded-xl shadow-2xl shadow-black/50 max-h-64 overflow-y-auto custom-scrollbar">
+          <button
+            class="w-full text-left px-3 py-2.5 text-sm transition-colors"
+            :class="filterSource === 'all' ? 'bg-gh-primary/10 text-gh-primary' : 'text-gray-400 hover:bg-white/[0.04] hover:text-gray-200'"
+            @click="filterSource = 'all'; sourceDropdownOpen = false"
+          >
+            Všechny zdroje
+          </button>
+          <button
+            v-for="s in sources"
+            :key="s"
+            class="w-full text-left px-3 py-2.5 text-sm transition-colors"
+            :class="filterSource === s ? 'bg-gh-primary/10 text-gh-primary' : 'text-gray-400 hover:bg-white/[0.04] hover:text-gray-200'"
+            @click="filterSource = s; sourceDropdownOpen = false"
+          >
+            {{ translateSource(s) }}
+          </button>
+        </div>
+      </div>
     </div>
 
     <!-- Toggle & Stats -->
