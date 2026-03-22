@@ -165,7 +165,7 @@ const isActive = (path: string) => route.path === path
       <transition name="drawer">
         <nav
           v-if="mobileMenuOpen"
-          class="fixed top-0 left-0 right-0 z-[100] bg-gh-dark border-b border-gh-border/60 flex flex-col lg:hidden safe-area-top max-h-[85vh] overflow-y-auto"
+          class="fixed inset-0 z-[100] bg-gh-dark flex flex-col lg:hidden safe-area-top"
         >
           <!-- Drawer header -->
           <div class="flex items-center justify-between px-5 h-14 border-b border-gh-border/40">
