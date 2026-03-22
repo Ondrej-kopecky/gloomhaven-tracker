@@ -1475,9 +1475,10 @@
     "cost": 50,
     "count": 1,
     "slot": "one_hand",
-    "source": "Reward from Solo Scenario - {BS}",
+    "source": "Obálka X",
     "description": "Během svého útoku na blízko přidej {POISON} a {WOUND} k celé útočné akci.",
-    "spent": true
+    "spent": true,
+    "envelopeX": true
   },
   {
     "id": 152,
