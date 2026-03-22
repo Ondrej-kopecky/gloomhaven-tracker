@@ -17,6 +17,7 @@ const pqStore = usePersonalQuestStore()
 
 const showCreate = ref(false)
 const showQuestPicker = ref<string | null>(null)
+const showRetireConfirm = ref<string | null>(null)
 const newName = ref('')
 const newOwner = ref('')
 const newClass = ref<CharacterClass>(CharacterClass.BRUTE)
@@ -105,6 +106,26 @@ function onClickOutside(e: MouseEvent) {
 function selectClass(key: string) {
   newClass.value = key as CharacterClass
   showDropdown.value = false
+}
+
+function getRetireUnlocks(charUuid: string) {
+  const quest = pqStore.getQuestForCharacter(charUuid)
+  if (!quest) return null
+  const def = pqStore.getDefinition(quest.questId)
+  if (!def) return null
+  const unlockClass = def.character_unlock ? pqStore.getUnlockClassName(quest.questId) : null
+  const unlockScenarios: number[] = []
+  for (const p of def.progress) {
+    if ('scenario_unlock' in p && p.scenario_unlock) {
+      unlockScenarios.push(p.scenario_unlock as number)
+    }
+  }
+  return { unlockClass, unlockScenarios, questCompleted: quest.isCompleted }
+}
+
+function handleRetire(charUuid: string) {
+  characterStore.retireCharacter(charUuid)
+  showRetireConfirm.value = null
 }
 
 function createCharacter() {
@@ -691,11 +712,66 @@ const availableClasses = computed(() => {
                 />
               </div>
               <button
-                class="py-2 px-4 bg-red-900/15 text-red-400/80 rounded-lg hover:bg-red-900/30 hover:text-red-400 transition-all text-xs border border-red-900/25 shrink-0"
-                @click="characterStore.retireCharacter(char.uuid)"
+                v-if="showRetireConfirm !== char.uuid"
+                class="py-2 px-4 bg-amber-900/15 text-amber-400/80 rounded-lg hover:bg-amber-900/30 hover:text-amber-400 transition-all text-xs border border-amber-900/25 shrink-0"
+                @click="showRetireConfirm = char.uuid"
               >
-                Penzionovat
+                Poslat do důchodu
               </button>
+            </div>
+
+            <!-- Retire confirmation -->
+            <div v-if="showRetireConfirm === char.uuid" class="bg-amber-900/10 rounded-xl border border-amber-800/20 p-4">
+              <div class="flex items-center gap-2 mb-3">
+                <svg class="w-4.5 h-4.5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+                </svg>
+                <span class="text-sm font-semibold text-amber-300">Poslat {{ char.playerName }} do důchodu?</span>
+              </div>
+
+              <p class="text-xs text-gray-400 mb-3 leading-relaxed">
+                Postava bude přesunuta do archivu. Tato akce je nevratná.
+              </p>
+
+              <!-- Quest unlock info -->
+              <div v-if="getRetireUnlocks(char.uuid)" class="mb-4">
+                <div v-if="getRetireUnlocks(char.uuid)?.questCompleted" class="space-y-1.5">
+                  <div v-if="getRetireUnlocks(char.uuid)?.unlockClass" class="flex items-center gap-2 text-xs">
+                    <span class="w-5 h-5 rounded bg-green-500/20 flex items-center justify-center">
+                      <svg class="w-3 h-3 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5V6.75a4.5 4.5 0 1 1 9 0v3.75M3.75 21.75h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H3.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                      </svg>
+                    </span>
+                    <span class="text-green-400">Odemkne třídu: <strong>{{ getRetireUnlocks(char.uuid)?.unlockClass }}</strong></span>
+                  </div>
+                  <div v-for="scId in getRetireUnlocks(char.uuid)?.unlockScenarios ?? []" :key="scId" class="flex items-center gap-2 text-xs">
+                    <span class="w-5 h-5 rounded bg-blue-500/20 flex items-center justify-center">
+                      <svg class="w-3 h-3 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498 4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 0 0-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0Z" />
+                      </svg>
+                    </span>
+                    <span class="text-blue-400">Odemkne scénář #{{ scId }}</span>
+                  </div>
+                </div>
+                <div v-else class="text-xs text-gray-500 italic">
+                  Osobní quest ještě není splněn — žádné odemčení se neaktivuje.
+                </div>
+              </div>
+
+              <div class="flex gap-2">
+                <button
+                  class="py-2 px-4 bg-amber-600 text-white rounded-lg hover:bg-amber-500 transition-colors text-xs font-medium"
+                  @click="handleRetire(char.uuid)"
+                >
+                  Potvrdit důchod
+                </button>
+                <button
+                  class="gh-btn-ghost text-xs"
+                  @click="showRetireConfirm = null"
+                >
+                  Zrušit
+                </button>
+              </div>
             </div>
           </div>
         </div>
