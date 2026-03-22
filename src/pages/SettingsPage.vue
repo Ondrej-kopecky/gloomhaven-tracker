@@ -456,30 +456,43 @@ function formatDate(iso: string): string {
       </div>
 
       <p class="text-sm text-gray-400 leading-relaxed mb-5">
-        Pokud vám aplikace pomáhá s hraním Gloomhavenu, můžete podpořit její další vývoj. Naskenujte QR kód v aplikaci Revolut.
+        Pokud vám aplikace pomáhá s hraním Gloomhavenu, kupte mi pivo!
       </p>
 
-      <!-- QR kód na plnou šířku -->
-      <div class="flex justify-center mb-4">
-        <div class="relative p-4 rounded-2xl bg-gradient-to-br from-gh-primary/10 to-yellow-600/5 border border-gh-primary/20 w-full max-w-xs">
-          <img
-            src="/img/qr-donate.png"
-            alt="Revolut QR kód"
-            class="w-full rounded-xl"
-          />
-          <!-- Rohové dekorace -->
-          <div class="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-gh-primary/40 rounded-tl-2xl" />
-          <div class="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 border-gh-primary/40 rounded-tr-2xl" />
-          <div class="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2 border-gh-primary/40 rounded-bl-2xl" />
-          <div class="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 border-gh-primary/40 rounded-br-2xl" />
-        </div>
-      </div>
+      <div class="flex flex-col gap-3">
+        <!-- Buy Me a Coffee -->
+        <a
+          href="https://buymeacoffee.com/ongy"
+          target="_blank"
+          rel="noopener"
+          class="flex items-center gap-3 px-4 py-3 rounded-xl bg-[#FFDD00]/10 border border-[#FFDD00]/20 hover:bg-[#FFDD00]/20 transition-colors group"
+        >
+          <span class="text-2xl">&#9749;</span>
+          <div class="flex-1">
+            <span class="text-sm font-semibold text-[#FFDD00] group-hover:text-[#FFE840] transition-colors">Buy Me a Coffee</span>
+            <p class="text-[11px] text-gray-500">Jednorázový příspěvek kartou</p>
+          </div>
+          <svg class="w-4 h-4 text-gray-600 group-hover:text-gray-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+          </svg>
+        </a>
 
-      <div class="flex justify-center">
-        <div class="inline-flex items-center gap-2 bg-white/[0.04] border border-white/[0.08] rounded-lg px-4 py-2.5">
-          <span class="text-xs text-gray-500">Revolut</span>
-          <span class="text-gh-primary font-display font-semibold text-sm tracking-wide">@ondejqv70</span>
-        </div>
+        <!-- Revolut -->
+        <a
+          href="https://revolut.me/ondejqv70"
+          target="_blank"
+          rel="noopener"
+          class="flex items-center gap-3 px-4 py-3 rounded-xl bg-blue-500/10 border border-blue-500/20 hover:bg-blue-500/20 transition-colors group"
+        >
+          <span class="text-2xl">&#127866;</span>
+          <div class="flex-1">
+            <span class="text-sm font-semibold text-blue-400 group-hover:text-blue-300 transition-colors">Revolut</span>
+            <p class="text-[11px] text-gray-500">Poslat přes @ondejqv70</p>
+          </div>
+          <svg class="w-4 h-4 text-gray-600 group-hover:text-gray-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+          </svg>
+        </a>
       </div>
     </div>
 
