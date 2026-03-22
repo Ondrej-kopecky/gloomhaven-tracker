@@ -870,23 +870,21 @@ async def join_campaign(data: JoinCampaignRequest, current_user=Depends(get_curr
     if row.user_id == current_user.id:
         raise HTTPException(status_code=400, detail="Nemůžete se připojit k vlastní kampani")
 
-    # Check if already member
+    # Check if already member — if so, just return success (re-join)
     existing = await database.fetch_one(
         campaign_members.select().where(
             (campaign_members.c.campaign_id == row.id) &
             (campaign_members.c.user_id == current_user.id)
         )
     )
-    if existing:
-        raise HTTPException(status_code=400, detail="Už jste členem této kampaně")
-
-    await database.execute(
-        campaign_members.insert().values(
-            campaign_id=row.id,
-            user_id=current_user.id,
-            joined_at=datetime.utcnow(),
+    if not existing:
+        await database.execute(
+            campaign_members.insert().values(
+                campaign_id=row.id,
+                user_id=current_user.id,
+                joined_at=datetime.utcnow(),
+            )
         )
-    )
 
     owner = await database.fetch_one(users.select().where(users.c.id == row.user_id))
     return {
