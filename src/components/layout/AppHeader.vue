@@ -59,14 +59,15 @@ const isActive = (path: string) => route.path === path
           </span>
         </router-link>
 
-        <!-- Active campaign name -->
+        <!-- Active campaign name (desktop) -->
         <router-link
           v-if="campaignStore.currentCampaign"
           to="/kampan"
-          class="hidden sm:flex items-center gap-1.5 ml-2 px-2.5 py-1 rounded-lg bg-white/[0.03] border border-gh-border/40 hover:border-gh-primary/30 transition-colors group"
+          class="hidden lg:flex items-center gap-1.5 ml-1 px-2.5 py-1 rounded-lg bg-white/[0.03] border border-gh-border/40 hover:border-gh-primary/30 transition-colors group"
         >
           <span class="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0" />
-          <span class="text-xs text-gray-500 group-hover:text-gray-300 transition-colors truncate max-w-32">{{ campaignStore.currentCampaign.name }}</span>
+          <span class="text-[11px] text-gray-600 shrink-0">Kampaň:</span>
+          <span class="text-[11px] text-gray-400 group-hover:text-gray-300 transition-colors truncate max-w-36">{{ campaignStore.currentCampaign.name }}</span>
         </router-link>
 
         <!-- Desktop nav -->
@@ -177,6 +178,19 @@ const isActive = (path: string) => route.path === path
               </svg>
             </button>
           </div>
+
+          <!-- Active campaign (mobile) -->
+          <router-link
+            v-if="campaignStore.currentCampaign"
+            to="/kampan"
+            class="flex items-center gap-2.5 mx-3 mt-3 px-4 py-2.5 rounded-xl bg-gh-primary/[0.07] border border-gh-primary/20"
+          >
+            <span class="w-2 h-2 rounded-full bg-green-500 shrink-0" />
+            <div class="min-w-0">
+              <p class="text-[10px] text-gray-600 uppercase tracking-wider">Kampaň</p>
+              <p class="text-sm text-gh-primary font-display font-semibold truncate">{{ campaignStore.currentCampaign.name }}</p>
+            </div>
+          </router-link>
 
           <!-- Nav links -->
           <div class="flex-1 py-3 px-3 overflow-hidden">
