@@ -12,16 +12,19 @@ Inspirováno projektem [gloomhaven-storyline.com](https://gloomhaven-storyline.c
 - **Questové linie** — 40 storyline questů s automatickým vyhodnocením progressu
 - **Osobní questy** — 24 personal questů s checkbox/number tracking, odemykání tříd
 - **Městské & cestovní události** — správa balíčků (odebírání, přidávání, vracení)
-- **Postavy** — 18 tříd, XP/gold/level, perky, inventář, osobní questy
-- **Družina** — reputace, prosperita, donace
+- **Postavy** — 18 tříd, XP/gold/level, perky, attack modifier deck vizualizace, inventář, osobní questy
+- **Družina** — reputace, prosperita, donace, odchod do důchodu s odemykáním tříd
 - **Achievementy** — globální + party, automatické udělení
-- **Předměty** — databáze 164+ předmětů se sloty
+- **Předměty** — databáze 164+ předmětů s fotkami, sloty a filtrováním
+- **Zapečetěné obálky** — A/B/☀/☾/X spoiler-safe tracking
 - **Mapa světa** — Leaflet mapa s pozicemi scénářů
 - **Příběh** — timeline dokončených scénářů s odměnami
 - **Cloud sync** — registrace, přihlášení, synchronizace kampaní
+- **Sdílení kampaní** — multiplayer přes kód, vlastník + členové
 - **PWA** — instalovatelná na telefon, offline podpora
+- **Spoiler režim** — skrývá odměny, poklady a nedostupné scénáře
 - **Export/Import** — JSON export kampaně
-- **Feedback** — plovoucí tlačítko pro nahlášení chyb
+- **Feedback** — plovoucí tlačítko s email notifikací
 
 ## Stack
 
@@ -34,7 +37,7 @@ Inspirováno projektem [gloomhaven-storyline.com](https://gloomhaven-storyline.c
 - **Leaflet** (mapa světa)
 - **panzoom** (flowchart touch/zoom)
 - **FastAPI** backend (auth, cloud sync, feedback)
-- **Vitest** (95 unit testů) + **Playwright** (9 E2E testů)
+- **Vitest** (105 unit testů) + **Playwright** (9 E2E testů)
 - **GitHub Actions** CI (TypeScript check + testy + build)
 
 ## Spuštění
@@ -47,14 +50,15 @@ npm run dev
 ## Testy
 
 ```bash
-npm test          # 95 unit testů (Vitest)
+npm test          # 105 unit testů (Vitest)
 npm run test:e2e  # 9 E2E testů (Playwright)
 ```
 
 ## Deploy
 
 ```bash
-bash scripts/deploy.sh  # Build + upload + restart na gloomhaven.ongy.cz
+bash scripts/deploy.sh        # Build + upload + restart (auto version bump)
+bash scripts/deploy.sh major  # Major version bump
 ```
 
 ## Struktura
