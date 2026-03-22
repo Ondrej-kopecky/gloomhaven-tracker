@@ -21,11 +21,11 @@
 - [x] **Monsters data** — 34 nestvůr EN/CZ v monsters-gh.json
 
 ## Co dál (priority)
-1. [ ] **Forgotten Circles scénáře** — filtrovat FC scénáře stejně jako FC itemy
-2. [ ] **České texty událostí** — přeložit příběhové texty (8700 řádků, nízká priorita)
-3. [ ] **Feedback checker** — při startu session zkontrolovat /api/feedback
-4. [ ] **Sdílení družiny** — multiplayer: sdílet kampaň napříč hráči (velká feature)
-5. [ ] **Attack modifier deck** — vizualizace balíčku po percích
+1. [x] **Forgotten Circles scénáře** — žádné FC scénáře v datech, nic k filtrování
+2. [x] **Feedback checker** — zkontrolováno, 1 testovací feedback, žádné bugy
+3. [ ] **Sdílení družiny** — ROZPRACOVÁNO, plán v .brain/memory/tasks/campaign-sharing.md
+4. [ ] **Attack modifier deck** — vizualizace balíčku po percích
+5. [ ] **České texty událostí** — přeložit příběhové texty (8700 řádků, nízká priorita)
 6. [ ] **Anglická verze webu** — i18n, přepínání CZ/EN (nápad)
 7. [ ] **Obálky** — tracking odemčených obálek (A, B, X, Slunce, Měsíc)
 
