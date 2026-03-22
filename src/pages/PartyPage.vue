@@ -46,6 +46,8 @@ const pendingRemove = ref<{ type: 'city' | 'road'; id: number } | null>(null)
 
 // Event outcome modal
 const eventOutcome = ref<{ type: 'city' | 'road'; id: number } | null>(null)
+const selectedOption = ref<string | null>(null)
+const effectsApplied = ref(false)
 const eventItemSearch = ref('')
 const eventScenarioSearch = ref('')
 const showEventItemPicker = ref(false)
@@ -86,8 +88,78 @@ const currentEventData = computed(() => {
   ) as any | null
 })
 
+const selectedOptionData = computed(() => {
+  if (!currentEventData.value || !selectedOption.value) return null
+  return currentEventData.value.options.find((o: any) => o.label === selectedOption.value) ?? null
+})
+
+const shouldReturnToDeck = computed(() => {
+  if (!selectedOptionData.value) return false
+  // Check option-level returnToDeck, or outcome-level
+  if (selectedOptionData.value.returnToDeck) return true
+  return selectedOptionData.value.outcomes?.some((o: any) => o.returnToDeck) ?? false
+})
+
+function selectOption(label: string) {
+  selectedOption.value = label
+  effectsApplied.value = false
+}
+
+function applyEffects() {
+  if (!selectedOptionData.value || !eventOutcome.value || effectsApplied.value) return
+
+  for (const outcome of selectedOptionData.value.outcomes) {
+    for (const effect of outcome.effects || []) {
+      const num = (pattern: RegExp) => {
+        const m = effect.label?.match(pattern)
+        return m ? parseInt(m[1]) : 0
+      }
+      switch (effect.type) {
+        case 'reputation':
+          partyStore.changeReputation(num(/([-+]?\d+)/))
+          break
+        case 'loseReputation':
+          partyStore.changeReputation(-num(/(\d+)/))
+          break
+        case 'prosperity':
+          if (campaignStore.currentCampaign) {
+            campaignStore.currentCampaign.prosperityIndex += num(/(\d+)/) || 1
+            campaignStore.autoSave()
+          }
+          break
+        case 'loseProsperity':
+          if (campaignStore.currentCampaign) {
+            campaignStore.currentCampaign.prosperityIndex = Math.max(0, campaignStore.currentCampaign.prosperityIndex - (num(/(\d+)/) || 1))
+            campaignStore.autoSave()
+          }
+          break
+        case 'unlockScenario': {
+          const id = effect.label?.match(/#(\d+)/)?.[1]
+          if (id) campaignStore.manuallyUnlockScenario(id)
+          break
+        }
+        case 'event': {
+          const match = effect.label?.match(/(\d+)/)
+          if (match) {
+            const evType = effect.label?.includes('City') || effect.label?.includes('město') ? 'city' : 'road'
+            partyStore.addEvent(evType, parseInt(match[1]))
+          }
+          break
+        }
+      }
+    }
+  }
+  effectsApplied.value = true
+}
+
 function closeEventOutcome() {
+  // Return to deck if needed
+  if (shouldReturnToDeck.value && eventOutcome.value) {
+    partyStore.returnEvent(eventOutcome.value.type, eventOutcome.value.id)
+  }
   eventOutcome.value = null
+  selectedOption.value = null
+  effectsApplied.value = false
   showEventItemPicker.value = false
   showEventScenarioPicker.value = false
   eventItemSearch.value = ''
@@ -686,45 +758,95 @@ function getClassName(classId: string): string {
             </button>
           </div>
 
-          <!-- Event options A/B with effects -->
-          <div v-if="currentEventData" class="mb-4 max-h-[50vh] overflow-y-auto">
-            <div v-for="opt in currentEventData.options" :key="opt.label" class="mb-3">
-              <h4 class="text-sm font-semibold text-gray-300 mb-1.5">
+          <!-- Step 1: Choose A or B -->
+          <div v-if="currentEventData && !selectedOption" class="mb-4">
+            <p class="text-xs text-gray-500 mb-3">Kterou volbu jste zvolili?</p>
+            <div class="flex gap-2">
+              <button
+                v-for="opt in currentEventData.options"
+                :key="opt.label"
+                class="flex-1 py-3 rounded-lg border text-sm font-semibold transition-all"
+                :class="opt.label === 'A'
+                  ? 'bg-blue-900/20 text-blue-400 border-blue-700/40 hover:bg-blue-900/40'
+                  : 'bg-amber-900/20 text-amber-400 border-amber-700/40 hover:bg-amber-900/40'"
+                @click="selectOption(opt.label)"
+              >
                 Volba {{ opt.label }}
-                <span v-if="opt.returnToDeck" class="text-[10px] text-gray-600 font-normal ml-1">(vrátit do balíčku)</span>
-              </h4>
-              <div v-for="(outcome, oi) in opt.outcomes" :key="oi" class="ml-2 mb-2">
-                <p v-if="outcome.condition" class="text-[11px] text-yellow-400/80 mb-1">
-                  {{ outcome.condition }}:
-                </p>
-                <div v-for="(effect, ei) in outcome.effects" :key="ei" class="text-sm text-gray-400 py-0.5">
-                  <template v-if="effect.type === 'choose'">
-                    <span class="text-gray-500 text-xs">Vyber: </span>
-                    <span v-for="(o, idx) in effect.options" :key="idx">
-                      {{ o }}<span v-if="idx < effect.options.length - 1" class="text-gray-600"> nebo </span>
-                    </span>
-                  </template>
-                  <template v-else>
-                    <span class="flex items-center gap-1.5">
-                      <span class="w-1 h-1 rounded-full" :class="{
-                        'bg-yellow-400/60': effect.label?.includes('zl.'),
-                        'bg-blue-400/60': effect.label?.includes('ZK'),
-                        'bg-purple-400/60': effect.label?.includes('reputace'),
-                        'bg-green-400/60': effect.label?.includes('blahobyt') || effect.label?.includes('Odemkni'),
-                        'bg-red-400/60': effect.label?.includes('zranění') || effect.label?.includes('-'),
-                        'bg-gray-400/60': !effect.label?.includes('zl.') && !effect.label?.includes('ZK'),
-                      }" />
-                      {{ effect.label }}
-                    </span>
-                  </template>
-                </div>
-              </div>
+              </button>
             </div>
           </div>
-          <p v-else class="text-xs text-gray-600 mb-4">Data pro tuto událost nejsou k dispozici.</p>
+
+          <!-- Step 2: Show outcomes for selected option -->
+          <div v-if="selectedOptionData" class="mb-4 max-h-[40vh] overflow-y-auto">
+            <div class="flex items-center gap-2 mb-3">
+              <h4 class="text-sm font-semibold" :class="selectedOption === 'A' ? 'text-blue-400' : 'text-amber-400'">
+                Volba {{ selectedOption }}
+              </h4>
+              <button class="text-[10px] text-gray-600 hover:text-gray-400 transition-colors" @click="selectedOption = null; effectsApplied = false">
+                (změnit)
+              </button>
+            </div>
+            <div v-for="(outcome, oi) in selectedOptionData.outcomes" :key="oi" class="mb-2">
+              <p v-if="outcome.condition" class="text-[11px] text-yellow-400/80 mb-1">
+                {{ outcome.condition }}:
+              </p>
+              <div v-for="(effect, ei) in outcome.effects" :key="ei" class="text-sm text-gray-400 py-0.5">
+                <template v-if="effect.type === 'choose'">
+                  <span class="text-gray-500 text-xs">Vyber: </span>
+                  <span v-for="(o, idx) in effect.options" :key="idx">
+                    {{ o }}<span v-if="idx < effect.options.length - 1" class="text-gray-600"> nebo </span>
+                  </span>
+                </template>
+                <template v-else>
+                  <span class="flex items-center gap-1.5">
+                    <span class="w-1 h-1 rounded-full" :class="{
+                      'bg-yellow-400/60': effect.label?.includes('zl.'),
+                      'bg-blue-400/60': effect.label?.includes('ZK'),
+                      'bg-purple-400/60': effect.label?.includes('reputace'),
+                      'bg-green-400/60': effect.label?.includes('blahobyt') || effect.label?.includes('Odemkni'),
+                      'bg-red-400/60': effect.label?.includes('zranění') || effect.label?.includes('-'),
+                      'bg-gray-400/60': !effect.label?.includes('zl.') && !effect.label?.includes('ZK'),
+                    }" />
+                    {{ effect.label }}
+                  </span>
+                </template>
+              </div>
+            </div>
+
+            <!-- Auto-apply button -->
+            <button
+              v-if="!effectsApplied"
+              class="w-full mt-2 py-2 bg-green-900/20 text-green-400 border border-green-700/30 rounded-lg text-xs font-medium hover:bg-green-900/40 transition-colors"
+              @click="applyEffects"
+            >
+              Aplikovat efekty (reputace, blahobyt, scénáře...)
+            </button>
+            <p v-else class="text-[10px] text-green-400/70 mt-2 flex items-center gap-1">
+              <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              Efekty aplikovány
+            </p>
+
+            <!-- Return to deck info -->
+            <p v-if="shouldReturnToDeck" class="text-[10px] text-blue-400/70 mt-1 flex items-center gap-1">
+              <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
+              </svg>
+              Karta se vrátí do balíčku
+            </p>
+            <p v-else class="text-[10px] text-red-400/50 mt-1 flex items-center gap-1">
+              <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg>
+              Karta se odstraní ze hry
+            </p>
+          </div>
+
+          <p v-if="!currentEventData" class="text-xs text-gray-600 mb-4">Data pro tuto událost nejsou k dispozici.</p>
 
           <!-- Quick actions: item/scenario pickers -->
-          <div class="border-t border-gh-border/40 pt-3 mb-4 flex flex-col gap-2">
+          <div v-if="selectedOption" class="border-t border-gh-border/40 pt-3 mb-4 flex flex-col gap-2">
             <p class="text-[10px] text-gray-600 mb-1">Rychlé akce</p>
 
             <!-- Item picker -->
