@@ -125,6 +125,33 @@ const statusLabels: Record<string, string> = {
   [ScenarioStatus.ATTEMPTED]: 'Pokus',
 }
 
+const gameTagTranslations: Record<string, string> = {
+  '{POISON}': 'Otrava',
+  '{WOUND}': 'Zranění',
+  '{STUN}': 'Omráčení',
+  '{MUDDLE}': 'Zmatení',
+  '{IMMOBILIZE}': 'Znehybnění',
+  '{DISARM}': 'Odzbrojení',
+  '{CURSE}': 'Kletba',
+  '{BLESS}': 'Požehnání',
+  '{INVISIBLE}': 'Neviditelnost',
+  '{PUSH}': 'Odstrčení',
+  '{PULL}': 'Přitažení',
+  '{PIERCE}': 'Průraznost',
+  '{SHIELD}': 'Obrana',
+  '{HEAL}': 'Léčení',
+  '{FIRE}': 'Oheň',
+  '{ICE}': 'Led',
+  '{AIR}': 'Vzduch',
+  '{EARTH}': 'Země',
+  '{LIGHT}': 'Světlo',
+  '{DARK}': 'Tma',
+}
+
+function translateGameTags(text: string): string {
+  return text.replace(/\{[A-Z_]+\}/g, (tag) => gameTagTranslations[tag] ?? tag)
+}
+
 const statusAccentColors: Record<string, string> = {
   [ScenarioStatus.HIDDEN]: 'bg-gray-700',
   [ScenarioStatus.COMPLETED]: 'bg-green-500',
@@ -445,7 +472,7 @@ function goToFlowchart(id: string) {
                     >
                       {{ t.id }}
                     </span>
-                    <span class="text-gray-400">{{ t.description }}</span>
+                    <span class="text-gray-400">{{ translateGameTags(t.description) }}</span>
                     <span v-if="selectedScenario.state.treasuresLooted.includes(t.id)" class="text-yellow-500/60 text-[10px]">vyzvednuto</span>
                   </div>
                 </div>
