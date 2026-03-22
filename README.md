@@ -75,7 +75,3 @@ src/
 e2e/                    # 2 Playwright test soubory
 api/                    # FastAPI backend (auth, campaigns, feedback)
 ```
-
-## Zdrojová data
-
-Data z [teamducro/gloomhaven-storyline](https://github.com/teamducro/gloomhaven-storyline) (CC-BY-NC-SA licence).
