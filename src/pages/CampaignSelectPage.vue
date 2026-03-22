@@ -85,6 +85,11 @@ async function handleJoin() {
       joinCode.value = ''
       showJoin.value = false
       await campaignStore.loadCampaignList()
+      // Auto-load the joined campaign
+      if (result.campaignId) {
+        await campaignStore.loadCampaign(result.campaignId)
+        router.push('/prehled')
+      }
       setTimeout(() => (joinSuccess.value = ''), 3000)
     } else {
       joinError.value = result.error ?? 'Neznámá chyba'
