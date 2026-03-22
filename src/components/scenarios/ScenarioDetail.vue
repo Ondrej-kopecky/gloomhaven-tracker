@@ -1,8 +1,12 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { ScenarioStatus } from '@/models/types'
 import { useScenarioStore } from '@/stores/scenarioStore'
 import { useAchievementStore } from '@/stores/achievementStore'
+import { useCharacterStore } from '@/stores/characterStore'
+import { useCampaignStore } from '@/stores/campaignStore'
+import type { ItemDefinition } from '@/models/Item'
+import itemsData from '@/data/items.json'
 
 const props = defineProps<{
   scenarioId: string
@@ -14,12 +18,135 @@ const emit = defineEmits<{
 
 const scenarioStore = useScenarioStore()
 const achievementStore = useAchievementStore()
+const characterStore = useCharacterStore()
+const campaignStore = useCampaignStore()
+
+const allItems = itemsData as ItemDefinition[]
+const itemSearch = ref('')
+const showItemPicker = ref(false)
+
+const itemSearchResults = computed(() => {
+  const q = itemSearch.value.toLowerCase().trim()
+  if (!q) return []
+  return allItems.filter((item) =>
+    item.name.toLowerCase().includes(q) || String(item.id) === q
+  ).slice(0, 8)
+})
+
+function unlockItem(itemId: number) {
+  campaignStore.unlockItemDesign(itemId)
+  itemSearch.value = ''
+  showItemPicker.value = false
+}
+
+function removeItem(itemId: number) {
+  campaignStore.removeItemDesign(itemId)
+}
+
+function getItemName(itemId: number): string {
+  return allItems.find((i) => i.id === itemId)?.name ?? `#${itemId}`
+}
+
+const scenarioUnlockedItems = computed(() => {
+  return campaignStore.unlockedItemDesigns
+    .map((id) => allItems.find((i) => i.id === id))
+    .filter((i): i is ItemDefinition => !!i)
+})
+
+const hasRandomItemTreasure = computed(() =>
+  scenario.value?.treasures.some((t) => /náhodný design předmětu/i.test(t.description)) ?? false
+)
+
+const hasRandomScenarioTreasure = computed(() =>
+  scenario.value?.treasures.some((t) => /náhodný vedlejší scénář/i.test(t.description)) ?? false
+)
+
+const scenarioSearch = ref('')
+const showScenarioPicker = ref(false)
+
+const scenarioSearchResults = computed(() => {
+  const q = scenarioSearch.value.toLowerCase().trim()
+  if (!q) return []
+  return scenarioStore.allScenarios
+    .filter((s) => {
+      const name = s.displayName.toLowerCase()
+      return name.includes(q) || s.id === q
+    })
+    .slice(0, 8)
+})
+
+const manuallyUnlockedScenariosList = computed(() => {
+  return campaignStore.manuallyUnlockedScenarios
+    .map((id) => {
+      const def = scenarioStore.getDefinition(id)
+      return def ? { id: def.id, name: def.nameCz ?? def.name } : null
+    })
+    .filter((s): s is { id: string; name: string } => !!s)
+})
+
+function unlockRandomScenario(id: string) {
+  campaignStore.manuallyUnlockScenario(id)
+  scenarioSearch.value = ''
+  showScenarioPicker.value = false
+}
+
+function removeUnlockedScenario(id: string) {
+  campaignStore.removeManuallyUnlockedScenario(id)
+}
+
+function onTreasureLoot(treasureId: string, description: string) {
+  const wasLooted = state.value.treasuresLooted.includes(treasureId)
+  scenarioStore.lootTreasure(scenario.value!.id, treasureId)
+  if (!wasLooted) {
+    if (/náhodný vedlejší scénář/i.test(description)) {
+      showScenarioPicker.value = true
+    } else if (/náhodný design předmětu/i.test(description)) {
+      showItemPicker.value = true
+    }
+  }
+}
 
 const scenario = computed(() => scenarioStore.getDefinition(props.scenarioId))
 const state = computed(() => scenarioStore.getState(props.scenarioId))
 const status = computed(() => scenarioStore.getScenarioStatus(props.scenarioId))
 const linksFrom = computed(() => scenarioStore.getLinksFrom(props.scenarioId))
 const linksTo = computed(() => scenarioStore.getLinksTo(props.scenarioId))
+
+const scenarioLevel = computed(() => {
+  const avg = characterStore.averageLevel
+  return Math.ceil(avg / 2)
+})
+
+const requirementLabels = computed(() => {
+  const s = scenario.value
+  if (!s?.requiredBy?.length) return [] as { text: string; met: boolean }[]
+  return s.requiredBy.flatMap((cond) => {
+    const labels: { text: string; met: boolean }[] = []
+    for (const id of cond.complete ?? []) {
+      if (/^\d+$/.test(id)) {
+        const name = scenarioStore.getDefinition(id)?.nameCz ?? scenarioStore.getDefinition(id)?.name ?? `#${id}`
+        const met = scenarioStore.getScenarioStatus(id) === ScenarioStatus.COMPLETED
+        labels.push({ text: `Dokončit scénář #${id} ${name}`, met })
+      } else {
+        const name = achievementStore.getName(id)
+        const met = achievementStore.isGlobalAchieved(id) || achievementStore.isPartyAchieved(id)
+        labels.push({ text: `Úspěch: ${name}`, met })
+      }
+    }
+    for (const id of cond.incomplete ?? []) {
+      if (/^\d+$/.test(id)) {
+        const name = scenarioStore.getDefinition(id)?.nameCz ?? scenarioStore.getDefinition(id)?.name ?? `#${id}`
+        const met = scenarioStore.getScenarioStatus(id) !== ScenarioStatus.COMPLETED
+        labels.push({ text: `Nedokončený scénář #${id} ${name}`, met })
+      } else {
+        const name = achievementStore.getName(id)
+        const met = !(achievementStore.isGlobalAchieved(id) || achievementStore.isPartyAchieved(id))
+        labels.push({ text: `Bez úspěchu: ${name}`, met })
+      }
+    }
+    return labels
+  })
+})
 
 const statusLabels: Record<string, string> = {
   [ScenarioStatus.HIDDEN]: 'Skryto',
@@ -87,7 +214,12 @@ function inputValue(e: Event): string {
             </span>
           </div>
           <h3 class="font-display text-lg font-semibold text-gray-200 mt-1.5 tracking-wide">{{ scenario.nameCz ?? scenario.name }}</h3>
-          <p class="text-xs text-gray-500 mt-0.5">{{ scenario.location }}</p>
+          <div class="flex items-center gap-2 mt-0.5">
+            <p class="text-xs text-gray-500">{{ scenario.location }}</p>
+            <span v-if="characterStore.activeCharacters.length > 0" class="text-xs text-gray-500">
+              · Úroveň scénáře: <span class="text-gh-primary font-semibold">{{ scenarioLevel }}</span>
+            </span>
+          </div>
         </div>
         <button
           class="p-1.5 text-gray-600 hover:text-gray-300 hover:bg-white/5 rounded-lg transition-colors"
@@ -123,8 +255,27 @@ function inputValue(e: Event): string {
         <p class="text-sm text-gray-400 italic leading-relaxed">{{ scenario.summary }}</p>
       </div>
 
-      <!-- Rewards -->
-      <div v-if="scenario.rewards" class="mb-4">
+      <!-- Requirements (conditions to play) -->
+      <div v-if="requirementLabels.length > 0" class="mb-4">
+        <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-2">Podmínky pro zahrání</h4>
+        <div v-for="(req, i) in requirementLabels" :key="i" class="text-sm py-0.5 flex items-center gap-1.5">
+          <span v-if="req.met" class="text-green-400/90 flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            {{ req.text }}
+          </span>
+          <span v-else class="text-yellow-400/90 flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+            </svg>
+            {{ req.text }}
+          </span>
+        </div>
+      </div>
+
+      <!-- Rewards (hidden until completed) -->
+      <div v-if="scenario.rewards && isCompleted" class="mb-4">
         <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-2">Odměny</h4>
         <div class="grid grid-cols-2 gap-1.5 text-sm">
           <div v-if="scenario.rewards.gold" class="text-yellow-400/90 flex items-center gap-1.5">
@@ -148,6 +299,109 @@ function inputValue(e: Event): string {
         </div>
       </div>
 
+      <!-- Random item design picker (only for scenarios with random item treasures) -->
+      <div v-if="isCompleted && hasRandomItemTreasure" class="mb-4">
+        <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-2">Vylosovaný předmět</h4>
+
+        <div v-if="scenarioUnlockedItems.length > 0" class="flex flex-col gap-1 mb-2">
+          <div v-for="item in scenarioUnlockedItems" :key="item.id" class="flex items-center justify-between text-sm bg-white/[0.03] rounded-lg px-2.5 py-1.5 border border-gh-border/30">
+            <span class="text-gray-300">
+              <span class="text-yellow-400/70 font-display">#{{ item.id }}</span> {{ item.name }}
+            </span>
+            <button
+              class="text-gray-600 hover:text-red-400 transition-colors p-0.5"
+              @click="removeItem(item.id)"
+            >
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div v-if="showItemPicker" class="relative">
+          <input
+            v-model="itemSearch"
+            type="text"
+            placeholder="Hledat předmět (název nebo #)..."
+            class="gh-input w-full text-sm"
+          />
+          <div v-if="itemSearchResults.length > 0" class="mt-1 rounded-lg border border-gh-border bg-gh-dark/98 overflow-hidden max-h-48 overflow-y-auto">
+            <button
+              v-for="item in itemSearchResults"
+              :key="item.id"
+              class="w-full text-left px-3 py-2 text-sm hover:bg-white/[0.06] transition-colors border-b border-gh-border/20 last:border-0"
+              @click="unlockItem(item.id)"
+            >
+              <span class="text-yellow-400/70 font-display">#{{ item.id }}</span>
+              <span class="text-gray-300 ml-1">{{ item.name }}</span>
+              <span class="text-gray-600 text-xs ml-1">{{ item.slot }}</span>
+            </button>
+          </div>
+        </div>
+        <button
+          v-if="!showItemPicker"
+          class="text-xs text-gray-500 hover:text-gray-300 transition-colors flex items-center gap-1"
+          @click="showItemPicker = true"
+        >
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+          Vybrat vylosovaný předmět
+        </button>
+      </div>
+
+      <!-- Random scenario unlock (only for scenarios with random scenario treasures) -->
+      <div v-if="isCompleted && hasRandomScenarioTreasure" class="mb-4">
+        <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-2">Vylosovaný scénář</h4>
+
+        <div v-if="manuallyUnlockedScenariosList.length > 0" class="flex flex-col gap-1 mb-2">
+          <div v-for="s in manuallyUnlockedScenariosList" :key="s.id" class="flex items-center justify-between text-sm bg-white/[0.03] rounded-lg px-2.5 py-1.5 border border-gh-border/30">
+            <span class="text-gray-300">
+              <span class="text-gh-primary/70 font-display">#{{ s.id }}</span> {{ s.name }}
+            </span>
+            <button
+              class="text-gray-600 hover:text-red-400 transition-colors p-0.5"
+              @click="removeUnlockedScenario(s.id)"
+            >
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div v-if="showScenarioPicker" class="relative">
+          <input
+            v-model="scenarioSearch"
+            type="text"
+            placeholder="Hledat scénář (název nebo #)..."
+            class="gh-input w-full text-sm"
+          />
+          <div v-if="scenarioSearchResults.length > 0" class="mt-1 rounded-lg border border-gh-border bg-gh-dark/98 overflow-hidden max-h-48 overflow-y-auto">
+            <button
+              v-for="s in scenarioSearchResults"
+              :key="s.id"
+              class="w-full text-left px-3 py-2 text-sm hover:bg-white/[0.06] transition-colors border-b border-gh-border/20 last:border-0"
+              @click="unlockRandomScenario(s.id)"
+            >
+              <span class="text-gh-primary/70 font-display">#{{ s.id }}</span>
+              <span class="text-gray-300 ml-1">{{ s.displayName }}</span>
+            </button>
+          </div>
+        </div>
+        <button
+          v-if="!showScenarioPicker"
+          class="text-xs text-gray-500 hover:text-gray-300 transition-colors flex items-center gap-1"
+          @click="showScenarioPicker = true"
+        >
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+          Vybrat vylosovaný scénář
+        </button>
+      </div>
+
       <!-- Achievements awarded -->
       <div v-if="scenario.achievementsAwarded?.length" class="mb-4">
         <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-2">Udělené úspěchy</h4>
@@ -164,15 +418,15 @@ function inputValue(e: Event): string {
         </div>
       </div>
 
-      <!-- Treasures -->
-      <div v-if="scenario.treasures.length > 0" class="mb-4">
+      <!-- Treasures (hidden until completed) -->
+      <div v-if="scenario.treasures.length > 0 && isCompleted" class="mb-4">
         <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-2">Poklady</h4>
         <div v-for="t in scenario.treasures" :key="t.id" class="flex items-center gap-2 text-sm py-1">
           <input
             type="checkbox"
             :checked="state.treasuresLooted.includes(t.id)"
             class="accent-yellow-400 rounded"
-            @change="scenarioStore.lootTreasure(scenario.id, t.id)"
+            @change="onTreasureLoot(t.id, t.description)"
           />
           <span class="text-gray-300">#{{ t.id }} <span v-if="t.description" class="text-gray-500">- {{ t.description }}</span></span>
         </div>
@@ -200,8 +454,8 @@ function inputValue(e: Event): string {
         </div>
       </div>
 
-      <!-- Connections: links to -->
-      <div v-if="linksFrom.length > 0" class="mb-4">
+      <!-- Connections: links to (hidden until completed) -->
+      <div v-if="linksFrom.length > 0 && isCompleted" class="mb-4">
         <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-2">Odemyká</h4>
         <div v-for="s in linksFrom" :key="s.id" class="text-sm text-gray-400 py-0.5">
           <span class="text-gh-primary/60 font-display">#{{ s.id }}</span>

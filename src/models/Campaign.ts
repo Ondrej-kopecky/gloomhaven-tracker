@@ -19,6 +19,8 @@ export interface CampaignState {
   players: string[]
   notes: string
   hideSpoilers?: boolean
+  unlockedItemDesigns?: number[]
+  manuallyUnlockedScenarios?: string[]
 }
 
 export interface CampaignSummary {

@@ -109,7 +109,9 @@ export const useScenarioStore = defineStore('scenario', () => {
         return false
       }) ?? false
 
-      if (isUnlocked || isTreasureUnlocked) {
+      const isManuallyUnlocked = campaignStore.manuallyUnlockedScenarios.includes(scenario.id)
+
+      if (isUnlocked || isTreasureUnlocked || isManuallyUnlocked) {
         statuses[scenario.id] = ScenarioStatus.AVAILABLE
       }
     }

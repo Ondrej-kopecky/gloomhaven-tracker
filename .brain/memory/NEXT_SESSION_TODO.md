@@ -14,6 +14,7 @@
 2. [ ] **Sdílení družiny** — multiplayer: sdílet kampaň napříč hráči (velká feature)
 3. [ ] **Attack modifier deck** — vizualizace balíčku po percích
 4. [ ] **Chybějící fotky předmětů** — #127, #149, #151-164 (v obálkách)
+5. [ ] **Anglická verze webu** — i18n, přepínání CZ/EN (nápad)
 
 ## Poznámky
 - Server: `ssh server` (Tailscale)

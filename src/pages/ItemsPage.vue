@@ -48,6 +48,9 @@ const sources = computed(() => {
 })
 
 function isItemAvailable(item: ItemDefinition): boolean {
+  // Manuálně odemčené designy (náhodné odměny ze scénářů)
+  if (campaignStore.unlockedItemDesigns.includes(item.id)) return true
+
   const src = item.source
 
   // Prosperity X → potřeba úroveň blahobytu >= X
