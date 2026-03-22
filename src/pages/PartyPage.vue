@@ -758,17 +758,17 @@ function getClassName(classId: string): string {
             </button>
           </div>
 
-          <!-- Step 1: Choose A or B -->
-          <div v-if="currentEventData && !selectedOption" class="mb-4">
-            <p class="text-xs text-gray-500 mb-3">Kterou volbu jste zvolili?</p>
+          <!-- Options A/B with effects — select one -->
+          <div v-if="currentEventData" class="mb-4 max-h-[50vh] overflow-y-auto">
+            <p class="text-xs text-gray-500 mb-3">Vyber volbu:</p>
             <div class="flex flex-col gap-2">
               <button
                 v-for="opt in currentEventData.options"
                 :key="opt.label"
                 class="w-full text-left px-4 py-3 rounded-lg border transition-all"
-                :class="opt.label === 'A'
-                  ? 'bg-blue-900/20 border-blue-700/40 hover:bg-blue-900/40'
-                  : 'bg-amber-900/20 border-amber-700/40 hover:bg-amber-900/40'"
+                :class="selectedOption === opt.label
+                  ? (opt.label === 'A' ? 'bg-blue-900/40 border-blue-500/60 ring-1 ring-blue-500/30' : 'bg-amber-900/40 border-amber-500/60 ring-1 ring-amber-500/30')
+                  : (opt.label === 'A' ? 'bg-blue-900/10 border-blue-800/30 hover:bg-blue-900/25' : 'bg-amber-900/10 border-amber-800/30 hover:bg-amber-900/25')"
                 @click="selectOption(opt.label)"
               >
                 <span class="text-sm font-semibold" :class="opt.label === 'A' ? 'text-blue-400' : 'text-amber-400'">
@@ -787,73 +787,38 @@ function getClassName(classId: string): string {
                 </div>
               </button>
             </div>
-          </div>
 
-          <!-- Step 2: Show outcomes for selected option -->
-          <div v-if="selectedOptionData" class="mb-4 max-h-[40vh] overflow-y-auto">
-            <div class="flex items-center gap-2 mb-3">
-              <h4 class="text-sm font-semibold" :class="selectedOption === 'A' ? 'text-blue-400' : 'text-amber-400'">
-                Volba {{ selectedOption }}
-              </h4>
-              <button class="text-[10px] text-gray-600 hover:text-gray-400 transition-colors" @click="selectedOption = null; effectsApplied = false">
-                (změnit)
+            <!-- Confirm & apply -->
+            <div v-if="selectedOption && !effectsApplied" class="mt-3">
+              <button
+                class="w-full py-2.5 bg-green-900/20 text-green-400 border border-green-700/30 rounded-lg text-sm font-medium hover:bg-green-900/40 transition-colors"
+                @click="applyEffects"
+              >
+                Potvrdit volbu {{ selectedOption }} a aplikovat efekty
               </button>
             </div>
-            <div v-for="(outcome, oi) in selectedOptionData.outcomes" :key="oi" class="mb-2">
-              <p v-if="outcome.condition" class="text-[11px] text-yellow-400/80 mb-1">
-                {{ outcome.condition }}:
+
+            <!-- Applied confirmation -->
+            <div v-if="effectsApplied" class="mt-3">
+              <p class="text-xs text-green-400/70 flex items-center gap-1">
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                Volba {{ selectedOption }} — efekty aplikovány
               </p>
-              <div v-for="(effect, ei) in outcome.effects" :key="ei" class="text-sm text-gray-400 py-0.5">
-                <template v-if="effect.type === 'choose'">
-                  <span class="text-gray-500 text-xs">Vyber: </span>
-                  <span v-for="(o, idx) in effect.options" :key="idx">
-                    {{ o }}<span v-if="idx < effect.options.length - 1" class="text-gray-600"> nebo </span>
-                  </span>
-                </template>
-                <template v-else>
-                  <span class="flex items-center gap-1.5">
-                    <span class="w-1 h-1 rounded-full" :class="{
-                      'bg-yellow-400/60': effect.label?.includes('zl.'),
-                      'bg-blue-400/60': effect.label?.includes('ZK'),
-                      'bg-purple-400/60': effect.label?.includes('reputace'),
-                      'bg-green-400/60': effect.label?.includes('blahobyt') || effect.label?.includes('Odemkni'),
-                      'bg-red-400/60': effect.label?.includes('zranění') || effect.label?.includes('-'),
-                      'bg-gray-400/60': !effect.label?.includes('zl.') && !effect.label?.includes('ZK'),
-                    }" />
-                    {{ effect.label }}
-                  </span>
-                </template>
-              </div>
+              <p v-if="shouldReturnToDeck" class="text-[10px] text-blue-400/70 mt-1 flex items-center gap-1">
+                <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
+                </svg>
+                Karta se vrátí do balíčku
+              </p>
+              <p v-else class="text-[10px] text-red-400/50 mt-1 flex items-center gap-1">
+                <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                </svg>
+                Karta se odstraní ze hry
+              </p>
             </div>
-
-            <!-- Auto-apply button -->
-            <button
-              v-if="!effectsApplied"
-              class="w-full mt-2 py-2 bg-green-900/20 text-green-400 border border-green-700/30 rounded-lg text-xs font-medium hover:bg-green-900/40 transition-colors"
-              @click="applyEffects"
-            >
-              Aplikovat efekty (reputace, blahobyt, scénáře...)
-            </button>
-            <p v-else class="text-[10px] text-green-400/70 mt-2 flex items-center gap-1">
-              <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-              </svg>
-              Efekty aplikovány
-            </p>
-
-            <!-- Return to deck info -->
-            <p v-if="shouldReturnToDeck" class="text-[10px] text-blue-400/70 mt-1 flex items-center gap-1">
-              <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
-              </svg>
-              Karta se vrátí do balíčku
-            </p>
-            <p v-else class="text-[10px] text-red-400/50 mt-1 flex items-center gap-1">
-              <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-              </svg>
-              Karta se odstraní ze hry
-            </p>
           </div>
 
           <p v-if="!currentEventData" class="text-xs text-gray-600 mb-4">Data pro tuto událost nejsou k dispozici.</p>
