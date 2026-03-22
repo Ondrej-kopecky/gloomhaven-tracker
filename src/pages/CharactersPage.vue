@@ -282,11 +282,13 @@ const availableClasses = computed(() => {
 
             <div class="flex-1 min-w-0">
               <h3 class="font-display font-semibold text-gray-100 tracking-wide text-lg">{{ char.playerName }}</h3>
-              <p class="text-sm text-gray-500 flex items-center gap-1.5 mt-0.5">
-                <ClassIcon :class-id="char.classId" :size="14" class="opacity-60" />
-                {{ classNames[char.classId] }}
-                <span v-if="char.owner" class="text-purple-400/70 ml-1">· {{ char.owner }}</span>
-              </p>
+              <div class="text-sm text-gray-500 mt-0.5">
+                <span class="inline-flex items-center gap-1">
+                  <ClassIcon :class-id="char.classId" :size="14" class="opacity-60" />
+                  {{ classNames[char.classId] }}
+                </span>
+                <span v-if="char.owner" class="text-purple-400/70"> · {{ char.owner }}</span>
+              </div>
             </div>
 
             <div class="text-right text-sm space-y-1 shrink-0">
