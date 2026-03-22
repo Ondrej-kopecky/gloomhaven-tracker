@@ -108,6 +108,9 @@ function selectOption(label: string) {
 function applyEffects() {
   if (!selectedOptionData.value || !eventOutcome.value || effectsApplied.value) return
 
+  // Actually remove the event now (was only opened in modal before)
+  partyStore.removeEvent(eventOutcome.value.type, eventOutcome.value.id)
+
   for (const outcome of selectedOptionData.value.outcomes) {
     for (const effect of outcome.effects || []) {
       const num = (pattern: RegExp) => {
@@ -153,8 +156,8 @@ function applyEffects() {
 }
 
 function closeEventOutcome() {
-  // Return to deck if needed
-  if (shouldReturnToDeck.value && eventOutcome.value) {
+  // If effects were applied and card should return to deck, return it
+  if (effectsApplied.value && shouldReturnToDeck.value && eventOutcome.value) {
     partyStore.returnEvent(eventOutcome.value.type, eventOutcome.value.id)
   }
   eventOutcome.value = null
@@ -168,10 +171,8 @@ function closeEventOutcome() {
 
 function confirmRemoveEvent(type: 'city' | 'road', id: number) {
   if (pendingRemove.value?.type === type && pendingRemove.value?.id === id) {
-    // Second tap — confirm removal
-    partyStore.removeEvent(type, id)
+    // Second tap — open outcome modal (don't remove yet)
     pendingRemove.value = null
-    // Show outcome modal
     eventOutcome.value = { type, id }
   } else {
     // First tap — mark as pending
