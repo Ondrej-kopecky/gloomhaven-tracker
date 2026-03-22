@@ -539,9 +539,17 @@ function formatDate(iso: string): string {
     </div>
 
     <!-- ── Nebezpečná zóna ── -->
-    <div v-if="campaignStore.hasCampaign" class="rounded-2xl p-6 border border-red-900/25 bg-red-900/[0.04]">
-      <h3 class="text-[11px] font-semibold text-red-400/60 uppercase tracking-wider mb-4">Nebezpečná zóna</h3>
-      <p class="text-xs text-gray-500 mb-4 leading-relaxed">Smazání kampaně je nevratné. Před smazáním si doporučujeme exportovat data.</p>
+    <div v-if="campaignStore.hasCampaign" class="gh-card relative overflow-hidden p-6">
+      <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-red-600"></div>
+      <div class="flex items-center gap-2 mb-4">
+        <div class="w-7 h-7 rounded-lg bg-red-600/15 flex items-center justify-center">
+          <svg class="w-4 h-4 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+          </svg>
+        </div>
+        <h3 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider">Nebezpečná zóna</h3>
+      </div>
+      <p class="text-xs text-gray-600 mb-4">Smazání kampaně je nevratné. Doporučujeme nejdřív exportovat.</p>
       <button
         v-if="!showResetConfirm"
         class="py-2 px-4 text-red-400/80 border border-red-900/30 rounded-lg hover:bg-red-900/15 transition-all text-sm"
