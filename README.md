@@ -1,7 +1,7 @@
 # Gloomhaven Campaign Tracker
 
 Webová aplikace pro sledování kampaně deskové hry **Gloomhaven** v češtině.
-Inspirováno projektem [gloomhaven-storyline.com](https://gloomhaven-storyline.com).
+Inspired by and special thanks to [gloomhaven-storyline.com](https://gloomhaven-storyline.com) for the original concept and scenario data.
 
 **Live:** [gloomhaven.ongy.cz](https://gloomhaven.ongy.cz)
 
