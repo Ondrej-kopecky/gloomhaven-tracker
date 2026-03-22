@@ -25,8 +25,8 @@ const allItems = itemsData as ItemDefinition[]
 const itemSearch = ref('')
 const showItemPicker = ref(false)
 
-// Nákresy předmětů jsou #72–95 (Random Item Design deck)
-const designItems = allItems.filter((item) => item.id >= 72 && item.id <= 95)
+// Nákresy předmětů jsou #71–95 (Random Item Design deck)
+const designItems = allItems.filter((item) => item.id >= 71 && item.id <= 95)
 
 const itemSearchResults = computed(() => {
   const q = itemSearch.value.toLowerCase().trim()
