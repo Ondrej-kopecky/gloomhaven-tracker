@@ -761,17 +761,20 @@ function getClassName(classId: string): string {
           <!-- Step 1: Choose A or B -->
           <div v-if="currentEventData && !selectedOption" class="mb-4">
             <p class="text-xs text-gray-500 mb-3">Kterou volbu jste zvolili?</p>
-            <div class="flex gap-2">
+            <div class="flex flex-col gap-2">
               <button
                 v-for="opt in currentEventData.options"
                 :key="opt.label"
-                class="flex-1 py-3 rounded-lg border text-sm font-semibold transition-all"
+                class="w-full text-left px-4 py-3 rounded-lg border transition-all"
                 :class="opt.label === 'A'
-                  ? 'bg-blue-900/20 text-blue-400 border-blue-700/40 hover:bg-blue-900/40'
-                  : 'bg-amber-900/20 text-amber-400 border-amber-700/40 hover:bg-amber-900/40'"
+                  ? 'bg-blue-900/20 border-blue-700/40 hover:bg-blue-900/40'
+                  : 'bg-amber-900/20 border-amber-700/40 hover:bg-amber-900/40'"
                 @click="selectOption(opt.label)"
               >
-                Volba {{ opt.label }}
+                <span class="text-sm font-semibold" :class="opt.label === 'A' ? 'text-blue-400' : 'text-amber-400'">
+                  Volba {{ opt.label }}
+                </span>
+                <p v-if="opt.choiceText" class="text-xs text-gray-500 mt-1 italic leading-relaxed">{{ opt.choiceText }}</p>
               </button>
             </div>
           </div>
