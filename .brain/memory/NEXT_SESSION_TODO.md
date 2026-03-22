@@ -17,6 +17,7 @@
 3. [ ] **Sdílení družiny** — multiplayer: sdílet kampaň napříč hráči (velká feature)
 4. [ ] **Attack modifier deck** — vizualizace balíčku po percích
 5. [ ] **Chybějící fotky předmětů** — #127, #149, #151-164 (v obálkách)
+6. [ ] **České texty událostí** — přeložit příběhové texty city/road events (8700 řádků, nízká priorita)
 6. [ ] **Anglická verze webu** — i18n, přepínání CZ/EN (nápad)
 
 ## Poznámky

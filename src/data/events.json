@@ -1,0 +1,6795 @@
+[
+  {
+    "id": 1,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Join the fray! These insults will not go unanswered!",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "experience",
+                "label": "+10 ZK každý"
+              },
+              {
+                "type": "choose",
+                "label": "Vyber jedno",
+                "options": [
+                  "-5 zl. každý",
+                  "-1 reputace"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Do your best to stop the fighting. This is a respectable establishment.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Pay for the thing. You never know.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Zaplatit 10 zl. společně",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ],
+            "returnToDeck": true
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ],
+            "returnToDeck": true
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Refuse to pay. Never trust a Vermling.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Pay for the thing. You never know.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Zaplatit 10 zl. společně",
+            "effects": [
+              {
+                "type": "itemCollective",
+                "label": "Předmět #125"
+              },
+              {
+                "type": "globalAchievement",
+                "label": "Globální úspěch: ancient-technology"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [],
+            "returnToDeck": true
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Refuse to pay. Never trust a Vermling.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Find a cat? You have more important things to do.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Reassure the boy and go find the cat.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseBattleGoal",
+                "label": "-1 cíl bitvy"
+              },
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Go help lay the foundation.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseBattleGoal",
+                "label": "-1 cíl bitvy"
+              },
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              },
+              {
+                "type": "prosperity",
+                "label": "+1 blahobyt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Take the opportunity to steal some valuables in the area while people are distracted.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "gold",
+                "label": "+5 zl. každý"
+              },
+              {
+                "type": "goldAdditional",
+                "label": "+5 zl. každý (navíc)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Go aid in the defense of the city.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "experience",
+                "label": "+5 ZK každý"
+              },
+              {
+                "type": "prosperity",
+                "label": "+1 blahobyt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "If the guards are distracted by an attacking force, now would be the perfect time to steal some valuables.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "randomItemDesign",
+                "label": "Náhodný design předmětu"
+              },
+              {
+                "type": "loseReputation",
+                "label": "-1 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Help the captain load his ship.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "gold",
+                "label": "+5 zl. každý"
+              },
+              {
+                "type": "loseReputation",
+                "label": "-1 reputace"
+              },
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Move on with your business. You don't have the time or inclination for such things.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              },
+              {
+                "type": "loseReputation",
+                "label": "-1 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "The map does look valuable. Decide to bargain for it.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Zaplatit [object Object] zl. společně",
+            "effects": [
+              {
+                "type": "unlockScenario",
+                "label": "Odemkni scénář #93"
+              },
+              {
+                "type": "partyAchievement",
+                "label": "Úspěch družiny: a-map-to-treasure"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ],
+            "returnToDeck": true
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Refuse to deal with the merchant.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Sell the goods.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "gold",
+                "label": "+10 zl. každý"
+              },
+              {
+                "type": "goldAdditional",
+                "label": "+5 zl. každý (navíc)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Donate the goods to the city.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "prosperity",
+                "label": "+1 blahobyt"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Play a game with the man. It may prove to be a good time.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Reputace ≥ -5",
+            "effects": [
+              {
+                "type": "loseGold",
+                "label": "-5 zl. každý"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "gold",
+                "label": "+5 zl. každý"
+              }
+            ],
+            "returnToDeck": true
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Refuse the game of dice.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Make a deal with the Harrower.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Zaplatit 5 zl. společně",
+            "effects": [
+              {
+                "type": "randomItemDesign",
+                "label": "Náhodný design předmětu"
+              },
+              {
+                "type": "loseReputation",
+                "label": "-1 reputace"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "loseReputation",
+                "label": "-1 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Shake your head and walk away. Best not to take chances in such situations.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Yield to the pie and admit defeat.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseReputation",
+                "label": "-1 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Power through the pain. You will not be bested!",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseBattleGoal",
+                "label": "-1 cíl bitvy"
+              },
+              {
+                "type": "gold",
+                "label": "+10 zl. každý"
+              },
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Stop and try the food.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: bless"
+              },
+              {
+                "type": "loseGold",
+                "label": "-3 zl. každý"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Continue on your way to a less adventurous meal.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Raise arms and fight the Lurkers back into the sea.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "experience",
+                "label": "+10 ZK každý"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Approach the Lurkers cautiously and attempt to communicate with them.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+2 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Do your best to explain that the man was like this when you found him.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Reputace ≥ 5",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "loseReputation",
+                "label": "-2 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Panic and kill the guard, then dispose of both corpses.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": []
+          },
+          {
+            "condition": "Zaplatit 15 zl. společně",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "loseBattleGoal",
+                "label": "-1 cíl bitvy"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Intervene on the boy's behalf.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Zaplatit 10 zl. společně",
+            "effects": [
+              {
+                "type": "event",
+                "label": "Přidej událost: city"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Let the guards haul the boy away to prison.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Demand a different payment. The single coin is an insult.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "collectiveGold",
+                "label": "+10 zl. společně"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Accept the strange coin and research it for hidden value.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "unlockScenario",
+                "label": "Odemkni scénář #81"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Decline to help the old woman.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseReputation",
+                "label": "-1 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Agree to help with the rat infestation.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "gold",
+                "label": "+2 zl. každý"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Attend the wedding with an expensive gift.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Reputace ≥ 9",
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+2 reputace"
+              }
+            ]
+          },
+          {
+            "condition": "Reputace < 10",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Attend the wedding and bring a mundane gift.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Reputace < -4",
+            "effects": [
+              {
+                "type": "loseCollectiveGold",
+                "label": "-5 zl. společně"
+              },
+              {
+                "type": "loseReputation",
+                "label": "-1 reputace"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "loseCollectiveGold",
+                "label": "-5 zl. společně"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Agree to guard the goods. It should be easy money.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Reputace ≥ 9",
+            "effects": [
+              {
+                "type": "collectiveGold",
+                "label": "+10 zl. společně"
+              }
+            ],
+            "returnToDeck": true
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "experience",
+                "label": "+5 ZK každý"
+              },
+              {
+                "type": "collectiveGold",
+                "label": "+10 zl. společně"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Politely decline. You have much better things to do tonight.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseProsperity",
+                "label": "-1 blahobyt"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Demand payment up front before agreeing to look for the man's brother.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Reputace ≥ 7",
+            "effects": [
+              {
+                "type": "collectiveGold",
+                "label": "+5 zl. společně"
+              },
+              {
+                "type": "event",
+                "label": "Přidej událost: road"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Agree to help the man in his search.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "event",
+                "label": "Přidej událost: road"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Further investigate the exchange between the men.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+2 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Leave the criminal element alone and continue enjoying the show.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "battleGoal",
+                "label": "+1 cíl bitvy"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Give chase. Thieves must be brought to justice.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "The thief had the right idea. Grab some vegetables for yourself.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: bless"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Join the expedition as a guard.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "experience",
+                "label": "+10 ZK každý"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Join the expedition as a logger.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "prosperity",
+                "label": "+1 blahobyt"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Attempt to catch the vase.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: brute / cragheart / lightning",
+            "effects": [
+              {
+                "type": "collectiveGold",
+                "label": "+5 zl. společně"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "loseCollectiveGold",
+                "label": "-10 zl. společně"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "With no time to react, watch the vase fall to the ground.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Offer to fix the lamps. It shouldn't be too hard with a bit of technical know-how.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: tinkerer",
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+2 reputace"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Take the opportunity to steal some valuables from drunk patrons in the dark.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: scoundrel / mindthief / eclipse",
+            "effects": [
+              {
+                "type": "collectiveGold",
+                "label": "+10 zl. společně"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "loseReputation",
+                "label": "-1 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Attempt to stop the crowd from hanging the Vermling.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: spellweaver / angry-face / music-note",
+            "effects": [
+              {
+                "type": "prosperity",
+                "label": "+1 blahobyt"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "loseReputation",
+                "label": "-1 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Take no action and see this through to its logical conclusion.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "event",
+                "label": "Přidej událost: city"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Accept the mysterious job. You can handle anything.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: scoundrel / mindthief / eclipse",
+            "effects": [
+              {
+                "type": "gold",
+                "label": "+10 zl. každý"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "loseReputation",
+                "label": "-3 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Incredulously explain she must have the wrong people and you won't take the job.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Talk to the Savvas, appealing to their sense of duty and community.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: cragheart / triangles",
+            "effects": [
+              {
+                "type": "prosperity",
+                "label": "+1 blahobyt"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ],
+            "returnToDeck": true
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Talk to the managers and attempt to get the Savvas better pay.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: scoundrel / saw / music-note",
+            "effects": [
+              {
+                "type": "prosperity",
+                "label": "+1 blahobyt"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ],
+            "returnToDeck": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Give chase! No one steals from you and gets away with it.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: mindthief",
+            "effects": [
+              {
+                "type": "gold",
+                "label": "+5 zl. každý"
+              },
+              {
+                "type": "itemCollective",
+                "label": "Předmět #105"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "loseGold",
+                "label": "-5 zl. každý"
+              }
+            ],
+            "returnToDeck": true
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Take a clear shot at him with a bow before he disappears into the grating.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseReputation",
+                "label": "-1 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Leave with the woman to help her find her missing daughter.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "collectiveGold",
+                "label": "+20 zl. společně"
+              },
+              {
+                "type": "unlockScenario",
+                "label": "Odemkni scénář #83"
+              },
+              {
+                "type": "partyAchievement",
+                "label": "Úspěch družiny: bad-business"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Refuse to help the woman and go back to gambling.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: sun",
+            "effects": [
+              {
+                "type": "outcome",
+                "label": "Viz podrobnosti"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "loseGold",
+                "label": "-10 zl. každý"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Agree to help the city guard.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: three-spears",
+            "effects": [
+              {
+                "type": "collectiveGold",
+                "label": "+15 zl. společně"
+              },
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Decline to help and instead sell this information to interested parties.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "collectiveGold",
+                "label": "+15 zl. společně"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Run to the girl and attempt to pull her out of the Void.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: circles / eclipse",
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+2 reputace"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Watch what happens with morbid curiosity.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Follow the man in an attempt to discover the Ravens' lair.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: eclipse",
+            "effects": [
+              {
+                "type": "unlockScenario",
+                "label": "Odemkni scénář #78"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ],
+            "returnToDeck": true
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Confront him on the spot and turn him over to the authorities.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Point the way to the Sinking Market - the only place that would deal with them.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "collectiveGold",
+                "label": "+1 zl. společně"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Escort the Harrowers to the New Market and help them find a spice merchant.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: squidface",
+            "effects": [
+              {
+                "type": "prosperity",
+                "label": "+1 blahobyt"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Join the fray! These insults will not go unanswered!",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: lightning",
+            "effects": [
+              {
+                "type": "experience",
+                "label": "+5 ZK každý"
+              },
+              {
+                "type": "loseReputation",
+                "label": "-2 reputace"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "loseReputation",
+                "label": "-1 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Do your best to stop the fighting. This is a respectable establishment.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: lightning",
+            "effects": [
+              {
+                "type": "loseCollectiveGold",
+                "label": "-10 zl. společně"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Attempt to console and cheer up those affected by the attack.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: music-note",
+            "effects": [
+              {
+                "type": "prosperity",
+                "label": "+1 blahobyt"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "loseReputation",
+                "label": "-1 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Help repair the gate. You wouldn't want another attack to further cripple the town.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: three-spears / spellweaver / tinkerer / triangles / circles",
+            "effects": [
+              {
+                "type": "prosperity",
+                "label": "+1 blahobyt"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Intervene on the Orchid's behalf.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: spellweaver / angry-face",
+            "effects": [
+              {
+                "type": "prosperity",
+                "label": "+1 blahobyt"
+              },
+              {
+                "type": "loseReputation",
+                "label": "-1 reputace"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "prosperity",
+                "label": "+1 blahobyt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Watch the fight with the crowd.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: spellweaver / angry-face",
+            "effects": [
+              {
+                "type": "loseReputation",
+                "label": "-1 reputace"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Agree to help the priest and accompany him to the sanctuary.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "event",
+                "label": "Přidej událost: city"
+              },
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Refuse to help, making some excuse about being too busy.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Rush to the aid of the residents and help put out the fire.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: tinkerer / saw / sun",
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+2 reputace"
+              }
+            ]
+          },
+          {
+            "condition": "Postava: spellweaver / triangles / circles",
+            "effects": [
+              {
+                "type": "prosperity",
+                "label": "+1 blahobyt"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Pursue the hooded figure and make him answer for this attack.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "itemCollective",
+                "label": "Předmět #102"
+              },
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Barter with the Vermling for the potion.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: two-mini",
+            "effects": [
+              {
+                "type": "itemCollective",
+                "label": "Předmět #34"
+              }
+            ]
+          },
+          {
+            "condition": "Zaplatit 25 zl. společně",
+            "effects": [
+              {
+                "type": "itemCollective",
+                "label": "Předmět #34"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [],
+            "returnToDeck": true
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Move along. You don't need any more potions.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Agree to help the presumptuous kid.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "prosperity",
+                "label": "+1 blahobyt"
+              },
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Tell this kid that he must have the wrong group of adventurers.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseReputation",
+                "label": "-1 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Oblige the Tinkerer and send along the contraption.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Zaplatit 5 zl. společně",
+            "effects": [
+              {
+                "type": "event",
+                "label": "Přidej událost: city"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "outcome",
+                "label": "Viz podrobnosti"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "You don't want to pay for postage. Just keep the thing for yourself.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "itemCollective",
+                "label": "Předmět #126"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Offer to help the blacksmith yourself.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: spellweaver / triangles / circles",
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              },
+              {
+                "type": "collectiveGold",
+                "label": "+10 zl. společně"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "loseReputation",
+                "label": "-1 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Direct him to the Savvas Elemental Guild and go back to sleep.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Cooperate with the guard and tell him everything you know.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Be as vague and unhelpful as possible, giving no useful information.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "event",
+                "label": "Přidej událost: city"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Have a drink with the Cragheart.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              },
+              {
+                "type": "loseGold",
+                "label": "-5 zl. každý"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Encourage the Cragheart to move on with its life.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Intervene with the guards and find out what is going on.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseReputation",
+                "label": "-1 reputace"
+              },
+              {
+                "type": "unlockScenario",
+                "label": "Odemkni scénář #87"
+              },
+              {
+                "type": "partyAchievement",
+                "label": "Úspěch družiny: the-poisons-source"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Let the guards continue their business and just continue with yours.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "event",
+                "label": "Přidej událost: city"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Begrudgingly pay for the note.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Zaplatit 5 zl. společně",
+            "effects": [
+              {
+                "type": "partyAchievement",
+                "label": "Úspěch družiny: sun-blessed"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Refuse to pay for the note.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "collectiveGold",
+                "label": "+3 zl. společně"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Agree to help him make contact with the military.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "prosperity",
+                "label": "+1 blahobyt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Demand a finder's fee for setting him up with buyers.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: scoundrel / saw / music-note",
+            "effects": [
+              {
+                "type": "collectiveGold",
+                "label": "+15 zl. společně"
+              },
+              {
+                "type": "outcome",
+                "label": "Viz podrobnosti"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Attack the beast from the wall, shooting arrows at it until it stops moving.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "experience",
+                "label": "+5 ZK každý"
+              },
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Work on reinforcing the walls. Hold it off for as long as possible.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "gold",
+                "label": "+10 zl. každý"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Tell the guard that the sword belongs to the Nightshroud, your former party member.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              },
+              {
+                "type": "event",
+                "label": "Přidej událost: city"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Lie and claim you know nothing.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: scoundrel / saw / music-note",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "loseReputation",
+                "label": "-1 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 52,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Calmly explain the situation to the Plagueherald, imploring it to move on.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseReputation",
+                "label": "-2 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Threaten the Plagueherald with retribution if it doesn't stop attacking residents.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "prosperity",
+                "label": "+1 blahobyt"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 53,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Let the guards know you recognize the Berserker's axe.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseReputation",
+                "label": "-1 reputace"
+              },
+              {
+                "type": "itemCollective",
+                "label": "Předmět #117"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Stay silent and keep out of it.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 54,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Go to the show and cheer on the Soothsinger.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Seems like a good opportunity to pick some pockets while people are distracted.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: scoundrel / mindthief / eclipse",
+            "effects": [
+              {
+                "type": "collectiveGold",
+                "label": "+20 zl. společně"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 55,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Vouch for the Orchids.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "prosperity",
+                "label": "+1 blahobyt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Advise against trading with the Orchids.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 56,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Tell him that joining the sanctuary is the right thing to do.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "prosperity",
+                "label": "+1 blahobyt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Tell him to follow his dreams.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "event",
+                "label": "Přidej událost: city"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 57,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Pay for the note.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Zaplatit 10 zl. společně",
+            "effects": [
+              {
+                "type": "itemDesign",
+                "label": "Design předmětu #118"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Refuse to pay for the note.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "collectiveGold",
+                "label": "+3 zl. společně"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 58,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Join the crowd in laughing at the man.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Calm down the crowd and get more details from the man about the attack.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "unlockScenario",
+                "label": "Odemkni scénář #91"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 59,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Help to dispose of the corpses as quickly as possible.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseReputation",
+                "label": "-1 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Investigate the corpses.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseProsperity",
+                "label": "-1 blahobyt"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 60,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Attempt to stop the men from burning down the shop.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: spellweaver / angry-face / music-note",
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Take part in the looting and burning of the store.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "gold",
+                "label": "+5 zl. každý"
+              },
+              {
+                "type": "loseProsperity",
+                "label": "-1 blahobyt"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 61,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Gratefully keep the spider.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "itemCollective",
+                "label": "Předmět #127"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "You can't decide who should keep it, so sell the spider and split the money.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "collectiveGold",
+                "label": "+30 zl. společně"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 62,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Have a drink and reminisce about old times.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "itemCollective",
+                "label": "Předmět #109"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Overpower the Scoundrel and deliver her to the city guards.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+3 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 63,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Agree to help.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "unlockScenario",
+                "label": "Odemkni scénář #86"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Tell the captain to fix his own problem.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseProsperity",
+                "label": "-1 blahobyt"
+              },
+              {
+                "type": "loseReputation",
+                "label": "-1 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 64,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Stay and listen to what the Nightshroud has to say.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "unlockScenario",
+                "label": "Odemkni scénář #89"
+              },
+              {
+                "type": "partyAchievement",
+                "label": "Úspěch družiny: sin-ra"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Claim you want nothing to do with this and walk away.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "event",
+                "label": "Přidej událost: road"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 65,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Raid the warehouse and recover the stolen goods.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+2 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Wait until the thieves return so you can apprehend them.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "prosperity",
+                "label": "+1 blahobyt"
+              },
+              {
+                "type": "reputation",
+                "label": "+2 reputace"
+              },
+              {
+                "type": "reputationAdditional",
+                "label": "+1 reputace (navíc)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 66,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Offer to pay off the Sawbones' debt.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Zaplatit 40 zl. společně",
+            "effects": [
+              {
+                "type": "itemCollective",
+                "label": "Předmět #55"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "outcome",
+                "label": "Viz podrobnosti"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Get the Sawbones on a boat across the Misty Sea. New adventures surely await there.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "event",
+                "label": "Přidej událost: city"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 67,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Pay off the thugs.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Zaplatit 60 zl. společně",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "outcome",
+                "label": "Viz podrobnosti"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Refuse to pay. You won't be strong-armed by anyone.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "unlockScenario",
+                "label": "Odemkni scénář #92"
+              },
+              {
+                "type": "partyAchievement",
+                "label": "Úspěch družiny: debt-collection"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 68,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Find some way to get the water to stop gushing.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: circles / eclipse",
+            "effects": [
+              {
+                "type": "unlockScenario",
+                "label": "Odemkni scénář #88"
+              },
+              {
+                "type": "partyAchievement",
+                "label": "Úspěch družiny: water-staff"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "loseCollectiveGold",
+                "label": "-15 zl. společně"
+              },
+              {
+                "type": "unlockScenario",
+                "label": "Odemkni scénář #88"
+              },
+              {
+                "type": "partyAchievement",
+                "label": "Úspěch družiny: water-staff"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Get the staff out of your room and throw it into the bay.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 69,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Embrace the joke and go with it.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Leave the bar before someone recognizes you.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseReputation",
+                "label": "-1 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 70,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Talk to some merchants about revitalizing the area.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Reputace ≥ 9",
+            "effects": [
+              {
+                "type": "prosperity",
+                "label": "+1 blahobyt"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "loseReputation",
+                "label": "-1 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Regretfully explain that you don't have the power to effect change like this.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 71,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Let the sphere go.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "event",
+                "label": "Přidej událost: city"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Jump into the river and continue to follow the sphere's pull.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseBattleGoal",
+                "label": "-1 cíl bitvy"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 72,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Follow the smelly old bandit.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "unlockScenario",
+                "label": "Odemkni scénář #79"
+              },
+              {
+                "type": "partyAchievement",
+                "label": "Úspěch družiny: fishs-aid"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Refuse to go with the man. This whole situation seems...fishy.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 73,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Seek help from the University.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseCollectiveGold",
+                "label": "-5 zl. společně"
+              },
+              {
+                "type": "unlockScenario",
+                "label": "Odemkni scénář #84"
+              },
+              {
+                "type": "partyAchievement",
+                "label": "Úspěch družiny: tremors"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Throw the crystal into the bay.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseProsperity",
+                "label": "-1 blahobyt"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 74,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Go watch the dancing bear.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Visit the famed fortune-teller.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: curse"
+              },
+              {
+                "type": "experience",
+                "label": "+2 ZK každý"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 75,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Lie and say that you are still working on it.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseReputation",
+                "label": "-1 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Tell the Captain you decided not to kill the Elder Drake.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseReputation",
+                "label": "-2 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 76,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Accept the drink.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Reputace ≥ 14",
+            "effects": [
+              {
+                "type": "unlockScenario",
+                "label": "Odemkni scénář #74"
+              },
+              {
+                "type": "partyAchievement",
+                "label": "Úspěch družiny: high-sea-escort"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ],
+            "returnToDeck": true
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Decline the suspicious offer and continue your business.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 77,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Do the job.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Reputace < -14",
+            "effects": [
+              {
+                "type": "unlockScenario",
+                "label": "Odemkni scénář #75"
+              },
+              {
+                "type": "partyAchievement",
+                "label": "Úspěch družiny: grave-job"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ],
+            "returnToDeck": true
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Claim you've changed your ways and grave robbing is a step too far.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 78,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Accept the man's deal.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "unlockScenario",
+                "label": "Odemkni scénář #94"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Demand payment for the job up-front.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "collectiveGold",
+                "label": "+5 zl. společně"
+              },
+              {
+                "type": "outcome",
+                "label": "Viz podrobnosti"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 79,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Intervene on the man's behalf.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseProsperity",
+                "label": "-1 blahobyt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Keep walking.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseReputation",
+                "label": "-1 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 80,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Attempt to calm down the guards and explain the situation.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: scoundrel / saw / music-note",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "loseReputation",
+                "label": "-1 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "These guards are not interested in a friendly discourse. Prepare to defend yourself.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseReputation",
+                "label": "-2 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 81,
+    "type": "city",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Take the time to relate the story of what happened.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+2 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Claim it wasn't you and leave quickly.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseReputation",
+                "label": "-2 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Run from the howling to safety.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: poison"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Let the wolves come.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioDamage",
+                "label": "3 zranění na začátku scénáře"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Eat the berries.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: bless"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Pass by the berries and just eat your normal rations.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Eat the berries.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: poison"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Pass by the berries and just eat your normal rations.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Approach the caravan and offer to travel with them until your paths diverge.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "gold",
+                "label": "+2 zl. každý"
+              },
+              {
+                "type": "goldAdditional",
+                "label": "+1 zl. každý (navíc)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Attack the caravan.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "gold",
+                "label": "+10 zl. každý"
+              },
+              {
+                "type": "loseReputation",
+                "label": "-2 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Help the Inox fight off the humans.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "itemCollective",
+                "label": "Předmět #106"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Help the humans fight off the Inox.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: curse"
+              },
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Take the opportunity to run from the bear before it gets any closer.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseBattleGoal",
+                "label": "-1 cíl bitvy"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Attack the bear, hopefully catching it by surprise.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: wound"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Head into the forest to investigate the chanting.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "experience",
+                "label": "+5 ZK každý"
+              },
+              {
+                "type": "loseBattleGoal",
+                "label": "-1 cíl bitvy"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Keep moving on down the road. No need to get mixed up in whatever is going on.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Pay the thieves.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseGold",
+                "label": "-5 zl. každý"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Resist the robbery, killing as many thieves as you can.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioDamage",
+                "label": "3 zranění na začátku scénáře"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Help out the guard.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "consumeCollectiveItem",
+                "label": "Spotřebuj předmět společně"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Claim you have no aid to give and move on.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseReputation",
+                "label": "-1 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Use weights and ropes to climb out of the hole as quickly as possible.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioDamage",
+                "label": "1 zranění na začátku scénáře"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Explore the area.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "event",
+                "label": "Přidej událost: city"
+              },
+              {
+                "type": "scenarioDamage",
+                "label": "1 zranění na začátku scénáře"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Try to find a clearing where you can avoid the falling rocks.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioDamage",
+                "label": "2 zranění na začátku scénáře"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Take cover under a nearby outcropping and wait out the earthquake.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: cragheart / spellweaver / triangles / circles",
+            "effects": [
+              {
+                "type": "event",
+                "label": "Přidej událost: city"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "scenarioDamage",
+                "label": "4 zranění na začátku scénáře"
+              }
+            ],
+            "returnToDeck": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Leave the puppy to fend for itself.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Take the puppy and bring it back to Gloomhaven.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioSingleMinus1",
+                "label": "Přidej -1 do balíčku modifikátorů"
+              },
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Defend yourself with lethal force.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "gold",
+                "label": "+2 zl. každý"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Attempt to calm down the hermit and resolve the situation peacefully.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: curse"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Shoot at the birds.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: bless"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Let the birds pass undisturbed.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Shoot at the birds.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: muddle"
+              },
+              {
+                "type": "scenarioDamage",
+                "label": "2 zranění na začátku scénáře"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Let the birds pass undisturbed.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Shoot at one of the deer.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: curse"
+              },
+              {
+                "type": "scenarioDamage",
+                "label": "2 zranění na začátku scénáře"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Just watch the deer for a little bit.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: bless"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Do whatever the Quatryl says.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "collectiveGold",
+                "label": "+5 zl. společně"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Demand an explanation before you help in any way.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "prosperity",
+                "label": "+1 blahobyt"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Attempt to come to a peaceful resolution.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Reputace < -4",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: curse"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Attack the insulting, contemptuous Inox.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioDamage",
+                "label": "3 zranění na začátku scénáře"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Help the guards catch the escaping man.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Reputace < -4",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Interfere with the guards to help the man escape.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseReputation",
+                "label": "-2 reputace"
+              },
+              {
+                "type": "itemCollective",
+                "label": "Předmět #41"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "The song must serve some nefarious purpose. Attack the Vermlings.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: poison"
+              },
+              {
+                "type": "scenarioDamage",
+                "label": "2 zranění na začátku scénáře"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Move closer and enjoy the music.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "experience",
+                "label": "+3 ZK každý"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Keep moving forward.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: wound"
+              },
+              {
+                "type": "scenarioDamage",
+                "label": "3 zranění na začátku scénáře"
+              },
+              {
+                "type": "loseBattleGoal",
+                "label": "-1 cíl bitvy"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Follow the animals' cue and run in the opposite direction.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "discard",
+                "label": "Odhoď 2 karet"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Help push out the Quatryl ringmaster's wagon.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "event",
+                "label": "Přidej událost: city"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Help push out the fortune-teller's wagon.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "experience",
+                "label": "+2 ZK každý"
+              },
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: curse"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Bring the man some leaves.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Grab his stuff and run off while he's indisposed.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "gold",
+                "label": "+2 zl. každý"
+              },
+              {
+                "type": "loseReputation",
+                "label": "-1 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Aid the Inox with what they are carrying.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "collectiveGold",
+                "label": "+10 zl. společně"
+              },
+              {
+                "type": "discard",
+                "label": "Odhoď 2 karet"
+              },
+              {
+                "type": "unlockScenario",
+                "label": "Odemkni scénář #82"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Ignore the Shaman's ramblings.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "unlockScenario",
+                "label": "Odemkni scénář #82"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Try to reason with the Inox.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: brute / lightning",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ],
+            "returnToDeck": true
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "loseGold",
+                "label": "-5 zl. každý"
+              }
+            ],
+            "returnToDeck": true
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Fight off the Inox. They'll get no payments from you.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioDamage",
+                "label": "3 zranění na začátku scénáře"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Attempt to help the man with his axle problem.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: tinkerer / three-spears",
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: bless"
+              },
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Tie up the man and take all of the goods he is so concerned about.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "collectiveGold",
+                "label": "+10 zl. společně"
+              },
+              {
+                "type": "loseReputation",
+                "label": "-1 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Clear the trees from the road. It is the best way through and will help other travelers.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: spellweaver / triangles / circles",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "discard",
+                "label": "Odhoď 3 karet"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Take the time to find a way around the trees.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioDamage",
+                "label": "2 zranění na začátku scénáře"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Sell the man a stamina potion.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Odevzdat předmět společně",
+            "effects": [
+              {
+                "type": "collectiveGold",
+                "label": "+10 zl. společně"
+              },
+              {
+                "type": "collectiveGoldAdditional",
+                "label": "+10 zl. společně (navíc)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Politely decline and move quickly on your way.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Attempt to clear the stones from the path.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: cragheart",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "discard",
+                "label": "Odhoď 2 karet"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Backtrack and find a way around the stone-filled valley.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: wound"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Help the survivors deal with the carnage.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: mindthief / two-mini",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "consumeItem",
+                "label": "Spotřebuj předmět (malý)"
+              },
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Finish the job the Vermlings started and loot whatever is left.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "gold",
+                "label": "+2 zl. každý"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Charge into the fray to protect the caravan from the savage attack.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: brute / tinkerer / three-spears",
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+2 reputace"
+              },
+              {
+                "type": "scenarioDamage",
+                "label": "3 zranění na začátku scénáře"
+              },
+              {
+                "type": "gold",
+                "label": "+5 zl. každý"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "scenarioDamage",
+                "label": "3 zranění na začátku scénáře"
+              },
+              {
+                "type": "gold",
+                "label": "+5 zl. každý"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Watch for a while and wait for an opportune moment to strike.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioDamage",
+                "label": "1 zranění na začátku scénáře"
+              },
+              {
+                "type": "gold",
+                "label": "+5 zl. každý"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Give the Valraths a portion of your supplies.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: three-spears",
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "loseGold",
+                "label": "-5 zl. každý"
+              },
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "You spent good money on these supplies. Refuse to help.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseReputation",
+                "label": "-1 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Investigate further. Whatever forces are at work must be put in check.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: eclipse / circles",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "scenarioDamage",
+                "label": "1 zranění na začátku scénáře"
+              },
+              {
+                "type": "discardOne",
+                "label": "Odhoď 1 kartu"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Get out of this place as quickly as you can.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioDamage",
+                "label": "3 zranění na začátku scénáře"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Quickly put out the fire and sneak out into the brush to get a look.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: scoundrel / mindthief / eclipse",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "scenarioDamage",
+                "label": "4 zranění na začátku scénáře"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Wait by the fire for whatever comes.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: brute / lightning",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "discard",
+                "label": "Odhoď 2 karet"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Fight off the men. This is highway robbery, whatever the motive.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: squidface",
+            "effects": [
+              {
+                "type": "scenarioDamage",
+                "label": "1 zranění na začátku scénáře"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: poison"
+              },
+              {
+                "type": "scenarioDamage",
+                "label": "3 zranění na začátku scénáře"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Pay the men and be on your way.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Zaplatit 5 zl. každý",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "outcome",
+                "label": "Viz podrobnosti"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Continue down the path into the wood. You are not afraid.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: lightning / two-mini / angry-face",
+            "effects": []
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: poison"
+              },
+              {
+                "type": "scenarioDamage",
+                "label": "2 zranění na začátku scénáře"
+              }
+            ],
+            "returnToDeck": true
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Find another way to your destination.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "discardOne",
+                "label": "Odhoď 1 kartu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Brave the storm and continue on your way. It's not that bad.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: music-note",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "discard",
+                "label": "Odhoď 2 karet"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Wait out the storm under the outcropping.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: disarm"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Head off into the forest to find out what happened.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: lightning / two-mini / angry-face",
+            "effects": [
+              {
+                "type": "prosperity",
+                "label": "+1 blahobyt"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "loseBattleGoal",
+                "label": "-1 cíl bitvy"
+              },
+              {
+                "type": "discardOne",
+                "label": "Odhoď 1 kartu"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Move on. That forest does not look friendly.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Help the poor Valrath.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: saw",
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: poison"
+              },
+              {
+                "type": "loseCollectiveGold",
+                "label": "-10 zl. společně"
+              },
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "This is clearly some sort of plague. Avoid it at all costs.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Ford the river where you are. It is not ideal, but it should be possible.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: spellweaver / triangles / circles",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: muddle"
+              },
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: immobilize"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Head downriver and find a better place to cross.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "discard",
+                "label": "Odhoď 2 karet"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Attempt to calm the bear and back away slowly.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: two-mini",
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: wound"
+              },
+              {
+                "type": "scenarioDamage",
+                "label": "3 zranění na začátku scénáře"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Arm yourself and fight off the bear.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioDamage",
+                "label": "2 zranění na začátku scénáře"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Agree to travel with the Brute for a little while. So what if it's in the wrong direction?",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "discard",
+                "label": "Odhoď 3 karet"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Regretfully leave the Brute to his duties and continue on your way.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "event",
+                "label": "Přidej událost: road"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Take the core with you.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioSingleMinus1",
+                "label": "Přidej -1 do balíčku modifikátorů"
+              },
+              {
+                "type": "collectiveGold",
+                "label": "+10 zl. společně"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Leave the core alone. You don't want anything weighing you down in battle.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Renew your efforts to slay the demons.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "unlockScenario",
+                "label": "Odemkni scénář #90"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Use the distraction to disengage from the demons and run away.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Attack. Friend or not, those who prey on the weak should be brought to justice.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: poison"
+              },
+              {
+                "type": "scenarioDamage",
+                "label": "2 zranění na začátku scénáře"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Let the bandits go.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Take the risk to climb the ridge and investigate the rocks.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": []
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Forget about the rocks and continue on your journey.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Move on, leaving the strange Vermling in peace.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Kill the savage little beast.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: poison"
+              },
+              {
+                "type": "scenarioDamage",
+                "label": "2 zranění na začátku scénáře"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Give them whatever information you can on the Sunkeeper's whereabouts.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "event",
+                "label": "Přidej událost: road"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Attack the demons. There are a lot of them, but you do not take kindly to threats.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: muddle"
+              },
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: wound"
+              },
+              {
+                "type": "scenarioDamage",
+                "label": "3 zranění na začátku scénáře"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Claim allegiance to the military.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "unlockScenario",
+                "label": "Odemkni scénář #80"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Claim allegiance to the merchant guilds.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "unlockScenario",
+                "label": "Odemkni scénář #80"
+              },
+              {
+                "type": "scenarioDamage",
+                "label": "4 zranění na začátku scénáře"
+              },
+              {
+                "type": "gold",
+                "label": "+5 zl. každý"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Take the staff and move on.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "event",
+                "label": "Přidej událost: city"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Investigate the area and get to the bottom of this.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "discard",
+                "label": "Odhoď 2 karet"
+              },
+              {
+                "type": "outcome",
+                "label": "Viz podrobnosti"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Investigate further.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "itemCollective",
+                "label": "Předmět #129"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Arm yourself and make a defensive retreat from the area.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 52,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Leave the corpses alone.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Inspect the corpses for valuables.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: poison"
+              },
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: curse"
+              },
+              {
+                "type": "collectiveGold",
+                "label": "+10 zl. společně"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 53,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Help the Berserker fight off the guards.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioDamage",
+                "label": "3 zranění na začátku scénáře"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Wait and see what happens. It looks like she's handling herself well enough.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "consumeItem",
+                "label": "Spotřebuj předmět (malý)"
+              },
+              {
+                "type": "itemCollective",
+                "label": "Předmět #117"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 54,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Take the time to escort the troupe back out of the forest.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              },
+              {
+                "type": "discard",
+                "label": "Odhoď 2 karet"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Give detailed directions about the way out and hope that is sufficient.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": "Postava: lightning / two-mini / angry-face",
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          },
+          {
+            "condition": "Jinak",
+            "effects": [
+              {
+                "type": "event",
+                "label": "Přidej událost: city"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 55,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Take the clear path.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Take the overgrown path.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: poison"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 56,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Help the wounded man as best you can.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Let the man die and take his belongings.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "gold",
+                "label": "+3 zl. každý"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 57,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Accept the gift of the Savvas.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Downplay your struggle and politely decline the Savvas's offer.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "discard",
+                "label": "Odhoď 2 karet"
+              },
+              {
+                "type": "event",
+                "label": "Přidej událost: road"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 58,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Follow the wolf.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Find your own way through the forest.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "discard",
+                "label": "Odhoď 3 karet"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 59,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Cover yourself as best you can and try to walk through the swarm.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioDamage",
+                "label": "2 zranění na začátku scénáře"
+              },
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: poison"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Use whatever you can to burn a path through the swarm.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "discard",
+                "label": "Odhoď 2 karet"
+              },
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: curse"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 60,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Respectfully bury the dead and mourn their loss.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+1 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Take what you can find and move on.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "itemCollective",
+                "label": "Předmět #18"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 61,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Leave the scene quietly and return to your own business.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "event",
+                "label": "Přidej událost: road"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Attack the demons and free the Sunkeeper.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "unlockScenario",
+                "label": "Odemkni scénář #85"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 62,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Agree to help the Sun Demons.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "unlockScenario",
+                "label": "Odemkni scénář #85"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Attack the Sun Demons. It may be the only way to stop them from bothering you.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: muddle"
+              },
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: wound"
+              },
+              {
+                "type": "scenarioDamage",
+                "label": "3 zranění na začátku scénáře"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 63,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Thank the Savvas for his timely assistance.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "noEffect",
+                "label": "Bez efektu"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Admonish the Savvas, claiming you could have handled the demons without his help.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "itemCollective",
+                "label": "Předmět #49"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 64,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Investigate further.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseBattleGoal",
+                "label": "-1 cíl bitvy"
+              },
+              {
+                "type": "discard",
+                "label": "Odhoď 4 karet"
+              },
+              {
+                "type": "scenarioDamage",
+                "label": "4 zranění na začátku scénáře"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Arm yourself and make a defensive retreat from the area.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseBattleGoal",
+                "label": "-1 cíl bitvy"
+              },
+              {
+                "type": "discard",
+                "label": "Odhoď 2 karet"
+              },
+              {
+                "type": "scenarioDamage",
+                "label": "2 zranění na začátku scénáře"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 65,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Bury the man and bring the chain back to his brother.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+2 reputace"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Take the chain for yourself and don't tell the brother.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "gold",
+                "label": "+3 zl. každý"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 66,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Take cover.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "gold",
+                "label": "+25 zl. každý"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Attack the Inox.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "gold",
+                "label": "+25 zl. každý"
+              },
+              {
+                "type": "scenarioCondition",
+                "label": "Stav na začátku scénáře: wound"
+              },
+              {
+                "type": "scenarioDamage",
+                "label": "2 zranění na začátku scénáře"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 67,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Demonstrate your virtue by offering to escort the merchant back to Gloomhaven.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "prosperity",
+                "label": "+1 blahobyt"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Demonstrate your lack of virtue by robbing the merchant.",
+        "returnToDeck": false,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "gold",
+                "label": "+20 zl. každý"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 68,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Take what you want and move on.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "gold",
+                "label": "+10 zl. každý"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Calm the merchant and explain that not all mercenaries are bloodthirsty thieves.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "reputation",
+                "label": "+2 reputace"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 69,
+    "type": "road",
+    "options": [
+      {
+        "label": "A",
+        "choiceText": "Chase them down quickly and kill them.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "experience",
+                "label": "+5 ZK každý"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "choiceText": "Follow them more slowly, attempting to discover where they came from.",
+        "returnToDeck": true,
+        "outcomes": [
+          {
+            "condition": null,
+            "effects": [
+              {
+                "type": "loseBattleGoal",
+                "label": "-1 cíl bitvy"
+              },
+              {
+                "type": "prosperity",
+                "label": "+1 blahobyt"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
