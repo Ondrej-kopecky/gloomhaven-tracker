@@ -1,20 +1,23 @@
 # Next Session TODO
 
-**Date:** 2026-03-21
-**Last session:** Players bug fix, cloud DB repair
+**Date:** 2026-03-22
+**Last session:** Feedback od Jakuba — scenario detail, spoilery, random reward pickery, item images
 
-## Co se udělalo 2026-03-21 (evening session)
-- [x] **Players bug fix** — campaign.players bylo None v cloudu, HRÁČI na Družině ukazovalo 0
-  - Auto-populate z character.owner při loadCampaign (pokud players prázdné)
-  - Cloud DB opravena ručně (docker exec → sqlite3 update)
-  - Pozor: `character.playerName` = jméno POSTAVY, `character.owner` = jméno HRÁČE
+## Co se udělalo 2026-03-22
+- [x] **Úroveň scénáře** — auto výpočet ceil(avg level / 2)
+- [x] **Podmínky pro zahrání** — checklist s fajfka/vykřičník
+- [x] **Spoiler ochrana** — odměny/poklady/odemykané scénáře skryté do dokončení
+- [x] **Random item picker** — výběr vylosovaného předmětu, ukládá do campaign state
+- [x] **Random scenario picker** — výběr vylosovaného scénáře, odemkne na flowchartu
+- [x] **Item card images** — object-top, zobrazuje horní část karty
 
 ## Co dál (priority)
-1. [ ] **Feedback checker** — při startu session zkontrolovat /api/feedback
-2. [ ] **Sdílení družiny** — multiplayer: sdílet kampaň napříč hráči (velká feature)
-3. [ ] **Attack modifier deck** — vizualizace balíčku po percích
-4. [ ] **Chybějící fotky předmětů** — #127, #149, #151-164 (v obálkách)
-5. [ ] **Anglická verze webu** — i18n, přepínání CZ/EN (nápad)
+1. [ ] **Odemykání z událostí** — picker pro scénáře/předměty z city/road events (Jakub chce nafotit)
+2. [ ] **Feedback checker** — při startu session zkontrolovat /api/feedback
+3. [ ] **Sdílení družiny** — multiplayer: sdílet kampaň napříč hráči (velká feature)
+4. [ ] **Attack modifier deck** — vizualizace balíčku po percích
+5. [ ] **Chybějící fotky předmětů** — #127, #149, #151-164 (v obálkách)
+6. [ ] **Anglická verze webu** — i18n, přepínání CZ/EN (nápad)
 
 ## Poznámky
 - Server: `ssh server` (Tailscale)
