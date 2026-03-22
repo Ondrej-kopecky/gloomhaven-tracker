@@ -374,7 +374,7 @@ function formatDate(iso: string): string {
         <div class="flex items-center justify-between">
           <div>
             <div class="text-sm text-gray-300 font-medium">Forgotten Circles</div>
-            <div class="text-[11px] text-gray-600 mt-0.5">Rozšíření — předměty #152-164, Diviner</div>
+            <div class="text-[11px] text-gray-600 mt-0.5 leading-relaxed">Rozšíření pro Gloomhaven — přidává novou třídu Diviner (Věštkyně) a předměty #152-164. Zapněte, pokud hrajete s tímto rozšířením.</div>
           </div>
           <button
             class="relative w-11 h-6 rounded-full transition-colors duration-200 shrink-0 ml-4"
