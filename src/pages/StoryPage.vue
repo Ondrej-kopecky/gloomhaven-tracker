@@ -14,6 +14,22 @@ const scenarioStore = useScenarioStore()
 const questStore = useQuestStore()
 
 const activeTab = ref<'quests' | 'timeline'>('quests')
+
+function humanizeCheck(expr: string): string {
+  return expr
+    .replace(/(\d+)==c/g, (_, id) => {
+      const def = scenarioStore.getDefinition(id)
+      return `#${id} ${def?.nameCz ?? def?.name ?? ''} dokončen`
+    })
+    .replace(/(\d+)!=c/g, (_, id) => {
+      const def = scenarioStore.getDefinition(id)
+      return `#${id} ${def?.nameCz ?? def?.name ?? ''} nedokončen`
+    })
+    .replace(/\s*&&\s*/g, ' a ')
+    .replace(/\s*\|\|\s*/g, ' nebo ')
+    .replace(/\(/g, '(')
+    .replace(/\)/g, ')')
+}
 const selectedQuestId = ref<number | null>(null)
 
 onMounted(async () => {
@@ -234,7 +250,7 @@ const statusColors: Record<string, string> = {
                   </svg>
                   <div v-else class="w-4 h-4 rounded border border-gray-600 shrink-0" />
                   <span :class="check.completed ? 'text-gray-400' : 'text-gray-600'">
-                    {{ campaignStore.hideSpoilers ? (check.completed ? 'Splněno' : 'Nesplněno') : check.expression }}
+                    {{ campaignStore.hideSpoilers ? (check.completed ? 'Splněno' : 'Nesplněno') : humanizeCheck(check.expression) }}
                   </span>
                 </div>
               </div>
