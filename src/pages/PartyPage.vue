@@ -761,28 +761,26 @@ function getClassName(classId: string): string {
         @click.self="closeEventOutcome"
       >
         <!-- Flip card container -->
-        <div class="w-full max-w-sm" style="perspective: 1200px;">
-          <div
-            class="relative w-full transition-transform duration-600"
-            :style="{ transformStyle: 'preserve-3d', transform: eventFlipped ? 'rotateY(180deg)' : '' }"
-          >
-            <!-- BACK (rub karty) -->
+        <div class="w-full max-w-sm">
+          <!-- BACK (rub karty) — kliknutím otočíš -->
+          <transition name="event-flip">
             <div
               v-if="!eventFlipped"
+              key="back"
               class="w-full rounded-2xl shadow-2xl shadow-black/60 cursor-pointer overflow-hidden"
               :class="eventOutcome.type === 'city'
-                ? 'bg-gradient-to-br from-amber-950 via-amber-900 to-amber-950 border-2 border-amber-700/50'
-                : 'bg-gradient-to-br from-green-950 via-green-900 to-green-950 border-2 border-green-700/50'"
+                ? 'bg-gradient-to-br from-blue-950 via-blue-900 to-blue-950 border-2 border-blue-700/50'
+                : 'bg-gradient-to-br from-amber-950 via-amber-900 to-amber-950 border-2 border-amber-700/50'"
               @click="eventFlipped = true"
             >
               <div class="flex flex-col items-center justify-center py-16 px-8">
-                <div class="text-6xl mb-4" :class="eventOutcome.type === 'city' ? 'text-amber-400/30' : 'text-green-400/30'">
+                <div class="text-6xl mb-4" :class="eventOutcome.type === 'city' ? 'text-blue-400/30' : 'text-amber-400/30'">
                   {{ eventOutcome.type === 'city' ? '🏛' : '🛤' }}
                 </div>
-                <div class="font-display text-4xl font-bold mb-2" :class="eventOutcome.type === 'city' ? 'text-amber-400' : 'text-green-400'">
+                <div class="font-display text-4xl font-bold mb-2" :class="eventOutcome.type === 'city' ? 'text-blue-400' : 'text-amber-400'">
                   #{{ eventOutcome.id }}
                 </div>
-                <div class="text-sm uppercase tracking-widest" :class="eventOutcome.type === 'city' ? 'text-amber-500/60' : 'text-green-500/60'">
+                <div class="text-sm uppercase tracking-widest" :class="eventOutcome.type === 'city' ? 'text-blue-500/60' : 'text-amber-500/60'">
                   {{ eventOutcome.type === 'city' ? 'Městská událost' : 'Cestovní událost' }}
                 </div>
                 <div class="mt-8 text-xs text-gray-500 animate-pulse">Klikni pro otočení karty</div>
@@ -791,9 +789,9 @@ function getClassName(classId: string): string {
 
             <!-- FRONT (líc karty) -->
             <div
-              v-if="eventFlipped"
+              v-else
+              key="front"
               class="w-full bg-gh-dark border border-gh-border rounded-2xl shadow-2xl shadow-black/60 p-5"
-              style="backface-visibility: hidden;"
             >
               <div class="flex items-center justify-between mb-4">
                 <h3 class="font-display text-lg font-semibold text-gray-200">
@@ -928,9 +926,24 @@ function getClassName(classId: string): string {
             Hotovo
           </button>
             </div><!-- /front -->
-          </div><!-- /flip container -->
-        </div><!-- /perspective -->
+          </transition>
+        </div><!-- /flip container -->
       </div>
     </Teleport>
   </div>
 </template>
+
+<style scoped>
+.event-flip-enter-active,
+.event-flip-leave-active {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+.event-flip-enter-from {
+  transform: rotateY(-90deg) scale(0.9);
+  opacity: 0;
+}
+.event-flip-leave-to {
+  transform: rotateY(90deg) scale(0.9);
+  opacity: 0;
+}
+</style>
