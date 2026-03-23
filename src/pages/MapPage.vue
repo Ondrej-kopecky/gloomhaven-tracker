@@ -234,6 +234,18 @@ const visibleAchievementStickers = computed(() => {
   return stickers
 })
 
+// Czech sticker versions available
+const CZ_STICKERS = new Set([
+  'GTDS', 'GTDA', 'GTVS', 'GTVF', 'GCRM', 'GCRE', 'GCRD',
+  'GAR', 'GAR2', 'GAL', 'GAC', 'GTMF', 'GTDI', 'GTPE', 'GTRN',
+  'GEOI', 'GEOC', 'GEOG', 'GAT', 'GWB', 'GTED', 'GAOO',
+])
+
+function achievementStickerSrc(file: string): string {
+  if (CZ_STICKERS.has(file)) return `/img/achievements/${file}_cz.png`
+  return `/img/achievements/${file}.png`
+}
+
 function stickerSrc(id: string, status: ScenarioStatus): string {
   const suffix = status === ScenarioStatus.COMPLETED ? '_c' : ''
   return `/img/stickers/${id}${suffix}.png?v=1`
@@ -321,7 +333,7 @@ function achievementUpgradeLevel(parentId: string): { current: number; max: numb
       <img
         v-for="a in visibleAchievementStickers"
         :key="'ach-' + a.id"
-        :src="`/img/achievements/${a.file}.png`"
+        :src="achievementStickerSrc(a.file)"
         :alt="a.name"
         :title="a.name"
         class="absolute select-none cursor-pointer transition-transform duration-150 hover:scale-110"
@@ -450,7 +462,7 @@ function achievementUpgradeLevel(parentId: string): { current: number; max: numb
 
             <div class="flex items-start gap-3 mb-3">
               <img
-                :src="`/img/achievements/${selectedAchievement.file}.png`"
+                :src="achievementStickerSrc(selectedAchievement.file)"
                 :alt="selectedAchievement.name"
                 class="w-12 shrink-0"
               />
