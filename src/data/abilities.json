@@ -848,7 +848,7 @@
     "initiative": 23
   },
   {
-    "id": "nature-s-lift",
+    "id": "natures-lift",
     "name": "Nature's Lift",
     "classId": "cragheart",
     "refClassId": "CH",
@@ -936,7 +936,7 @@
     "initiative": 13
   },
   {
-    "id": "a-moment-s-peace",
+    "id": "a-moments-peace",
     "name": "A Moment's Peace",
     "classId": "doomstalker",
     "refClassId": "DS",
@@ -1072,7 +1072,7 @@
     "initiative": 14
   },
   {
-    "id": "nature-s-hunger",
+    "id": "natures-hunger",
     "name": "Nature's Hunger",
     "classId": "doomstalker",
     "refClassId": "DS",
@@ -1408,7 +1408,7 @@
     "initiative": 64
   },
   {
-    "id": "winter-s-edge",
+    "id": "winters-edge",
     "name": "Winter's Edge",
     "classId": "elementalist",
     "refClassId": "EL",
@@ -1616,7 +1616,7 @@
     "initiative": 48
   },
   {
-    "id": "the-mind-s-weakness",
+    "id": "the-minds-weakness",
     "name": "The Mind's Weakness",
     "classId": "mindthief",
     "refClassId": "MT",
@@ -2416,7 +2416,7 @@
     "initiative": 8
   },
   {
-    "id": "gentleman-s-anger",
+    "id": "gentlemans-anger",
     "name": "Gentleman's Anger",
     "classId": "sawbones",
     "refClassId": "SB",
@@ -2536,7 +2536,7 @@
     "initiative": 40
   },
   {
-    "id": "surgeon-s-satchel",
+    "id": "surgeons-satchel",
     "name": "Surgeon's Satchel",
     "classId": "sawbones",
     "refClassId": "SB",
@@ -2616,7 +2616,7 @@
     "initiative": 16
   },
   {
-    "id": "duelist-s-advance",
+    "id": "duelists-advance",
     "name": "Duelist's Advance",
     "classId": "scoundrel",
     "refClassId": "SC",
@@ -2680,7 +2680,7 @@
     "initiative": 11
   },
   {
-    "id": "pain-s-end",
+    "id": "pains-end",
     "name": "Pain's End",
     "classId": "scoundrel",
     "refClassId": "SC",
@@ -2760,7 +2760,7 @@
     "initiative": 36
   },
   {
-    "id": "thief-s-knack",
+    "id": "thiefs-knack",
     "name": "Thief's Knack",
     "classId": "scoundrel",
     "refClassId": "SC",
@@ -2776,7 +2776,7 @@
     "initiative": 10
   },
   {
-    "id": "trickster-s-reversal",
+    "id": "tricksters-reversal",
     "name": "Trickster's Reversal",
     "classId": "scoundrel",
     "refClassId": "SC",
@@ -3936,7 +3936,7 @@
     "initiative": 20
   },
   {
-    "id": "tinkerer-s-tools",
+    "id": "tinkerers-tools",
     "name": "Tinkerer's Tools",
     "classId": "tinkerer",
     "refClassId": "TI",
