@@ -374,20 +374,6 @@ function achievementUpgradeLevel(parentId: string): { current: number; max: numb
           :title="a.name"
           class="w-full"
         />
-        <!-- Upgrade level dots -->
-        <div
-          v-if="a.upgradeLevel && a.upgradeLevel > 1"
-          class="flex justify-center gap-0.5 mt-[-4px]"
-        >
-          <div
-            v-for="i in (a.upgradeMax - 1)"
-            :key="i"
-            class="w-3 h-3 rounded-sm border"
-            :class="i < a.upgradeLevel
-              ? 'bg-amber-500 border-amber-600'
-              : 'bg-white/10 border-white/20'"
-          />
-        </div>
       </div>
 
       <!-- Scenario stickers (positioned exactly like reference project) -->
