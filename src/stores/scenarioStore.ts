@@ -297,8 +297,40 @@ export const useScenarioStore = defineStore('scenario', () => {
 
   function resetScenario(id: string) {
     if (!campaignStore.currentCampaign) return
+
+    const def = getDefinition(id)
+
+    // Remove achievements that were awarded by this scenario
+    if (def?.achievementsAwarded) {
+      for (const achId of def.achievementsAwarded) {
+        achievementStore.removeAchievement(achId)
+      }
+    }
+    if (def?.rewards.achievements) {
+      for (const achId of def.rewards.achievements) {
+        achievementStore.removeAchievement(achId)
+      }
+    }
+    if (def?.rewards.partyAchievements) {
+      for (const achId of def.rewards.partyAchievements) {
+        achievementStore.removeAchievement(achId)
+      }
+    }
+
+    // Restore achievements that were lost by completing this scenario
+    if (def?.achievementsLost) {
+      for (const achId of def.achievementsLost) {
+        if (achievementStore.isGlobalDefined(achId)) {
+          achievementStore.awardGlobal(achId)
+        } else {
+          achievementStore.awardParty(achId)
+        }
+      }
+    }
+
     delete campaignStore.currentCampaign.scenarios[id]
     campaignStore.autoSave()
+    toastStore.show(`Scénář #${id} resetován`, 'info')
   }
 
   function lootTreasure(scenarioId: string, treasureId: string) {
