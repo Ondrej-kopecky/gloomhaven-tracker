@@ -289,7 +289,7 @@ function aoeHexSvg(key: string): string {
 function translateDescription(desc: string): string {
   const result = desc
     // Stavy — ikona + český text
-    .replace(/\{SHIELD\}/g, `${statusIcon('shield')} Štít`)
+    .replace(/\{SHIELD\}/g, `${actionIcon('shield')} Štít`)
     .replace(/\{INVISIBLE\}/g, `${statusIcon('invisible')} Neviditelnost`)
     .replace(/\{STUN\}/g, `${statusIcon('stun')} Omráčení`)
     .replace(/\{POISON\}/g, `${statusIcon('poison')} Otrava`)
