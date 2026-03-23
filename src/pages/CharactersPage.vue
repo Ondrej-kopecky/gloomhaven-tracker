@@ -9,6 +9,22 @@ import { XP_THRESHOLDS } from '@/utils/prosperityTable'
 import SlotIcon from '@/components/items/SlotIcon.vue'
 import ClassIcon from '@/components/characters/ClassIcon.vue'
 import { computeDeck, getDeckStats } from '@/utils/attackModifierDeck'
+import abilitiesData from '@/data/abilities.json'
+
+interface AbilityDef { id: string; name: string; classId: string; refClassId: string; level: number; initiative: number }
+const allAbilities = abilitiesData as AbilityDef[]
+
+function getClassAbilities(classId: string, level: number): { available: AbilityDef[]; locked: AbilityDef[] } {
+  const all = allAbilities.filter(a => a.classId === classId)
+  return {
+    available: all.filter(a => a.level <= level || a.level === 1.5),
+    locked: all.filter(a => a.level > level && a.level !== 1.5),
+  }
+}
+
+function abilityImgSrc(ability: AbilityDef): string {
+  return `/img/abilities/${ability.refClassId}/${ability.id}.jpg`
+}
 
 const router = useRouter()
 const campaignStore = useCampaignStore()
@@ -432,6 +448,43 @@ const availableClasses = computed(() => {
                 </div>
                 <span class="text-gray-400 group-hover:text-gray-300 transition-colors">{{ perk.description }}</span>
               </div>
+            </div>
+          </div>
+
+          <!-- Abilities -->
+          <div class="mb-5">
+            <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-3 flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 text-gh-primary/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 0 0-1.883 2.542l.857 6a2.25 2.25 0 0 0 2.227 1.932H19.05a2.25 2.25 0 0 0 2.227-1.932l.857-6a2.25 2.25 0 0 0-1.883-2.542m-16.5 0V6A2.25 2.25 0 0 1 6 3.75h3.879a1.5 1.5 0 0 1 1.06.44l2.122 2.12a1.5 1.5 0 0 0 1.06.44H18A2.25 2.25 0 0 1 20.25 9v.776" />
+              </svg>
+              Schopnosti
+              <span class="text-[10px] text-gray-600 font-normal">
+                ({{ getClassAbilities(char.classId, char.level).available.length }} dostupných)
+              </span>
+            </h4>
+            <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-2">
+              <div
+                v-for="ability in getClassAbilities(char.classId, char.level).available"
+                :key="ability.id"
+                class="relative group"
+              >
+                <img
+                  :src="abilityImgSrc(ability)"
+                  :alt="ability.name"
+                  :title="`${ability.name} (Lv.${ability.level}, Init.${ability.initiative})`"
+                  class="w-full rounded-lg border border-white/[0.06] transition-transform duration-150 hover:scale-105 hover:z-10 hover:shadow-xl cursor-pointer"
+                  loading="lazy"
+                  @error="($event.target as HTMLImageElement).style.display = 'none'"
+                />
+                <span class="absolute top-1 left-1 text-[9px] bg-black/60 text-gray-300 px-1 rounded font-mono">
+                  {{ ability.level }}
+                </span>
+              </div>
+            </div>
+            <div v-if="getClassAbilities(char.classId, char.level).locked.length > 0" class="mt-2">
+              <span class="text-[10px] text-gray-600">
+                +{{ getClassAbilities(char.classId, char.level).locked.length }} schopností na vyšších úrovních
+              </span>
             </div>
           </div>
 
