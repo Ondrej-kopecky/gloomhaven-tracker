@@ -636,9 +636,18 @@ function confirmBuy() {
     <Teleport to="body">
       <div v-if="detailItem" class="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/70 backdrop-blur-sm" @click.self="detailItem = null">
         <div class="detail-modal w-full max-h-[85vh] rounded-t-2xl sm:rounded-2xl sm:max-w-lg mx-0 sm:mx-4 flex flex-col overscroll-contain" @keydown.escape="detailItem = null">
-          <!-- Swipe indicator (mobile) -->
-          <div class="flex justify-center pt-3 pb-1 sm:hidden shrink-0" @click="detailItem = null">
+          <!-- Close bar (mobile) -->
+          <div class="flex items-center justify-between px-4 pt-3 pb-1 sm:hidden shrink-0">
             <div class="w-10 h-1 rounded-full bg-white/20"></div>
+            <button
+              class="w-9 h-9 flex items-center justify-center rounded-full bg-white/[0.1] text-gray-300 active:bg-white/[0.2] transition-colors"
+              @click="detailItem = null"
+              aria-label="Zavřít"
+            >
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg>
+            </button>
           </div>
 
           <!-- Scrollable content -->
