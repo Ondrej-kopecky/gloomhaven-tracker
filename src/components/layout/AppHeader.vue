@@ -45,7 +45,6 @@ const navItems = [
 const mobileNavItems = [
   ...navItems,
   { to: '/nastaveni', label: 'Nastavení' },
-  { to: '/info', label: 'Info' },
 ]
 
 const isActive = (path: string) => route.path === path
@@ -128,10 +127,10 @@ const isActive = (path: string) => route.path === path
             </div>
           </div>
 
-          <!-- Info (desktop) -->
+          <!-- Info -->
           <router-link
             to="/info"
-            class="hidden lg:block p-2 rounded-md transition-all"
+            class="p-2 rounded-md transition-all"
             :class="isActive('/info')
               ? 'text-gh-primary bg-gh-primary/10'
               : 'text-gray-500 hover:text-gray-300 hover:bg-white/[0.04]'"
