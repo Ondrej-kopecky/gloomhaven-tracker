@@ -7,10 +7,12 @@ import { uuid } from '@/utils/uuid'
 import charactersData from '@/data/characters.json'
 import itemsData from '@/data/items.json'
 import { useCampaignStore } from './campaignStore'
+import { useToastStore } from './toastStore'
 import { getLevelFromXp } from '@/utils/prosperityTable'
 
 export const useCharacterStore = defineStore('character', () => {
   const campaignStore = useCampaignStore()
+  const toastStore = useToastStore()
 
   const definitions = ref<CharacterDefinition[]>(charactersData as CharacterDefinition[])
 
@@ -254,6 +256,7 @@ export const useCharacterStore = defineStore('character', () => {
     char.gold -= price
     char.items.push(itemId)
     campaignStore.autoSave()
+    toastStore.show(`${def.name} zakoupen za ${price} zl.`)
     return true
   }
 

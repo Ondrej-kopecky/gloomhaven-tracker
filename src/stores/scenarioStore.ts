@@ -4,10 +4,12 @@ import { ScenarioStatus } from '@/models/types'
 import type { ScenarioData, ScenarioState, ScenarioCondition } from '@/models/Scenario'
 import { useCampaignStore } from './campaignStore'
 import { useAchievementStore } from './achievementStore'
+import { useToastStore } from './toastStore'
 
 export const useScenarioStore = defineStore('scenario', () => {
   const campaignStore = useCampaignStore()
   const achievementStore = useAchievementStore()
+  const toastStore = useToastStore()
 
   const scenarioDefinitions = ref<ScenarioData[]>([])
   const isDataLoaded = ref(false)
@@ -225,6 +227,7 @@ export const useScenarioStore = defineStore('scenario', () => {
     }
 
     campaignStore.currentCampaign.scenarios[id] = state
+    toastStore.show(`Scénář #${id} ${def.nameCz ?? def.name} dokončen`)
 
     // Award achievements from the new achievementsAwarded field
     if (def.achievementsAwarded) {

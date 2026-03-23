@@ -2,6 +2,7 @@
 import { onMounted } from 'vue'
 import AppHeader from '@/components/layout/AppHeader.vue'
 import FeedbackButton from '@/components/layout/FeedbackButton.vue'
+import ToastNotification from '@/components/ToastNotification.vue'
 import { useProfileStore } from '@/stores/profileStore'
 import { useAuthStore } from '@/stores/authStore'
 
@@ -25,6 +26,7 @@ onMounted(async () => {
       </router-view>
     </main>
     <FeedbackButton />
+    <ToastNotification />
   </div>
 </template>
 
