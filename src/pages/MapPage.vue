@@ -286,6 +286,10 @@ function goToScenarios(id: string) {
           <span class="w-3 h-3 rounded-full" :style="{ backgroundColor: markerColor(ScenarioStatus.BLOCKED) }" />
           <span class="text-[10px] text-gray-400">Blokováno</span>
         </div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full" :style="{ backgroundColor: markerColor(ScenarioStatus.REQUIRED) }" />
+          <span class="text-[10px] text-gray-400">Vyžadováno</span>
+        </div>
       </div>
     </div>
   </div>
