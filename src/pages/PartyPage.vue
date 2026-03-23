@@ -50,6 +50,7 @@ onMounted(() => {
 
 // Event outcome modal
 const eventOutcome = ref<{ type: 'city' | 'road'; id: number } | null>(null)
+const eventFlipped = ref(false)
 const selectedOption = ref<string | null>(null)
 const effectsApplied = ref(false)
 const eventItemSearch = ref('')
@@ -169,10 +170,10 @@ function applyEffects() {
 }
 
 function closeEventOutcome() {
-  // If modal closed without confirming, nothing was removed
   eventOutcome.value = null
   selectedOption.value = null
   effectsApplied.value = false
+  eventFlipped.value = false
   showEventItemPicker.value = false
   showEventScenarioPicker.value = false
   eventItemSearch.value = ''
@@ -181,14 +182,13 @@ function closeEventOutcome() {
 
 function confirmRemoveEvent(type: 'city' | 'road', id: number) {
   if (isTouchDevice.value) {
-    // Mobile: single tap opens modal directly
+    eventFlipped.value = false
     eventOutcome.value = { type, id }
   } else if (pendingRemove.value?.type === type && pendingRemove.value?.id === id) {
-    // Desktop: second click — open outcome modal
     pendingRemove.value = null
+    eventFlipped.value = false
     eventOutcome.value = { type, id }
   } else {
-    // Desktop: first click — mark as pending
     pendingRemove.value = { type, id }
   }
 }
@@ -760,17 +760,51 @@ function getClassName(classId: string): string {
         class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
         @click.self="closeEventOutcome"
       >
-        <div class="bg-gh-dark border border-gh-border rounded-2xl w-full max-w-sm shadow-2xl shadow-black/60 p-5">
-          <div class="flex items-center justify-between mb-4">
-            <h3 class="font-display text-lg font-semibold text-gray-200">
-              {{ eventOutcome.type === 'city' ? 'Městská' : 'Cestovní' }} událost #{{ eventOutcome.id }}
-            </h3>
-            <button class="p-1 text-gray-600 hover:text-gray-300 transition-colors" @click="closeEventOutcome">
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
+        <!-- Flip card container -->
+        <div class="w-full max-w-sm" style="perspective: 1200px;">
+          <div
+            class="relative w-full transition-transform duration-600"
+            :style="{ transformStyle: 'preserve-3d', transform: eventFlipped ? 'rotateY(180deg)' : '' }"
+          >
+            <!-- BACK (rub karty) -->
+            <div
+              v-if="!eventFlipped"
+              class="w-full rounded-2xl shadow-2xl shadow-black/60 cursor-pointer overflow-hidden"
+              :class="eventOutcome.type === 'city'
+                ? 'bg-gradient-to-br from-amber-950 via-amber-900 to-amber-950 border-2 border-amber-700/50'
+                : 'bg-gradient-to-br from-green-950 via-green-900 to-green-950 border-2 border-green-700/50'"
+              @click="eventFlipped = true"
+            >
+              <div class="flex flex-col items-center justify-center py-16 px-8">
+                <div class="text-6xl mb-4" :class="eventOutcome.type === 'city' ? 'text-amber-400/30' : 'text-green-400/30'">
+                  {{ eventOutcome.type === 'city' ? '🏛' : '🛤' }}
+                </div>
+                <div class="font-display text-4xl font-bold mb-2" :class="eventOutcome.type === 'city' ? 'text-amber-400' : 'text-green-400'">
+                  #{{ eventOutcome.id }}
+                </div>
+                <div class="text-sm uppercase tracking-widest" :class="eventOutcome.type === 'city' ? 'text-amber-500/60' : 'text-green-500/60'">
+                  {{ eventOutcome.type === 'city' ? 'Městská událost' : 'Cestovní událost' }}
+                </div>
+                <div class="mt-8 text-xs text-gray-500 animate-pulse">Klikni pro otočení karty</div>
+              </div>
+            </div>
+
+            <!-- FRONT (líc karty) -->
+            <div
+              v-if="eventFlipped"
+              class="w-full bg-gh-dark border border-gh-border rounded-2xl shadow-2xl shadow-black/60 p-5"
+              style="backface-visibility: hidden;"
+            >
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-display text-lg font-semibold text-gray-200">
+                  {{ eventOutcome.type === 'city' ? 'Městská' : 'Cestovní' }} událost #{{ eventOutcome.id }}
+                </h3>
+                <button class="p-1 text-gray-600 hover:text-gray-300 transition-colors" @click="closeEventOutcome">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
 
           <!-- Options A/B with effects — select one -->
           <div v-if="currentEventData" class="mb-4 max-h-[50vh] overflow-y-auto">
@@ -893,7 +927,9 @@ function getClassName(classId: string): string {
           >
             Hotovo
           </button>
-        </div>
+            </div><!-- /front -->
+          </div><!-- /flip container -->
+        </div><!-- /perspective -->
       </div>
     </Teleport>
   </div>
