@@ -18,6 +18,7 @@ const mapElement = ref<HTMLElement | null>(null)
 let pz: PanZoom | null = null
 
 const selectedId = ref<string | null>(null)
+const selectedAchievement = ref<{ id: string; parentId: string; file: string; name: string } | null>(null)
 
 // Map settings from reference repo (GH map)
 const MAP_WIDTH = 2606
@@ -143,6 +144,96 @@ const mapRequirementLabels = computed(() => {
   })
 })
 
+// Achievement sticker mapping: our_id -> { file, x (% position on map) }
+// Positions from reference project (gloomhaven-storyline)
+const ACHIEVEMENT_STICKERS: Record<string, { file: string; x: number }> = {
+  // Base Gloomhaven
+  the_drake_slain:        { file: 'GTDS', x: 12.389 },
+  the_drake_aided:        { file: 'GTDA', x: 12.389 },
+  the_voice_freed:        { file: 'GTVF', x: 16.8681 },
+  the_voice_silenced:     { file: 'GTVS', x: 16.8681 },
+  city_rule_economic:     { file: 'GCRE', x: 21.2519 },
+  city_rule_militaristic: { file: 'GCRM', x: 21.2519 },
+  city_rule_demonic:      { file: 'GCRD', x: 21.2519 },
+  the_artifact_recovered: { file: 'GAR',  x: 26.0169 },
+  the_artifact_recovered_2: { file: 'GAR2', x: 26.0169 },
+  the_artifact_lost:      { file: 'GAL',  x: 26.0169 },
+  the_artifact_cleansed:  { file: 'GAC',  x: 26.0169 },
+  the_merchant_flees:     { file: 'GTMF', x: 30.8772 },
+  the_dead_invade:        { file: 'GTDI', x: 36.0234 },
+  the_edge_of_darkness:   { file: 'GTED', x: 40.7884 },
+  the_power_of_enhancement: { file: 'GTPE', x: 45.4581 },
+  water_breathing:        { file: 'GWB',  x: 50.3184 },
+  the_rift_neutralized:   { file: 'GTRN', x: 55.1787 },
+  end_of_the_invasion:    { file: 'GEOI', x: 59.2766 },
+  geoc:                   { file: 'GEOC', x: 64.5181 },
+  end_of_corruption_2:    { file: 'GEOC2', x: 64.5181 },
+  end_of_corruption_3:    { file: 'GEOC3', x: 64.5181 },
+  end_of_gloom:           { file: 'GEOG', x: 69.9502 },
+  ancient_technology:     { file: 'GAT',  x: 74.334 },
+  gat2:                   { file: 'GAT2', x: 74.334 },
+  gat3:                   { file: 'GAT3', x: 74.334 },
+  gat4:                   { file: 'GAT4', x: 74.334 },
+  gat5:                   { file: 'GAT5', x: 74.334 },
+  gaoo:                   { file: 'GAOO', x: 79.7661 },
+  // Forgotten Circles DLC
+  gttp:                   { file: 'GTTP', x: 84.6 },
+  gst:                    { file: 'GST',  x: 84.6 },
+  gkip:                   { file: 'GKIP', x: 88.4 },
+  gkip2:                  { file: 'GKIP2', x: 88.4 },
+  gkip3:                  { file: 'GKIP3', x: 88.4 },
+  gkip4:                  { file: 'GKIP4', x: 88.4 },
+  gpa:                    { file: 'GPA',  x: 92.8 },
+  gpa2:                   { file: 'GPA2', x: 92.8 },
+  gpa3:                   { file: 'GPA3', x: 92.8 },
+  gpa4:                   { file: 'GPA4', x: 92.8 },
+  gpoa:                   { file: 'GPOA', x: 96.6 },
+  gpoa2:                  { file: 'GPOA2', x: 96.6 },
+  gpoa3:                  { file: 'GPOA3', x: 96.6 },
+  gms:                    { file: 'GMS',  x: 96.6 },
+}
+
+// Compute visible achievement stickers (only achieved, show highest upgrade)
+const visibleAchievementStickers = computed(() => {
+  const stickers: { id: string; parentId: string; file: string; x: number; name: string }[] = []
+  const usedPositions = new Set<number>()
+
+  for (const def of achievementStore.globalDefinitions) {
+    if (!achievementStore.isGlobalAchieved(def.id)) continue
+    if (def.hidden) continue
+
+    const mapping = ACHIEVEMENT_STICKERS[def.id]
+    if (!mapping) continue
+
+    // For upgradeable achievements, find the highest achieved upgrade
+    let activeFile = mapping.file
+    let activeId = def.id
+    if (def.upgrades?.length) {
+      for (const upgradeId of [...def.upgrades].reverse()) {
+        if (achievementStore.isGlobalAchieved(upgradeId) && ACHIEVEMENT_STICKERS[upgradeId]) {
+          activeFile = ACHIEVEMENT_STICKERS[upgradeId].file
+          activeId = upgradeId
+          break
+        }
+      }
+    }
+
+    // Skip if another achievement at this position is already shown (group exclusivity)
+    if (usedPositions.has(mapping.x)) continue
+    usedPositions.add(mapping.x)
+
+    stickers.push({
+      id: activeId,
+      parentId: def.id,
+      file: activeFile,
+      x: mapping.x,
+      name: def.name,
+    })
+  }
+
+  return stickers
+})
+
 function stickerSrc(id: string, status: ScenarioStatus): string {
   const suffix = status === ScenarioStatus.COMPLETED ? '_c' : ''
   return `/img/stickers/${id}${suffix}.png?v=1`
@@ -180,11 +271,27 @@ const statusLabels: Record<string, string> = {
 }
 
 function onMarkerClick(id: string) {
+  selectedAchievement.value = null
   selectedId.value = selectedId.value === id ? null : id
 }
 
 function goToScenarios(id: string) {
   router.push({ path: '/scenare', query: { open: id } })
+}
+
+function onAchievementClick(a: { id: string; parentId: string; file: string; name: string }) {
+  selectedId.value = null
+  selectedAchievement.value = selectedAchievement.value?.parentId === a.parentId ? null : a
+}
+
+function achievementUpgradeLevel(parentId: string): { current: number; max: number } | null {
+  const def = achievementStore.globalDefinitions.find(d => d.id === parentId)
+  if (!def?.upgrades?.length) return null
+  let level = achievementStore.isGlobalAchieved(def.id) ? 1 : 0
+  for (const uid of def.upgrades) {
+    if (achievementStore.isGlobalAchieved(uid)) level++
+  }
+  return { current: level, max: def.upgrades.length + 1 }
 }
 </script>
 
@@ -193,7 +300,7 @@ function goToScenarios(id: string) {
     v-if="campaignStore.hasCampaign"
     ref="mapContainer"
     class="relative w-full overflow-hidden bg-gh-dark map-height"
-    @click="selectedId = null"
+    @click="selectedId = null; selectedAchievement = null"
   >
     <!-- Pan-zoom map -->
     <div
@@ -208,6 +315,24 @@ function goToScenarios(id: string) {
         class="absolute left-0 pointer-events-none select-none"
         draggable="false"
         :style="{ top: -MAP_Y_OFFSET + 'px', width: '100%' }"
+      />
+
+      <!-- Global achievement stickers (retina: display at 50% of original 193x467px) -->
+      <img
+        v-for="a in visibleAchievementStickers"
+        :key="'ach-' + a.id"
+        :src="`/img/achievements/${a.file}.png`"
+        :alt="a.name"
+        :title="a.name"
+        class="absolute select-none cursor-pointer transition-transform duration-150 hover:scale-110"
+        :style="{
+          left: a.x + '%',
+          top: '-174px',
+          width: '108px',
+          zIndex: 5,
+        }"
+        @click.stop="onAchievementClick(a)"
+        @touchend.stop.prevent="onAchievementClick(a)"
       />
 
       <!-- Scenario stickers (positioned exactly like reference project) -->
@@ -306,6 +431,63 @@ function goToScenarios(id: string) {
               @click="goToScenarios(selectedScenario?.id ?? '')"
             >
               Zobrazit detail
+            </button>
+          </div>
+        </div>
+      </transition>
+    </Teleport>
+
+    <!-- Achievement popup -->
+    <Teleport to="body">
+      <transition name="popup">
+        <div
+          v-if="selectedAchievement"
+          class="fixed bottom-4 left-1/2 -translate-x-1/2 z-[100] w-[min(340px,calc(100vw-2rem))]"
+          @click.stop
+        >
+          <div class="gh-card p-4 relative overflow-hidden shadow-2xl border border-white/[0.08]">
+            <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-green-500" />
+
+            <div class="flex items-start gap-3 mb-3">
+              <img
+                :src="`/img/achievements/${selectedAchievement.file}.png`"
+                :alt="selectedAchievement.name"
+                class="w-12 shrink-0"
+              />
+              <div class="flex-1 min-w-0">
+                <h3 class="text-sm font-semibold text-gray-200">{{ selectedAchievement.name }}</h3>
+                <span class="text-[10px] px-2 py-0.5 rounded-full font-medium bg-green-500/20 text-green-400">
+                  Splněno
+                </span>
+                <div v-if="achievementUpgradeLevel(selectedAchievement.parentId)" class="mt-1.5">
+                  <div class="flex items-center gap-1">
+                    <span class="text-[10px] text-gray-500">Úroveň:</span>
+                    <span
+                      v-for="i in achievementUpgradeLevel(selectedAchievement.parentId)!.max"
+                      :key="i"
+                      class="w-2.5 h-2.5 rounded-sm"
+                      :class="i <= achievementUpgradeLevel(selectedAchievement.parentId)!.current
+                        ? 'bg-green-500'
+                        : 'bg-white/[0.08] border border-white/[0.06]'"
+                    />
+                  </div>
+                </div>
+              </div>
+              <button
+                class="p-1 text-gray-600 hover:text-gray-300 transition-colors shrink-0"
+                @click="selectedAchievement = null"
+              >
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            <button
+              class="w-full text-xs text-gh-primary hover:text-gh-primary-light py-2 rounded-lg bg-gh-primary/10 hover:bg-gh-primary/15 transition-all font-medium"
+              @click="router.push({ path: '/achievementy', query: { highlight: selectedAchievement?.parentId } })"
+            >
+              Zobrazit na stránce úspěchů
             </button>
           </div>
         </div>
