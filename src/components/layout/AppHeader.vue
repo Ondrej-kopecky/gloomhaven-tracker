@@ -127,10 +127,10 @@ const isActive = (path: string) => route.path === path
             </div>
           </div>
 
-          <!-- Info -->
+          <!-- Info (desktop only) -->
           <router-link
             to="/info"
-            class="p-2 rounded-md transition-all"
+            class="hidden lg:block p-2 rounded-md transition-all"
             :class="isActive('/info')
               ? 'text-gh-primary bg-gh-primary/10'
               : 'text-gray-500 hover:text-gray-300 hover:bg-white/[0.04]'"
@@ -242,9 +242,10 @@ const isActive = (path: string) => route.path === path
           </div>
 
           <!-- Drawer footer -->
-          <div v-if="campaignStore.hasCampaign" class="px-5 py-4 border-t border-gh-border/40">
+          <div class="px-5 py-4 border-t border-gh-border/40 flex items-center gap-2">
             <button
-              class="flex items-center gap-3 w-full px-3 py-2.5 rounded-xl transition-all"
+              v-if="campaignStore.hasCampaign"
+              class="flex-1 flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all"
               :class="campaignStore.hideSpoilers
                 ? 'text-gh-primary bg-gh-primary/10'
                 : 'text-gray-500 hover:text-gray-300 hover:bg-white/[0.04]'"
@@ -259,6 +260,20 @@ const isActive = (path: string) => route.path === path
               </svg>
               <span class="text-sm">{{ campaignStore.hideSpoilers ? 'Spoilery skryté' : 'Spoilery viditelné' }}</span>
             </button>
+            <router-link
+              to="/info"
+              class="p-2.5 rounded-xl transition-all"
+              :class="isActive('/info')
+                ? 'text-gh-primary bg-gh-primary/10'
+                : 'text-gray-500 hover:text-gray-300 hover:bg-white/[0.04]'"
+              @click="isMenuOpen = false"
+            >
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 16v-4" />
+                <path d="M12 8h.01" />
+              </svg>
+            </router-link>
           </div>
         </nav>
       </transition>

@@ -121,47 +121,82 @@ const technologies = [
 
 const changelog = [
   {
-    version: '4.13.0', date: '2026-03-23',
+    version: '4.14', date: '2026-03-23',
     changes: [
-      'Achievement stickery na mapě (CZ překlady)',
-      'Schopnosti postav s kartami a výběrem při level-upu',
-      'Herní ikony (živly, statusy, akce) v popisech předmětů',
-      'Flip-card animace pro události',
-      'Toast notifikace s undo tlačítkem',
-      'Podmínky pro zahrání scénáře',
-      'Oprava resetu scénáře (achievementy)',
+      'Info stránka s changelogem a credits',
+      'Toast notifikace s undo tlačítkem (herní design)',
+      'Undo pro dokončení scénáře',
+      'Flip-card animace pro události (město/cesta)',
+      'Oprava resetu scénáře (odebírá achievementy)',
+      'Checkpointy přeloženy do češtiny',
     ],
   },
   {
-    version: '4.0.4', date: '2026-03-22',
+    version: '4.10', date: '2026-03-23',
     changes: [
-      'Fullscreen hamburger menu na mobilu',
-      'Scroll lock na všech stránkách',
-      'Party karty — 2-column grid na mobilu',
+      'Schopnosti postav — 495 karet s obrázky, výběr při level-upu',
+      '156 herních PNG ikon (živly, statusy, akce, sloty, perky)',
+      'Ikony živlů a statusů v popisech předmětů',
+      'SlotIcon přepsán na autentické herní PNG',
     ],
   },
   {
-    version: '4.0.0', date: '2026-03-22',
+    version: '4.3', date: '2026-03-23',
+    changes: [
+      'Achievement stickery na mapě (42 EN + 22 CZ)',
+      'Klikací popup s názvem a upgrade levelem',
+      'Upgrade cyklování (Starobylá technologie atd.)',
+      'Podmínky pro zahrání scénáře (seznam + mapa)',
+      'Oprava legendy mapy (fialová "Vyžadováno")',
+      'Křížek pro zavření předmětů na mobilu',
+    ],
+  },
+  {
+    version: '4.0', date: '2026-03-22',
     changes: [
       'SEO a Google Search Console',
       'Security audit a hardening',
-      'České překlady scénářů a questů',
+      'České překlady 95 scénářů a 60 questů',
       'Feedback email notifikace',
+      'Fullscreen hamburger menu na mobilu',
     ],
   },
   {
-    version: '3.4.0', date: '2026-03-22',
+    version: '3.4', date: '2026-03-22',
     changes: [
       'Attack modifier deck vizualizace',
       'Zapečetěné obálky (A, B, ☀, ☾, X)',
-      'Upscalované fotky předmětů',
+      'Retirement flow s odemykáním tříd',
+      'Upscalované fotky 151 předmětů',
     ],
   },
   {
-    version: '3.0.0', date: '2026-03-22',
+    version: '3.0', date: '2026-03-22',
     changes: [
       'Sdílení kampaně (multiplayer)',
       'Auto versioning (conventional commits)',
+      'Deploy skript (frontend + API)',
+    ],
+  },
+  {
+    version: '2.0', date: '2026-03-21',
+    changes: [
+      'Quest systém a příběhové linie',
+      'Osobní questy postav',
+      'Městské a cestovní události (150 karet)',
+      'PWA — funguje offline',
+      '95 unit testů + 9 E2E testů',
+      'GitHub CI pipeline',
+    ],
+  },
+  {
+    version: '1.0', date: '2026-03-20',
+    changes: [
+      'Interaktivní flowchart diagram',
+      'Mapa světa s pan/zoom',
+      'Správa postav, předmětů, scénářů',
+      'Cloud sync a přihlášení',
+      'Donate sekce (Revolut, BMC, Bitcoin)',
     ],
   },
 ]
