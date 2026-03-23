@@ -62,6 +62,12 @@ const router = createRouter({
       meta: { title: 'Nastavení', icon: 'settings' },
     },
     {
+      path: '/info',
+      name: 'info',
+      component: () => import('@/pages/InfoPage.vue'),
+      meta: { title: 'Info' },
+    },
+    {
       path: '/kampan',
       name: 'campaign-select',
       component: () => import('@/pages/CampaignSelectPage.vue'),
