@@ -459,29 +459,95 @@ const availableClasses = computed(() => {
               </svg>
               Schopnosti
               <span class="text-[10px] text-gray-600 font-normal">
-                ({{ getClassAbilities(char.classId, char.level).available.length }} dostupných)
+                ({{ char.abilities.length }} vybraných)
               </span>
             </h4>
-            <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-2">
-              <div
-                v-for="ability in getClassAbilities(char.classId, char.level).available"
-                :key="ability.id"
-                class="relative group"
-              >
-                <img
-                  :src="abilityImgSrc(ability)"
-                  :alt="ability.name"
-                  :title="`${ability.name} (Lv.${ability.level}, Init.${ability.initiative})`"
-                  class="w-full rounded-lg border border-white/[0.06] transition-transform duration-150 hover:scale-105 hover:z-10 hover:shadow-xl cursor-pointer"
-                  loading="lazy"
-                  @error="($event.target as HTMLImageElement).style.display = 'none'"
-                />
-                <span class="absolute top-1 left-1 text-[9px] bg-black/60 text-gray-300 px-1 rounded font-mono">
-                  {{ ability.level }}
-                </span>
+
+            <!-- Starting cards (Level 1) -->
+            <div class="mb-3">
+              <div class="text-[10px] text-gray-500 mb-1.5">Základní karty (Lv. 1)</div>
+              <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-2">
+                <div
+                  v-for="ability in getClassAbilities(char.classId, 9).available.filter(a => a.level === 1)"
+                  :key="ability.id"
+                  class="relative"
+                >
+                  <img
+                    :src="abilityImgSrc(ability)"
+                    :alt="ability.name"
+                    :title="`${ability.name} (Init. ${ability.initiative})`"
+                    class="w-full rounded-lg border border-green-700/40 opacity-90"
+                    loading="lazy"
+                    @error="($event.target as HTMLImageElement).style.display = 'none'"
+                  />
+                </div>
               </div>
             </div>
-            <div v-if="getClassAbilities(char.classId, char.level).locked.length > 0" class="mt-2">
+
+            <!-- Level-up choices (Level 2-9) -->
+            <template v-for="lv in [2, 3, 4, 5, 6, 7, 8, 9]" :key="lv">
+              <div v-if="lv <= char.level" class="mb-3">
+                <div class="text-[10px] text-gray-500 mb-1.5">
+                  Úroveň {{ lv }}
+                  <span class="text-gray-600">— vyber 1 kartu</span>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                  <div
+                    v-for="ability in getClassAbilities(char.classId, 9).available.filter(a => a.level === lv)"
+                    :key="ability.id"
+                    class="relative cursor-pointer"
+                    @click="char.abilities.includes(ability.id) ? characterStore.deselectAbility(char.uuid, ability.id) : characterStore.selectAbility(char.uuid, ability.id)"
+                  >
+                    <img
+                      :src="abilityImgSrc(ability)"
+                      :alt="ability.name"
+                      :title="`${ability.name} (Init. ${ability.initiative}) — klikni pro výběr`"
+                      class="w-full rounded-lg border-2 transition-all duration-200"
+                      :class="char.abilities.includes(ability.id)
+                        ? 'border-green-500 shadow-lg shadow-green-500/20'
+                        : 'border-white/[0.06] opacity-50 hover:opacity-80 hover:border-white/20'"
+                      loading="lazy"
+                      @error="($event.target as HTMLImageElement).style.display = 'none'"
+                    />
+                    <div
+                      v-if="char.abilities.includes(ability.id)"
+                      class="absolute top-1 right-1 w-5 h-5 bg-green-500 rounded-full flex items-center justify-center"
+                    >
+                      <svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </template>
+
+            <!-- Level 1.5 bonus cards -->
+            <div v-if="getClassAbilities(char.classId, 9).available.filter(a => a.level === 1.5).length > 0" class="mb-3">
+              <div class="text-[10px] text-gray-500 mb-1.5">Bonus karty (Lv. X)</div>
+              <div class="grid grid-cols-3 sm:grid-cols-4 gap-2">
+                <div
+                  v-for="ability in getClassAbilities(char.classId, 9).available.filter(a => a.level === 1.5)"
+                  :key="ability.id"
+                  class="relative cursor-pointer"
+                  @click="char.abilities.includes(ability.id) ? characterStore.deselectAbility(char.uuid, ability.id) : characterStore.selectAbility(char.uuid, ability.id)"
+                >
+                  <img
+                    :src="abilityImgSrc(ability)"
+                    :alt="ability.name"
+                    :title="`${ability.name} (Init. ${ability.initiative})`"
+                    class="w-full rounded-lg border-2 transition-all duration-200"
+                    :class="char.abilities.includes(ability.id)
+                      ? 'border-blue-500 shadow-lg shadow-blue-500/20'
+                      : 'border-white/[0.06] opacity-50 hover:opacity-80 hover:border-white/20'"
+                    loading="lazy"
+                    @error="($event.target as HTMLImageElement).style.display = 'none'"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div v-if="getClassAbilities(char.classId, char.level).locked.length > 0" class="mt-1">
               <span class="text-[10px] text-gray-600">
                 +{{ getClassAbilities(char.classId, char.level).locked.length }} schopností na vyšších úrovních
               </span>

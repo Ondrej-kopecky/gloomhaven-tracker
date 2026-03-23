@@ -145,6 +145,24 @@ export const useCharacterStore = defineStore('character', () => {
     campaignStore.autoSave()
   }
 
+  // --- Ability management ---
+
+  function selectAbility(uuid: string, abilityId: string) {
+    const char = getCharacter(uuid)
+    if (!char) return
+    if (!char.abilities.includes(abilityId)) {
+      char.abilities.push(abilityId)
+      campaignStore.autoSave()
+    }
+  }
+
+  function deselectAbility(uuid: string, abilityId: string) {
+    const char = getCharacter(uuid)
+    if (!char) return
+    char.abilities = char.abilities.filter((a) => a !== abilityId)
+    campaignStore.autoSave()
+  }
+
   // --- Item management ---
 
   const allItemDefs = itemsData as ItemDefinition[]
@@ -290,5 +308,7 @@ export const useCharacterStore = defineStore('character', () => {
     buyItem,
     addItemFree,
     sellItem,
+    selectAbility,
+    deselectAbility,
   }
 })
