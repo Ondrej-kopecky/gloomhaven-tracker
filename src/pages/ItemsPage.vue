@@ -160,21 +160,27 @@ function translateSource(source: string): string {
 }
 
 // Barevné kolečko pro živel (inline HTML)
-const elementColors: Record<string, string> = {
-  FIRE: '#e25822',
-  ICE: '#5bc0de',
-  WIND: '#8fbc8f',
-  EARTH: '#8b6914',
-  LIGHT: '#f0c040',
-  DARK: '#4a4a6a',
-  ANY: 'linear-gradient(135deg, #e25822, #5bc0de, #8fbc8f, #8b6914)',
+function statusIcon(name: string): string {
+  return `<img src="/img/icons/status/${name}.png" alt="${name}" style="display:inline-block;width:16px;height:16px;vertical-align:middle;margin:0 1px;" />`
+}
+
+function actionIcon(name: string): string {
+  return `<img src="/img/icons/general/${name}.png" alt="${name}" style="display:inline-block;width:16px;height:16px;vertical-align:middle;margin:0 1px;" />`
+}
+
+const elementFiles: Record<string, string> = {
+  FIRE: 'fire',
+  ICE: 'ice',
+  WIND: 'wind',
+  EARTH: 'earth',
+  LIGHT: 'light',
+  DARK: 'dark',
+  ANY: 'any',
 }
 
 function elDot(key: string, consume = false): string {
-  const c = elementColors[key] ?? '#888'
-  const bg = c.startsWith('linear') ? `background:${c}` : `background:${c}`
-  const x = consume ? '<span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:8px;font-weight:700;">✕</span>' : ''
-  return `<span style="display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;border-radius:50%;${bg};vertical-align:middle;position:relative;margin:0 1px;">${x}</span>`
+  const file = consume ? `${elementFiles[key] ?? 'any'}X` : elementFiles[key] ?? 'any'
+  return `<img src="/img/icons/elements/${file}.png" alt="${key}" style="display:inline-block;width:18px;height:18px;vertical-align:middle;margin:0 1px;" />`
 }
 
 // AOE hex grid SVGs
@@ -282,31 +288,31 @@ function aoeHexSvg(key: string): string {
 
 function translateDescription(desc: string): string {
   const result = desc
-    // Stavy
-    .replace(/\{SHIELD\}/g, 'Štít')
-    .replace(/\{INVISIBLE\}/g, 'Neviditelnost')
-    .replace(/\{STUN\}/g, 'Omráčení')
-    .replace(/\{POISON\}/g, 'Otrava')
-    .replace(/\{WOUND\}/g, 'Krvácení')
-    .replace(/\{MUDDLE\}/g, 'Zmatení')
-    .replace(/\{IMMOBILIZE\}/g, 'Znehybnění')
-    .replace(/\{CURSE\}/g, 'Prokletí')
-    .replace(/\{STRENGTHEN\}/g, 'Posílení')
-    .replace(/\{REGENERATE\}/g, 'Regenerace')
-    .replace(/\{FLYING\}/g, 'Let')
-    // Akce
-    .replace(/\{MOVE\}/g, 'Pohyb')
-    .replace(/\{ATTACK\}/g, 'Útok')
-    .replace(/\{RANGE\}/g, 'Dosah')
-    .replace(/\{HEAL\}/g, 'Léčení')
-    .replace(/\{JUMP\}/g, 'Skok')
-    .replace(/\{PUSH\}/g, 'Odtlačení')
-    .replace(/\{PULL\}/g, 'Přitažení')
-    .replace(/\{PIERCE\}/g, 'Průraz')
-    .replace(/\{RETALIATE\}/g, 'Odveta')
-    .replace(/\{RECOVER\}/g, 'Obnov')
-    .replace(/\{REFRESH\}/g, 'Obnov')
-    .replace(/\{TELEPORT\}/g, 'Teleportuj se')
+    // Stavy — ikona + český text
+    .replace(/\{SHIELD\}/g, `${statusIcon('shield')} Štít`)
+    .replace(/\{INVISIBLE\}/g, `${statusIcon('invisible')} Neviditelnost`)
+    .replace(/\{STUN\}/g, `${statusIcon('stun')} Omráčení`)
+    .replace(/\{POISON\}/g, `${statusIcon('poison')} Otrava`)
+    .replace(/\{WOUND\}/g, `${statusIcon('wound')} Krvácení`)
+    .replace(/\{MUDDLE\}/g, `${statusIcon('muddle')} Zmatení`)
+    .replace(/\{IMMOBILIZE\}/g, `${statusIcon('immobilize')} Znehybnění`)
+    .replace(/\{CURSE\}/g, `${statusIcon('curse')} Prokletí`)
+    .replace(/\{STRENGTHEN\}/g, `${statusIcon('strengthen')} Posílení`)
+    .replace(/\{REGENERATE\}/g, `${statusIcon('regenerate')} Regenerace`)
+    .replace(/\{FLYING\}/g, `${actionIcon('flying')} Let`)
+    // Akce — ikona + český text
+    .replace(/\{MOVE\}/g, `${actionIcon('move')} Pohyb`)
+    .replace(/\{ATTACK\}/g, `${actionIcon('attack')} Útok`)
+    .replace(/\{RANGE\}/g, `${actionIcon('range')} Dosah`)
+    .replace(/\{HEAL\}/g, `${actionIcon('heal')} Léčení`)
+    .replace(/\{JUMP\}/g, `${actionIcon('jump')} Skok`)
+    .replace(/\{PUSH\}/g, `${statusIcon('push')} Odtlačení`)
+    .replace(/\{PULL\}/g, `${statusIcon('pull')} Přitažení`)
+    .replace(/\{PIERCE\}/g, `${statusIcon('pierce')} Průraz`)
+    .replace(/\{RETALIATE\}/g, `${actionIcon('retaliate')} Odveta`)
+    .replace(/\{RECOVER\}/g, `${actionIcon('recover')} Obnov`)
+    .replace(/\{REFRESH\}/g, `${actionIcon('refresh')} Obnov`)
+    .replace(/\{TELEPORT\}/g, `${actionIcon('teleport')} Teleportuj se`)
     // Předměty / speciální
     .replace(/\{SMALL-ITEM\}/g, 'Drobnost')
     .replace(/\{CONSUMED\}/g, 'Spotřeba')
