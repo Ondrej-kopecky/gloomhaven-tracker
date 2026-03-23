@@ -3,6 +3,7 @@ import { ref, computed } from 'vue'
 import type { AchievementDefinition } from '@/models/Achievement'
 import achievementsData from '@/data/achievements.json'
 import { useCampaignStore } from './campaignStore'
+import { useToastStore } from './toastStore'
 
 export const useAchievementStore = defineStore('achievement', () => {
   const campaignStore = useCampaignStore()
@@ -84,8 +85,13 @@ export const useAchievementStore = defineStore('achievement', () => {
 
   function awardGlobal(id: string) {
     if (!campaignStore.currentCampaign) return
+    const wasAchieved = campaignStore.currentCampaign.globalAchievements[id]
     campaignStore.currentCampaign.globalAchievements[id] = true
     campaignStore.autoSave()
+    if (!wasAchieved) {
+      const toastStore = useToastStore()
+      toastStore.show(`Úspěch: ${getName(id)}`)
+    }
   }
 
   function awardParty(id: string) {
