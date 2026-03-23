@@ -54,6 +54,37 @@ function linkedScenarioName(id: number): string {
   return def ? `#${id} ${def.name}` : `#${id}`
 }
 
+const requirementLabels = computed(() => {
+  const s = selectedScenario.value
+  if (!s?.requiredBy?.length) return [] as { text: string; met: boolean }[]
+  return s.requiredBy.flatMap((cond) => {
+    const labels: { text: string; met: boolean }[] = []
+    for (const id of cond.complete ?? []) {
+      if (/^\d+$/.test(id)) {
+        const name = scenarioStore.getDefinition(id)?.nameCz ?? scenarioStore.getDefinition(id)?.name ?? `#${id}`
+        const met = scenarioStore.getScenarioStatus(id) === ScenarioStatus.COMPLETED
+        labels.push({ text: `Dokončit scénář #${id} ${name}`, met })
+      } else {
+        const name = achievementName(id)
+        const met = achievementStore.isGlobalAchieved(id) || achievementStore.isPartyAchieved(id)
+        labels.push({ text: `Úspěch: ${name}`, met })
+      }
+    }
+    for (const id of cond.incomplete ?? []) {
+      if (/^\d+$/.test(id)) {
+        const name = scenarioStore.getDefinition(id)?.nameCz ?? scenarioStore.getDefinition(id)?.name ?? `#${id}`
+        const met = scenarioStore.getScenarioStatus(id) !== ScenarioStatus.COMPLETED
+        labels.push({ text: `Nedokončený scénář #${id} ${name}`, met })
+      } else {
+        const name = achievementName(id)
+        const met = !(achievementStore.isGlobalAchieved(id) || achievementStore.isPartyAchieved(id))
+        labels.push({ text: `Bez úspěchu: ${name}`, met })
+      }
+    }
+    return labels
+  })
+})
+
 type FilterVal = 'all' | 'available' | 'completed' | 'attempted' | 'locked' | 'blocked'
 const filterStatus = ref<FilterVal>('all')
 
@@ -386,6 +417,27 @@ function goToFlowchart(id: string) {
               <!-- summary -->
               <div v-if="selectedScenario.summary" class="bg-white/[0.03] rounded-xl p-4 border border-white/[0.06]">
                 <p class="text-sm text-gray-300 leading-relaxed italic">{{ selectedScenario.summary }}</p>
+              </div>
+
+              <!-- requirements -->
+              <div v-if="requirementLabels.length > 0">
+                <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Podmínky pro zahrání</h3>
+                <div class="space-y-1">
+                  <div v-for="(req, i) in requirementLabels" :key="i" class="flex items-center gap-1.5 text-sm">
+                    <span v-if="req.met" class="text-green-400/90 flex items-center gap-1.5">
+                      <svg class="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      {{ req.text }}
+                    </span>
+                    <span v-else class="text-yellow-400/90 flex items-center gap-1.5">
+                      <svg class="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+                      </svg>
+                      {{ req.text }}
+                    </span>
+                  </div>
+                </div>
               </div>
 
               <!-- rewards (hidden for uncompleted in spoiler mode) -->
