@@ -8,5 +8,6 @@ export interface AchievementDefinition {
   group?: string
   upgrades?: string[]
   isManual?: boolean
+  hidden?: boolean
   requirement?: string
 }

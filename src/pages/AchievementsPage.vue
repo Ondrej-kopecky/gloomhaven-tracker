@@ -1,12 +1,14 @@
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
+import { ref, computed, onMounted, nextTick } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 import { useCampaignStore } from '@/stores/campaignStore'
 import { useAchievementStore } from '@/stores/achievementStore'
 
 const router = useRouter()
+const route = useRoute()
 const campaignStore = useCampaignStore()
 const achievementStore = useAchievementStore()
+const highlightId = ref<string | null>(null)
 
 type Ach = (typeof achievementStore.globalDefinitions)[number]
 type FilterType = 'all' | 'done' | 'remaining'
@@ -15,8 +17,16 @@ const search = ref('')
 const filterOptions: FilterType[] = ['all', 'done', 'remaining']
 const filterLabels: Record<FilterType, string> = { all: 'Vše', done: 'Splněno', remaining: 'Zbývá' }
 
-onMounted(() => {
-  if (!campaignStore.hasCampaign) router.push('/kampan')
+onMounted(async () => {
+  if (!campaignStore.hasCampaign) { router.push('/kampan'); return }
+  const hid = route.query.highlight as string | undefined
+  if (hid) {
+    highlightId.value = hid
+    await nextTick()
+    const el = document.getElementById(`ach-${hid}`)
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    setTimeout(() => { highlightId.value = null }, 3000)
+  }
 })
 
 /* ── helpers ── */
@@ -196,10 +206,14 @@ function pctBar(count: number, total: number): number {
         <div
           v-for="ach in globalFiltered"
           :key="ach.id"
+          :id="'ach-' + ach.id"
           class="group relative rounded-xl p-4 border cursor-pointer transition-all duration-300 active:scale-[0.98]"
-          :class="achievementStore.isGlobalAchieved(ach.id)
-            ? 'border-green-700/40 bg-green-900/15 gh-glow-green'
-            : 'border-gh-border bg-gh-card hover:border-green-800/40 hover:bg-white/[0.03]'"
+          :class="[
+            achievementStore.isGlobalAchieved(ach.id)
+              ? 'border-green-700/40 bg-green-900/15 gh-glow-green'
+              : 'border-gh-border bg-gh-card hover:border-green-800/40 hover:bg-white/[0.03]',
+            highlightId === ach.id ? 'ring-2 ring-gh-primary ring-offset-2 ring-offset-gh-dark' : ''
+          ]"
           @click="achievementStore.toggleGlobal(ach.id)"
         >
           <!-- left accent -->
