@@ -53,6 +53,23 @@ export const useCampaignStore = defineStore('campaign', () => {
     autoSave()
   }
 
+  const unlockedClasses = computed(() => currentCampaign.value?.unlockedClasses ?? [])
+
+  function unlockClass(classId: string) {
+    if (!currentCampaign.value) return
+    const current = currentCampaign.value.unlockedClasses ?? []
+    if (current.includes(classId)) return
+    currentCampaign.value = { ...currentCampaign.value, unlockedClasses: [...current, classId] }
+    autoSave()
+  }
+
+  function lockClass(classId: string) {
+    if (!currentCampaign.value) return
+    const current = currentCampaign.value.unlockedClasses ?? []
+    currentCampaign.value = { ...currentCampaign.value, unlockedClasses: current.filter((id) => id !== classId) }
+    autoSave()
+  }
+
   function removeManuallyUnlockedScenario(scenarioId: string) {
     if (!currentCampaign.value) return
     const current = currentCampaign.value.manuallyUnlockedScenarios ?? []
@@ -267,6 +284,9 @@ export const useCampaignStore = defineStore('campaign', () => {
     manuallyUnlockedScenarios,
     manuallyUnlockScenario,
     removeManuallyUnlockedScenario,
+    unlockedClasses,
+    unlockClass,
+    lockClass,
     loadCampaignList,
     createCampaign,
     loadCampaign,

@@ -183,7 +183,7 @@ const availableClasses = computed(() => {
   if (!campaignStore.hideSpoilers) return classNames
   const filtered: Partial<Record<CharacterClass, string>> = {}
   for (const [key, name] of Object.entries(classNames) as [CharacterClass, string][]) {
-    if (STARTING_CLASSES.has(key)) {
+    if (STARTING_CLASSES.has(key) || campaignStore.unlockedClasses.includes(key)) {
       filtered[key] = name
     }
   }

@@ -21,6 +21,7 @@ export interface CampaignState {
   hideSpoilers?: boolean
   unlockedItemDesigns?: number[]
   manuallyUnlockedScenarios?: string[]
+  unlockedClasses?: string[]
   forgottenCircles?: boolean
   openedEnvelopes?: Record<string, boolean>
 }

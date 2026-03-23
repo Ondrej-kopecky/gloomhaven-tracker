@@ -9,6 +9,7 @@ import itemsData from '@/data/items.json'
 import { useCampaignStore } from './campaignStore'
 import { useToastStore } from './toastStore'
 import { getLevelFromXp } from '@/utils/prosperityTable'
+import personalQuestsData from '@/data/personalQuests.json'
 
 export const useCharacterStore = defineStore('character', () => {
   const campaignStore = useCampaignStore()
@@ -120,6 +121,14 @@ export const useCharacterStore = defineStore('character', () => {
     campaignStore.autoSave()
   }
 
+  const REF_CLASS_MAP: Record<string, string> = {
+    BE: 'berserker', BR: 'brute', BT: 'beast_tyrant', CH: 'cragheart',
+    DS: 'doomstalker', EL: 'elementalist', MT: 'mindthief', NS: 'nightshroud',
+    PH: 'plagueherald', QM: 'quartermaster', SB: 'sawbones', SC: 'scoundrel',
+    SK: 'sunkeeper', SS: 'soothsinger', SU: 'summoner', SW: 'spellweaver',
+    TI: 'tinkerer', DR: 'diviner',
+  }
+
   function retireCharacter(uuid: string) {
     if (!campaignStore.currentCampaign) return
     const idx = campaignStore.currentCampaign.characters.findIndex((c) => c.uuid === uuid)
@@ -128,6 +137,20 @@ export const useCharacterStore = defineStore('character', () => {
     const char = campaignStore.currentCampaign.characters[idx]!
     char.isRetired = true
     char.retiredAt = new Date().toISOString()
+
+    // Unlock class from personal quest
+    if (char.personalQuestId) {
+      const pq = (personalQuestsData as { id: number; character_unlock?: string }[])
+        .find((q) => q.id === char.personalQuestId)
+      if (pq?.character_unlock) {
+        const classId = REF_CLASS_MAP[pq.character_unlock]
+        if (classId) {
+          campaignStore.unlockClass(classId)
+          toastStore.show(`Třída odemčena: ${definitions.value.find(d => d.classId === classId)?.name ?? classId}`)
+        }
+      }
+    }
+
     campaignStore.currentCampaign.archivedCharacters.push(char)
     campaignStore.currentCampaign.characters.splice(idx, 1)
     campaignStore.autoSave()
