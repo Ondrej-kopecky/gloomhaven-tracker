@@ -51,9 +51,16 @@ const typeStyles = {
           >
             <path stroke-linecap="round" stroke-linejoin="round" :d="typeStyles[toast.type].path" />
           </svg>
-          <span class="text-sm font-medium" :class="typeStyles[toast.type].text">
+          <span class="text-sm font-medium flex-1" :class="typeStyles[toast.type].text">
             {{ toast.message }}
           </span>
+          <button
+            v-if="toast.undoAction"
+            class="text-xs font-semibold text-gh-primary hover:text-gh-primary-light px-2 py-1 rounded-md bg-gh-primary/10 hover:bg-gh-primary/20 transition-colors shrink-0 ml-1"
+            @click.stop="toastStore.undo(toast.id)"
+          >
+            Zpět
+          </button>
         </div>
         <!-- Progress bar -->
         <div class="h-[2px] bg-white/[0.04]">
