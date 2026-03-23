@@ -45,6 +45,7 @@ const navItems = [
 const mobileNavItems = [
   ...navItems,
   { to: '/nastaveni', label: 'Nastavení' },
+  { to: '/info', label: 'Info' },
 ]
 
 const isActive = (path: string) => route.path === path
