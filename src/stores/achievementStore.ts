@@ -31,15 +31,44 @@ export const useAchievementStore = defineStore('achievement', () => {
 
   function toggleGlobal(id: string) {
     if (!campaignStore.currentCampaign) return
-    const current = campaignStore.currentCampaign.globalAchievements[id]
-    campaignStore.currentCampaign.globalAchievements[id] = !current
-
+    const ga = campaignStore.currentCampaign.globalAchievements
     const def = globalDefinitions.value.find((a) => a.id === id)
+
+    // Upgradeable achievements: cycle through levels
+    if (def?.upgrades?.length) {
+      if (!ga[id]) {
+        // Not achieved → set level 1
+        ga[id] = true
+      } else {
+        // Find current upgrade level and advance
+        let advanced = false
+        for (const uid of def.upgrades) {
+          if (!ga[uid]) {
+            ga[uid] = true
+            advanced = true
+            break
+          }
+        }
+        if (!advanced) {
+          // All upgrades maxed → reset all
+          ga[id] = false
+          for (const uid of def.upgrades) ga[uid] = false
+        }
+      }
+      campaignStore.autoSave()
+      return
+    }
+
+    // Regular toggle
+    const current = ga[id]
+    ga[id] = !current
+
+    // Group exclusivity
     if (def?.group && !current) {
       globalDefinitions.value
         .filter((a) => a.group === def.group && a.id !== id)
         .forEach((a) => {
-          campaignStore.currentCampaign!.globalAchievements[a.id] = false
+          ga[a.id] = false
         })
     }
 
