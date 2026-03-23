@@ -226,8 +226,20 @@ export const useScenarioStore = defineStore('scenario', () => {
       completedAt: new Date().toISOString(),
     }
 
+    // Snapshot for undo
+    const prevScenarios = JSON.parse(JSON.stringify(campaignStore.currentCampaign.scenarios))
+    const prevGlobal = JSON.parse(JSON.stringify(campaignStore.currentCampaign.globalAchievements))
+    const prevParty = JSON.parse(JSON.stringify(campaignStore.currentCampaign.partyAchievements))
+
     campaignStore.currentCampaign.scenarios[id] = state
-    toastStore.show(`Scénář #${id} ${def.nameCz ?? def.name} dokončen`)
+    toastStore.show(`Scénář #${id} ${def.nameCz ?? def.name} dokončen`, 'success', () => {
+      if (!campaignStore.currentCampaign) return
+      campaignStore.currentCampaign.scenarios = prevScenarios
+      campaignStore.currentCampaign.globalAchievements = prevGlobal
+      campaignStore.currentCampaign.partyAchievements = prevParty
+      campaignStore.autoSave()
+      toastStore.show('Dokončení scénáře vráceno', 'info')
+    })
 
     // Award achievements from the new achievementsAwarded field
     if (def.achievementsAwarded) {
