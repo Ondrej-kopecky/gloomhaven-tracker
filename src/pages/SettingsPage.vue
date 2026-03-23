@@ -854,7 +854,7 @@ function formatDate(iso: string): string {
       <div class="space-y-2 text-sm">
         <div class="flex justify-between">
           <span class="text-gray-500">Verze</span>
-          <span class="text-gray-300 font-medium">4.12.4</span>
+          <span class="text-gray-300 font-medium">4.13.0</span>
         </div>
         <div class="flex justify-between">
           <span class="text-gray-500">Technologie</span>
