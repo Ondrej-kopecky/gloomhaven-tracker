@@ -1,0 +1,3962 @@
+[
+  {
+    "id": "blood-pact",
+    "name": "Blood Pact",
+    "classId": "berserker",
+    "refClassId": "BE",
+    "level": 1,
+    "initiative": 76
+  },
+  {
+    "id": "bone-breaker",
+    "name": "Bone Breaker",
+    "classId": "berserker",
+    "refClassId": "BE",
+    "level": 8,
+    "initiative": 41
+  },
+  {
+    "id": "bounce-back",
+    "name": "Bounce Back",
+    "classId": "berserker",
+    "refClassId": "BE",
+    "level": 1,
+    "initiative": 14
+  },
+  {
+    "id": "break-the-chains",
+    "name": "Break The Chains",
+    "classId": "berserker",
+    "refClassId": "BE",
+    "level": 2,
+    "initiative": 53
+  },
+  {
+    "id": "burning-hatred",
+    "name": "Burning Hatred",
+    "classId": "berserker",
+    "refClassId": "BE",
+    "level": 7,
+    "initiative": 40
+  },
+  {
+    "id": "careless-charge",
+    "name": "Careless Charge",
+    "classId": "berserker",
+    "refClassId": "BE",
+    "level": 7,
+    "initiative": 20
+  },
+  {
+    "id": "cauterize",
+    "name": "Cauterize",
+    "classId": "berserker",
+    "refClassId": "BE",
+    "level": 1,
+    "initiative": 40
+  },
+  {
+    "id": "dazing-wound",
+    "name": "Dazing Wound",
+    "classId": "berserker",
+    "refClassId": "BE",
+    "level": 1,
+    "initiative": 29
+  },
+  {
+    "id": "defiance-of-death",
+    "name": "Defiance Of Death",
+    "classId": "berserker",
+    "refClassId": "BE",
+    "level": 1,
+    "initiative": 31
+  },
+  {
+    "id": "devil-horns",
+    "name": "Devil Horns",
+    "classId": "berserker",
+    "refClassId": "BE",
+    "level": 6,
+    "initiative": 31
+  },
+  {
+    "id": "fatal-fury",
+    "name": "Fatal Fury",
+    "classId": "berserker",
+    "refClassId": "BE",
+    "level": 3,
+    "initiative": 34
+  },
+  {
+    "id": "final-fight",
+    "name": "Final Fight",
+    "classId": "berserker",
+    "refClassId": "BE",
+    "level": 5,
+    "initiative": 89
+  },
+  {
+    "id": "flurry-of-axes",
+    "name": "Flurry Of Axes",
+    "classId": "berserker",
+    "refClassId": "BE",
+    "level": 4,
+    "initiative": 27
+  },
+  {
+    "id": "from-the-brink",
+    "name": "From The Brink",
+    "classId": "berserker",
+    "refClassId": "BE",
+    "level": 1,
+    "initiative": 24
+  },
+  {
+    "id": "furious-aid",
+    "name": "Furious Aid",
+    "classId": "berserker",
+    "refClassId": "BE",
+    "level": 1,
+    "initiative": 43
+  },
+  {
+    "id": "glass-hammer",
+    "name": "Glass Hammer",
+    "classId": "berserker",
+    "refClassId": "BE",
+    "level": 1.5,
+    "initiative": 11
+  },
+  {
+    "id": "growing-rage",
+    "name": "Growing Rage",
+    "classId": "berserker",
+    "refClassId": "BE",
+    "level": 1,
+    "initiative": 85
+  },
+  {
+    "id": "immortality",
+    "name": "Immortality",
+    "classId": "berserker",
+    "refClassId": "BE",
+    "level": 9,
+    "initiative": 33
+  },
+  {
+    "id": "numb-the-pain",
+    "name": "Numb The Pain",
+    "classId": "berserker",
+    "refClassId": "BE",
+    "level": 1.5,
+    "initiative": 35
+  },
+  {
+    "id": "reckless-offensive",
+    "name": "Reckless Offensive",
+    "classId": "berserker",
+    "refClassId": "BE",
+    "level": 2,
+    "initiative": 21
+  },
+  {
+    "id": "resolute-stand",
+    "name": "Resolute Stand",
+    "classId": "berserker",
+    "refClassId": "BE",
+    "level": 1,
+    "initiative": 9
+  },
+  {
+    "id": "seeing-red",
+    "name": "Seeing Red",
+    "classId": "berserker",
+    "refClassId": "BE",
+    "level": 5,
+    "initiative": 22
+  },
+  {
+    "id": "shiny-distraction",
+    "name": "Shiny Distraction",
+    "classId": "berserker",
+    "refClassId": "BE",
+    "level": 4,
+    "initiative": 8
+  },
+  {
+    "id": "spiked-armor",
+    "name": "Spiked Armor",
+    "classId": "berserker",
+    "refClassId": "BE",
+    "level": 3,
+    "initiative": 16
+  },
+  {
+    "id": "strength-in-agony",
+    "name": "Strength In Agony",
+    "classId": "berserker",
+    "refClassId": "BE",
+    "level": 1,
+    "initiative": 37
+  },
+  {
+    "id": "the-maw-of-madness",
+    "name": "The Maw Of Madness",
+    "classId": "berserker",
+    "refClassId": "BE",
+    "level": 9,
+    "initiative": 10
+  },
+  {
+    "id": "unbridled-power",
+    "name": "Unbridled Power",
+    "classId": "berserker",
+    "refClassId": "BE",
+    "level": 1.5,
+    "initiative": 67
+  },
+  {
+    "id": "unstoppable-destruction",
+    "name": "Unstoppable Destruction",
+    "classId": "berserker",
+    "refClassId": "BE",
+    "level": 6,
+    "initiative": 57
+  },
+  {
+    "id": "vengeful-barrage",
+    "name": "Vengeful Barrage",
+    "classId": "berserker",
+    "refClassId": "BE",
+    "level": 8,
+    "initiative": 38
+  },
+  {
+    "id": "balanced-measure",
+    "name": "Balanced Measure",
+    "classId": "brute",
+    "refClassId": "BR",
+    "level": 1.5,
+    "initiative": 77
+  },
+  {
+    "id": "brute-force",
+    "name": "Brute Force",
+    "classId": "brute",
+    "refClassId": "BR",
+    "level": 3,
+    "initiative": 51
+  },
+  {
+    "id": "crippling-offensive",
+    "name": "Crippling Offensive",
+    "classId": "brute",
+    "refClassId": "BR",
+    "level": 7,
+    "initiative": 33
+  },
+  {
+    "id": "defensive-tactics",
+    "name": "Defensive Tactics",
+    "classId": "brute",
+    "refClassId": "BR",
+    "level": 7,
+    "initiative": 26
+  },
+  {
+    "id": "devastating-hack",
+    "name": "Devastating Hack",
+    "classId": "brute",
+    "refClassId": "BR",
+    "level": 4,
+    "initiative": 27
+  },
+  {
+    "id": "eye-for-an-eye",
+    "name": "Eye For An Eye",
+    "classId": "brute",
+    "refClassId": "BR",
+    "level": 1,
+    "initiative": 18
+  },
+  {
+    "id": "face-your-end",
+    "name": "Face Your End",
+    "classId": "brute",
+    "refClassId": "BR",
+    "level": 9,
+    "initiative": 67
+  },
+  {
+    "id": "fatal-advance",
+    "name": "Fatal Advance",
+    "classId": "brute",
+    "refClassId": "BR",
+    "level": 2,
+    "initiative": 40
+  },
+  {
+    "id": "frenzied-onslaught",
+    "name": "Frenzied Onslaught",
+    "classId": "brute",
+    "refClassId": "BR",
+    "level": 8,
+    "initiative": 41
+  },
+  {
+    "id": "grab-and-go",
+    "name": "Grab And Go",
+    "classId": "brute",
+    "refClassId": "BR",
+    "level": 1,
+    "initiative": 87
+  },
+  {
+    "id": "hook-and-chain",
+    "name": "Hook And Chain",
+    "classId": "brute",
+    "refClassId": "BR",
+    "level": 3,
+    "initiative": 42
+  },
+  {
+    "id": "immovable-phalanx",
+    "name": "Immovable Phalanx",
+    "classId": "brute",
+    "refClassId": "BR",
+    "level": 6,
+    "initiative": 17
+  },
+  {
+    "id": "juggernaut",
+    "name": "Juggernaut",
+    "classId": "brute",
+    "refClassId": "BR",
+    "level": 2,
+    "initiative": 34
+  },
+  {
+    "id": "king-of-the-hill",
+    "name": "King Of The Hill",
+    "classId": "brute",
+    "refClassId": "BR",
+    "level": 9,
+    "initiative": 39
+  },
+  {
+    "id": "leaping-cleave",
+    "name": "Leaping Cleave",
+    "classId": "brute",
+    "refClassId": "BR",
+    "level": 1,
+    "initiative": 54
+  },
+  {
+    "id": "overwhelming-assault",
+    "name": "Overwhelming Assault",
+    "classId": "brute",
+    "refClassId": "BR",
+    "level": 1,
+    "initiative": 61
+  },
+  {
+    "id": "provoking-roar",
+    "name": "Provoking Roar",
+    "classId": "brute",
+    "refClassId": "BR",
+    "level": 1,
+    "initiative": 10
+  },
+  {
+    "id": "quietus",
+    "name": "Quietus",
+    "classId": "brute",
+    "refClassId": "BR",
+    "level": 6,
+    "initiative": 57
+  },
+  {
+    "id": "selfish-retribution",
+    "name": "Selfish Retribution",
+    "classId": "brute",
+    "refClassId": "BR",
+    "level": 8,
+    "initiative": 12
+  },
+  {
+    "id": "shield-bash",
+    "name": "Shield Bash",
+    "classId": "brute",
+    "refClassId": "BR",
+    "level": 1,
+    "initiative": 15
+  },
+  {
+    "id": "skewer",
+    "name": "Skewer",
+    "classId": "brute",
+    "refClassId": "BR",
+    "level": 1.5,
+    "initiative": 35
+  },
+  {
+    "id": "skirmishing-maneuver",
+    "name": "Skirmishing Maneuver",
+    "classId": "brute",
+    "refClassId": "BR",
+    "level": 5,
+    "initiative": 29
+  },
+  {
+    "id": "spare-dagger",
+    "name": "Spare Dagger",
+    "classId": "brute",
+    "refClassId": "BR",
+    "level": 1,
+    "initiative": 27
+  },
+  {
+    "id": "sweeping-blow",
+    "name": "Sweeping Blow",
+    "classId": "brute",
+    "refClassId": "BR",
+    "level": 1,
+    "initiative": 64
+  },
+  {
+    "id": "trample",
+    "name": "Trample",
+    "classId": "brute",
+    "refClassId": "BR",
+    "level": 1,
+    "initiative": 72
+  },
+  {
+    "id": "unstoppable-charge",
+    "name": "Unstoppable Charge",
+    "classId": "brute",
+    "refClassId": "BR",
+    "level": 4,
+    "initiative": 86
+  },
+  {
+    "id": "wall-of-doom",
+    "name": "Wall Of Doom",
+    "classId": "brute",
+    "refClassId": "BR",
+    "level": 1.5,
+    "initiative": 20
+  },
+  {
+    "id": "warding-strength",
+    "name": "Warding Strength",
+    "classId": "brute",
+    "refClassId": "BR",
+    "level": 1,
+    "initiative": 32
+  },
+  {
+    "id": "whirlwind",
+    "name": "Whirlwind",
+    "classId": "brute",
+    "refClassId": "BR",
+    "level": 5,
+    "initiative": 28
+  },
+  {
+    "id": "ancient-ward",
+    "name": "Ancient Ward",
+    "classId": "beast_tyrant",
+    "refClassId": "BT",
+    "level": 4,
+    "initiative": 19
+  },
+  {
+    "id": "blood-hunger",
+    "name": "Blood Hunger",
+    "classId": "beast_tyrant",
+    "refClassId": "BT",
+    "level": 6,
+    "initiative": 42
+  },
+  {
+    "id": "borrowed-essence",
+    "name": "Borrowed Essence",
+    "classId": "beast_tyrant",
+    "refClassId": "BT",
+    "level": 1.5,
+    "initiative": 56
+  },
+  {
+    "id": "concentrated-rage",
+    "name": "Concentrated Rage",
+    "classId": "beast_tyrant",
+    "refClassId": "BT",
+    "level": 1,
+    "initiative": 51
+  },
+  {
+    "id": "disappearing-wounds",
+    "name": "Disappearing Wounds",
+    "classId": "beast_tyrant",
+    "refClassId": "BT",
+    "level": 1,
+    "initiative": 23
+  },
+  {
+    "id": "disorienting-roar",
+    "name": "Disorienting Roar",
+    "classId": "beast_tyrant",
+    "refClassId": "BT",
+    "level": 1,
+    "initiative": 17
+  },
+  {
+    "id": "earthen-spikes",
+    "name": "Earthen Spikes",
+    "classId": "beast_tyrant",
+    "refClassId": "BT",
+    "level": 2,
+    "initiative": 11
+  },
+  {
+    "id": "energizing-strike",
+    "name": "Energizing Strike",
+    "classId": "beast_tyrant",
+    "refClassId": "BT",
+    "level": 2,
+    "initiative": 29
+  },
+  {
+    "id": "focused-aggression",
+    "name": "Focused Aggression",
+    "classId": "beast_tyrant",
+    "refClassId": "BT",
+    "level": 1.5,
+    "initiative": 31
+  },
+  {
+    "id": "forceful-swipe",
+    "name": "Forceful Swipe",
+    "classId": "beast_tyrant",
+    "refClassId": "BT",
+    "level": 1,
+    "initiative": 35
+  },
+  {
+    "id": "howling-bolts",
+    "name": "Howling Bolts",
+    "classId": "beast_tyrant",
+    "refClassId": "BT",
+    "level": 1,
+    "initiative": 47
+  },
+  {
+    "id": "jaws-of-death",
+    "name": "Jaws Of Death",
+    "classId": "beast_tyrant",
+    "refClassId": "BT",
+    "level": 9,
+    "initiative": 48
+  },
+  {
+    "id": "lash-out",
+    "name": "Lash Out",
+    "classId": "beast_tyrant",
+    "refClassId": "BT",
+    "level": 8,
+    "initiative": 18
+  },
+  {
+    "id": "maul",
+    "name": "Maul",
+    "classId": "beast_tyrant",
+    "refClassId": "BT",
+    "level": 1,
+    "initiative": 14
+  },
+  {
+    "id": "natural-remedy",
+    "name": "Natural Remedy",
+    "classId": "beast_tyrant",
+    "refClassId": "BT",
+    "level": 8,
+    "initiative": 25
+  },
+  {
+    "id": "patch-fur",
+    "name": "Patch Fur",
+    "classId": "beast_tyrant",
+    "refClassId": "BT",
+    "level": 1,
+    "initiative": 20
+  },
+  {
+    "id": "primal-blessing",
+    "name": "Primal Blessing",
+    "classId": "beast_tyrant",
+    "refClassId": "BT",
+    "level": 6,
+    "initiative": 28
+  },
+  {
+    "id": "punch-through",
+    "name": "Punch Through",
+    "classId": "beast_tyrant",
+    "refClassId": "BT",
+    "level": 4,
+    "initiative": 44
+  },
+  {
+    "id": "rampage",
+    "name": "Rampage",
+    "classId": "beast_tyrant",
+    "refClassId": "BT",
+    "level": 5,
+    "initiative": 34
+  },
+  {
+    "id": "relentless-ally",
+    "name": "Relentless Ally",
+    "classId": "beast_tyrant",
+    "refClassId": "BT",
+    "level": 1,
+    "initiative": 81
+  },
+  {
+    "id": "soaring-ally",
+    "name": "Soaring Ally",
+    "classId": "beast_tyrant",
+    "refClassId": "BT",
+    "level": 1.5,
+    "initiative": 77
+  },
+  {
+    "id": "spirit-swap",
+    "name": "Spirit Swap",
+    "classId": "beast_tyrant",
+    "refClassId": "BT",
+    "level": 1,
+    "initiative": 22
+  },
+  {
+    "id": "stone-sigil",
+    "name": "Stone Sigil",
+    "classId": "beast_tyrant",
+    "refClassId": "BT",
+    "level": 5,
+    "initiative": 95
+  },
+  {
+    "id": "storm-sigil",
+    "name": "Storm Sigil",
+    "classId": "beast_tyrant",
+    "refClassId": "BT",
+    "level": 7,
+    "initiative": 93
+  },
+  {
+    "id": "tribal-sigil",
+    "name": "Tribal Sigil",
+    "classId": "beast_tyrant",
+    "refClassId": "BT",
+    "level": 9,
+    "initiative": 91
+  },
+  {
+    "id": "tyrannical-force",
+    "name": "Tyrannical Force",
+    "classId": "beast_tyrant",
+    "refClassId": "BT",
+    "level": 7,
+    "initiative": 37
+  },
+  {
+    "id": "unstoppable-beast",
+    "name": "Unstoppable Beast",
+    "classId": "beast_tyrant",
+    "refClassId": "BT",
+    "level": 3,
+    "initiative": 32
+  },
+  {
+    "id": "venomous-ally",
+    "name": "Venomous Ally",
+    "classId": "beast_tyrant",
+    "refClassId": "BT",
+    "level": 1,
+    "initiative": 79
+  },
+  {
+    "id": "vicious-ally",
+    "name": "Vicious Ally",
+    "classId": "beast_tyrant",
+    "refClassId": "BT",
+    "level": 3,
+    "initiative": 86
+  },
+  {
+    "id": "avalanche",
+    "name": "Avalanche",
+    "classId": "cragheart",
+    "refClassId": "CH",
+    "level": 1,
+    "initiative": 75
+  },
+  {
+    "id": "backup-ammunition",
+    "name": "Backup Ammunition",
+    "classId": "cragheart",
+    "refClassId": "CH",
+    "level": 1,
+    "initiative": 77
+  },
+  {
+    "id": "blind-destruction",
+    "name": "Blind Destruction",
+    "classId": "cragheart",
+    "refClassId": "CH",
+    "level": 9,
+    "initiative": 74
+  },
+  {
+    "id": "blunt-force",
+    "name": "Blunt Force",
+    "classId": "cragheart",
+    "refClassId": "CH",
+    "level": 3,
+    "initiative": 21
+  },
+  {
+    "id": "brutal-momentum",
+    "name": "Brutal Momentum",
+    "classId": "cragheart",
+    "refClassId": "CH",
+    "level": 7,
+    "initiative": 52
+  },
+  {
+    "id": "cataclysm",
+    "name": "Cataclysm",
+    "classId": "cragheart",
+    "refClassId": "CH",
+    "level": 6,
+    "initiative": 26
+  },
+  {
+    "id": "clear-the-way",
+    "name": "Clear The Way",
+    "classId": "cragheart",
+    "refClassId": "CH",
+    "level": 3,
+    "initiative": 43
+  },
+  {
+    "id": "crater",
+    "name": "Crater",
+    "classId": "cragheart",
+    "refClassId": "CH",
+    "level": 1,
+    "initiative": 61
+  },
+  {
+    "id": "crushing-grasp",
+    "name": "Crushing Grasp",
+    "classId": "cragheart",
+    "refClassId": "CH",
+    "level": 1,
+    "initiative": 35
+  },
+  {
+    "id": "dig-pit",
+    "name": "Dig Pit",
+    "classId": "cragheart",
+    "refClassId": "CH",
+    "level": 6,
+    "initiative": 78
+  },
+  {
+    "id": "dirt-tornado",
+    "name": "Dirt Tornado",
+    "classId": "cragheart",
+    "refClassId": "CH",
+    "level": 1,
+    "initiative": 82
+  },
+  {
+    "id": "earthen-clod",
+    "name": "Earthen Clod",
+    "classId": "cragheart",
+    "refClassId": "CH",
+    "level": 1,
+    "initiative": 38
+  },
+  {
+    "id": "explosive-punch",
+    "name": "Explosive Punch",
+    "classId": "cragheart",
+    "refClassId": "CH",
+    "level": 2,
+    "initiative": 28
+  },
+  {
+    "id": "forceful-storm",
+    "name": "Forceful Storm",
+    "classId": "cragheart",
+    "refClassId": "CH",
+    "level": 1.5,
+    "initiative": 53
+  },
+  {
+    "id": "heaving-swing",
+    "name": "Heaving Swing",
+    "classId": "cragheart",
+    "refClassId": "CH",
+    "level": 1.5,
+    "initiative": 57
+  },
+  {
+    "id": "kinetic-assault",
+    "name": "Kinetic Assault",
+    "classId": "cragheart",
+    "refClassId": "CH",
+    "level": 4,
+    "initiative": 19
+  },
+  {
+    "id": "lumbering-bash",
+    "name": "Lumbering Bash",
+    "classId": "cragheart",
+    "refClassId": "CH",
+    "level": 8,
+    "initiative": 85
+  },
+  {
+    "id": "massive-boulder",
+    "name": "Massive Boulder",
+    "classId": "cragheart",
+    "refClassId": "CH",
+    "level": 1,
+    "initiative": 87
+  },
+  {
+    "id": "meteor",
+    "name": "Meteor",
+    "classId": "cragheart",
+    "refClassId": "CH",
+    "level": 7,
+    "initiative": 23
+  },
+  {
+    "id": "nature-s-lift",
+    "name": "Nature's Lift",
+    "classId": "cragheart",
+    "refClassId": "CH",
+    "level": 1.5,
+    "initiative": 64
+  },
+  {
+    "id": "opposing-strike",
+    "name": "Opposing Strike",
+    "classId": "cragheart",
+    "refClassId": "CH",
+    "level": 1,
+    "initiative": 46
+  },
+  {
+    "id": "petrify",
+    "name": "Petrify",
+    "classId": "cragheart",
+    "refClassId": "CH",
+    "level": 5,
+    "initiative": 47
+  },
+  {
+    "id": "pulverize",
+    "name": "Pulverize",
+    "classId": "cragheart",
+    "refClassId": "CH",
+    "level": 9,
+    "initiative": 31
+  },
+  {
+    "id": "rock-slide",
+    "name": "Rock Slide",
+    "classId": "cragheart",
+    "refClassId": "CH",
+    "level": 4,
+    "initiative": 81
+  },
+  {
+    "id": "rock-tunnel",
+    "name": "Rock Tunnel",
+    "classId": "cragheart",
+    "refClassId": "CH",
+    "level": 1,
+    "initiative": 41
+  },
+  {
+    "id": "rocky-end",
+    "name": "Rocky End",
+    "classId": "cragheart",
+    "refClassId": "CH",
+    "level": 8,
+    "initiative": 37
+  },
+  {
+    "id": "rumbling-advance",
+    "name": "Rumbling Advance",
+    "classId": "cragheart",
+    "refClassId": "CH",
+    "level": 1,
+    "initiative": 29
+  },
+  {
+    "id": "sentient-growth",
+    "name": "Sentient Growth",
+    "classId": "cragheart",
+    "refClassId": "CH",
+    "level": 2,
+    "initiative": 78
+  },
+  {
+    "id": "stone-pummel",
+    "name": "Stone Pummel",
+    "classId": "cragheart",
+    "refClassId": "CH",
+    "level": 5,
+    "initiative": 32
+  },
+  {
+    "id": "unstable-upheaval",
+    "name": "Unstable Upheaval",
+    "classId": "cragheart",
+    "refClassId": "CH",
+    "level": 1,
+    "initiative": 13
+  },
+  {
+    "id": "a-moment-s-peace",
+    "name": "A Moment's Peace",
+    "classId": "doomstalker",
+    "refClassId": "DS",
+    "level": 1,
+    "initiative": 88
+  },
+  {
+    "id": "camouflage",
+    "name": "Camouflage",
+    "classId": "doomstalker",
+    "refClassId": "DS",
+    "level": 6,
+    "initiative": 23
+  },
+  {
+    "id": "crashing-wave",
+    "name": "Crashing Wave",
+    "classId": "doomstalker",
+    "refClassId": "DS",
+    "level": 7,
+    "initiative": 22
+  },
+  {
+    "id": "crippling-noose",
+    "name": "Crippling Noose",
+    "classId": "doomstalker",
+    "refClassId": "DS",
+    "level": 1,
+    "initiative": 57
+  },
+  {
+    "id": "darkened-skies",
+    "name": "Darkened Skies",
+    "classId": "doomstalker",
+    "refClassId": "DS",
+    "level": 3,
+    "initiative": 25
+  },
+  {
+    "id": "detonation",
+    "name": "Detonation",
+    "classId": "doomstalker",
+    "refClassId": "DS",
+    "level": 1,
+    "initiative": 54
+  },
+  {
+    "id": "expose",
+    "name": "Expose",
+    "classId": "doomstalker",
+    "refClassId": "DS",
+    "level": 2,
+    "initiative": 13
+  },
+  {
+    "id": "felling-swoop",
+    "name": "Felling Swoop",
+    "classId": "doomstalker",
+    "refClassId": "DS",
+    "level": 1,
+    "initiative": 75
+  },
+  {
+    "id": "feral-instincts",
+    "name": "Feral Instincts",
+    "classId": "doomstalker",
+    "refClassId": "DS",
+    "level": 8,
+    "initiative": 35
+  },
+  {
+    "id": "flight-of-flame",
+    "name": "Flight Of Flame",
+    "classId": "doomstalker",
+    "refClassId": "DS",
+    "level": 4,
+    "initiative": 53
+  },
+  {
+    "id": "foot-snare",
+    "name": "Foot Snare",
+    "classId": "doomstalker",
+    "refClassId": "DS",
+    "level": 1,
+    "initiative": 61
+  },
+  {
+    "id": "fresh-kill",
+    "name": "Fresh Kill",
+    "classId": "doomstalker",
+    "refClassId": "DS",
+    "level": 1.5,
+    "initiative": 65
+  },
+  {
+    "id": "frightening-curse",
+    "name": "Frightening Curse",
+    "classId": "doomstalker",
+    "refClassId": "DS",
+    "level": 1,
+    "initiative": 37
+  },
+  {
+    "id": "impending-end",
+    "name": "Impending End",
+    "classId": "doomstalker",
+    "refClassId": "DS",
+    "level": 7,
+    "initiative": 47
+  },
+  {
+    "id": "inescapable-fate",
+    "name": "Inescapable Fate",
+    "classId": "doomstalker",
+    "refClassId": "DS",
+    "level": 5,
+    "initiative": 97
+  },
+  {
+    "id": "lead-to-slaughter",
+    "name": "Lead To Slaughter",
+    "classId": "doomstalker",
+    "refClassId": "DS",
+    "level": 9,
+    "initiative": 40
+  },
+  {
+    "id": "multi-pronged-assault",
+    "name": "Multi-pronged Assault",
+    "classId": "doomstalker",
+    "refClassId": "DS",
+    "level": 1,
+    "initiative": 14
+  },
+  {
+    "id": "nature-s-hunger",
+    "name": "Nature's Hunger",
+    "classId": "doomstalker",
+    "refClassId": "DS",
+    "level": 6,
+    "initiative": 82
+  },
+  {
+    "id": "predator-and-prey",
+    "name": "Predator And Prey",
+    "classId": "doomstalker",
+    "refClassId": "DS",
+    "level": 9,
+    "initiative": 86
+  },
+  {
+    "id": "press-the-attack",
+    "name": "Press The Attack",
+    "classId": "doomstalker",
+    "refClassId": "DS",
+    "level": 3,
+    "initiative": 10
+  },
+  {
+    "id": "race-to-the-grave",
+    "name": "Race To The Grave",
+    "classId": "doomstalker",
+    "refClassId": "DS",
+    "level": 1,
+    "initiative": 9
+  },
+  {
+    "id": "rain-of-arrows",
+    "name": "Rain Of Arrows",
+    "classId": "doomstalker",
+    "refClassId": "DS",
+    "level": 1,
+    "initiative": 33
+  },
+  {
+    "id": "relentless-offensive",
+    "name": "Relentless Offensive",
+    "classId": "doomstalker",
+    "refClassId": "DS",
+    "level": 2,
+    "initiative": 52
+  },
+  {
+    "id": "rising-momentum",
+    "name": "Rising Momentum",
+    "classId": "doomstalker",
+    "refClassId": "DS",
+    "level": 8,
+    "initiative": 12
+  },
+  {
+    "id": "sap-life",
+    "name": "Sap Life",
+    "classId": "doomstalker",
+    "refClassId": "DS",
+    "level": 1.5,
+    "initiative": 14
+  },
+  {
+    "id": "singular-focus",
+    "name": "Singular Focus",
+    "classId": "doomstalker",
+    "refClassId": "DS",
+    "level": 4,
+    "initiative": 28
+  },
+  {
+    "id": "solid-bow",
+    "name": "Solid Bow",
+    "classId": "doomstalker",
+    "refClassId": "DS",
+    "level": 1,
+    "initiative": 31
+  },
+  {
+    "id": "swift-trickery",
+    "name": "Swift Trickery",
+    "classId": "doomstalker",
+    "refClassId": "DS",
+    "level": 1,
+    "initiative": 11
+  },
+  {
+    "id": "the-hunt-begins",
+    "name": "The Hunt Begins",
+    "classId": "doomstalker",
+    "refClassId": "DS",
+    "level": 1.5,
+    "initiative": 71
+  },
+  {
+    "id": "vital-charge",
+    "name": "Vital Charge",
+    "classId": "doomstalker",
+    "refClassId": "DS",
+    "level": 1,
+    "initiative": 78
+  },
+  {
+    "id": "wild-command",
+    "name": "Wild Command",
+    "classId": "doomstalker",
+    "refClassId": "DS",
+    "level": 5,
+    "initiative": 46
+  },
+  {
+    "id": "boiling-arc",
+    "name": "Boiling Arc",
+    "classId": "elementalist",
+    "refClassId": "EL",
+    "level": 2,
+    "initiative": 47
+  },
+  {
+    "id": "brilliant-flash",
+    "name": "Brilliant Flash",
+    "classId": "elementalist",
+    "refClassId": "EL",
+    "level": 1.5,
+    "initiative": 67
+  },
+  {
+    "id": "burial",
+    "name": "Burial",
+    "classId": "elementalist",
+    "refClassId": "EL",
+    "level": 3,
+    "initiative": 65
+  },
+  {
+    "id": "chain-lightning",
+    "name": "Chain Lightning",
+    "classId": "elementalist",
+    "refClassId": "EL",
+    "level": 3,
+    "initiative": 41
+  },
+  {
+    "id": "crystallizing-blast",
+    "name": "Crystallizing Blast",
+    "classId": "elementalist",
+    "refClassId": "EL",
+    "level": 2,
+    "initiative": 67
+  },
+  {
+    "id": "elemental-aegis",
+    "name": "Elemental Aegis",
+    "classId": "elementalist",
+    "refClassId": "EL",
+    "level": 8,
+    "initiative": 14
+  },
+  {
+    "id": "encompassing-shadow",
+    "name": "Encompassing Shadow",
+    "classId": "elementalist",
+    "refClassId": "EL",
+    "level": 1.5,
+    "initiative": 23
+  },
+  {
+    "id": "eternal-equilibrium",
+    "name": "Eternal Equilibrium",
+    "classId": "elementalist",
+    "refClassId": "EL",
+    "level": 9,
+    "initiative": 27
+  },
+  {
+    "id": "ethereal-manifestation",
+    "name": "Ethereal Manifestation",
+    "classId": "elementalist",
+    "refClassId": "EL",
+    "level": 9,
+    "initiative": 98
+  },
+  {
+    "id": "eye-of-the-hurricane",
+    "name": "Eye Of The Hurricane",
+    "classId": "elementalist",
+    "refClassId": "EL",
+    "level": 6,
+    "initiative": 29
+  },
+  {
+    "id": "formless-power",
+    "name": "Formless Power",
+    "classId": "elementalist",
+    "refClassId": "EL",
+    "level": 1,
+    "initiative": 45
+  },
+  {
+    "id": "frigid-torrent",
+    "name": "Frigid Torrent",
+    "classId": "elementalist",
+    "refClassId": "EL",
+    "level": 1,
+    "initiative": 35
+  },
+  {
+    "id": "gravel-vortex",
+    "name": "Gravel Vortex",
+    "classId": "elementalist",
+    "refClassId": "EL",
+    "level": 4,
+    "initiative": 62
+  },
+  {
+    "id": "ice-spikes",
+    "name": "Ice Spikes",
+    "classId": "elementalist",
+    "refClassId": "EL",
+    "level": 1,
+    "initiative": 40
+  },
+  {
+    "id": "infernal-vortex",
+    "name": "Infernal Vortex",
+    "classId": "elementalist",
+    "refClassId": "EL",
+    "level": 1,
+    "initiative": 17
+  },
+  {
+    "id": "lava-eruption",
+    "name": "Lava Eruption",
+    "classId": "elementalist",
+    "refClassId": "EL",
+    "level": 1,
+    "initiative": 19
+  },
+  {
+    "id": "malleable-evocation",
+    "name": "Malleable Evocation",
+    "classId": "elementalist",
+    "refClassId": "EL",
+    "level": 1.5,
+    "initiative": 50
+  },
+  {
+    "id": "obsidian-shards",
+    "name": "Obsidian Shards",
+    "classId": "elementalist",
+    "refClassId": "EL",
+    "level": 5,
+    "initiative": 36
+  },
+  {
+    "id": "pragmatic-reinforcement",
+    "name": "Pragmatic Reinforcement",
+    "classId": "elementalist",
+    "refClassId": "EL",
+    "level": 7,
+    "initiative": 56
+  },
+  {
+    "id": "primal-duality",
+    "name": "Primal Duality",
+    "classId": "elementalist",
+    "refClassId": "EL",
+    "level": 4,
+    "initiative": 15
+  },
+  {
+    "id": "pure-augmentation",
+    "name": "Pure Augmentation",
+    "classId": "elementalist",
+    "refClassId": "EL",
+    "level": 1,
+    "initiative": 48
+  },
+  {
+    "id": "raw-enhancement",
+    "name": "Raw Enhancement",
+    "classId": "elementalist",
+    "refClassId": "EL",
+    "level": 1,
+    "initiative": 48
+  },
+  {
+    "id": "shaping-the-ether",
+    "name": "Shaping The Ether",
+    "classId": "elementalist",
+    "refClassId": "EL",
+    "level": 1,
+    "initiative": 54
+  },
+  {
+    "id": "simulacrum",
+    "name": "Simulacrum",
+    "classId": "elementalist",
+    "refClassId": "EL",
+    "level": 6,
+    "initiative": 94
+  },
+  {
+    "id": "stoking-hail",
+    "name": "Stoking Hail",
+    "classId": "elementalist",
+    "refClassId": "EL",
+    "level": 1,
+    "initiative": 28
+  },
+  {
+    "id": "tremulant-cyclone",
+    "name": "Tremulant Cyclone",
+    "classId": "elementalist",
+    "refClassId": "EL",
+    "level": 1,
+    "initiative": 26
+  },
+  {
+    "id": "vengeance",
+    "name": "Vengeance",
+    "classId": "elementalist",
+    "refClassId": "EL",
+    "level": 7,
+    "initiative": 33
+  },
+  {
+    "id": "volatile-consumption",
+    "name": "Volatile Consumption",
+    "classId": "elementalist",
+    "refClassId": "EL",
+    "level": 8,
+    "initiative": 64
+  },
+  {
+    "id": "winter-s-edge",
+    "name": "Winter's Edge",
+    "classId": "elementalist",
+    "refClassId": "EL",
+    "level": 5,
+    "initiative": 43
+  },
+  {
+    "id": "brain-leech",
+    "name": "Brain Leech",
+    "classId": "mindthief",
+    "refClassId": "MT",
+    "level": 3,
+    "initiative": 16
+  },
+  {
+    "id": "corrupting-embrace",
+    "name": "Corrupting Embrace",
+    "classId": "mindthief",
+    "refClassId": "MT",
+    "level": 6,
+    "initiative": 39
+  },
+  {
+    "id": "cranium-overload",
+    "name": "Cranium Overload",
+    "classId": "mindthief",
+    "refClassId": "MT",
+    "level": 4,
+    "initiative": 5
+  },
+  {
+    "id": "dark-frenzy",
+    "name": "Dark Frenzy",
+    "classId": "mindthief",
+    "refClassId": "MT",
+    "level": 6,
+    "initiative": 10
+  },
+  {
+    "id": "domination",
+    "name": "Domination",
+    "classId": "mindthief",
+    "refClassId": "MT",
+    "level": 8,
+    "initiative": 13
+  },
+  {
+    "id": "empathetic-assault",
+    "name": "Empathetic Assault",
+    "classId": "mindthief",
+    "refClassId": "MT",
+    "level": 1,
+    "initiative": 11
+  },
+  {
+    "id": "fearsome-blade",
+    "name": "Fearsome Blade",
+    "classId": "mindthief",
+    "refClassId": "MT",
+    "level": 1,
+    "initiative": 27
+  },
+  {
+    "id": "feedback-loop",
+    "name": "Feedback Loop",
+    "classId": "mindthief",
+    "refClassId": "MT",
+    "level": 1,
+    "initiative": 79
+  },
+  {
+    "id": "frigid-apparition",
+    "name": "Frigid Apparition",
+    "classId": "mindthief",
+    "refClassId": "MT",
+    "level": 1.5,
+    "initiative": 29
+  },
+  {
+    "id": "frozen-mind",
+    "name": "Frozen Mind",
+    "classId": "mindthief",
+    "refClassId": "MT",
+    "level": 5,
+    "initiative": 81
+  },
+  {
+    "id": "gnawing-horde",
+    "name": "Gnawing Horde",
+    "classId": "mindthief",
+    "refClassId": "MT",
+    "level": 1,
+    "initiative": 82
+  },
+  {
+    "id": "hostile-takeover",
+    "name": "Hostile Takeover",
+    "classId": "mindthief",
+    "refClassId": "MT",
+    "level": 2,
+    "initiative": 9
+  },
+  {
+    "id": "into-the-night",
+    "name": "Into The Night",
+    "classId": "mindthief",
+    "refClassId": "MT",
+    "level": 1,
+    "initiative": 14
+  },
+  {
+    "id": "many-as-one",
+    "name": "Many As One",
+    "classId": "mindthief",
+    "refClassId": "MT",
+    "level": 9,
+    "initiative": 91
+  },
+  {
+    "id": "mass-hysteria",
+    "name": "Mass Hysteria",
+    "classId": "mindthief",
+    "refClassId": "MT",
+    "level": 5,
+    "initiative": 12
+  },
+  {
+    "id": "parasitic-influence",
+    "name": "Parasitic Influence",
+    "classId": "mindthief",
+    "refClassId": "MT",
+    "level": 1,
+    "initiative": 71
+  },
+  {
+    "id": "perverse-edge",
+    "name": "Perverse Edge",
+    "classId": "mindthief",
+    "refClassId": "MT",
+    "level": 1,
+    "initiative": 8
+  },
+  {
+    "id": "phantasmal-killer",
+    "name": "Phantasmal Killer",
+    "classId": "mindthief",
+    "refClassId": "MT",
+    "level": 9,
+    "initiative": 67
+  },
+  {
+    "id": "pilfer",
+    "name": "Pilfer",
+    "classId": "mindthief",
+    "refClassId": "MT",
+    "level": 4,
+    "initiative": 68
+  },
+  {
+    "id": "possession",
+    "name": "Possession",
+    "classId": "mindthief",
+    "refClassId": "MT",
+    "level": 1.5,
+    "initiative": 51
+  },
+  {
+    "id": "psychic-projection",
+    "name": "Psychic Projection",
+    "classId": "mindthief",
+    "refClassId": "MT",
+    "level": 7,
+    "initiative": 92
+  },
+  {
+    "id": "scurry",
+    "name": "Scurry",
+    "classId": "mindthief",
+    "refClassId": "MT",
+    "level": 1,
+    "initiative": 20
+  },
+  {
+    "id": "shared-nightmare",
+    "name": "Shared Nightmare",
+    "classId": "mindthief",
+    "refClassId": "MT",
+    "level": 8,
+    "initiative": 7
+  },
+  {
+    "id": "silent-scream",
+    "name": "Silent Scream",
+    "classId": "mindthief",
+    "refClassId": "MT",
+    "level": 3,
+    "initiative": 73
+  },
+  {
+    "id": "submissive-affliction",
+    "name": "Submissive Affliction",
+    "classId": "mindthief",
+    "refClassId": "MT",
+    "level": 1,
+    "initiative": 48
+  },
+  {
+    "id": "the-mind-s-weakness",
+    "name": "The Mind's Weakness",
+    "classId": "mindthief",
+    "refClassId": "MT",
+    "level": 1,
+    "initiative": 75
+  },
+  {
+    "id": "vicious-blood",
+    "name": "Vicious Blood",
+    "classId": "mindthief",
+    "refClassId": "MT",
+    "level": 7,
+    "initiative": 83
+  },
+  {
+    "id": "withering-claw",
+    "name": "Withering Claw",
+    "classId": "mindthief",
+    "refClassId": "MT",
+    "level": 1.5,
+    "initiative": 77
+  },
+  {
+    "id": "wretched-creature",
+    "name": "Wretched Creature",
+    "classId": "mindthief",
+    "refClassId": "MT",
+    "level": 2,
+    "initiative": 84
+  },
+  {
+    "id": "angel-of-death",
+    "name": "Angel Of Death",
+    "classId": "nightshroud",
+    "refClassId": "NS",
+    "level": 9,
+    "initiative": 38
+  },
+  {
+    "id": "armor-of-the-night",
+    "name": "Armor Of The Night",
+    "classId": "nightshroud",
+    "refClassId": "NS",
+    "level": 3,
+    "initiative": 23
+  },
+  {
+    "id": "black-arrow",
+    "name": "Black Arrow",
+    "classId": "nightshroud",
+    "refClassId": "NS",
+    "level": 5,
+    "initiative": 11
+  },
+  {
+    "id": "black-knives",
+    "name": "Black Knives",
+    "classId": "nightshroud",
+    "refClassId": "NS",
+    "level": 1,
+    "initiative": 44
+  },
+  {
+    "id": "claws-of-the-night",
+    "name": "Claws Of The Night",
+    "classId": "nightshroud",
+    "refClassId": "NS",
+    "level": 5,
+    "initiative": 26
+  },
+  {
+    "id": "cloak-of-shade",
+    "name": "Cloak Of Shade",
+    "classId": "nightshroud",
+    "refClassId": "NS",
+    "level": 1,
+    "initiative": 13
+  },
+  {
+    "id": "concealed-dominance",
+    "name": "Concealed Dominance",
+    "classId": "nightshroud",
+    "refClassId": "NS",
+    "level": 1.5,
+    "initiative": 35
+  },
+  {
+    "id": "dancing-shadows",
+    "name": "Dancing Shadows",
+    "classId": "nightshroud",
+    "refClassId": "NS",
+    "level": 1,
+    "initiative": 9
+  },
+  {
+    "id": "dark-cloud",
+    "name": "Dark Cloud",
+    "classId": "nightshroud",
+    "refClassId": "NS",
+    "level": 1.5,
+    "initiative": 74
+  },
+  {
+    "id": "doomed-breeze",
+    "name": "Doomed Breeze",
+    "classId": "nightshroud",
+    "refClassId": "NS",
+    "level": 1,
+    "initiative": 15
+  },
+  {
+    "id": "empowering-void",
+    "name": "Empowering Void",
+    "classId": "nightshroud",
+    "refClassId": "NS",
+    "level": 1,
+    "initiative": 21
+  },
+  {
+    "id": "enervating-wound",
+    "name": "Enervating Wound",
+    "classId": "nightshroud",
+    "refClassId": "NS",
+    "level": 1,
+    "initiative": 77
+  },
+  {
+    "id": "eyes-of-the-night",
+    "name": "Eyes Of The Night",
+    "classId": "nightshroud",
+    "refClassId": "NS",
+    "level": 7,
+    "initiative": 35
+  },
+  {
+    "id": "gloom-darts",
+    "name": "Gloom Darts",
+    "classId": "nightshroud",
+    "refClassId": "NS",
+    "level": 8,
+    "initiative": 78
+  },
+  {
+    "id": "grim-sustenance",
+    "name": "Grim Sustenance",
+    "classId": "nightshroud",
+    "refClassId": "NS",
+    "level": 4,
+    "initiative": 29
+  },
+  {
+    "id": "lurking-ruin",
+    "name": "Lurking Ruin",
+    "classId": "nightshroud",
+    "refClassId": "NS",
+    "level": 8,
+    "initiative": 18
+  },
+  {
+    "id": "nightfall",
+    "name": "Nightfall",
+    "classId": "nightshroud",
+    "refClassId": "NS",
+    "level": 4,
+    "initiative": 73
+  },
+  {
+    "id": "prepare-for-the-kill",
+    "name": "Prepare For The Kill",
+    "classId": "nightshroud",
+    "refClassId": "NS",
+    "level": 2,
+    "initiative": 7
+  },
+  {
+    "id": "quiet-frenzy",
+    "name": "Quiet Frenzy",
+    "classId": "nightshroud",
+    "refClassId": "NS",
+    "level": 7,
+    "initiative": 19
+  },
+  {
+    "id": "silent-force",
+    "name": "Silent Force",
+    "classId": "nightshroud",
+    "refClassId": "NS",
+    "level": 1,
+    "initiative": 91
+  },
+  {
+    "id": "smoke-step",
+    "name": "Smoke Step",
+    "classId": "nightshroud",
+    "refClassId": "NS",
+    "level": 1,
+    "initiative": 28
+  },
+  {
+    "id": "soulfire",
+    "name": "Soulfire",
+    "classId": "nightshroud",
+    "refClassId": "NS",
+    "level": 2,
+    "initiative": 85
+  },
+  {
+    "id": "spirit-of-the-night",
+    "name": "Spirit Of The Night",
+    "classId": "nightshroud",
+    "refClassId": "NS",
+    "level": 1,
+    "initiative": 84
+  },
+  {
+    "id": "swallowed-by-fear",
+    "name": "Swallowed By Fear",
+    "classId": "nightshroud",
+    "refClassId": "NS",
+    "level": 6,
+    "initiative": 90
+  },
+  {
+    "id": "terror-blade",
+    "name": "Terror Blade",
+    "classId": "nightshroud",
+    "refClassId": "NS",
+    "level": 3,
+    "initiative": 17
+  },
+  {
+    "id": "unseen-dread",
+    "name": "Unseen Dread",
+    "classId": "nightshroud",
+    "refClassId": "NS",
+    "level": 6,
+    "initiative": 5
+  },
+  {
+    "id": "voice-of-the-night",
+    "name": "Voice Of The Night",
+    "classId": "nightshroud",
+    "refClassId": "NS",
+    "level": 9,
+    "initiative": 6
+  },
+  {
+    "id": "wings-of-the-night",
+    "name": "Wings Of The Night",
+    "classId": "nightshroud",
+    "refClassId": "NS",
+    "level": 1.5,
+    "initiative": 24
+  },
+  {
+    "id": "accelerated-end",
+    "name": "Accelerated End",
+    "classId": "plagueherald",
+    "refClassId": "PH",
+    "level": 5,
+    "initiative": 62
+  },
+  {
+    "id": "airborne-toxin",
+    "name": "Airborne Toxin",
+    "classId": "plagueherald",
+    "refClassId": "PH",
+    "level": 7,
+    "initiative": 57
+  },
+  {
+    "id": "baneful-hex",
+    "name": "Baneful Hex",
+    "classId": "plagueherald",
+    "refClassId": "PH",
+    "level": 7,
+    "initiative": 33
+  },
+  {
+    "id": "biting-gnats",
+    "name": "Biting Gnats",
+    "classId": "plagueherald",
+    "refClassId": "PH",
+    "level": 1,
+    "initiative": 47
+  },
+  {
+    "id": "black-tides",
+    "name": "Black Tides",
+    "classId": "plagueherald",
+    "refClassId": "PH",
+    "level": 6,
+    "initiative": 37
+  },
+  {
+    "id": "blistering-vortex",
+    "name": "Blistering Vortex",
+    "classId": "plagueherald",
+    "refClassId": "PH",
+    "level": 1.5,
+    "initiative": 21
+  },
+  {
+    "id": "convert-the-flock",
+    "name": "Convert The Flock",
+    "classId": "plagueherald",
+    "refClassId": "PH",
+    "level": 9,
+    "initiative": 29
+  },
+  {
+    "id": "creeping-curse",
+    "name": "Creeping Curse",
+    "classId": "plagueherald",
+    "refClassId": "PH",
+    "level": 1,
+    "initiative": 72
+  },
+  {
+    "id": "epidemic",
+    "name": "Epidemic",
+    "classId": "plagueherald",
+    "refClassId": "PH",
+    "level": 1.5,
+    "initiative": 43
+  },
+  {
+    "id": "fetid-flurry",
+    "name": "Fetid Flurry",
+    "classId": "plagueherald",
+    "refClassId": "PH",
+    "level": 3,
+    "initiative": 26
+  },
+  {
+    "id": "foul-wind",
+    "name": "Foul Wind",
+    "classId": "plagueherald",
+    "refClassId": "PH",
+    "level": 1,
+    "initiative": 35
+  },
+  {
+    "id": "gathering-doom",
+    "name": "Gathering Doom",
+    "classId": "plagueherald",
+    "refClassId": "PH",
+    "level": 1,
+    "initiative": 76
+  },
+  {
+    "id": "grasping-vermin",
+    "name": "Grasping Vermin",
+    "classId": "plagueherald",
+    "refClassId": "PH",
+    "level": 1,
+    "initiative": 69
+  },
+  {
+    "id": "grim-bargain",
+    "name": "Grim Bargain",
+    "classId": "plagueherald",
+    "refClassId": "PH",
+    "level": 8,
+    "initiative": 46
+  },
+  {
+    "id": "mass-extinction",
+    "name": "Mass Extinction",
+    "classId": "plagueherald",
+    "refClassId": "PH",
+    "level": 9,
+    "initiative": 94
+  },
+  {
+    "id": "nightmarish-affliction",
+    "name": "Nightmarish Affliction",
+    "classId": "plagueherald",
+    "refClassId": "PH",
+    "level": 4,
+    "initiative": 43
+  },
+  {
+    "id": "paralyzing-bite",
+    "name": "Paralyzing Bite",
+    "classId": "plagueherald",
+    "refClassId": "PH",
+    "level": 1,
+    "initiative": 31
+  },
+  {
+    "id": "rot-maggots",
+    "name": "Rot Maggots",
+    "classId": "plagueherald",
+    "refClassId": "PH",
+    "level": 2,
+    "initiative": 69
+  },
+  {
+    "id": "scattered-terror",
+    "name": "Scattered Terror",
+    "classId": "plagueherald",
+    "refClassId": "PH",
+    "level": 1,
+    "initiative": 11
+  },
+  {
+    "id": "spreading-scourge",
+    "name": "Spreading Scourge",
+    "classId": "plagueherald",
+    "refClassId": "PH",
+    "level": 8,
+    "initiative": 71
+  },
+  {
+    "id": "spread-the-plague",
+    "name": "Spread The Plague",
+    "classId": "plagueherald",
+    "refClassId": "PH",
+    "level": 1,
+    "initiative": 27
+  },
+  {
+    "id": "stinging-cloud",
+    "name": "Stinging Cloud",
+    "classId": "plagueherald",
+    "refClassId": "PH",
+    "level": 6,
+    "initiative": 66
+  },
+  {
+    "id": "storm-of-wings",
+    "name": "Storm Of Wings",
+    "classId": "plagueherald",
+    "refClassId": "PH",
+    "level": 4,
+    "initiative": 91
+  },
+  {
+    "id": "succumb-to-the-gift",
+    "name": "Succumb To The Gift",
+    "classId": "plagueherald",
+    "refClassId": "PH",
+    "level": 3,
+    "initiative": 70
+  },
+  {
+    "id": "under-the-skin",
+    "name": "Under The Skin",
+    "classId": "plagueherald",
+    "refClassId": "PH",
+    "level": 2,
+    "initiative": 59
+  },
+  {
+    "id": "vile-pestilence",
+    "name": "Vile Pestilence",
+    "classId": "plagueherald",
+    "refClassId": "PH",
+    "level": 1,
+    "initiative": 61
+  },
+  {
+    "id": "virulent-strain",
+    "name": "Virulent Strain",
+    "classId": "plagueherald",
+    "refClassId": "PH",
+    "level": 1.5,
+    "initiative": 50
+  },
+  {
+    "id": "willing-sacrifice",
+    "name": "Willing Sacrifice",
+    "classId": "plagueherald",
+    "refClassId": "PH",
+    "level": 5,
+    "initiative": 84
+  },
+  {
+    "id": "winged-congregation",
+    "name": "Winged Congregation",
+    "classId": "plagueherald",
+    "refClassId": "PH",
+    "level": 1,
+    "initiative": 16
+  },
+  {
+    "id": "wretched-swarm",
+    "name": "Wretched Swarm",
+    "classId": "plagueherald",
+    "refClassId": "PH",
+    "level": 1,
+    "initiative": 84
+  },
+  {
+    "id": "bag-of-holding",
+    "name": "Bag Of Holding",
+    "classId": "quartermaster",
+    "refClassId": "QM",
+    "level": 9,
+    "initiative": 91
+  },
+  {
+    "id": "bladed-boomerang",
+    "name": "Bladed Boomerang",
+    "classId": "quartermaster",
+    "refClassId": "QM",
+    "level": 2,
+    "initiative": 40
+  },
+  {
+    "id": "catastrophic-bomb",
+    "name": "Catastrophic Bomb",
+    "classId": "quartermaster",
+    "refClassId": "QM",
+    "level": 6,
+    "initiative": 46
+  },
+  {
+    "id": "cleaving-axe",
+    "name": "Cleaving Axe",
+    "classId": "quartermaster",
+    "refClassId": "QM",
+    "level": 1,
+    "initiative": 52
+  },
+  {
+    "id": "continual-supply",
+    "name": "Continual Supply",
+    "classId": "quartermaster",
+    "refClassId": "QM",
+    "level": 3,
+    "initiative": 86
+  },
+  {
+    "id": "crippling-bow",
+    "name": "Crippling Bow",
+    "classId": "quartermaster",
+    "refClassId": "QM",
+    "level": 1,
+    "initiative": 44
+  },
+  {
+    "id": "crushing-hammer",
+    "name": "Crushing Hammer",
+    "classId": "quartermaster",
+    "refClassId": "QM",
+    "level": 1.5,
+    "initiative": 17
+  },
+  {
+    "id": "fortified-position",
+    "name": "Fortified Position",
+    "classId": "quartermaster",
+    "refClassId": "QM",
+    "level": 8,
+    "initiative": 10
+  },
+  {
+    "id": "giant-club",
+    "name": "Giant Club",
+    "classId": "quartermaster",
+    "refClassId": "QM",
+    "level": 4,
+    "initiative": 61
+  },
+  {
+    "id": "hastened-step",
+    "name": "Hastened Step",
+    "classId": "quartermaster",
+    "refClassId": "QM",
+    "level": 1,
+    "initiative": 26
+  },
+  {
+    "id": "impaling-spear",
+    "name": "Impaling Spear",
+    "classId": "quartermaster",
+    "refClassId": "QM",
+    "level": 1,
+    "initiative": 48
+  },
+  {
+    "id": "iron-bulwark",
+    "name": "Iron Bulwark",
+    "classId": "quartermaster",
+    "refClassId": "QM",
+    "level": 1,
+    "initiative": 19
+  },
+  {
+    "id": "oversized-pack",
+    "name": "Oversized Pack",
+    "classId": "quartermaster",
+    "refClassId": "QM",
+    "level": 1,
+    "initiative": 81
+  },
+  {
+    "id": "portable-ballista",
+    "name": "Portable Ballista",
+    "classId": "quartermaster",
+    "refClassId": "QM",
+    "level": 8,
+    "initiative": 41
+  },
+  {
+    "id": "proficiency",
+    "name": "Proficiency",
+    "classId": "quartermaster",
+    "refClassId": "QM",
+    "level": 1,
+    "initiative": 62
+  },
+  {
+    "id": "quiver-of-arrows",
+    "name": "Quiver Of Arrows",
+    "classId": "quartermaster",
+    "refClassId": "QM",
+    "level": 6,
+    "initiative": 31
+  },
+  {
+    "id": "refreshment",
+    "name": "Refreshment",
+    "classId": "quartermaster",
+    "refClassId": "QM",
+    "level": 7,
+    "initiative": 95
+  },
+  {
+    "id": "reforge",
+    "name": "Reforge",
+    "classId": "quartermaster",
+    "refClassId": "QM",
+    "level": 2,
+    "initiative": 89
+  },
+  {
+    "id": "reinforced-steel",
+    "name": "Reinforced Steel",
+    "classId": "quartermaster",
+    "refClassId": "QM",
+    "level": 5,
+    "initiative": 12
+  },
+  {
+    "id": "reserved-energy",
+    "name": "Reserved Energy",
+    "classId": "quartermaster",
+    "refClassId": "QM",
+    "level": 1.5,
+    "initiative": 88
+  },
+  {
+    "id": "restock",
+    "name": "Restock",
+    "classId": "quartermaster",
+    "refClassId": "QM",
+    "level": 1,
+    "initiative": 73
+  },
+  {
+    "id": "scroll-of-annihilation",
+    "name": "Scroll Of Annihilation",
+    "classId": "quartermaster",
+    "refClassId": "QM",
+    "level": 9,
+    "initiative": 56
+  },
+  {
+    "id": "scroll-of-blizzards",
+    "name": "Scroll Of Blizzards",
+    "classId": "quartermaster",
+    "refClassId": "QM",
+    "level": 7,
+    "initiative": 46
+  },
+  {
+    "id": "scroll-of-judgment",
+    "name": "Scroll Of Judgment",
+    "classId": "quartermaster",
+    "refClassId": "QM",
+    "level": 5,
+    "initiative": 66
+  },
+  {
+    "id": "scroll-of-lightning",
+    "name": "Scroll Of Lightning",
+    "classId": "quartermaster",
+    "refClassId": "QM",
+    "level": 3,
+    "initiative": 77
+  },
+  {
+    "id": "scroll-of-recall",
+    "name": "Scroll Of Recall",
+    "classId": "quartermaster",
+    "refClassId": "QM",
+    "level": 1.5,
+    "initiative": 98
+  },
+  {
+    "id": "sharpening-kit",
+    "name": "Sharpening Kit",
+    "classId": "quartermaster",
+    "refClassId": "QM",
+    "level": 1,
+    "initiative": 23
+  },
+  {
+    "id": "side-pouch",
+    "name": "Side Pouch",
+    "classId": "quartermaster",
+    "refClassId": "QM",
+    "level": 4,
+    "initiative": 84
+  },
+  {
+    "id": "amputate",
+    "name": "Amputate",
+    "classId": "sawbones",
+    "refClassId": "SB",
+    "level": 5,
+    "initiative": 86
+  },
+  {
+    "id": "battlefield-medicine",
+    "name": "Battlefield Medicine",
+    "classId": "sawbones",
+    "refClassId": "SB",
+    "level": 1,
+    "initiative": 83
+  },
+  {
+    "id": "bedside-manner",
+    "name": "Bedside Manner",
+    "classId": "sawbones",
+    "refClassId": "SB",
+    "level": 8,
+    "initiative": 5
+  },
+  {
+    "id": "blood-transfusion",
+    "name": "Blood Transfusion",
+    "classId": "sawbones",
+    "refClassId": "SB",
+    "level": 4,
+    "initiative": 52
+  },
+  {
+    "id": "bloody-saw",
+    "name": "Bloody Saw",
+    "classId": "sawbones",
+    "refClassId": "SB",
+    "level": 1,
+    "initiative": 25
+  },
+  {
+    "id": "booster-shot",
+    "name": "Booster Shot",
+    "classId": "sawbones",
+    "refClassId": "SB",
+    "level": 1,
+    "initiative": 42
+  },
+  {
+    "id": "curative-mixture",
+    "name": "Curative Mixture",
+    "classId": "sawbones",
+    "refClassId": "SB",
+    "level": 1,
+    "initiative": 19
+  },
+  {
+    "id": "do-no-harm",
+    "name": "Do No Harm",
+    "classId": "sawbones",
+    "refClassId": "SB",
+    "level": 4,
+    "initiative": 76
+  },
+  {
+    "id": "euthanize",
+    "name": "Euthanize",
+    "classId": "sawbones",
+    "refClassId": "SB",
+    "level": 6,
+    "initiative": 27
+  },
+  {
+    "id": "first-aid",
+    "name": "First Aid",
+    "classId": "sawbones",
+    "refClassId": "SB",
+    "level": 1,
+    "initiative": 8
+  },
+  {
+    "id": "gentleman-s-anger",
+    "name": "Gentleman's Anger",
+    "classId": "sawbones",
+    "refClassId": "SB",
+    "level": 8,
+    "initiative": 29
+  },
+  {
+    "id": "grisly-trauma",
+    "name": "Grisly Trauma",
+    "classId": "sawbones",
+    "refClassId": "SB",
+    "level": 9,
+    "initiative": 81
+  },
+  {
+    "id": "hamstring",
+    "name": "Hamstring",
+    "classId": "sawbones",
+    "refClassId": "SB",
+    "level": 2,
+    "initiative": 62
+  },
+  {
+    "id": "hand-of-the-surgeon",
+    "name": "Hand Of The Surgeon",
+    "classId": "sawbones",
+    "refClassId": "SB",
+    "level": 1,
+    "initiative": 62
+  },
+  {
+    "id": "hold-back-the-pain",
+    "name": "Hold Back The Pain",
+    "classId": "sawbones",
+    "refClassId": "SB",
+    "level": 1,
+    "initiative": 57
+  },
+  {
+    "id": "large-medical-pack",
+    "name": "Large Medical Pack",
+    "classId": "sawbones",
+    "refClassId": "SB",
+    "level": 0.2,
+    "initiative": 30
+  },
+  {
+    "id": "master-physician",
+    "name": "Master Physician",
+    "classId": "sawbones",
+    "refClassId": "SB",
+    "level": 7,
+    "initiative": 49
+  },
+  {
+    "id": "medical-pack",
+    "name": "Medical Pack",
+    "classId": "sawbones",
+    "refClassId": "SB",
+    "level": 0.1,
+    "initiative": 50
+  },
+  {
+    "id": "mobile-response",
+    "name": "Mobile Response",
+    "classId": "sawbones",
+    "refClassId": "SB",
+    "level": 1,
+    "initiative": 12
+  },
+  {
+    "id": "precaution",
+    "name": "Precaution",
+    "classId": "sawbones",
+    "refClassId": "SB",
+    "level": 2,
+    "initiative": 9
+  },
+  {
+    "id": "prep-for-surgery",
+    "name": "Prep For Surgery",
+    "classId": "sawbones",
+    "refClassId": "SB",
+    "level": 9,
+    "initiative": 22
+  },
+  {
+    "id": "prescription",
+    "name": "Prescription",
+    "classId": "sawbones",
+    "refClassId": "SB",
+    "level": 6,
+    "initiative": 6
+  },
+  {
+    "id": "prevention-is-key",
+    "name": "Prevention Is Key",
+    "classId": "sawbones",
+    "refClassId": "SB",
+    "level": 1.5,
+    "initiative": 13
+  },
+  {
+    "id": "regenerative-tissue",
+    "name": "Regenerative Tissue",
+    "classId": "sawbones",
+    "refClassId": "SB",
+    "level": 3,
+    "initiative": 46
+  },
+  {
+    "id": "research-the-cure",
+    "name": "Research The Cure",
+    "classId": "sawbones",
+    "refClassId": "SB",
+    "level": 5,
+    "initiative": 40
+  },
+  {
+    "id": "surgeon-s-satchel",
+    "name": "Surgeon's Satchel",
+    "classId": "sawbones",
+    "refClassId": "SB",
+    "level": 7,
+    "initiative": 10
+  },
+  {
+    "id": "syringe",
+    "name": "Syringe",
+    "classId": "sawbones",
+    "refClassId": "SB",
+    "level": 1,
+    "initiative": 15
+  },
+  {
+    "id": "teamwork",
+    "name": "Teamwork",
+    "classId": "sawbones",
+    "refClassId": "SB",
+    "level": 1.5,
+    "initiative": 89
+  },
+  {
+    "id": "triage",
+    "name": "Triage",
+    "classId": "sawbones",
+    "refClassId": "SB",
+    "level": 1,
+    "initiative": 53
+  },
+  {
+    "id": "vaccine",
+    "name": "Vaccine",
+    "classId": "sawbones",
+    "refClassId": "SB",
+    "level": 1.5,
+    "initiative": 44
+  },
+  {
+    "id": "vital-strike",
+    "name": "Vital Strike",
+    "classId": "sawbones",
+    "refClassId": "SB",
+    "level": 3,
+    "initiative": 38
+  },
+  {
+    "id": "backstab",
+    "name": "Backstab",
+    "classId": "scoundrel",
+    "refClassId": "SC",
+    "level": 1,
+    "initiative": 6
+  },
+  {
+    "id": "burning-oil",
+    "name": "Burning Oil",
+    "classId": "scoundrel",
+    "refClassId": "SC",
+    "level": 6,
+    "initiative": 95
+  },
+  {
+    "id": "crippling-poison",
+    "name": "Crippling Poison",
+    "classId": "scoundrel",
+    "refClassId": "SC",
+    "level": 6,
+    "initiative": 30
+  },
+  {
+    "id": "cull-the-weak",
+    "name": "Cull The Weak",
+    "classId": "scoundrel",
+    "refClassId": "SC",
+    "level": 5,
+    "initiative": 16
+  },
+  {
+    "id": "duelist-s-advance",
+    "name": "Duelist's Advance",
+    "classId": "scoundrel",
+    "refClassId": "SC",
+    "level": 3,
+    "initiative": 16
+  },
+  {
+    "id": "flanking-strike",
+    "name": "Flanking Strike",
+    "classId": "scoundrel",
+    "refClassId": "SC",
+    "level": 1,
+    "initiative": 4
+  },
+  {
+    "id": "flintlock",
+    "name": "Flintlock",
+    "classId": "scoundrel",
+    "refClassId": "SC",
+    "level": 2,
+    "initiative": 90
+  },
+  {
+    "id": "flurry-of-blades",
+    "name": "Flurry Of Blades",
+    "classId": "scoundrel",
+    "refClassId": "SC",
+    "level": 4,
+    "initiative": 3
+  },
+  {
+    "id": "gruesome-advantage",
+    "name": "Gruesome Advantage",
+    "classId": "scoundrel",
+    "refClassId": "SC",
+    "level": 4,
+    "initiative": 62
+  },
+  {
+    "id": "hidden-daggers",
+    "name": "Hidden Daggers",
+    "classId": "scoundrel",
+    "refClassId": "SC",
+    "level": 3,
+    "initiative": 85
+  },
+  {
+    "id": "long-con",
+    "name": "Long Con",
+    "classId": "scoundrel",
+    "refClassId": "SC",
+    "level": 9,
+    "initiative": 2
+  },
+  {
+    "id": "open-wound",
+    "name": "Open Wound",
+    "classId": "scoundrel",
+    "refClassId": "SC",
+    "level": 2,
+    "initiative": 11
+  },
+  {
+    "id": "pain-s-end",
+    "name": "Pain's End",
+    "classId": "scoundrel",
+    "refClassId": "SC",
+    "level": 8,
+    "initiative": 38
+  },
+  {
+    "id": "quick-hands",
+    "name": "Quick Hands",
+    "classId": "scoundrel",
+    "refClassId": "SC",
+    "level": 1,
+    "initiative": 64
+  },
+  {
+    "id": "single-out",
+    "name": "Single Out",
+    "classId": "scoundrel",
+    "refClassId": "SC",
+    "level": 1,
+    "initiative": 86
+  },
+  {
+    "id": "sinister-opportunity",
+    "name": "Sinister Opportunity",
+    "classId": "scoundrel",
+    "refClassId": "SC",
+    "level": 1.5,
+    "initiative": 93
+  },
+  {
+    "id": "smoke-bomb",
+    "name": "Smoke Bomb",
+    "classId": "scoundrel",
+    "refClassId": "SC",
+    "level": 1,
+    "initiative": 12
+  },
+  {
+    "id": "special-mixture",
+    "name": "Special Mixture",
+    "classId": "scoundrel",
+    "refClassId": "SC",
+    "level": 1,
+    "initiative": 33
+  },
+  {
+    "id": "spring-the-trap",
+    "name": "Spring The Trap",
+    "classId": "scoundrel",
+    "refClassId": "SC",
+    "level": 7,
+    "initiative": 13
+  },
+  {
+    "id": "stick-to-the-shadows",
+    "name": "Stick To The Shadows",
+    "classId": "scoundrel",
+    "refClassId": "SC",
+    "level": 7,
+    "initiative": 26
+  },
+  {
+    "id": "stiletto-storm",
+    "name": "Stiletto Storm",
+    "classId": "scoundrel",
+    "refClassId": "SC",
+    "level": 8,
+    "initiative": 80
+  },
+  {
+    "id": "swift-bow",
+    "name": "Swift Bow",
+    "classId": "scoundrel",
+    "refClassId": "SC",
+    "level": 1.5,
+    "initiative": 36
+  },
+  {
+    "id": "thief-s-knack",
+    "name": "Thief's Knack",
+    "classId": "scoundrel",
+    "refClassId": "SC",
+    "level": 1,
+    "initiative": 23
+  },
+  {
+    "id": "throwing-knives",
+    "name": "Throwing Knives",
+    "classId": "scoundrel",
+    "refClassId": "SC",
+    "level": 1,
+    "initiative": 10
+  },
+  {
+    "id": "trickster-s-reversal",
+    "name": "Trickster's Reversal",
+    "classId": "scoundrel",
+    "refClassId": "SC",
+    "level": 1.5,
+    "initiative": 9
+  },
+  {
+    "id": "venom-shiv",
+    "name": "Venom Shiv",
+    "classId": "scoundrel",
+    "refClassId": "SC",
+    "level": 1,
+    "initiative": 60
+  },
+  {
+    "id": "visage-of-the-inevitable",
+    "name": "Visage Of The Inevitable",
+    "classId": "scoundrel",
+    "refClassId": "SC",
+    "level": 5,
+    "initiative": 88
+  },
+  {
+    "id": "watch-it-burn",
+    "name": "Watch It Burn",
+    "classId": "scoundrel",
+    "refClassId": "SC",
+    "level": 9,
+    "initiative": 98
+  },
+  {
+    "id": "angelic-ascension",
+    "name": "Angelic Ascension",
+    "classId": "sunkeeper",
+    "refClassId": "SK",
+    "level": 9,
+    "initiative": 87
+  },
+  {
+    "id": "beacon-of-light",
+    "name": "Beacon Of Light",
+    "classId": "sunkeeper",
+    "refClassId": "SK",
+    "level": 1.5,
+    "initiative": 36
+  },
+  {
+    "id": "bright-aegis",
+    "name": "Bright Aegis",
+    "classId": "sunkeeper",
+    "refClassId": "SK",
+    "level": 7,
+    "initiative": 14
+  },
+  {
+    "id": "brilliant-prayer",
+    "name": "Brilliant Prayer",
+    "classId": "sunkeeper",
+    "refClassId": "SK",
+    "level": 1,
+    "initiative": 27
+  },
+  {
+    "id": "burning-flash",
+    "name": "Burning Flash",
+    "classId": "sunkeeper",
+    "refClassId": "SK",
+    "level": 3,
+    "initiative": 51
+  },
+  {
+    "id": "cautious-advance",
+    "name": "Cautious Advance",
+    "classId": "sunkeeper",
+    "refClassId": "SK",
+    "level": 1,
+    "initiative": 23
+  },
+  {
+    "id": "cleansing-force",
+    "name": "Cleansing Force",
+    "classId": "sunkeeper",
+    "refClassId": "SK",
+    "level": 8,
+    "initiative": 25
+  },
+  {
+    "id": "daybreak",
+    "name": "Daybreak",
+    "classId": "sunkeeper",
+    "refClassId": "SK",
+    "level": 1.5,
+    "initiative": 85
+  },
+  {
+    "id": "dazzling-charge",
+    "name": "Dazzling Charge",
+    "classId": "sunkeeper",
+    "refClassId": "SK",
+    "level": 1,
+    "initiative": 57
+  },
+  {
+    "id": "defensive-stance",
+    "name": "Defensive Stance",
+    "classId": "sunkeeper",
+    "refClassId": "SK",
+    "level": 1,
+    "initiative": 65
+  },
+  {
+    "id": "divine-intervention",
+    "name": "Divine Intervention",
+    "classId": "sunkeeper",
+    "refClassId": "SK",
+    "level": 9,
+    "initiative": 9
+  },
+  {
+    "id": "empowering-command",
+    "name": "Empowering Command",
+    "classId": "sunkeeper",
+    "refClassId": "SK",
+    "level": 1,
+    "initiative": 32
+  },
+  {
+    "id": "engulfing-radiance",
+    "name": "Engulfing Radiance",
+    "classId": "sunkeeper",
+    "refClassId": "SK",
+    "level": 4,
+    "initiative": 20
+  },
+  {
+    "id": "glorious-bolt",
+    "name": "Glorious Bolt",
+    "classId": "sunkeeper",
+    "refClassId": "SK",
+    "level": 1.5,
+    "initiative": 39
+  },
+  {
+    "id": "hammer-blow",
+    "name": "Hammer Blow",
+    "classId": "sunkeeper",
+    "refClassId": "SK",
+    "level": 1,
+    "initiative": 55
+  },
+  {
+    "id": "holy-strike",
+    "name": "Holy Strike",
+    "classId": "sunkeeper",
+    "refClassId": "SK",
+    "level": 1,
+    "initiative": 85
+  },
+  {
+    "id": "illuminate-the-target",
+    "name": "Illuminate The Target",
+    "classId": "sunkeeper",
+    "refClassId": "SK",
+    "level": 6,
+    "initiative": 91
+  },
+  {
+    "id": "inspiring-sanctity",
+    "name": "Inspiring Sanctity",
+    "classId": "sunkeeper",
+    "refClassId": "SK",
+    "level": 8,
+    "initiative": 79
+  },
+  {
+    "id": "lay-on-hands",
+    "name": "Lay On Hands",
+    "classId": "sunkeeper",
+    "refClassId": "SK",
+    "level": 1,
+    "initiative": 90
+  },
+  {
+    "id": "mobilizing-axiom",
+    "name": "Mobilizing Axiom",
+    "classId": "sunkeeper",
+    "refClassId": "SK",
+    "level": 3,
+    "initiative": 23
+  },
+  {
+    "id": "path-of-glory",
+    "name": "Path Of Glory",
+    "classId": "sunkeeper",
+    "refClassId": "SK",
+    "level": 5,
+    "initiative": 48
+  },
+  {
+    "id": "practical-plans",
+    "name": "Practical Plans",
+    "classId": "sunkeeper",
+    "refClassId": "SK",
+    "level": 2,
+    "initiative": 56
+  },
+  {
+    "id": "protective-blessing",
+    "name": "Protective Blessing",
+    "classId": "sunkeeper",
+    "refClassId": "SK",
+    "level": 1,
+    "initiative": 61
+  },
+  {
+    "id": "purifying-aura",
+    "name": "Purifying Aura",
+    "classId": "sunkeeper",
+    "refClassId": "SK",
+    "level": 1,
+    "initiative": 21
+  },
+  {
+    "id": "righteous-strength",
+    "name": "Righteous Strength",
+    "classId": "sunkeeper",
+    "refClassId": "SK",
+    "level": 4,
+    "initiative": 18
+  },
+  {
+    "id": "scales-of-justice",
+    "name": "Scales Of Justice",
+    "classId": "sunkeeper",
+    "refClassId": "SK",
+    "level": 5,
+    "initiative": 68
+  },
+  {
+    "id": "supportive-chant",
+    "name": "Supportive Chant",
+    "classId": "sunkeeper",
+    "refClassId": "SK",
+    "level": 6,
+    "initiative": 11
+  },
+  {
+    "id": "tactical-order",
+    "name": "Tactical Order",
+    "classId": "sunkeeper",
+    "refClassId": "SK",
+    "level": 1,
+    "initiative": 29
+  },
+  {
+    "id": "unwavering-mandate",
+    "name": "Unwavering Mandate",
+    "classId": "sunkeeper",
+    "refClassId": "SK",
+    "level": 2,
+    "initiative": 72
+  },
+  {
+    "id": "weapon-of-purity",
+    "name": "Weapon Of Purity",
+    "classId": "sunkeeper",
+    "refClassId": "SK",
+    "level": 7,
+    "initiative": 73
+  },
+  {
+    "id": "booming-proclamation",
+    "name": "Booming Proclamation",
+    "classId": "soothsinger",
+    "refClassId": "SS",
+    "level": 7,
+    "initiative": 65
+  },
+  {
+    "id": "call-to-action",
+    "name": "Call To Action",
+    "classId": "soothsinger",
+    "refClassId": "SS",
+    "level": 1,
+    "initiative": 85
+  },
+  {
+    "id": "captivating-performance",
+    "name": "Captivating Performance",
+    "classId": "soothsinger",
+    "refClassId": "SS",
+    "level": 9,
+    "initiative": 25
+  },
+  {
+    "id": "change-tempo",
+    "name": "Change Tempo",
+    "classId": "soothsinger",
+    "refClassId": "SS",
+    "level": 2,
+    "initiative": 91
+  },
+  {
+    "id": "commanding-presence",
+    "name": "Commanding Presence",
+    "classId": "soothsinger",
+    "refClassId": "SS",
+    "level": 8,
+    "initiative": 59
+  },
+  {
+    "id": "crippling-chorus",
+    "name": "Crippling Chorus",
+    "classId": "soothsinger",
+    "refClassId": "SS",
+    "level": 3,
+    "initiative": 62
+  },
+  {
+    "id": "defensive-ditty",
+    "name": "Defensive Ditty",
+    "classId": "soothsinger",
+    "refClassId": "SS",
+    "level": 1,
+    "initiative": 9
+  },
+  {
+    "id": "disorienting-dirge",
+    "name": "Disorienting Dirge",
+    "classId": "soothsinger",
+    "refClassId": "SS",
+    "level": 4,
+    "initiative": 14
+  },
+  {
+    "id": "echoing-aria",
+    "name": "Echoing Aria",
+    "classId": "soothsinger",
+    "refClassId": "SS",
+    "level": 3,
+    "initiative": 8
+  },
+  {
+    "id": "inspiring-anthem",
+    "name": "Inspiring Anthem",
+    "classId": "soothsinger",
+    "refClassId": "SS",
+    "level": 4,
+    "initiative": 50
+  },
+  {
+    "id": "marching-beat",
+    "name": "Marching Beat",
+    "classId": "soothsinger",
+    "refClassId": "SS",
+    "level": 1,
+    "initiative": 32
+  },
+  {
+    "id": "melody-and-harmony",
+    "name": "Melody And Harmony",
+    "classId": "soothsinger",
+    "refClassId": "SS",
+    "level": 5,
+    "initiative": 78
+  },
+  {
+    "id": "mobilizing-measure",
+    "name": "Mobilizing Measure",
+    "classId": "soothsinger",
+    "refClassId": "SS",
+    "level": 5,
+    "initiative": 6
+  },
+  {
+    "id": "nightmare-serenade",
+    "name": "Nightmare Serenade",
+    "classId": "soothsinger",
+    "refClassId": "SS",
+    "level": 7,
+    "initiative": 13
+  },
+  {
+    "id": "nimble-knife",
+    "name": "Nimble Knife",
+    "classId": "soothsinger",
+    "refClassId": "SS",
+    "level": 1.5,
+    "initiative": 27
+  },
+  {
+    "id": "power-ballad",
+    "name": "Power Ballad",
+    "classId": "soothsinger",
+    "refClassId": "SS",
+    "level": 1,
+    "initiative": 19
+  },
+  {
+    "id": "provoke-terror",
+    "name": "Provoke Terror",
+    "classId": "soothsinger",
+    "refClassId": "SS",
+    "level": 6,
+    "initiative": 60
+  },
+  {
+    "id": "pull-the-strings",
+    "name": "Pull The Strings",
+    "classId": "soothsinger",
+    "refClassId": "SS",
+    "level": 6,
+    "initiative": 20
+  },
+  {
+    "id": "shadow-puppets",
+    "name": "Shadow Puppets",
+    "classId": "soothsinger",
+    "refClassId": "SS",
+    "level": 9,
+    "initiative": 52
+  },
+  {
+    "id": "singing-arrow",
+    "name": "Singing Arrow",
+    "classId": "soothsinger",
+    "refClassId": "SS",
+    "level": 1,
+    "initiative": 89
+  },
+  {
+    "id": "song-of-speed",
+    "name": "Song Of Speed",
+    "classId": "soothsinger",
+    "refClassId": "SS",
+    "level": 1,
+    "initiative": 5
+  },
+  {
+    "id": "soothing-lullaby",
+    "name": "Soothing Lullaby",
+    "classId": "soothsinger",
+    "refClassId": "SS",
+    "level": 2,
+    "initiative": 11
+  },
+  {
+    "id": "throw-voice",
+    "name": "Throw Voice",
+    "classId": "soothsinger",
+    "refClassId": "SS",
+    "level": 1,
+    "initiative": 44
+  },
+  {
+    "id": "tranquil-trill",
+    "name": "Tranquil Trill",
+    "classId": "soothsinger",
+    "refClassId": "SS",
+    "level": 8,
+    "initiative": 10
+  },
+  {
+    "id": "tuning-the-outcome",
+    "name": "Tuning The Outcome",
+    "classId": "soothsinger",
+    "refClassId": "SS",
+    "level": 1,
+    "initiative": 78
+  },
+  {
+    "id": "unending-chant",
+    "name": "Unending Chant",
+    "classId": "soothsinger",
+    "refClassId": "SS",
+    "level": 1.5,
+    "initiative": 51
+  },
+  {
+    "id": "warding-dagger",
+    "name": "Warding Dagger",
+    "classId": "soothsinger",
+    "refClassId": "SS",
+    "level": 1,
+    "initiative": 56
+  },
+  {
+    "id": "wistful-wounding",
+    "name": "Wistful Wounding",
+    "classId": "soothsinger",
+    "refClassId": "SS",
+    "level": 1.5,
+    "initiative": 16
+  },
+  {
+    "id": "biting-wind",
+    "name": "Biting Wind",
+    "classId": "summoner",
+    "refClassId": "SU",
+    "level": 1,
+    "initiative": 25
+  },
+  {
+    "id": "black-fire",
+    "name": "Black Fire",
+    "classId": "summoner",
+    "refClassId": "SU",
+    "level": 1,
+    "initiative": 24
+  },
+  {
+    "id": "bonded-might",
+    "name": "Bonded Might",
+    "classId": "summoner",
+    "refClassId": "SU",
+    "level": 1,
+    "initiative": 61
+  },
+  {
+    "id": "conjured-aid",
+    "name": "Conjured Aid",
+    "classId": "summoner",
+    "refClassId": "SU",
+    "level": 5,
+    "initiative": 81
+  },
+  {
+    "id": "divided-mind",
+    "name": "Divided Mind",
+    "classId": "summoner",
+    "refClassId": "SU",
+    "level": 4,
+    "initiative": 55
+  },
+  {
+    "id": "earthen-steed",
+    "name": "Earthen Steed",
+    "classId": "summoner",
+    "refClassId": "SU",
+    "level": 2,
+    "initiative": 13
+  },
+  {
+    "id": "endless-spikes",
+    "name": "Endless Spikes",
+    "classId": "summoner",
+    "refClassId": "SU",
+    "level": 6,
+    "initiative": 97
+  },
+  {
+    "id": "ethereal-vines",
+    "name": "Ethereal Vines",
+    "classId": "summoner",
+    "refClassId": "SU",
+    "level": 1.5,
+    "initiative": 30
+  },
+  {
+    "id": "forged-ferocity",
+    "name": "Forged Ferocity",
+    "classId": "summoner",
+    "refClassId": "SU",
+    "level": 1,
+    "initiative": 96
+  },
+  {
+    "id": "grasping-the-void",
+    "name": "Grasping The Void",
+    "classId": "summoner",
+    "refClassId": "SU",
+    "level": 2,
+    "initiative": 62
+  },
+  {
+    "id": "horned-majesty",
+    "name": "Horned Majesty",
+    "classId": "summoner",
+    "refClassId": "SU",
+    "level": 9,
+    "initiative": 80
+  },
+  {
+    "id": "inexorable-momentum",
+    "name": "Inexorable Momentum",
+    "classId": "summoner",
+    "refClassId": "SU",
+    "level": 6,
+    "initiative": 32
+  },
+  {
+    "id": "interplanar-mastery",
+    "name": "Interplanar Mastery",
+    "classId": "summoner",
+    "refClassId": "SU",
+    "level": 9,
+    "initiative": 22
+  },
+  {
+    "id": "intervening-apparitions",
+    "name": "Intervening Apparitions",
+    "classId": "summoner",
+    "refClassId": "SU",
+    "level": 8,
+    "initiative": 68
+  },
+  {
+    "id": "leathery-wings",
+    "name": "Leathery Wings",
+    "classId": "summoner",
+    "refClassId": "SU",
+    "level": 1.5,
+    "initiative": 90
+  },
+  {
+    "id": "living-mountain",
+    "name": "Living Mountain",
+    "classId": "summoner",
+    "refClassId": "SU",
+    "level": 4,
+    "initiative": 88
+  },
+  {
+    "id": "living-night",
+    "name": "Living Night",
+    "classId": "summoner",
+    "refClassId": "SU",
+    "level": 1,
+    "initiative": 82
+  },
+  {
+    "id": "mighty-bond",
+    "name": "Mighty Bond",
+    "classId": "summoner",
+    "refClassId": "SU",
+    "level": 1,
+    "initiative": 51
+  },
+  {
+    "id": "negative-energy",
+    "name": "Negative Energy",
+    "classId": "summoner",
+    "refClassId": "SU",
+    "level": 7,
+    "initiative": 95
+  },
+  {
+    "id": "oozing-manifestation",
+    "name": "Oozing Manifestation",
+    "classId": "summoner",
+    "refClassId": "SU",
+    "level": 3,
+    "initiative": 86
+  },
+  {
+    "id": "otherworldly-rage",
+    "name": "Otherworldly Rage",
+    "classId": "summoner",
+    "refClassId": "SU",
+    "level": 8,
+    "initiative": 35
+  },
+  {
+    "id": "staff-of-visions",
+    "name": "Staff Of Visions",
+    "classId": "summoner",
+    "refClassId": "SU",
+    "level": 7,
+    "initiative": 27
+  },
+  {
+    "id": "strength-in-numbers",
+    "name": "Strength In Numbers",
+    "classId": "summoner",
+    "refClassId": "SU",
+    "level": 5,
+    "initiative": 45
+  },
+  {
+    "id": "tear-the-fabric",
+    "name": "Tear The Fabric",
+    "classId": "summoner",
+    "refClassId": "SU",
+    "level": 3,
+    "initiative": 41
+  },
+  {
+    "id": "unending-dominance",
+    "name": "Unending Dominance",
+    "classId": "summoner",
+    "refClassId": "SU",
+    "level": 1,
+    "initiative": 98
+  },
+  {
+    "id": "unwavering-hand",
+    "name": "Unwavering Hand",
+    "classId": "summoner",
+    "refClassId": "SU",
+    "level": 1,
+    "initiative": 31
+  },
+  {
+    "id": "volatile-flame",
+    "name": "Volatile Flame",
+    "classId": "summoner",
+    "refClassId": "SU",
+    "level": 1.5,
+    "initiative": 94
+  },
+  {
+    "id": "wild-animation",
+    "name": "Wild Animation",
+    "classId": "summoner",
+    "refClassId": "SU",
+    "level": 1,
+    "initiative": 92
+  },
+  {
+    "id": "aid-from-the-ether",
+    "name": "Aid From The Ether",
+    "classId": "spellweaver",
+    "refClassId": "SW",
+    "level": 1.5,
+    "initiative": 91
+  },
+  {
+    "id": "black-hole",
+    "name": "Black Hole",
+    "classId": "spellweaver",
+    "refClassId": "SW",
+    "level": 9,
+    "initiative": 41
+  },
+  {
+    "id": "chromatic-explosion",
+    "name": "Chromatic Explosion",
+    "classId": "spellweaver",
+    "refClassId": "SW",
+    "level": 5,
+    "initiative": 71
+  },
+  {
+    "id": "cold-fire",
+    "name": "Cold Fire",
+    "classId": "spellweaver",
+    "refClassId": "SW",
+    "level": 3,
+    "initiative": 67
+  },
+  {
+    "id": "cold-front",
+    "name": "Cold Front",
+    "classId": "spellweaver",
+    "refClassId": "SW",
+    "level": 8,
+    "initiative": 61
+  },
+  {
+    "id": "crackling-air",
+    "name": "Crackling Air",
+    "classId": "spellweaver",
+    "refClassId": "SW",
+    "level": 1.5,
+    "initiative": 25
+  },
+  {
+    "id": "elemental-aid",
+    "name": "Elemental Aid",
+    "classId": "spellweaver",
+    "refClassId": "SW",
+    "level": 3,
+    "initiative": 84
+  },
+  {
+    "id": "engulfed-in-flames",
+    "name": "Engulfed In Flames",
+    "classId": "spellweaver",
+    "refClassId": "SW",
+    "level": 5,
+    "initiative": 44
+  },
+  {
+    "id": "fire-orbs",
+    "name": "Fire Orbs",
+    "classId": "spellweaver",
+    "refClassId": "SW",
+    "level": 1,
+    "initiative": 69
+  },
+  {
+    "id": "flame-strike",
+    "name": "Flame Strike",
+    "classId": "spellweaver",
+    "refClassId": "SW",
+    "level": 1,
+    "initiative": 36
+  },
+  {
+    "id": "flashing-burst",
+    "name": "Flashing Burst",
+    "classId": "spellweaver",
+    "refClassId": "SW",
+    "level": 2,
+    "initiative": 26
+  },
+  {
+    "id": "forked-beam",
+    "name": "Forked Beam",
+    "classId": "spellweaver",
+    "refClassId": "SW",
+    "level": 4,
+    "initiative": 20
+  },
+  {
+    "id": "freezing-nova",
+    "name": "Freezing Nova",
+    "classId": "spellweaver",
+    "refClassId": "SW",
+    "level": 1,
+    "initiative": 21
+  },
+  {
+    "id": "frost-armor",
+    "name": "Frost Armor",
+    "classId": "spellweaver",
+    "refClassId": "SW",
+    "level": 1,
+    "initiative": 20
+  },
+  {
+    "id": "frozen-night",
+    "name": "Frozen Night",
+    "classId": "spellweaver",
+    "refClassId": "SW",
+    "level": 6,
+    "initiative": 46
+  },
+  {
+    "id": "hardened-spikes",
+    "name": "Hardened Spikes",
+    "classId": "spellweaver",
+    "refClassId": "SW",
+    "level": 1.5,
+    "initiative": 26
+  },
+  {
+    "id": "icy-blast",
+    "name": "Icy Blast",
+    "classId": "spellweaver",
+    "refClassId": "SW",
+    "level": 2,
+    "initiative": 66
+  },
+  {
+    "id": "impaling-eruption",
+    "name": "Impaling Eruption",
+    "classId": "spellweaver",
+    "refClassId": "SW",
+    "level": 1,
+    "initiative": 70
+  },
+  {
+    "id": "inferno",
+    "name": "Inferno",
+    "classId": "spellweaver",
+    "refClassId": "SW",
+    "level": 9,
+    "initiative": 19
+  },
+  {
+    "id": "living-torch",
+    "name": "Living Torch",
+    "classId": "spellweaver",
+    "refClassId": "SW",
+    "level": 6,
+    "initiative": 96
+  },
+  {
+    "id": "mana-bolt",
+    "name": "Mana Bolt",
+    "classId": "spellweaver",
+    "refClassId": "SW",
+    "level": 1,
+    "initiative": 7
+  },
+  {
+    "id": "reviving-ether",
+    "name": "Reviving Ether",
+    "classId": "spellweaver",
+    "refClassId": "SW",
+    "level": 1,
+    "initiative": 80
+  },
+  {
+    "id": "ride-the-wind",
+    "name": "Ride The Wind",
+    "classId": "spellweaver",
+    "refClassId": "SW",
+    "level": 1,
+    "initiative": 83
+  },
+  {
+    "id": "spirit-of-doom",
+    "name": "Spirit Of Doom",
+    "classId": "spellweaver",
+    "refClassId": "SW",
+    "level": 4,
+    "initiative": 81
+  },
+  {
+    "id": "stone-fists",
+    "name": "Stone Fists",
+    "classId": "spellweaver",
+    "refClassId": "SW",
+    "level": 7,
+    "initiative": 62
+  },
+  {
+    "id": "twin-restoration",
+    "name": "Twin Restoration",
+    "classId": "spellweaver",
+    "refClassId": "SW",
+    "level": 7,
+    "initiative": 75
+  },
+  {
+    "id": "zephyr-wings",
+    "name": "Zephyr Wings",
+    "classId": "spellweaver",
+    "refClassId": "SW",
+    "level": 8,
+    "initiative": 85
+  },
+  {
+    "id": "auto-turret",
+    "name": "Auto Turret",
+    "classId": "tinkerer",
+    "refClassId": "TI",
+    "level": 6,
+    "initiative": 34
+  },
+  {
+    "id": "chimeric-formula",
+    "name": "Chimeric Formula",
+    "classId": "tinkerer",
+    "refClassId": "TI",
+    "level": 9,
+    "initiative": 43
+  },
+  {
+    "id": "crank-bow",
+    "name": "Crank Bow",
+    "classId": "tinkerer",
+    "refClassId": "TI",
+    "level": 3,
+    "initiative": 66
+  },
+  {
+    "id": "curative-aerosol",
+    "name": "Curative Aerosol",
+    "classId": "tinkerer",
+    "refClassId": "TI",
+    "level": 7,
+    "initiative": 21
+  },
+  {
+    "id": "dangerous-contraption",
+    "name": "Dangerous Contraption",
+    "classId": "tinkerer",
+    "refClassId": "TI",
+    "level": 4,
+    "initiative": 84
+  },
+  {
+    "id": "disintegration-beam",
+    "name": "Disintegration Beam",
+    "classId": "tinkerer",
+    "refClassId": "TI",
+    "level": 5,
+    "initiative": 36
+  },
+  {
+    "id": "disorienting-flash",
+    "name": "Disorienting Flash",
+    "classId": "tinkerer",
+    "refClassId": "TI",
+    "level": 2,
+    "initiative": 73
+  },
+  {
+    "id": "energizing-tonic",
+    "name": "Energizing Tonic",
+    "classId": "tinkerer",
+    "refClassId": "TI",
+    "level": 1,
+    "initiative": 16
+  },
+  {
+    "id": "enhancement-field",
+    "name": "Enhancement Field",
+    "classId": "tinkerer",
+    "refClassId": "TI",
+    "level": 1,
+    "initiative": 61
+  },
+  {
+    "id": "flamethrower",
+    "name": "Flamethrower",
+    "classId": "tinkerer",
+    "refClassId": "TI",
+    "level": 1,
+    "initiative": 47
+  },
+  {
+    "id": "gas-canister",
+    "name": "Gas Canister",
+    "classId": "tinkerer",
+    "refClassId": "TI",
+    "level": 6,
+    "initiative": 71
+  },
+  {
+    "id": "harmless-contraption",
+    "name": "Harmless Contraption",
+    "classId": "tinkerer",
+    "refClassId": "TI",
+    "level": 1,
+    "initiative": 74
+  },
+  {
+    "id": "harsh-stimulants",
+    "name": "Harsh Stimulants",
+    "classId": "tinkerer",
+    "refClassId": "TI",
+    "level": 8,
+    "initiative": 27
+  },
+  {
+    "id": "hook-gun",
+    "name": "Hook Gun",
+    "classId": "tinkerer",
+    "refClassId": "TI",
+    "level": 1,
+    "initiative": 72
+  },
+  {
+    "id": "ink-bomb",
+    "name": "Ink Bomb",
+    "classId": "tinkerer",
+    "refClassId": "TI",
+    "level": 1,
+    "initiative": 74
+  },
+  {
+    "id": "jet-propulsion",
+    "name": "Jet Propulsion",
+    "classId": "tinkerer",
+    "refClassId": "TI",
+    "level": 8,
+    "initiative": 38
+  },
+  {
+    "id": "lethal-injection",
+    "name": "Lethal Injection",
+    "classId": "tinkerer",
+    "refClassId": "TI",
+    "level": 9,
+    "initiative": 85
+  },
+  {
+    "id": "micro-bots",
+    "name": "Micro Bots",
+    "classId": "tinkerer",
+    "refClassId": "TI",
+    "level": 4,
+    "initiative": 22
+  },
+  {
+    "id": "murderous-contraption",
+    "name": "Murderous Contraption",
+    "classId": "tinkerer",
+    "refClassId": "TI",
+    "level": 7,
+    "initiative": 94
+  },
+  {
+    "id": "net-shooter",
+    "name": "Net Shooter",
+    "classId": "tinkerer",
+    "refClassId": "TI",
+    "level": 1,
+    "initiative": 19
+  },
+  {
+    "id": "noxious-vials",
+    "name": "Noxious Vials",
+    "classId": "tinkerer",
+    "refClassId": "TI",
+    "level": 5,
+    "initiative": 75
+  },
+  {
+    "id": "potent-potables",
+    "name": "Potent Potables",
+    "classId": "tinkerer",
+    "refClassId": "TI",
+    "level": 1.5,
+    "initiative": 46
+  },
+  {
+    "id": "proximity-mine",
+    "name": "Proximity Mine",
+    "classId": "tinkerer",
+    "refClassId": "TI",
+    "level": 1,
+    "initiative": 62
+  },
+  {
+    "id": "reinvigorating-elixir",
+    "name": "Reinvigorating Elixir",
+    "classId": "tinkerer",
+    "refClassId": "TI",
+    "level": 1,
+    "initiative": 37
+  },
+  {
+    "id": "restorative-mist",
+    "name": "Restorative Mist",
+    "classId": "tinkerer",
+    "refClassId": "TI",
+    "level": 1,
+    "initiative": 17
+  },
+  {
+    "id": "reviving-shock",
+    "name": "Reviving Shock",
+    "classId": "tinkerer",
+    "refClassId": "TI",
+    "level": 1.5,
+    "initiative": 34
+  },
+  {
+    "id": "stamina-booster",
+    "name": "Stamina Booster",
+    "classId": "tinkerer",
+    "refClassId": "TI",
+    "level": 2,
+    "initiative": 48
+  },
+  {
+    "id": "stun-shot",
+    "name": "Stun Shot",
+    "classId": "tinkerer",
+    "refClassId": "TI",
+    "level": 1,
+    "initiative": 20
+  },
+  {
+    "id": "tinkerer-s-tools",
+    "name": "Tinkerer's Tools",
+    "classId": "tinkerer",
+    "refClassId": "TI",
+    "level": 3,
+    "initiative": 26
+  },
+  {
+    "id": "toxic-bolt",
+    "name": "Toxic Bolt",
+    "classId": "tinkerer",
+    "refClassId": "TI",
+    "level": 1,
+    "initiative": 18
+  },
+  {
+    "id": "volatile-concoction",
+    "name": "Volatile Concoction",
+    "classId": "tinkerer",
+    "refClassId": "TI",
+    "level": 1.5,
+    "initiative": 76
+  }
+]
