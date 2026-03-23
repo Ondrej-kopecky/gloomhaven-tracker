@@ -153,9 +153,42 @@ export const useCampaignStore = defineStore('campaign', () => {
     await loadCampaignList()
   }
 
+  const MAX_SNAPSHOTS = 20
+
+  function saveSnapshot(campaign: CampaignState) {
+    try {
+      const key = `gh_snapshots_${campaign.id}`
+      const raw = localStorage.getItem(key)
+      const snapshots: { ts: string; data: string }[] = raw ? JSON.parse(raw) : []
+      const json = JSON.stringify(campaign)
+      // Skip if same as last snapshot
+      if (snapshots.length > 0 && snapshots[0].data === json) return
+      snapshots.unshift({ ts: new Date().toISOString(), data: json })
+      if (snapshots.length > MAX_SNAPSHOTS) snapshots.length = MAX_SNAPSHOTS
+      localStorage.setItem(key, JSON.stringify(snapshots))
+    } catch { /* localStorage full — ignore */ }
+  }
+
+  function getSnapshots(): { ts: string; data: string }[] {
+    if (!currentCampaign.value) return []
+    try {
+      const raw = localStorage.getItem(`gh_snapshots_${currentCampaign.value.id}`)
+      return raw ? JSON.parse(raw) : []
+    } catch { return [] }
+  }
+
+  function restoreSnapshot(index: number) {
+    const snapshots = getSnapshots()
+    if (!snapshots[index]) return
+    const campaign = JSON.parse(snapshots[index].data) as CampaignState
+    currentCampaign.value = campaign
+    useStorage().saveCampaign(campaign)
+  }
+
   const debouncedSave = useDebounceFn(async () => {
     if (currentCampaign.value) {
       currentCampaign.value.lastPlayedAt = new Date().toISOString()
+      saveSnapshot(currentCampaign.value)
       await useStorage().saveCampaign(currentCampaign.value)
     }
   }, 300)
@@ -287,6 +320,8 @@ export const useCampaignStore = defineStore('campaign', () => {
     unlockedClasses,
     unlockClass,
     lockClass,
+    getSnapshots,
+    restoreSnapshot,
     loadCampaignList,
     createCampaign,
     loadCampaign,
