@@ -329,6 +329,10 @@ export const useScenarioStore = defineStore('scenario', () => {
     }
 
     delete campaignStore.currentCampaign.scenarios[id]
+
+    // Remove from manually unlocked if present
+    campaignStore.removeManuallyUnlockedScenario(id)
+
     campaignStore.autoSave()
     toastStore.show(`Scénář #${id} resetován`, 'info')
   }
