@@ -241,8 +241,20 @@ const CZ_STICKERS = new Set([
   'GEOI', 'GEOC', 'GEOG', 'GAT', 'GWB', 'GTED', 'GAOO',
 ])
 
+// Map upgrade files back to their base sticker for Czech version
+const UPGRADE_TO_BASE: Record<string, string> = {
+  GAT2: 'GAT', GAT3: 'GAT', GAT4: 'GAT', GAT5: 'GAT',
+  GEOC2: 'GEOC', GEOC3: 'GEOC',
+  GKIP2: 'GKIP', GKIP3: 'GKIP', GKIP4: 'GKIP',
+  GPA2: 'GPA', GPA3: 'GPA', GPA4: 'GPA',
+  GPOA2: 'GPOA', GPOA3: 'GPOA',
+}
+
 function achievementStickerSrc(file: string): string {
+  // Try Czech version of this file or its base
   if (CZ_STICKERS.has(file)) return `/img/achievements/${file}_cz.png`
+  const base = UPGRADE_TO_BASE[file]
+  if (base && CZ_STICKERS.has(base)) return `/img/achievements/${base}_cz.png`
   return `/img/achievements/${file}.png`
 }
 
