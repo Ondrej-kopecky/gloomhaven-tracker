@@ -3,6 +3,7 @@ import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
 import { useRouter } from 'vue-router'
 import { useCampaignStore } from '@/stores/campaignStore'
 import { useScenarioStore } from '@/stores/scenarioStore'
+import { useAchievementStore } from '@/stores/achievementStore'
 import { ScenarioStatus } from '@/models/types'
 import panzoom from 'panzoom'
 import type { PanZoom } from 'panzoom'
@@ -10,6 +11,7 @@ import type { PanZoom } from 'panzoom'
 const router = useRouter()
 const campaignStore = useCampaignStore()
 const scenarioStore = useScenarioStore()
+const achievementStore = useAchievementStore()
 
 const mapContainer = ref<HTMLElement | null>(null)
 const mapElement = ref<HTMLElement | null>(null)
@@ -108,6 +110,37 @@ const visibleScenarios = computed(() =>
 const selectedScenario = computed(() => {
   if (!selectedId.value) return null
   return scenarioStore.allScenarios.find((s) => s.id === selectedId.value) ?? null
+})
+
+const mapRequirementLabels = computed(() => {
+  const s = selectedScenario.value
+  if (!s?.requiredBy?.length) return [] as { text: string; met: boolean }[]
+  return s.requiredBy.flatMap((cond) => {
+    const labels: { text: string; met: boolean }[] = []
+    for (const id of cond.complete ?? []) {
+      if (/^\d+$/.test(id)) {
+        const name = scenarioStore.getDefinition(id)?.nameCz ?? scenarioStore.getDefinition(id)?.name ?? `#${id}`
+        const met = scenarioStore.getScenarioStatus(id) === ScenarioStatus.COMPLETED
+        labels.push({ text: `Scénář #${id} ${name}`, met })
+      } else {
+        const name = achievementStore.getName(id)
+        const met = achievementStore.isGlobalAchieved(id) || achievementStore.isPartyAchieved(id)
+        labels.push({ text: name, met })
+      }
+    }
+    for (const id of cond.incomplete ?? []) {
+      if (/^\d+$/.test(id)) {
+        const name = scenarioStore.getDefinition(id)?.nameCz ?? scenarioStore.getDefinition(id)?.name ?? `#${id}`
+        const met = scenarioStore.getScenarioStatus(id) !== ScenarioStatus.COMPLETED
+        labels.push({ text: `Bez #${id} ${name}`, met })
+      } else {
+        const name = achievementStore.getName(id)
+        const met = !(achievementStore.isGlobalAchieved(id) || achievementStore.isPartyAchieved(id))
+        labels.push({ text: `Bez: ${name}`, met })
+      }
+    }
+    return labels
+  })
 })
 
 function stickerSrc(id: string, status: ScenarioStatus): string {
@@ -247,6 +280,19 @@ function goToScenarios(id: string) {
               <span v-if="selectedScenario.rewards.xp" class="text-[10px] text-blue-400 bg-blue-900/20 px-2 py-0.5 rounded border border-blue-800/30">
                 {{ selectedScenario.rewards.xp }} ZK
               </span>
+            </div>
+
+            <!-- Requirements -->
+            <div v-if="mapRequirementLabels.length > 0" class="mb-3">
+              <div v-for="(req, i) in mapRequirementLabels" :key="i" class="flex items-center gap-1.5 text-[11px] py-0.5">
+                <svg v-if="req.met" class="w-3 h-3 text-green-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <svg v-else class="w-3 h-3 text-yellow-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+                </svg>
+                <span :class="req.met ? 'text-green-400/80' : 'text-yellow-400/80'">{{ req.text }}</span>
+              </div>
             </div>
 
             <!-- Summary -->
