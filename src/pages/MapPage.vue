@@ -195,7 +195,7 @@ const ACHIEVEMENT_STICKERS: Record<string, { file: string; x: number }> = {
 
 // Compute visible achievement stickers (only achieved, show highest upgrade)
 const visibleAchievementStickers = computed(() => {
-  const stickers: { id: string; parentId: string; file: string; x: number; name: string }[] = []
+  const stickers: { id: string; parentId: string; file: string; x: number; name: string; upgradeLevel: number; upgradeMax: number }[] = []
   const usedPositions = new Set<number>()
 
   for (const def of achievementStore.globalDefinitions) {
@@ -222,12 +222,25 @@ const visibleAchievementStickers = computed(() => {
     if (usedPositions.has(mapping.x)) continue
     usedPositions.add(mapping.x)
 
+    // Calculate upgrade level
+    let upgradeLevel = 0
+    let upgradeMax = 0
+    if (def.upgrades?.length) {
+      upgradeLevel = 1
+      for (const uid of def.upgrades) {
+        if (achievementStore.isGlobalAchieved(uid)) upgradeLevel++
+      }
+      upgradeMax = def.upgrades.length + 1
+    }
+
     stickers.push({
       id: activeId,
       parentId: def.id,
       file: activeFile,
       x: mapping.x,
       name: def.name,
+      upgradeLevel,
+      upgradeMax,
     })
   }
 
@@ -341,13 +354,10 @@ function achievementUpgradeLevel(parentId: string): { current: number; max: numb
         :style="{ top: -MAP_Y_OFFSET + 'px', width: '100%' }"
       />
 
-      <!-- Global achievement stickers (retina: display at 50% of original 193x467px) -->
-      <img
+      <!-- Global achievement stickers -->
+      <div
         v-for="a in visibleAchievementStickers"
         :key="'ach-' + a.id"
-        :src="achievementStickerSrc(a.file)"
-        :alt="a.name"
-        :title="a.name"
         class="absolute select-none cursor-pointer transition-transform duration-150 hover:scale-110"
         :style="{
           left: a.x + '%',
@@ -357,7 +367,28 @@ function achievementUpgradeLevel(parentId: string): { current: number; max: numb
         }"
         @click.stop="onAchievementClick(a)"
         @touchend.stop.prevent="onAchievementClick(a)"
-      />
+      >
+        <img
+          :src="achievementStickerSrc(a.file)"
+          :alt="a.name"
+          :title="a.name"
+          class="w-full"
+        />
+        <!-- Upgrade level dots -->
+        <div
+          v-if="a.upgradeLevel && a.upgradeLevel > 1"
+          class="flex justify-center gap-0.5 mt-[-4px]"
+        >
+          <div
+            v-for="i in (a.upgradeMax - 1)"
+            :key="i"
+            class="w-3 h-3 rounded-sm border"
+            :class="i < a.upgradeLevel
+              ? 'bg-amber-500 border-amber-600'
+              : 'bg-white/10 border-white/20'"
+          />
+        </div>
+      </div>
 
       <!-- Scenario stickers (positioned exactly like reference project) -->
       <img
