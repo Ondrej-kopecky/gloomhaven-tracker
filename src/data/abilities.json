@@ -2058,7 +2058,7 @@
     "refClassId": "PH",
     "level": 5,
     "initiative": 62,
-    "nameCz": "Urychleny konec"
+    "nameCz": "Urychlený konec"
   },
   {
     "id": "airborne-toxin",
@@ -2066,7 +2066,8 @@
     "classId": "plagueherald",
     "refClassId": "PH",
     "level": 7,
-    "initiative": 57
+    "initiative": 57,
+    "nameCz": "Plynný jed"
   },
   {
     "id": "baneful-hex",
@@ -2074,7 +2075,8 @@
     "classId": "plagueherald",
     "refClassId": "PH",
     "level": 7,
-    "initiative": 33
+    "initiative": 33,
+    "nameCz": "Zhoubná kletba"
   },
   {
     "id": "biting-gnats",
@@ -2083,7 +2085,7 @@
     "refClassId": "PH",
     "level": 1,
     "initiative": 47,
-    "nameCz": "Stipajici komari"
+    "nameCz": "Štípající komáři"
   },
   {
     "id": "black-tides",
@@ -2091,7 +2093,8 @@
     "classId": "plagueherald",
     "refClassId": "PH",
     "level": 6,
-    "initiative": 37
+    "initiative": 37,
+    "nameCz": "Temný příliv"
   },
   {
     "id": "blistering-vortex",
@@ -2100,7 +2103,7 @@
     "refClassId": "PH",
     "level": 1.5,
     "initiative": 21,
-    "nameCz": "Vir puchyru"
+    "nameCz": "Vír puchýřů"
   },
   {
     "id": "convert-the-flock",
@@ -2117,7 +2120,7 @@
     "refClassId": "PH",
     "level": 1,
     "initiative": 72,
-    "nameCz": "Pliziva kletba"
+    "nameCz": "Plíživá kletba"
   },
   {
     "id": "epidemic",
@@ -2134,7 +2137,8 @@
     "classId": "plagueherald",
     "refClassId": "PH",
     "level": 3,
-    "initiative": 26
+    "initiative": 26,
+    "nameCz": "Páchnoucí vichr"
   },
   {
     "id": "foul-wind",
@@ -2142,8 +2146,7 @@
     "classId": "plagueherald",
     "refClassId": "PH",
     "level": 1,
-    "initiative": 35,
-    "nameCz": "Pachnouci vichr"
+    "initiative": 35
   },
   {
     "id": "gathering-doom",
@@ -2152,7 +2155,7 @@
     "refClassId": "PH",
     "level": 1,
     "initiative": 76,
-    "nameCz": "Shromazdeni zkazy"
+    "nameCz": "Shromáždění zkázy"
   },
   {
     "id": "grasping-vermin",
@@ -2160,7 +2163,8 @@
     "classId": "plagueherald",
     "refClassId": "PH",
     "level": 1,
-    "initiative": 69
+    "initiative": 69,
+    "nameCz": "Svírající havěť"
   },
   {
     "id": "grim-bargain",
@@ -2177,7 +2181,7 @@
     "refClassId": "PH",
     "level": 9,
     "initiative": 94,
-    "nameCz": "Hromadne vymirani"
+    "nameCz": "Hromadné vymírání"
   },
   {
     "id": "nightmarish-affliction",
@@ -2185,7 +2189,8 @@
     "classId": "plagueherald",
     "refClassId": "PH",
     "level": 4,
-    "initiative": 43
+    "initiative": 43,
+    "nameCz": "Odporná nákaza"
   },
   {
     "id": "paralyzing-bite",
@@ -2194,7 +2199,7 @@
     "refClassId": "PH",
     "level": 1,
     "initiative": 31,
-    "nameCz": "Paralyzujici kousnuti"
+    "nameCz": "Paralyzující kousnutí"
   },
   {
     "id": "rot-maggots",
@@ -2202,7 +2207,8 @@
     "classId": "plagueherald",
     "refClassId": "PH",
     "level": 2,
-    "initiative": 69
+    "initiative": 69,
+    "nameCz": "Hnilobní červi"
   },
   {
     "id": "scattered-terror",
@@ -2211,7 +2217,7 @@
     "refClassId": "PH",
     "level": 1,
     "initiative": 11,
-    "nameCz": "Rozptyleny des"
+    "nameCz": "Rozptýlený děs"
   },
   {
     "id": "spreading-scourge",
@@ -2220,7 +2226,7 @@
     "refClassId": "PH",
     "level": 8,
     "initiative": 71,
-    "nameCz": "Sirici se pohroma"
+    "nameCz": "Šířící se pohroma"
   },
   {
     "id": "spread-the-plague",
@@ -2228,7 +2234,8 @@
     "classId": "plagueherald",
     "refClassId": "PH",
     "level": 1,
-    "initiative": 27
+    "initiative": 27,
+    "nameCz": "Šíření nákazy"
   },
   {
     "id": "stinging-cloud",
@@ -2236,8 +2243,7 @@
     "classId": "plagueherald",
     "refClassId": "PH",
     "level": 6,
-    "initiative": 66,
-    "nameCz": "Svirajici havet"
+    "initiative": 66
   },
   {
     "id": "storm-of-wings",
@@ -2246,7 +2252,7 @@
     "refClassId": "PH",
     "level": 4,
     "initiative": 91,
-    "nameCz": "Boure kridel"
+    "nameCz": "Bouře křídel"
   },
   {
     "id": "succumb-to-the-gift",
@@ -2264,7 +2270,7 @@
     "refClassId": "PH",
     "level": 2,
     "initiative": 59,
-    "nameCz": "Pod kuzi"
+    "nameCz": "Pod kůží"
   },
   {
     "id": "vile-pestilence",
@@ -2272,8 +2278,7 @@
     "classId": "plagueherald",
     "refClassId": "PH",
     "level": 1,
-    "initiative": 61,
-    "nameCz": "Plynny jed"
+    "initiative": 61
   },
   {
     "id": "virulent-strain",
@@ -2281,7 +2286,8 @@
     "classId": "plagueherald",
     "refClassId": "PH",
     "level": 1.5,
-    "initiative": 50
+    "initiative": 50,
+    "nameCz": "Moc nákazy"
   },
   {
     "id": "willing-sacrifice",
@@ -2289,7 +2295,8 @@
     "classId": "plagueherald",
     "refClassId": "PH",
     "level": 5,
-    "initiative": 84
+    "initiative": 84,
+    "nameCz": "Dobrovolná oběť"
   },
   {
     "id": "winged-congregation",
@@ -2298,7 +2305,7 @@
     "refClassId": "PH",
     "level": 1,
     "initiative": 16,
-    "nameCz": "Okridleny sbor"
+    "nameCz": "Okřídlený sbor"
   },
   {
     "id": "wretched-swarm",
@@ -2306,7 +2313,8 @@
     "classId": "plagueherald",
     "refClassId": "PH",
     "level": 1,
-    "initiative": 84
+    "initiative": 84,
+    "nameCz": "Bídný roj"
   },
   {
     "id": "bag-of-holding",
