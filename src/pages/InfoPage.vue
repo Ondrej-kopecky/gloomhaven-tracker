@@ -121,6 +121,16 @@ const technologies = [
 
 const changelog = [
   {
+    version: '5.0', date: '2026-03-24',
+    changes: [
+      'DLC Zapomenuté kruhy — 20 nových scénářů (96–115) s českými názvy a popisy',
+      '6 nových kapitol na flowchartu (Věštkyně, Orchidská společnost, Obyvatelé Gloomhavenu, Sférochod, Nečistá krypta, Zkaženost)',
+      'FC flowchart s kompletní strukturou větvení a propojení',
+      'Oprava zobrazení příběhového textu u dokončených questů',
+      'Sekce automatických záloh v nastavení je nyní skrytá (na rozkliknutí)',
+    ],
+  },
+  {
     version: '4.14', date: '2026-03-23',
     changes: [
       'Info stránka s changelogem a credits',
