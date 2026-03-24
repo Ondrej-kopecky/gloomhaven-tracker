@@ -193,12 +193,17 @@ export const useScenarioStore = defineStore('scenario', () => {
   // ── Computed lists ──
 
   const allScenarios = computed(() =>
-    scenarioDefinitions.value.map((def) => ({
-      ...def,
-      displayName: def.nameCz ?? def.name,
-      state: getState(def.id),
-      computedStatus: computedStatuses.value[def.id] ?? ScenarioStatus.LOCKED,
-    }))
+    scenarioDefinitions.value
+      .filter((def) => {
+        if (def.game === 'fc' && !campaignStore.currentCampaign?.forgottenCircles) return false
+        return true
+      })
+      .map((def) => ({
+        ...def,
+        displayName: def.nameCz ?? def.name,
+        state: getState(def.id),
+        computedStatus: computedStatuses.value[def.id] ?? ScenarioStatus.LOCKED,
+      }))
   )
 
   const availableScenarios = computed(() =>

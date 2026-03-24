@@ -2,6 +2,7 @@ import { watch, nextTick, type Ref } from 'vue'
 import panzoom from 'panzoom'
 import type { PanZoom } from 'panzoom'
 import { useScenarioStore } from '@/stores/scenarioStore'
+import { useCampaignStore } from '@/stores/campaignStore'
 import { useFlowchartStore } from '@/stores/flowchartStore'
 import { ScenarioStatus } from '@/models/types'
 import storylineSvgRaw from '@/assets/storylines/gh.svg?raw'
@@ -19,6 +20,7 @@ const STATE_CLASSES = ['complete', 'incomplete', 'blocked', 'required', 'attempt
 
 export function useStorylineSvg(containerRef: Ref<HTMLElement | null>) {
   const scenarioStore = useScenarioStore()
+  const campaignStore = useCampaignStore()
   const flowchartStore = useFlowchartStore()
   let pzInstance: PanZoom | null = null
   let previousSelectedNode: Element | null = null
@@ -359,13 +361,18 @@ export function useStorylineSvg(containerRef: Ref<HTMLElement | null>) {
       ;(chapter as HTMLElement).style.display = hasVisible || storyFilter === 'side' ? '' : 'none'
     }
 
-    // FC chapters (20-25): show if scenario 51 is completed (end of base game)
+    // FC chapters (20-25): show only if DLC is enabled in campaign settings
     const fcGroup = containerRef.value?.querySelector('#fc-storyline') as HTMLElement | null
     if (fcGroup) {
-      const hasAnyFc = scenarioStore.scenarioDefinitions.some(
-        (s) => s.game === 'fc' && statuses[s.id] !== ScenarioStatus.HIDDEN
-      )
-      fcGroup.style.display = hasAnyFc ? '' : 'none'
+      const fcEnabled = campaignStore.currentCampaign?.forgottenCircles === true
+      if (!fcEnabled) {
+        fcGroup.style.display = 'none'
+      } else {
+        const hasAnyFc = scenarioStore.scenarioDefinitions.some(
+          (s) => s.game === 'fc' && statuses[s.id] !== ScenarioStatus.HIDDEN
+        )
+        fcGroup.style.display = hasAnyFc ? '' : 'none'
+      }
 
       for (const chapterId of [20, 21, 22, 23, 24, 25]) {
         const chapter = queryChapter(String(chapterId))
