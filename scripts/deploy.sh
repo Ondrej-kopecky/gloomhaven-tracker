@@ -62,7 +62,7 @@ echo "  ✓ .env set"
 
 # 6. Build & restart container
 echo "→ Building container..."
-ssh $SERVER "cd $REMOTE_DIR && docker compose build gloomhaven --quiet && docker compose up -d gloomhaven"
+ssh $SERVER "cd $REMOTE_DIR && docker compose build gloomhaven --quiet && docker compose up -d gloomhaven && docker builder prune -af --filter 'until=24h' > /dev/null 2>&1 &"
 echo "  ✓ Container deployed"
 
 # 7. Copy item images into container
