@@ -156,6 +156,15 @@ export const useCharacterStore = defineStore('character', () => {
     campaignStore.autoSave()
   }
 
+  function deleteCharacter(uuid: string) {
+    if (!campaignStore.currentCampaign) return
+    const idx = campaignStore.currentCampaign.characters.findIndex((c) => c.uuid === uuid)
+    if (idx < 0) return
+    campaignStore.currentCampaign.characters.splice(idx, 1)
+    campaignStore.autoSave()
+    toastStore.show('Postava byla odstraněna')
+  }
+
   function updateChecks(uuid: string, amount: number) {
     const char = getCharacter(uuid)
     if (!char) return
@@ -324,6 +333,7 @@ export const useCharacterStore = defineStore('character', () => {
     setChecks,
     togglePerk,
     retireCharacter,
+    deleteCharacter,
     updateChecks,
     setNotes,
     getItemDef,

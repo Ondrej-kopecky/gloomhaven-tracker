@@ -121,6 +121,18 @@ const technologies = [
 
 const changelog = [
   {
+    version: '5.3', date: '2026-03-24',
+    changes: [
+      'České názvy schopností pro všech 17 tříd (379 karet)',
+      'Lightbox pro karty schopností s českými názvy',
+      'Kompletní remap obrázků schopností podle iniciativy',
+      'Možnost odstranit postavu (nejen poslat do důchodu)',
+      'PWA service worker — skipWaiting + čištění starých cache',
+      'Skrytí FC scénářů a flowchartu při vypnutém DLC',
+      'Oprava Teleport crash v Transition komponentě',
+    ],
+  },
+  {
     version: '5.0', date: '2026-03-24',
     changes: [
       'DLC Zapomenuté kruhy — 20 nových scénářů (96–115) s českými názvy a popisy',
