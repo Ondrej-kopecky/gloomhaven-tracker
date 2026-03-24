@@ -5,7 +5,8 @@
     "classId": "berserker",
     "refClassId": "BE",
     "level": 1,
-    "initiative": 76
+    "initiative": 76,
+    "nameCz": "Krvava umluva"
   },
   {
     "id": "bone-breaker",
@@ -13,7 +14,8 @@
     "classId": "berserker",
     "refClassId": "BE",
     "level": 8,
-    "initiative": 41
+    "initiative": 41,
+    "nameCz": "Kostilam"
   },
   {
     "id": "bounce-back",
@@ -21,7 +23,8 @@
     "classId": "berserker",
     "refClassId": "BE",
     "level": 1,
-    "initiative": 14
+    "initiative": 14,
+    "nameCz": "Odrazeni"
   },
   {
     "id": "break-the-chains",
@@ -29,7 +32,8 @@
     "classId": "berserker",
     "refClassId": "BE",
     "level": 2,
-    "initiative": 53
+    "initiative": 53,
+    "nameCz": "Utrzena ze retezu"
   },
   {
     "id": "burning-hatred",
@@ -37,7 +41,8 @@
     "classId": "berserker",
     "refClassId": "BE",
     "level": 7,
-    "initiative": 40
+    "initiative": 40,
+    "nameCz": "Spalujici nenavist"
   },
   {
     "id": "careless-charge",
@@ -45,7 +50,8 @@
     "classId": "berserker",
     "refClassId": "BE",
     "level": 7,
-    "initiative": 20
+    "initiative": 20,
+    "nameCz": "Bezhlavy najezd"
   },
   {
     "id": "cauterize",
@@ -53,7 +59,8 @@
     "classId": "berserker",
     "refClassId": "BE",
     "level": 1,
-    "initiative": 40
+    "initiative": 40,
+    "nameCz": "Vypaleni rany"
   },
   {
     "id": "dazing-wound",
@@ -61,7 +68,8 @@
     "classId": "berserker",
     "refClassId": "BE",
     "level": 1,
-    "initiative": 29
+    "initiative": 29,
+    "nameCz": "Omracujici zraneni"
   },
   {
     "id": "defiance-of-death",
@@ -69,7 +77,8 @@
     "classId": "berserker",
     "refClassId": "BE",
     "level": 1,
-    "initiative": 31
+    "initiative": 31,
+    "nameCz": "Smrti navzdory"
   },
   {
     "id": "devil-horns",
@@ -77,7 +86,8 @@
     "classId": "berserker",
     "refClassId": "BE",
     "level": 6,
-    "initiative": 31
+    "initiative": 31,
+    "nameCz": "Rohy demona"
   },
   {
     "id": "fatal-fury",
@@ -85,7 +95,8 @@
     "classId": "berserker",
     "refClassId": "BE",
     "level": 3,
-    "initiative": 34
+    "initiative": 34,
+    "nameCz": "Smrtici zurivost"
   },
   {
     "id": "final-fight",
@@ -93,7 +104,8 @@
     "classId": "berserker",
     "refClassId": "BE",
     "level": 5,
-    "initiative": 89
+    "initiative": 89,
+    "nameCz": "Posledni boj"
   },
   {
     "id": "flurry-of-axes",
@@ -101,7 +113,8 @@
     "classId": "berserker",
     "refClassId": "BE",
     "level": 4,
-    "initiative": 27
+    "initiative": 27,
+    "nameCz": "Vir seker"
   },
   {
     "id": "from-the-brink",
@@ -109,7 +122,8 @@
     "classId": "berserker",
     "refClassId": "BE",
     "level": 1,
-    "initiative": 24
+    "initiative": 24,
+    "nameCz": "Zmrtvychvstani"
   },
   {
     "id": "furious-aid",
@@ -117,7 +131,8 @@
     "classId": "berserker",
     "refClassId": "BE",
     "level": 1,
-    "initiative": 43
+    "initiative": 43,
+    "nameCz": "Zuriva pomoc"
   },
   {
     "id": "glass-hammer",
@@ -125,7 +140,8 @@
     "classId": "berserker",
     "refClassId": "BE",
     "level": 1.5,
-    "initiative": 11
+    "initiative": 11,
+    "nameCz": "Sklenene kladivo"
   },
   {
     "id": "growing-rage",
@@ -133,7 +149,8 @@
     "classId": "berserker",
     "refClassId": "BE",
     "level": 1,
-    "initiative": 85
+    "initiative": 85,
+    "nameCz": "Vybuch hnevu"
   },
   {
     "id": "immortality",
@@ -141,7 +158,8 @@
     "classId": "berserker",
     "refClassId": "BE",
     "level": 9,
-    "initiative": 33
+    "initiative": 33,
+    "nameCz": "Nesmrtelnost"
   },
   {
     "id": "numb-the-pain",
@@ -149,7 +167,8 @@
     "classId": "berserker",
     "refClassId": "BE",
     "level": 1.5,
-    "initiative": 35
+    "initiative": 35,
+    "nameCz": "Utlumeni bolesti"
   },
   {
     "id": "reckless-offensive",
@@ -157,7 +176,8 @@
     "classId": "berserker",
     "refClassId": "BE",
     "level": 2,
-    "initiative": 21
+    "initiative": 21,
+    "nameCz": "Neopatrny vypad"
   },
   {
     "id": "resolute-stand",
@@ -165,7 +185,8 @@
     "classId": "berserker",
     "refClassId": "BE",
     "level": 1,
-    "initiative": 9
+    "initiative": 9,
+    "nameCz": "Odhodlany postoj"
   },
   {
     "id": "seeing-red",
@@ -173,7 +194,8 @@
     "classId": "berserker",
     "refClassId": "BE",
     "level": 5,
-    "initiative": 22
+    "initiative": 22,
+    "nameCz": "Rudy zavoj"
   },
   {
     "id": "shiny-distraction",
@@ -181,7 +203,8 @@
     "classId": "berserker",
     "refClassId": "BE",
     "level": 4,
-    "initiative": 8
+    "initiative": 8,
+    "nameCz": "Blyskave rozptyleni"
   },
   {
     "id": "spiked-armor",
@@ -189,7 +212,8 @@
     "classId": "berserker",
     "refClassId": "BE",
     "level": 3,
-    "initiative": 16
+    "initiative": 16,
+    "nameCz": "Ostnata zbroj"
   },
   {
     "id": "strength-in-agony",
@@ -197,7 +221,8 @@
     "classId": "berserker",
     "refClassId": "BE",
     "level": 1,
-    "initiative": 37
+    "initiative": 37,
+    "nameCz": "Sila agonie"
   },
   {
     "id": "the-maw-of-madness",
@@ -205,7 +230,8 @@
     "classId": "berserker",
     "refClassId": "BE",
     "level": 9,
-    "initiative": 10
+    "initiative": 10,
+    "nameCz": "Hrdlo silenstvi"
   },
   {
     "id": "unbridled-power",
@@ -213,7 +239,8 @@
     "classId": "berserker",
     "refClassId": "BE",
     "level": 1.5,
-    "initiative": 67
+    "initiative": 67,
+    "nameCz": "Nespoutana sila"
   },
   {
     "id": "unstoppable-destruction",
@@ -221,7 +248,8 @@
     "classId": "berserker",
     "refClassId": "BE",
     "level": 6,
-    "initiative": 57
+    "initiative": 57,
+    "nameCz": "Nezastavitelna zkaza"
   },
   {
     "id": "vengeful-barrage",
@@ -229,7 +257,8 @@
     "classId": "berserker",
     "refClassId": "BE",
     "level": 8,
-    "initiative": 38
+    "initiative": 38,
+    "nameCz": "Mstivy napor"
   },
   {
     "id": "balanced-measure",
@@ -498,7 +527,8 @@
     "classId": "beast_tyrant",
     "refClassId": "BT",
     "level": 4,
-    "initiative": 19
+    "initiative": 19,
+    "nameCz": "Prastary ochrance"
   },
   {
     "id": "blood-hunger",
@@ -506,7 +536,8 @@
     "classId": "beast_tyrant",
     "refClassId": "BT",
     "level": 6,
-    "initiative": 42
+    "initiative": 42,
+    "nameCz": "Hlad po krvi"
   },
   {
     "id": "borrowed-essence",
@@ -514,7 +545,8 @@
     "classId": "beast_tyrant",
     "refClassId": "BT",
     "level": 1.5,
-    "initiative": 56
+    "initiative": 56,
+    "nameCz": "Zapujcena podstata"
   },
   {
     "id": "concentrated-rage",
@@ -522,7 +554,8 @@
     "classId": "beast_tyrant",
     "refClassId": "BT",
     "level": 1,
-    "initiative": 51
+    "initiative": 51,
+    "nameCz": "Soustredeny hnev"
   },
   {
     "id": "disappearing-wounds",
@@ -530,7 +563,8 @@
     "classId": "beast_tyrant",
     "refClassId": "BT",
     "level": 1,
-    "initiative": 23
+    "initiative": 23,
+    "nameCz": "Mizejici zraneni"
   },
   {
     "id": "disorienting-roar",
@@ -538,7 +572,8 @@
     "classId": "beast_tyrant",
     "refClassId": "BT",
     "level": 1,
-    "initiative": 17
+    "initiative": 17,
+    "nameCz": "Matouci rev"
   },
   {
     "id": "earthen-spikes",
@@ -546,7 +581,8 @@
     "classId": "beast_tyrant",
     "refClassId": "BT",
     "level": 2,
-    "initiative": 11
+    "initiative": 11,
+    "nameCz": "Trny skal"
   },
   {
     "id": "energizing-strike",
@@ -554,7 +590,8 @@
     "classId": "beast_tyrant",
     "refClassId": "BT",
     "level": 2,
-    "initiative": 29
+    "initiative": 29,
+    "nameCz": "Povzbuzujici uder"
   },
   {
     "id": "focused-aggression",
@@ -562,7 +599,8 @@
     "classId": "beast_tyrant",
     "refClassId": "BT",
     "level": 1.5,
-    "initiative": 31
+    "initiative": 31,
+    "nameCz": "Soustredena agrese"
   },
   {
     "id": "forceful-swipe",
@@ -570,7 +608,8 @@
     "classId": "beast_tyrant",
     "refClassId": "BT",
     "level": 1,
-    "initiative": 35
+    "initiative": 35,
+    "nameCz": "Mocny vypad"
   },
   {
     "id": "howling-bolts",
@@ -578,7 +617,8 @@
     "classId": "beast_tyrant",
     "refClassId": "BT",
     "level": 1,
-    "initiative": 47
+    "initiative": 47,
+    "nameCz": "Kvilejici strely"
   },
   {
     "id": "jaws-of-death",
@@ -586,7 +626,8 @@
     "classId": "beast_tyrant",
     "refClassId": "BT",
     "level": 9,
-    "initiative": 48
+    "initiative": 48,
+    "nameCz": "Celisti smrti"
   },
   {
     "id": "lash-out",
@@ -594,7 +635,8 @@
     "classId": "beast_tyrant",
     "refClassId": "BT",
     "level": 8,
-    "initiative": 18
+    "initiative": 18,
+    "nameCz": "Ostry vypad"
   },
   {
     "id": "maul",
@@ -602,7 +644,8 @@
     "classId": "beast_tyrant",
     "refClassId": "BT",
     "level": 1,
-    "initiative": 14
+    "initiative": 14,
+    "nameCz": "Trhac"
   },
   {
     "id": "natural-remedy",
@@ -610,7 +653,8 @@
     "classId": "beast_tyrant",
     "refClassId": "BT",
     "level": 8,
-    "initiative": 25
+    "initiative": 25,
+    "nameCz": "Prirodni prostredky"
   },
   {
     "id": "patch-fur",
@@ -618,7 +662,8 @@
     "classId": "beast_tyrant",
     "refClassId": "BT",
     "level": 1,
-    "initiative": 20
+    "initiative": 20,
+    "nameCz": "Zelezna srst"
   },
   {
     "id": "primal-blessing",
@@ -626,7 +671,8 @@
     "classId": "beast_tyrant",
     "refClassId": "BT",
     "level": 6,
-    "initiative": 28
+    "initiative": 28,
+    "nameCz": "Prvotni pozehnani"
   },
   {
     "id": "punch-through",
@@ -634,7 +680,8 @@
     "classId": "beast_tyrant",
     "refClassId": "BT",
     "level": 4,
-    "initiative": 44
+    "initiative": 44,
+    "nameCz": "Prulom"
   },
   {
     "id": "rampage",
@@ -642,7 +689,8 @@
     "classId": "beast_tyrant",
     "refClassId": "BT",
     "level": 5,
-    "initiative": 34
+    "initiative": 34,
+    "nameCz": "Zbesilost"
   },
   {
     "id": "relentless-ally",
@@ -650,7 +698,8 @@
     "classId": "beast_tyrant",
     "refClassId": "BT",
     "level": 1,
-    "initiative": 81
+    "initiative": 81,
+    "nameCz": "Neunavny spojenec"
   },
   {
     "id": "soaring-ally",
@@ -658,7 +707,8 @@
     "classId": "beast_tyrant",
     "refClassId": "BT",
     "level": 1.5,
-    "initiative": 77
+    "initiative": 77,
+    "nameCz": "Plachtici spojenec"
   },
   {
     "id": "spirit-swap",
@@ -666,7 +716,8 @@
     "classId": "beast_tyrant",
     "refClassId": "BT",
     "level": 1,
-    "initiative": 22
+    "initiative": 22,
+    "nameCz": "Vymena dusi"
   },
   {
     "id": "stone-sigil",
@@ -674,7 +725,8 @@
     "classId": "beast_tyrant",
     "refClassId": "BT",
     "level": 5,
-    "initiative": 95
+    "initiative": 95,
+    "nameCz": "Symbol kamene"
   },
   {
     "id": "storm-sigil",
@@ -682,7 +734,8 @@
     "classId": "beast_tyrant",
     "refClassId": "BT",
     "level": 7,
-    "initiative": 93
+    "initiative": 93,
+    "nameCz": "Symbol vichru"
   },
   {
     "id": "tribal-sigil",
@@ -690,7 +743,8 @@
     "classId": "beast_tyrant",
     "refClassId": "BT",
     "level": 9,
-    "initiative": 91
+    "initiative": 91,
+    "nameCz": "Symbol klanu"
   },
   {
     "id": "tyrannical-force",
@@ -698,7 +752,8 @@
     "classId": "beast_tyrant",
     "refClassId": "BT",
     "level": 7,
-    "initiative": 37
+    "initiative": 37,
+    "nameCz": "Moc bice"
   },
   {
     "id": "unstoppable-beast",
@@ -706,7 +761,8 @@
     "classId": "beast_tyrant",
     "refClassId": "BT",
     "level": 3,
-    "initiative": 32
+    "initiative": 32,
+    "nameCz": "Nezastavitelna bestie"
   },
   {
     "id": "venomous-ally",
@@ -714,7 +770,8 @@
     "classId": "beast_tyrant",
     "refClassId": "BT",
     "level": 1,
-    "initiative": 79
+    "initiative": 79,
+    "nameCz": "Jedovaty spojenec"
   },
   {
     "id": "vicious-ally",
@@ -722,7 +779,8 @@
     "classId": "beast_tyrant",
     "refClassId": "BT",
     "level": 3,
-    "initiative": 86
+    "initiative": 86,
+    "nameCz": "Kruty spojenec"
   },
   {
     "id": "avalanche",
@@ -1008,7 +1066,8 @@
     "classId": "doomstalker",
     "refClassId": "DS",
     "level": 6,
-    "initiative": 23
+    "initiative": 23,
+    "nameCz": "Maskovani"
   },
   {
     "id": "crashing-wave",
@@ -1024,7 +1083,8 @@
     "classId": "doomstalker",
     "refClassId": "DS",
     "level": 1,
-    "initiative": 57
+    "initiative": 57,
+    "nameCz": "Mrzacici smycka"
   },
   {
     "id": "darkened-skies",
@@ -1032,7 +1092,8 @@
     "classId": "doomstalker",
     "refClassId": "DS",
     "level": 3,
-    "initiative": 25
+    "initiative": 25,
+    "nameCz": "Potemnela obloha"
   },
   {
     "id": "detonation",
@@ -1088,7 +1149,8 @@
     "classId": "doomstalker",
     "refClassId": "DS",
     "level": 1.5,
-    "initiative": 65
+    "initiative": 65,
+    "nameCz": "Certstve maso"
   },
   {
     "id": "frightening-curse",
@@ -1096,7 +1158,8 @@
     "classId": "doomstalker",
     "refClassId": "DS",
     "level": 1,
-    "initiative": 37
+    "initiative": 37,
+    "nameCz": "Desiva kletba"
   },
   {
     "id": "impending-end",
@@ -1152,7 +1215,8 @@
     "classId": "doomstalker",
     "refClassId": "DS",
     "level": 3,
-    "initiative": 10
+    "initiative": 10,
+    "nameCz": "Neuprosny napor"
   },
   {
     "id": "race-to-the-grave",
@@ -1168,7 +1232,8 @@
     "classId": "doomstalker",
     "refClassId": "DS",
     "level": 1,
-    "initiative": 33
+    "initiative": 33,
+    "nameCz": "Dest sipu"
   },
   {
     "id": "relentless-offensive",
@@ -1224,7 +1289,8 @@
     "classId": "doomstalker",
     "refClassId": "DS",
     "level": 1.5,
-    "initiative": 71
+    "initiative": 71,
+    "nameCz": "Lov zacina"
   },
   {
     "id": "vital-charge",
@@ -1248,7 +1314,8 @@
     "classId": "elementalist",
     "refClassId": "EL",
     "level": 2,
-    "initiative": 47
+    "initiative": 47,
+    "nameCz": "Vrouci proud"
   },
   {
     "id": "brilliant-flash",
@@ -1256,7 +1323,8 @@
     "classId": "elementalist",
     "refClassId": "EL",
     "level": 1.5,
-    "initiative": 67
+    "initiative": 67,
+    "nameCz": "Jasny zablesk"
   },
   {
     "id": "burial",
@@ -1272,7 +1340,8 @@
     "classId": "elementalist",
     "refClassId": "EL",
     "level": 3,
-    "initiative": 41
+    "initiative": 41,
+    "nameCz": "Retezovy blesk"
   },
   {
     "id": "crystallizing-blast",
@@ -1288,7 +1357,8 @@
     "classId": "elementalist",
     "refClassId": "EL",
     "level": 8,
-    "initiative": 14
+    "initiative": 14,
+    "nameCz": "Stit zivlu"
   },
   {
     "id": "encompassing-shadow",
@@ -1328,7 +1398,8 @@
     "classId": "elementalist",
     "refClassId": "EL",
     "level": 1,
-    "initiative": 45
+    "initiative": 45,
+    "nameCz": "Beztvara sila"
   },
   {
     "id": "frigid-torrent",
@@ -1344,7 +1415,8 @@
     "classId": "elementalist",
     "refClassId": "EL",
     "level": 4,
-    "initiative": 62
+    "initiative": 62,
+    "nameCz": "Sterkove tornado"
   },
   {
     "id": "ice-spikes",
@@ -1352,7 +1424,8 @@
     "classId": "elementalist",
     "refClassId": "EL",
     "level": 1,
-    "initiative": 40
+    "initiative": 40,
+    "nameCz": "Ledove trny"
   },
   {
     "id": "infernal-vortex",
@@ -1368,7 +1441,8 @@
     "classId": "elementalist",
     "refClassId": "EL",
     "level": 1,
-    "initiative": 19
+    "initiative": 19,
+    "nameCz": "Erupce lavy"
   },
   {
     "id": "malleable-evocation",
@@ -1384,7 +1458,8 @@
     "classId": "elementalist",
     "refClassId": "EL",
     "level": 5,
-    "initiative": 36
+    "initiative": 36,
+    "nameCz": "Ulomky obsidianu"
   },
   {
     "id": "pragmatic-reinforcement",
@@ -1472,7 +1547,8 @@
     "classId": "elementalist",
     "refClassId": "EL",
     "level": 5,
-    "initiative": 43
+    "initiative": 43,
+    "nameCz": "Ostri zimy"
   },
   {
     "id": "brain-leech",
@@ -1480,7 +1556,8 @@
     "classId": "mindthief",
     "refClassId": "MT",
     "level": 3,
-    "initiative": 16
+    "initiative": 16,
+    "nameCz": "Mozkova pijavice"
   },
   {
     "id": "corrupting-embrace",
@@ -1488,7 +1565,8 @@
     "classId": "mindthief",
     "refClassId": "MT",
     "level": 6,
-    "initiative": 39
+    "initiative": 39,
+    "nameCz": "Objeti zkazenosti"
   },
   {
     "id": "cranium-overload",
@@ -1496,7 +1574,8 @@
     "classId": "mindthief",
     "refClassId": "MT",
     "level": 4,
-    "initiative": 5
+    "initiative": 5,
+    "nameCz": "Lebecni pretizeni"
   },
   {
     "id": "dark-frenzy",
@@ -1504,7 +1583,8 @@
     "classId": "mindthief",
     "refClassId": "MT",
     "level": 6,
-    "initiative": 10
+    "initiative": 10,
+    "nameCz": "Temna zbesilost"
   },
   {
     "id": "domination",
@@ -1512,7 +1592,8 @@
     "classId": "mindthief",
     "refClassId": "MT",
     "level": 8,
-    "initiative": 13
+    "initiative": 13,
+    "nameCz": "Nadvlada"
   },
   {
     "id": "empathetic-assault",
@@ -1520,7 +1601,8 @@
     "classId": "mindthief",
     "refClassId": "MT",
     "level": 1,
-    "initiative": 11
+    "initiative": 11,
+    "nameCz": "Napor empatie"
   },
   {
     "id": "fearsome-blade",
@@ -1528,7 +1610,8 @@
     "classId": "mindthief",
     "refClassId": "MT",
     "level": 1,
-    "initiative": 27
+    "initiative": 27,
+    "nameCz": "Strasiva cepel"
   },
   {
     "id": "feedback-loop",
@@ -1536,7 +1619,8 @@
     "classId": "mindthief",
     "refClassId": "MT",
     "level": 1,
-    "initiative": 79
+    "initiative": 79,
+    "nameCz": "Zamotana smycka"
   },
   {
     "id": "frigid-apparition",
@@ -1544,7 +1628,8 @@
     "classId": "mindthief",
     "refClassId": "MT",
     "level": 1.5,
-    "initiative": 29
+    "initiative": 29,
+    "nameCz": "Mrazive zjeveni"
   },
   {
     "id": "frozen-mind",
@@ -1552,7 +1637,8 @@
     "classId": "mindthief",
     "refClassId": "MT",
     "level": 5,
-    "initiative": 81
+    "initiative": 81,
+    "nameCz": "Zmrazeni mysli"
   },
   {
     "id": "gnawing-horde",
@@ -1560,7 +1646,8 @@
     "classId": "mindthief",
     "refClassId": "MT",
     "level": 1,
-    "initiative": 82
+    "initiative": 82,
+    "nameCz": "Hryzava horda"
   },
   {
     "id": "hostile-takeover",
@@ -1568,7 +1655,8 @@
     "classId": "mindthief",
     "refClassId": "MT",
     "level": 2,
-    "initiative": 9
+    "initiative": 9,
+    "nameCz": "Nepratelske prevzeti"
   },
   {
     "id": "into-the-night",
@@ -1576,7 +1664,8 @@
     "classId": "mindthief",
     "refClassId": "MT",
     "level": 1,
-    "initiative": 14
+    "initiative": 14,
+    "nameCz": "Vstric noci"
   },
   {
     "id": "many-as-one",
@@ -1584,7 +1673,8 @@
     "classId": "mindthief",
     "refClassId": "MT",
     "level": 9,
-    "initiative": 91
+    "initiative": 91,
+    "nameCz": "Mnoho bude jednim"
   },
   {
     "id": "mass-hysteria",
@@ -1592,7 +1682,8 @@
     "classId": "mindthief",
     "refClassId": "MT",
     "level": 5,
-    "initiative": 12
+    "initiative": 12,
+    "nameCz": "Masova hysterie"
   },
   {
     "id": "parasitic-influence",
@@ -1600,7 +1691,8 @@
     "classId": "mindthief",
     "refClassId": "MT",
     "level": 1,
-    "initiative": 71
+    "initiative": 71,
+    "nameCz": "Cizopasny vliv"
   },
   {
     "id": "perverse-edge",
@@ -1608,7 +1700,8 @@
     "classId": "mindthief",
     "refClassId": "MT",
     "level": 1,
-    "initiative": 8
+    "initiative": 8,
+    "nameCz": "Zvracene ostri"
   },
   {
     "id": "phantasmal-killer",
@@ -1616,7 +1709,8 @@
     "classId": "mindthief",
     "refClassId": "MT",
     "level": 9,
-    "initiative": 67
+    "initiative": 67,
+    "nameCz": "Vrazedny prelud"
   },
   {
     "id": "pilfer",
@@ -1624,7 +1718,8 @@
     "classId": "mindthief",
     "refClassId": "MT",
     "level": 4,
-    "initiative": 68
+    "initiative": 68,
+    "nameCz": "Kleptomanka"
   },
   {
     "id": "possession",
@@ -1632,7 +1727,8 @@
     "classId": "mindthief",
     "refClassId": "MT",
     "level": 1.5,
-    "initiative": 51
+    "initiative": 51,
+    "nameCz": "Posednuti"
   },
   {
     "id": "psychic-projection",
@@ -1640,7 +1736,8 @@
     "classId": "mindthief",
     "refClassId": "MT",
     "level": 7,
-    "initiative": 92
+    "initiative": 92,
+    "nameCz": "Psychicka projekce"
   },
   {
     "id": "scurry",
@@ -1648,7 +1745,8 @@
     "classId": "mindthief",
     "refClassId": "MT",
     "level": 1,
-    "initiative": 20
+    "initiative": 20,
+    "nameCz": "Mihnuti"
   },
   {
     "id": "shared-nightmare",
@@ -1656,7 +1754,8 @@
     "classId": "mindthief",
     "refClassId": "MT",
     "level": 8,
-    "initiative": 7
+    "initiative": 7,
+    "nameCz": "Spolecna nocni mura"
   },
   {
     "id": "silent-scream",
@@ -1664,7 +1763,8 @@
     "classId": "mindthief",
     "refClassId": "MT",
     "level": 3,
-    "initiative": 73
+    "initiative": 73,
+    "nameCz": "Tichy vykrik"
   },
   {
     "id": "submissive-affliction",
@@ -1672,7 +1772,8 @@
     "classId": "mindthief",
     "refClassId": "MT",
     "level": 1,
-    "initiative": 48
+    "initiative": 48,
+    "nameCz": "Podrizene postaveni"
   },
   {
     "id": "the-minds-weakness",
@@ -1680,7 +1781,8 @@
     "classId": "mindthief",
     "refClassId": "MT",
     "level": 1,
-    "initiative": 75
+    "initiative": 75,
+    "nameCz": "Slabina v mysli"
   },
   {
     "id": "vicious-blood",
@@ -1688,7 +1790,8 @@
     "classId": "mindthief",
     "refClassId": "MT",
     "level": 7,
-    "initiative": 83
+    "initiative": 83,
+    "nameCz": "Kruta krev"
   },
   {
     "id": "withering-claw",
@@ -1696,7 +1799,8 @@
     "classId": "mindthief",
     "refClassId": "MT",
     "level": 1.5,
-    "initiative": 77
+    "initiative": 77,
+    "nameCz": "Spinavy drap"
   },
   {
     "id": "wretched-creature",
@@ -1704,7 +1808,8 @@
     "classId": "mindthief",
     "refClassId": "MT",
     "level": 2,
-    "initiative": 84
+    "initiative": 84,
+    "nameCz": "Zalostna stvura"
   },
   {
     "id": "angel-of-death",
@@ -1712,7 +1817,8 @@
     "classId": "nightshroud",
     "refClassId": "NS",
     "level": 9,
-    "initiative": 38
+    "initiative": 38,
+    "nameCz": "Andel smrti"
   },
   {
     "id": "armor-of-the-night",
@@ -1728,7 +1834,8 @@
     "classId": "nightshroud",
     "refClassId": "NS",
     "level": 5,
-    "initiative": 11
+    "initiative": 11,
+    "nameCz": "Cerny sip"
   },
   {
     "id": "black-knives",
@@ -1736,7 +1843,8 @@
     "classId": "nightshroud",
     "refClassId": "NS",
     "level": 1,
-    "initiative": 44
+    "initiative": 44,
+    "nameCz": "Cerne noze"
   },
   {
     "id": "claws-of-the-night",
@@ -1776,7 +1884,8 @@
     "classId": "nightshroud",
     "refClassId": "NS",
     "level": 1.5,
-    "initiative": 74
+    "initiative": 74,
+    "nameCz": "Temny oblak"
   },
   {
     "id": "doomed-breeze",
@@ -1792,7 +1901,8 @@
     "classId": "nightshroud",
     "refClassId": "NS",
     "level": 1,
-    "initiative": 21
+    "initiative": 21,
+    "nameCz": "Posilujici prazdnota"
   },
   {
     "id": "enervating-wound",
@@ -1800,7 +1910,8 @@
     "classId": "nightshroud",
     "refClassId": "NS",
     "level": 1,
-    "initiative": 77
+    "initiative": 77,
+    "nameCz": "Vycerpavajici zraneni"
   },
   {
     "id": "eyes-of-the-night",
@@ -1808,7 +1919,8 @@
     "classId": "nightshroud",
     "refClassId": "NS",
     "level": 7,
-    "initiative": 35
+    "initiative": 35,
+    "nameCz": "Oci noci"
   },
   {
     "id": "gloom-darts",
@@ -1824,7 +1936,8 @@
     "classId": "nightshroud",
     "refClassId": "NS",
     "level": 4,
-    "initiative": 29
+    "initiative": 29,
+    "nameCz": "Ponura vyziva"
   },
   {
     "id": "lurking-ruin",
@@ -1832,7 +1945,8 @@
     "classId": "nightshroud",
     "refClassId": "NS",
     "level": 8,
-    "initiative": 18
+    "initiative": 18,
+    "nameCz": "Cihajici zkaza"
   },
   {
     "id": "nightfall",
@@ -1848,7 +1962,8 @@
     "classId": "nightshroud",
     "refClassId": "NS",
     "level": 2,
-    "initiative": 7
+    "initiative": 7,
+    "nameCz": "Priprava na vrazdu"
   },
   {
     "id": "quiet-frenzy",
@@ -1864,7 +1979,8 @@
     "classId": "nightshroud",
     "refClassId": "NS",
     "level": 1,
-    "initiative": 91
+    "initiative": 91,
+    "nameCz": "Ticha sila"
   },
   {
     "id": "smoke-step",
@@ -1872,7 +1988,8 @@
     "classId": "nightshroud",
     "refClassId": "NS",
     "level": 1,
-    "initiative": 28
+    "initiative": 28,
+    "nameCz": "Na kridlech noci"
   },
   {
     "id": "soulfire",
@@ -1888,7 +2005,8 @@
     "classId": "nightshroud",
     "refClassId": "NS",
     "level": 1,
-    "initiative": 84
+    "initiative": 84,
+    "nameCz": "Duch noci"
   },
   {
     "id": "swallowed-by-fear",
@@ -1904,7 +2022,8 @@
     "classId": "nightshroud",
     "refClassId": "NS",
     "level": 3,
-    "initiative": 17
+    "initiative": 17,
+    "nameCz": "Cepel hruzy"
   },
   {
     "id": "unseen-dread",
@@ -1912,7 +2031,8 @@
     "classId": "nightshroud",
     "refClassId": "NS",
     "level": 6,
-    "initiative": 5
+    "initiative": 5,
+    "nameCz": "Nevideny des"
   },
   {
     "id": "voice-of-the-night",
@@ -1920,7 +2040,8 @@
     "classId": "nightshroud",
     "refClassId": "NS",
     "level": 9,
-    "initiative": 6
+    "initiative": 6,
+    "nameCz": "Hlas noci"
   },
   {
     "id": "wings-of-the-night",
@@ -1936,7 +2057,8 @@
     "classId": "plagueherald",
     "refClassId": "PH",
     "level": 5,
-    "initiative": 62
+    "initiative": 62,
+    "nameCz": "Urychleny konec"
   },
   {
     "id": "airborne-toxin",
@@ -1960,7 +2082,8 @@
     "classId": "plagueherald",
     "refClassId": "PH",
     "level": 1,
-    "initiative": 47
+    "initiative": 47,
+    "nameCz": "Stipajici komari"
   },
   {
     "id": "black-tides",
@@ -1976,7 +2099,8 @@
     "classId": "plagueherald",
     "refClassId": "PH",
     "level": 1.5,
-    "initiative": 21
+    "initiative": 21,
+    "nameCz": "Vir puchyru"
   },
   {
     "id": "convert-the-flock",
@@ -1992,7 +2116,8 @@
     "classId": "plagueherald",
     "refClassId": "PH",
     "level": 1,
-    "initiative": 72
+    "initiative": 72,
+    "nameCz": "Pliziva kletba"
   },
   {
     "id": "epidemic",
@@ -2000,7 +2125,8 @@
     "classId": "plagueherald",
     "refClassId": "PH",
     "level": 1.5,
-    "initiative": 43
+    "initiative": 43,
+    "nameCz": "Epidemie"
   },
   {
     "id": "fetid-flurry",
@@ -2016,7 +2142,8 @@
     "classId": "plagueherald",
     "refClassId": "PH",
     "level": 1,
-    "initiative": 35
+    "initiative": 35,
+    "nameCz": "Pachnouci vichr"
   },
   {
     "id": "gathering-doom",
@@ -2024,7 +2151,8 @@
     "classId": "plagueherald",
     "refClassId": "PH",
     "level": 1,
-    "initiative": 76
+    "initiative": 76,
+    "nameCz": "Shromazdeni zkazy"
   },
   {
     "id": "grasping-vermin",
@@ -2048,7 +2176,8 @@
     "classId": "plagueherald",
     "refClassId": "PH",
     "level": 9,
-    "initiative": 94
+    "initiative": 94,
+    "nameCz": "Hromadne vymirani"
   },
   {
     "id": "nightmarish-affliction",
@@ -2064,7 +2193,8 @@
     "classId": "plagueherald",
     "refClassId": "PH",
     "level": 1,
-    "initiative": 31
+    "initiative": 31,
+    "nameCz": "Paralyzujici kousnuti"
   },
   {
     "id": "rot-maggots",
@@ -2080,7 +2210,8 @@
     "classId": "plagueherald",
     "refClassId": "PH",
     "level": 1,
-    "initiative": 11
+    "initiative": 11,
+    "nameCz": "Rozptyleny des"
   },
   {
     "id": "spreading-scourge",
@@ -2088,7 +2219,8 @@
     "classId": "plagueherald",
     "refClassId": "PH",
     "level": 8,
-    "initiative": 71
+    "initiative": 71,
+    "nameCz": "Sirici se pohroma"
   },
   {
     "id": "spread-the-plague",
@@ -2104,7 +2236,8 @@
     "classId": "plagueherald",
     "refClassId": "PH",
     "level": 6,
-    "initiative": 66
+    "initiative": 66,
+    "nameCz": "Svirajici havet"
   },
   {
     "id": "storm-of-wings",
@@ -2112,7 +2245,8 @@
     "classId": "plagueherald",
     "refClassId": "PH",
     "level": 4,
-    "initiative": 91
+    "initiative": 91,
+    "nameCz": "Boure kridel"
   },
   {
     "id": "succumb-to-the-gift",
@@ -2120,7 +2254,8 @@
     "classId": "plagueherald",
     "refClassId": "PH",
     "level": 3,
-    "initiative": 70
+    "initiative": 70,
+    "nameCz": "Poddej se daru"
   },
   {
     "id": "under-the-skin",
@@ -2128,7 +2263,8 @@
     "classId": "plagueherald",
     "refClassId": "PH",
     "level": 2,
-    "initiative": 59
+    "initiative": 59,
+    "nameCz": "Pod kuzi"
   },
   {
     "id": "vile-pestilence",
@@ -2136,7 +2272,8 @@
     "classId": "plagueherald",
     "refClassId": "PH",
     "level": 1,
-    "initiative": 61
+    "initiative": 61,
+    "nameCz": "Plynny jed"
   },
   {
     "id": "virulent-strain",
@@ -2160,7 +2297,8 @@
     "classId": "plagueherald",
     "refClassId": "PH",
     "level": 1,
-    "initiative": 16
+    "initiative": 16,
+    "nameCz": "Okridleny sbor"
   },
   {
     "id": "wretched-swarm",
@@ -2176,7 +2314,8 @@
     "classId": "quartermaster",
     "refClassId": "QM",
     "level": 9,
-    "initiative": 91
+    "initiative": 91,
+    "nameCz": "Pytel cennosti"
   },
   {
     "id": "bladed-boomerang",
@@ -2184,7 +2323,8 @@
     "classId": "quartermaster",
     "refClassId": "QM",
     "level": 2,
-    "initiative": 40
+    "initiative": 40,
+    "nameCz": "Naostreny bumerang"
   },
   {
     "id": "catastrophic-bomb",
@@ -2192,7 +2332,8 @@
     "classId": "quartermaster",
     "refClassId": "QM",
     "level": 6,
-    "initiative": 46
+    "initiative": 46,
+    "nameCz": "Zkazonosna vybusina"
   },
   {
     "id": "cleaving-axe",
@@ -2200,7 +2341,8 @@
     "classId": "quartermaster",
     "refClassId": "QM",
     "level": 1,
-    "initiative": 52
+    "initiative": 52,
+    "nameCz": "Rozseknutí sekerou"
   },
   {
     "id": "continual-supply",
@@ -2216,7 +2358,8 @@
     "classId": "quartermaster",
     "refClassId": "QM",
     "level": 1,
-    "initiative": 44
+    "initiative": 44,
+    "nameCz": "Zmrzaceni sipem"
   },
   {
     "id": "crushing-hammer",
@@ -2224,7 +2367,8 @@
     "classId": "quartermaster",
     "refClassId": "QM",
     "level": 1.5,
-    "initiative": 17
+    "initiative": 17,
+    "nameCz": "Rozdrceni kladivem"
   },
   {
     "id": "fortified-position",
@@ -2232,7 +2376,8 @@
     "classId": "quartermaster",
     "refClassId": "QM",
     "level": 8,
-    "initiative": 10
+    "initiative": 10,
+    "nameCz": "Opevnene postaveni"
   },
   {
     "id": "giant-club",
@@ -2240,7 +2385,8 @@
     "classId": "quartermaster",
     "refClassId": "QM",
     "level": 4,
-    "initiative": 61
+    "initiative": 61,
+    "nameCz": "Obruv kyj"
   },
   {
     "id": "hastened-step",
@@ -2248,7 +2394,8 @@
     "classId": "quartermaster",
     "refClassId": "QM",
     "level": 1,
-    "initiative": 26
+    "initiative": 26,
+    "nameCz": "Dozasobeni"
   },
   {
     "id": "impaling-spear",
@@ -2264,7 +2411,8 @@
     "classId": "quartermaster",
     "refClassId": "QM",
     "level": 1,
-    "initiative": 19
+    "initiative": 19,
+    "nameCz": "Zelezna zed"
   },
   {
     "id": "oversized-pack",
@@ -2272,7 +2420,8 @@
     "classId": "quartermaster",
     "refClassId": "QM",
     "level": 1,
-    "initiative": 81
+    "initiative": 81,
+    "nameCz": "Velky vak"
   },
   {
     "id": "portable-ballista",
@@ -2288,7 +2437,8 @@
     "classId": "quartermaster",
     "refClassId": "QM",
     "level": 1,
-    "initiative": 62
+    "initiative": 62,
+    "nameCz": "Zbehlost"
   },
   {
     "id": "quiver-of-arrows",
@@ -2296,7 +2446,8 @@
     "classId": "quartermaster",
     "refClassId": "QM",
     "level": 6,
-    "initiative": 31
+    "initiative": 31,
+    "nameCz": "Toulec plny sipu"
   },
   {
     "id": "refreshment",
@@ -2312,7 +2463,8 @@
     "classId": "quartermaster",
     "refClassId": "QM",
     "level": 2,
-    "initiative": 89
+    "initiative": 89,
+    "nameCz": "Znovuzkuti"
   },
   {
     "id": "reinforced-steel",
@@ -2336,7 +2488,8 @@
     "classId": "quartermaster",
     "refClassId": "QM",
     "level": 1,
-    "initiative": 73
+    "initiative": 73,
+    "nameCz": "Pravidelne dodavky"
   },
   {
     "id": "scroll-of-annihilation",
@@ -2368,7 +2521,8 @@
     "classId": "quartermaster",
     "refClassId": "QM",
     "level": 3,
-    "initiative": 77
+    "initiative": 77,
+    "nameCz": "Svitek blesku"
   },
   {
     "id": "scroll-of-recall",
@@ -2376,7 +2530,8 @@
     "classId": "quartermaster",
     "refClassId": "QM",
     "level": 1.5,
-    "initiative": 98
+    "initiative": 98,
+    "nameCz": "Svitek navraceni"
   },
   {
     "id": "sharpening-kit",
@@ -2384,7 +2539,8 @@
     "classId": "quartermaster",
     "refClassId": "QM",
     "level": 1,
-    "initiative": 23
+    "initiative": 23,
+    "nameCz": "Sada brousku"
   },
   {
     "id": "side-pouch",
@@ -2400,7 +2556,8 @@
     "classId": "sawbones",
     "refClassId": "SB",
     "level": 5,
-    "initiative": 86
+    "initiative": 86,
+    "nameCz": "Amputace"
   },
   {
     "id": "battlefield-medicine",
@@ -2424,7 +2581,8 @@
     "classId": "sawbones",
     "refClassId": "SB",
     "level": 4,
-    "initiative": 52
+    "initiative": 52,
+    "nameCz": "Krevni transfuze"
   },
   {
     "id": "bloody-saw",
@@ -2432,7 +2590,8 @@
     "classId": "sawbones",
     "refClassId": "SB",
     "level": 1,
-    "initiative": 25
+    "initiative": 25,
+    "nameCz": "Zkrvavena pila"
   },
   {
     "id": "booster-shot",
@@ -2440,7 +2599,8 @@
     "classId": "sawbones",
     "refClassId": "SB",
     "level": 1,
-    "initiative": 42
+    "initiative": 42,
+    "nameCz": "Posilujici injekce"
   },
   {
     "id": "curative-mixture",
@@ -2456,7 +2616,8 @@
     "classId": "sawbones",
     "refClassId": "SB",
     "level": 4,
-    "initiative": 76
+    "initiative": 76,
+    "nameCz": "Poruseni prisahy"
   },
   {
     "id": "euthanize",
@@ -2464,7 +2625,8 @@
     "classId": "sawbones",
     "refClassId": "SB",
     "level": 6,
-    "initiative": 27
+    "initiative": 27,
+    "nameCz": "Eutanazie"
   },
   {
     "id": "first-aid",
@@ -2472,7 +2634,8 @@
     "classId": "sawbones",
     "refClassId": "SB",
     "level": 1,
-    "initiative": 8
+    "initiative": 8,
+    "nameCz": "Prvni pomoc"
   },
   {
     "id": "gentlemans-anger",
@@ -2480,7 +2643,8 @@
     "classId": "sawbones",
     "refClassId": "SB",
     "level": 8,
-    "initiative": 29
+    "initiative": 29,
+    "nameCz": "Hnev gentlemana"
   },
   {
     "id": "grisly-trauma",
@@ -2504,7 +2668,8 @@
     "classId": "sawbones",
     "refClassId": "SB",
     "level": 1,
-    "initiative": 62
+    "initiative": 62,
+    "nameCz": "Jista ruka chirurgova"
   },
   {
     "id": "hold-back-the-pain",
@@ -2512,7 +2677,8 @@
     "classId": "sawbones",
     "refClassId": "SB",
     "level": 1,
-    "initiative": 57
+    "initiative": 57,
+    "nameCz": "Zadrzet bolest"
   },
   {
     "id": "large-medical-pack",
@@ -2528,7 +2694,8 @@
     "classId": "sawbones",
     "refClassId": "SB",
     "level": 7,
-    "initiative": 49
+    "initiative": 49,
+    "nameCz": "Mistrovsky lecitel"
   },
   {
     "id": "medical-pack",
@@ -2536,7 +2703,8 @@
     "classId": "sawbones",
     "refClassId": "SB",
     "level": 0.1,
-    "initiative": 50
+    "initiative": 50,
+    "nameCz": "Lecivy balicek"
   },
   {
     "id": "mobile-response",
@@ -2552,7 +2720,8 @@
     "classId": "sawbones",
     "refClassId": "SB",
     "level": 2,
-    "initiative": 9
+    "initiative": 9,
+    "nameCz": "Predoperacni priprava"
   },
   {
     "id": "prep-for-surgery",
@@ -2568,7 +2737,8 @@
     "classId": "sawbones",
     "refClassId": "SB",
     "level": 6,
-    "initiative": 6
+    "initiative": 6,
+    "nameCz": "Lekarsky recept"
   },
   {
     "id": "prevention-is-key",
@@ -2576,7 +2746,8 @@
     "classId": "sawbones",
     "refClassId": "SB",
     "level": 1.5,
-    "initiative": 13
+    "initiative": 13,
+    "nameCz": "Nepodcenujte prevenci"
   },
   {
     "id": "regenerative-tissue",
@@ -2592,7 +2763,8 @@
     "classId": "sawbones",
     "refClassId": "SB",
     "level": 5,
-    "initiative": 40
+    "initiative": 40,
+    "nameCz": "Vyzkum leku"
   },
   {
     "id": "surgeons-satchel",
@@ -2908,7 +3080,8 @@
     "classId": "sunkeeper",
     "refClassId": "SK",
     "level": 1.5,
-    "initiative": 36
+    "initiative": 36,
+    "nameCz": "Majak svetla"
   },
   {
     "id": "bright-aegis",
@@ -2932,7 +3105,8 @@
     "classId": "sunkeeper",
     "refClassId": "SK",
     "level": 3,
-    "initiative": 51
+    "initiative": 51,
+    "nameCz": "Spalujici zablesk"
   },
   {
     "id": "cautious-advance",
@@ -2940,7 +3114,8 @@
     "classId": "sunkeeper",
     "refClassId": "SK",
     "level": 1,
-    "initiative": 23
+    "initiative": 23,
+    "nameCz": "Opatrny postup"
   },
   {
     "id": "cleansing-force",
@@ -2956,7 +3131,8 @@
     "classId": "sunkeeper",
     "refClassId": "SK",
     "level": 1.5,
-    "initiative": 85
+    "initiative": 85,
+    "nameCz": "Usvit"
   },
   {
     "id": "dazzling-charge",
@@ -2964,7 +3140,8 @@
     "classId": "sunkeeper",
     "refClassId": "SK",
     "level": 1,
-    "initiative": 57
+    "initiative": 57,
+    "nameCz": "Oslnivy vypad"
   },
   {
     "id": "defensive-stance",
@@ -2972,7 +3149,8 @@
     "classId": "sunkeeper",
     "refClassId": "SK",
     "level": 1,
-    "initiative": 65
+    "initiative": 65,
+    "nameCz": "Obranny postoj"
   },
   {
     "id": "divine-intervention",
@@ -2996,7 +3174,8 @@
     "classId": "sunkeeper",
     "refClassId": "SK",
     "level": 4,
-    "initiative": 20
+    "initiative": 20,
+    "nameCz": "Zarici hav"
   },
   {
     "id": "glorious-bolt",
@@ -3004,7 +3183,8 @@
     "classId": "sunkeeper",
     "refClassId": "SK",
     "level": 1.5,
-    "initiative": 39
+    "initiative": 39,
+    "nameCz": "Velkolepy vyboj"
   },
   {
     "id": "hammer-blow",
@@ -3012,7 +3192,8 @@
     "classId": "sunkeeper",
     "refClassId": "SK",
     "level": 1,
-    "initiative": 55
+    "initiative": 55,
+    "nameCz": "Uder kladiva"
   },
   {
     "id": "holy-strike",
@@ -3020,7 +3201,8 @@
     "classId": "sunkeeper",
     "refClassId": "SK",
     "level": 1,
-    "initiative": 85
+    "initiative": 85,
+    "nameCz": "Svaty uder"
   },
   {
     "id": "illuminate-the-target",
@@ -3036,7 +3218,8 @@
     "classId": "sunkeeper",
     "refClassId": "SK",
     "level": 8,
-    "initiative": 79
+    "initiative": 79,
+    "nameCz": "Inspirujici svatost"
   },
   {
     "id": "lay-on-hands",
@@ -3052,7 +3235,8 @@
     "classId": "sunkeeper",
     "refClassId": "SK",
     "level": 3,
-    "initiative": 23
+    "initiative": 23,
+    "nameCz": "Mobilizujici postulat"
   },
   {
     "id": "path-of-glory",
@@ -3060,7 +3244,8 @@
     "classId": "sunkeeper",
     "refClassId": "SK",
     "level": 5,
-    "initiative": 48
+    "initiative": 48,
+    "nameCz": "Cesta slavy"
   },
   {
     "id": "practical-plans",
@@ -3068,7 +3253,8 @@
     "classId": "sunkeeper",
     "refClassId": "SK",
     "level": 2,
-    "initiative": 56
+    "initiative": 56,
+    "nameCz": "Prakticke plany"
   },
   {
     "id": "protective-blessing",
@@ -3076,7 +3262,8 @@
     "classId": "sunkeeper",
     "refClassId": "SK",
     "level": 1,
-    "initiative": 61
+    "initiative": 61,
+    "nameCz": "Ochranne pozehnani"
   },
   {
     "id": "purifying-aura",
@@ -3084,7 +3271,8 @@
     "classId": "sunkeeper",
     "refClassId": "SK",
     "level": 1,
-    "initiative": 21
+    "initiative": 21,
+    "nameCz": "Sila ocisty"
   },
   {
     "id": "righteous-strength",
@@ -3092,7 +3280,8 @@
     "classId": "sunkeeper",
     "refClassId": "SK",
     "level": 4,
-    "initiative": 18
+    "initiative": 18,
+    "nameCz": "Spravedliva sila"
   },
   {
     "id": "scales-of-justice",
@@ -3100,7 +3289,8 @@
     "classId": "sunkeeper",
     "refClassId": "SK",
     "level": 5,
-    "initiative": 68
+    "initiative": 68,
+    "nameCz": "Vahy spravedlnosti"
   },
   {
     "id": "supportive-chant",
@@ -3108,7 +3298,8 @@
     "classId": "sunkeeper",
     "refClassId": "SK",
     "level": 6,
-    "initiative": 11
+    "initiative": 11,
+    "nameCz": "Svaty choral"
   },
   {
     "id": "tactical-order",
@@ -3116,7 +3307,8 @@
     "classId": "sunkeeper",
     "refClassId": "SK",
     "level": 1,
-    "initiative": 29
+    "initiative": 29,
+    "nameCz": "Takticky rozkaz"
   },
   {
     "id": "unwavering-mandate",
@@ -3124,7 +3316,8 @@
     "classId": "sunkeeper",
     "refClassId": "SK",
     "level": 2,
-    "initiative": 72
+    "initiative": 72,
+    "nameCz": "Neochvejna duvera"
   },
   {
     "id": "weapon-of-purity",
@@ -3132,7 +3325,8 @@
     "classId": "sunkeeper",
     "refClassId": "SK",
     "level": 7,
-    "initiative": 73
+    "initiative": 73,
+    "nameCz": "Zbran cistoty"
   },
   {
     "id": "booming-proclamation",
@@ -3156,7 +3350,8 @@
     "classId": "soothsinger",
     "refClassId": "SS",
     "level": 9,
-    "initiative": 25
+    "initiative": 25,
+    "nameCz": "Podmanivy predstaveni"
   },
   {
     "id": "change-tempo",
@@ -3164,7 +3359,8 @@
     "classId": "soothsinger",
     "refClassId": "SS",
     "level": 2,
-    "initiative": 91
+    "initiative": 91,
+    "nameCz": "Zmena rytmu"
   },
   {
     "id": "commanding-presence",
@@ -3180,7 +3376,8 @@
     "classId": "soothsinger",
     "refClassId": "SS",
     "level": 3,
-    "initiative": 62
+    "initiative": 62,
+    "nameCz": "Mrzacici chor"
   },
   {
     "id": "defensive-ditty",
@@ -3188,7 +3385,8 @@
     "classId": "soothsinger",
     "refClassId": "SS",
     "level": 1,
-    "initiative": 9
+    "initiative": 9,
+    "nameCz": "Obranny popevek"
   },
   {
     "id": "disorienting-dirge",
@@ -3196,7 +3394,8 @@
     "classId": "soothsinger",
     "refClassId": "SS",
     "level": 4,
-    "initiative": 14
+    "initiative": 14,
+    "nameCz": "Matouci zalozpev"
   },
   {
     "id": "echoing-aria",
@@ -3204,7 +3403,8 @@
     "classId": "soothsinger",
     "refClassId": "SS",
     "level": 3,
-    "initiative": 8
+    "initiative": 8,
+    "nameCz": "Arie ozven"
   },
   {
     "id": "inspiring-anthem",
@@ -3220,7 +3420,8 @@
     "classId": "soothsinger",
     "refClassId": "SS",
     "level": 1,
-    "initiative": 32
+    "initiative": 32,
+    "nameCz": "Pochodovy rytmus"
   },
   {
     "id": "melody-and-harmony",
@@ -3236,7 +3437,8 @@
     "classId": "soothsinger",
     "refClassId": "SS",
     "level": 5,
-    "initiative": 6
+    "initiative": 6,
+    "nameCz": "Takt mobilizace"
   },
   {
     "id": "nightmare-serenade",
@@ -3244,7 +3446,8 @@
     "classId": "soothsinger",
     "refClassId": "SS",
     "level": 7,
-    "initiative": 13
+    "initiative": 13,
+    "nameCz": "Serenada z nocni mury"
   },
   {
     "id": "nimble-knife",
@@ -3252,7 +3455,8 @@
     "classId": "soothsinger",
     "refClassId": "SS",
     "level": 1.5,
-    "initiative": 27
+    "initiative": 27,
+    "nameCz": "Hbity nuz"
   },
   {
     "id": "power-ballad",
@@ -3276,7 +3480,8 @@
     "classId": "soothsinger",
     "refClassId": "SS",
     "level": 6,
-    "initiative": 20
+    "initiative": 20,
+    "nameCz": "Zabrnkat na struny"
   },
   {
     "id": "shadow-puppets",
@@ -3284,7 +3489,8 @@
     "classId": "soothsinger",
     "refClassId": "SS",
     "level": 9,
-    "initiative": 52
+    "initiative": 52,
+    "nameCz": "Stinove loutky"
   },
   {
     "id": "singing-arrow",
@@ -3292,7 +3498,8 @@
     "classId": "soothsinger",
     "refClassId": "SS",
     "level": 1,
-    "initiative": 89
+    "initiative": 89,
+    "nameCz": "Zpivajici sip"
   },
   {
     "id": "song-of-speed",
@@ -3300,7 +3507,8 @@
     "classId": "soothsinger",
     "refClassId": "SS",
     "level": 1,
-    "initiative": 5
+    "initiative": 5,
+    "nameCz": "Pisen rychlosti"
   },
   {
     "id": "soothing-lullaby",
@@ -3308,7 +3516,8 @@
     "classId": "soothsinger",
     "refClassId": "SS",
     "level": 2,
-    "initiative": 11
+    "initiative": 11,
+    "nameCz": "Uklidnujici ukolebavka"
   },
   {
     "id": "throw-voice",
@@ -3332,7 +3541,8 @@
     "classId": "soothsinger",
     "refClassId": "SS",
     "level": 1,
-    "initiative": 78
+    "initiative": 78,
+    "nameCz": "Ladeni dopadu"
   },
   {
     "id": "unending-chant",
@@ -3340,7 +3550,8 @@
     "classId": "soothsinger",
     "refClassId": "SS",
     "level": 1.5,
-    "initiative": 51
+    "initiative": 51,
+    "nameCz": "Nekonecny napev"
   },
   {
     "id": "warding-dagger",
@@ -3364,7 +3575,8 @@
     "classId": "summoner",
     "refClassId": "SU",
     "level": 1,
-    "initiative": 25
+    "initiative": 25,
+    "nameCz": "Kousavy vitr"
   },
   {
     "id": "black-fire",
@@ -3372,7 +3584,8 @@
     "classId": "summoner",
     "refClassId": "SU",
     "level": 1,
-    "initiative": 24
+    "initiative": 24,
+    "nameCz": "Pani sfer"
   },
   {
     "id": "bonded-might",
@@ -3380,7 +3593,8 @@
     "classId": "summoner",
     "refClassId": "SU",
     "level": 1,
-    "initiative": 61
+    "initiative": 61,
+    "nameCz": "Spoutana sila"
   },
   {
     "id": "conjured-aid",
@@ -3388,7 +3602,8 @@
     "classId": "summoner",
     "refClassId": "SU",
     "level": 5,
-    "initiative": 81
+    "initiative": 81,
+    "nameCz": "Privolana pomoc"
   },
   {
     "id": "divided-mind",
@@ -3396,7 +3611,8 @@
     "classId": "summoner",
     "refClassId": "SU",
     "level": 4,
-    "initiative": 55
+    "initiative": 55,
+    "nameCz": "Rozdelena mysl"
   },
   {
     "id": "earthen-steed",
@@ -3404,7 +3620,8 @@
     "classId": "summoner",
     "refClassId": "SU",
     "level": 2,
-    "initiative": 13
+    "initiative": 13,
+    "nameCz": "Hlineny or"
   },
   {
     "id": "endless-spikes",
@@ -3412,7 +3629,8 @@
     "classId": "summoner",
     "refClassId": "SU",
     "level": 6,
-    "initiative": 97
+    "initiative": 97,
+    "nameCz": "Nekonecno hrotu"
   },
   {
     "id": "ethereal-vines",
@@ -3420,7 +3638,8 @@
     "classId": "summoner",
     "refClassId": "SU",
     "level": 1.5,
-    "initiative": 30
+    "initiative": 30,
+    "nameCz": "Etericke slahouny"
   },
   {
     "id": "forged-ferocity",
@@ -3428,7 +3647,8 @@
     "classId": "summoner",
     "refClassId": "SU",
     "level": 1,
-    "initiative": 96
+    "initiative": 96,
+    "nameCz": "Ukovana zurivost"
   },
   {
     "id": "grasping-the-void",
@@ -3436,7 +3656,8 @@
     "classId": "summoner",
     "refClassId": "SU",
     "level": 2,
-    "initiative": 62
+    "initiative": 62,
+    "nameCz": "Uchopeni prazdnoty"
   },
   {
     "id": "horned-majesty",
@@ -3444,7 +3665,8 @@
     "classId": "summoner",
     "refClassId": "SU",
     "level": 9,
-    "initiative": 80
+    "initiative": 80,
+    "nameCz": "Rohane velicenstvo"
   },
   {
     "id": "inexorable-momentum",
@@ -3452,7 +3674,8 @@
     "classId": "summoner",
     "refClassId": "SU",
     "level": 6,
-    "initiative": 32
+    "initiative": 32,
+    "nameCz": "Neuprosna hybnost"
   },
   {
     "id": "interplanar-mastery",
@@ -3468,7 +3691,8 @@
     "classId": "summoner",
     "refClassId": "SU",
     "level": 8,
-    "initiative": 68
+    "initiative": 68,
+    "nameCz": "Matouci zjeveni"
   },
   {
     "id": "leathery-wings",
@@ -3476,7 +3700,8 @@
     "classId": "summoner",
     "refClassId": "SU",
     "level": 1.5,
-    "initiative": 90
+    "initiative": 90,
+    "nameCz": "Koznata kridla"
   },
   {
     "id": "living-mountain",
@@ -3484,7 +3709,8 @@
     "classId": "summoner",
     "refClassId": "SU",
     "level": 4,
-    "initiative": 88
+    "initiative": 88,
+    "nameCz": "Zivouci hora"
   },
   {
     "id": "living-night",
@@ -3492,7 +3718,8 @@
     "classId": "summoner",
     "refClassId": "SU",
     "level": 1,
-    "initiative": 82
+    "initiative": 82,
+    "nameCz": "Zivouci noc"
   },
   {
     "id": "mighty-bond",
@@ -3500,7 +3727,8 @@
     "classId": "summoner",
     "refClassId": "SU",
     "level": 1,
-    "initiative": 51
+    "initiative": 51,
+    "nameCz": "Mocne pouto"
   },
   {
     "id": "negative-energy",
@@ -3508,7 +3736,8 @@
     "classId": "summoner",
     "refClassId": "SU",
     "level": 7,
-    "initiative": 95
+    "initiative": 95,
+    "nameCz": "Negativni energie"
   },
   {
     "id": "oozing-manifestation",
@@ -3516,7 +3745,8 @@
     "classId": "summoner",
     "refClassId": "SU",
     "level": 3,
-    "initiative": 86
+    "initiative": 86,
+    "nameCz": "Slizke zjeveni"
   },
   {
     "id": "otherworldly-rage",
@@ -3524,7 +3754,8 @@
     "classId": "summoner",
     "refClassId": "SU",
     "level": 8,
-    "initiative": 35
+    "initiative": 35,
+    "nameCz": "Hnev z jineho sveta"
   },
   {
     "id": "staff-of-visions",
@@ -3532,7 +3763,8 @@
     "classId": "summoner",
     "refClassId": "SU",
     "level": 7,
-    "initiative": 27
+    "initiative": 27,
+    "nameCz": "Hul vizi"
   },
   {
     "id": "strength-in-numbers",
@@ -3540,7 +3772,8 @@
     "classId": "summoner",
     "refClassId": "SU",
     "level": 5,
-    "initiative": 45
+    "initiative": 45,
+    "nameCz": "Sila v poctu"
   },
   {
     "id": "tear-the-fabric",
@@ -3548,7 +3781,8 @@
     "classId": "summoner",
     "refClassId": "SU",
     "level": 3,
-    "initiative": 41
+    "initiative": 41,
+    "nameCz": "Roztrzeni zavoje"
   },
   {
     "id": "unending-dominance",
@@ -3556,7 +3790,8 @@
     "classId": "summoner",
     "refClassId": "SU",
     "level": 1,
-    "initiative": 98
+    "initiative": 98,
+    "nameCz": "Nekoncici nadvlada"
   },
   {
     "id": "unwavering-hand",
@@ -3564,7 +3799,8 @@
     "classId": "summoner",
     "refClassId": "SU",
     "level": 1,
-    "initiative": 31
+    "initiative": 31,
+    "nameCz": "Neochvejna paze"
   },
   {
     "id": "volatile-flame",
@@ -3572,7 +3808,8 @@
     "classId": "summoner",
     "refClassId": "SU",
     "level": 1.5,
-    "initiative": 94
+    "initiative": 94,
+    "nameCz": "Tekavy plamen"
   },
   {
     "id": "wild-animation",
@@ -3580,7 +3817,8 @@
     "classId": "summoner",
     "refClassId": "SU",
     "level": 1,
-    "initiative": 92
+    "initiative": 92,
+    "nameCz": "Oziveni divociny"
   },
   {
     "id": "aid-from-the-ether",
@@ -3588,7 +3826,8 @@
     "classId": "spellweaver",
     "refClassId": "SW",
     "level": 1.5,
-    "initiative": 91
+    "initiative": 91,
+    "nameCz": "Pomoc zivlu"
   },
   {
     "id": "black-hole",
@@ -3596,7 +3835,8 @@
     "classId": "spellweaver",
     "refClassId": "SW",
     "level": 9,
-    "initiative": 41
+    "initiative": 41,
+    "nameCz": "Cerna dira"
   },
   {
     "id": "chromatic-explosion",
@@ -3604,7 +3844,8 @@
     "classId": "spellweaver",
     "refClassId": "SW",
     "level": 5,
-    "initiative": 71
+    "initiative": 71,
+    "nameCz": "Exploze barev"
   },
   {
     "id": "cold-fire",
@@ -3620,7 +3861,8 @@
     "classId": "spellweaver",
     "refClassId": "SW",
     "level": 8,
-    "initiative": 61
+    "initiative": 61,
+    "nameCz": "Mraziva noc"
   },
   {
     "id": "crackling-air",
@@ -3628,7 +3870,8 @@
     "classId": "spellweaver",
     "refClassId": "SW",
     "level": 1.5,
-    "initiative": 25
+    "initiative": 25,
+    "nameCz": "Praskajici vyboje"
   },
   {
     "id": "elemental-aid",
@@ -3644,7 +3887,8 @@
     "classId": "spellweaver",
     "refClassId": "SW",
     "level": 5,
-    "initiative": 44
+    "initiative": 44,
+    "nameCz": "Plast z plamenu"
   },
   {
     "id": "fire-orbs",
@@ -3652,7 +3896,8 @@
     "classId": "spellweaver",
     "refClassId": "SW",
     "level": 1,
-    "initiative": 69
+    "initiative": 69,
+    "nameCz": "Ohnive peklo"
   },
   {
     "id": "flame-strike",
@@ -3660,7 +3905,8 @@
     "classId": "spellweaver",
     "refClassId": "SW",
     "level": 1,
-    "initiative": 36
+    "initiative": 36,
+    "nameCz": "Plamenny uder"
   },
   {
     "id": "flashing-burst",
@@ -3668,7 +3914,8 @@
     "classId": "spellweaver",
     "refClassId": "SW",
     "level": 2,
-    "initiative": 26
+    "initiative": 26,
+    "nameCz": "Blyskavy vybuch"
   },
   {
     "id": "forked-beam",
@@ -3676,7 +3923,8 @@
     "classId": "spellweaver",
     "refClassId": "SW",
     "level": 4,
-    "initiative": 20
+    "initiative": 20,
+    "nameCz": "Rozvetveny paprsek"
   },
   {
     "id": "freezing-nova",
@@ -3684,7 +3932,8 @@
     "classId": "spellweaver",
     "refClassId": "SW",
     "level": 1,
-    "initiative": 21
+    "initiative": 21,
+    "nameCz": "Mraziva zbroj"
   },
   {
     "id": "frost-armor",
@@ -3692,7 +3941,8 @@
     "classId": "spellweaver",
     "refClassId": "SW",
     "level": 1,
-    "initiative": 20
+    "initiative": 20,
+    "nameCz": "Studena fronta"
   },
   {
     "id": "frozen-night",
@@ -3700,7 +3950,8 @@
     "classId": "spellweaver",
     "refClassId": "SW",
     "level": 6,
-    "initiative": 46
+    "initiative": 46,
+    "nameCz": "Plameny mrazu"
   },
   {
     "id": "hardened-spikes",
@@ -3708,7 +3959,8 @@
     "classId": "spellweaver",
     "refClassId": "SW",
     "level": 1.5,
-    "initiative": 26
+    "initiative": 26,
+    "nameCz": "Tvrzene hroty"
   },
   {
     "id": "icy-blast",
@@ -3716,7 +3968,8 @@
     "classId": "spellweaver",
     "refClassId": "SW",
     "level": 2,
-    "initiative": 66
+    "initiative": 66,
+    "nameCz": "Ledovy uder"
   },
   {
     "id": "impaling-eruption",
@@ -3724,7 +3977,8 @@
     "classId": "spellweaver",
     "refClassId": "SW",
     "level": 1,
-    "initiative": 70
+    "initiative": 70,
+    "nameCz": "Mrazivy vybuch"
   },
   {
     "id": "inferno",
@@ -3740,7 +3994,8 @@
     "classId": "spellweaver",
     "refClassId": "SW",
     "level": 6,
-    "initiative": 96
+    "initiative": 96,
+    "nameCz": "Zivouci pochoden"
   },
   {
     "id": "mana-bolt",
@@ -3756,7 +4011,8 @@
     "classId": "spellweaver",
     "refClassId": "SW",
     "level": 1,
-    "initiative": 80
+    "initiative": 80,
+    "nameCz": "Probuzeni car"
   },
   {
     "id": "ride-the-wind",
@@ -3764,7 +4020,8 @@
     "classId": "spellweaver",
     "refClassId": "SW",
     "level": 1,
-    "initiative": 83
+    "initiative": 83,
+    "nameCz": "Na kridlech vetru"
   },
   {
     "id": "spirit-of-doom",
@@ -3772,7 +4029,8 @@
     "classId": "spellweaver",
     "refClassId": "SW",
     "level": 4,
-    "initiative": 81
+    "initiative": 81,
+    "nameCz": "Duch zkazy"
   },
   {
     "id": "stone-fists",
@@ -3780,7 +4038,8 @@
     "classId": "spellweaver",
     "refClassId": "SW",
     "level": 7,
-    "initiative": 62
+    "initiative": 62,
+    "nameCz": "Kamenne pesti"
   },
   {
     "id": "twin-restoration",
@@ -3788,7 +4047,8 @@
     "classId": "spellweaver",
     "refClassId": "SW",
     "level": 7,
-    "initiative": 75
+    "initiative": 75,
+    "nameCz": "Dvojita obnova"
   },
   {
     "id": "zephyr-wings",
@@ -3796,7 +4056,8 @@
     "classId": "spellweaver",
     "refClassId": "SW",
     "level": 8,
-    "initiative": 85
+    "initiative": 85,
+    "nameCz": "Kridla zefyru"
   },
   {
     "id": "auto-turret",
