@@ -237,7 +237,8 @@
     "classId": "brute",
     "refClassId": "BR",
     "level": 1.5,
-    "initiative": 77
+    "initiative": 77,
+    "nameCz": "Vyvážený ústup"
   },
   {
     "id": "brute-force",
@@ -245,7 +246,8 @@
     "classId": "brute",
     "refClassId": "BR",
     "level": 3,
-    "initiative": 51
+    "initiative": 51,
+    "nameCz": "Surová síla"
   },
   {
     "id": "crippling-offensive",
@@ -253,7 +255,8 @@
     "classId": "brute",
     "refClassId": "BR",
     "level": 7,
-    "initiative": 33
+    "initiative": 33,
+    "nameCz": "Mrazící údery"
   },
   {
     "id": "defensive-tactics",
@@ -261,7 +264,8 @@
     "classId": "brute",
     "refClassId": "BR",
     "level": 7,
-    "initiative": 26
+    "initiative": 26,
+    "nameCz": "Obranná strategie"
   },
   {
     "id": "devastating-hack",
@@ -269,7 +273,8 @@
     "classId": "brute",
     "refClassId": "BR",
     "level": 4,
-    "initiative": 27
+    "initiative": 27,
+    "nameCz": "Zničující seknutí"
   },
   {
     "id": "eye-for-an-eye",
@@ -277,7 +282,8 @@
     "classId": "brute",
     "refClassId": "BR",
     "level": 1,
-    "initiative": 18
+    "initiative": 18,
+    "nameCz": "Oko za oko"
   },
   {
     "id": "face-your-end",
@@ -285,7 +291,8 @@
     "classId": "brute",
     "refClassId": "BR",
     "level": 9,
-    "initiative": 67
+    "initiative": 67,
+    "nameCz": "Tvář smrti"
   },
   {
     "id": "fatal-advance",
@@ -293,7 +300,8 @@
     "classId": "brute",
     "refClassId": "BR",
     "level": 2,
-    "initiative": 40
+    "initiative": 40,
+    "nameCz": "Smrtící postup"
   },
   {
     "id": "frenzied-onslaught",
@@ -301,7 +309,8 @@
     "classId": "brute",
     "refClassId": "BR",
     "level": 8,
-    "initiative": 41
+    "initiative": 41,
+    "nameCz": "Šílený nápor"
   },
   {
     "id": "grab-and-go",
@@ -309,7 +318,8 @@
     "classId": "brute",
     "refClassId": "BR",
     "level": 1,
-    "initiative": 87
+    "initiative": 87,
+    "nameCz": "Vezmi to a zmiz"
   },
   {
     "id": "hook-and-chain",
@@ -317,7 +327,8 @@
     "classId": "brute",
     "refClassId": "BR",
     "level": 3,
-    "initiative": 42
+    "initiative": 42,
+    "nameCz": "Řetěz z háky"
   },
   {
     "id": "immovable-phalanx",
@@ -325,7 +336,8 @@
     "classId": "brute",
     "refClassId": "BR",
     "level": 6,
-    "initiative": 17
+    "initiative": 17,
+    "nameCz": "Falanga"
   },
   {
     "id": "juggernaut",
@@ -333,7 +345,8 @@
     "classId": "brute",
     "refClassId": "BR",
     "level": 2,
-    "initiative": 34
+    "initiative": 34,
+    "nameCz": "Kolos"
   },
   {
     "id": "king-of-the-hill",
@@ -341,7 +354,8 @@
     "classId": "brute",
     "refClassId": "BR",
     "level": 9,
-    "initiative": 39
+    "initiative": 39,
+    "nameCz": "Právo silnějšího"
   },
   {
     "id": "leaping-cleave",
@@ -349,7 +363,8 @@
     "classId": "brute",
     "refClassId": "BR",
     "level": 1,
-    "initiative": 54
+    "initiative": 54,
+    "nameCz": "Sek ve výskoku"
   },
   {
     "id": "overwhelming-assault",
@@ -357,7 +372,8 @@
     "classId": "brute",
     "refClassId": "BR",
     "level": 1,
-    "initiative": 61
+    "initiative": 61,
+    "nameCz": "Mocný rozmach"
   },
   {
     "id": "provoking-roar",
@@ -365,7 +381,8 @@
     "classId": "brute",
     "refClassId": "BR",
     "level": 1,
-    "initiative": 10
+    "initiative": 10,
+    "nameCz": "Vyvážený řev"
   },
   {
     "id": "quietus",
@@ -373,7 +390,8 @@
     "classId": "brute",
     "refClassId": "BR",
     "level": 6,
-    "initiative": 57
+    "initiative": 57,
+    "nameCz": "Utišení"
   },
   {
     "id": "selfish-retribution",
@@ -381,7 +399,8 @@
     "classId": "brute",
     "refClassId": "BR",
     "level": 8,
-    "initiative": 12
+    "initiative": 12,
+    "nameCz": "Sobecká odplata"
   },
   {
     "id": "shield-bash",
@@ -389,7 +408,8 @@
     "classId": "brute",
     "refClassId": "BR",
     "level": 1,
-    "initiative": 15
+    "initiative": 15,
+    "nameCz": "Úder štítem"
   },
   {
     "id": "skewer",
@@ -397,7 +417,8 @@
     "classId": "brute",
     "refClassId": "BR",
     "level": 1.5,
-    "initiative": 35
+    "initiative": 35,
+    "nameCz": "Špíz"
   },
   {
     "id": "skirmishing-maneuver",
@@ -405,7 +426,8 @@
     "classId": "brute",
     "refClassId": "BR",
     "level": 5,
-    "initiative": 29
+    "initiative": 29,
+    "nameCz": "Útočný manévr"
   },
   {
     "id": "spare-dagger",
@@ -413,7 +435,8 @@
     "classId": "brute",
     "refClassId": "BR",
     "level": 1,
-    "initiative": 27
+    "initiative": 27,
+    "nameCz": "Záložní dýka"
   },
   {
     "id": "sweeping-blow",
@@ -421,7 +444,8 @@
     "classId": "brute",
     "refClassId": "BR",
     "level": 1,
-    "initiative": 64
+    "initiative": 64,
+    "nameCz": "Záplava úderů"
   },
   {
     "id": "trample",
@@ -429,7 +453,8 @@
     "classId": "brute",
     "refClassId": "BR",
     "level": 1,
-    "initiative": 72
+    "initiative": 72,
+    "nameCz": "Zašlapání"
   },
   {
     "id": "unstoppable-charge",
@@ -437,7 +462,8 @@
     "classId": "brute",
     "refClassId": "BR",
     "level": 4,
-    "initiative": 86
+    "initiative": 86,
+    "nameCz": "Nezastavitelný výpad"
   },
   {
     "id": "wall-of-doom",
@@ -445,7 +471,8 @@
     "classId": "brute",
     "refClassId": "BR",
     "level": 1.5,
-    "initiative": 20
+    "initiative": 20,
+    "nameCz": "Zeď zkázy"
   },
   {
     "id": "warding-strength",
@@ -453,7 +480,8 @@
     "classId": "brute",
     "refClassId": "BR",
     "level": 1,
-    "initiative": 32
+    "initiative": 32,
+    "nameCz": "Strážná moc"
   },
   {
     "id": "whirlwind",
@@ -461,7 +489,8 @@
     "classId": "brute",
     "refClassId": "BR",
     "level": 5,
-    "initiative": 28
+    "initiative": 28,
+    "nameCz": "Vír čepelí"
   },
   {
     "id": "ancient-ward",
@@ -701,7 +730,8 @@
     "classId": "cragheart",
     "refClassId": "CH",
     "level": 1,
-    "initiative": 75
+    "initiative": 75,
+    "nameCz": "Lavina"
   },
   {
     "id": "backup-ammunition",
@@ -709,7 +739,8 @@
     "classId": "cragheart",
     "refClassId": "CH",
     "level": 1,
-    "initiative": 77
+    "initiative": 77,
+    "nameCz": "Záložní střelivo"
   },
   {
     "id": "blind-destruction",
@@ -717,7 +748,8 @@
     "classId": "cragheart",
     "refClassId": "CH",
     "level": 9,
-    "initiative": 74
+    "initiative": 74,
+    "nameCz": "Bezohledná zkáza"
   },
   {
     "id": "blunt-force",
@@ -725,7 +757,8 @@
     "classId": "cragheart",
     "refClassId": "CH",
     "level": 3,
-    "initiative": 21
+    "initiative": 21,
+    "nameCz": "Hrubá síla"
   },
   {
     "id": "brutal-momentum",
@@ -733,7 +766,8 @@
     "classId": "cragheart",
     "refClassId": "CH",
     "level": 7,
-    "initiative": 52
+    "initiative": 52,
+    "nameCz": "Smrtící setrvačnost"
   },
   {
     "id": "cataclysm",
@@ -741,7 +775,8 @@
     "classId": "cragheart",
     "refClassId": "CH",
     "level": 6,
-    "initiative": 26
+    "initiative": 26,
+    "nameCz": "Kataklizma"
   },
   {
     "id": "clear-the-way",
@@ -749,7 +784,8 @@
     "classId": "cragheart",
     "refClassId": "CH",
     "level": 3,
-    "initiative": 43
+    "initiative": 43,
+    "nameCz": "Z cesty!"
   },
   {
     "id": "crater",
@@ -757,7 +793,8 @@
     "classId": "cragheart",
     "refClassId": "CH",
     "level": 1,
-    "initiative": 61
+    "initiative": 61,
+    "nameCz": "Kráter"
   },
   {
     "id": "crushing-grasp",
@@ -765,7 +802,8 @@
     "classId": "cragheart",
     "refClassId": "CH",
     "level": 1,
-    "initiative": 35
+    "initiative": 35,
+    "nameCz": "Drtivý stisk"
   },
   {
     "id": "dig-pit",
@@ -773,7 +811,8 @@
     "classId": "cragheart",
     "refClassId": "CH",
     "level": 6,
-    "initiative": 78
+    "initiative": 78,
+    "nameCz": "Jáma"
   },
   {
     "id": "dirt-tornado",
@@ -781,7 +820,8 @@
     "classId": "cragheart",
     "refClassId": "CH",
     "level": 1,
-    "initiative": 82
+    "initiative": 82,
+    "nameCz": "Prašný vír"
   },
   {
     "id": "earthen-clod",
@@ -789,7 +829,8 @@
     "classId": "cragheart",
     "refClassId": "CH",
     "level": 1,
-    "initiative": 38
+    "initiative": 38,
+    "nameCz": "Hrubá hlína"
   },
   {
     "id": "explosive-punch",
@@ -797,7 +838,8 @@
     "classId": "cragheart",
     "refClassId": "CH",
     "level": 2,
-    "initiative": 28
+    "initiative": 28,
+    "nameCz": "Výbušný úder"
   },
   {
     "id": "forceful-storm",
@@ -805,7 +847,8 @@
     "classId": "cragheart",
     "refClassId": "CH",
     "level": 1.5,
-    "initiative": 53
+    "initiative": 53,
+    "nameCz": "Mocná bouře"
   },
   {
     "id": "heaving-swing",
@@ -813,7 +856,8 @@
     "classId": "cragheart",
     "refClassId": "CH",
     "level": 1.5,
-    "initiative": 57
+    "initiative": 57,
+    "nameCz": "Dřevorubcův sek"
   },
   {
     "id": "kinetic-assault",
@@ -821,7 +865,8 @@
     "classId": "cragheart",
     "refClassId": "CH",
     "level": 4,
-    "initiative": 19
+    "initiative": 19,
+    "nameCz": "Velící se kamení"
   },
   {
     "id": "lumbering-bash",
@@ -829,7 +874,8 @@
     "classId": "cragheart",
     "refClassId": "CH",
     "level": 8,
-    "initiative": 85
+    "initiative": 85,
+    "nameCz": "Drtič"
   },
   {
     "id": "massive-boulder",
@@ -837,7 +883,8 @@
     "classId": "cragheart",
     "refClassId": "CH",
     "level": 1,
-    "initiative": 87
+    "initiative": 87,
+    "nameCz": "Vrh kamenem"
   },
   {
     "id": "meteor",
@@ -845,7 +892,8 @@
     "classId": "cragheart",
     "refClassId": "CH",
     "level": 7,
-    "initiative": 23
+    "initiative": 23,
+    "nameCz": "Meteorit"
   },
   {
     "id": "natures-lift",
@@ -853,7 +901,8 @@
     "classId": "cragheart",
     "refClassId": "CH",
     "level": 1.5,
-    "initiative": 64
+    "initiative": 64,
+    "nameCz": "Přírodní povzbuzení"
   },
   {
     "id": "opposing-strike",
@@ -861,7 +910,8 @@
     "classId": "cragheart",
     "refClassId": "CH",
     "level": 1,
-    "initiative": 46
+    "initiative": 46,
+    "nameCz": "Odvetný úder"
   },
   {
     "id": "petrify",
@@ -869,7 +919,8 @@
     "classId": "cragheart",
     "refClassId": "CH",
     "level": 5,
-    "initiative": 47
+    "initiative": 47,
+    "nameCz": "Zkamenění"
   },
   {
     "id": "pulverize",
@@ -877,7 +928,8 @@
     "classId": "cragheart",
     "refClassId": "CH",
     "level": 9,
-    "initiative": 31
+    "initiative": 31,
+    "nameCz": "Odštěpek"
   },
   {
     "id": "rock-slide",
@@ -885,7 +937,8 @@
     "classId": "cragheart",
     "refClassId": "CH",
     "level": 4,
-    "initiative": 81
+    "initiative": 81,
+    "nameCz": "Sesuv půdy"
   },
   {
     "id": "rock-tunnel",
@@ -893,7 +946,8 @@
     "classId": "cragheart",
     "refClassId": "CH",
     "level": 1,
-    "initiative": 41
+    "initiative": 41,
+    "nameCz": "Skrz skálu"
   },
   {
     "id": "rocky-end",
@@ -901,7 +955,8 @@
     "classId": "cragheart",
     "refClassId": "CH",
     "level": 8,
-    "initiative": 37
+    "initiative": 37,
+    "nameCz": "Kamenné pěsti"
   },
   {
     "id": "rumbling-advance",
@@ -909,7 +964,8 @@
     "classId": "cragheart",
     "refClassId": "CH",
     "level": 1,
-    "initiative": 29
+    "initiative": 29,
+    "nameCz": "Burácivý postup"
   },
   {
     "id": "sentient-growth",
@@ -917,7 +973,8 @@
     "classId": "cragheart",
     "refClassId": "CH",
     "level": 2,
-    "initiative": 78
+    "initiative": 78,
+    "nameCz": "Chytrý růst"
   },
   {
     "id": "stone-pummel",
@@ -925,7 +982,8 @@
     "classId": "cragheart",
     "refClassId": "CH",
     "level": 5,
-    "initiative": 32
+    "initiative": 32,
+    "nameCz": "Odhození"
   },
   {
     "id": "unstable-upheaval",
@@ -933,7 +991,8 @@
     "classId": "cragheart",
     "refClassId": "CH",
     "level": 1,
-    "initiative": 13
+    "initiative": 13,
+    "nameCz": "Nestabilní otřesy"
   },
   {
     "id": "a-moments-peace",
@@ -2589,7 +2648,8 @@
     "classId": "scoundrel",
     "refClassId": "SC",
     "level": 1,
-    "initiative": 6
+    "initiative": 6,
+    "nameCz": "Bodnutí do zad"
   },
   {
     "id": "burning-oil",
@@ -2597,7 +2657,8 @@
     "classId": "scoundrel",
     "refClassId": "SC",
     "level": 6,
-    "initiative": 95
+    "initiative": 95,
+    "nameCz": "Hořící olej"
   },
   {
     "id": "crippling-poison",
@@ -2605,7 +2666,8 @@
     "classId": "scoundrel",
     "refClassId": "SC",
     "level": 6,
-    "initiative": 30
+    "initiative": 30,
+    "nameCz": "Mrzačící jed"
   },
   {
     "id": "cull-the-weak",
@@ -2613,7 +2675,8 @@
     "classId": "scoundrel",
     "refClassId": "SC",
     "level": 5,
-    "initiative": 16
+    "initiative": 16,
+    "nameCz": "Čistka"
   },
   {
     "id": "duelists-advance",
@@ -2621,7 +2684,8 @@
     "classId": "scoundrel",
     "refClassId": "SC",
     "level": 3,
-    "initiative": 16
+    "initiative": 16,
+    "nameCz": "Dulantův postoj"
   },
   {
     "id": "flanking-strike",
@@ -2629,7 +2693,8 @@
     "classId": "scoundrel",
     "refClassId": "SC",
     "level": 1,
-    "initiative": 4
+    "initiative": 4,
+    "nameCz": "Úder z boku"
   },
   {
     "id": "flintlock",
@@ -2637,7 +2702,8 @@
     "classId": "scoundrel",
     "refClassId": "SC",
     "level": 2,
-    "initiative": 90
+    "initiative": 90,
+    "nameCz": "Výstřel z bambitky"
   },
   {
     "id": "flurry-of-blades",
@@ -2645,7 +2711,8 @@
     "classId": "scoundrel",
     "refClassId": "SC",
     "level": 4,
-    "initiative": 3
+    "initiative": 3,
+    "nameCz": "Vějíř nožů"
   },
   {
     "id": "gruesome-advantage",
@@ -2653,7 +2720,8 @@
     "classId": "scoundrel",
     "refClassId": "SC",
     "level": 4,
-    "initiative": 62
+    "initiative": 62,
+    "nameCz": "Strašlivá výhoda"
   },
   {
     "id": "hidden-daggers",
@@ -2661,7 +2729,8 @@
     "classId": "scoundrel",
     "refClassId": "SC",
     "level": 3,
-    "initiative": 85
+    "initiative": 85,
+    "nameCz": "Skryté čepele"
   },
   {
     "id": "long-con",
@@ -2669,7 +2738,8 @@
     "classId": "scoundrel",
     "refClassId": "SC",
     "level": 9,
-    "initiative": 2
+    "initiative": 2,
+    "nameCz": "Velký podfuk"
   },
   {
     "id": "open-wound",
@@ -2677,7 +2747,8 @@
     "classId": "scoundrel",
     "refClassId": "SC",
     "level": 2,
-    "initiative": 11
+    "initiative": 11,
+    "nameCz": "Otevřená rána"
   },
   {
     "id": "pains-end",
@@ -2685,7 +2756,8 @@
     "classId": "scoundrel",
     "refClassId": "SC",
     "level": 8,
-    "initiative": 38
+    "initiative": 38,
+    "nameCz": "Konec bolesti"
   },
   {
     "id": "quick-hands",
@@ -2693,7 +2765,8 @@
     "classId": "scoundrel",
     "refClassId": "SC",
     "level": 1,
-    "initiative": 64
+    "initiative": 64,
+    "nameCz": "Rychlé prsty"
   },
   {
     "id": "single-out",
@@ -2701,7 +2774,8 @@
     "classId": "scoundrel",
     "refClassId": "SC",
     "level": 1,
-    "initiative": 86
+    "initiative": 86,
+    "nameCz": "Výběr cíle"
   },
   {
     "id": "sinister-opportunity",
@@ -2709,7 +2783,8 @@
     "classId": "scoundrel",
     "refClassId": "SC",
     "level": 1.5,
-    "initiative": 93
+    "initiative": 93,
+    "nameCz": "Záludná příležitost"
   },
   {
     "id": "smoke-bomb",
@@ -2717,7 +2792,8 @@
     "classId": "scoundrel",
     "refClassId": "SC",
     "level": 1,
-    "initiative": 12
+    "initiative": 12,
+    "nameCz": "Kouřová bomba"
   },
   {
     "id": "special-mixture",
@@ -2725,7 +2801,8 @@
     "classId": "scoundrel",
     "refClassId": "SC",
     "level": 1,
-    "initiative": 33
+    "initiative": 33,
+    "nameCz": "Zvláštní mast"
   },
   {
     "id": "spring-the-trap",
@@ -2733,7 +2810,8 @@
     "classId": "scoundrel",
     "refClassId": "SC",
     "level": 7,
-    "initiative": 13
+    "initiative": 13,
+    "nameCz": "Spuštění pasti"
   },
   {
     "id": "stick-to-the-shadows",
@@ -2741,7 +2819,8 @@
     "classId": "scoundrel",
     "refClassId": "SC",
     "level": 7,
-    "initiative": 26
+    "initiative": 26,
+    "nameCz": "Ukryt ve stínech"
   },
   {
     "id": "stiletto-storm",
@@ -2749,7 +2828,8 @@
     "classId": "scoundrel",
     "refClassId": "SC",
     "level": 8,
-    "initiative": 80
+    "initiative": 80,
+    "nameCz": "Dýková bouře"
   },
   {
     "id": "swift-bow",
@@ -2757,7 +2837,8 @@
     "classId": "scoundrel",
     "refClassId": "SC",
     "level": 1.5,
-    "initiative": 36
+    "initiative": 36,
+    "nameCz": "Svižná lukostřelba"
   },
   {
     "id": "thiefs-knack",
@@ -2765,7 +2846,8 @@
     "classId": "scoundrel",
     "refClassId": "SC",
     "level": 1,
-    "initiative": 23
+    "initiative": 23,
+    "nameCz": "Zlodějská zručnost"
   },
   {
     "id": "throwing-knives",
@@ -2773,7 +2855,8 @@
     "classId": "scoundrel",
     "refClassId": "SC",
     "level": 1,
-    "initiative": 10
+    "initiative": 10,
+    "nameCz": "Vrhací nože"
   },
   {
     "id": "tricksters-reversal",
@@ -2781,7 +2864,8 @@
     "classId": "scoundrel",
     "refClassId": "SC",
     "level": 1.5,
-    "initiative": 9
+    "initiative": 9,
+    "nameCz": "Podvodníkovo odhalení"
   },
   {
     "id": "venom-shiv",
@@ -2789,7 +2873,8 @@
     "classId": "scoundrel",
     "refClassId": "SC",
     "level": 1,
-    "initiative": 60
+    "initiative": 60,
+    "nameCz": "Otrávená dýka"
   },
   {
     "id": "visage-of-the-inevitable",
@@ -2797,7 +2882,8 @@
     "classId": "scoundrel",
     "refClassId": "SC",
     "level": 5,
-    "initiative": 88
+    "initiative": 88,
+    "nameCz": "Tváří v tvář nevyhnutelný"
   },
   {
     "id": "watch-it-burn",
@@ -2805,7 +2891,8 @@
     "classId": "scoundrel",
     "refClassId": "SC",
     "level": 9,
-    "initiative": 98
+    "initiative": 98,
+    "nameCz": "Vidět svět v plamenech"
   },
   {
     "id": "angelic-ascension",
@@ -3717,7 +3804,8 @@
     "classId": "tinkerer",
     "refClassId": "TI",
     "level": 6,
-    "initiative": 34
+    "initiative": 34,
+    "nameCz": "Automatická střelba"
   },
   {
     "id": "chimeric-formula",
@@ -3725,7 +3813,8 @@
     "classId": "tinkerer",
     "refClassId": "TI",
     "level": 9,
-    "initiative": 43
+    "initiative": 43,
+    "nameCz": "Přizpůsobivá chemikálie"
   },
   {
     "id": "crank-bow",
@@ -3733,7 +3822,8 @@
     "classId": "tinkerer",
     "refClassId": "TI",
     "level": 3,
-    "initiative": 66
+    "initiative": 66,
+    "nameCz": "Klátkový luk"
   },
   {
     "id": "curative-aerosol",
@@ -3741,7 +3831,8 @@
     "classId": "tinkerer",
     "refClassId": "TI",
     "level": 7,
-    "initiative": 21
+    "initiative": 21,
+    "nameCz": "Léčivý aerosol"
   },
   {
     "id": "dangerous-contraption",
@@ -3749,7 +3840,8 @@
     "classId": "tinkerer",
     "refClassId": "TI",
     "level": 4,
-    "initiative": 84
+    "initiative": 84,
+    "nameCz": "Nebezpečné zařízení"
   },
   {
     "id": "disintegration-beam",
@@ -3757,7 +3849,8 @@
     "classId": "tinkerer",
     "refClassId": "TI",
     "level": 5,
-    "initiative": 36
+    "initiative": 36,
+    "nameCz": "Paprsek rozkladu"
   },
   {
     "id": "disorienting-flash",
@@ -3765,7 +3858,8 @@
     "classId": "tinkerer",
     "refClassId": "TI",
     "level": 2,
-    "initiative": 73
+    "initiative": 73,
+    "nameCz": "Matoucí záblesk"
   },
   {
     "id": "energizing-tonic",
@@ -3773,7 +3867,8 @@
     "classId": "tinkerer",
     "refClassId": "TI",
     "level": 1,
-    "initiative": 16
+    "initiative": 16,
+    "nameCz": "Probouzející tonikum"
   },
   {
     "id": "enhancement-field",
@@ -3781,7 +3876,8 @@
     "classId": "tinkerer",
     "refClassId": "TI",
     "level": 1,
-    "initiative": 61
+    "initiative": 61,
+    "nameCz": "Zesilující pole"
   },
   {
     "id": "flamethrower",
@@ -3789,7 +3885,8 @@
     "classId": "tinkerer",
     "refClassId": "TI",
     "level": 1,
-    "initiative": 47
+    "initiative": 47,
+    "nameCz": "Plamenomet"
   },
   {
     "id": "gas-canister",
@@ -3797,7 +3894,8 @@
     "classId": "tinkerer",
     "refClassId": "TI",
     "level": 6,
-    "initiative": 71
+    "initiative": 71,
+    "nameCz": "Nádoba s plynem"
   },
   {
     "id": "harmless-contraption",
@@ -3805,7 +3903,8 @@
     "classId": "tinkerer",
     "refClassId": "TI",
     "level": 1,
-    "initiative": 74
+    "initiative": 74,
+    "nameCz": "Neškodné zařízení"
   },
   {
     "id": "harsh-stimulants",
@@ -3813,7 +3912,8 @@
     "classId": "tinkerer",
     "refClassId": "TI",
     "level": 8,
-    "initiative": 27
+    "initiative": 27,
+    "nameCz": "Nebezpečný stimulant"
   },
   {
     "id": "hook-gun",
@@ -3821,7 +3921,8 @@
     "classId": "tinkerer",
     "refClassId": "TI",
     "level": 1,
-    "initiative": 72
+    "initiative": 72,
+    "nameCz": "Vystřelovací hák"
   },
   {
     "id": "ink-bomb",
@@ -3829,7 +3930,8 @@
     "classId": "tinkerer",
     "refClassId": "TI",
     "level": 1,
-    "initiative": 74
+    "initiative": 74,
+    "nameCz": "Inkoustová bomba"
   },
   {
     "id": "jet-propulsion",
@@ -3837,7 +3939,8 @@
     "classId": "tinkerer",
     "refClassId": "TI",
     "level": 8,
-    "initiative": 38
+    "initiative": 38,
+    "nameCz": "Pravdivý pohon"
   },
   {
     "id": "lethal-injection",
@@ -3845,7 +3948,8 @@
     "classId": "tinkerer",
     "refClassId": "TI",
     "level": 9,
-    "initiative": 85
+    "initiative": 85,
+    "nameCz": "Smrtící injekce"
   },
   {
     "id": "micro-bots",
@@ -3853,7 +3957,8 @@
     "classId": "tinkerer",
     "refClassId": "TI",
     "level": 4,
-    "initiative": 22
+    "initiative": 22,
+    "nameCz": "Mikroboti"
   },
   {
     "id": "murderous-contraption",
@@ -3861,7 +3966,8 @@
     "classId": "tinkerer",
     "refClassId": "TI",
     "level": 7,
-    "initiative": 94
+    "initiative": 94,
+    "nameCz": "Smrtící zařízení"
   },
   {
     "id": "net-shooter",
@@ -3869,7 +3975,8 @@
     "classId": "tinkerer",
     "refClassId": "TI",
     "level": 1,
-    "initiative": 19
+    "initiative": 19,
+    "nameCz": "Síťostřel"
   },
   {
     "id": "noxious-vials",
@@ -3877,7 +3984,8 @@
     "classId": "tinkerer",
     "refClassId": "TI",
     "level": 5,
-    "initiative": 75
+    "initiative": 75,
+    "nameCz": "Jedová ampule"
   },
   {
     "id": "potent-potables",
@@ -3885,7 +3993,8 @@
     "classId": "tinkerer",
     "refClassId": "TI",
     "level": 1.5,
-    "initiative": 46
+    "initiative": 46,
+    "nameCz": "Mocný elixír"
   },
   {
     "id": "proximity-mine",
@@ -3893,7 +4002,8 @@
     "classId": "tinkerer",
     "refClassId": "TI",
     "level": 1,
-    "initiative": 62
+    "initiative": 62,
+    "nameCz": "Nášlapná mina"
   },
   {
     "id": "reinvigorating-elixir",
@@ -3901,7 +4011,8 @@
     "classId": "tinkerer",
     "refClassId": "TI",
     "level": 1,
-    "initiative": 37
+    "initiative": 37,
+    "nameCz": "Elixír obrany"
   },
   {
     "id": "restorative-mist",
@@ -3909,7 +4020,8 @@
     "classId": "tinkerer",
     "refClassId": "TI",
     "level": 1,
-    "initiative": 17
+    "initiative": 17,
+    "nameCz": "Léčivá mlha"
   },
   {
     "id": "reviving-shock",
@@ -3917,7 +4029,8 @@
     "classId": "tinkerer",
     "refClassId": "TI",
     "level": 1.5,
-    "initiative": 34
+    "initiative": 34,
+    "nameCz": "Oživující náboj"
   },
   {
     "id": "stamina-booster",
@@ -3925,7 +4038,8 @@
     "classId": "tinkerer",
     "refClassId": "TI",
     "level": 2,
-    "initiative": 48
+    "initiative": 48,
+    "nameCz": "Probuzouvač výdrže"
   },
   {
     "id": "stun-shot",
@@ -3933,7 +4047,8 @@
     "classId": "tinkerer",
     "refClassId": "TI",
     "level": 1,
-    "initiative": 20
+    "initiative": 20,
+    "nameCz": "Omračující výstřel"
   },
   {
     "id": "tinkerers-tools",
@@ -3941,7 +4056,8 @@
     "classId": "tinkerer",
     "refClassId": "TI",
     "level": 3,
-    "initiative": 26
+    "initiative": 26,
+    "nameCz": "Kutilovo nářadí"
   },
   {
     "id": "toxic-bolt",
@@ -3949,7 +4065,8 @@
     "classId": "tinkerer",
     "refClassId": "TI",
     "level": 1,
-    "initiative": 18
+    "initiative": 18,
+    "nameCz": "Toxická šipka"
   },
   {
     "id": "volatile-concoction",
@@ -3957,6 +4074,7 @@
     "classId": "tinkerer",
     "refClassId": "TI",
     "level": 1.5,
-    "initiative": 76
+    "initiative": 76,
+    "nameCz": "Nestabilní směs"
   }
 ]
