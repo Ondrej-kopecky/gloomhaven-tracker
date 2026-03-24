@@ -11,7 +11,7 @@ import ClassIcon from '@/components/characters/ClassIcon.vue'
 import { computeDeck, getDeckStats } from '@/utils/attackModifierDeck'
 import abilitiesData from '@/data/abilities.json'
 
-interface AbilityDef { id: string; name: string; classId: string; refClassId: string; level: number; initiative: number }
+interface AbilityDef { id: string; name: string; nameCz?: string; classId: string; refClassId: string; level: number; initiative: number }
 const allAbilities = abilitiesData as AbilityDef[]
 
 function getClassAbilities(classId: string, level: number): { available: AbilityDef[]; locked: AbilityDef[] } {
@@ -34,6 +34,38 @@ const pqStore = usePersonalQuestStore()
 const showCreate = ref(false)
 const showQuestPicker = ref<string | null>(null)
 const showRetireConfirm = ref<string | null>(null)
+
+// Ability lightbox
+const lightboxAbility = ref<AbilityDef | null>(null)
+const lightboxCharUuid = ref<string | null>(null)
+const lightboxSelectable = ref(false)
+
+function openLightbox(ability: AbilityDef, charUuid: string, selectable: boolean) {
+  lightboxAbility.value = ability
+  lightboxCharUuid.value = charUuid
+  lightboxSelectable.value = selectable
+}
+
+function closeLightbox() {
+  lightboxAbility.value = null
+  lightboxCharUuid.value = null
+}
+
+function toggleLightboxSelection() {
+  const char = characterStore.characters.find(c => c.uuid === lightboxCharUuid.value)
+  if (!char || !lightboxAbility.value) return
+  if (char.abilities.includes(lightboxAbility.value.id)) {
+    characterStore.deselectAbility(char.uuid, lightboxAbility.value.id)
+  } else {
+    characterStore.selectAbility(char.uuid, lightboxAbility.value.id)
+  }
+}
+
+function isLightboxSelected(): boolean {
+  const char = characterStore.characters.find(c => c.uuid === lightboxCharUuid.value)
+  if (!char || !lightboxAbility.value) return false
+  return char.abilities.includes(lightboxAbility.value.id)
+}
 const newName = ref('')
 const newOwner = ref('')
 const newClass = ref<CharacterClass>(CharacterClass.BRUTE)
@@ -470,12 +502,12 @@ const availableClasses = computed(() => {
                 <div
                   v-for="ability in getClassAbilities(char.classId, 9).available.filter(a => a.level === 1)"
                   :key="ability.id"
-                  class="relative"
+                  class="relative cursor-pointer"
+                  @click="openLightbox(ability, char.uuid, false)"
                 >
                   <img
                     :src="abilityImgSrc(ability)"
                     :alt="ability.name"
-                    :title="`${ability.name} (Init. ${ability.initiative})`"
                     class="w-full rounded-lg border border-green-700/40 opacity-90"
                     loading="lazy"
                     @error="($event.target as HTMLImageElement).style.display = 'none'"
@@ -496,12 +528,11 @@ const availableClasses = computed(() => {
                     v-for="ability in getClassAbilities(char.classId, 9).available.filter(a => a.level === lv)"
                     :key="ability.id"
                     class="relative cursor-pointer"
-                    @click="char.abilities.includes(ability.id) ? characterStore.deselectAbility(char.uuid, ability.id) : characterStore.selectAbility(char.uuid, ability.id)"
+                    @click="openLightbox(ability, char.uuid, true)"
                   >
                     <img
                       :src="abilityImgSrc(ability)"
                       :alt="ability.name"
-                      :title="`${ability.name} (Init. ${ability.initiative}) — klikni pro výběr`"
                       class="w-full rounded-lg border-2 transition-all duration-200"
                       :class="char.abilities.includes(ability.id)
                         ? 'border-green-500 shadow-lg shadow-green-500/20'
@@ -530,12 +561,11 @@ const availableClasses = computed(() => {
                   v-for="ability in getClassAbilities(char.classId, 9).available.filter(a => a.level === 1.5)"
                   :key="ability.id"
                   class="relative cursor-pointer"
-                  @click="char.abilities.includes(ability.id) ? characterStore.deselectAbility(char.uuid, ability.id) : characterStore.selectAbility(char.uuid, ability.id)"
+                  @click="openLightbox(ability, char.uuid, true)"
                 >
                   <img
                     :src="abilityImgSrc(ability)"
                     :alt="ability.name"
-                    :title="`${ability.name} (Init. ${ability.initiative})`"
                     class="w-full rounded-lg border-2 transition-all duration-200"
                     :class="char.abilities.includes(ability.id)
                       ? 'border-blue-500 shadow-lg shadow-blue-500/20'
@@ -933,6 +963,60 @@ const availableClasses = computed(() => {
       </div>
     </div>
   </div>
+
+  <!-- Ability Card Lightbox -->
+  <Teleport to="body">
+    <div
+      v-if="lightboxAbility"
+      class="fixed inset-0 z-[200] flex items-center justify-center bg-black/85 backdrop-blur-sm p-4"
+      @click.self="closeLightbox"
+      @keydown.escape="closeLightbox"
+    >
+      <div class="relative max-w-sm w-full max-h-[90vh] flex flex-col items-center">
+        <!-- Close button -->
+        <button
+          class="absolute -top-2 -right-2 z-10 w-8 h-8 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors"
+          @click="closeLightbox"
+        >
+          <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        <!-- Card image -->
+        <img
+          :src="abilityImgSrc(lightboxAbility)"
+          :alt="lightboxAbility.name"
+          class="w-full rounded-xl shadow-2xl"
+          :class="lightboxSelectable
+            ? (isLightboxSelected() ? 'border-3 border-green-500' : 'border-3 border-white/20')
+            : 'border-2 border-green-700/40'"
+        />
+
+        <!-- Card info + action -->
+        <div class="mt-3 text-center w-full">
+          <div class="text-gray-300 font-display text-sm tracking-wide">
+            {{ lightboxAbility.nameCz ?? lightboxAbility.name }}
+          </div>
+          <div class="text-gray-500 text-xs mt-0.5">
+            Lv. {{ lightboxAbility.level === 1.5 ? 'X' : lightboxAbility.level }} · Iniciativa {{ lightboxAbility.initiative }}
+          </div>
+
+          <!-- Select/deselect button for choosable cards -->
+          <button
+            v-if="lightboxSelectable"
+            class="mt-3 px-6 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+            :class="isLightboxSelected()
+              ? 'bg-red-900/40 text-red-400 border border-red-800/40 hover:bg-red-900/60'
+              : 'bg-green-900/40 text-green-400 border border-green-800/40 hover:bg-green-900/60'"
+            @click="toggleLightboxSelection"
+          >
+            {{ isLightboxSelected() ? 'Zrušit výběr' : 'Vybrat kartu' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </Teleport>
 </template>
 
 <style scoped>
