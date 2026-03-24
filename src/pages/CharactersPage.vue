@@ -962,10 +962,8 @@ const availableClasses = computed(() => {
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- Ability Card Lightbox -->
-  <Teleport to="body">
+    <!-- Ability Card Lightbox -->
+    <Teleport to="body">
     <div
       v-if="lightboxAbility"
       class="fixed inset-0 z-[200] flex items-center justify-center bg-black/85 backdrop-blur-sm p-4"
@@ -1016,7 +1014,8 @@ const availableClasses = computed(() => {
         </div>
       </div>
     </div>
-  </Teleport>
+    </Teleport>
+  </div>
 </template>
 
 <style scoped>
