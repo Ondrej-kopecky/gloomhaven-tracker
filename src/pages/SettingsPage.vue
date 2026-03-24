@@ -10,6 +10,7 @@ import { useAchievementStore } from '@/stores/achievementStore'
 import { useScenarioStore } from '@/stores/scenarioStore'
 import { useAuthStore } from '@/stores/authStore'
 import { useToastStore } from '@/stores/toastStore'
+import { version } from '../../package.json'
 
 const router = useRouter()
 const campaignStore = useCampaignStore()
@@ -911,7 +912,7 @@ function formatDate(iso: string): string {
       <div class="space-y-2 text-sm">
         <div class="flex justify-between">
           <span class="text-gray-500">Verze</span>
-          <span class="text-gray-300 font-medium">4.17.0</span>
+          <span class="text-gray-300 font-medium">{{ version }}</span>
         </div>
         <div class="flex justify-between">
           <span class="text-gray-500">Technologie</span>
