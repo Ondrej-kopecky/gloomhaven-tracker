@@ -4630,5 +4630,1166 @@
       }
     ],
     "nameCz": "Čas splácet"
+  },
+  {
+    "id": "96",
+    "name": "Nečekaná návštěva",
+    "location": "B-13",
+    "isSide": false,
+    "coordinates": {
+      "name": "B-13",
+      "x": 58.67,
+      "y": 15.24
+    },
+    "linksTo": [
+      97
+    ],
+    "linkedFrom": [],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "10 experience each",
+        "Add City and Road Events 82 to their respective decks"
+      ]
+    },
+    "chapterId": 20,
+    "regionIds": [
+      1
+    ],
+    "pages": [
+      "fc/1/5",
+      "fc/2/3",
+      "fc/2/10",
+      "fc/2/12",
+      "fc/2/14"
+    ],
+    "game": "fc",
+    "nameCz": "Nečekaná návštěva",
+    "isRoot": true,
+    "requirements": "End of Gloom (Global) COMPLETE",
+    "achievementsAwarded": [
+      "GTTP"
+    ],
+    "quests": [
+      96
+    ],
+    "summary": "Těší vás, že U Spícího lva opět panuje stará dobrá atmosféra. Štamgasti jsou o poznání uvolněnější. Zrovna dopíjíte třetí rundu, když se na protější zdi zjeví trhlina v předivu reality a z ní se vypotácí zmožená aestherská žena."
+  },
+  {
+    "id": "97",
+    "name": "Zapovězené znalosti",
+    "location": "A-17",
+    "isSide": false,
+    "coordinates": {
+      "name": "A-17",
+      "x": 75.35,
+      "y": 5.22
+    },
+    "linksTo": [
+      98,
+      99,
+      100,
+      101
+    ],
+    "linkedFrom": [
+      96
+    ],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "10 gold each",
+        "Add City Events 88, 89 and 90 to the deck"
+      ]
+    },
+    "chapterId": 20,
+    "regionIds": [
+      1
+    ],
+    "pages": [
+      "fc/1/6",
+      "fc/2/9",
+      "fc/2/15",
+      "fc/2/36",
+      "fc/2/38",
+      "fc/2/4"
+    ],
+    "game": "fc",
+    "nameCz": "Zapovězené znalosti",
+    "quests": [
+      97
+    ],
+    "summary": "Záhadná aestherka se představí jako Kassandra a přesvědčí vás, že svět stále není v bezpečí. Společně se vydáváte na pátrání po zapovězených znalostech, které by mohly odhalit machinace zkaženosti."
+  },
+  {
+    "id": "98",
+    "name": "Minulost v plamenech",
+    "location": "D-18",
+    "isSide": false,
+    "coordinates": {
+      "name": "D-18",
+      "x": 81,
+      "y": 23.2
+    },
+    "linksTo": [
+      102,
+      103
+    ],
+    "linkedFrom": [
+      97
+    ],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": []
+    },
+    "chapterId": 21,
+    "regionIds": [
+      1
+    ],
+    "pages": [
+      "fc/1/7",
+      "fc/2/3",
+      "fc/2/12",
+      "fc/2/19",
+      "fc/2/20",
+      "fc/2/27"
+    ],
+    "game": "fc",
+    "nameCz": "Minulost v plamenech",
+    "achievementsAwarded": [
+      "GKIP"
+    ],
+    "quests": [
+      98
+    ],
+    "summary": "Začali jste pátrat po zvěstech o orchidských učencích. Dnes večer má ze zámoří dorazit zvláštní vyslanec s jedinečnými literárními díly. Jenže na přístavní loď zaútočili nájezdníci."
+  },
+  {
+    "id": "99",
+    "name": "Dozvuky",
+    "location": "B-16",
+    "isSide": false,
+    "coordinates": {
+      "name": "B-16",
+      "x": 71.3,
+      "y": 12.6
+    },
+    "linksTo": [
+      104,
+      105
+    ],
+    "linkedFrom": [
+      97
+    ],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": []
+    },
+    "chapterId": 22,
+    "regionIds": [
+      1
+    ],
+    "pages": [
+      "fc/1/8",
+      "fc/2/7",
+      "fc/2/10",
+      "fc/2/28",
+      "fc/2/33"
+    ],
+    "game": "fc",
+    "nameCz": "Dozvuky",
+    "achievementsAwarded": [
+      "GKIP"
+    ],
+    "quests": [
+      99
+    ],
+    "summary": "Kassandra je přesvědčená, že výbuch Prázdnoty zanechal následky, které nejsou na první pohled vidět. Vydáváte se na procházku po městě, abyste odhalili skrytou zkaženost."
+  },
+  {
+    "id": "100",
+    "name": "Věci se dávají do pohybu",
+    "location": "E-9",
+    "isSide": false,
+    "coordinates": {
+      "name": "E-9",
+      "x": 40.3,
+      "y": 29.15
+    },
+    "linksTo": [],
+    "linkedFrom": [
+      97
+    ],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "Choose to gain one of the following sets: “Telescopic Lens” (Item 059) and “Ancient Drill” (Item 112), OR “Curious Gear” (Item 125) and “Remote Spider” (Item 126)"
+      ]
+    },
+    "chapterId": 23,
+    "regionIds": [
+      5
+    ],
+    "pages": [
+      "fc/1/9",
+      "fc/2/3",
+      "fc/2/6",
+      "fc/2/9",
+      "fc/2/10",
+      "fc/2/13",
+      "fc/2/14",
+      "fc/2/16",
+      "fc/2/18",
+      "fc/2/19",
+      "fc/2/23",
+      "fc/2/24",
+      "fc/2/25",
+      "fc/2/35",
+      "fc/2/36"
+    ],
+    "game": "fc",
+    "nameCz": "Věci se dávají do pohybu",
+    "achievementsAwarded": [
+      "GKIP"
+    ],
+    "quests": [
+      100
+    ],
+    "summary": "Díky atlasu Kassandra našla jedno z míst, kde Bastian pracoval na sférochodu. Vydáváte se prozkoumat podivný mechanismus, který může být klíčem k pochopení Zvratu."
+  },
+  {
+    "id": "101",
+    "name": "Zahalená krypta",
+    "location": "K-9",
+    "isSide": false,
+    "coordinates": {
+      "name": "K-9",
+      "x": 43.12,
+      "y": 63.4
+    },
+    "linksTo": [
+      108,
+      109
+    ],
+    "linkedFrom": [
+      97
+    ],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "20 collective gold",
+        "+1 reputation",
+        "+1 prosperity"
+      ]
+    },
+    "chapterId": 24,
+    "regionIds": [
+      3
+    ],
+    "pages": [
+      "fc/1/10",
+      "fc/2/15",
+      "fc/2/21",
+      "fc/2/22",
+      "fc/2/24",
+      "fc/2/30",
+      "fc/2/39"
+    ],
+    "game": "fc",
+    "nameCz": "Zahalená krypta",
+    "achievementsAwarded": [
+      "GKIP"
+    ],
+    "quests": [
+      101
+    ],
+    "summary": "Jednoho večera popíjíte U Spícího lva, když si k vám přisedne inoxská Strážkyně dubu. Přátelé z jihu přinesli znepokojivé zprávy — Hadí polibek se zakalil dočerna a jeho vody jsou zkažené."
+  },
+  {
+    "id": "102",
+    "name": "Tržnice tajemství",
+    "location": "M-19",
+    "isSide": false,
+    "coordinates": {
+      "name": "M-19",
+      "x": 87.5,
+      "y": 71.2
+    },
+    "linksTo": [
+      110
+    ],
+    "linkedFrom": [
+      98
+    ],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "15 experience each",
+        "If no more than 2+C inhabitants were intimidated: +2 reputation Otherwise: -2 reputation"
+      ]
+    },
+    "chapterId": 21,
+    "regionIds": [
+      8
+    ],
+    "pages": [
+      "fc/1/11",
+      "fc/2/3",
+      "fc/2/5",
+      "fc/2/8",
+      "fc/2/34",
+      "fc/2/36",
+      "fc/2/37"
+    ],
+    "game": "fc",
+    "nameCz": "Tržnice tajemství",
+    "requirements": "Knowledge is Power (Global)x2 COMPLETE",
+    "requiredBy": [
+      {
+        "complete": [
+          "GKIP2"
+        ]
+      },
+      {
+        "complete": [
+          "GKIP3"
+        ]
+      },
+      {
+        "complete": [
+          "GKIP4"
+        ]
+      }
+    ],
+    "quests": [
+      102
+    ],
+    "summary": "Výprava do velcyllského přístavu je nevyhnutelná. Hlavním městem orchidů proudí nepřeberné množství lidí, zboží a tajemství. Nepochybně tam narazíte na informace, které vám pomohou při dalším pátrání."
+  },
+  {
+    "id": "103",
+    "name": "Kde je to třeba",
+    "location": "H-8",
+    "isSide": false,
+    "coordinates": {
+      "name": "H-8",
+      "x": 35.2,
+      "y": 47
+    },
+    "linksTo": [
+      110
+    ],
+    "linkedFrom": [
+      98
+    ],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "+2 prosperity",
+        "Add City Event 87 to the deck"
+      ]
+    },
+    "chapterId": 21,
+    "regionIds": [
+      1
+    ],
+    "pages": [
+      "fc/1/12",
+      "fc/2/5",
+      "fc/2/19",
+      "fc/2/29"
+    ],
+    "game": "fc",
+    "nameCz": "Kde je to třeba",
+    "requirements": "Knowledge is Power (Global)x2 COMPLETE",
+    "requiredBy": [
+      {
+        "complete": [
+          "GKIP2"
+        ]
+      },
+      {
+        "complete": [
+          "GKIP3"
+        ]
+      },
+      {
+        "complete": [
+          "GKIP4"
+        ]
+      }
+    ],
+    "achievementsAwarded": [
+      "PGD"
+    ],
+    "quests": [
+      103
+    ],
+    "summary": "V minulosti byl odcizen důležitý předmět. Pokud bude navrácen tam, kam náleží, odhalí nové znalosti přítomnosti. Kassandra vás vysílá napravit dávnou křivdu."
+  },
+  {
+    "id": "104",
+    "name": "Otevřená rána",
+    "location": "J-3",
+    "isSide": false,
+    "coordinates": {
+      "name": "J-3",
+      "x": 12.9,
+      "y": 60.13
+    },
+    "linksTo": [
+      111
+    ],
+    "linkedFrom": [
+      99
+    ],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "“Major Mana Potion” (Item 048)"
+      ]
+    },
+    "chapterId": 22,
+    "regionIds": [
+      9
+    ],
+    "pages": [
+      "fc/1/13",
+      "fc/2/19",
+      "fc/2/26",
+      "fc/2/28",
+      "fc/2/33"
+    ],
+    "game": "fc",
+    "nameCz": "Otevřená rána",
+    "requirements": "Knowledge is Power (Global)x2 COMPLETE",
+    "requiredBy": [
+      {
+        "complete": [
+          "GKIP2"
+        ]
+      },
+      {
+        "complete": [
+          "GKIP3"
+        ]
+      },
+      {
+        "complete": [
+          "GKIP4"
+        ]
+      }
+    ],
+    "achievementsAwarded": [
+      "PDE"
+    ],
+    "quests": [
+      104
+    ],
+    "summary": "Chaos sfér přitahuje slabomyslné duše ochotné sloužit zkaženosti. Vydáváte se zklidnit otevřenou ránu v předivu reality, kde se hordy tvorů derou do našeho světa."
+  },
+  {
+    "id": "105",
+    "name": "Zrůdnosti kultu",
+    "location": "B-10",
+    "isSide": false,
+    "coordinates": {
+      "name": "B-10",
+      "x": 41.55,
+      "y": 10.4
+    },
+    "linksTo": [
+      111
+    ],
+    "linkedFrom": [
+      99
+    ],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "“Major Antidote” (Item 154)"
+      ]
+    },
+    "chapterId": 22,
+    "regionIds": [
+      5
+    ],
+    "pages": [
+      "fc/1/14",
+      "fc/2/4",
+      "fc/2/11",
+      "fc/2/29"
+    ],
+    "game": "fc",
+    "nameCz": "Zrůdnosti kultu",
+    "requirements": "Knowledge is Power (Global)x2 COMPLETE and Hunting the Hunter (Party) INCOMPLETE",
+    "requiredBy": [
+      {
+        "complete": [
+          "GKIP2"
+        ],
+        "incomplete": [
+          "PHH"
+        ]
+      },
+      {
+        "complete": [
+          "GKIP3"
+        ],
+        "incomplete": [
+          "PHH"
+        ]
+      },
+      {
+        "complete": [
+          "GKIP4"
+        ],
+        "incomplete": [
+          "PHH"
+        ]
+      }
+    ],
+    "quests": [
+      105
+    ],
+    "summary": "Vliv zkaženosti je patrný úplně všude. Kultisté experimentují s děsivými kříženci a stvořili zrůdy, které je třeba zastavit dříve, než se vymknou kontrole."
+  },
+  {
+    "id": "106",
+    "name": "Spletité dílo",
+    "location": "I-12",
+    "isSide": false,
+    "coordinates": {
+      "name": "I-12",
+      "x": 54.6,
+      "y": 52.4
+    },
+    "linksTo": [
+      112
+    ],
+    "linkedFrom": [
+      100
+    ],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": []
+    },
+    "chapterId": 23,
+    "regionIds": [
+      10
+    ],
+    "pages": [
+      "fc/1/15",
+      "fc/2/6",
+      "fc/2/5",
+      "fc/2/7",
+      "fc/2/13",
+      "fc/2/23",
+      "fc/2/29",
+      "fc/2/30",
+      "fc/2/37",
+      "fc/2/39"
+    ],
+    "game": "fc",
+    "nameCz": "Spletité dílo",
+    "requirements": "Knowledge is Power (Global)x2 COMPLETE",
+    "requiredBy": [
+      {
+        "complete": [
+          "GKIP2"
+        ]
+      },
+      {
+        "complete": [
+          "GKIP3"
+        ]
+      },
+      {
+        "complete": [
+          "GKIP4"
+        ]
+      }
+    ],
+    "quests": [
+      106
+    ],
+    "summary": "Sesbírejte součástky stroje, který zapříčinil Zvrat. Vraťte se po stopách a napravte chyby minulosti. Spletité dílo vyžaduje trpělivost a preciznost."
+  },
+  {
+    "id": "107",
+    "name": "Geniální mechanismus",
+    "location": "F-14",
+    "isSide": false,
+    "coordinates": {
+      "name": "F-14",
+      "x": 62.62,
+      "y": 36.5
+    },
+    "linksTo": [
+      112
+    ],
+    "linkedFrom": [
+      100
+    ],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "5 experience each"
+      ]
+    },
+    "chapterId": 23,
+    "regionIds": [
+      11
+    ],
+    "pages": [
+      "fc/1/16",
+      "fc/2/3",
+      "fc/2/5",
+      "fc/2/7",
+      "fc/2/11",
+      "fc/2/15",
+      "fc/2/17",
+      "fc/2/19",
+      "fc/2/30",
+      "fc/2/31",
+      "fc/2/39",
+      "fc/2/40"
+    ],
+    "game": "fc",
+    "nameCz": "Geniální mechanismus",
+    "requirements": "Knowledge is Power (Global)x2 COMPLETE",
+    "requiredBy": [
+      {
+        "complete": [
+          "GKIP2"
+        ]
+      },
+      {
+        "complete": [
+          "GKIP3"
+        ]
+      },
+      {
+        "complete": [
+          "GKIP4"
+        ]
+      }
+    ],
+    "quests": [
+      107
+    ],
+    "summary": "Kassandra se ptala lodních kapitánů na Bastianovu další laboratoř. V té oblasti jsou prý jen krysáci. Laboratoř bude nepochybně pod zemí a úplně odříznutá od povrchu."
+  },
+  {
+    "id": "108",
+    "name": "Předehra konce",
+    "location": "O-1",
+    "isSide": false,
+    "coordinates": {
+      "name": "O-1",
+      "x": 5.4,
+      "y": 88.55
+    },
+    "linksTo": [],
+    "linkedFrom": [
+      101
+    ],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": []
+    },
+    "chapterId": 24,
+    "regionIds": [
+      4
+    ],
+    "pages": [
+      "fc/1/17",
+      "fc/2/13",
+      "fc/2/16",
+      "fc/2/33",
+      "fc/2/34",
+      "fc/2/36",
+      "fc/2/38"
+    ],
+    "game": "fc",
+    "nameCz": "Předehra konce",
+    "requirements": "Knowledge is Power (Global)x2 COMPLETE",
+    "requiredBy": [
+      {
+        "complete": [
+          "GKIP2"
+        ]
+      },
+      {
+        "complete": [
+          "GKIP3"
+        ]
+      },
+      {
+        "complete": [
+          "GKIP4"
+        ]
+      }
+    ],
+    "quests": [
+      108
+    ],
+    "summary": "Události Války démonů jsou zahaleny tajemstvím. Staňte se svědky krveprolití a učte se od mrtvých. Předehra konce odhaluje temné kapitoly historie."
+  },
+  {
+    "id": "109",
+    "name": "Epilog války",
+    "location": "N-4",
+    "isSide": false,
+    "coordinates": {
+      "name": "N-4",
+      "x": 20.9,
+      "y": 81
+    },
+    "linksTo": [
+      113
+    ],
+    "linkedFrom": [
+      101
+    ],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "10 experience each",
+        "“Protective Charm” (Item 052)"
+      ]
+    },
+    "chapterId": 24,
+    "regionIds": [
+      4
+    ],
+    "pages": [
+      "fc/1/18",
+      "fc/2/20"
+    ],
+    "game": "fc",
+    "nameCz": "Epilog války",
+    "requirements": "Knowledge is Power (Global)x2 COMPLETE",
+    "requiredBy": [
+      {
+        "complete": [
+          "GKIP2"
+        ]
+      },
+      {
+        "complete": [
+          "GKIP3"
+        ]
+      },
+      {
+        "complete": [
+          "GKIP4"
+        ]
+      }
+    ],
+    "quests": [
+      109
+    ],
+    "summary": "Ztracená láska je možná jedinou nadějí na přehrazení potoků krve. Vydáváte se po stopách dávné tragédie, abyste pochopili, co vedlo k válce démonů."
+  },
+  {
+    "id": "110",
+    "name": "Kruhové řešení",
+    "location": "L-19",
+    "isSide": false,
+    "coordinates": {
+      "name": "L-19",
+      "x": 86.35,
+      "y": 64.7
+    },
+    "linksTo": [
+      114
+    ],
+    "linkedFrom": [
+      102,
+      103
+    ],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "“Crystal Tiara” (Item 163)"
+      ]
+    },
+    "chapterId": 21,
+    "regionIds": [
+      8
+    ],
+    "pages": [
+      "fc/1/19",
+      "fc/2/19",
+      "fc/2/25",
+      "fc/2/40",
+      "fc/2/41"
+    ],
+    "game": "fc",
+    "nameCz": "Kruhové řešení",
+    "achievementsAwarded": [
+      "GPA"
+    ],
+    "quests": [
+      110
+    ],
+    "summary": "Všechny dosavadní stopy se sbíhají. Kassandra věří, že nalezla kruhové řešení, které propojí jednotlivé střípky poznání a odhalí cestu vpřed."
+  },
+  {
+    "id": "111",
+    "name": "Pouta povolují",
+    "location": "B-18",
+    "isSide": false,
+    "coordinates": {
+      "name": "B-18",
+      "x": 79.85,
+      "y": 9.15
+    },
+    "linksTo": [
+      114
+    ],
+    "linkedFrom": [
+      104,
+      105
+    ],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": []
+    },
+    "chapterId": 22,
+    "regionIds": [
+      1
+    ],
+    "pages": [
+      "fc/1/20",
+      "fc/2/15",
+      "fc/2/22",
+      "fc/2/23",
+      "fc/2/24",
+      "fc/2/27",
+      "fc/2/30",
+      "fc/2/32",
+      "fc/2/35",
+      "fc/2/39",
+      "fc/2/41"
+    ],
+    "game": "fc",
+    "nameCz": "Pouta povolují",
+    "quests": [
+      111
+    ],
+    "summary": "Pouta, která drží zkaženost na uzdě, začínají povolovat. Musíte jednat rychle, než se temná energie vymaní z omezení a zaplaví svět."
+  },
+  {
+    "id": "112",
+    "name": "Na dně",
+    "location": "E-16",
+    "isSide": false,
+    "coordinates": {
+      "name": "E-16",
+      "x": 71.65,
+      "y": 26.7
+    },
+    "linksTo": [
+      114
+    ],
+    "linkedFrom": [
+      106,
+      107
+    ],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": []
+    },
+    "chapterId": 23,
+    "regionIds": [
+      10
+    ],
+    "pages": [
+      "fc/1/21",
+      "fc/2/23",
+      "fc/2/40"
+    ],
+    "game": "fc",
+    "nameCz": "Na dně",
+    "requirements": "Pieces of an Artifact (Global)x3 COMPLETE",
+    "requiredBy": [
+      {
+        "complete": [
+          "GPOA3"
+        ]
+      }
+    ],
+    "quests": [
+      112
+    ],
+    "summary": "Kutilova dílna skrývá poslední kousek skládačky. Na dně podzemní laboratoře vás čeká odpověď na otázku, zda lze sférochod opravit a zvrátit škody."
+  },
+  {
+    "id": "113",
+    "name": "Ztracen v předivu",
+    "location": "H-16",
+    "isSide": false,
+    "coordinates": {
+      "name": "H-16",
+      "x": 76.4,
+      "y": 44.8
+    },
+    "linksTo": [
+      114
+    ],
+    "linkedFrom": [
+      109
+    ],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "135 gold each",
+        "This money must immediately be spent on any Move {MOVE}, Range {RANGE} or Jump {JUMP} enhancements",
+        "+1 prosperity"
+      ]
+    },
+    "chapterId": 24,
+    "regionIds": [
+      12
+    ],
+    "pages": [
+      "fc/1/22",
+      "fc/2/11",
+      "fc/2/20",
+      "fc/2/31",
+      "fc/2/35",
+      "fc/2/37"
+    ],
+    "game": "fc",
+    "nameCz": "Ztracen v předivu",
+    "achievementsAwarded": [
+      "GPA"
+    ],
+    "quests": [
+      113
+    ],
+    "summary": "Musíte se vydat na místo, odkud byl Naaret unesen. Za závojem mezi sférami by měly být nepatrné stopy, podle kterých snad zjistíte, kam ho odvedli."
+  },
+  {
+    "id": "114",
+    "name": "Inkoust ještě nezaschl",
+    "location": "E-14",
+    "isSide": false,
+    "coordinates": {
+      "name": "E-14",
+      "x": 61.95,
+      "y": 28.4
+    },
+    "linksTo": [
+      115
+    ],
+    "linkedFrom": [
+      110,
+      111,
+      112,
+      113
+    ],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "Party Boon: Additional costs of enhancing an ability card based on the level of the card are now reduced by 5 gold per level."
+      ]
+    },
+    "chapterId": 25,
+    "regionIds": [
+      1
+    ],
+    "pages": [
+      "fc/1/23",
+      "fc/2/7",
+      "fc/2/32"
+    ],
+    "game": "fc",
+    "nameCz": "Inkoust ještě nezaschl",
+    "requirements": "A Peril Averted (Global)x2 COMPLETE",
+    "requiredBy": [
+      {
+        "complete": [
+          "GPA2"
+        ]
+      },
+      {
+        "complete": [
+          "GPA3"
+        ]
+      },
+      {
+        "complete": [
+          "GPA4"
+        ]
+      }
+    ],
+    "quests": [
+      114
+    ],
+    "summary": "Všechny čtyři cesty se sbíhají. S nashromážděnými znalostmi a artefakty se konečně můžete pokusit zastavit zkaženost jednou provždy. Inkoust dějin ještě nezaschl."
+  },
+  {
+    "id": "115",
+    "name": "Nejistá budoucnost",
+    "location": "H-16",
+    "isSide": false,
+    "coordinates": {
+      "name": "H-16",
+      "x": 70.8,
+      "y": 45.1
+    },
+    "linksTo": [],
+    "linkedFrom": [
+      114
+    ],
+    "treasures": [],
+    "rewards": {
+      "gold": 0,
+      "xp": 0,
+      "reputation": 0,
+      "prosperity": 0,
+      "achievements": [],
+      "partyAchievements": [],
+      "text": [
+        "+3 reputation",
+        "+1 prosperity",
+        "Retire the Aesther Diviner {DR}",
+        "Add City and Road Events 83 to their respective decks"
+      ]
+    },
+    "chapterId": 25,
+    "regionIds": [
+      12
+    ],
+    "pages": [
+      "fc/1/24",
+      "fc/2/8",
+      "fc/2/18"
+    ],
+    "game": "fc",
+    "nameCz": "Nejistá budoucnost",
+    "achievementsAwarded": [
+      "GST"
+    ],
+    "quests": [
+      115
+    ],
+    "summary": "Poslední bitva je na dosah. Budoucnost je nejistá, ale vaše odhodlání pevné. Kassandra otevírá poslední portál — ať už vás čeká cokoli, čelíte tomu společně."
   }
 ]

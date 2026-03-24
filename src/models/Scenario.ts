@@ -67,6 +67,9 @@ export interface ScenarioData {
   hasBoss?: boolean
   solo?: string
 
+  // Game/expansion (undefined = base GH, 'fc' = Forgotten Circles)
+  game?: string
+
   // Quest references
   quests?: number[]
 

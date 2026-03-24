@@ -39,10 +39,10 @@ export function useStorylineSvg(containerRef: Ref<HTMLElement | null>) {
     return containerRef.value?.querySelector(`#chapter${id}`) ?? null
   }
 
-  // ViewBox — must include ALL content (main + side scenarios)
+  // ViewBox — must include ALL content (main + side + FC scenarios)
   const VIEWBOX = {
-    portrait: '0 -70 420 1080',
-    landscape: '0 -40 610 700',
+    portrait: '0 -70 420 1500',
+    landscape: '0 -40 610 1300',
   }
 
   // ── Init ──
@@ -357,6 +357,28 @@ export function useStorylineSvg(containerRef: Ref<HTMLElement | null>) {
 
       // Side scenarios are always visible in the SVG, so always show their chapters
       ;(chapter as HTMLElement).style.display = hasVisible || storyFilter === 'side' ? '' : 'none'
+    }
+
+    // FC chapters (20-25): show if scenario 51 is completed (end of base game)
+    const fcGroup = containerRef.value?.querySelector('#fc-storyline') as HTMLElement | null
+    if (fcGroup) {
+      const hasAnyFc = scenarioStore.scenarioDefinitions.some(
+        (s) => s.game === 'fc' && statuses[s.id] !== ScenarioStatus.HIDDEN
+      )
+      fcGroup.style.display = hasAnyFc ? '' : 'none'
+
+      for (const chapterId of [20, 21, 22, 23, 24, 25]) {
+        const chapter = queryChapter(String(chapterId))
+        if (!chapter) continue
+        if (chapterId === 20) {
+          ;(chapter as HTMLElement).style.display = ''
+          continue
+        }
+        const hasCompleted = scenarioStore.scenarioDefinitions.some(
+          (s) => s.chapterId === chapterId && statuses[s.id] === ScenarioStatus.COMPLETED
+        )
+        ;(chapter as HTMLElement).style.display = hasCompleted ? '' : 'none'
+      }
     }
   }
 

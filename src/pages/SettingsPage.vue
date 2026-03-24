@@ -33,6 +33,7 @@ const showBtc = ref(false)
 const showResetConfirm = ref(false)
 const showDeleteProfileConfirm = ref(false)
 const importError = ref('')
+const showSnapshots = ref(false)
 const exportSuccess = ref(false)
 const importSuccess = ref(false)
 
@@ -817,34 +818,46 @@ function formatDate(iso: string): string {
     <!-- ── Zálohy ── -->
     <div v-if="campaignStore.hasCampaign" class="gh-card relative overflow-hidden p-6 mb-5">
       <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-blue-500"></div>
-      <div class="flex items-center gap-2 mb-4">
-        <div class="w-7 h-7 rounded-lg bg-blue-500/15 flex items-center justify-center">
+      <div
+        class="flex items-center gap-2 cursor-pointer select-none"
+        @click="showSnapshots = !showSnapshots"
+      >
+        <div class="w-7 h-7 rounded-lg bg-blue-500/15 flex items-center justify-center shrink-0">
           <svg class="w-4 h-4 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
           </svg>
         </div>
         <h3 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider">Automatické zálohy</h3>
-        <span class="text-[10px] text-gray-600 ml-auto">max {{ campaignStore.getSnapshots().length }}/20</span>
-      </div>
-      <div v-if="campaignStore.getSnapshots().length === 0" class="text-xs text-gray-600">
-        Zatím žádné zálohy. Zálohy se vytvářejí automaticky při každé změně.
-      </div>
-      <div v-else class="space-y-1 max-h-48 overflow-y-auto">
-        <div
-          v-for="(snap, idx) in campaignStore.getSnapshots()"
-          :key="idx"
-          class="flex items-center justify-between text-xs px-2 py-1.5 rounded-lg hover:bg-white/[0.03] transition-colors"
+        <span class="text-[10px] text-gray-600 ml-auto mr-2">{{ campaignStore.getSnapshots().length }}/20</span>
+        <svg
+          class="w-4 h-4 text-gray-600 transition-transform duration-200"
+          :class="{ 'rotate-180': showSnapshots }"
+          fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
         >
-          <span class="text-gray-500 font-mono">
-            {{ new Date(snap.ts).toLocaleDateString('cs') }}
-            {{ new Date(snap.ts).toLocaleTimeString('cs', { hour: '2-digit', minute: '2-digit', second: '2-digit' }) }}
-          </span>
-          <button
-            class="text-blue-400 hover:text-blue-300 text-[10px] px-2 py-0.5 rounded border border-blue-800/30 hover:bg-blue-900/20 transition-colors"
-            @click="restoreSnapshotConfirm(idx)"
+          <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+        </svg>
+      </div>
+      <div v-if="showSnapshots" class="mt-4">
+        <div v-if="campaignStore.getSnapshots().length === 0" class="text-xs text-gray-600">
+          Zatím žádné zálohy. Zálohy se vytvářejí automaticky při každé změně.
+        </div>
+        <div v-else class="space-y-1 max-h-48 overflow-y-auto">
+          <div
+            v-for="(snap, idx) in campaignStore.getSnapshots()"
+            :key="idx"
+            class="flex items-center justify-between text-xs px-2 py-1.5 rounded-lg hover:bg-white/[0.03] transition-colors"
           >
-            Obnovit
-          </button>
+            <span class="text-gray-500 font-mono text-[11px]">
+              {{ new Date(snap.ts).toLocaleDateString('cs') }}
+              {{ new Date(snap.ts).toLocaleTimeString('cs', { hour: '2-digit', minute: '2-digit', second: '2-digit' }) }}
+            </span>
+            <button
+              class="text-blue-400 hover:text-blue-300 text-[10px] px-2 py-0.5 rounded border border-blue-800/30 hover:bg-blue-900/20 transition-colors shrink-0 ml-2"
+              @click="restoreSnapshotConfirm(idx)"
+            >
+              Obnovit
+            </button>
+          </div>
         </div>
       </div>
     </div>
