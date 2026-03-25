@@ -139,16 +139,29 @@ export const useCampaignStore = defineStore('campaign', () => {
         }
 
         currentCampaign.value = campaign
+        // Remember last active campaign for auto-load on refresh
+        try { localStorage.setItem('gh_last_campaign', id) } catch {}
       }
     } finally {
       isLoading.value = false
     }
   }
 
+  async function autoLoadLastCampaign() {
+    if (currentCampaign.value) return // already loaded
+    try {
+      const lastId = localStorage.getItem('gh_last_campaign')
+      if (lastId) {
+        await loadCampaign(lastId)
+      }
+    } catch {}
+  }
+
   async function deleteCampaign(id: string) {
     await useStorage().deleteCampaign(id)
     if (currentCampaign.value?.id === id) {
       currentCampaign.value = null
+      try { localStorage.removeItem('gh_last_campaign') } catch {}
     }
     await loadCampaignList()
   }
@@ -325,6 +338,7 @@ export const useCampaignStore = defineStore('campaign', () => {
     loadCampaignList,
     createCampaign,
     loadCampaign,
+    autoLoadLastCampaign,
     deleteCampaign,
     autoSave,
     exportCampaign,
