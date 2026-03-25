@@ -861,29 +861,27 @@ const availableClasses = computed(() => {
               </select>
             </div>
 
-            <div class="flex items-end gap-3">
-              <div class="flex-1">
-                <textarea
-                  :value="char.notes"
-                  placeholder="Poznámky..."
-                  class="gh-input w-full resize-y min-h-[40px] text-sm"
-                  @input="characterStore.setNotes(char.uuid, inputValue($event))"
-                />
+            <div>
+              <textarea
+                :value="char.notes"
+                placeholder="Poznámky..."
+                class="gh-input w-full resize-y min-h-[40px] text-sm mb-3"
+                @input="characterStore.setNotes(char.uuid, inputValue($event))"
+              />
+              <div v-if="showRetireConfirm !== char.uuid && showDeleteConfirm !== char.uuid" class="flex gap-3">
+                <button
+                  class="py-2 px-4 bg-amber-900/15 text-amber-400/80 rounded-lg hover:bg-amber-900/30 hover:text-amber-400 transition-all text-xs border border-amber-900/25"
+                  @click="showRetireConfirm = char.uuid"
+                >
+                  Poslat do důchodu
+                </button>
+                <button
+                  class="py-2 px-4 bg-red-900/15 text-red-400/80 rounded-lg hover:bg-red-900/30 hover:text-red-400 transition-all text-xs border border-red-900/25"
+                  @click="showDeleteConfirm = char.uuid"
+                >
+                  Odstranit
+                </button>
               </div>
-              <button
-                v-if="showRetireConfirm !== char.uuid && showDeleteConfirm !== char.uuid"
-                class="py-2 px-4 bg-amber-900/15 text-amber-400/80 rounded-lg hover:bg-amber-900/30 hover:text-amber-400 transition-all text-xs border border-amber-900/25 shrink-0"
-                @click="showRetireConfirm = char.uuid"
-              >
-                Poslat do důchodu
-              </button>
-              <button
-                v-if="showRetireConfirm !== char.uuid && showDeleteConfirm !== char.uuid"
-                class="py-2 px-4 bg-red-900/15 text-red-400/80 rounded-lg hover:bg-red-900/30 hover:text-red-400 transition-all text-xs border border-red-900/25 shrink-0"
-                @click="showDeleteConfirm = char.uuid"
-              >
-                Odstranit
-              </button>
             </div>
 
             <!-- Delete confirmation -->

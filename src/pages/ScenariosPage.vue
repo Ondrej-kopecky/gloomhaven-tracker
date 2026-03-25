@@ -6,6 +6,10 @@ import { useCampaignStore } from '@/stores/campaignStore'
 import { useScenarioStore } from '@/stores/scenarioStore'
 import { useFlowchartStore } from '@/stores/flowchartStore'
 import { useAchievementStore } from '@/stores/achievementStore'
+import { useCharacterStore } from '@/stores/characterStore'
+import monstersData from '@/data/source/monsters-gh.json'
+import scenarioMonstersData from '@/data/source/scenario-monsters-gh.json'
+import monsterStatsData from '@/data/source/monster-stats-gh.json'
 
 const router = useRouter()
 const route = useRoute()
@@ -13,6 +17,7 @@ const campaignStore = useCampaignStore()
 const scenarioStore = useScenarioStore()
 const flowchartStore = useFlowchartStore()
 const achievementStore = useAchievementStore()
+const characterStore = useCharacterStore()
 
 const search = ref('')
 
@@ -224,6 +229,166 @@ function inputValue(e: Event): string {
 function goToFlowchart(id: string) {
   flowchartStore.selectNode(id)
   router.push('/prehled')
+}
+
+// ── Monster data ──────────────────────────────────────────────────────
+
+const monsterMap = new Map(monstersData.map((m) => [m.id, m]))
+const allScenarioMonsters = scenarioMonstersData as Record<string, { monsters: string[]; rooms: { roomNumber: number; monster: { name: string; type?: string; player2?: string; player3?: string; player4?: string }[] }[] }>
+
+const playerCount = computed(() => {
+  const count = characterStore.activeCharacters.length
+  return count >= 2 && count <= 4 ? count : 2
+})
+
+interface MonsterCount {
+  id: string
+  nameCz: string
+  name: string
+  isBoss: boolean
+  flies: boolean
+  normal: number
+  elite: number
+}
+
+function getMonstersForScenario(scenarioId: string): MonsterCount[] {
+  const data = allScenarioMonsters[scenarioId]
+  if (!data) return []
+
+  const pc = playerCount.value as 2 | 3 | 4
+  const pcKey = `player${pc}` as 'player2' | 'player3' | 'player4'
+  const counts = new Map<string, { normal: number; elite: number }>()
+
+  for (const room of data.rooms) {
+    for (const m of room.monster) {
+      const baseId = m.name.replace(/-scenario-\d+$/, '')
+      let type: string | undefined
+      if (m.type) type = m.type
+      else if (m[pcKey]) type = m[pcKey]
+
+      if (type) {
+        if (!counts.has(baseId)) counts.set(baseId, { normal: 0, elite: 0 })
+        const c = counts.get(baseId)!
+        if (type === 'elite') c.elite++
+        else if (type === 'normal') c.normal++
+        else if (type === 'boss') c.normal = Math.max(c.normal, 1)
+      }
+    }
+  }
+
+  const result: MonsterCount[] = []
+  for (const [id, c] of counts) {
+    const info = monsterMap.get(id)
+    result.push({
+      id,
+      nameCz: info?.nameCz ?? id,
+      name: info?.name ?? id,
+      isBoss: info?.isBoss ?? false,
+      flies: (info as any)?.flies ?? false,
+      normal: info?.isBoss ? 0 : c.normal,
+      elite: info?.isBoss ? 0 : c.elite,
+    })
+  }
+
+  return result.sort((a, b) => {
+    if (a.isBoss !== b.isBoss) return a.isBoss ? 1 : -1
+    return a.nameCz.localeCompare(b.nameCz, 'cs')
+  })
+}
+
+const selectedMonsters = computed(() =>
+  selectedScenario.value ? getMonstersForScenario(selectedScenario.value.id) : []
+)
+
+const selectedMonsterTotalCount = computed(() =>
+  selectedMonsters.value.reduce((sum, m) => sum + m.normal + m.elite + (m.isBoss ? 1 : 0), 0)
+)
+
+// Monster detail popup
+const selectedMonsterId = ref<string | null>(null)
+const allMonsterStats = monsterStatsData as Record<string, { count: number; flying: boolean; boss: boolean; immunities?: string[]; stats: { level: number; type: string; health: number | string; movement?: number; attack: number; range?: number; actions?: any[] }[] }>
+
+const scenarioLevel = computed(() => {
+  const avg = characterStore.averageLevel
+  return Math.ceil(avg / 2)
+})
+
+const ACTION_LABELS: Record<string, string> = {
+  shield: 'Štít',
+  retaliate: 'Odveta',
+  target: 'Cíle',
+  pierce: 'Průraz',
+  push: 'Odstrčení',
+  pull: 'Přitažení',
+  heal: 'Léčení',
+  range: 'Dostřel',
+  move: 'Pohyb',
+  attack: 'Útok',
+  condition: '',
+}
+
+const CONDITION_LABELS: Record<string, string> = {
+  wound: 'Zranění',
+  poison: 'Otrava',
+  muddle: 'Zmatení',
+  immobilize: 'Znehybnění',
+  disarm: 'Odzbrojení',
+  stun: 'Omráčení',
+  curse: 'Kletba',
+  bless: 'Požehnání',
+  strengthen: 'Posílení',
+  invisible: 'Neviditelnost',
+  pierce: 'Průraz',
+  push: 'Odstrčení',
+  pull: 'Přitažení',
+}
+
+function formatActions(actions?: any[]): string[] {
+  if (!actions) return []
+  return actions.map((a: any) => {
+    if (a.type === 'condition') return CONDITION_LABELS[a.value] ?? a.value
+    const label = ACTION_LABELS[a.type] ?? a.type
+    return `${label} ${a.value}`
+  })
+}
+
+const selectedMonsterDetail = computed(() => {
+  if (!selectedMonsterId.value) return null
+  const info = monsterMap.get(selectedMonsterId.value)
+  if (!info) return null
+
+  // Find all scenarios where this monster appears
+  const appearsIn: { id: string; name: string }[] = []
+  for (const [sid, data] of Object.entries(allScenarioMonsters)) {
+    if (data.monsters.some((m: string) => m === info.id || m.replace(/-scenario-\d+$/, '') === info.id)) {
+      const def = scenarioStore.getDefinition(sid)
+      appearsIn.push({ id: sid, name: def?.nameCz ?? def?.name ?? `Scénář ${sid}` })
+    }
+  }
+
+  // Get stats for current scenario level
+  const statsData = allMonsterStats[info.id]
+  const level = scenarioLevel.value
+  let normalStats = null
+  let eliteStats = null
+
+  if (statsData) {
+    normalStats = statsData.stats.find(s => s.level === level && s.type === 'normal') ?? null
+    eliteStats = statsData.stats.find(s => s.level === level && s.type === 'elite') ?? null
+    if (statsData.boss) {
+      normalStats = statsData.stats.find(s => s.level === level) ?? null
+    }
+  }
+
+  return { ...info, appearsIn, statsData, normalStats, eliteStats, level }
+})
+
+function openMonsterDetail(monsterId: string) {
+  selectedMonsterId.value = monsterId
+}
+
+function closeMonsterDetail() {
+  selectedMonsterId.value = null
 }
 </script>
 
@@ -530,6 +695,43 @@ function goToFlowchart(id: string) {
                 </div>
               </div>
 
+              <!-- monsters -->
+              <div v-if="selectedMonsters.length > 0">
+                <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
+                  Příšery
+                  <span class="text-gray-600 normal-case font-normal ml-1">· {{ playerCount }} hráči · {{ selectedMonsterTotalCount }} celkem</span>
+                </h3>
+                <div class="grid grid-cols-2 gap-1.5">
+                  <button
+                    v-for="m in selectedMonsters"
+                    :key="m.id"
+                    class="rounded-lg px-2.5 py-2 border text-left transition-colors"
+                    :class="m.isBoss
+                      ? 'bg-red-900/15 border-red-900/30 col-span-2 hover:bg-red-900/25'
+                      : 'bg-white/[0.03] border-gh-border/30 hover:bg-white/[0.06]'"
+                    @click.stop="openMonsterDetail(m.id)"
+                  >
+                    <div class="flex items-center gap-1.5 text-sm leading-tight" :class="m.isBoss ? 'text-red-400 font-semibold' : 'text-gray-300'">
+                      {{ m.nameCz }}
+                      <img v-if="m.flies" src="/img/icons/general/flying.png" alt="Létá" class="w-3.5 h-3.5 opacity-50" />
+                    </div>
+                    <div class="flex items-center gap-2 mt-1 text-[11px]">
+                      <template v-if="m.isBoss">
+                        <span class="px-1.5 py-0.5 rounded bg-red-900/30 text-red-400/90 font-display">BOSS</span>
+                      </template>
+                      <template v-else>
+                        <span v-if="m.elite > 0" class="px-1.5 py-0.5 rounded bg-yellow-900/20 text-yellow-400/90">
+                          {{ m.elite }}× elitní
+                        </span>
+                        <span v-if="m.normal > 0" class="px-1.5 py-0.5 rounded bg-white/[0.04] text-gray-400">
+                          {{ m.normal }}× běžný
+                        </span>
+                      </template>
+                    </div>
+                  </button>
+                </div>
+              </div>
+
               <!-- linked scenarios (linksTo) -->
               <div v-if="selectedScenario.linksTo?.length">
                 <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Odemyká scénáře</h3>
@@ -621,6 +823,158 @@ function goToFlowchart(id: string) {
                 >
                   Zavřít
                 </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Transition>
+
+      <!-- Monster detail popup -->
+      <Transition name="modal">
+        <div
+          v-if="selectedMonsterDetail"
+          class="fixed inset-0 z-[60] flex items-center justify-center p-4"
+          @click.self="closeMonsterDetail"
+        >
+          <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+          <div class="relative w-full max-w-sm bg-gh-card border border-gh-border rounded-2xl shadow-2xl overflow-hidden">
+            <!-- header -->
+            <div class="px-5 pt-5 pb-3 border-b border-gh-border/50">
+              <div class="flex items-start justify-between">
+                <div>
+                  <h3 class="font-display text-lg font-bold" :class="selectedMonsterDetail.isBoss ? 'text-red-400' : 'text-gray-200'">
+                    {{ selectedMonsterDetail.nameCz }}
+                  </h3>
+                  <div class="flex items-center gap-2 mt-0.5">
+                    <span class="text-xs text-gray-500">{{ selectedMonsterDetail.name }}</span>
+                    <span v-if="(selectedMonsterDetail as any).type" class="text-[10px] px-1.5 py-0.5 rounded bg-white/[0.04] text-gray-500 border border-gh-border/30">
+                      {{ (selectedMonsterDetail as any).type }}
+                    </span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span v-if="(selectedMonsterDetail as any).flies" class="px-2 py-0.5 rounded-full bg-sky-900/25 text-sky-400 text-[10px] border border-sky-900/30 flex items-center gap-1">
+                    <img src="/img/icons/general/flying.png" alt="" class="w-3 h-3" />
+                    létá
+                  </span>
+                  <span v-if="selectedMonsterDetail.isBoss" class="px-2 py-0.5 rounded-full bg-red-900/25 text-red-400 text-[10px] font-display border border-red-900/30">
+                    BOSS
+                  </span>
+                  <button class="p-1 text-gray-600 hover:text-gray-300 transition-colors" @click="closeMonsterDetail">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- body -->
+            <div class="px-5 py-4 max-h-[60vh] overflow-y-auto space-y-4">
+              <!-- description -->
+              <p v-if="(selectedMonsterDetail as any).description" class="text-sm text-gray-400 leading-relaxed italic">
+                {{ (selectedMonsterDetail as any).description }}
+              </p>
+
+              <!-- stats -->
+              <div v-if="selectedMonsterDetail.normalStats || selectedMonsterDetail.eliteStats">
+                <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-2">
+                  Staty
+                  <span class="text-gray-600 normal-case font-normal">· úroveň {{ selectedMonsterDetail.level }}</span>
+                </h4>
+                <div class="grid gap-2" :class="selectedMonsterDetail.eliteStats ? 'grid-cols-2' : 'grid-cols-1'">
+                  <!-- Normal / Boss stats -->
+                  <div v-if="selectedMonsterDetail.normalStats" class="rounded-lg border p-3" :class="selectedMonsterDetail.isBoss ? 'border-red-900/30 bg-red-900/10' : 'border-gh-border/30 bg-white/[0.02]'">
+                    <div class="text-[10px] font-semibold uppercase tracking-wider mb-2" :class="selectedMonsterDetail.isBoss ? 'text-red-400' : 'text-gray-500'">
+                      {{ selectedMonsterDetail.isBoss ? 'Boss' : 'Běžný' }}
+                    </div>
+                    <div class="space-y-1 text-xs">
+                      <div class="flex justify-between">
+                        <span class="text-gray-500">Životy</span>
+                        <span class="text-red-400 font-medium">{{ selectedMonsterDetail.normalStats.health }}</span>
+                      </div>
+                      <div v-if="selectedMonsterDetail.normalStats.movement !== undefined" class="flex justify-between">
+                        <span class="text-gray-500">Pohyb</span>
+                        <span class="text-blue-400 font-medium">{{ selectedMonsterDetail.normalStats.movement }}</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-gray-500">Útok</span>
+                        <span class="text-orange-400 font-medium">{{ selectedMonsterDetail.normalStats.attack }}</span>
+                      </div>
+                      <div v-if="selectedMonsterDetail.normalStats.range" class="flex justify-between">
+                        <span class="text-gray-500">Dostřel</span>
+                        <span class="text-cyan-400 font-medium">{{ selectedMonsterDetail.normalStats.range }}</span>
+                      </div>
+                      <div v-if="formatActions(selectedMonsterDetail.normalStats.actions).length" class="pt-1 border-t border-white/[0.06]">
+                        <div v-for="(a, i) in formatActions(selectedMonsterDetail.normalStats.actions)" :key="i" class="text-gray-400">
+                          {{ a }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Elite stats -->
+                  <div v-if="selectedMonsterDetail.eliteStats" class="rounded-lg border border-yellow-900/30 bg-yellow-900/10 p-3">
+                    <div class="text-[10px] font-semibold uppercase tracking-wider text-yellow-400 mb-2">Elitní</div>
+                    <div class="space-y-1 text-xs">
+                      <div class="flex justify-between">
+                        <span class="text-gray-500">Životy</span>
+                        <span class="text-red-400 font-medium">{{ selectedMonsterDetail.eliteStats.health }}</span>
+                      </div>
+                      <div v-if="selectedMonsterDetail.eliteStats.movement !== undefined" class="flex justify-between">
+                        <span class="text-gray-500">Pohyb</span>
+                        <span class="text-blue-400 font-medium">{{ selectedMonsterDetail.eliteStats.movement }}</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-gray-500">Útok</span>
+                        <span class="text-orange-400 font-medium">{{ selectedMonsterDetail.eliteStats.attack }}</span>
+                      </div>
+                      <div v-if="selectedMonsterDetail.eliteStats.range" class="flex justify-between">
+                        <span class="text-gray-500">Dostřel</span>
+                        <span class="text-cyan-400 font-medium">{{ selectedMonsterDetail.eliteStats.range }}</span>
+                      </div>
+                      <div v-if="formatActions(selectedMonsterDetail.eliteStats.actions).length" class="pt-1 border-t border-white/[0.06]">
+                        <div v-for="(a, i) in formatActions(selectedMonsterDetail.eliteStats.actions)" :key="i" class="text-yellow-400/80">
+                          {{ a }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- immunities (bosses) -->
+              <div v-if="selectedMonsterDetail.statsData?.immunities?.length">
+                <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-2">Imunity</h4>
+                <div class="flex flex-wrap gap-1.5">
+                  <span
+                    v-for="imm in selectedMonsterDetail.statsData.immunities"
+                    :key="imm"
+                    class="text-[11px] px-2 py-0.5 rounded bg-purple-900/20 text-purple-400/90 border border-purple-900/30"
+                  >
+                    {{ CONDITION_LABELS[imm] ?? imm }}
+                  </span>
+                </div>
+              </div>
+
+              <!-- scenarios -->
+              <div>
+                <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-2">
+                  Výskyt ve scénářích
+                  <span class="text-gray-600 normal-case font-normal">({{ selectedMonsterDetail.appearsIn.length }})</span>
+                </h4>
+                <div class="flex flex-wrap gap-1.5">
+                  <button
+                    v-for="s in selectedMonsterDetail.appearsIn"
+                    :key="s.id"
+                    class="text-xs px-2 py-1 rounded-lg border transition-colors cursor-pointer"
+                    :class="selectedScenario?.id === s.id
+                      ? 'bg-gh-primary/15 text-gh-primary border-gh-primary/30'
+                      : 'bg-white/[0.04] text-gray-400 border-gh-border/30 hover:bg-white/[0.06]'"
+                    @click="closeMonsterDetail(); openModal({ id: s.id })"
+                  >
+                    #{{ s.id }} {{ s.name }}
+                  </button>
+                </div>
               </div>
             </div>
           </div>

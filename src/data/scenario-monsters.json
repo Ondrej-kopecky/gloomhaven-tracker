@@ -1,0 +1,859 @@
+{
+  "1": {
+    "name": "Black Barrow",
+    "monsters": [
+      "bandit-archer",
+      "bandit-guard",
+      "living-bones"
+    ]
+  },
+  "2": {
+    "name": "Barrow Lair",
+    "monsters": [
+      "bandit-archer",
+      "bandit-commander",
+      "living-bones",
+      "living-corpse"
+    ]
+  },
+  "3": {
+    "name": "Inox Encampment",
+    "monsters": [
+      "inox-archer",
+      "inox-guard",
+      "inox-shaman"
+    ]
+  },
+  "4": {
+    "name": "Crypt of the Damned",
+    "monsters": [
+      "bandit-archer",
+      "cultist",
+      "earth-demon",
+      "living-bones",
+      "wind-demon"
+    ]
+  },
+  "5": {
+    "name": "Ruinous Crypt",
+    "monsters": [
+      "cultist",
+      "flame-demon",
+      "frost-demon",
+      "living-bones",
+      "night-demon"
+    ]
+  },
+  "6": {
+    "name": "Decaying Crypt",
+    "monsters": [
+      "living-bones",
+      "living-corpse",
+      "living-spirit"
+    ]
+  },
+  "7": {
+    "name": "Vibrant Grotto",
+    "monsters": [
+      "cave-bear",
+      "earth-demon",
+      "forest-imp",
+      "inox-shaman"
+    ]
+  },
+  "8": {
+    "name": "Gloomhaven Warehouse",
+    "monsters": [
+      "inox-bodyguard",
+      "living-bones",
+      "living-corpse"
+    ]
+  },
+  "9": {
+    "name": "Diamond Mine",
+    "monsters": [
+      "hound",
+      "merciless-overseer",
+      "vermling-scout"
+    ]
+  },
+  "10": {
+    "name": "Plane of Elemental Power",
+    "monsters": [
+      "earth-demon",
+      "flame-demon",
+      "sun-demon"
+    ]
+  },
+  "11": {
+    "name": "Gloomhaven Square A",
+    "monsters": [
+      "captain-of-the-guard",
+      "city-archer",
+      "city-guard",
+      "living-bones",
+      "living-corpse"
+    ]
+  },
+  "12": {
+    "name": "Gloomhaven Square B",
+    "monsters": [
+      "city-archer",
+      "city-guard",
+      "cultist",
+      "jekserah",
+      "living-bones",
+      "living-corpse"
+    ]
+  },
+  "13": {
+    "name": "Temple of the Seer",
+    "monsters": [
+      "cave-bear",
+      "living-spirit",
+      "spitting-drake",
+      "stone-golem"
+    ]
+  },
+  "14": {
+    "name": "Frozen Hollow",
+    "monsters": [
+      "frost-demon",
+      "hound",
+      "living-spirit"
+    ]
+  },
+  "15": {
+    "name": "Shrine of Strength",
+    "monsters": [
+      "frost-demon",
+      "harrower-infester",
+      "savvas-icestorm",
+      "stone-golem",
+      "wind-demon"
+    ]
+  },
+  "16": {
+    "name": "Mountain Pass",
+    "monsters": [
+      "earth-demon",
+      "inox-archer",
+      "inox-guard",
+      "wind-demon"
+    ]
+  },
+  "17": {
+    "name": "Lost Island",
+    "monsters": [
+      "cave-bear",
+      "vermling-scout",
+      "vermling-shaman"
+    ]
+  },
+  "18": {
+    "name": "Abandoned Sewers",
+    "monsters": [
+      "giant-viper",
+      "ooze",
+      "vermling-scout"
+    ]
+  },
+  "19": {
+    "name": "Forgotten Crypt",
+    "monsters": [
+      "cultist",
+      "living-bones",
+      "living-corpse",
+      "living-spirit"
+    ]
+  },
+  "20": {
+    "name": "Necromancer's Sanctum",
+    "monsters": [
+      "cultist",
+      "jekserah",
+      "living-bones",
+      "living-corpse",
+      "night-demon"
+    ]
+  },
+  "21": {
+    "name": "Infernal Throne",
+    "monsters": [
+      "earth-demon",
+      "flame-demon",
+      "frost-demon",
+      "night-demon",
+      "prime-demon",
+      "sun-demon",
+      "wind-demon"
+    ]
+  },
+  "22": {
+    "name": "Temple of the Elements",
+    "monsters": [
+      "cultist",
+      "earth-demon",
+      "flame-demon",
+      "frost-demon",
+      "living-bones",
+      "wind-demon"
+    ]
+  },
+  "23": {
+    "name": "Deep Ruins",
+    "monsters": [
+      "ancient-artillery",
+      "living-bones",
+      "living-spirit",
+      "stone-golem"
+    ]
+  },
+  "24": {
+    "name": "Echo Chamber",
+    "monsters": [
+      "living-spirit",
+      "ooze",
+      "rending-drake"
+    ]
+  },
+  "25": {
+    "name": "Icecrag Ascent",
+    "monsters": [
+      "hound",
+      "rending-drake",
+      "spitting-drake"
+    ]
+  },
+  "26": {
+    "name": "Ancient Cistern",
+    "monsters": [
+      "black-imp",
+      "living-corpse",
+      "night-demon",
+      "ooze"
+    ]
+  },
+  "27": {
+    "name": "Ruinous Rift",
+    "monsters": [
+      "earth-demon",
+      "flame-demon",
+      "frost-demon",
+      "night-demon",
+      "sun-demon",
+      "wind-demon"
+    ]
+  },
+  "28": {
+    "name": "Outer Ritual Chamber",
+    "monsters": [
+      "cultist",
+      "living-bones",
+      "living-corpse",
+      "night-demon",
+      "sun-demon"
+    ]
+  },
+  "29": {
+    "name": "Sanctuary of Gloom",
+    "monsters": [
+      "black-imp",
+      "living-bones",
+      "living-corpse",
+      "living-spirit"
+    ]
+  },
+  "30": {
+    "name": "Shrine of the Depths",
+    "monsters": [
+      "deep-terror",
+      "lurker",
+      "ooze"
+    ]
+  },
+  "31": {
+    "name": "Plane of the Night",
+    "monsters": [
+      "black-imp",
+      "deep-terror",
+      "night-demon"
+    ]
+  },
+  "32": {
+    "name": "Decrepit Wood",
+    "monsters": [
+      "black-imp",
+      "deep-terror",
+      "giant-viper",
+      "harrower-infester"
+    ]
+  },
+  "33": {
+    "name": "Savvas Armory",
+    "monsters": [
+      "earth-demon",
+      "flame-demon",
+      "frost-demon",
+      "savvas-icestorm",
+      "savvas-lavaflow",
+      "wind-demon"
+    ]
+  },
+  "34": {
+    "name": "Scorched Summit",
+    "monsters": [
+      "elder-drake",
+      "rending-drake",
+      "spitting-drake"
+    ]
+  },
+  "35": {
+    "name": "Gloomhaven Battlements A",
+    "monsters": [
+      "captain-of-the-guard",
+      "city-archer",
+      "city-guard",
+      "earth-demon",
+      "flame-demon",
+      "frost-demon",
+      "wind-demon"
+    ]
+  },
+  "36": {
+    "name": "Gloomhaven Battlements B",
+    "monsters": [
+      "city-archer",
+      "earth-demon",
+      "flame-demon",
+      "frost-demon",
+      "prime-demon",
+      "wind-demon"
+    ]
+  },
+  "37": {
+    "name": "Doom Trench",
+    "monsters": [
+      "deep-terror",
+      "harrower-infester",
+      "lurker"
+    ]
+  },
+  "38": {
+    "name": "Slave Pens",
+    "monsters": [
+      "inox-archer",
+      "inox-guard",
+      "inox-shaman",
+      "stone-golem"
+    ]
+  },
+  "39": {
+    "name": "Treacherous Divide",
+    "monsters": [
+      "cave-bear",
+      "cultist",
+      "frost-demon",
+      "living-bones",
+      "spitting-drake"
+    ]
+  },
+  "40": {
+    "name": "Ancient Defense Network",
+    "monsters": [
+      "cave-bear",
+      "flame-demon",
+      "forest-imp",
+      "living-corpse",
+      "stone-golem"
+    ]
+  },
+  "41": {
+    "name": "Timeworn Tomb",
+    "monsters": [
+      "ancient-artillery",
+      "living-corpse",
+      "living-spirit",
+      "stone-golem"
+    ]
+  },
+  "42": {
+    "name": "Realm of the Voice",
+    "monsters": [
+      "living-spirit",
+      "night-demon",
+      "wind-demon"
+    ]
+  },
+  "43": {
+    "name": "Drake Nest",
+    "monsters": [
+      "flame-demon",
+      "rending-drake",
+      "spitting-drake"
+    ]
+  },
+  "44": {
+    "name": "Tribal Assault",
+    "monsters": [
+      "hound",
+      "inox-archer",
+      "inox-guard",
+      "inox-shaman"
+    ]
+  },
+  "45": {
+    "name": "Rebel Swamp",
+    "monsters": [
+      "city-archer",
+      "city-guard",
+      "hound"
+    ]
+  },
+  "46": {
+    "name": "Nightmare Peak",
+    "monsters": [
+      "frost-demon",
+      "night-demon",
+      "savvas-icestorm",
+      "wind-demon",
+      "winged-horror"
+    ]
+  },
+  "47": {
+    "name": "Lair of the Unseeing Eye",
+    "monsters": [
+      "deep-terror",
+      "harrower-infester",
+      "lurker",
+      "the-sightless-eye"
+    ]
+  },
+  "48": {
+    "name": "Shadow Weald",
+    "monsters": [
+      "dark-rider",
+      "earth-demon",
+      "forest-imp",
+      "harrower-infester"
+    ]
+  },
+  "49": {
+    "name": "Rebel's Stand",
+    "monsters": [
+      "city-archer",
+      "city-guard",
+      "giant-viper",
+      "siege-cannon"
+    ]
+  },
+  "50": {
+    "name": "Ghost Fortress",
+    "monsters": [
+      "earth-demon",
+      "night-demon",
+      "sun-demon",
+      "wind-demon"
+    ]
+  },
+  "51": {
+    "name": "The Void",
+    "monsters": [
+      "the-gloom"
+    ]
+  },
+  "52": {
+    "name": "Noxious Cellar",
+    "monsters": [
+      "living-corpse",
+      "ooze",
+      "spitting-drake",
+      "vermling-scout",
+      "vermling-shaman"
+    ]
+  },
+  "53": {
+    "name": "Crypt Basement",
+    "monsters": [
+      "giant-viper",
+      "living-bones",
+      "living-corpse",
+      "living-spirit",
+      "ooze"
+    ]
+  },
+  "54": {
+    "name": "Palace of Ice",
+    "monsters": [
+      "cave-bear",
+      "frost-demon",
+      "harrower-infester",
+      "living-spirit"
+    ]
+  },
+  "55": {
+    "name": "Foggy Thicket",
+    "monsters": []
+  },
+  "56": {
+    "name": "Bandit's Wood",
+    "monsters": [
+      "bandit-archer",
+      "bandit-guard",
+      "hound",
+      "rending-drake"
+    ]
+  },
+  "57": {
+    "name": "Investigation",
+    "monsters": [
+      "city-archer",
+      "city-guard",
+      "hound",
+      "infiltrator"
+    ]
+  },
+  "58": {
+    "name": "Bloody Shack",
+    "monsters": [
+      "black-imp",
+      "earth-demon",
+      "harrower-infester",
+      "the-harvester"
+    ]
+  },
+  "59": {
+    "name": "Forgotten Grove",
+    "monsters": [
+      "cave-bear",
+      "forest-imp",
+      "hound"
+    ]
+  },
+  "60": {
+    "name": "Alchemy Lab",
+    "monsters": [
+      "giant-viper",
+      "hound",
+      "ooze",
+      "rending-drake",
+      "spitting-drake"
+    ]
+  },
+  "61": {
+    "name": "Fading Lighthouse",
+    "monsters": [
+      "flame-demon",
+      "frost-demon",
+      "giant-viper",
+      "ooze"
+    ]
+  },
+  "62": {
+    "name": "Pit of Souls",
+    "monsters": [
+      "hungry-soul",
+      "living-bones",
+      "living-spirit"
+    ]
+  },
+  "63": {
+    "name": "Magma Pit",
+    "monsters": [
+      "flame-demon",
+      "inox-archer",
+      "inox-guard",
+      "vermling-scout"
+    ]
+  },
+  "64": {
+    "name": "Underwater Lagoon",
+    "monsters": [
+      "forest-imp",
+      "ooze",
+      "rending-drake"
+    ]
+  },
+  "65": {
+    "name": "Sulfur Mine",
+    "monsters": [
+      "hound",
+      "inox-shaman",
+      "vermling-scout"
+    ]
+  },
+  "66": {
+    "name": "Clockwork Cove",
+    "monsters": [
+      "ancient-artillery",
+      "living-spirit",
+      "ooze",
+      "stone-golem"
+    ]
+  },
+  "67": {
+    "name": "Arcane Library",
+    "monsters": [
+      "cave-bear",
+      "forest-imp",
+      "stone-golem"
+    ]
+  },
+  "68": {
+    "name": "Toxic Moor",
+    "monsters": [
+      "black-imp",
+      "giant-viper",
+      "living-corpse",
+      "rending-drake"
+    ]
+  },
+  "69": {
+    "name": "Well of the Unfortunate",
+    "monsters": [
+      "forest-imp",
+      "living-spirit",
+      "stone-golem",
+      "vermling-scout",
+      "vermling-shaman"
+    ]
+  },
+  "70": {
+    "name": "Chained Isle",
+    "monsters": [
+      "living-spirit",
+      "night-demon",
+      "wind-demon"
+    ]
+  },
+  "71": {
+    "name": "Windswept Highlands",
+    "monsters": [
+      "spitting-drake",
+      "sun-demon",
+      "wind-demon"
+    ]
+  },
+  "72": {
+    "name": "Oozing Grove",
+    "monsters": [
+      "forest-imp",
+      "giant-viper",
+      "ooze"
+    ]
+  },
+  "73": {
+    "name": "Rockslide Ridge",
+    "monsters": [
+      "ancient-artillery",
+      "hound",
+      "inox-archer",
+      "inox-guard",
+      "inox-shaman"
+    ]
+  },
+  "74": {
+    "name": "Merchant Ship",
+    "monsters": [
+      "bandit-archer",
+      "bandit-guard",
+      "deep-terror",
+      "lurker"
+    ]
+  },
+  "75": {
+    "name": "Overgrown Graveyard",
+    "monsters": [
+      "bloated-regent",
+      "living-bones",
+      "living-corpse",
+      "living-spirit"
+    ]
+  },
+  "76": {
+    "name": "Harrower Hive",
+    "monsters": [
+      "giant-viper",
+      "harrower-infester",
+      "living-bones",
+      "night-demon"
+    ]
+  },
+  "77": {
+    "name": "Vault of Secrets",
+    "monsters": [
+      "city-archer",
+      "city-guard",
+      "hound",
+      "stone-golem"
+    ]
+  },
+  "78": {
+    "name": "Sacrifice Pit",
+    "monsters": [
+      "bandit-archer",
+      "bandit-guard",
+      "black-imp",
+      "cultist",
+      "cultist-scenario-78",
+      "living-bones"
+    ]
+  },
+  "79": {
+    "name": "Lost Temple",
+    "monsters": [
+      "giant-viper",
+      "stone-golem",
+      "the-betrayer"
+    ]
+  },
+  "80": {
+    "name": "Vigil Keep",
+    "monsters": [
+      "ancient-artillery",
+      "city-archer",
+      "city-guard",
+      "hound"
+    ]
+  },
+  "81": {
+    "name": "Temple of the Eclipse",
+    "monsters": [
+      "ancient-artillery",
+      "night-demon",
+      "stone-golem",
+      "sun-demon",
+      "the-colorless"
+    ]
+  },
+  "82": {
+    "name": "Burning Mountain",
+    "monsters": [
+      "earth-demon",
+      "flame-demon",
+      "stone-golem"
+    ]
+  },
+  "83": {
+    "name": "Shadows Within",
+    "monsters": [
+      "cultist",
+      "flame-demon",
+      "hound",
+      "living-bones",
+      "living-spirit"
+    ]
+  },
+  "84": {
+    "name": "Crystalline Cave",
+    "monsters": [
+      "earth-demon",
+      "flame-demon",
+      "frost-demon"
+    ]
+  },
+  "85": {
+    "name": "Sun Temple",
+    "monsters": [
+      "black-imp",
+      "hound",
+      "night-demon",
+      "sun-demon"
+    ]
+  },
+  "86": {
+    "name": "Harried Village",
+    "monsters": [
+      "cave-bear",
+      "lurker",
+      "vermling-scout",
+      "vermling-shaman"
+    ]
+  },
+  "87": {
+    "name": "Corrupted Cove",
+    "monsters": [
+      "black-imp",
+      "deep-terror",
+      "giant-ooze",
+      "lurker",
+      "ooze"
+    ]
+  },
+  "88": {
+    "name": "Plane of Water",
+    "monsters": [
+      "frost-demon",
+      "lurker",
+      "lurker-king",
+      "ooze"
+    ]
+  },
+  "89": {
+    "name": "Syndicate Hideout",
+    "monsters": [
+      "bandit-archer",
+      "bandit-guard",
+      "cultist",
+      "giant-viper"
+    ]
+  },
+  "90": {
+    "name": "Demonic Rift",
+    "monsters": [
+      "earth-demon",
+      "living-spirit",
+      "night-demon",
+      "wind-demon"
+    ]
+  },
+  "91": {
+    "name": "Wild Melee",
+    "monsters": [
+      "bandit-archer",
+      "bandit-guard",
+      "cave-bear",
+      "hound",
+      "living-spirit"
+    ]
+  },
+  "92": {
+    "name": "Back Alley Brawl",
+    "monsters": [
+      "bandit-archer",
+      "bandit-guard",
+      "city-archer",
+      "city-guard",
+      "earth-demon",
+      "flame-demon",
+      "inox-guard",
+      "savvas-lavaflow"
+    ]
+  },
+  "93": {
+    "name": "Sunken Vessel",
+    "monsters": [
+      "frost-demon",
+      "living-spirit",
+      "lurker"
+    ]
+  },
+  "94": {
+    "name": "Vermling Nest",
+    "monsters": [
+      "cave-bear",
+      "hound",
+      "vermling-scout",
+      "vermling-shaman"
+    ]
+  },
+  "95": {
+    "name": "Payment Due",
+    "monsters": [
+      "deep-terror",
+      "earth-demon",
+      "flame-demon",
+      "prime-lieutenant"
+    ]
+  }
+}

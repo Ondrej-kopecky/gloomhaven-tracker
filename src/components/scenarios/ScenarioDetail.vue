@@ -7,6 +7,8 @@ import { useCharacterStore } from '@/stores/characterStore'
 import { useCampaignStore } from '@/stores/campaignStore'
 import type { ItemDefinition } from '@/models/Item'
 import itemsData from '@/data/items.json'
+import monstersData from '@/data/source/monsters-gh.json'
+import scenarioMonstersData from '@/data/source/scenario-monsters-gh.json'
 
 const props = defineProps<{
   scenarioId: string
@@ -199,6 +201,87 @@ function setChoice(chosenId: number) {
 function inputValue(e: Event): string {
   return (e.target as HTMLInputElement).value
 }
+
+// ── Monster data ──────────────────────────────────────────────────────
+
+const monsterMap = new Map(monstersData.map((m) => [m.id, m]))
+const allScenarioMonsters = scenarioMonstersData as Record<string, { monsters: string[]; rooms: { roomNumber: number; monster: { name: string; type?: string; player2?: string; player3?: string; player4?: string }[] }[] }>
+
+const playerCount = computed(() => {
+  const count = characterStore.activeCharacters.length
+  return count >= 2 && count <= 4 ? count : 2
+})
+
+interface MonsterCount {
+  id: string
+  nameCz: string
+  name: string
+  isBoss: boolean
+  flies: boolean
+  normal: number
+  elite: number
+}
+
+const scenarioMonsters = computed((): MonsterCount[] => {
+  const data = allScenarioMonsters[props.scenarioId]
+  if (!data) return []
+
+  const pc = playerCount.value as 2 | 3 | 4
+  const pcKey = `player${pc}` as 'player2' | 'player3' | 'player4'
+  const counts = new Map<string, { normal: number; elite: number }>()
+
+  for (const room of data.rooms) {
+    for (const m of room.monster) {
+      // Skip scenario-specific variants (e.g. cultist-scenario-78)
+      const baseId = m.name.replace(/-scenario-\d+$/, '')
+
+      let type: string | undefined
+      if (m.type) {
+        // Always spawns with this type
+        type = m.type
+      } else if (m[pcKey]) {
+        // Spawns at this player count
+        type = m[pcKey]
+      }
+      // If no type found, monster doesn't spawn at this player count
+
+      if (type) {
+        if (!counts.has(baseId)) counts.set(baseId, { normal: 0, elite: 0 })
+        const c = counts.get(baseId)!
+        if (type === 'elite') c.elite++
+        else if (type === 'normal') c.normal++
+        else if (type === 'boss') {
+          // Bosses count separately, just mark as present
+          c.normal = Math.max(c.normal, 1)
+        }
+      }
+    }
+  }
+
+  const result: MonsterCount[] = []
+  for (const [id, c] of counts) {
+    const info = monsterMap.get(id)
+    result.push({
+      id,
+      nameCz: info?.nameCz ?? id,
+      name: info?.name ?? id,
+      isBoss: info?.isBoss ?? false,
+      flies: (info as any)?.flies ?? false,
+      normal: info?.isBoss ? 0 : c.normal,
+      elite: info?.isBoss ? 0 : c.elite,
+    })
+  }
+
+  // Sort: bosses last, then alphabetically by Czech name
+  return result.sort((a, b) => {
+    if (a.isBoss !== b.isBoss) return a.isBoss ? 1 : -1
+    return a.nameCz.localeCompare(b.nameCz, 'cs')
+  })
+})
+
+const totalMonsterCount = computed(() =>
+  scenarioMonsters.value.reduce((sum, m) => sum + m.normal + m.elite + (m.isBoss ? 1 : 0), 0)
+)
 </script>
 
 <template>
@@ -274,6 +357,42 @@ function inputValue(e: Event): string {
             </svg>
             {{ req.text }}
           </span>
+        </div>
+      </div>
+
+      <!-- Monsters -->
+      <div v-if="scenarioMonsters.length > 0" class="mb-4">
+        <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-2">
+          Příšery
+          <span class="text-gray-600 normal-case font-normal ml-1">· {{ playerCount }} hráči · {{ totalMonsterCount }} celkem</span>
+        </h4>
+        <div class="grid grid-cols-2 gap-1.5">
+          <div
+            v-for="m in scenarioMonsters"
+            :key="m.id"
+            class="rounded-lg px-2.5 py-2 border"
+            :class="m.isBoss
+              ? 'bg-red-900/15 border-red-900/30 col-span-2'
+              : 'bg-white/[0.03] border-gh-border/30'"
+          >
+            <div class="flex items-center gap-1.5 text-sm leading-tight" :class="m.isBoss ? 'text-red-400 font-semibold' : 'text-gray-300'">
+              {{ m.nameCz }}
+              <img v-if="m.flies" src="/img/icons/general/flying.png" alt="Létá" class="w-3.5 h-3.5 opacity-50" />
+            </div>
+            <div class="flex items-center gap-2 mt-1 text-[11px]">
+              <template v-if="m.isBoss">
+                <span class="px-1.5 py-0.5 rounded bg-red-900/30 text-red-400/90 font-display">BOSS</span>
+              </template>
+              <template v-else>
+                <span v-if="m.elite > 0" class="px-1.5 py-0.5 rounded bg-yellow-900/20 text-yellow-400/90">
+                  {{ m.elite }}× elitní
+                </span>
+                <span v-if="m.normal > 0" class="px-1.5 py-0.5 rounded bg-white/[0.04] text-gray-400">
+                  {{ m.normal }}× běžný
+                </span>
+              </template>
+            </div>
+          </div>
         </div>
       </div>
 
