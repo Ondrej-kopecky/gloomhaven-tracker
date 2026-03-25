@@ -100,6 +100,7 @@ const features = [
   'Diagram příběhových linií',
   '95 scénářů s českými názvy',
   'Správa postav a předmětů',
+  'Bestiář s českými popisky a staty',
   'Schopnosti s obrázky karet',
   'Attack modifier deck',
   'Městské a cestovní události',
@@ -120,6 +121,19 @@ const technologies = [
 ]
 
 const changelog = [
+  {
+    version: '5.5', date: '2026-03-25',
+    changes: [
+      'Bestiář — 56 příšer s českými názvy, popisky a typy (humanoid, démon, nemrtvý, bestie...)',
+      'Příšery ve scénářích — přesný počet běžných a elitních pro 2/3/4 hráče',
+      'Detail příšery — staty (životy, útok, pohyb, dostřel) podle úrovně scénáře',
+      'Schopnosti příšer — štít, odveta, otrava, zranění, imunity bossů',
+      'Ikonka létání u létajících příšer',
+      'Výskyt příšery ve všech scénářích (klikací seznam)',
+      'Oprava mobilního zobrazení poznámky u postavy',
+      'Odebrání třídy Bladeswarm (Frosthaven)',
+    ],
+  },
   {
     version: '5.3', date: '2026-03-24',
     changes: [
