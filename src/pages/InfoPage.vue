@@ -132,6 +132,7 @@ const changelog = [
       'Výskyt příšery ve všech scénářích (klikací seznam)',
       'Oprava mobilního zobrazení poznámky u postavy',
       'Odebrání třídy Bladeswarm (Frosthaven)',
+      'Automatické načtení kampaně po refreshi stránky',
     ],
   },
   {
