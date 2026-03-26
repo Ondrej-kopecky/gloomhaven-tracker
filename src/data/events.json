@@ -582,7 +582,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: bless"
+                "label": "Stav na začátku scénáře: požehnání"
               },
               {
                 "type": "loseGold",
@@ -1062,7 +1062,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: bless"
+                "label": "Stav na začátku scénáře: požehnání"
               }
             ]
           }
@@ -3431,7 +3431,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: curse"
+                "label": "Stav na začátku scénáře: prokletí"
               },
               {
                 "type": "experience",
@@ -3764,7 +3764,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: poison"
+                "label": "Stav na začátku scénáře: otrava"
               }
             ]
           }
@@ -3802,7 +3802,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: bless"
+                "label": "Stav na začátku scénáře: požehnání"
               }
             ]
           }
@@ -3840,7 +3840,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: poison"
+                "label": "Stav na začátku scénáře: otrava"
               }
             ]
           }
@@ -3940,7 +3940,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: curse"
+                "label": "Stav na začátku scénáře: prokletí"
               },
               {
                 "type": "reputation",
@@ -3982,7 +3982,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: wound"
+                "label": "Stav na začátku scénáře: zranění"
               }
             ]
           }
@@ -4270,7 +4270,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: curse"
+                "label": "Stav na začátku scénáře: prokletí"
               }
             ]
           }
@@ -4292,7 +4292,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: bless"
+                "label": "Stav na začátku scénáře: požehnání"
               }
             ]
           }
@@ -4330,7 +4330,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: muddle"
+                "label": "Stav na začátku scénáře: zmatení"
               },
               {
                 "type": "scenarioDamage",
@@ -4372,7 +4372,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: curse"
+                "label": "Stav na začátku scénáře: prokletí"
               },
               {
                 "type": "scenarioDamage",
@@ -4392,7 +4392,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: bless"
+                "label": "Stav na začátku scénáře: požehnání"
               }
             ]
           }
@@ -4461,7 +4461,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: curse"
+                "label": "Stav na začátku scénáře: prokletí"
               }
             ]
           }
@@ -4550,7 +4550,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: poison"
+                "label": "Stav na začátku scénáře: otrava"
               },
               {
                 "type": "scenarioDamage",
@@ -4592,7 +4592,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: wound"
+                "label": "Stav na začátku scénáře: zranění"
               },
               {
                 "type": "scenarioDamage",
@@ -4658,7 +4658,7 @@
               },
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: curse"
+                "label": "Stav na začátku scénáře: prokletí"
               }
             ]
           }
@@ -4817,7 +4817,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: bless"
+                "label": "Stav na začátku scénáře: požehnání"
               },
               {
                 "type": "reputation",
@@ -4986,7 +4986,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: wound"
+                "label": "Stav na začátku scénáře: zranění"
               }
             ]
           }
@@ -5289,7 +5289,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: poison"
+                "label": "Stav na začátku scénáře: otrava"
               },
               {
                 "type": "scenarioDamage",
@@ -5344,7 +5344,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: poison"
+                "label": "Stav na začátku scénáře: otrava"
               },
               {
                 "type": "scenarioDamage",
@@ -5412,7 +5412,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: disarm"
+                "label": "Stav na začátku scénáře: odzbrojení"
               }
             ]
           }
@@ -5494,7 +5494,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: poison"
+                "label": "Stav na začátku scénáře: otrava"
               },
               {
                 "type": "loseCollectiveGold",
@@ -5549,11 +5549,11 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: muddle"
+                "label": "Stav na začátku scénáře: zmatení"
               },
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: immobilize"
+                "label": "Stav na začátku scénáře: znehybnění"
               }
             ]
           }
@@ -5600,7 +5600,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: wound"
+                "label": "Stav na začátku scénáře: zranění"
               },
               {
                 "type": "scenarioDamage",
@@ -5760,7 +5760,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: poison"
+                "label": "Stav na začátku scénáře: otrava"
               },
               {
                 "type": "scenarioDamage",
@@ -5851,7 +5851,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: poison"
+                "label": "Stav na začátku scénáře: otrava"
               },
               {
                 "type": "scenarioDamage",
@@ -5893,11 +5893,11 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: muddle"
+                "label": "Stav na začátku scénáře: zmatení"
               },
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: wound"
+                "label": "Stav na začátku scénáře: zranění"
               },
               {
                 "type": "scenarioDamage",
@@ -6065,11 +6065,11 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: poison"
+                "label": "Stav na začátku scénáře: otrava"
               },
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: curse"
+                "label": "Stav na začátku scénáře: prokletí"
               },
               {
                 "type": "collectiveGold",
@@ -6204,7 +6204,7 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: poison"
+                "label": "Stav na začátku scénáře: otrava"
               }
             ]
           }
@@ -6348,7 +6348,7 @@
               },
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: poison"
+                "label": "Stav na začátku scénáře: otrava"
               }
             ]
           }
@@ -6368,7 +6368,7 @@
               },
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: curse"
+                "label": "Stav na začátku scénáře: prokletí"
               }
             ]
           }
@@ -6482,11 +6482,11 @@
             "effects": [
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: muddle"
+                "label": "Stav na začátku scénáře: zmatení"
               },
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: wound"
+                "label": "Stav na začátku scénáře: zranění"
               },
               {
                 "type": "scenarioDamage",
@@ -6662,7 +6662,7 @@
               },
               {
                 "type": "scenarioCondition",
-                "label": "Stav na začátku scénáře: wound"
+                "label": "Stav na začátku scénáře: zranění"
               },
               {
                 "type": "scenarioDamage",

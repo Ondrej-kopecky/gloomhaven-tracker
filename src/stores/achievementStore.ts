@@ -85,8 +85,20 @@ export const useAchievementStore = defineStore('achievement', () => {
 
   function awardGlobal(id: string) {
     if (!campaignStore.currentCampaign) return
-    const wasAchieved = campaignStore.currentCampaign.globalAchievements[id]
-    campaignStore.currentCampaign.globalAchievements[id] = true
+    const ga = campaignStore.currentCampaign.globalAchievements
+    const wasAchieved = ga[id]
+    ga[id] = true
+
+    // Group exclusivity — deselect others in the same group
+    const def = globalDefinitions.value.find((a) => a.id === id)
+    if (def?.group) {
+      globalDefinitions.value
+        .filter((a) => a.group === def.group && a.id !== id)
+        .forEach((a) => {
+          ga[a.id] = false
+        })
+    }
+
     campaignStore.autoSave()
     if (!wasAchieved) {
       const toastStore = useToastStore()
