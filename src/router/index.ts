@@ -5,7 +5,9 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/prehled',
+      name: 'landing',
+      component: () => import('@/pages/LandingPage.vue'),
+      meta: { title: 'Sledování kampaně Gloomhaven česky' },
     },
     {
       path: '/prehled',
@@ -94,8 +96,13 @@ const router = createRouter({
   ],
 })
 
-// GoatCounter SPA tracking
+// Dynamic page title + GoatCounter SPA tracking
 router.afterEach((to) => {
+  const title = to.meta.title as string | undefined
+  document.title = title
+    ? `${title} | Gloomhaven Tracker`
+    : 'Gloomhaven Tracker — Sledování kampaně, scénářů a postav'
+
   if (typeof window !== 'undefined' && (window as any).goatcounter) {
     ;(window as any).goatcounter.count({ path: to.fullPath })
   }
