@@ -23,15 +23,15 @@ onMounted(async () => {
 
 <template>
   <div class="min-h-screen bg-gh-dark text-gray-100">
-    <AppHeader v-if="route.name !== 'landing'" />
-    <main :class="route.name === 'landing' ? '' : 'max-w-7xl mx-auto px-4 pb-8 pt-16'">
+    <AppHeader v-if="route.name !== 'landing' && route.name !== 'boss-hp-active'" />
+    <main :class="route.name === 'landing' || route.name === 'boss-hp-active' ? '' : 'max-w-7xl mx-auto px-4 pb-8 pt-16'">
       <router-view v-slot="{ Component }">
         <transition name="page" mode="out-in">
           <component :is="Component" />
         </transition>
       </router-view>
     </main>
-    <FeedbackButton v-if="route.name !== 'landing'" />
+    <FeedbackButton v-if="route.name !== 'landing' && route.name !== 'boss-hp-active'" />
     <ToastNotification />
   </div>
 </template>

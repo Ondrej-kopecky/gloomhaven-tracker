@@ -122,6 +122,19 @@ const technologies = [
 
 const changelog = [
   {
+    version: '5.8', date: '2026-03-26',
+    changes: [
+      'Veřejná landing page — hero, feature karty s SVG ikonami, CTA tlačítka',
+      'SEO opravy — sitemap vyčištěn (jen veřejné stránky), dynamické titulky per route',
+      'Počítadlo HP — nová stránka pro sledování životů bossů s fullscreen ovládáním',
+      'Příšery v přehledu — accordion se staty, herními ikonami a popisem',
+      'Přepočet boss HP podle počtu hráčů (8xC → 32)',
+      'Detail příšery ve scénářích — dvě karty (běžný/elitní) s ikonami akcí a stavů',
+      'Oprava crash u bossů bez attack statu (Krutý dozorce)',
+      'Navigace — breakpoint xl pro 9 položek v headeru',
+    ],
+  },
+  {
     version: '5.5', date: '2026-03-25',
     changes: [
       'Bestiář — 56 příšer s českými názvy, popisky a typy (humanoid, démon, nemrtvý, bestie...)',

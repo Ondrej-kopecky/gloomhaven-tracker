@@ -40,10 +40,19 @@ const navItems = [
   { to: '/postavy', label: 'Postavy' },
   { to: '/achievementy', label: 'Úspěchy' },
   { to: '/pribeh', label: 'Příběh' },
+  { to: '/boss-hp', label: 'HP' },
 ]
 
 const mobileNavItems = [
-  ...navItems,
+  { to: '/prehled', label: 'Přehled' },
+  { to: '/mapa', label: 'Mapa' },
+  { to: '/scenare', label: 'Scénáře' },
+  { to: '/predmety', label: 'Předměty' },
+  { to: '/druzina', label: 'Družina' },
+  { to: '/postavy', label: 'Postavy' },
+  { to: '/achievementy', label: 'Úspěchy' },
+  { to: '/pribeh', label: 'Příběh' },
+  { to: '/boss-hp', label: 'Počítadlo HP' },
   { to: '/nastaveni', label: 'Nastavení' },
 ]
 
@@ -72,7 +81,7 @@ const isActive = (path: string) => route.path === path
         <router-link
           v-if="campaignStore.currentCampaign"
           to="/kampan"
-          class="hidden lg:flex items-center gap-1.5 ml-3 px-2.5 py-1 rounded-md bg-gh-primary/[0.06] border border-gh-primary/15 hover:border-gh-primary/30 transition-colors"
+          class="hidden xl:flex items-center gap-1.5 ml-3 px-2.5 py-1 rounded-md bg-gh-primary/[0.06] border border-gh-primary/15 hover:border-gh-primary/30 transition-colors"
         >
           <span class="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0" />
           <span class="text-[10px] text-gray-600 shrink-0">Kampaň:</span>
@@ -85,7 +94,7 @@ const isActive = (path: string) => route.path === path
         </router-link>
 
         <!-- Desktop nav (centered) -->
-        <nav class="hidden lg:flex items-center gap-0.5 mx-auto">
+        <nav class="hidden xl:flex items-center gap-0.5 mx-auto">
           <router-link
             v-for="item in navItems"
             :key="item.to"
@@ -104,7 +113,7 @@ const isActive = (path: string) => route.path === path
         </nav>
 
         <!-- Right side icons -->
-        <div class="flex items-center gap-0.5 ml-auto lg:ml-0 shrink-0">
+        <div class="flex items-center gap-0.5 ml-auto xl:ml-0 shrink-0">
           <!-- Spoiler toggle -->
           <div v-if="campaignStore.hasCampaign" class="spoiler-toggle-wrap relative">
             <button
@@ -130,7 +139,7 @@ const isActive = (path: string) => route.path === path
           <!-- Info (desktop only) -->
           <router-link
             to="/info"
-            class="hidden lg:block p-2 rounded-md transition-all"
+            class="hidden xl:block p-2 rounded-md transition-all"
             :class="isActive('/info')
               ? 'text-gh-primary bg-gh-primary/10'
               : 'text-gray-500 hover:text-gray-300 hover:bg-white/[0.04]'"
@@ -145,7 +154,7 @@ const isActive = (path: string) => route.path === path
           <!-- Settings (desktop) -->
           <router-link
             to="/nastaveni"
-            class="hidden lg:block p-2 rounded-md transition-all"
+            class="hidden xl:block p-2 rounded-md transition-all"
             :class="isActive('/nastaveni')
               ? 'text-gh-primary bg-gh-primary/10'
               : 'text-gray-500 hover:text-gray-300 hover:bg-white/[0.04]'"
@@ -160,7 +169,7 @@ const isActive = (path: string) => route.path === path
           <router-link
             v-if="campaignStore.currentCampaign"
             to="/kampan"
-            class="lg:hidden flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-gh-primary/[0.06] border border-gh-primary/15 min-w-0"
+            class="xl:hidden flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-gh-primary/[0.06] border border-gh-primary/15 min-w-0"
           >
             <span class="w-1.5 h-1.5 rounded-full shrink-0" :class="campaignStore.currentCampaignSummary?.isOwner === false || campaignStore.currentCampaignSummary?.shareCode ? 'bg-blue-400' : 'bg-green-500'" />
             <div class="min-w-0">
@@ -171,7 +180,7 @@ const isActive = (path: string) => route.path === path
 
           <!-- Hamburger (mobile) -->
           <button
-            class="lg:hidden p-2 rounded-md text-gray-400 hover:text-gray-200 hover:bg-white/[0.05] transition-all"
+            class="xl:hidden p-2 rounded-md text-gray-400 hover:text-gray-200 hover:bg-white/[0.05] transition-all"
             @click="mobileMenuOpen = true"
           >
             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
@@ -187,14 +196,14 @@ const isActive = (path: string) => route.path === path
       <transition name="drawer-backdrop">
         <div
           v-if="mobileMenuOpen"
-          class="fixed inset-0 z-[90] bg-black/60 backdrop-blur-sm lg:hidden"
+          class="fixed inset-0 z-[90] bg-black/60 backdrop-blur-sm xl:hidden"
           @click="mobileMenuOpen = false"
         />
       </transition>
       <transition name="drawer">
         <nav
           v-if="mobileMenuOpen"
-          class="fixed inset-0 z-[100] bg-gh-dark flex flex-col lg:hidden safe-area-top"
+          class="fixed inset-0 z-[100] bg-gh-dark flex flex-col xl:hidden safe-area-top"
         >
           <!-- Drawer header -->
           <div class="flex items-center justify-between px-5 h-14 border-b border-gh-border/40">
