@@ -33,7 +33,14 @@ const effectLabel = {
   loseBattleGoal: (v) => `-${v[0]} cíl bitvy`,
   scenarioDamage: (v) => `${v[0]} zranění na začátku scénáře`,
   scenarioSingleMinus1: () => `Přidej -1 do balíčku modifikátorů`,
-  scenarioCondition: (v) => `Stav na začátku scénáře: ${v[0]}`,
+  scenarioCondition: (v) => {
+    const condCz = {
+      muddle: 'zmatení', poison: 'otrava', wound: 'zranění', curse: 'prokletí',
+      bless: 'požehnání', stun: 'omráčení', immobilize: 'znehybnění',
+      disarm: 'odzbrojení', invisible: 'neviditelnost', strengthen: 'posílení',
+    }
+    return `Stav na začátku scénáře: ${condCz[v[0]] || v[0]}`
+  },
   consumeItem: (v) => `Spotřebuj předmět (malý)`,
   consumeCollectiveItem: (v) => `Spotřebuj předmět společně`,
   discardOne: () => `Odhoď 1 kartu`,

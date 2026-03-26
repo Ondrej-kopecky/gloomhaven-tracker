@@ -5,6 +5,7 @@ import { useCampaignStore } from '@/stores/campaignStore'
 import { usePartyStore } from '@/stores/partyStore'
 import { useCharacterStore } from '@/stores/characterStore'
 import { useScenarioStore } from '@/stores/scenarioStore'
+import { useAchievementStore } from '@/stores/achievementStore'
 import { CharacterClass } from '@/models/types'
 import ClassIcon from '@/components/characters/ClassIcon.vue'
 import type { ItemDefinition } from '@/models/Item'
@@ -16,6 +17,7 @@ const campaignStore = useCampaignStore()
 const partyStore = usePartyStore()
 const characterStore = useCharacterStore()
 const scenarioStore = useScenarioStore()
+const achievementStore = useAchievementStore()
 
 const allItems = itemsData as ItemDefinition[]
 const designItems = allItems.filter((item) => item.id >= 71 && item.id <= 95)
@@ -156,6 +158,16 @@ function applyEffects() {
             const evType = effect.label?.includes('City') || effect.label?.includes('město') ? 'city' : 'road'
             partyStore.addEvent(evType, parseInt(match[1]))
           }
+          break
+        }
+        case 'globalAchievement': {
+          const achId = effect.label?.match(/:\s*(.+)/)?.[1]?.trim().replace(/-/g, '_')
+          if (achId) achievementStore.awardGlobal(achId)
+          break
+        }
+        case 'partyAchievement': {
+          const achId = effect.label?.match(/:\s*(.+)/)?.[1]?.trim().replace(/-/g, '_')
+          if (achId) achievementStore.awardParty(achId)
           break
         }
       }

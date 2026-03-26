@@ -102,7 +102,7 @@ export const useCampaignStore = defineStore('campaign', () => {
       createdAt: now,
       lastPlayedAt: now,
       prosperityIndex: 0,
-      globalAchievements: {},
+      globalAchievements: { city_rule_militaristic: true },
       partyAchievements: {},
       party: defaultParty,
       characters: [],
@@ -127,6 +127,13 @@ export const useCampaignStore = defineStore('campaign', () => {
         // Ensure newer fields exist (backward compat)
         if (!campaign.personalQuests) campaign.personalQuests = {}
         if (!campaign.players) campaign.players = []
+
+        // Migrate: ensure default City Rule: Militaristic if no city rule is set
+        const ga = campaign.globalAchievements
+        const hasCityRule = ga.city_rule_militaristic || ga.city_rule_economic || ga.city_rule_demonic
+        if (!hasCityRule) {
+          ga.city_rule_militaristic = true
+        }
 
         // Auto-populate players from character owners if players list is empty
         if (campaign.players.length === 0) {
@@ -220,6 +227,13 @@ export const useCampaignStore = defineStore('campaign', () => {
     // Ensure newer fields exist (backward compat with older exports)
     if (!campaign.personalQuests) campaign.personalQuests = {}
     if (!campaign.players) campaign.players = []
+
+    // Migrate: ensure default City Rule: Militaristic if no city rule is set
+    const ga = campaign.globalAchievements
+    const hasCityRule = ga.city_rule_militaristic || ga.city_rule_economic || ga.city_rule_demonic
+    if (!hasCityRule) {
+      ga.city_rule_militaristic = true
+    }
     currentCampaign.value = campaign
     await loadCampaignList()
   }

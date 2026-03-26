@@ -165,6 +165,8 @@ export const useScenarioStore = defineStore('scenario', () => {
    */
   function checkAnyConditionMet(conditions: ScenarioCondition[]): boolean {
     return conditions.some((condition) => {
+      // Skip empty conditions (e.g. blocksOn: [{}])
+      if (!condition.complete?.length && !condition.incomplete?.length) return false
       // All "complete" items must be achieved/completed
       const completeOk = (condition.complete ?? []).every((id) => isConditionItemComplete(id))
       // All "incomplete" items must NOT be achieved/completed

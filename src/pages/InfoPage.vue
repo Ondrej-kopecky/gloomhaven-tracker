@@ -122,6 +122,16 @@ const technologies = [
 
 const changelog = [
   {
+    version: '5.9', date: '2026-03-26',
+    changes: [
+      'Oprava: 8 scénářů bylo permanentně blokovaných kvůli chybné blocksOn podmínce',
+      'Události — efekty úspěchů se automaticky aplikují při odehrání (globální i družinové)',
+      'Výchozí Vládnoucí režim: Armáda — nové kampaně + migrace existujících',
+      'Groupová exkluzivita při auto-udělení úspěchu (Vládnoucí režim)',
+      'České překlady stavů v událostech (zmatení, otrava, prokletí...)',
+    ],
+  },
+  {
     version: '5.8', date: '2026-03-26',
     changes: [
       'Veřejná landing page — hero, feature karty s SVG ikonami, CTA tlačítka',
