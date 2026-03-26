@@ -241,6 +241,18 @@ const playerCount = computed(() => {
   return count >= 2 && count <= 4 ? count : 2
 })
 
+function resolveStat(val: number | string | undefined): string {
+  if (val == null) return '-'
+  if (typeof val === 'number') return String(val)
+  const pc = playerCount.value
+  const s = val.replace(/C/g, String(pc))
+  const mulMatch = s.match(/^(\d+)x(\d+)$/)
+  if (mulMatch) return String(Number(mulMatch[1]) * Number(mulMatch[2]))
+  const addMatch = s.match(/^(\d+)\+(\d+)$/)
+  if (addMatch) return String(Number(addMatch[1]) + Number(addMatch[2]))
+  return s
+}
+
 interface MonsterCount {
   id: string
   nameCz: string
@@ -261,7 +273,7 @@ function getMonstersForScenario(scenarioId: string): MonsterCount[] {
 
   for (const room of data.rooms) {
     for (const m of room.monster) {
-      const baseId = m.name.replace(/-scenario-\d+$/, '')
+      const baseId = m.name.replace(/-scenario-\d+$/, '').replace(/:[^:]+$/, '')
       let type: string | undefined
       if (m.type) type = m.type
       else if (m[pcKey]) type = m[pcKey]
@@ -349,6 +361,45 @@ function formatActions(actions?: any[]): string[] {
     if (a.type === 'condition') return CONDITION_LABELS[a.value] ?? a.value
     const label = ACTION_LABELS[a.type] ?? a.type
     return `${label} ${a.value}`
+  })
+}
+
+const ACTION_ICONS: Record<string, string> = {
+  target: '/img/icons/general/target.png',
+  shield: '/img/icons/general/shield.png',
+  retaliate: '/img/icons/general/retaliate.png',
+  pierce: '/img/icons/status/pierce.png',
+  push: '/img/icons/status/push.png',
+  pull: '/img/icons/status/pull.png',
+}
+
+const CONDITION_ICONS: Record<string, string> = {
+  wound: '/img/icons/status/wound.png',
+  poison: '/img/icons/status/poison.png',
+  muddle: '/img/icons/status/muddle.png',
+  immobilize: '/img/icons/status/immobilize.png',
+  disarm: '/img/icons/status/disarm.png',
+  stun: '/img/icons/status/stun.png',
+  curse: '/img/icons/status/curse.png',
+  bless: '/img/icons/status/bless.png',
+  strengthen: '/img/icons/status/strengthen.png',
+  invisible: '/img/icons/status/invisible.png',
+}
+
+function getActionEntries(actions?: any[]): { icon: string | null; label: string; value?: string }[] {
+  if (!actions) return []
+  return actions.map((a: any) => {
+    if (a.type === 'condition') {
+      return {
+        icon: CONDITION_ICONS[a.value] ?? null,
+        label: CONDITION_LABELS[a.value] ?? a.value,
+      }
+    }
+    return {
+      icon: ACTION_ICONS[a.type] ?? null,
+      label: ACTION_LABELS[a.type] ?? a.type,
+      value: a.value != null ? String(a.value) : undefined,
+    }
   })
 }
 
@@ -715,17 +766,23 @@ function closeMonsterDetail() {
                       {{ m.nameCz }}
                       <img v-if="m.flies" src="/img/icons/general/flying.png" alt="Létá" class="w-3.5 h-3.5 opacity-50" />
                     </div>
-                    <div class="flex items-center gap-2 mt-1 text-[11px]">
+                    <div class="flex items-center gap-2 mt-1">
                       <template v-if="m.isBoss">
-                        <span class="px-1.5 py-0.5 rounded bg-red-900/30 text-red-400/90 font-display">BOSS</span>
+                        <span class="px-1.5 py-0.5 rounded bg-red-900/30 text-red-400/90 font-display text-[11px]">BOSS</span>
                       </template>
                       <template v-else>
-                        <span v-if="m.elite > 0" class="px-1.5 py-0.5 rounded bg-yellow-900/20 text-yellow-400/90">
-                          {{ m.elite }}× elitní
-                        </span>
-                        <span v-if="m.normal > 0" class="px-1.5 py-0.5 rounded bg-white/[0.04] text-gray-400">
-                          {{ m.normal }}× běžný
-                        </span>
+                        <div v-if="m.elite > 0" class="flex items-center gap-0.5" :title="`${m.elite}× elitní`">
+                          <svg class="w-4 h-4 text-yellow-400/90" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3 6h6l-4.5 4 1.5 6L12 15l-6 3 1.5-6L3 8h6z" />
+                          </svg>
+                          <span class="text-xs font-semibold text-yellow-400/90">{{ m.elite }}</span>
+                        </div>
+                        <div v-if="m.normal > 0" class="flex items-center gap-0.5" :title="`${m.normal}× běžný`">
+                          <svg class="w-4 h-4 text-gray-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="8" />
+                          </svg>
+                          <span class="text-xs text-gray-200">{{ m.normal }}</span>
+                        </div>
                       </template>
                     </div>
                   </button>
@@ -885,29 +942,31 @@ function closeMonsterDetail() {
                 <div class="grid gap-2" :class="selectedMonsterDetail.eliteStats ? 'grid-cols-2' : 'grid-cols-1'">
                   <!-- Normal / Boss stats -->
                   <div v-if="selectedMonsterDetail.normalStats" class="rounded-lg border p-3" :class="selectedMonsterDetail.isBoss ? 'border-red-900/30 bg-red-900/10' : 'border-gh-border/30 bg-white/[0.02]'">
-                    <div class="text-[10px] font-semibold uppercase tracking-wider mb-2" :class="selectedMonsterDetail.isBoss ? 'text-red-400' : 'text-gray-500'">
+                    <div class="text-[10px] font-semibold uppercase tracking-wider mb-2" :class="selectedMonsterDetail.isBoss ? 'text-red-400' : 'text-gray-200'">
                       {{ selectedMonsterDetail.isBoss ? 'Boss' : 'Běžný' }}
                     </div>
                     <div class="space-y-1 text-xs">
-                      <div class="flex justify-between">
-                        <span class="text-gray-500">Životy</span>
-                        <span class="text-red-400 font-medium">{{ selectedMonsterDetail.normalStats.health }}</span>
+                      <div class="flex justify-between items-center">
+                        <span class="flex items-center gap-1 text-gray-500"><img src="/img/icons/general/heal.png" class="w-3.5 h-3.5 opacity-60" alt="" /> Životy</span>
+                        <span class="font-medium" :class="selectedMonsterDetail.isBoss ? 'text-red-400' : 'text-gray-200'">{{ resolveStat(selectedMonsterDetail.normalStats.health) }}</span>
                       </div>
-                      <div v-if="selectedMonsterDetail.normalStats.movement !== undefined" class="flex justify-between">
-                        <span class="text-gray-500">Pohyb</span>
-                        <span class="text-blue-400 font-medium">{{ selectedMonsterDetail.normalStats.movement }}</span>
+                      <div class="flex justify-between items-center">
+                        <span class="flex items-center gap-1 text-gray-500"><img src="/img/icons/general/attack.png" class="w-3.5 h-3.5 opacity-60" alt="" /> Útok</span>
+                        <span class="font-medium" :class="selectedMonsterDetail.isBoss ? 'text-red-400' : 'text-gray-200'">{{ resolveStat(selectedMonsterDetail.normalStats.attack) }}</span>
                       </div>
-                      <div class="flex justify-between">
-                        <span class="text-gray-500">Útok</span>
-                        <span class="text-orange-400 font-medium">{{ selectedMonsterDetail.normalStats.attack }}</span>
+                      <div v-if="selectedMonsterDetail.normalStats.movement !== undefined" class="flex justify-between items-center">
+                        <span class="flex items-center gap-1 text-gray-500"><img src="/img/icons/general/move.png" class="w-3.5 h-3.5 opacity-60" alt="" /> Pohyb</span>
+                        <span class="font-medium" :class="selectedMonsterDetail.isBoss ? 'text-red-400' : 'text-gray-200'">{{ selectedMonsterDetail.normalStats.movement }}</span>
                       </div>
-                      <div v-if="selectedMonsterDetail.normalStats.range" class="flex justify-between">
-                        <span class="text-gray-500">Dostřel</span>
-                        <span class="text-cyan-400 font-medium">{{ selectedMonsterDetail.normalStats.range }}</span>
+                      <div v-if="selectedMonsterDetail.normalStats.range" class="flex justify-between items-center">
+                        <span class="flex items-center gap-1 text-gray-500"><img src="/img/icons/general/range.png" class="w-3.5 h-3.5 opacity-60" alt="" /> Dostřel</span>
+                        <span class="font-medium" :class="selectedMonsterDetail.isBoss ? 'text-red-400' : 'text-gray-200'">{{ selectedMonsterDetail.normalStats.range }}</span>
                       </div>
-                      <div v-if="formatActions(selectedMonsterDetail.normalStats.actions).length" class="pt-1 border-t border-white/[0.06]">
-                        <div v-for="(a, i) in formatActions(selectedMonsterDetail.normalStats.actions)" :key="i" class="text-gray-400">
-                          {{ a }}
+                      <div v-if="getActionEntries(selectedMonsterDetail.normalStats.actions).length" class="pt-1.5 mt-1.5 border-t border-white/[0.06] space-y-1">
+                        <div v-for="(a, i) in getActionEntries(selectedMonsterDetail.normalStats.actions)" :key="i" class="flex items-center gap-1.5" :class="selectedMonsterDetail.isBoss ? 'text-red-400/80' : 'text-gray-400'">
+                          <img v-if="a.icon" :src="a.icon" class="w-3.5 h-3.5" alt="" />
+                          <span>{{ a.label }}</span>
+                          <span v-if="a.value" class="font-medium" :class="selectedMonsterDetail.isBoss ? 'text-red-400' : 'text-gray-200'">{{ a.value }}</span>
                         </div>
                       </div>
                     </div>
@@ -916,25 +975,27 @@ function closeMonsterDetail() {
                   <div v-if="selectedMonsterDetail.eliteStats" class="rounded-lg border border-yellow-900/30 bg-yellow-900/10 p-3">
                     <div class="text-[10px] font-semibold uppercase tracking-wider text-yellow-400 mb-2">Elitní</div>
                     <div class="space-y-1 text-xs">
-                      <div class="flex justify-between">
-                        <span class="text-gray-500">Životy</span>
-                        <span class="text-red-400 font-medium">{{ selectedMonsterDetail.eliteStats.health }}</span>
+                      <div class="flex justify-between items-center">
+                        <span class="flex items-center gap-1 text-gray-500"><img src="/img/icons/general/heal.png" class="w-3.5 h-3.5 opacity-60" alt="" /> Životy</span>
+                        <span class="text-yellow-300/90 font-medium">{{ resolveStat(selectedMonsterDetail.eliteStats.health) }}</span>
                       </div>
-                      <div v-if="selectedMonsterDetail.eliteStats.movement !== undefined" class="flex justify-between">
-                        <span class="text-gray-500">Pohyb</span>
-                        <span class="text-blue-400 font-medium">{{ selectedMonsterDetail.eliteStats.movement }}</span>
+                      <div class="flex justify-between items-center">
+                        <span class="flex items-center gap-1 text-gray-500"><img src="/img/icons/general/attack.png" class="w-3.5 h-3.5 opacity-60" alt="" /> Útok</span>
+                        <span class="text-yellow-300/90 font-medium">{{ resolveStat(selectedMonsterDetail.eliteStats.attack) }}</span>
                       </div>
-                      <div class="flex justify-between">
-                        <span class="text-gray-500">Útok</span>
-                        <span class="text-orange-400 font-medium">{{ selectedMonsterDetail.eliteStats.attack }}</span>
+                      <div v-if="selectedMonsterDetail.eliteStats.movement !== undefined" class="flex justify-between items-center">
+                        <span class="flex items-center gap-1 text-gray-500"><img src="/img/icons/general/move.png" class="w-3.5 h-3.5 opacity-60" alt="" /> Pohyb</span>
+                        <span class="text-yellow-300/90 font-medium">{{ selectedMonsterDetail.eliteStats.movement }}</span>
                       </div>
-                      <div v-if="selectedMonsterDetail.eliteStats.range" class="flex justify-between">
-                        <span class="text-gray-500">Dostřel</span>
-                        <span class="text-cyan-400 font-medium">{{ selectedMonsterDetail.eliteStats.range }}</span>
+                      <div v-if="selectedMonsterDetail.eliteStats.range" class="flex justify-between items-center">
+                        <span class="flex items-center gap-1 text-gray-500"><img src="/img/icons/general/range.png" class="w-3.5 h-3.5 opacity-60" alt="" /> Dostřel</span>
+                        <span class="text-yellow-300/90 font-medium">{{ selectedMonsterDetail.eliteStats.range }}</span>
                       </div>
-                      <div v-if="formatActions(selectedMonsterDetail.eliteStats.actions).length" class="pt-1 border-t border-white/[0.06]">
-                        <div v-for="(a, i) in formatActions(selectedMonsterDetail.eliteStats.actions)" :key="i" class="text-yellow-400/80">
-                          {{ a }}
+                      <div v-if="getActionEntries(selectedMonsterDetail.eliteStats.actions).length" class="pt-1.5 mt-1.5 border-t border-white/[0.06] space-y-1">
+                        <div v-for="(a, i) in getActionEntries(selectedMonsterDetail.eliteStats.actions)" :key="i" class="flex items-center gap-1.5 text-yellow-400/80">
+                          <img v-if="a.icon" :src="a.icon" class="w-3.5 h-3.5" alt="" />
+                          <span>{{ a.label }}</span>
+                          <span v-if="a.value" class="text-yellow-300/90 font-medium">{{ a.value }}</span>
                         </div>
                       </div>
                     </div>
@@ -949,8 +1010,9 @@ function closeMonsterDetail() {
                   <span
                     v-for="imm in selectedMonsterDetail.statsData.immunities"
                     :key="imm"
-                    class="text-[11px] px-2 py-0.5 rounded bg-purple-900/20 text-purple-400/90 border border-purple-900/30"
+                    class="text-[11px] px-2 py-0.5 rounded bg-purple-900/20 text-purple-400/90 border border-purple-900/30 flex items-center gap-1"
                   >
+                    <img v-if="CONDITION_ICONS[imm]" :src="CONDITION_ICONS[imm]" class="w-3.5 h-3.5" alt="" />
                     {{ CONDITION_LABELS[imm] ?? imm }}
                   </span>
                 </div>

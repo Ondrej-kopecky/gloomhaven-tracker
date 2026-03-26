@@ -58,6 +58,18 @@ const router = createRouter({
       meta: { title: 'Příběh', icon: 'book' },
     },
     {
+      path: '/boss-hp',
+      name: 'boss-hp',
+      component: () => import('@/pages/BossHpPage.vue'),
+      meta: { title: 'Počítadlo HP' },
+    },
+    {
+      path: '/boss-hp/:bossId/:scenarioId',
+      name: 'boss-hp-active',
+      component: () => import('@/pages/BossHpCounterPage.vue'),
+      meta: { title: 'Počítadlo HP' },
+    },
+    {
       path: '/nastaveni',
       name: 'settings',
       component: () => import('@/pages/SettingsPage.vue'),

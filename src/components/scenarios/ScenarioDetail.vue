@@ -8,6 +8,7 @@ import { useCampaignStore } from '@/stores/campaignStore'
 import type { ItemDefinition } from '@/models/Item'
 import itemsData from '@/data/items.json'
 import monstersData from '@/data/source/monsters-gh.json'
+import monsterStatsData from '@/data/source/monster-stats-gh.json'
 import scenarioMonstersData from '@/data/source/scenario-monsters-gh.json'
 
 const props = defineProps<{
@@ -205,7 +206,37 @@ function inputValue(e: Event): string {
 // ── Monster data ──────────────────────────────────────────────────────
 
 const monsterMap = new Map(monstersData.map((m) => [m.id, m]))
+const monsterStats = monsterStatsData as Record<string, { count: number; flying: boolean; boss: boolean; immunities?: string[]; stats: { level: number; type: string; health: number | string; movement?: number; attack: number | string; range?: number; actions?: any[] }[] }>
 const allScenarioMonsters = scenarioMonstersData as Record<string, { monsters: string[]; rooms: { roomNumber: number; monster: { name: string; type?: string; player2?: string; player3?: string; player4?: string }[] }[] }>
+
+const expandedMonster = ref<string | null>(null)
+
+function toggleMonster(id: string) {
+  expandedMonster.value = expandedMonster.value === id ? null : id
+}
+
+function getMonsterStats(monsterId: string, level: number) {
+  const baseId = monsterId.replace(/-scenario-\d+$/, '')
+  const data = monsterStats[baseId]
+  if (!data) return null
+  const normal = data.stats.find((s) => s.level === level && s.type === 'normal')
+  const elite = data.stats.find((s) => s.level === level && s.type === 'elite')
+  const boss = data.stats.find((s) => s.level === level && s.type === 'boss')
+  return { normal, elite, boss }
+}
+
+function resolveStat(val: number | string | undefined): string {
+  if (val == null) return '-'
+  if (typeof val === 'number') return String(val)
+  const pc = playerCount.value
+  const s = val.replace(/C/g, String(pc))
+  // Calculate expressions like "8x4" or "1+4"
+  const mulMatch = s.match(/^(\d+)x(\d+)$/)
+  if (mulMatch) return String(Number(mulMatch[1]) * Number(mulMatch[2]))
+  const addMatch = s.match(/^(\d+)\+(\d+)$/)
+  if (addMatch) return String(Number(addMatch[1]) + Number(addMatch[2]))
+  return s
+}
 
 const playerCount = computed(() => {
   const count = characterStore.activeCharacters.length
@@ -233,7 +264,7 @@ const scenarioMonsters = computed((): MonsterCount[] => {
   for (const room of data.rooms) {
     for (const m of room.monster) {
       // Skip scenario-specific variants (e.g. cultist-scenario-78)
-      const baseId = m.name.replace(/-scenario-\d+$/, '')
+      const baseId = m.name.replace(/-scenario-\d+$/, '').replace(/:[^:]+$/, '')
 
       let type: string | undefined
       if (m.type) {
@@ -366,31 +397,99 @@ const totalMonsterCount = computed(() =>
           Příšery
           <span class="text-gray-600 normal-case font-normal ml-1">· {{ playerCount }} hráči · {{ totalMonsterCount }} celkem</span>
         </h4>
-        <div class="grid grid-cols-2 gap-1.5">
+        <div class="flex flex-col gap-1.5">
           <div
             v-for="m in scenarioMonsters"
             :key="m.id"
-            class="rounded-lg px-2.5 py-2 border"
-            :class="m.isBoss
-              ? 'bg-red-900/15 border-red-900/30 col-span-2'
-              : 'bg-white/[0.03] border-gh-border/30'"
+            class="rounded-lg border overflow-hidden transition-colors"
+            :class="[
+              m.isBoss ? 'bg-red-900/10 border-red-900/30' : 'bg-white/[0.02] border-gh-border/30',
+              expandedMonster === m.id ? 'border-gh-primary/30' : ''
+            ]"
           >
-            <div class="flex items-center gap-1.5 text-sm leading-tight" :class="m.isBoss ? 'text-red-400 font-semibold' : 'text-gray-300'">
-              {{ m.nameCz }}
-              <img v-if="m.flies" src="/img/icons/general/flying.png" alt="Létá" class="w-3.5 h-3.5 opacity-50" />
-            </div>
-            <div class="flex items-center gap-2 mt-1 text-[11px]">
-              <template v-if="m.isBoss">
-                <span class="px-1.5 py-0.5 rounded bg-red-900/30 text-red-400/90 font-display">BOSS</span>
-              </template>
-              <template v-else>
-                <span v-if="m.elite > 0" class="px-1.5 py-0.5 rounded bg-yellow-900/20 text-yellow-400/90">
-                  {{ m.elite }}× elitní
-                </span>
-                <span v-if="m.normal > 0" class="px-1.5 py-0.5 rounded bg-white/[0.04] text-gray-400">
-                  {{ m.normal }}× běžný
-                </span>
-              </template>
+            <button
+              class="flex items-start justify-between gap-2 px-3 py-2 w-full text-left hover:bg-white/[0.03] transition-colors cursor-pointer min-h-[44px]"
+              @click="toggleMonster(m.id)"
+            >
+              <div class="flex items-center gap-1.5 text-sm min-w-0" :class="m.isBoss ? 'text-red-400 font-semibold' : 'text-gray-300'">
+                <svg
+                  class="w-3 h-3 shrink-0 text-gray-600 transition-transform duration-200"
+                  :class="expandedMonster === m.id ? 'rotate-90' : ''"
+                  viewBox="0 0 24 24" fill="currentColor"
+                >
+                  <path d="M9 5l7 7-7 7z" />
+                </svg>
+                <span>{{ m.nameCz }}</span>
+                <img v-if="m.flies" src="/img/icons/general/flying.png" alt="Létá" title="Létající" class="w-3.5 h-3.5 opacity-50 shrink-0" />
+              </div>
+              <div class="flex items-center shrink-0">
+                <template v-if="m.isBoss">
+                  <span class="px-1.5 py-0.5 rounded bg-red-900/30 text-red-400/90 font-display text-[11px] pointer-events-none">BOSS</span>
+                </template>
+                <template v-else>
+                  <div class="flex items-center gap-0.5 w-8" :title="m.elite > 0 ? `${m.elite}× elitní` : ''">
+                    <template v-if="m.elite > 0">
+                      <svg class="w-4 h-4 text-yellow-400/90" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2l3 6h6l-4.5 4 1.5 6L12 15l-6 3 1.5-6L3 8h6z" />
+                      </svg>
+                      <span class="text-xs font-semibold text-yellow-400/90">{{ m.elite }}</span>
+                    </template>
+                  </div>
+                  <div class="flex items-center gap-0.5 w-8" :title="m.normal > 0 ? `${m.normal}× běžný` : ''">
+                    <template v-if="m.normal > 0">
+                      <svg class="w-4 h-4 text-gray-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="8" />
+                      </svg>
+                      <span class="text-xs text-gray-200">{{ m.normal }}</span>
+                    </template>
+                  </div>
+                </template>
+              </div>
+            </button>
+
+            <!-- Expanded stats -->
+            <div v-if="expandedMonster === m.id && getMonsterStats(m.id, scenarioLevel)" class="px-3 pb-3 border-t border-gh-border/20">
+              <!-- Description -->
+              <p v-if="monsterMap.get(m.id)?.description" class="text-xs text-gray-500 italic mt-2 mb-2.5 leading-relaxed">
+                {{ monsterMap.get(m.id)?.description }}
+              </p>
+
+              <!-- Stats table -->
+              <table class="text-[11px] w-full mt-1">
+                <thead>
+                  <tr class="text-gray-600">
+                    <th class="text-left font-normal pb-1 w-12"></th>
+                    <th class="text-center font-normal pb-1 w-10" title="Životy"><img src="/img/icons/general/heal.png" class="w-3.5 h-3.5 mx-auto opacity-50" alt="HP" /></th>
+                    <th class="text-center font-normal pb-1 w-10" title="Útok"><img src="/img/icons/general/attack.png" class="w-3.5 h-3.5 mx-auto opacity-50" alt="ATK" /></th>
+                    <th class="text-center font-normal pb-1 w-10" title="Pohyb"><img src="/img/icons/general/move.png" class="w-3.5 h-3.5 mx-auto opacity-50" alt="MOV" /></th>
+                    <th class="text-center font-normal pb-1 w-10" title="Dostřel"><img src="/img/icons/general/range.png" class="w-3.5 h-3.5 mx-auto opacity-50" alt="RNG" /></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-if="getMonsterStats(m.id, scenarioLevel)?.normal && !m.isBoss">
+                    <td class="text-gray-500 py-0.5">Běžný</td>
+                    <td class="text-center text-gray-300 py-0.5">{{ resolveStat(getMonsterStats(m.id, scenarioLevel)!.normal!.health) }}</td>
+                    <td class="text-center text-gray-300 py-0.5">{{ resolveStat(getMonsterStats(m.id, scenarioLevel)!.normal!.attack) }}</td>
+                    <td class="text-center text-gray-300 py-0.5">{{ getMonsterStats(m.id, scenarioLevel)!.normal!.movement ?? '-' }}</td>
+                    <td class="text-center text-gray-300 py-0.5">{{ getMonsterStats(m.id, scenarioLevel)!.normal!.range ?? '-' }}</td>
+                  </tr>
+                  <tr v-if="getMonsterStats(m.id, scenarioLevel)?.elite && !m.isBoss">
+                    <td class="text-yellow-400/80 py-0.5">Elitní</td>
+                    <td class="text-center text-yellow-300/90 py-0.5">{{ resolveStat(getMonsterStats(m.id, scenarioLevel)!.elite!.health) }}</td>
+                    <td class="text-center text-yellow-300/90 py-0.5">{{ resolveStat(getMonsterStats(m.id, scenarioLevel)!.elite!.attack) }}</td>
+                    <td class="text-center text-yellow-300/90 py-0.5">{{ getMonsterStats(m.id, scenarioLevel)!.elite!.movement ?? '-' }}</td>
+                    <td class="text-center text-yellow-300/90 py-0.5">{{ getMonsterStats(m.id, scenarioLevel)!.elite!.range ?? '-' }}</td>
+                  </tr>
+                  <tr v-if="getMonsterStats(m.id, scenarioLevel)?.boss">
+                    <td class="text-red-400/80 py-0.5">Boss</td>
+                    <td class="text-center text-red-300/90 py-0.5">{{ resolveStat(getMonsterStats(m.id, scenarioLevel)!.boss!.health) }}</td>
+                    <td class="text-center text-red-300/90 py-0.5">{{ resolveStat(getMonsterStats(m.id, scenarioLevel)!.boss!.attack) }}</td>
+                    <td class="text-center text-red-300/90 py-0.5">{{ (getMonsterStats(m.id, scenarioLevel)!.boss as any)?.movement ?? '-' }}</td>
+                    <td class="text-center text-red-300/90 py-0.5">{{ getMonsterStats(m.id, scenarioLevel)!.boss!.range ?? '-' }}</td>
+                  </tr>
+                </tbody>
+              </table>
+
             </div>
           </div>
         </div>
