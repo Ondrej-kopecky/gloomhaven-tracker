@@ -26,6 +26,8 @@ function resolveHp(val: number | string | undefined): number {
   if (typeof val === 'number') return val
   const pc = playerCount.value
   const s = val.replace(/C/g, String(pc))
+  const mulDivMatch = s.match(/^(\d+)x(\d+)\/(\d+)$/)
+  if (mulDivMatch) return Math.ceil(Number(mulDivMatch[1]) * Number(mulDivMatch[2]) / Number(mulDivMatch[3]))
   const mulMatch = s.match(/^(\d+)x(\d+)$/)
   if (mulMatch) return Number(mulMatch[1]) * Number(mulMatch[2])
   const addMatch = s.match(/^(\d+)\+(\d+)$/)

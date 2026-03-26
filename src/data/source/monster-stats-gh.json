@@ -780,6 +780,93 @@
       }
     ]
   },
+  "bloated-regent": {
+    "count": 1,
+    "flying": false,
+    "boss": true,
+    "stats": [
+      {
+        "level": 0,
+        "type": "boss",
+        "health": "10xC/2",
+        "movement": 1,
+        "attack": 3
+      },
+      {
+        "level": 1,
+        "type": "boss",
+        "health": "10xC/2",
+        "movement": 1,
+        "attack": 4
+      },
+      {
+        "level": 2,
+        "type": "boss",
+        "health": "13xC/2",
+        "movement": 1,
+        "attack": 4
+      },
+      {
+        "level": 3,
+        "type": "boss",
+        "health": "13xC/2",
+        "movement": 2,
+        "attack": 5
+      },
+      {
+        "level": 4,
+        "type": "boss",
+        "health": "15xC/2",
+        "movement": 2,
+        "attack": 5,
+        "actions": [
+          {
+            "type": "condition",
+            "value": "poison"
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "type": "boss",
+        "health": "17xC/2",
+        "movement": 2,
+        "attack": 6,
+        "actions": [
+          {
+            "type": "condition",
+            "value": "poison"
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "type": "boss",
+        "health": "21xC/2",
+        "movement": 2,
+        "attack": 6,
+        "actions": [
+          {
+            "type": "condition",
+            "value": "poison"
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "type": "boss",
+        "health": "25xC/2",
+        "movement": 2,
+        "attack": 6,
+        "actions": [
+          {
+            "type": "condition",
+            "value": "poison"
+          }
+        ]
+      }
+    ]
+  },
   "captain-of-the-guard": {
     "count": 1,
     "flying": false,
@@ -3069,6 +3156,139 @@
       }
     ]
   },
+  "giant-ooze": {
+    "count": 1,
+    "flying": false,
+    "boss": true,
+    "stats": [
+      {
+        "level": 0,
+        "type": "boss",
+        "health": "8xC",
+        "movement": 1,
+        "attack": 2,
+        "range": 3
+      },
+      {
+        "level": 1,
+        "type": "boss",
+        "health": "9xC",
+        "movement": 1,
+        "attack": 2,
+        "range": 3,
+        "actions": [
+          {
+            "type": "shield",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "type": "boss",
+        "health": "11xC",
+        "movement": 1,
+        "attack": 3,
+        "range": 3,
+        "actions": [
+          {
+            "type": "shield",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "type": "boss",
+        "health": "11xC",
+        "movement": 2,
+        "attack": 3,
+        "range": 4,
+        "actions": [
+          {
+            "type": "condition",
+            "value": "poison"
+          },
+          {
+            "type": "shield",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "type": "boss",
+        "health": "13xC",
+        "movement": 2,
+        "attack": 4,
+        "range": 4,
+        "actions": [
+          {
+            "type": "condition",
+            "value": "poison"
+          },
+          {
+            "type": "shield",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "type": "boss",
+        "health": "15xC",
+        "movement": 3,
+        "attack": 4,
+        "range": 4,
+        "actions": [
+          {
+            "type": "condition",
+            "value": "poison"
+          },
+          {
+            "type": "shield",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "type": "boss",
+        "health": "16xC",
+        "movement": 3,
+        "attack": 4,
+        "range": 4,
+        "actions": [
+          {
+            "type": "condition",
+            "value": "poison"
+          },
+          {
+            "type": "shield",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "type": "boss",
+        "health": "18xC",
+        "movement": 3,
+        "attack": 5,
+        "range": 4,
+        "actions": [
+          {
+            "type": "condition",
+            "value": "poison"
+          },
+          {
+            "type": "shield",
+            "value": 2
+          }
+        ]
+      }
+    ]
+  },
   "harrower-infester": {
     "count": 4,
     "flying": false,
@@ -3465,6 +3685,111 @@
         "type": "elite",
         "health": 15,
         "movement": 6,
+        "attack": 5,
+        "actions": [
+          {
+            "type": "retaliate",
+            "value": 4
+          }
+        ]
+      }
+    ]
+  },
+  "infiltrator": {
+    "count": 1,
+    "flying": false,
+    "boss": true,
+    "stats": [
+      {
+        "level": 0,
+        "type": "boss",
+        "health": 12,
+        "movement": 2,
+        "attack": 2
+      },
+      {
+        "level": 1,
+        "type": "boss",
+        "health": 12,
+        "movement": 3,
+        "attack": 2,
+        "actions": [
+          {
+            "type": "retaliate",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "type": "boss",
+        "health": 14,
+        "movement": 3,
+        "attack": 3,
+        "actions": [
+          {
+            "type": "retaliate",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "type": "boss",
+        "health": 17,
+        "movement": 3,
+        "attack": 3,
+        "actions": [
+          {
+            "type": "retaliate",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "type": "boss",
+        "health": 19,
+        "movement": 3,
+        "attack": 4,
+        "actions": [
+          {
+            "type": "retaliate",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "type": "boss",
+        "health": 21,
+        "movement": 3,
+        "attack": 5,
+        "actions": [
+          {
+            "type": "retaliate",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "type": "boss",
+        "health": 22,
+        "movement": 4,
+        "attack": 5,
+        "actions": [
+          {
+            "type": "retaliate",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "type": "boss",
+        "health": 26,
+        "movement": 4,
         "attack": 5,
         "actions": [
           {
@@ -5086,6 +5411,177 @@
       }
     ]
   },
+  "lurker-king": {
+    "count": 1,
+    "flying": false,
+    "boss": true,
+    "stats": [
+      {
+        "level": 0,
+        "type": "boss",
+        "health": 7,
+        "movement": 2,
+        "attack": 3,
+        "actions": [
+          {
+            "type": "target",
+            "value": 2
+          },
+          {
+            "type": "shield",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "level": 1,
+        "type": "boss",
+        "health": 9,
+        "movement": 2,
+        "attack": 3,
+        "actions": [
+          {
+            "type": "target",
+            "value": 2
+          },
+          {
+            "type": "pierce",
+            "value": 1
+          },
+          {
+            "type": "shield",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "type": "boss",
+        "health": 12,
+        "movement": 3,
+        "attack": 3,
+        "actions": [
+          {
+            "type": "target",
+            "value": 2
+          },
+          {
+            "type": "pierce",
+            "value": 2
+          },
+          {
+            "type": "shield",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "type": "boss",
+        "health": 14,
+        "movement": 3,
+        "attack": 4,
+        "actions": [
+          {
+            "type": "target",
+            "value": 2
+          },
+          {
+            "type": "pierce",
+            "value": 2
+          },
+          {
+            "type": "shield",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "type": "boss",
+        "health": 14,
+        "movement": 3,
+        "attack": 4,
+        "actions": [
+          {
+            "type": "target",
+            "value": 2
+          },
+          {
+            "type": "pierce",
+            "value": 3
+          },
+          {
+            "type": "shield",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "type": "boss",
+        "health": 15,
+        "movement": 3,
+        "attack": 5,
+        "actions": [
+          {
+            "type": "target",
+            "value": 2
+          },
+          {
+            "type": "pierce",
+            "value": 3
+          },
+          {
+            "type": "shield",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "type": "boss",
+        "health": 16,
+        "movement": 4,
+        "attack": 5,
+        "actions": [
+          {
+            "type": "target",
+            "value": 2
+          },
+          {
+            "type": "pierce",
+            "value": 4
+          },
+          {
+            "type": "shield",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "type": "boss",
+        "health": 18,
+        "movement": 4,
+        "attack": 5,
+        "actions": [
+          {
+            "type": "target",
+            "value": 2
+          },
+          {
+            "type": "pierce",
+            "value": 4
+          },
+          {
+            "type": "shield",
+            "value": 2
+          }
+        ]
+      }
+    ]
+  },
   "merciless-overseer": {
     "count": 1,
     "flying": false,
@@ -5585,6 +6081,135 @@
         "health": "22xC",
         "movement": 5,
         "attack": 8
+      }
+    ]
+  },
+  "prime-lieutenant": {
+    "count": 1,
+    "flying": false,
+    "boss": true,
+    "stats": [
+      {
+        "level": 0,
+        "type": "boss",
+        "health": 13,
+        "movement": 3,
+        "attack": 3
+      },
+      {
+        "level": 1,
+        "type": "boss",
+        "health": 15,
+        "movement": 3,
+        "attack": 3,
+        "actions": [
+          {
+            "type": "condition",
+            "value": "wound"
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "type": "boss",
+        "health": 18,
+        "movement": 3,
+        "attack": 3,
+        "actions": [
+          {
+            "type": "condition",
+            "value": "poison"
+          },
+          {
+            "type": "condition",
+            "value": "wound"
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "type": "boss",
+        "health": 21,
+        "movement": 3,
+        "attack": 4,
+        "actions": [
+          {
+            "type": "condition",
+            "value": "poison"
+          },
+          {
+            "type": "condition",
+            "value": "wound"
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "type": "boss",
+        "health": 24,
+        "movement": 4,
+        "attack": 4,
+        "actions": [
+          {
+            "type": "condition",
+            "value": "poison"
+          },
+          {
+            "type": "condition",
+            "value": "wound"
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "type": "boss",
+        "health": 27,
+        "movement": 4,
+        "attack": 5,
+        "actions": [
+          {
+            "type": "condition",
+            "value": "poison"
+          },
+          {
+            "type": "condition",
+            "value": "wound"
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "type": "boss",
+        "health": 30,
+        "movement": 4,
+        "attack": 6,
+        "actions": [
+          {
+            "type": "condition",
+            "value": "poison"
+          },
+          {
+            "type": "condition",
+            "value": "wound"
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "type": "boss",
+        "health": 35,
+        "movement": 4,
+        "attack": 6,
+        "actions": [
+          {
+            "type": "condition",
+            "value": "poison"
+          },
+          {
+            "type": "condition",
+            "value": "wound"
+          }
+        ]
       }
     ]
   },
@@ -7101,6 +7726,137 @@
         "movement": 5,
         "attack": 9,
         "range": 5
+      }
+    ]
+  },
+  "the-harvester": {
+    "count": 1,
+    "flying": false,
+    "boss": true,
+    "stats": [
+      {
+        "level": 0,
+        "type": "boss",
+        "health": 6,
+        "movement": 2,
+        "attack": 3,
+        "actions": [
+          {
+            "type": "shield",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "level": 1,
+        "type": "boss",
+        "health": 6,
+        "movement": 2,
+        "attack": 3,
+        "actions": [
+          {
+            "type": "shield",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "type": "boss",
+        "health": 9,
+        "movement": 2,
+        "attack": 3,
+        "actions": [
+          {
+            "type": "shield",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "type": "boss",
+        "health": 9,
+        "movement": 2,
+        "attack": 4,
+        "actions": [
+          {
+            "type": "retaliate",
+            "value": 1
+          },
+          {
+            "type": "shield",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "type": "boss",
+        "health": 10,
+        "movement": 3,
+        "attack": 4,
+        "actions": [
+          {
+            "type": "retaliate",
+            "value": 2
+          },
+          {
+            "type": "shield",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "type": "boss",
+        "health": 12,
+        "movement": 3,
+        "attack": 4,
+        "actions": [
+          {
+            "type": "retaliate",
+            "value": 2
+          },
+          {
+            "type": "shield",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "type": "boss",
+        "health": 13,
+        "movement": 3,
+        "attack": 5,
+        "actions": [
+          {
+            "type": "retaliate",
+            "value": 3
+          },
+          {
+            "type": "shield",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "type": "boss",
+        "health": 14,
+        "movement": 3,
+        "attack": 6,
+        "actions": [
+          {
+            "type": "retaliate",
+            "value": 3
+          },
+          {
+            "type": "shield",
+            "value": 3
+          }
+        ]
       }
     ]
   },
