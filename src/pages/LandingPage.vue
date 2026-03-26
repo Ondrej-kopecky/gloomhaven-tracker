@@ -91,20 +91,27 @@ const features = [
           Včetně DLC Forgotten Circles &bull; Zdarma &bull; Offline
         </p>
 
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
           <button
-            class="gh-btn-primary px-8 py-3 text-lg font-display tracking-wider"
-            @click="router.push('/kampan')"
+            class="gh-btn-primary py-3 text-lg font-display tracking-wider w-64"
+            @click="router.push('/registrace')"
           >
-            Začít sledovat kampaň
+            Vytvořit účet
           </button>
           <button
-            class="gh-btn-secondary px-8 py-3"
+            class="gh-btn-secondary py-3 text-lg w-64"
             @click="router.push('/prihlaseni')"
           >
             Přihlásit se
           </button>
         </div>
+
+        <button
+          class="gh-btn-ghost py-2.5 mt-3 text-sm w-64"
+          @click="router.push('/kampan')"
+        >
+          Pokračovat bez účtu
+        </button>
       </div>
     </section>
 
@@ -114,9 +121,9 @@ const features = [
         <div
           v-for="f in features"
           :key="f.id"
-          class="gh-card p-6 hover:border-gh-primary/20 transition-colors"
+          class="gh-card p-6 hover:border-gh-primary/20 transition-colors text-center sm:text-left"
         >
-          <div class="w-10 h-10 mb-4 text-gh-primary">
+          <div class="w-10 h-10 mb-4 text-gh-primary mx-auto sm:mx-0">
             <!-- Map & Flowchart -->
             <svg v-if="f.id === 'map'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M3 7l6-3 6 3 6-3v13l-6 3-6-3-6 3V7z" />
