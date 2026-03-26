@@ -230,7 +230,9 @@ function resolveStat(val: number | string | undefined): string {
   if (typeof val === 'number') return String(val)
   const pc = playerCount.value
   const s = val.replace(/C/g, String(pc))
-  // Calculate expressions like "8x4" or "1+4"
+  // Calculate expressions: "8x4", "8x4/2", "1+4"
+  const mulDivMatch = s.match(/^(\d+)x(\d+)\/(\d+)$/)
+  if (mulDivMatch) return String(Math.ceil(Number(mulDivMatch[1]) * Number(mulDivMatch[2]) / Number(mulDivMatch[3])))
   const mulMatch = s.match(/^(\d+)x(\d+)$/)
   if (mulMatch) return String(Number(mulMatch[1]) * Number(mulMatch[2]))
   const addMatch = s.match(/^(\d+)\+(\d+)$/)
