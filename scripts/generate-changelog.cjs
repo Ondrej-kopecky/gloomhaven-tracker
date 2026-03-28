@@ -11,11 +11,11 @@ const { execSync } = require('child_process')
 const fs = require('fs')
 const path = require('path')
 
-// Skip in environments without git (e.g. Docker build)
+// Skip in environments without git repo (e.g. Docker build)
 try {
-  execSync('git --version', { stdio: 'ignore' })
+  execSync('git rev-parse --git-dir', { stdio: 'ignore' })
 } catch {
-  console.log('Git not available, skipping changelog generation (using existing changelog.json)')
+  console.log('Not a git repo, skipping changelog generation (using existing changelog.json)')
   process.exit(0)
 }
 
