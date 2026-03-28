@@ -58,7 +58,7 @@ describe('CharacterClass enum', () => {
 
   it('has 18 total classes', () => {
     const allClasses = Object.values(CharacterClass)
-    expect(allClasses).toHaveLength(18)
+    expect(allClasses).toHaveLength(19)
   })
 })
 
@@ -84,7 +84,7 @@ describe('data files are valid JSON', () => {
   it('loads characters.json', async () => {
     const data = await import('@/data/characters.json')
     expect(Array.isArray(data.default)).toBe(true)
-    expect(data.default.length).toBe(18)
+    expect(data.default.length).toBe(19)
   })
 
   it('loads achievements.json', async () => {
