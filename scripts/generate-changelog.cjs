@@ -11,6 +11,14 @@ const { execSync } = require('child_process')
 const fs = require('fs')
 const path = require('path')
 
+// Skip in environments without git (e.g. Docker build)
+try {
+  execSync('git --version', { stdio: 'ignore' })
+} catch {
+  console.log('Git not available, skipping changelog generation (using existing changelog.json)')
+  process.exit(0)
+}
+
 function run(cmd) {
   return execSync(cmd, { encoding: 'utf8' }).trim()
 }
