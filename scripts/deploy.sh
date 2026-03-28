@@ -38,7 +38,7 @@ echo "  ✓ Backup OK"
 # 3. Upload source
 echo "→ Uploading files..."
 scp -q -r \
-  src public package.json package-lock.json \
+  src public scripts package.json package-lock.json \
   tsconfig.json tsconfig.app.json tsconfig.node.json \
   vite.config.ts index.html .env.production \
   $SERVER:$GLOOM_DIR/
