@@ -441,7 +441,7 @@ function achievementUpgradeLevel(parentId: string): { current: number; max: numb
             <!-- Rewards preview -->
             <div v-if="selectedScenario.rewards.gold || selectedScenario.rewards.xp" class="flex gap-2 mb-3">
               <span v-if="selectedScenario.rewards.gold" class="text-[10px] text-yellow-400 bg-yellow-900/20 px-2 py-0.5 rounded border border-yellow-800/30">
-                {{ selectedScenario.rewards.gold }} zl.
+                {{ selectedScenario.rewards.gold }} zl. {{ selectedScenario.rewards.goldType === 'collective' ? 'celkem' : 'každý' }}
               </span>
               <span v-if="selectedScenario.rewards.xp" class="text-[10px] text-blue-400 bg-blue-900/20 px-2 py-0.5 rounded border border-blue-800/30">
                 {{ selectedScenario.rewards.xp }} ZK

@@ -160,9 +160,15 @@ export const useCharacterStore = defineStore('character', () => {
     if (!campaignStore.currentCampaign) return
     const idx = campaignStore.currentCampaign.characters.findIndex((c) => c.uuid === uuid)
     if (idx < 0) return
+    const charCopy = JSON.parse(JSON.stringify(campaignStore.currentCampaign.characters[idx]))
     campaignStore.currentCampaign.characters.splice(idx, 1)
     campaignStore.autoSave()
-    toastStore.show('Postava byla odstraněna')
+    toastStore.show('Postava byla odstraněna', 'success', () => {
+      if (!campaignStore.currentCampaign) return
+      campaignStore.currentCampaign.characters.splice(idx, 0, charCopy)
+      campaignStore.autoSave()
+      toastStore.show('Odstranění vráceno', 'info')
+    })
   }
 
   function updateChecks(uuid: string, amount: number) {
@@ -285,10 +291,17 @@ export const useCharacterStore = defineStore('character', () => {
     const price = Math.max(0, def.cost + shopPriceModifier)
     if (char.gold < price) return false
 
+    const prevGold = char.gold
     char.gold -= price
     char.items.push(itemId)
     campaignStore.autoSave()
-    toastStore.show(`${def.name} zakoupen za ${price} zl.`)
+    toastStore.show(`${def.name} zakoupen za ${price} zl.`, 'success', () => {
+      char.gold = prevGold
+      const idx = char.items.lastIndexOf(itemId)
+      if (idx >= 0) char.items.splice(idx, 1)
+      campaignStore.autoSave()
+      toastStore.show('Nákup vrácen', 'info')
+    })
     return true
   }
 
@@ -311,9 +324,17 @@ export const useCharacterStore = defineStore('character', () => {
     const idx = char.items.indexOf(itemId)
     if (idx < 0) return false
 
+    const prevGold = char.gold
+    const sellPrice = Math.floor(def.cost / 2)
     char.items.splice(idx, 1)
-    char.gold += Math.floor(def.cost / 2)
+    char.gold += sellPrice
     campaignStore.autoSave()
+    toastStore.show(`${def.name} prodán za ${sellPrice} zl.`, 'success', () => {
+      char.gold = prevGold
+      char.items.push(itemId)
+      campaignStore.autoSave()
+      toastStore.show('Prodej vrácen', 'info')
+    })
     return true
   }
 

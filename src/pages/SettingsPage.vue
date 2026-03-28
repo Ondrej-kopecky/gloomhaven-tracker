@@ -122,6 +122,10 @@ function toggleEnvelope(key: string) {
     const envelopes = campaignStore.currentCampaign.openedEnvelopes ?? {}
     envelopes[key] = false
     campaignStore.currentCampaign.openedEnvelopes = { ...envelopes }
+    // Lock classes when closing envelopes
+    if (key === 'X') campaignStore.lockClass('bladeswarm')
+    if (key === 'sun') campaignStore.lockClass('sunkeeper')
+    if (key === 'moon') campaignStore.lockClass('nightshroud')
     campaignStore.autoSave()
     return
   }
@@ -130,9 +134,16 @@ function toggleEnvelope(key: string) {
 
 function confirmOpenEnvelope() {
   if (!campaignStore.currentCampaign || !envelopeConfirm.value) return
+  const key = envelopeConfirm.value
   const envelopes = campaignStore.currentCampaign.openedEnvelopes ?? {}
-  envelopes[envelopeConfirm.value] = true
+  envelopes[key] = true
   campaignStore.currentCampaign.openedEnvelopes = { ...envelopes }
+
+  // Auto-unlock classes from envelopes
+  if (key === 'X') campaignStore.unlockClass('bladeswarm')
+  if (key === 'sun') campaignStore.unlockClass('sunkeeper')
+  if (key === 'moon') campaignStore.unlockClass('nightshroud')
+
   campaignStore.autoSave()
   envelopeConfirm.value = null
 }

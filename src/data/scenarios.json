@@ -67,16 +67,14 @@
       }
     ],
     "rewards": {
-      "gold": 0,
+      "gold": 10,
       "xp": 0,
       "reputation": 1,
-      "prosperity": 0,
+      "prosperity": 1,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "10 gold each",
-        "+1 prosperity"
-      ]
+      "text": [],
+      "goldType": "each"
     },
     "summary": "Družina sestoupila hlouběji do kurhanu, kde narazila na doupě banditů. V hlubinách čekala silná nemrtvá bytost. Po vítězství družina získala cenný poklad a pověst ochránců.",
     "chapterId": 1,
@@ -121,16 +119,14 @@
       }
     ],
     "rewards": {
-      "gold": 0,
+      "gold": 15,
       "xp": 0,
       "reputation": 0,
-      "prosperity": 0,
+      "prosperity": 1,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "15 gold each",
-        "+1 prosperity"
-      ]
+      "text": [],
+      "goldType": "each"
     },
     "summary": "Na popud Jekserah se družina vydala do tábora Inoxů v horách. Situace se vyostřila a družina musela čelit náporu divokých Inoxů, kteří bránili svůj domov.",
     "chapterId": 2,
@@ -282,15 +278,14 @@
       }
     ],
     "rewards": {
-      "gold": 0,
+      "gold": 5,
       "xp": 0,
       "reputation": 0,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "5 gold each"
-      ]
+      "text": [],
+      "goldType": "each"
     },
     "summary": "V rozpadající se kryptě se družina střetla s temnou silou, která oživovala mrtvé. Hluboké chodby ukrývaly starodávné rituální místo, kde se schylovalo k probuzení pradávného zla.",
     "chapterId": 2,
@@ -385,13 +380,11 @@
     "rewards": {
       "gold": 0,
       "xp": 0,
-      "reputation": 0,
+      "reputation": 2,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "+2 reputation"
-      ]
+      "text": []
     },
     "summary": "Sklad v Gloomhavenu se stal terčem záhadných krádeží. Družina vyšetřovala stopy a zjistila, že za krádežemi stojí organizovaná skupina, která zásobuje temné síly ve městě.",
     "chapterId": 2,
@@ -446,16 +439,14 @@
     ],
     "treasures": [],
     "rewards": {
-      "gold": 0,
+      "gold": 20,
       "xp": 0,
       "reputation": 0,
-      "prosperity": 0,
+      "prosperity": 1,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "20 gold each",
-        "+1 prosperity"
-      ]
+      "text": [],
+      "goldType": "each"
     },
     "summary": "Diamantový důl v horách lákal dobrodruhy svým bohatstvím. Družina se musela probít přes nestvůry a pasti, aby získala vzácné drahokamy ukryté v nejhlubších štolách.",
     "chapterId": 2,
@@ -570,18 +561,16 @@
       }
     ],
     "rewards": {
-      "gold": 0,
+      "gold": 15,
       "xp": 0,
-      "reputation": 0,
-      "prosperity": 0,
+      "reputation": -2,
+      "prosperity": 2,
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "15 gold each",
-        "-2 reputation",
-        "+2 prosperity",
-        "“Skullbane Axe” design (Item 113)"
-      ]
+        "Návrh předmětu „Skullbane Axe“ (předmět 113)"
+      ],
+      "goldType": "each"
     },
     "summary": "Jekserah je nadšená z diamantu, který jste jí přinesli. Teď se ptá, jestli jste připraveni svrhnout vojenskou správu Gloomhavenu a předat kontrolu nad městem do rukou Obchodnického cechu. S pomocí nekromantického svitku a diamantu jako zaostřovacího krystalu může přivolat celou armádu nemrtvých. Je na vás, zda se k jejímu plánu připojíte.",
     "chapterId": 2,
@@ -644,13 +633,12 @@
     "rewards": {
       "gold": 0,
       "xp": 0,
-      "reputation": 0,
+      "reputation": 4,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "+4 reputation",
-        "“Skullbane Axe” design (Item 113)"
+        "Návrh předmětu „Skullbane Axe“ (předmět 113)"
       ]
     },
     "summary": "Rozhodli jste se nepomáhat Jekserah s jejími plány. Místo toho chcete varovat město před armádou nemrtvých, kterou se chystá přivolat. Musíte jednat rychle a spojit se s městskou stráží, než bude pozdě.",
@@ -800,14 +788,12 @@
     "treasures": [],
     "rewards": {
       "gold": 0,
-      "xp": 0,
+      "xp": 20,
       "reputation": 0,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "20 experience each"
-      ]
+      "text": []
     },
     "summary": "Vysoko v údolí hluboko v horách Copperneků se nachází svatyně. Kamenné průčelí stavby zdobí reliéfy živlů. Říká se, že uvnitř přebývá mocná síla, která čeká na toho, kdo prokáže svou hodnotu.",
     "chapterId": 2,
@@ -889,15 +875,14 @@
       }
     ],
     "rewards": {
-      "gold": 0,
+      "gold": 25,
       "xp": 0,
       "reputation": 0,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "25 gold each"
-      ]
+      "text": [],
+      "goldType": "each"
     },
     "summary": "Víte o ostrově v Mlžném moři, který údajně skrývá nesmírné bohatství. Čas vyrazit na výpravu přes nebezpečné vody!",
     "chapterId": 2,
@@ -989,12 +974,10 @@
       "gold": 0,
       "xp": 0,
       "reputation": 0,
-      "prosperity": 0,
+      "prosperity": 1,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "+1 prosperity"
-      ]
+      "text": []
     },
     "summary": "S cílem zastavit elementální kultisty vstupujete do krypty a objevíte děsivý pohled — skupina kultistů provádí rituální zaříkávání před černou zející trhlinou v realitě. Temná energie proudí z trhliny a přitahuje bytosti z jiných dimenzí.",
     "chapterId": 3,
@@ -1047,17 +1030,14 @@
       }
     ],
     "rewards": {
-      "gold": 0,
+      "gold": 20,
       "xp": 0,
-      "reputation": 0,
-      "prosperity": 0,
+      "reputation": 2,
+      "prosperity": 1,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "20 gold each",
-        "+2 reputation",
-        "+1 prosperity"
-      ]
+      "text": [],
+      "goldType": "each"
     },
     "summary": "Jekserah vyhrožuje, že se vrátí do Gloomhavenu s legií nemrtvých za zády, a prchá z města. Musíte ji najít a zastavit, než splní svou hrozbu.",
     "chapterId": 2,
@@ -1099,17 +1079,16 @@
       }
     ],
     "rewards": {
-      "gold": 0,
+      "gold": 50,
       "xp": 0,
       "reputation": 0,
-      "prosperity": 0,
+      "prosperity": 1,
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "50 gold each",
-        "+1 prosperity",
-        "Add City Event 78 to the deck"
-      ]
+        "Přidejte městskou událost 78 do balíčku"
+      ],
+      "goldType": "each"
     },
     "summary": "Vydáváte se na výpravu s cílem zabít mocného démona, který ohrožuje celý kraj. Cesta vede do pekelných hlubin, kde se musíte střetnout s ďábelskými silami.",
     "chapterId": 3,
@@ -1372,17 +1351,14 @@
       }
     ],
     "rewards": {
-      "gold": 0,
+      "gold": 10,
       "xp": 0,
-      "reputation": 0,
-      "prosperity": 0,
+      "reputation": 1,
+      "prosperity": 2,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "10 gold each",
-        "+1 reputation",
-        "+2 prosperity"
-      ]
+      "text": [],
+      "goldType": "each"
     },
     "summary": "Při vyšetřování otráveného vodovodu se dostáváte hlouběji do podzemí. Prastará nádrž ukrývá zdroj kontaminace — a něco mnohem horšího.",
     "chapterId": 4,
@@ -1429,16 +1405,16 @@
     ],
     "treasures": [],
     "rewards": {
-      "gold": 0,
+      "gold": 100,
       "xp": 0,
       "reputation": 0,
-      "prosperity": 0,
+      "prosperity": 1,
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "+1 prosperity",
-        "100 gold each This money must immediately be spent on enhancements"
-      ]
+        "100 zlaťáků pro každého — tyto peníze musí být okamžitě utraceny za vylepšení"
+      ],
+      "goldType": "each"
     },
     "summary": "S cílem zastavit elementální kultisty vstupujete do krypty a objevíte děsivý pohled — trhlina v realitě se rozrůstá. Musíte ji uzavřít, než přes ni pronikne něco, co nelze zastavit.",
     "chapterId": 3,
@@ -1539,14 +1515,12 @@
     ],
     "rewards": {
       "gold": 0,
-      "xp": 0,
+      "xp": 15,
       "reputation": 0,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "15 experience each"
-      ]
+      "text": []
     },
     "summary": "Stopy po kultu Chmuru vás dovedly až k jeho tajnému útočišti. Zde se skrývá vůdce kultu a jeho nejbližší následovníci. Je čas skoncovat s touto hrozbou jednou provždy.",
     "chapterId": 2,
@@ -1589,15 +1563,14 @@
     ],
     "treasures": [],
     "rewards": {
-      "gold": 0,
+      "gold": 10,
       "xp": 0,
       "reputation": 0,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "10 gold each"
-      ]
+      "text": [],
+      "goldType": "each"
     },
     "summary": "Rozhodli jste se zjistit, co přesně Hlas je, místo abyste si jen pohrávali se silami, kterým nerozumíte. Stopa vede do svatyně hluboko pod zemí.",
     "chapterId": 10,
@@ -1817,17 +1790,14 @@
       }
     ],
     "rewards": {
-      "gold": 0,
+      "gold": 20,
       "xp": 0,
-      "reputation": 0,
-      "prosperity": 0,
+      "reputation": 2,
+      "prosperity": 1,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "20 gold each",
-        "+2 reputation",
-        "+1 prosperity"
-      ]
+      "text": [],
+      "goldType": "each"
     },
     "summary": "Stojíte před mohutným, hrdým drakem a nevidíte důvod k vyjednávání. Pokud chce vaši pomoc, bude muset nejdříve dokázat, že si ji zaslouží — silou nebo moudrostí.",
     "chapterId": 9,
@@ -1889,18 +1859,16 @@
       }
     ],
     "rewards": {
-      "gold": 0,
+      "gold": 30,
       "xp": 0,
-      "reputation": 0,
-      "prosperity": 0,
+      "reputation": 5,
+      "prosperity": -2,
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "30 gold each",
-        "5 reputation",
-        "-2 prosperity",
-        "Add City Event 79 to the deck"
-      ]
+        "Přidejte městskou událost 79 do balíčku"
+      ],
+      "goldType": "each"
     },
     "summary": "V zapomenutém chrámu podél řeky Hadí polibek se nachází artefakt velké moci. Můžete ho získat, ale chrám střeží pradávní strážci, kteří nenechají nikoho projít bez boje.",
     "chapterId": 3,
@@ -1964,17 +1932,16 @@
       }
     ],
     "rewards": {
-      "gold": 0,
+      "gold": 10,
       "xp": 0,
-      "reputation": 0,
+      "reputation": 4,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "10 gold each",
-        "+4 reputation",
-        "Add City Event 78 to the deck"
-      ]
+        "Přidejte městskou událost 78 do balíčku"
+      ],
+      "goldType": "each"
     },
     "summary": "V zapomenutém chrámu podél řeky Hadí polibek se nachází artefakt velké moci. Tentokrát přicházíte z jiné strany a musíte čelit novým nástrahám na cestě k artefaktu.",
     "chapterId": 3,
@@ -2100,13 +2067,11 @@
     "rewards": {
       "gold": 0,
       "xp": 0,
-      "reputation": 0,
+      "reputation": 1,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "+1 reputation"
-      ]
+      "text": []
     },
     "summary": "S pomocí Krupobití se vám podařilo přerušit spojení artefaktu se Sférou noci. Další stopa vede k otrokářským ohradám, kde se temná energie stále drží.",
     "chapterId": 7,
@@ -2150,14 +2115,12 @@
     ],
     "rewards": {
       "gold": 0,
-      "xp": 0,
+      "xp": 10,
       "reputation": 0,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "10 experience each"
-      ]
+      "text": []
     },
     "summary": "S pomocí Krupobití byl artefakt očištěn od svého zkaženého vlivu. Krupobití však zmínila tři místa, která přitahovala temnou energii. Musíte je prozkoumat a neutralizovat zbývající hrozby.",
     "chapterId": 8,
@@ -2255,18 +2218,16 @@
       }
     ],
     "rewards": {
-      "gold": 0,
-      "xp": 0,
+      "gold": 50,
+      "xp": 25,
       "reputation": 0,
-      "prosperity": 0,
+      "prosperity": 2,
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "50 gold each",
-        "25 experience each",
-        "2 ✔ each",
-        "+2 prosperity"
-      ]
+        "2 ✔ pro každého"
+      ],
+      "goldType": "each"
     },
     "summary": "Hlas z jeskyně vás navádí k věkovité hrobce, kde se nachází poslední překážka na cestě k jeho osvobození. Pradávní strážci stále plní svůj úkol.",
     "chapterId": 10,
@@ -2436,13 +2397,12 @@
     "rewards": {
       "gold": 0,
       "xp": 0,
-      "reputation": 0,
+      "reputation": 2,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "Open envelope {DS}",
-        "+2 reputation"
+        "Otevřete obálku {DS}"
       ]
     },
     "summary": "Orchidej, kterého jste osvobodili z Dýkového lesa, vás žádá o pomoc s osvobozením svého lidu ze sousední vesnice. Otrokáři drží jeho příbuzné v zajetí.",
@@ -2490,16 +2450,14 @@
       }
     ],
     "rewards": {
-      "gold": 0,
+      "gold": 20,
       "xp": 0,
-      "reputation": 0,
+      "reputation": -2,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "20 gold each",
-        "-2 reputation"
-      ]
+      "text": [],
+      "goldType": "each"
     },
     "summary": "Jednoho dne se probudíte a nad vámi stojí zdeformovaný démon, který drží pergamen z jakési kůže. Na pergamenu je rozkaz od démonického pána — musíte splnit jeho úkol, nebo čelit následkům.",
     "chapterId": 5,
@@ -2708,16 +2666,14 @@
       }
     ],
     "rewards": {
-      "gold": 0,
+      "gold": 50,
       "xp": 0,
-      "reputation": 0,
+      "reputation": -3,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "50 gold each",
-        "-3 reputation"
-      ]
+      "text": [],
+      "goldType": "each"
     },
     "summary": "Na rozkaz démonického pána se vydáváte do Váhavé bažiny, abyste zničili poslední zbytky odporu proti démonické nadvládě. V bažině se skrývá tábor povstalců.",
     "chapterId": 5,
@@ -2763,14 +2719,11 @@
     "rewards": {
       "gold": 0,
       "xp": 0,
-      "reputation": 0,
-      "prosperity": 0,
+      "reputation": 3,
+      "prosperity": -2,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "+3 reputation",
-        "-2 prosperity"
-      ]
+      "text": []
     },
     "summary": "Na rozkaz démonického pána se vydáváte do Váhavé bažiny. Místo povstalců však nacházíte pevnost duchů — přízraky padlých válečníků, kteří odmítají zemřít.",
     "chapterId": 5,
@@ -2831,15 +2784,13 @@
     "rewards": {
       "gold": 0,
       "xp": 0,
-      "reputation": 0,
-      "prosperity": 0,
+      "reputation": 5,
+      "prosperity": 5,
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "+5 reputation",
-        "+5 prosperity",
-        "Add City Event 81 to the deck",
-        "Add Road Event 69 to the deck"
+        "Přidejte městskou událost 81 do balíčku",
+        "Přidejte cestovní událost 69 do balíčku"
       ]
     },
     "summary": "Spojení mezi zkaženým artefaktem a Sférou noci bylo přerušeno. Krupobití zmiňuje tři místa, která přitahovala temnou energii. Všechna vedou do Prázdnoty — dimenze mimo prostor a čas, kde se musíte střetnout s ultimátní hrozbou.",
@@ -2930,7 +2881,7 @@
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "The Seeker of Xorn receives: “Staff of Xorn” (Item 114) The Seeker cannot sell this item."
+        "Hledač Xornu obdrží: „Staff of Xorn“ (předmět 114). Tento předmět nelze prodat."
       ]
     },
     "summary": "Družina pronikla do základů starobylé krypty, kde každý kámen byl nasáknutý smrtí a z prasklin ve zdech se linul ledový dech dávno pohřbených.",
@@ -2972,9 +2923,9 @@
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "Immediately retire the Seeker of Xorn",
-        "Add City and Road Events 59 to the decks instead of the normal retirement events for the class",
-        "Open envelope {PH}"
+        "Okamžitě odejde do důchodu Seeker of Xorn",
+        "Přidejte městskou a cestovní událost 59 do balíčků místo běžných událostí za odchod do důchodu",
+        "Otevřete obálku {PH}"
       ]
     },
     "summary": "Družina vstoupila do ledového paláce, kde mráz zhoustl v živou bytost a zmrzlí strážci střežili své krystalické království s bezduchou věrností.",
@@ -3003,15 +2954,14 @@
     "linkedFrom": [],
     "treasures": [],
     "rewards": {
-      "gold": 0,
+      "gold": 10,
       "xp": 0,
       "reputation": 0,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "10 collective gold"
-      ]
+      "text": [],
+      "goldType": "collective"
     },
     "summary": "Družina se prodírala mlžnými houštinami, kde hustá mlha pohlcovala zvuky i světlo a lesní tvorové číhali ve stínech jako přízraky.",
     "chapterId": 101,
@@ -3044,18 +2994,17 @@
       }
     ],
     "rewards": {
-      "gold": 0,
+      "gold": 10,
       "xp": 0,
-      "reputation": 0,
+      "reputation": 2,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "“Take Back the Trees” quest complete",
-        "Open envelope {DS}",
-        "10 gold each",
-        "+2 reputation"
-      ]
+        "Splněn úkol „Získejte zpět stromy“",
+        "Otevřete obálku {DS}"
+      ],
+      "goldType": "each"
     },
     "summary": "Družina vnikla do temného hvozdu, kde si zbojníci vybudovali svůj zákeřný úkryt, a krev prolitá na mechem porostlé půdě volala po spravedlnosti.",
     "chapterId": 101,
@@ -3094,13 +3043,11 @@
     "rewards": {
       "gold": 0,
       "xp": 0,
-      "reputation": 0,
+      "reputation": 1,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "+1 reputation"
-      ]
+      "text": []
     },
     "summary": "Družina prohledávala temné zákoutí města v rámci vyšetřování, jehož každá stopa vedla hlouběji do pavučiny lží a skryté zrady.",
     "chapterId": 101,
@@ -3130,14 +3077,13 @@
     "rewards": {
       "gold": 0,
       "xp": 0,
-      "reputation": 0,
+      "reputation": 2,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "“Vengeance” quest complete",
-        "Open envelope X",
-        "+2 reputation"
+        "Splněn úkol „Pomsta“",
+        "Otevřete obálku X"
       ]
     },
     "summary": "Družina dorazila ke krvavé chatrči, kde stěny nesly znamení temného rituálu a vzduch vibroval energií zla, které ještě neodeznělo.",
@@ -3202,13 +3148,12 @@
       "gold": 0,
       "xp": 0,
       "reputation": 0,
-      "prosperity": 0,
+      "prosperity": 1,
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "“Finding the Cure” quest complete",
-        "Open envelope X",
-        "+1 prosperity"
+        "Splněn úkol „Nalezení léku“",
+        "Otevřete obálku X"
       ]
     },
     "summary": "Družina prohledala alchymistickou laboratoř plnou probublávajících kotlíků a nestabilních experimentů, jejichž tvůrce zjevně překročil hranice, jež by byl překročit neměl.",
@@ -3278,15 +3223,14 @@
     ],
     "rewards": {
       "gold": 0,
-      "xp": 0,
+      "xp": 10,
       "reputation": 0,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "“The Fall of Man” quest complete",
-        "Open envelope {NS}",
-        "10 experience each"
+        "Splněn úkol „Pád člověka“",
+        "Otevřete obálku {NS}"
       ]
     },
     "summary": "Družina sestoupila do jámy duší, kde nespočetné hlasy zemřelých splývaly v jediný nesnesitelný nářek a nemrtví střežili práh, jenž nikdo neměl překračovat.",
@@ -3318,15 +3262,14 @@
       }
     ],
     "rewards": {
-      "gold": 0,
+      "gold": 15,
       "xp": 0,
       "reputation": 0,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "15 gold each"
-      ]
+      "text": [],
+      "goldType": "each"
     },
     "summary": "Družina pronikla do samotného srdce vulkánu, kde žár taveniny byl ničím proti chladnokrevné zuřivosti ohnivých démonů střežících tuto zapomenutou bránu do pekel.",
     "chapterId": 102,
@@ -3358,14 +3301,12 @@
     ],
     "rewards": {
       "gold": 0,
-      "xp": 0,
+      "xp": 10,
       "reputation": 0,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "10 experience each"
-      ]
+      "text": []
     },
     "summary": "Družina se ponořila do podmořské laguny, kde přítmí a tíha vody svíraly každý krok a tvorové hlubin nevítali žádné návštěvníky.",
     "chapterId": 102,
@@ -3405,7 +3346,7 @@
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "“Ancient Drill” design (Item 112)"
+        "Návrh předmětu „Ancient Drill“ (předmět 112)"
       ]
     },
     "summary": "Družina sestoupila do siřičitého dolu, kde jedovaté výpary pálily plíce a v zakouřených chodbách přežívali jen ti, kdo ztratili všechno ostatní.",
@@ -3492,7 +3433,7 @@
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "“Power Core” (Item 132)"
+        "„Power Core“ (předmět 132)"
       ]
     },
     "summary": "Družina objevila tajemnou komnatu skrytou za věky mlčení, kde každá záhada skrývala další a stěny samy jakoby testovaly, zda jsou dostatečně hodni pravdy.",
@@ -3531,7 +3472,7 @@
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "2 “Major Healing Potions” (Item 027)"
+        "2× „Velký léčivý lektvar“ (předmět 027)"
       ]
     },
     "summary": "Družina se brodila otrávenou slatí, kde jedovaté výpary tančily nad hladinou černé vody a bažina pohlcovala vše, co nebylo dost silné přežít.",
@@ -3558,15 +3499,14 @@
     "linkedFrom": [],
     "treasures": [],
     "rewards": {
-      "gold": 0,
+      "gold": 15,
       "xp": 0,
       "reputation": 0,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "15 gold each"
-      ]
+      "text": [],
+      "goldType": "each"
     },
     "summary": "Družina přistoupila ke studni nešťastníků, z jejíž bezedné tmy stoupal nářek těch, kdo do ní padli, a temná síla uvnitř nehodlala nikoho pustit.",
     "chapterId": 102,
@@ -3597,12 +3537,10 @@
       "gold": 0,
       "xp": 0,
       "reputation": 0,
-      "prosperity": 0,
+      "prosperity": 2,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "+2 prosperity"
-      ]
+      "text": []
     },
     "summary": "Družina dosáhla spoutaného ostrova, jehož pradávná pouta se třásla pod tlakem něčeho, co si přálo být osvobozeno, ač svět by to osvobození nepřežil.",
     "chapterId": 102,
@@ -3636,7 +3574,7 @@
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "2 “Major Power Potions” (Item 041)"
+        "2× „Velký lektvar síly“ (předmět 041)"
       ]
     },
     "summary": "Družina vystoupala na větrné vrchy, kde hvízdající větry nesly řev létajících nepřátel a každý závan mohl být posledním před pádem do propasti.",
@@ -3663,14 +3601,11 @@
     "rewards": {
       "gold": 0,
       "xp": 0,
-      "reputation": 0,
-      "prosperity": 0,
+      "reputation": 1,
+      "prosperity": 1,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "+1 reputation",
-        "+1 prosperity"
-      ]
+      "text": []
     },
     "summary": "Knihovník Domenik se chce zapojit do dění v Gloomhavenu a do střetu mezi obchodníky a vojenskou správou. Požádal vás o pomoc s průzkumem Slizkého háje, kde se údajně nachází důležité dokumenty.",
     "chapterId": 103,
@@ -3698,13 +3633,11 @@
     "rewards": {
       "gold": 0,
       "xp": 0,
-      "reputation": 0,
+      "reputation": 1,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "+1 reputation"
-      ]
+      "text": []
     },
     "summary": "Domenik zjistil, že existuje písemný záznam aestherského příběhu v Kodexu směrnic. Kopie údajně leží na Hřbetu kamenných lavin. Musíte ji najít dříve než ostatní.",
     "chapterId": 103,
@@ -3738,16 +3671,14 @@
       }
     ],
     "rewards": {
-      "gold": 0,
+      "gold": 10,
       "xp": 0,
       "reputation": 0,
-      "prosperity": 0,
+      "prosperity": 2,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "10 gold each",
-        "+2 prosperity"
-      ]
+      "text": [],
+      "goldType": "each"
     },
     "summary": "Družina se vydala na šíré moře, kde obchodní loď skrývala hrůzy hlubiny — piráti a mořské příšery se slétávali jako supi na kořist.",
     "chapterId": 105,
@@ -3785,15 +3716,14 @@
       }
     ],
     "rewards": {
-      "gold": 0,
+      "gold": 60,
       "xp": 0,
       "reputation": 0,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "60 gold each"
-      ]
+      "text": [],
+      "goldType": "each"
     },
     "summary": "Družina pronikla do zarostlého hřbitova, kde staré hroby neposkytovaly klid mrtvým a kostlivci vstávali z tlející země, aby bránili svůj věčný spánek.",
     "chapterId": 105,
@@ -3861,14 +3791,12 @@
     "treasures": [],
     "rewards": {
       "gold": 0,
-      "xp": 0,
+      "xp": 5,
       "reputation": 0,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "5 experience each"
-      ]
+      "text": []
     },
     "summary": "Domenikova práce byla z velké části zničena Hlídkou, která také zabavila Kodex a jeho knihu. Po stopách se vydáváte do Pokladnice tajemství, kde by mohly být ukryty zbývající záznamy.",
     "chapterId": 103,
@@ -3900,13 +3828,11 @@
     "rewards": {
       "gold": 0,
       "xp": 0,
-      "reputation": 0,
+      "reputation": 3,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "+3 reputation"
-      ]
+      "text": []
     },
     "summary": "Družina sestoupila do jámy obětování, kde krev obětí nasytila prastaré temné rituály a vzduch byl těžký čmoudem spálených duší.",
     "chapterId": 105,
@@ -3937,15 +3863,14 @@
       }
     ],
     "rewards": {
-      "gold": 0,
+      "gold": 15,
       "xp": 0,
       "reputation": 0,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "15 gold each"
-      ]
+      "text": [],
+      "goldType": "each"
     },
     "summary": "Družina odhalila ztracený chrám pohřbený pod nánosem věků, jehož skryté komnaty střežila zapomenutá tajemství i jejich nemilosrdní strážci.",
     "chapterId": 105,
@@ -3980,14 +3905,12 @@
     "treasures": [],
     "rewards": {
       "gold": 0,
-      "xp": 0,
+      "xp": 10,
       "reputation": 0,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "10 experience each"
-      ]
+      "text": []
     },
     "summary": "Družina narazila na bdělou hlídku nepřátel, jejichž oči nikdy nespaly a jejichž meče byly vždy připraveny prolit krev vetřelců.",
     "chapterId": 104,
@@ -4020,14 +3943,12 @@
     ],
     "rewards": {
       "gold": 0,
-      "xp": 0,
+      "xp": 10,
       "reputation": 0,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "10 experience each"
-      ]
+      "text": []
     },
     "summary": "Družina vstoupila do chrámu zatmění, kde temnota nebyla pouhým nedostatkem světla, ale živoucí silou, která pohlcovala duše i naděje.",
     "chapterId": 105,
@@ -4066,7 +3987,7 @@
       "partyAchievements": [],
       "text": [
         [
-          "+1 reputation"
+          "+1 reputace"
         ],
         [
           "-1 reputation",
@@ -4099,15 +4020,14 @@
     "linkedFrom": [],
     "treasures": [],
     "rewards": {
-      "gold": 0,
+      "gold": 40,
       "xp": 0,
       "reputation": 0,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "40 collective gold"
-      ]
+      "text": [],
+      "goldType": "collective"
     },
     "summary": "Družina se plížila nocí stínů, kde každý šelest mohl znamenat smrt a tma skrývala nepřátele, kteří se rodili ze samotné tmy.",
     "chapterId": 105,
@@ -4148,12 +4068,11 @@
       "gold": 0,
       "xp": 0,
       "reputation": 0,
-      "prosperity": 0,
+      "prosperity": 1,
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "“Resonant Crystal” (Item 133)",
-        "+1 prosperity"
+        "„Resonant Crystal“ (předmět 133)"
       ]
     },
     "summary": "Družina pronikla do krystalové jeskyně, jejíž duhové odlesky skrývaly smrtonosná nebezpečí ukrytá mezi třpytivými pilíři.",
@@ -4194,7 +4113,7 @@
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "“Orb of Dawn” (Item 121)"
+        "„Orb of Dawn“ (předmět 121)"
       ]
     },
     "summary": "Družina dobývala chrám slunce, kde světelná magie nesvítila k dobru, ale spalovala vše živé ve jménu zapomenutého boha.",
@@ -4226,13 +4145,11 @@
     "rewards": {
       "gold": 0,
       "xp": 0,
-      "reputation": 0,
+      "reputation": 2,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "+2 reputation"
-      ]
+      "text": []
     },
     "summary": "Družina přišla do sužované vesnice, kde obyvatelé žili v hrůze a jen ocel a odvaha mohly přinést krátkodobou úlevu od kletby.",
     "chapterId": 105,
@@ -4271,14 +4188,11 @@
     "rewards": {
       "gold": 0,
       "xp": 0,
-      "reputation": 0,
-      "prosperity": 0,
+      "reputation": 1,
+      "prosperity": 1,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "+1 reputation",
-        "+1 prosperity"
-      ]
+      "text": []
     },
     "summary": "Družina se přiblížila k zátoce zkaženosti, kde voda sama páchla hnilobou a záhadná zkáza pomalu stravovala vše, čeho se dotkla.",
     "chapterId": 105,
@@ -4324,7 +4238,7 @@
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "“Staff of Summoning” (Item 120)"
+        "„Staff of Summoning“ (předmět 120)"
       ]
     },
     "summary": "Družina procházela sférou vody, kde proudy nesly duše ztracených a vodní démoni střežili hranici mezi světy.",
@@ -4372,15 +4286,14 @@
       }
     ],
     "rewards": {
-      "gold": 0,
+      "gold": 50,
       "xp": 0,
       "reputation": 0,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "50 collective gold"
-      ]
+      "text": [],
+      "goldType": "collective"
     },
     "summary": "Družina odhalila úkryt Syndikátu ukrytý v útrobách města, kde zlatem koupené meče a stíny spiknutí chránily tajemství hodná zatracení.",
     "chapterId": 105,
@@ -4425,7 +4338,7 @@
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "“Black Censer” (Item 128)"
+        "„Black Censer“ (předmět 128)"
       ]
     },
     "summary": "Družina stála před bránou démonů, jejíž pulsující červená záře zvěstovala příchod zkázy, a jen hrdinové bez bázně se odvážili ji zavřít.",
@@ -4456,7 +4369,7 @@
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "2 ✔ each"
+        "2 ✔ pro každého"
       ]
     },
     "summary": "Družina se ocitla uprostřed divokého střetu, kde chaos bitvy neznal pravidel a přežili jen ti nejsilnější a nejbezohlednější.",
@@ -4483,16 +4396,14 @@
     "linkedFrom": [],
     "treasures": [],
     "rewards": {
-      "gold": 0,
+      "gold": 10,
       "xp": 0,
-      "reputation": 0,
+      "reputation": -3,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "10 gold each",
-        "-3 reputation"
-      ]
+      "text": [],
+      "goldType": "each"
     },
     "summary": "Družina se propadla do rvačky v temné postranní uličce, kde špinavé nože a ještě špinavější úmysly rozhodovaly o tom, kdo se odtud vrátí.",
     "chapterId": 105,
@@ -4531,14 +4442,12 @@
     ],
     "rewards": {
       "gold": 0,
-      "xp": 0,
+      "xp": 10,
       "reputation": 0,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "10 experience each"
-      ]
+      "text": []
     },
     "summary": "Družina se potápěla k potopené lodi na dně mořské propasti, kde shnilé dřevo skrývalo prokleté poklady i příšery, jež si je nárokovaly.",
     "chapterId": 105,
@@ -4613,7 +4522,7 @@
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "“Skull of Hatred” (Item 119)"
+        "„Skull of Hatred“ (předmět 119)"
       ]
     },
     "summary": "Přišel čas splácet dluhy — družina stála tváří v tvář těm, jimž kdysi unikla, a tentokrát nebude úniku pro žádnou ze stran.",
@@ -4648,14 +4557,13 @@
     "treasures": [],
     "rewards": {
       "gold": 0,
-      "xp": 0,
+      "xp": 10,
       "reputation": 0,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "10 experience each",
-        "Add City and Road Events 82 to their respective decks"
+        "Přidejte městskou a cestovní událost 82 do příslušných balíčků"
       ]
     },
     "chapterId": 20,
@@ -4702,16 +4610,16 @@
     ],
     "treasures": [],
     "rewards": {
-      "gold": 0,
+      "gold": 10,
       "xp": 0,
       "reputation": 0,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "10 gold each",
-        "Add City Events 88, 89 and 90 to the deck"
-      ]
+        "Přidejte městské události 88, 89 a 90 do balíčku"
+      ],
+      "goldType": "each"
     },
     "chapterId": 20,
     "regionIds": [
@@ -4852,7 +4760,7 @@
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "Choose to gain one of the following sets: “Telescopic Lens” (Item 059) and “Ancient Drill” (Item 112), OR “Curious Gear” (Item 125) and “Remote Spider” (Item 126)"
+        "Zvolte jednu ze sad: „Telescopic Lens“ (předmět 059) a „Ancient Drill“ (předmět 112), NEBO „Curious Gear“ (předmět 125) a „Remote Spider“ (předmět 126)"
       ]
     },
     "chapterId": 23,
@@ -4905,17 +4813,14 @@
     ],
     "treasures": [],
     "rewards": {
-      "gold": 0,
+      "gold": 20,
       "xp": 0,
-      "reputation": 0,
-      "prosperity": 0,
+      "reputation": 1,
+      "prosperity": 1,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "20 collective gold",
-        "+1 reputation",
-        "+1 prosperity"
-      ]
+      "text": [],
+      "goldType": "collective"
     },
     "chapterId": 24,
     "regionIds": [
@@ -4959,14 +4864,13 @@
     "treasures": [],
     "rewards": {
       "gold": 0,
-      "xp": 0,
+      "xp": 15,
       "reputation": 0,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "15 experience each",
-        "If no more than 2+C inhabitants were intimidated: +2 reputation Otherwise: -2 reputation"
+        "Pokud bylo zastrašeno max 2+C obyvatel: +2 reputace. Jinak: -2 reputace"
       ]
     },
     "chapterId": 21,
@@ -5028,12 +4932,11 @@
       "gold": 0,
       "xp": 0,
       "reputation": 0,
-      "prosperity": 0,
+      "prosperity": 2,
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "+2 prosperity",
-        "Add City Event 87 to the deck"
+        "Přidejte městskou událost 87 do balíčku"
       ]
     },
     "chapterId": 21,
@@ -5099,7 +5002,7 @@
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "“Major Mana Potion” (Item 048)"
+        "„Velký lektvar many“ (předmět 048)"
       ]
     },
     "chapterId": 22,
@@ -5166,7 +5069,7 @@
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "“Major Antidote” (Item 154)"
+        "„Velký protijed“ (předmět 154)"
       ]
     },
     "chapterId": 22,
@@ -5299,14 +5202,12 @@
     "treasures": [],
     "rewards": {
       "gold": 0,
-      "xp": 0,
+      "xp": 5,
       "reputation": 0,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
-      "text": [
-        "5 experience each"
-      ]
+      "text": []
     },
     "chapterId": 23,
     "regionIds": [
@@ -5432,14 +5333,13 @@
     "treasures": [],
     "rewards": {
       "gold": 0,
-      "xp": 0,
+      "xp": 10,
       "reputation": 0,
       "prosperity": 0,
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "10 experience each",
-        "“Protective Charm” (Item 052)"
+        "„Ochranný talisman“ (předmět 052)"
       ]
     },
     "chapterId": 24,
@@ -5501,7 +5401,7 @@
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "“Crystal Tiara” (Item 163)"
+        "„Křišťálová tiára“ (předmět 163)"
       ]
     },
     "chapterId": 21,
@@ -5645,17 +5545,16 @@
     ],
     "treasures": [],
     "rewards": {
-      "gold": 0,
+      "gold": 135,
       "xp": 0,
       "reputation": 0,
-      "prosperity": 0,
+      "prosperity": 1,
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "135 gold each",
-        "This money must immediately be spent on any Move {MOVE}, Range {RANGE} or Jump {JUMP} enhancements",
-        "+1 prosperity"
-      ]
+        "Tyto peníze musí být okamžitě utraceny za vylepšení Pohybu {MOVE}, Dosahu {RANGE} nebo Skoku {JUMP}"
+      ],
+      "goldType": "each"
     },
     "chapterId": 24,
     "regionIds": [
@@ -5707,7 +5606,7 @@
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "Party Boon: Additional costs of enhancing an ability card based on the level of the card are now reduced by 5 gold per level."
+        "Bonus družiny: Příplatky za vylepšení karty schopnosti podle úrovně karty jsou nyní sníženy o 5 zlaťáků za úroveň."
       ]
     },
     "chapterId": 25,
@@ -5762,15 +5661,13 @@
     "rewards": {
       "gold": 0,
       "xp": 0,
-      "reputation": 0,
-      "prosperity": 0,
+      "reputation": 3,
+      "prosperity": 1,
       "achievements": [],
       "partyAchievements": [],
       "text": [
-        "+3 reputation",
-        "+1 prosperity",
-        "Retire the Aesther Diviner {DR}",
-        "Add City and Road Events 83 to their respective decks"
+        "Odchod do důchodu: Aesther Diviner {DR}",
+        "Přidejte městskou a cestovní událost 83 do příslušných balíčků"
       ]
     },
     "chapterId": 25,

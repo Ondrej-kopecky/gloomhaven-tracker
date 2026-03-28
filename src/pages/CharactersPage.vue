@@ -93,6 +93,7 @@ const classNames: Partial<Record<CharacterClass, string>> = {
   [CharacterClass.SUMMONER]: 'Aestherská vyvolávačka',
   [CharacterClass.SUNKEEPER]: 'Valrathská světlonoška',
   [CharacterClass.DIVINER]: 'Aestherská věštkyně',
+  [CharacterClass.BLADESWARM]: 'Roj čepelí',
 }
 
 const classColors: Record<string, string> = {
@@ -114,6 +115,7 @@ const classColors: Record<string, string> = {
   [CharacterClass.SUMMONER]: '#1abc9c',
   [CharacterClass.SUNKEEPER]: '#f1c40f',
   [CharacterClass.DIVINER]: '#a78bfa',
+  [CharacterClass.BLADESWARM]: '#6b8e23',
 }
 
 function getColor(classId: CharacterClass): string {
@@ -217,12 +219,26 @@ const STARTING_CLASSES = new Set([
   CharacterClass.SCOUNDREL, CharacterClass.SPELLWEAVER, CharacterClass.TINKERER,
 ])
 
+// Envelope → class unlock mapping
+const ENVELOPE_CLASS_MAP: Record<string, CharacterClass> = {
+  X: 'bladeswarm' as CharacterClass,
+  sun: 'sunkeeper' as CharacterClass,
+  moon: 'nightshroud' as CharacterClass,
+}
+
 const availableClasses = computed(() => {
   if (!campaignStore.hideSpoilers) return classNames
+  const envelopes = campaignStore.currentCampaign?.openedEnvelopes ?? {}
   const filtered: Partial<Record<CharacterClass, string>> = {}
   for (const [key, name] of Object.entries(classNames) as [CharacterClass, string][]) {
     if (STARTING_CLASSES.has(key) || campaignStore.unlockedClasses.includes(key)) {
       filtered[key] = name
+    }
+  }
+  // Also include classes from opened envelopes
+  for (const [envKey, classId] of Object.entries(ENVELOPE_CLASS_MAP)) {
+    if (envelopes[envKey] && classNames[classId]) {
+      filtered[classId] = classNames[classId]!
     }
   }
   return filtered

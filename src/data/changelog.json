@@ -1,0 +1,292 @@
+[
+  {
+    "version": "5.9",
+    "date": "2026-03-26",
+    "changes": [
+      "oprava blokovaných scénářů, auto-award úspěchů z událostí, výchozí City Rule"
+    ]
+  },
+  {
+    "version": "5.8",
+    "date": "2026-03-26",
+    "changes": [
+      "počítadlo HP bossů, vylepšené příšery, nav breakpoint xl",
+      "doplněny staty 6 chybějících bossů, resolveStat podporuje dělení"
+    ]
+  },
+  {
+    "version": "5.7",
+    "date": "2026-03-26",
+    "changes": [
+      "landing page, SEO opravy — sitemap, dynamické titulky",
+      "landing page UX — stejná šířka tlačítek, registrace CTA, centrovány karty na mobilu"
+    ]
+  },
+  {
+    "version": "5.6",
+    "date": "2026-03-25",
+    "changes": [
+      "bestiář — 56 příšer s českými popisky, staty a výskytem ve scénářích",
+      "auto-load poslední kampaně po refreshi stránky",
+      "přidán auto-load kampaně do changelogu v5.5"
+    ]
+  },
+  {
+    "version": "5.4",
+    "date": "2026-03-24",
+    "changes": [
+      "add character delete option + changelog for v5.3",
+      "complete ability card image remap for remaining classes"
+    ]
+  },
+  {
+    "version": "5.3",
+    "date": "2026-03-24",
+    "changes": [
+      "Czech ability names for all 17 classes (379 total)",
+      "complete plagueherald card mappings + missing Šíření nákazy",
+      "auto-prune Docker build cache after deploy + optimize card images",
+      "remove old English card images, keep only Czech photos",
+      "move Teleport inside root div to fix Transition crash",
+      "remap all ability cards by initiative (367/376 correct)"
+    ]
+  },
+  {
+    "version": "5.2",
+    "date": "2026-03-24",
+    "changes": [
+      "ability card lightbox with Czech names for 4 classes",
+      "PWA service worker skipWaiting + cleanup outdated caches"
+    ]
+  },
+  {
+    "version": "5.1",
+    "date": "2026-03-24",
+    "changes": [
+      "Forgotten Circles DLC — 20 new scenarios, flowchart, bugfixes (v5.0.0)",
+      "settings page version now reads from package.json dynamically",
+      "hide FC scenarios and flowchart when DLC is disabled"
+    ]
+  },
+  {
+    "version": "4.17",
+    "date": "2026-03-23",
+    "changes": [
+      "automatic snapshot backup system"
+    ]
+  },
+  {
+    "version": "4.16",
+    "date": "2026-03-23",
+    "changes": [
+      "class unlock system - auto-unlock on retirement, spoiler-safe"
+    ]
+  },
+  {
+    "version": "4.15",
+    "date": "2026-03-23",
+    "changes": [
+      "Info page improvements - mobile footer layout, full changelog"
+    ]
+  },
+  {
+    "version": "4.14",
+    "date": "2026-03-23",
+    "changes": [
+      "add Info page with changelog, credits, features, and tech stack",
+      "add Info link to mobile navigation menu",
+      "show Info icon on all screen sizes (next to spoiler and settings)"
+    ]
+  },
+  {
+    "version": "4.13",
+    "date": "2026-03-23",
+    "changes": [
+      "undo support for scenario completion"
+    ]
+  },
+  {
+    "version": "4.12",
+    "date": "2026-03-23",
+    "changes": [
+      "toast notification system",
+      "humanize checkpoint expressions in quest story page",
+      "scenario reset now properly reverts achievements",
+      "scenario reset also removes from manuallyUnlockedScenarios",
+      "redesign toast notifications to match game theme"
+    ]
+  },
+  {
+    "version": "4.11",
+    "date": "2026-03-23",
+    "changes": [
+      "show upgrade level dots below achievement stickers on map",
+      "remove upgrade dots below achievement stickers - level shown in popup",
+      "fix 12 ability IDs with apostrophes not matching image filenames"
+    ]
+  },
+  {
+    "version": "4.10",
+    "date": "2026-03-23",
+    "changes": [
+      "cycle through upgrade levels on achievement click",
+      "keep Czech sticker for achievement upgrades instead of falling back to English"
+    ]
+  },
+  {
+    "version": "4.9",
+    "date": "2026-03-23",
+    "changes": [
+      "Czech achievement stickers on map"
+    ]
+  },
+  {
+    "version": "4.8",
+    "date": "2026-03-23",
+    "changes": [
+      "flip-card animation for event cards",
+      "flip-card animation and consistent event colors"
+    ]
+  },
+  {
+    "version": "4.7",
+    "date": "2026-03-23",
+    "changes": [
+      "ability card selection system with level-up choices"
+    ]
+  },
+  {
+    "version": "4.6",
+    "date": "2026-03-23",
+    "changes": [
+      "add ability cards section to character detail"
+    ]
+  },
+  {
+    "version": "4.5",
+    "date": "2026-03-23",
+    "changes": [
+      "replace text/emoji with PNG icons for elements, statuses and actions in item descriptions",
+      "shield icon path - use general/ not status/ folder"
+    ]
+  },
+  {
+    "version": "4.4",
+    "date": "2026-03-23",
+    "changes": [
+      "replace SVG slot icons with authentic PNG game icons"
+    ]
+  },
+  {
+    "version": "4.3",
+    "date": "2026-03-23",
+    "changes": [
+      "add global achievement stickers to map with click popup"
+    ]
+  },
+  {
+    "version": "4.2",
+    "date": "2026-03-23",
+    "changes": [
+      "show requirement conditions in map popup tooltip"
+    ]
+  },
+  {
+    "version": "4.1",
+    "date": "2026-03-23",
+    "changes": [
+      "show requirement conditions in scenario detail on scenarios page"
+    ]
+  },
+  {
+    "version": "4.0",
+    "date": "2026-03-23",
+    "changes": [
+      "mobile party cards full-width + hamburger menu slides from top",
+      "mobile menu fullscreen overlay with no background scroll",
+      "party members 2-column grid on mobile",
+      "prevent page scroll behind mobile menu on all pages",
+      "add missing \"Vyžadováno\" to map legend + mobile close button on item detail"
+    ]
+  },
+  {
+    "version": "3.9",
+    "date": "2026-03-22",
+    "changes": [
+      "add Czech quest storyline texts with progressive reveal",
+      "show quest storyline text in completed quests section too",
+      "add Story page to navigation menu",
+      "add proper Czech diacritics to quest storyline texts"
+    ]
+  },
+  {
+    "version": "3.8",
+    "date": "2026-03-22",
+    "changes": [
+      "add Czech story summaries for all 95 scenarios"
+    ]
+  },
+  {
+    "version": "3.7",
+    "date": "2026-03-22",
+    "changes": [
+      "add SEO meta tags, Open Graph, robots.txt and sitemap",
+      "XP progress bar now shows correct within-level progress"
+    ]
+  },
+  {
+    "version": "3.6",
+    "date": "2026-03-22",
+    "changes": [
+      "enrich feedback notifications with screen size, user, campaign, version",
+      "quote 'neuvedeno' string in feedback notification email",
+      "hide scenario treasures in spoiler mode until completed",
+      "add labels to mobile stat bar on flowchart page for clarity"
+    ]
+  },
+  {
+    "version": "3.5",
+    "date": "2026-03-22",
+    "changes": [
+      "replace native selects with custom styled dropdowns on Items page",
+      "make item detail buy buttons always visible on mobile",
+      "security hardening — headers, CORS, password policy, secret key",
+      "send feedback notifications to personal email instead of SMTP sender"
+    ]
+  },
+  {
+    "version": "3.4",
+    "date": "2026-03-22",
+    "changes": [
+      "restore broken SVG paths in SettingsPage, fix version-bump script",
+      "hide scenario rewards in spoiler mode for uncompleted scenarios",
+      "translate game tags (POISON, WOUND, etc.) in scenario treasures"
+    ]
+  },
+  {
+    "version": "3.3",
+    "date": "2026-03-22",
+    "changes": [
+      "add sealed envelope tracking (A, B, Sun, Moon, X)",
+      "hide envelope conditions and contents until opened (spoiler-safe)",
+      "item #151 belongs to Envelope X, hide when spoilers enabled",
+      "add confirmation dialog before opening sealed envelopes"
+    ]
+  },
+  {
+    "version": "3.2",
+    "date": "2026-03-22",
+    "changes": [
+      "redesign retirement flow with confirmation and unlock info"
+    ]
+  },
+  {
+    "version": "3.1",
+    "date": "2026-03-22",
+    "changes": [
+      "add attack modifier deck visualization to character detail",
+      "add auto version bumping to deploy pipeline",
+      "improve Forgotten Circles toggle description"
+    ]
+  }
+]

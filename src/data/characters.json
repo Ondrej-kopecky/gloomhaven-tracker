@@ -381,5 +381,27 @@
       { "id": "dr_13", "description": "Ignoruj negativní efekty scénáře a přidej dvě +1 karty", "maxCount": 1 }
     ],
     "startingAbilities": []
+  },
+  {
+    "classId": "bladeswarm",
+    "name": "Roj čepelí",
+    "maxHp": [8, 9, 11, 12, 14, 15, 17, 18, 20],
+    "handSize": 10,
+    "isStarting": false,
+    "unlockCondition": "Obálka X",
+    "perks": [
+      { "id": "bs_1", "description": "Nahraď jednu -2 kartu jednou +0 kartou", "maxCount": 1 },
+      { "id": "bs_2", "description": "Nahraď jednu -1 kartu jednou +0 zranění kartou", "maxCount": 1 },
+      { "id": "bs_3", "description": "Nahraď jednu -1 kartu jednou +0 otrava kartou", "maxCount": 1 },
+      { "id": "bs_4", "description": "Nahraď jednu +0 kartu jednou +1 vítr kartou", "maxCount": 1 },
+      { "id": "bs_5", "description": "Nahraď jednu +0 kartu jednou +1 země kartou", "maxCount": 1 },
+      { "id": "bs_6", "description": "Nahraď jednu +0 kartu jednou +1 světlo kartou", "maxCount": 1 },
+      { "id": "bs_7", "description": "Nahraď jednu +0 kartu jednou +1 tma kartou", "maxCount": 1 },
+      { "id": "bs_8", "description": "Přidej jednu +2 zmatení kartu", "maxCount": 1 },
+      { "id": "bs_9", "description": "Přidej dvě karty ↻ léčení 1", "maxCount": 1 },
+      { "id": "bs_10", "description": "Ignoruj negativní efekty předmětů a přidej jednu +1 kartu", "maxCount": 1 },
+      { "id": "bs_11", "description": "Ignoruj negativní efekty scénáře a přidej jednu +1 kartu", "maxCount": 1 }
+    ],
+    "startingAbilities": ["focused-scourge", "hive-mind", "corrupting-parasites", "death-march", "deflecting-blades", "scattered-defense", "swarming-minions", "engulfing-stingers", "call-of-the-grave", "omniscient-assault", "the-storms-edge"]
   }
 ]

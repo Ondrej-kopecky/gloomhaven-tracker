@@ -319,6 +319,12 @@ export const useScenarioStore = defineStore('scenario', () => {
 
     const def = getDefinition(id)
 
+    // Snapshot for undo
+    const prevScenarios = JSON.parse(JSON.stringify(campaignStore.currentCampaign.scenarios))
+    const prevGlobal = JSON.parse(JSON.stringify(campaignStore.currentCampaign.globalAchievements))
+    const prevParty = JSON.parse(JSON.stringify(campaignStore.currentCampaign.partyAchievements))
+    const prevManual = JSON.parse(JSON.stringify(campaignStore.currentCampaign.manuallyUnlockedScenarios ?? []))
+
     // Remove achievements that were awarded by this scenario
     if (def?.achievementsAwarded) {
       for (const achId of def.achievementsAwarded) {
@@ -353,7 +359,15 @@ export const useScenarioStore = defineStore('scenario', () => {
     campaignStore.removeManuallyUnlockedScenario(id)
 
     campaignStore.autoSave()
-    toastStore.show(`Scénář #${id} resetován`, 'info')
+    toastStore.show(`Scénář #${id} resetován`, 'info', () => {
+      if (!campaignStore.currentCampaign) return
+      campaignStore.currentCampaign.scenarios = prevScenarios
+      campaignStore.currentCampaign.globalAchievements = prevGlobal
+      campaignStore.currentCampaign.partyAchievements = prevParty
+      campaignStore.currentCampaign.manuallyUnlockedScenarios = prevManual
+      campaignStore.autoSave()
+      toastStore.show('Reset scénáře vrácen', 'info')
+    })
   }
 
   function lootTreasure(scenarioId: string, treasureId: string) {
