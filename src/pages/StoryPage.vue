@@ -370,7 +370,7 @@ const statusColors: Record<string, string> = {
             <!-- Rewards summary -->
             <div v-if="s.rewards" class="flex flex-wrap gap-2 mt-3">
               <span v-if="s.rewards.gold" class="gh-badge bg-yellow-900/15 text-yellow-400/80 border border-yellow-800/20">
-                {{ s.rewards.gold }} zl.
+                {{ s.rewards.gold }} zl. {{ s.rewards.goldType === 'collective' ? 'celkem' : 'každý' }}
               </span>
               <span v-if="s.rewards.xp" class="gh-badge bg-blue-900/15 text-blue-400/80 border border-blue-800/20">
                 {{ s.rewards.xp }} ZK

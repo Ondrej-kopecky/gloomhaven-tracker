@@ -39,6 +39,16 @@ const itemSearchResults = computed(() => {
   )
 })
 
+function rewardTextStyle(text: string): string {
+  if (/událost|balíčk/i.test(text)) return 'bg-cyan-900/20 text-cyan-400 border-cyan-800/30'
+  if (/předmět|lektvar|design|Návrh/i.test(text)) return 'bg-orange-900/20 text-orange-400 border-orange-800/30'
+  if (/obálk/i.test(text)) return 'bg-pink-900/20 text-pink-400 border-pink-800/30'
+  if (/úkol|Splněn/i.test(text)) return 'bg-green-900/20 text-green-400 border-green-800/30'
+  if (/✔/i.test(text)) return 'bg-emerald-900/20 text-emerald-400 border-emerald-800/30'
+  if (/důchod/i.test(text)) return 'bg-red-900/20 text-red-400 border-red-800/30'
+  return 'bg-white/[0.04] text-gray-300 border-white/[0.08]'
+}
+
 function unlockItem(itemId: number) {
   campaignStore.unlockItemDesign(itemId)
   itemSearch.value = ''
@@ -502,10 +512,10 @@ const totalMonsterCount = computed(() =>
         <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-2">Odměny</h4>
         <div class="grid grid-cols-2 gap-1.5 text-sm">
           <div v-if="scenario.rewards.gold" class="text-yellow-400/90 flex items-center gap-1.5">
-            <span class="w-1 h-1 rounded-full bg-yellow-400/60" />{{ scenario.rewards.gold }} zl.
+            <span class="w-1 h-1 rounded-full bg-yellow-400/60" />{{ scenario.rewards.gold }} zl. {{ scenario.rewards.goldType === 'collective' ? 'celkem' : 'každý' }}
           </div>
           <div v-if="scenario.rewards.xp" class="text-blue-400/90 flex items-center gap-1.5">
-            <span class="w-1 h-1 rounded-full bg-blue-400/60" />{{ scenario.rewards.xp }} ZK
+            <span class="w-1 h-1 rounded-full bg-blue-400/60" />{{ scenario.rewards.xp }} ZK každý
           </div>
           <div v-if="scenario.rewards.reputation" class="text-purple-400/90 flex items-center gap-1.5">
             <span class="w-1 h-1 rounded-full bg-purple-400/60" />{{ scenario.rewards.reputation > 0 ? '+' : '' }}{{ scenario.rewards.reputation }} reputace
@@ -517,9 +527,15 @@ const totalMonsterCount = computed(() =>
         <div v-if="scenario.rewards.itemDesigns?.length" class="mt-2 text-xs text-gray-400">
           Designy předmětů: {{ scenario.rewards.itemDesigns.join(', ') }}
         </div>
-        <div v-if="scenario.rewards.text?.length" class="mt-1.5">
-          <p v-for="(t, i) in scenario.rewards.text" :key="i" class="text-xs text-gray-400">{{ t }}</p>
+        <div v-if="scenario.rewards.text?.length" class="flex flex-wrap gap-1.5 mt-2">
+          <span
+            v-for="(t, i) in scenario.rewards.text"
+            :key="i"
+            class="inline-flex items-center gap-1.5 text-xs px-2.5 py-1.5 rounded-lg border"
+            :class="rewardTextStyle(t)"
+          >{{ t }}</span>
         </div>
+        <div class="mt-3 px-2.5 py-2 rounded-lg border border-white/10 bg-white/[0.03] text-xs text-white/60 italic">Zlato a ZK přidejte ručně svým postavám, reputaci a prosperitu v nastavení družiny.</div>
       </div>
 
       <!-- Random item design picker (only for scenarios with random item treasures) -->

@@ -19,6 +19,7 @@ import SS from '@/assets/characters/SS.svg?raw'
 import SU from '@/assets/characters/SU.svg?raw'
 import SK from '@/assets/characters/SK.svg?raw'
 import DR from '@/assets/characters/DR.svg?raw'
+import BS from '@/assets/characters/BS.svg?raw'
 
 const props = defineProps<{
   classId: string
@@ -44,6 +45,7 @@ const svgMap: Record<string, string> = {
   summoner: SU,
   sunkeeper: SK,
   diviner: DR,
+  bladeswarm: BS,
 }
 
 const svgContent = computed(() => svgMap[props.classId] ?? '')

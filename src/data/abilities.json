@@ -4447,5 +4447,275 @@
     "level": 1.5,
     "initiative": 76,
     "nameCz": "Nestabilní směs"
+  },
+  {
+    "id": "armed-and-dangerous",
+    "name": "Armed And Dangerous",
+    "classId": "bladeswarm",
+    "refClassId": "BS",
+    "level": 3,
+    "initiative": 78,
+    "nameCz": "Ozbrojený a nebezpečný"
+  },
+  {
+    "id": "bioluminescence",
+    "name": "Bioluminescence",
+    "classId": "bladeswarm",
+    "refClassId": "BS",
+    "level": 5,
+    "initiative": 80,
+    "nameCz": "Bioluminiscence"
+  },
+  {
+    "id": "blood-drain",
+    "name": "Blood Drain",
+    "classId": "bladeswarm",
+    "refClassId": "BS",
+    "level": 6,
+    "initiative": 47,
+    "nameCz": "Vysávání krve"
+  },
+  {
+    "id": "bone-daggers",
+    "name": "Bone Daggers",
+    "classId": "bladeswarm",
+    "refClassId": "BS",
+    "level": 8,
+    "initiative": 68,
+    "nameCz": "Kostěné dýky"
+  },
+  {
+    "id": "call-of-the-grave",
+    "name": "Call Of The Grave",
+    "classId": "bladeswarm",
+    "refClassId": "BS",
+    "level": 1,
+    "initiative": 49,
+    "nameCz": "Volání hrobu"
+  },
+  {
+    "id": "corrupting-parasites",
+    "name": "Corrupting Parasites",
+    "classId": "bladeswarm",
+    "refClassId": "BS",
+    "level": 1,
+    "initiative": 97,
+    "nameCz": "Zkázonosní parazité"
+  },
+  {
+    "id": "cyclone-of-blades",
+    "name": "Cyclone Of Blades",
+    "classId": "bladeswarm",
+    "refClassId": "BS",
+    "level": 5,
+    "initiative": 27,
+    "nameCz": "Cyklón čepelí"
+  },
+  {
+    "id": "death-march",
+    "name": "Death March",
+    "classId": "bladeswarm",
+    "refClassId": "BS",
+    "level": 1,
+    "initiative": 84,
+    "nameCz": "Pochod smrti"
+  },
+  {
+    "id": "deflecting-blades",
+    "name": "Deflecting Blades",
+    "classId": "bladeswarm",
+    "refClassId": "BS",
+    "level": 1,
+    "initiative": 11,
+    "nameCz": "Odrážející čepele"
+  },
+  {
+    "id": "endless-biting",
+    "name": "Endless Biting",
+    "classId": "bladeswarm",
+    "refClassId": "BS",
+    "level": 8,
+    "initiative": 41,
+    "nameCz": "Nekonečné kousání"
+  },
+  {
+    "id": "engulfing-stingers",
+    "name": "Engulfing Stingers",
+    "classId": "bladeswarm",
+    "refClassId": "BS",
+    "level": 1,
+    "initiative": 88,
+    "nameCz": "Pohlcující žihadla"
+  },
+  {
+    "id": "focused-scourge",
+    "name": "Focused Scourge",
+    "classId": "bladeswarm",
+    "refClassId": "BS",
+    "level": 1,
+    "initiative": 50,
+    "nameCz": "Soustředěný bič"
+  },
+  {
+    "id": "fury-of-the-horde",
+    "name": "Fury Of The Horde",
+    "classId": "bladeswarm",
+    "refClassId": "BS",
+    "level": 7,
+    "initiative": 86,
+    "nameCz": "Zuřivost hordy"
+  },
+  {
+    "id": "grasping-advance",
+    "name": "Grasping Advance",
+    "classId": "bladeswarm",
+    "refClassId": "BS",
+    "level": 1.5,
+    "initiative": 18,
+    "nameCz": "Svírající postup"
+  },
+  {
+    "id": "hive-mind",
+    "name": "Hive Mind",
+    "classId": "bladeswarm",
+    "refClassId": "BS",
+    "level": 1,
+    "initiative": 5,
+    "nameCz": "Rojová mysl"
+  },
+  {
+    "id": "incubation",
+    "name": "Incubation",
+    "classId": "bladeswarm",
+    "refClassId": "BS",
+    "level": 4,
+    "initiative": 9,
+    "nameCz": "Inkubace"
+  },
+  {
+    "id": "infest",
+    "name": "Infest",
+    "classId": "bladeswarm",
+    "refClassId": "BS",
+    "level": 2,
+    "initiative": 43,
+    "nameCz": "Zamořit"
+  },
+  {
+    "id": "oasis",
+    "name": "Oasis",
+    "classId": "bladeswarm",
+    "refClassId": "BS",
+    "level": 9,
+    "initiative": 4,
+    "nameCz": "Oáza"
+  },
+  {
+    "id": "omniscient-assault",
+    "name": "Omniscient Assault",
+    "classId": "bladeswarm",
+    "refClassId": "BS",
+    "level": 1,
+    "initiative": 22,
+    "nameCz": "Vševědoucí útok"
+  },
+  {
+    "id": "overwhelming-offensive",
+    "name": "Overwhelming Offensive",
+    "classId": "bladeswarm",
+    "refClassId": "BS",
+    "level": 2,
+    "initiative": 12,
+    "nameCz": "Drtivá ofenzíva"
+  },
+  {
+    "id": "putrid-grubs",
+    "name": "Putrid Grubs",
+    "classId": "bladeswarm",
+    "refClassId": "BS",
+    "level": 3,
+    "initiative": 16,
+    "nameCz": "Hnijící larvy"
+  },
+  {
+    "id": "repulsive-host",
+    "name": "Repulsive Host",
+    "classId": "bladeswarm",
+    "refClassId": "BS",
+    "level": 7,
+    "initiative": 19,
+    "nameCz": "Odpudivý hostitel"
+  },
+  {
+    "id": "scattered-defense",
+    "name": "Scattered Defense",
+    "classId": "bladeswarm",
+    "refClassId": "BS",
+    "level": 1,
+    "initiative": 13,
+    "nameCz": "Rozptýlená obrana"
+  },
+  {
+    "id": "sunstroke",
+    "name": "Sunstroke",
+    "classId": "bladeswarm",
+    "refClassId": "BS",
+    "level": 6,
+    "initiative": 32,
+    "nameCz": "Úpal"
+  },
+  {
+    "id": "swarming-minions",
+    "name": "Swarming Minions",
+    "classId": "bladeswarm",
+    "refClassId": "BS",
+    "level": 1,
+    "initiative": 61,
+    "nameCz": "Rojící se přisluhovači"
+  },
+  {
+    "id": "the-storms-edge",
+    "name": "The Storm's Edge",
+    "classId": "bladeswarm",
+    "refClassId": "BS",
+    "level": 1,
+    "initiative": 37,
+    "nameCz": "Ostří bouře"
+  },
+  {
+    "id": "tomb-of-the-immortal",
+    "name": "Tomb Of The Immortal",
+    "classId": "bladeswarm",
+    "refClassId": "BS",
+    "level": 1.5,
+    "initiative": 59,
+    "nameCz": "Hrobka nesmrtelného"
+  },
+  {
+    "id": "unstoppable-army",
+    "name": "Unstoppable Army",
+    "classId": "bladeswarm",
+    "refClassId": "BS",
+    "level": 1.5,
+    "initiative": 94,
+    "nameCz": "Nezastavitelná armáda"
+  },
+  {
+    "id": "vampiric-tempest",
+    "name": "Vampiric Tempest",
+    "classId": "bladeswarm",
+    "refClassId": "BS",
+    "level": 4,
+    "initiative": 64,
+    "nameCz": "Vampírická bouře"
+  },
+  {
+    "id": "wasteland",
+    "name": "Wasteland",
+    "classId": "bladeswarm",
+    "refClassId": "BS",
+    "level": 9,
+    "initiative": 96,
+    "nameCz": "Pustina"
   }
 ]

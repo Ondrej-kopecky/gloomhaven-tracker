@@ -45,6 +45,8 @@ export const CharacterClass = {
   SUNKEEPER: 'sunkeeper',
   // Forgotten Circles
   DIVINER: 'diviner',
+  // Envelope X
+  BLADESWARM: 'bladeswarm',
 } as const
 export type CharacterClass = (typeof CharacterClass)[keyof typeof CharacterClass]
 
