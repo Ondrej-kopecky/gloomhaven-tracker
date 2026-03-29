@@ -14,6 +14,7 @@ const username = ref('')
 const password = ref('')
 const code = ref('')
 const resendSuccess = ref(false)
+const gdprConsent = ref(false)
 
 function handleCodeInput(e: Event) {
   const input = e.target as HTMLInputElement
@@ -107,12 +108,27 @@ async function handleResend() {
         />
       </div>
 
+      <label class="flex items-center justify-center gap-2.5 cursor-pointer">
+        <input
+          v-model="gdprConsent"
+          type="checkbox"
+          class="accent-gh-primary shrink-0"
+        />
+        <span class="text-xs text-gray-400">
+          Souhlasím se
+          <router-link to="/ochrana-udaju" class="text-gh-primary hover:text-gh-primary-light" target="_blank">
+            zpracováním osobních údajů
+          </router-link>
+        </span>
+      </label>
+
       <p v-if="authStore.error" class="text-xs text-red-400">{{ authStore.error }}</p>
 
       <button
         type="submit"
         class="gh-btn-primary w-full"
-        :disabled="authStore.isLoading"
+        :disabled="authStore.isLoading || !gdprConsent"
+        :class="{ 'opacity-40 cursor-not-allowed': !gdprConsent }"
       >
         {{ authStore.isLoading ? 'Registruji...' : 'Zaregistrovat' }}
       </button>

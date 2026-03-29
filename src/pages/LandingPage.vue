@@ -181,6 +181,11 @@ const features = [
         Gloomhaven je desková hra od
         <span class="text-gray-500">Cephalofair Games</span>
       </p>
+      <p class="mt-2">
+        <router-link to="/ochrana-udaju" class="text-gray-600 hover:text-gh-primary-dim transition-colors">
+          Ochrana osobních údajů
+        </router-link>
+      </p>
     </footer>
   </div>
 </template>

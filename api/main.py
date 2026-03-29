@@ -660,6 +660,28 @@ async def me(current_user=Depends(get_current_user)):
     )
 
 
+@app.delete("/api/auth/account", status_code=204)
+async def delete_account(current_user=Depends(get_current_user)):
+    """Delete user account and all associated data (GDPR right to erasure)."""
+    user_id = current_user.id
+    # Delete campaign memberships
+    await database.execute(
+        campaign_members.delete().where(campaign_members.c.user_id == user_id)
+    )
+    # Delete owned campaigns
+    await database.execute(
+        campaigns.delete().where(campaigns.c.user_id == user_id)
+    )
+    # Delete feedback (if email matches)
+    await database.execute(
+        feedback.delete().where(feedback.c.email == current_user.email)
+    )
+    # Delete user
+    await database.execute(
+        users.delete().where(users.c.id == user_id)
+    )
+
+
 # --- Campaign Routes ---
 @app.get("/api/campaigns/", response_model=list[CampaignSummary])
 async def list_campaigns(current_user=Depends(get_current_user)):

@@ -105,6 +105,12 @@ const router = createRouter({
       component: () => import('@/pages/ForgotPasswordPage.vue'),
       meta: { title: 'Zapomenuté heslo' },
     },
+    {
+      path: '/ochrana-udaju',
+      name: 'privacy',
+      component: () => import('@/pages/PrivacyPage.vue'),
+      meta: { title: 'Ochrana osobních údajů' },
+    },
   ],
 })
 

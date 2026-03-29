@@ -1,4 +1,4 @@
-import { apiGet, apiPost, apiPostForm } from './apiClient'
+import { apiGet, apiPost, apiPostForm, apiDelete } from './apiClient'
 
 export interface AuthUser {
   id: number
@@ -39,4 +39,8 @@ export function resetPassword(email: string, code: string, newPassword: string) 
 
 export function getMe() {
   return apiGet<AuthUser>('/auth/me')
+}
+
+export function deleteAccount() {
+  return apiDelete('/auth/account')
 }
