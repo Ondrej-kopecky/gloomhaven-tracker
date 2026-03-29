@@ -290,6 +290,20 @@ function handleLogout() {
   campaignStore.loadCampaignList()
 }
 
+const showDeleteAccount = ref(false)
+const deleteConfirmText = ref('')
+
+async function handleDeleteAccount() {
+  if (deleteConfirmText.value !== 'SMAZAT') return
+  const ok = await authStore.deleteAccount()
+  if (ok) {
+    showDeleteAccount.value = false
+    deleteConfirmText.value = ''
+    await campaignStore.loadCampaignList()
+    router.push('/')
+  }
+}
+
 function formatDate(iso: string): string {
   return new Date(iso).toLocaleDateString('cs-CZ', {
     day: 'numeric',
@@ -342,7 +356,15 @@ function formatDate(iso: string): string {
           <button class="gh-btn-ghost text-xs !text-gray-600 hover:!text-red-400" @click="handleLogout">
             Odhlásit se
           </button>
+          <button class="gh-btn-ghost text-xs !text-gray-600 hover:!text-red-400" @click="showDeleteAccount = true">
+            Smazat účet
+          </button>
         </div>
+        <p class="mt-3 text-xs">
+          <router-link to="/ochrana-udaju" class="text-gray-500 hover:text-gh-primary-dim transition-colors">
+            Ochrana osobních údajů
+          </router-link>
+        </p>
         <p v-if="syncResult && !syncResult.error" class="mt-3 text-xs text-green-400 flex items-center gap-1.5">
           <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
@@ -939,5 +961,44 @@ function formatDate(iso: string): string {
         </div>
       </div>
     </div>
+
+    <!-- Delete account modal -->
+    <Teleport to="body">
+      <div v-if="showDeleteAccount" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm" @click.self="showDeleteAccount = false">
+        <div class="gh-card p-6 max-w-sm w-full mx-4 border border-red-500/30">
+          <h3 class="font-display text-lg text-red-400 mb-2">Smazat účet</h3>
+          <p class="text-sm text-gray-400 mb-2">
+            Tato akce je nevratná. Budou smazány:
+          </p>
+          <ul class="text-sm text-gray-400 mb-4 list-disc pl-5 space-y-1">
+            <li>Váš účet (email, uživatelské jméno)</li>
+            <li>Všechny kampaně na serveru</li>
+            <li>Lokální data v tomto prohlížeči</li>
+          </ul>
+          <p class="text-xs text-gray-500 mb-3">
+            Pro potvrzení napište <strong class="text-red-400">SMAZAT</strong>:
+          </p>
+          <input
+            v-model="deleteConfirmText"
+            type="text"
+            class="gh-input w-full mb-4"
+            placeholder="SMAZAT"
+          />
+          <p v-if="authStore.error" class="text-xs text-red-400 mb-3">{{ authStore.error }}</p>
+          <div class="flex gap-2">
+            <button
+              class="flex-1 text-sm py-2 px-4 rounded-lg bg-red-600 text-white hover:bg-red-500 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+              :disabled="deleteConfirmText !== 'SMAZAT' || authStore.isLoading"
+              @click="handleDeleteAccount"
+            >
+              {{ authStore.isLoading ? 'Mažu...' : 'Smazat účet' }}
+            </button>
+            <button class="gh-btn-ghost text-sm" @click="showDeleteAccount = false; deleteConfirmText = ''">
+              Zrušit
+            </button>
+          </div>
+        </div>
+      </div>
+    </Teleport>
   </div>
 </template>

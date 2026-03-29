@@ -112,6 +112,30 @@ export const useAuthStore = defineStore('auth', () => {
     })
   }
 
+  async function deleteAccount(): Promise<boolean> {
+    isLoading.value = true
+    error.value = ''
+    try {
+      const { error: err } = await authApi.deleteAccount()
+      if (err) {
+        error.value = err
+        return false
+      }
+      // Clean up local state
+      disableCloudSync()
+      clearToken()
+      user.value = null
+      const local = new LocalStorageAdapter('default')
+      const list = await local.listCampaigns()
+      for (const c of list) {
+        await local.deleteCampaign(c.id)
+      }
+      return true
+    } finally {
+      isLoading.value = false
+    }
+  }
+
   /**
    * Sync campaigns between local and server.
    * 1. Upload local campaigns missing on server (first login scenario)
@@ -185,6 +209,7 @@ export const useAuthStore = defineStore('auth', () => {
     verifyEmail,
     resendCode,
     logout,
+    deleteAccount,
     syncCampaigns,
   }
 })

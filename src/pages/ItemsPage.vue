@@ -710,7 +710,7 @@ function confirmBuy() {
                   <span>{{ detailItem.cost }}</span>
                 </div>
                 <button
-                  class="w-8 h-8 flex items-center justify-center rounded-full bg-white/[0.08] text-gray-400 hover:text-white hover:bg-white/[0.15] transition-all"
+                  class="hidden sm:flex w-8 h-8 items-center justify-center rounded-full bg-white/[0.08] text-gray-400 hover:text-white hover:bg-white/[0.15] transition-all"
                   @click="detailItem = null"
                 >
                   <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
