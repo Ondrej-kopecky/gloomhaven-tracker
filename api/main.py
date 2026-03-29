@@ -674,7 +674,7 @@ async def delete_account(current_user=Depends(get_current_user)):
     )
     # Delete feedback (if email matches)
     await database.execute(
-        feedback.delete().where(feedback.c.email == current_user.email)
+        feedback_table.delete().where(feedback_table.c.email == current_user.email)
     )
     # Delete user
     await database.execute(
