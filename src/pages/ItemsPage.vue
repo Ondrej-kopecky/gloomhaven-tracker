@@ -617,21 +617,46 @@ function confirmBuy() {
               <span class="text-[9px] text-gray-600">
                 {{ characterStore.getAvailableCount(String(item.id)) }}/{{ item.count }} volných
               </span>
+              <span
+                v-if="campaignStore.unlockedItemDesigns.includes(item.id)"
+                class="text-[9px] px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
+              >
+                Ručně odemčeno
+              </span>
             </div>
-            <div v-if="characterStore.activeCharacters.length > 0 && characterStore.getAvailableCount(String(item.id)) > 0" class="flex gap-1.5 shrink-0">
+            <div class="flex gap-1.5 shrink-0">
+              <!-- Unlock/lock button for unavailable or manually unlocked items -->
               <button
-                class="text-[10px] font-semibold py-1 px-2.5 rounded-md transition-all bg-gh-primary/20 text-gh-primary hover:bg-gh-primary/30 border border-gh-primary/30"
-                @click.stop="openBuy(item, 'buy')"
+                v-if="!isItemAvailable(item)"
+                class="text-[10px] py-1 px-2.5 rounded-md transition-all bg-emerald-500/15 text-emerald-400 hover:bg-emerald-500/25 border border-emerald-500/25"
+                @click.stop="campaignStore.unlockItemDesign(item.id)"
+                title="Odemknout předmět (už ho znáte z dřívějšího hraní)"
               >
-                Koupit
+                Odemknout
               </button>
               <button
-                class="text-[10px] py-1 px-2 rounded-md transition-all text-gray-500 hover:text-gray-300 hover:bg-white/[0.06] border border-white/[0.05]"
-                @click.stop="openBuy(item, 'free')"
-                title="Přidat zdarma (odměna ze scénáře, eventu...)"
+                v-else-if="campaignStore.unlockedItemDesigns.includes(item.id)"
+                class="text-[10px] py-1 px-2 rounded-md transition-all text-gray-500 hover:text-red-400 hover:bg-red-500/10 border border-white/[0.05]"
+                @click.stop="campaignStore.removeItemDesign(item.id)"
+                title="Zamknout zpět"
               >
-                +
+                Zamknout
               </button>
+              <template v-if="characterStore.activeCharacters.length > 0 && characterStore.getAvailableCount(String(item.id)) > 0 && isItemAvailable(item)">
+                <button
+                  class="text-[10px] font-semibold py-1 px-2.5 rounded-md transition-all bg-gh-primary/20 text-gh-primary hover:bg-gh-primary/30 border border-gh-primary/30"
+                  @click.stop="openBuy(item, 'buy')"
+                >
+                  Koupit
+                </button>
+                <button
+                  class="text-[10px] py-1 px-2 rounded-md transition-all text-gray-500 hover:text-gray-300 hover:bg-white/[0.06] border border-white/[0.05]"
+                  @click.stop="openBuy(item, 'free')"
+                  title="Přidat zdarma (odměna ze scénáře, eventu...)"
+                >
+                  +
+                </button>
+              </template>
             </div>
           </div>
         </div>
@@ -716,6 +741,12 @@ function confirmBuy() {
 
           <!-- Info rows -->
           <div class="detail-info">
+            <!-- Manually unlocked badge -->
+            <div v-if="campaignStore.unlockedItemDesigns.includes(detailItem.id)" class="detail-row">
+              <span class="detail-label">Stav</span>
+              <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Ručně odemčeno</span>
+            </div>
+
             <!-- Source -->
             <div class="detail-row">
               <span class="detail-label">Zdroj</span>
@@ -768,19 +799,37 @@ function confirmBuy() {
           </div><!-- /scrollable content -->
 
           <!-- Actions (sticky bottom) -->
-          <div v-if="characterStore.activeCharacters.length > 0 && characterStore.getAvailableCount(String(detailItem.id)) > 0" class="detail-actions shrink-0 border-t border-white/[0.06]">
+          <div class="detail-actions shrink-0 border-t border-white/[0.06]">
+            <!-- Unlock/lock for unavailable items -->
             <button
-              class="gh-btn-primary text-sm flex-1"
-              @click="detailItem && openBuy(detailItem, 'buy'); detailItem = null"
+              v-if="!isItemAvailable(detailItem)"
+              class="gh-btn-primary text-sm flex-1 !bg-emerald-600 hover:!bg-emerald-500"
+              @click="campaignStore.unlockItemDesign(detailItem.id)"
             >
-              Koupit ({{ Math.max(0, detailItem.cost + partyStore.shopPriceModifier) }} zl.)
+              Odemknout předmět
             </button>
             <button
-              class="gh-btn-secondary text-sm"
-              @click="detailItem && openBuy(detailItem, 'free'); detailItem = null"
+              v-else-if="campaignStore.unlockedItemDesigns.includes(detailItem.id)"
+              class="text-sm px-3 py-2 rounded-lg transition-all text-gray-400 hover:text-red-400 hover:bg-red-500/10 border border-white/[0.08]"
+              @click="campaignStore.removeItemDesign(detailItem.id)"
             >
-              Přidat zdarma
+              Zamknout
             </button>
+            <!-- Buy/add buttons when available -->
+            <template v-if="isItemAvailable(detailItem) && characterStore.activeCharacters.length > 0 && characterStore.getAvailableCount(String(detailItem.id)) > 0">
+              <button
+                class="gh-btn-primary text-sm flex-1"
+                @click="detailItem && openBuy(detailItem, 'buy'); detailItem = null"
+              >
+                Koupit ({{ Math.max(0, detailItem.cost + partyStore.shopPriceModifier) }} zl.)
+              </button>
+              <button
+                class="gh-btn-secondary text-sm"
+                @click="detailItem && openBuy(detailItem, 'free'); detailItem = null"
+              >
+                Přidat zdarma
+              </button>
+            </template>
           </div>
         </div>
       </div>

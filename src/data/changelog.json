@@ -1,5 +1,16 @@
 [
   {
+    "version": "6.0",
+    "date": "2026-03-28",
+    "changes": [
+      "v6.0.0 — překlad odměn, auto changelog, undo akce, třída Bladeswarm",
+      "generate-changelog přeskočí build bez gitu (Docker)",
+      "aktualizace testů pro 19 tříd (Bladeswarm)",
+      "changelog skript kontroluje git repo místo git binary",
+      "deploy uploaduje scripts/ adresář (generate-changelog)"
+    ]
+  },
+  {
     "version": "5.9",
     "date": "2026-03-26",
     "changes": [
