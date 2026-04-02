@@ -89,7 +89,7 @@ import autoChangelog from '@/data/changelog.json'
       <h2 class="text-sm font-semibold text-gray-300 uppercase tracking-wider mb-3 pl-2">Kontakt</h2>
       <p class="text-sm text-gray-400 pl-2">
         Našli jste bug nebo máte nápad na vylepšení? Použijte tlačítko zpětné vazby vpravo dole nebo napište na
-        <a href="mailto:okkopecky@gmail.com" class="text-gh-primary hover:text-gh-primary-light transition-colors">okkopecky@gmail.com</a>.
+        <a href="mailto:ongy@ongy.cz" class="text-gh-primary hover:text-gh-primary-light transition-colors">ongy@ongy.cz</a>.
       </p>
       <p class="text-sm pl-2 mt-2">
         <router-link to="/ochrana-udaju" class="text-gray-500 hover:text-gh-primary-dim transition-colors">

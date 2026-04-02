@@ -1,5 +1,13 @@
 [
   {
+    "version": "6.2",
+    "date": "2026-03-29",
+    "changes": [
+      "GDPR compliance — stránka ochrany údajů, souhlas při registraci, smazání účtu",
+      "delete account endpoint — oprava názvu feedback_table"
+    ]
+  },
+  {
     "version": "6.1",
     "date": "2026-03-29",
     "changes": [
