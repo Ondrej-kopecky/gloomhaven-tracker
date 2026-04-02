@@ -13,7 +13,7 @@
         <h2>1. Správce osobních údajů</h2>
         <p>
           Správcem osobních údajů je Ondřej Kopecký, kontakt:
-          <a href="mailto:okkopecky@gmail.com" class="text-gh-primary hover:text-gh-primary-light">okkopecky@gmail.com</a>.
+          <a href="mailto:ongy@ongy.cz" class="text-gh-primary hover:text-gh-primary-light">ongy@ongy.cz</a>.
         </p>
       </section>
 

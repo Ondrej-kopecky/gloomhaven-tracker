@@ -39,7 +39,7 @@ SMTP_PORT = int(os.environ.get("SMTP_PORT", "465"))
 SMTP_USER = os.environ.get("SMTP_USER", "")
 SMTP_PASSWORD = os.environ.get("SMTP_PASSWORD", "")
 SMTP_FROM = os.environ.get("SMTP_FROM", SMTP_USER)
-NOTIFY_EMAIL = os.environ.get("NOTIFY_EMAIL", "okkopecky@gmail.com")
+NOTIFY_EMAIL = os.environ.get("NOTIFY_EMAIL", "ongy@ongy.cz")
 
 # --- Database ---
 database = databases.Database(DATABASE_URL)
