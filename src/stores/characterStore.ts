@@ -185,6 +185,22 @@ export const useCharacterStore = defineStore('character', () => {
     campaignStore.autoSave()
   }
 
+  function setPlayerName(uuid: string, name: string) {
+    const trimmed = name.trim()
+    if (!trimmed) return
+    const active = getCharacter(uuid)
+    if (active) {
+      active.playerName = trimmed
+      campaignStore.autoSave()
+      return
+    }
+    const archived = campaignStore.currentCampaign?.archivedCharacters.find((c) => c.uuid === uuid)
+    if (archived) {
+      archived.playerName = trimmed
+      campaignStore.autoSave()
+    }
+  }
+
   // --- Ability management ---
 
   function selectAbility(uuid: string, abilityId: string) {
@@ -357,6 +373,7 @@ export const useCharacterStore = defineStore('character', () => {
     deleteCharacter,
     updateChecks,
     setNotes,
+    setPlayerName,
     getItemDef,
     getItemOwners,
     getAvailableCount,
