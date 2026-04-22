@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, nextTick, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useCampaignStore } from '@/stores/campaignStore'
 import { useCharacterStore } from '@/stores/characterStore'
@@ -35,6 +35,45 @@ const showCreate = ref(false)
 const showQuestPicker = ref<string | null>(null)
 const showRetireConfirm = ref<string | null>(null)
 const showDeleteConfirm = ref<string | null>(null)
+
+// Rename character
+const editingNameUuid = ref<string | null>(null)
+const editingNameValue = ref('')
+const nameInputRefs = new Map<string, HTMLInputElement>()
+
+function setNameInputRef(uuid: string, el: unknown) {
+  if (el instanceof HTMLInputElement) {
+    nameInputRefs.set(uuid, el)
+  } else {
+    nameInputRefs.delete(uuid)
+  }
+}
+
+function startEditName(uuid: string, currentName: string) {
+  editingNameUuid.value = uuid
+  editingNameValue.value = currentName
+  nextTick(() => {
+    const el = nameInputRefs.get(uuid)
+    el?.focus()
+    el?.select()
+  })
+}
+
+function saveName(uuid: string) {
+  const trimmed = editingNameValue.value.trim()
+  if (!trimmed) {
+    cancelEditName()
+    return
+  }
+  characterStore.setPlayerName(uuid, trimmed)
+  editingNameUuid.value = null
+  editingNameValue.value = ''
+}
+
+function cancelEditName() {
+  editingNameUuid.value = null
+  editingNameValue.value = ''
+}
 
 // Ability lightbox
 const lightboxAbility = ref<AbilityDef | null>(null)
@@ -862,11 +901,42 @@ const availableClasses = computed(() => {
 
           <!-- Owner & Notes & Retire -->
           <div class="pt-4 border-t border-gh-border/30 space-y-3">
+            <!-- Name edit -->
+            <div>
+              <label class="text-[11px] text-gray-500 uppercase tracking-wider mb-1.5 block font-semibold">Jméno postavy</label>
+              <div class="flex gap-2">
+                <input
+                  :ref="(el) => setNameInputRef(char.uuid, el)"
+                  :value="editingNameUuid === char.uuid ? editingNameValue : char.playerName"
+                  type="text"
+                  class="gh-input flex-1 text-sm min-w-0"
+                  @focus="startEditName(char.uuid, char.playerName)"
+                  @input="editingNameValue = ($event.target as HTMLInputElement).value"
+                  @keydown.enter="saveName(char.uuid); ($event.target as HTMLInputElement).blur()"
+                  @keydown.escape="cancelEditName(); ($event.target as HTMLInputElement).blur()"
+                />
+                <button
+                  v-if="editingNameUuid === char.uuid && editingNameValue.trim() !== char.playerName"
+                  class="gh-btn-primary text-xs px-3 whitespace-nowrap"
+                  @click="saveName(char.uuid)"
+                >
+                  Uložit
+                </button>
+                <button
+                  v-if="editingNameUuid === char.uuid && editingNameValue.trim() !== char.playerName"
+                  class="gh-btn-ghost text-xs px-3 whitespace-nowrap"
+                  @click="cancelEditName"
+                >
+                  Zrušit
+                </button>
+              </div>
+            </div>
+
             <!-- Owner select -->
-            <div v-if="campaignStore.currentCampaign?.players?.length" class="flex items-center gap-3">
-              <label class="text-[11px] text-gray-500 uppercase tracking-wider font-semibold shrink-0">Hráč</label>
+            <div v-if="campaignStore.currentCampaign?.players?.length">
+              <label class="text-[11px] text-gray-500 uppercase tracking-wider mb-1.5 block font-semibold">Hráč</label>
               <select
-                class="gh-input flex-1 text-sm"
+                class="gh-input w-full text-sm"
                 :value="char.owner ?? ''"
                 @change="char.owner = ($event.target as HTMLSelectElement).value || undefined; campaignStore.autoSave()"
               >
