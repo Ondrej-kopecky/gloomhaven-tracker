@@ -7,6 +7,7 @@ import { uuid } from '@/utils/uuid'
 import { useDebounceFn } from '@vueuse/core'
 import * as campaignApi from '@/services/api/campaignApi'
 import { hasToken } from '@/services/api/apiClient'
+import { useToastStore } from './toastStore'
 
 export const useCampaignStore = defineStore('campaign', () => {
   const campaigns = ref<CampaignSummary[]>([])
@@ -205,9 +206,17 @@ export const useCampaignStore = defineStore('campaign', () => {
     useStorage().saveCampaign(campaign)
   }
 
+  // Tracks the lastPlayedAt of our own pushes — so polling can distinguish
+  // "we just uploaded this" from "someone else uploaded this".
+  const myLastPushAt = ref<Record<string, string>>({})
+  // Remembers which remote version we've already toast-notified about, so the
+  // same update doesn't keep popping up every poll cycle.
+  const lastNotifiedRemoteAt = ref<Record<string, string>>({})
+
   const debouncedSave = useDebounceFn(async () => {
     if (currentCampaign.value) {
       currentCampaign.value.lastPlayedAt = new Date().toISOString()
+      myLastPushAt.value[currentCampaign.value.id] = currentCampaign.value.lastPlayedAt
       saveSnapshot(currentCampaign.value)
       await useStorage().saveCampaign(currentCampaign.value)
     }
@@ -215,6 +224,62 @@ export const useCampaignStore = defineStore('campaign', () => {
 
   function autoSave() {
     debouncedSave()
+  }
+
+  // --- Cloud polling: detect changes from other players/devices ---
+  const POLL_INTERVAL_MS = 20_000
+  let pollTimer: number | null = null
+
+  async function reloadCurrentCampaignFromCloud() {
+    if (!currentCampaign.value || !hasToken()) return
+    const id = currentCampaign.value.id
+    const { data } = await campaignApi.getCampaign(id)
+    if (data) {
+      await useStorage().saveCampaign(data)
+      currentCampaign.value = data
+      lastNotifiedRemoteAt.value[id] = data.lastPlayedAt
+      myLastPushAt.value[id] = data.lastPlayedAt
+    }
+  }
+
+  async function checkCloudForUpdates() {
+    if (!currentCampaign.value || !hasToken()) return
+    const id = currentCampaign.value.id
+    const { data } = await campaignApi.listCampaigns()
+    if (!data) return
+    const remote = data.find((c) => c.id === id)
+    if (!remote) return
+
+    const remoteTime = remote.lastPlayedAt
+    const localTime = currentCampaign.value.lastPlayedAt
+    if (!remoteTime || !localTime) return
+
+    // Skip if remote equals our last push (echo) or local already matches
+    if (remoteTime === myLastPushAt.value[id]) return
+    if (new Date(remoteTime).getTime() <= new Date(localTime).getTime()) return
+    // Skip if we've already shown a toast for this exact remote version
+    if (remoteTime === lastNotifiedRemoteAt.value[id]) return
+
+    lastNotifiedRemoteAt.value[id] = remoteTime
+    const toastStore = useToastStore()
+    toastStore.show(
+      'Kampaň byla aktualizována jiným hráčem',
+      'info',
+      () => { reloadCurrentCampaignFromCloud() },
+      { actionLabel: 'Obnovit', duration: 12000 },
+    )
+  }
+
+  function startCloudPolling() {
+    if (pollTimer !== null) return
+    pollTimer = window.setInterval(() => { checkCloudForUpdates() }, POLL_INTERVAL_MS)
+  }
+
+  function stopCloudPolling() {
+    if (pollTimer !== null) {
+      window.clearInterval(pollTimer)
+      pollTimer = null
+    }
   }
 
   async function exportCampaign(): Promise<string> {
@@ -369,5 +434,10 @@ export const useCampaignStore = defineStore('campaign', () => {
     joinCampaign,
     leaveCampaign,
     kickMember,
+    // Cloud polling
+    startCloudPolling,
+    stopCloudPolling,
+    reloadCurrentCampaignFromCloud,
+    checkCloudForUpdates,
   }
 })

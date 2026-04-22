@@ -7,10 +7,22 @@ import { setToken, clearToken, hasToken } from '@/services/api/apiClient'
 import { useStorage, enableCloudSync, disableCloudSync } from '@/composables/useStorage'
 import { LocalStorageAdapter } from '@/services/storage/LocalStorageAdapter'
 
+export interface SyncResult {
+  synced: number
+  pushed: string[]
+  pulled: string[]
+  unchanged: string[]
+  lastSyncAt: string | null
+  error: string | null
+}
+
+const LAST_SYNC_KEY = 'gh_last_sync_at'
+
 export const useAuthStore = defineStore('auth', () => {
   const user = ref<AuthUser | null>(null)
   const isLoading = ref(false)
   const error = ref('')
+  const lastSyncAt = ref<string | null>(localStorage.getItem(LAST_SYNC_KEY))
 
   const isLoggedIn = computed(() => !!user.value)
   const isVerified = computed(() => user.value?.is_verified ?? false)
@@ -142,16 +154,23 @@ export const useAuthStore = defineStore('auth', () => {
    * 2. Clear local campaigns
    * 3. Download all from server → local (single source of truth)
    */
-  async function syncCampaigns(): Promise<{ synced: number; error: string | null }> {
-    if (!isLoggedIn.value) return { synced: 0, error: 'Nepřihlášen' }
+  async function syncCampaigns(): Promise<SyncResult> {
+    if (!isLoggedIn.value) {
+      return { synced: 0, pushed: [], pulled: [], unchanged: [], lastSyncAt: null, error: 'Nepřihlášen' }
+    }
 
     const storage = useStorage()
     const localList = await storage.listCampaigns()
     const { data: remoteList, error: err } = await campaignApiMod.listCampaigns()
 
     if (err || !remoteList) {
-      return { synced: 0, error: err ?? 'Nelze načíst vzdálené kampaně' }
+      return {
+        synced: 0, pushed: [], pulled: [], unchanged: [], lastSyncAt: null,
+        error: err ?? 'Nelze načíst vzdálené kampaně',
+      }
     }
+
+    const pushed: string[] = []
 
     // Step 1: Upload local campaigns that don't exist on server (only owned ones)
     for (const local of localList) {
@@ -160,6 +179,7 @@ export const useAuthStore = defineStore('auth', () => {
         const campaign = await storage.loadCampaign(local.id)
         if (campaign) {
           await campaignApiMod.upsertCampaign(campaign)
+          pushed.push(local.name)
         }
       } else if (remote.isOwner !== false) {
         // Both exist and I'm the owner — push local if newer
@@ -169,9 +189,16 @@ export const useAuthStore = defineStore('auth', () => {
           const remoteTime = new Date(remote.lastPlayedAt).getTime()
           if (localTime > remoteTime) {
             await campaignApiMod.upsertCampaign(localCampaign)
+            pushed.push(local.name)
           }
         }
       }
+    }
+
+    // Snapshot local timestamps before we delete them (for pulled/unchanged detection)
+    const localTimes = new Map<string, number>()
+    for (const local of localList) {
+      localTimes.set(local.id, new Date(local.lastPlayedAt).getTime())
     }
 
     // Step 2: Clear only local campaigns (never delete from cloud here)
@@ -182,6 +209,8 @@ export const useAuthStore = defineStore('auth', () => {
 
     // Step 3: Download everything from server (= single source of truth)
     const { data: fullRemoteList } = await campaignApiMod.listCampaigns()
+    const pulled: string[] = []
+    const unchanged: string[] = []
     let synced = 0
 
     if (fullRemoteList) {
@@ -190,11 +219,23 @@ export const useAuthStore = defineStore('auth', () => {
         if (remoteCampaign) {
           await storage.saveCampaign(remoteCampaign)
           synced++
+          const prevLocal = localTimes.get(remote.id)
+          const remoteTime = new Date(remote.lastPlayedAt).getTime()
+          // New to local OR cloud is strictly newer (other device made changes)
+          if (prevLocal === undefined || remoteTime > prevLocal) {
+            pulled.push(remote.name)
+          } else if (!pushed.includes(remote.name)) {
+            unchanged.push(remote.name)
+          }
         }
       }
     }
 
-    return { synced, error: null }
+    const ts = new Date().toISOString()
+    lastSyncAt.value = ts
+    try { localStorage.setItem(LAST_SYNC_KEY, ts) } catch { /* ignore quota */ }
+
+    return { synced, pushed, pulled, unchanged, lastSyncAt: ts, error: null }
   }
 
   return {
@@ -203,6 +244,7 @@ export const useAuthStore = defineStore('auth', () => {
     error,
     isLoggedIn,
     isVerified,
+    lastSyncAt,
     init,
     login,
     register,
