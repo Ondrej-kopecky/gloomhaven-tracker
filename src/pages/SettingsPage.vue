@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, nextTick, watch } from 'vue'
+import { ref, computed, onMounted, onUnmounted, nextTick, watch } from 'vue'
 import QRCode from 'qrcode'
 import { useRouter } from 'vue-router'
 import { useCampaignStore } from '@/stores/campaignStore'
@@ -38,7 +38,8 @@ const showSnapshots = ref(false)
 const exportSuccess = ref(false)
 const importSuccess = ref(false)
 
-const syncResult = ref<{ synced: number; error: string | null } | null>(null)
+import type { SyncResult } from '@/stores/authStore'
+const syncResult = ref<SyncResult | null>(null)
 const isSyncing = ref(false)
 const shareCodeCopied = ref(false)
 const envelopeConfirm = ref<string | null>(null)
@@ -68,6 +69,11 @@ onMounted(async () => {
       campaignStore.loadShareInfo()
     }
   }
+  relTimer = window.setInterval(() => { nowTick.value++ }, 10000)
+})
+
+onUnmounted(() => {
+  if (relTimer) window.clearInterval(relTimer)
 })
 
 async function handleGenerateShareCode() {
@@ -281,7 +287,7 @@ async function handleSync() {
     }
   } finally {
     isSyncing.value = false
-    setTimeout(() => (syncResult.value = null), 5000)
+    setTimeout(() => (syncResult.value = null), 15000)
   }
 }
 
@@ -311,6 +317,34 @@ function formatDate(iso: string): string {
     year: 'numeric',
   })
 }
+
+function plural(n: number, one: string, few: string, many: string): string {
+  if (n === 1) return one
+  if (n >= 2 && n <= 4) return few
+  return many
+}
+
+const nowTick = ref(0)
+let relTimer: number | null = null
+
+const lastSyncRelative = computed(() => {
+  nowTick.value // make reactive on tick
+  if (!authStore.lastSyncAt) return ''
+  const then = new Date(authStore.lastSyncAt).getTime()
+  const diff = Math.round((Date.now() - then) / 1000)
+  if (diff < 5) return 'právě teď'
+  if (diff < 60) return `před ${diff} s`
+  if (diff < 3600) {
+    const m = Math.floor(diff / 60)
+    return `před ${m} min`
+  }
+  if (diff < 86400) {
+    const h = Math.floor(diff / 3600)
+    return `před ${h} ${plural(h, 'hodinou', 'hodinami', 'hodinami')}`
+  }
+  const d = Math.floor(diff / 86400)
+  return `před ${d} ${plural(d, 'dnem', 'dny', 'dny')}`
+})
 </script>
 
 <template>
@@ -365,11 +399,46 @@ function formatDate(iso: string): string {
             Ochrana osobních údajů
           </router-link>
         </p>
-        <p v-if="syncResult && !syncResult.error" class="mt-3 text-xs text-green-400 flex items-center gap-1.5">
-          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-          </svg>
-          Synchronizováno ({{ syncResult.synced }} {{ syncResult.synced === 1 ? 'kampaň' : syncResult.synced < 5 ? 'kampaně' : 'kampaní' }})
+        <!-- Sync result detail -->
+        <div v-if="syncResult && !syncResult.error" class="mt-3 text-xs rounded-lg bg-green-900/10 border border-green-800/20 p-3 space-y-1.5">
+          <div class="flex items-center gap-1.5 text-green-400 font-medium">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+            </svg>
+            Synchronizováno ({{ syncResult.synced }} {{ plural(syncResult.synced, 'kampaň', 'kampaně', 'kampaní') }})
+          </div>
+          <div v-if="syncResult.pushed.length > 0" class="text-blue-300/90 flex items-start gap-1.5">
+            <span class="shrink-0">↑ Nahráno na server:</span>
+            <span class="text-gray-300">{{ syncResult.pushed.join(', ') }}</span>
+          </div>
+          <div v-if="syncResult.pulled.length > 0" class="text-purple-300/90 flex items-start gap-1.5">
+            <span class="shrink-0">↓ Staženo ze serveru:</span>
+            <span class="text-gray-300">{{ syncResult.pulled.join(', ') }}</span>
+          </div>
+          <!-- When only unchanged: short "all up-to-date" message (no name list) -->
+          <div
+            v-if="syncResult.unchanged.length > 0 && syncResult.pushed.length === 0 && syncResult.pulled.length === 0"
+            class="text-gray-400 italic"
+          >
+            Vše je aktuální — žádné změny nebyly potřeba.
+          </div>
+          <!-- When mixed: list unchanged alongside other actions -->
+          <div
+            v-else-if="syncResult.unchanged.length > 0"
+            class="text-gray-500 flex items-start gap-1.5"
+          >
+            <span class="shrink-0">✓ Aktuální:</span>
+            <span>{{ syncResult.unchanged.join(', ') }}</span>
+          </div>
+          <div
+            v-if="syncResult.pushed.length === 0 && syncResult.pulled.length === 0 && syncResult.unchanged.length === 0"
+            class="text-gray-500 italic"
+          >
+            Žádné kampaně k synchronizaci.
+          </div>
+        </div>
+        <p v-else-if="authStore.lastSyncAt" class="mt-3 text-[11px] text-gray-600">
+          Poslední synchronizace: {{ lastSyncRelative }}
         </p>
         <p v-if="syncResult?.error" class="mt-3 text-xs text-red-400">{{ syncResult.error }}</p>
       </template>

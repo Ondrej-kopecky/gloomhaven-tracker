@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, onUnmounted, watch } from 'vue'
 import AppHeader from '@/components/layout/AppHeader.vue'
 import FeedbackButton from '@/components/layout/FeedbackButton.vue'
 import ToastNotification from '@/components/ToastNotification.vue'
@@ -18,6 +18,34 @@ onMounted(async () => {
   profileStore.init()
   await authStore.init()
   await campaignStore.autoLoadLastCampaign()
+})
+
+// Start cloud polling when logged in + a campaign is loaded; stop otherwise
+watch(
+  () => [authStore.isLoggedIn, campaignStore.campaignId] as const,
+  ([loggedIn, campId]) => {
+    if (loggedIn && campId) campaignStore.startCloudPolling()
+    else campaignStore.stopCloudPolling()
+  },
+  { immediate: true },
+)
+
+// Pause polling when tab is hidden to save requests; check immediately on return
+function onVisibilityChange() {
+  if (document.hidden) {
+    campaignStore.stopCloudPolling()
+  } else if (authStore.isLoggedIn && campaignStore.campaignId) {
+    campaignStore.checkCloudForUpdates()
+    campaignStore.startCloudPolling()
+  }
+}
+
+onMounted(() => {
+  document.addEventListener('visibilitychange', onVisibilityChange)
+})
+onUnmounted(() => {
+  document.removeEventListener('visibilitychange', onVisibilityChange)
+  campaignStore.stopCloudPolling()
 })
 </script>
 

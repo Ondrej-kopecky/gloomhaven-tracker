@@ -59,7 +59,7 @@ const typeStyles = {
             class="text-xs font-semibold text-gh-primary hover:text-gh-primary-light px-2 py-1 rounded-md bg-gh-primary/10 hover:bg-gh-primary/20 transition-colors shrink-0 ml-1"
             @click.stop="toastStore.undo(toast.id)"
           >
-            Zpět
+            {{ toast.actionLabel ?? 'Zpět' }}
           </button>
         </div>
         <!-- Progress bar -->
@@ -67,6 +67,7 @@ const typeStyles = {
           <div
             class="h-full toast-progress"
             :class="typeStyles[toast.type].accent"
+            :style="{ animationDuration: (toast.duration ?? 4000) + 'ms' }"
           />
         </div>
       </div>
@@ -91,7 +92,8 @@ const typeStyles = {
 }
 
 .toast-progress {
-  animation: toast-shrink 4s linear forwards;
+  animation: toast-shrink linear forwards;
+  animation-duration: 4s;
 }
 
 @keyframes toast-shrink {

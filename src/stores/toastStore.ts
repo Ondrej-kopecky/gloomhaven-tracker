@@ -6,6 +6,8 @@ export interface Toast {
   message: string
   type: 'success' | 'error' | 'info'
   undoAction?: () => void
+  actionLabel?: string
+  duration?: number
 }
 
 let nextId = 0
@@ -13,10 +15,16 @@ let nextId = 0
 export const useToastStore = defineStore('toast', () => {
   const toasts = ref<Toast[]>([])
 
-  function show(message: string, type: Toast['type'] = 'success', undoAction?: () => void) {
+  function show(
+    message: string,
+    type: Toast['type'] = 'success',
+    undoAction?: () => void,
+    options?: { actionLabel?: string; duration?: number },
+  ) {
     const id = nextId++
-    toasts.value.push({ id, message, type, undoAction })
-    setTimeout(() => dismiss(id), undoAction ? 6000 : 4000)
+    const duration = options?.duration ?? (undoAction ? 6000 : 4000)
+    toasts.value.push({ id, message, type, undoAction, actionLabel: options?.actionLabel, duration })
+    setTimeout(() => dismiss(id), duration)
   }
 
   function dismiss(id: number) {
