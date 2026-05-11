@@ -459,7 +459,7 @@ function closeMonsterDetail() {
   <div v-if="campaignStore.hasCampaign" class="max-w-4xl mx-auto">
     <!-- Page header -->
     <div class="gh-page-header">
-      <h1 class="font-display text-2xl font-bold text-gh-primary tracking-wide">Scénáře</h1>
+      <h1 class="gh-h1">Scénáře</h1>
     </div>
 
     <!-- ── Progress overview ── -->

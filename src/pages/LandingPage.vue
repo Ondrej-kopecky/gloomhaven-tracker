@@ -69,9 +69,7 @@ const features = [
           />
         </div>
 
-        <h1
-          class="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-gh-primary tracking-wider mb-6"
-        >
+        <h1 class="gh-display-xl mb-6">
           Gloomhaven Tracker
         </h1>
 

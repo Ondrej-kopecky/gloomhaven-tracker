@@ -288,7 +288,7 @@ const availableClasses = computed(() => {
   <div v-if="campaignStore.hasCampaign" class="max-w-4xl mx-auto">
     <div class="flex items-center justify-between mb-8">
       <div class="gh-page-header !mb-0">
-        <h1 class="font-display text-2xl font-bold text-gh-primary tracking-wide">Postavy</h1>
+        <h1 class="gh-h1">Postavy</h1>
       </div>
       <button
         class="gh-btn-secondary text-sm flex items-center gap-1.5"

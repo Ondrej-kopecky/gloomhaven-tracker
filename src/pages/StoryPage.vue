@@ -110,7 +110,7 @@ const statusColors: Record<string, string> = {
 <template>
   <div v-if="campaignStore.hasCampaign" class="max-w-3xl mx-auto">
     <div class="gh-page-header">
-      <h1 class="font-display text-2xl font-bold text-gh-primary tracking-wide">Příběh</h1>
+      <h1 class="gh-h1">Příběh</h1>
     </div>
 
     <!-- Tabs -->

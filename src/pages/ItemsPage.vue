@@ -416,7 +416,7 @@ function confirmBuy() {
 <template>
   <div v-if="campaignStore.hasCampaign" class="max-w-6xl mx-auto">
     <div class="gh-page-header">
-      <h1 class="font-display text-2xl font-bold text-gh-primary tracking-wide">Předměty</h1>
+      <h1 class="gh-h1">Předměty</h1>
     </div>
 
     <!-- Filters -->
