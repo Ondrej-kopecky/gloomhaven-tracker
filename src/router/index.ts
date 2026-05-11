@@ -11,9 +11,15 @@ const router = createRouter({
     },
     {
       path: '/prehled',
+      name: 'dashboard',
+      component: () => import('@/pages/DashboardPage.vue'),
+      meta: { title: 'Přehled' },
+    },
+    {
+      path: '/diagram',
       name: 'flowchart',
       component: () => import('@/pages/FlowchartPage.vue'),
-      meta: { title: 'Přehled scénářů', icon: 'flowchart' },
+      meta: { title: 'Diagram scénářů', icon: 'flowchart' },
     },
     {
       path: '/mapa',
