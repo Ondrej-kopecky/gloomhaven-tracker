@@ -69,7 +69,7 @@ const features = [
           <div class="mt-8 flex flex-col items-center lg:items-start gap-3">
             <button
               class="gh-btn-primary font-display tracking-wider text-lg px-7 py-3.5 w-full sm:w-auto flex items-center justify-center gap-2"
-              @click="router.push('/kampan')"
+              @click="router.push('/onboarding')"
             >
               Začít kampaň
               <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
