@@ -219,7 +219,7 @@ function inputValue(e: Event): string {
 
 function goToFlowchart(id: string) {
   flowchartStore.selectNode(id)
-  router.push('/prehled')
+  router.push('/diagram')
 }
 
 // ── Monster data ──────────────────────────────────────────────────────

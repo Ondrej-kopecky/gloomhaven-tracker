@@ -48,6 +48,7 @@ const wideNav = [
   { to: '/predmety', label: 'Předměty' },
 ]
 const moreNav = [
+  { to: '/diagram', label: 'Diagram scénářů' },
   { to: '/achievementy', label: 'Úspěchy' },
   { to: '/pribeh', label: 'Příběh' },
   { to: '/boss-hp', label: 'Počítadlo HP' },
@@ -56,6 +57,7 @@ const moreNav = [
 // Mobil drawer: vše pohromadě.
 const mobileNavItems = [
   { to: '/prehled', label: 'Přehled' },
+  { to: '/diagram', label: 'Diagram scénářů' },
   { to: '/mapa', label: 'Mapa' },
   { to: '/scenare', label: 'Scénáře' },
   { to: '/druzina', label: 'Družina' },
