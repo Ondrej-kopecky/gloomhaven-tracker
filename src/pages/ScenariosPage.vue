@@ -2,6 +2,7 @@
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { ScenarioStatus } from '@/models/types'
+import StatusBadge from '@/components/shared/StatusBadge.vue'
 import { useCampaignStore } from '@/stores/campaignStore'
 import { useScenarioStore } from '@/stores/scenarioStore'
 import { useFlowchartStore } from '@/stores/flowchartStore'
@@ -161,16 +162,6 @@ const filteredScenarios = computed(() => {
   })
 })
 
-const statusLabels: Record<string, string> = {
-  [ScenarioStatus.HIDDEN]: 'Skryto',
-  [ScenarioStatus.COMPLETED]: 'Dokončeno',
-  [ScenarioStatus.AVAILABLE]: 'Dostupné',
-  [ScenarioStatus.LOCKED]: 'Zamčeno',
-  [ScenarioStatus.BLOCKED]: 'Blokováno',
-  [ScenarioStatus.REQUIRED]: 'Vyžadováno',
-  [ScenarioStatus.ATTEMPTED]: 'Pokus',
-}
-
 const gameTagTranslations: Record<string, string> = {
   '{POISON}': 'Otrava',
   '{WOUND}': 'Zranění',
@@ -206,16 +197,6 @@ const statusAccentColors: Record<string, string> = {
   [ScenarioStatus.BLOCKED]: 'bg-red-500',
   [ScenarioStatus.REQUIRED]: 'bg-yellow-500',
   [ScenarioStatus.ATTEMPTED]: 'bg-orange-500',
-}
-
-const statusBadgeColors: Record<string, string> = {
-  [ScenarioStatus.HIDDEN]: 'bg-gray-800/40 text-gray-600',
-  [ScenarioStatus.COMPLETED]: 'bg-green-900/25 text-green-400 border border-green-800/40',
-  [ScenarioStatus.AVAILABLE]: 'bg-blue-900/25 text-blue-400 border border-blue-800/40',
-  [ScenarioStatus.LOCKED]: 'bg-white/5 text-gray-500 border border-gh-border',
-  [ScenarioStatus.BLOCKED]: 'bg-red-900/25 text-red-400 border border-red-800/40',
-  [ScenarioStatus.REQUIRED]: 'bg-yellow-900/25 text-yellow-400 border border-yellow-800/40',
-  [ScenarioStatus.ATTEMPTED]: 'bg-orange-900/25 text-orange-400 border border-orange-800/40',
 }
 
 const statusCardBorder: Record<string, string> = {
@@ -570,12 +551,7 @@ function closeMonsterDetail() {
           </div>
 
           <!-- status badge -->
-          <span
-            class="gh-badge shrink-0"
-            :class="statusBadgeColors[s.computedStatus] ?? 'bg-white/5 text-gray-500'"
-          >
-            {{ statusLabels[s.computedStatus] ?? s.computedStatus }}
-          </span>
+          <StatusBadge :state="s.computedStatus" class="shrink-0" />
 
           <!-- arrow -->
           <svg class="w-4 h-4 text-gray-700 group-hover:text-gh-primary transition-colors shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -618,12 +594,7 @@ function closeMonsterDetail() {
                 <div class="min-w-0">
                   <div class="flex items-center gap-2 mb-1">
                     <span class="font-display text-gh-primary text-xl font-bold">#{{ selectedScenario.id }}</span>
-                    <span
-                      class="gh-badge text-[10px]"
-                      :class="statusBadgeColors[selectedScenario.computedStatus] ?? 'bg-white/5 text-gray-500'"
-                    >
-                      {{ statusLabels[selectedScenario.computedStatus] ?? selectedScenario.computedStatus }}
-                    </span>
+                    <StatusBadge :state="selectedScenario.computedStatus" />
                   </div>
                   <h2 class="text-lg font-semibold text-gray-200">{{ selectedScenario.displayName }}</h2>
                   <div class="flex items-center gap-2 mt-1">
