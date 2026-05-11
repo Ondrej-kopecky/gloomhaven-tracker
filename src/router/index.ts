@@ -88,6 +88,12 @@ const router = createRouter({
       meta: { title: 'Výběr kampaně' },
     },
     {
+      path: '/onboarding',
+      name: 'onboarding',
+      component: () => import('@/pages/OnboardingPage.vue'),
+      meta: { title: 'Nová kampaň' },
+    },
+    {
       path: '/prihlaseni',
       name: 'login',
       component: () => import('@/pages/LoginPage.vue'),

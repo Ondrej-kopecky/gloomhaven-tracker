@@ -51,7 +51,8 @@ async function handleVerify() {
     if (loginOk) {
       await authStore.syncCampaigns()
       await campaignStore.loadCampaignList()
-      router.push('/kampan')
+      // nový účet → onboarding wizard; OnboardingPage přesměruje na /prehled, pokud už kampaň je
+      router.push(campaignStore.hasCampaign ? '/prehled' : '/onboarding')
     }
   }
 }
