@@ -350,7 +350,7 @@ const lastSyncRelative = computed(() => {
 <template>
   <div class="max-w-2xl mx-auto">
     <div class="gh-page-header">
-      <h1 class="font-display text-2xl font-bold text-gh-primary tracking-wide">Nastavení</h1>
+      <h1 class="gh-h1">Nastavení</h1>
     </div>
 
     <!-- ── Účet ── -->
