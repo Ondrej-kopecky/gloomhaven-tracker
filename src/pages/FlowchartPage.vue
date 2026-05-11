@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import StorylineSvg from '@/components/flowchart/StorylineSvg.vue'
 import FlowchartControls from '@/components/flowchart/FlowchartControls.vue'
@@ -19,6 +19,9 @@ const characterStore = useCharacterStore()
 const partyStore = usePartyStore()
 
 const flowchartRef = ref<InstanceType<typeof StorylineSvg> | null>(null)
+
+// Doporučená úroveň scénáře = průměrná úroveň aktivních postav / 2 (zaokrouhleno nahoru)
+const scenarioLevel = computed(() => Math.ceil(characterStore.averageLevel / 2))
 
 onMounted(async () => {
   if (!campaignStore.hasCampaign) {
@@ -54,6 +57,10 @@ function handleFitView() {
       <span v-if="characterStore.activeCharacters.length" title="Aktivní postavy">
         <span class="text-gray-300 font-bold">{{ characterStore.activeCharacters.length }}</span>
         <span class="hidden sm:inline"> postav</span><span class="sm:hidden"> post.</span>
+      </span>
+      <span v-if="characterStore.activeCharacters.length" title="Doporučená úroveň scénáře (průměr úrovní postav ÷ 2)">
+        <span class="text-orange-400 font-bold">{{ scenarioLevel }}</span>
+        <span class="hidden sm:inline"> úr. scénáře</span><span class="sm:hidden"> úr. sc.</span>
       </span>
       <span title="Úroveň prosperity">
         <span class="text-gh-primary font-bold">{{ partyStore.prosperityLevel }}</span>
