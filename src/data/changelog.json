@@ -1,5 +1,13 @@
 [
   {
+    "version": "6.3",
+    "date": "2026-04-22",
+    "changes": [
+      "detailnější sync feedback + real-time notifikace změn",
+      "přejmenování postavy v detailu karty"
+    ]
+  },
+  {
     "version": "6.2",
     "date": "2026-04-02",
     "changes": [

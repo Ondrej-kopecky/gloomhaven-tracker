@@ -489,6 +489,10 @@ function closeMonsterDetail() {
           <div class="w-2.5 h-2.5 rounded-full bg-gray-600"></div>
           <span class="text-xs text-gray-500">Zamčeno <span class="text-gray-400 font-medium">{{ scenarioStore.allScenarios.filter(s => s.computedStatus === 'locked' || s.computedStatus === 'hidden').length }}</span></span>
         </div>
+        <div class="flex items-center gap-2" title="Doporučená úroveň scénáře (průměr úrovní postav ÷ 2)">
+          <div class="w-2.5 h-2.5 rounded-full bg-orange-500"></div>
+          <span class="text-xs text-gray-500">Doporučená úr. scénáře <span class="text-orange-400 font-medium">{{ scenarioLevel }}</span></span>
+        </div>
       </div>
     </div>
 
