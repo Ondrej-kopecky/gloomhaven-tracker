@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import { onClickOutside } from '@vueuse/core'
+import { onClickOutside, useOnline } from '@vueuse/core'
 import { useCampaignStore } from '@/stores/campaignStore'
 import { useAuthStore } from '@/stores/authStore'
 
 const route = useRoute()
 const campaignStore = useCampaignStore()
 const authStore = useAuthStore()
+const isOnline = useOnline()
 
 const mobileMenuOpen = ref(false)
 const moreOpen = ref(false)
@@ -195,6 +196,18 @@ const campaignTitle = () => {
 
         <!-- Right side -->
         <div class="flex items-center gap-0.5 ml-auto lg:ml-0 shrink-0">
+          <!-- Offline indicator -->
+          <div
+            v-if="!isOnline"
+            class="flex items-center gap-1 px-1.5 sm:px-2 py-1 rounded-md bg-amber-900/20 border border-amber-700/30 text-amber-400/90 text-[11px] font-medium"
+            title="Jste offline — appka funguje dál, změny se synchronizují po připojení"
+          >
+            <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 1l22 22M16.72 11.06A10.94 10.94 0 0 1 19 12.55M5 12.55a10.94 10.94 0 0 1 5.17-2.39M10.71 5.05A16 16 0 0 1 22.58 9M1.42 9a15.91 15.91 0 0 1 4.7-2.88M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01" />
+            </svg>
+            <span class="hidden sm:inline">Offline</span>
+          </div>
+
           <!-- Spoiler toggle -->
           <div v-if="campaignStore.hasCampaign" class="spoiler-toggle-wrap relative">
             <button
