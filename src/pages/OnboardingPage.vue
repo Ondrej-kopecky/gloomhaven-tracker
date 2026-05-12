@@ -4,6 +4,7 @@ import { useRouter } from 'vue-router'
 import { useCampaignStore } from '@/stores/campaignStore'
 import { useCharacterStore } from '@/stores/characterStore'
 import ClassIcon from '@/components/characters/ClassIcon.vue'
+import { startingClasses } from '@/data/characterClasses'
 import type { CharacterClass } from '@/models/types'
 
 /** Onboarding wizard (redesign Phase 02): pojmenuj družinu → vyber 2–4 startovní třídy → hotovo. */
@@ -16,21 +17,7 @@ onMounted(() => {
   if (campaignStore.hasCampaign) router.replace('/prehled')
 })
 
-interface StartingClass {
-  id: CharacterClass
-  name: string
-  race: string
-  color: string
-  desc: string
-}
-const STARTING: StartingClass[] = [
-  { id: 'brute' as CharacterClass, name: 'Surovec', race: 'Inox', color: '#e74c3c', desc: 'Mlátička zblízka, hodně životů, snadný start.' },
-  { id: 'tinkerer' as CharacterClass, name: 'Kutil', race: 'Quatryl', color: '#f39c12', desc: 'Léčení, pasti a podpora — drží družinu naživu.' },
-  { id: 'spellweaver' as CharacterClass, name: 'Čarovnice', race: 'Orchid', color: '#3498db', desc: 'Plošná kouzla a dosah, ale jen málo karet.' },
-  { id: 'scoundrel' as CharacterClass, name: 'Ničemnice', race: 'Člověk', color: '#2ecc71', desc: 'Jednociloví zabijáci z neviditelnosti, rychlá iniciativa.' },
-  { id: 'cragheart' as CharacterClass, name: 'Prasklivec', race: 'Savvas', color: '#95a5a6', desc: 'Tvaruje terén, kombinuje útok i podporu.' },
-  { id: 'mindthief' as CharacterClass, name: 'Zlodějka mysli', race: 'Krysák', color: '#9b59b6', desc: 'Ovládá mysl nepřátel a živly — křehká, ale chytrá.' },
-]
+const STARTING = startingClasses()
 
 const step = ref<1 | 2>(1)
 const partyName = ref('')
@@ -178,6 +165,10 @@ function skip() {
             :disabled="!canFinish || creating"
             @click="finish"
           >
+            <svg v-if="creating" class="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" class="opacity-25" />
+              <path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+            </svg>
             {{ creating ? 'Zakládám…' : `Vytvořit družinu (${selected.size})` }}
           </button>
         </div>

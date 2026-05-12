@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import { onClickOutside, useOnline } from '@vueuse/core'
+import { onClickOutside, useOnline, useBreakpoints } from '@vueuse/core'
 import { useCampaignStore } from '@/stores/campaignStore'
 
 const route = useRoute()
@@ -36,6 +36,8 @@ watch(mobileMenuOpen, (open) => {
 })
 
 // Desktop nav: 4 hlavní vždy, +2 (Družina/Předměty) od 1180 px, zbytek do „Více ▾".
+// Renderujeme každou položku jen JEDNOU (podle breakpointu), ne CSS-only přepínání —
+// jinak jsou Družina/Předměty 2× v DOM (bar + dropdown).
 const primaryNav = [
   { to: '/prehled', label: 'Přehled' },
   { to: '/mapa', label: 'Mapa' },
@@ -52,6 +54,10 @@ const moreNav = [
   { to: '/pribeh', label: 'Příběh' },
   { to: '/boss-hp', label: 'Počítadlo HP' },
 ]
+const breakpoints = useBreakpoints({ wide: 1180 })
+const isWide = breakpoints.greaterOrEqual('wide')
+const desktopNav = computed(() => (isWide.value ? [...primaryNav, ...wideNav] : primaryNav))
+const moreNavList = computed(() => (isWide.value ? moreNav : [...wideNav, ...moreNav]))
 
 // Mobil drawer: vše pohromadě.
 const mobileNavItems = [
@@ -69,7 +75,7 @@ const mobileNavItems = [
 ]
 
 const isActive = (path: string) => route.path === path
-const moreActive = () => moreNav.some(i => isActive(i.to))
+const moreActive = () => moreNavList.value.some(i => isActive(i.to))
 
 // Stav kampaně pro chip: 'guest' (sdílená se mnou) | 'sharing' (vlastním a sdílím) | 'own' (vlastním)
 const campaignKind = () => {
@@ -131,22 +137,10 @@ const campaignTitle = () => {
         <!-- Desktop nav -->
         <nav class="hidden lg:flex items-center gap-0.5 mx-auto">
           <router-link
-            v-for="item in primaryNav"
+            v-for="item in desktopNav"
             :key="item.to"
             :to="item.to"
             class="relative px-3 py-1.5 rounded-md text-[13px] font-medium transition-all"
-            :class="isActive(item.to) ? 'text-gh-primary bg-gh-primary/10' : 'text-gray-500 hover:text-gray-200 hover:bg-white/[0.04]'"
-          >
-            {{ item.label }}
-            <span v-if="isActive(item.to)" class="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-0.5 bg-gh-primary rounded-full" />
-          </router-link>
-
-          <!-- wide-only items (Družina, Předměty) -->
-          <router-link
-            v-for="item in wideNav"
-            :key="item.to"
-            :to="item.to"
-            class="relative px-3 py-1.5 rounded-md text-[13px] font-medium transition-all hidden min-[1180px]:block"
             :class="isActive(item.to) ? 'text-gh-primary bg-gh-primary/10' : 'text-gray-500 hover:text-gray-200 hover:bg-white/[0.04]'"
           >
             {{ item.label }}
@@ -165,20 +159,8 @@ const campaignTitle = () => {
             </button>
             <transition name="more-menu">
               <div v-if="moreOpen" class="absolute right-0 mt-1.5 w-44 rounded-lg bg-gh-card border border-gh-border shadow-xl shadow-black/40 py-1.5 overflow-hidden">
-                <!-- Družina/Předměty se zobrazí v menu jen na úzkých obrazovkách -->
                 <router-link
-                  v-for="item in wideNav"
-                  :key="item.to"
-                  :to="item.to"
-                  class="min-[1180px]:hidden flex items-center justify-between px-3.5 py-2 text-[13px] transition-colors"
-                  :class="isActive(item.to) ? 'text-gh-primary bg-gh-primary/10' : 'text-gray-300 hover:text-gray-100 hover:bg-white/[0.04]'"
-                >
-                  {{ item.label }}
-                  <span v-if="isActive(item.to)" class="w-1.5 h-1.5 rounded-full bg-gh-primary" />
-                </router-link>
-                <div class="min-[1180px]:hidden my-1 mx-3.5 border-t border-gh-border/60" />
-                <router-link
-                  v-for="item in moreNav"
+                  v-for="item in moreNavList"
                   :key="item.to"
                   :to="item.to"
                   class="flex items-center justify-between px-3.5 py-2 text-[13px] transition-colors"

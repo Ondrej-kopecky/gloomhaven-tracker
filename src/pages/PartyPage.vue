@@ -7,6 +7,7 @@ import { useCharacterStore } from '@/stores/characterStore'
 import { useScenarioStore } from '@/stores/scenarioStore'
 import { useAchievementStore } from '@/stores/achievementStore'
 import { CharacterClass } from '@/models/types'
+import { classColor } from '@/data/characterClasses'
 import ClassIcon from '@/components/characters/ClassIcon.vue'
 import type { ItemDefinition } from '@/models/Item'
 import itemsData from '@/data/items.json'
@@ -262,28 +263,6 @@ function setDonations(val: number) {
   campaignStore.autoSave()
 }
 
-/* ── character colors ── */
-const classColors: Record<string, string> = {
-  [CharacterClass.BRUTE]: '#e74c3c',
-  [CharacterClass.CRAGHEART]: '#95a5a6',
-  [CharacterClass.MINDTHIEF]: '#9b59b6',
-  [CharacterClass.SCOUNDREL]: '#2ecc71',
-  [CharacterClass.SPELLWEAVER]: '#3498db',
-  [CharacterClass.TINKERER]: '#f39c12',
-  [CharacterClass.BEAST_TYRANT]: '#e67e22',
-  [CharacterClass.BERSERKER]: '#c0392b',
-  [CharacterClass.DOOMSTALKER]: '#27ae60',
-  [CharacterClass.ELEMENTALIST]: '#8e44ad',
-  [CharacterClass.NIGHTSHROUD]: '#2c3e50',
-  [CharacterClass.PLAGUEHERALD]: '#16a085',
-  [CharacterClass.QUARTERMASTER]: '#d4a847',
-  [CharacterClass.SAWBONES]: '#ecf0f1',
-  [CharacterClass.SOOTHSINGER]: '#e91e8c',
-  [CharacterClass.SUMMONER]: '#1abc9c',
-  [CharacterClass.SUNKEEPER]: '#f1c40f',
-  [CharacterClass.DIVINER]: '#a78bfa',
-}
-
 function getClassName(classId: string): string {
   const def = characterStore.getDefinition(classId as CharacterClass)
   return def?.name ?? classId
@@ -309,7 +288,7 @@ function getClassName(classId: string): string {
             <ClassIcon :class-id="char.classId" :size="32" />
             <div
               class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-bold border-2 border-gh-card"
-              :style="{ backgroundColor: classColors[char.classId] ?? '#c4a35a', color: '#0a0813' }"
+              :style="{ backgroundColor: classColor(char.classId), color: '#0a0813' }"
             >
               {{ char.level }}
             </div>

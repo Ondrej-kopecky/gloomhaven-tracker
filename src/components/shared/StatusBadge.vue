@@ -41,11 +41,14 @@ const CONFIG: Record<string, Cfg> = {
   attempted: { label: 'Pokus', pill: 'bg-orange-900/25 text-orange-400 border border-orange-800/40', dot: 'bg-orange-500', text: 'text-orange-400', glyph: 'attempted' },
   required: { label: 'Vyžadováno', pill: 'bg-yellow-900/25 text-yellow-400 border border-yellow-800/40', dot: 'bg-yellow-500', text: 'text-yellow-400', glyph: 'required' },
   blocked: { label: 'Blokováno', pill: 'bg-red-900/25 text-red-400 border border-red-800/40', dot: 'bg-red-500', text: 'text-red-400', glyph: 'blocked' },
+  // 'hidden' se chová jako 'locked' (viz cfg níže) — případný odlišný popisek přes prop `label`
   locked: { label: 'Zamčeno', pill: 'bg-white/5 text-gray-500 border border-gh-border', dot: 'bg-gray-600', text: 'text-gray-500', glyph: 'lock' },
-  hidden: { label: 'Skryto', pill: 'bg-gray-800/40 text-gray-600', dot: 'bg-gray-700', text: 'text-gray-600', glyph: 'lock' },
 }
 
-const cfg = computed<Cfg>(() => CONFIG[props.state] ?? { label: String(props.state), pill: 'bg-white/5 text-gray-500', dot: 'bg-gray-600', text: 'text-gray-500', glyph: null })
+const cfg = computed<Cfg>(() => {
+  const key = props.state === 'hidden' ? 'locked' : props.state
+  return CONFIG[key] ?? { label: String(props.state), pill: 'bg-white/5 text-gray-500', dot: 'bg-gray-600', text: 'text-gray-500', glyph: null }
+})
 const label = computed(() => props.label ?? cfg.value.label)
 </script>
 

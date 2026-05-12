@@ -1,19 +1,26 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { useCampaignStore } from '@/stores/campaignStore'
 import { useScenarioStore } from '@/stores/scenarioStore'
 import { useQuestStore } from '@/stores/questStore'
 import type { QuestProgress } from '@/stores/questStore'
+import { useToastStore } from '@/stores/toastStore'
 import StatusBadge from '@/components/shared/StatusBadge.vue'
 import questStorylines from '@/data/questStorylines.json'
 
+const route = useRoute()
 const router = useRouter()
 const campaignStore = useCampaignStore()
 const scenarioStore = useScenarioStore()
 const questStore = useQuestStore()
+const toastStore = useToastStore()
 
-const activeTab = ref<'quests' | 'timeline'>('quests')
+// Aktivní tab je v URL (?tab=quests|timeline) — přežije navigaci pryč a zpět
+const activeTab = computed<'quests' | 'timeline'>({
+  get: () => (route.query.tab === 'timeline' ? 'timeline' : 'quests'),
+  set: (v) => router.replace({ query: { ...route.query, tab: v } }),
+})
 
 function humanizeCheck(expr: string): string {
   return expr
@@ -90,10 +97,13 @@ const campaignName = computed(
   () => campaignStore.currentCampaign?.party?.name?.trim() || campaignStore.currentCampaign?.name || 'Kampaň',
 )
 
-/** Export „kroniky" — otevře tisknutelný HTML přehled dokončených scénářů. */
+/** Export „kroniky" — otevře tisknutelný HTML přehled dokončených scénářů (bez auto-printu — uživatel klikne na tlačítko). */
 function exportChronicle() {
   const w = window.open('', '_blank')
-  if (!w) return
+  if (!w) {
+    toastStore.show('Povolte vyskakovací okna pro tuto stránku, ať se kronika otevře.', 'error')
+    return
+  }
   const esc = (t: string) => t.replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]!))
   const entries = completedScenarios.value
     .map((s, i) => {
@@ -101,8 +111,9 @@ function exportChronicle() {
       return `<div class="e"><h3>${i + 1}. #${s.id} ${esc(s.displayName)}</h3>${s.location ? `<div class="loc">${esc(s.location)}${date ? ' · ' + date : ''}</div>` : date ? `<div class="loc">${date}</div>` : ''}${s.summary ? `<p>${esc(s.summary)}</p>` : ''}${s.state.notes ? `<p class="note">${esc(s.state.notes)}</p>` : ''}</div>`
     })
     .join('')
+  const title = `Kronika kampaně — ${esc(campaignName.value)}`
   w.document.write(
-    `<!doctype html><html lang="cs"><head><meta charset="utf-8"><title>Kronika kampaně — ${esc(campaignName.value)}</title><style>body{font-family:Georgia,'Times New Roman',serif;max-width:680px;margin:48px auto;padding:0 24px;color:#1a1a1a;line-height:1.6}h1{font-size:30px;letter-spacing:.02em;border-bottom:2px solid #c4a35a;padding-bottom:10px}.sub{color:#777;font-size:13px;margin:-8px 0 32px}.e{margin:0 0 22px;padding-left:16px;border-left:3px solid #c4a35a}h3{margin:0 0 2px;font-size:16px}.loc{font-size:11px;color:#999;margin-bottom:4px}p{margin:4px 0;font-style:italic;color:#555}p.note{font-style:normal;color:#777;font-size:13px;border-top:1px dashed #ddd;padding-top:4px}@media print{body{margin:0}}</style></head><body><h1>Kronika kampaně — ${esc(campaignName.value)}</h1><div class="sub">${completedScenarios.value.length} dokončených scénářů · vygenerováno ${formatDate(new Date().toISOString())}</div>${entries || '<p>Zatím žádné dokončené scénáře.</p>'}<script>window.onload=function(){window.print()}<\/script></body></html>`,
+    `<!doctype html><html lang="cs"><head><meta charset="utf-8"><title>${title}</title><style>body{font-family:Georgia,'Times New Roman',serif;color:#1a1a1a;line-height:1.6;margin:0}.toolbar{position:sticky;top:0;background:#fff;border-bottom:1px solid #ddd;padding:10px 24px;text-align:right}.toolbar button{font:14px Georgia,serif;padding:6px 14px;cursor:pointer;border:1px solid #c4a35a;background:#f7f0dd;border-radius:4px}.page{max-width:680px;margin:40px auto;padding:0 24px}h1{font-size:30px;letter-spacing:.02em;border-bottom:2px solid #c4a35a;padding-bottom:10px;margin-top:0}.sub{color:#777;font-size:13px;margin:-8px 0 32px}.e{margin:0 0 22px;padding-left:16px;border-left:3px solid #c4a35a}h3{margin:0 0 2px;font-size:16px}.loc{font-size:11px;color:#999;margin-bottom:4px}p{margin:4px 0;font-style:italic;color:#555}p.note{font-style:normal;color:#777;font-size:13px;border-top:1px dashed #ddd;padding-top:4px}@media print{body{margin:0}.toolbar{display:none}.page{margin:0;max-width:none}}</style></head><body><div class="toolbar"><button onclick="window.print()">Vytisknout / Uložit jako PDF</button></div><div class="page"><h1>${title}</h1><div class="sub">${completedScenarios.value.length} dokončených scénářů · vygenerováno ${formatDate(new Date().toISOString())}</div>${entries || '<p>Zatím žádné dokončené scénáře.</p>'}</div></body></html>`,
   )
   w.document.close()
 }
