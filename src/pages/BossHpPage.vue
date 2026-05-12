@@ -98,7 +98,7 @@ function selectCustom() {
 <template>
   <div>
   <div class="gh-page-header">
-    <h1 class="font-display text-xl font-bold text-gh-primary tracking-wider uppercase">Počítadlo HP</h1>
+    <h1 class="gh-h1">Počítadlo HP</h1>
   </div>
 
   <!-- Boss selector -->
@@ -107,7 +107,7 @@ function selectCustom() {
 
     <!-- Custom HP -->
     <div class="gh-card p-4">
-      <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Vlastní počet</h3>
+      <h3 class="gh-micro mb-2">Vlastní počet</h3>
       <div class="flex gap-2">
         <input
           v-model="customHp"
@@ -129,7 +129,7 @@ function selectCustom() {
 
     <!-- Boss list by scenario -->
     <div class="gh-card p-4">
-      <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
+      <h3 class="gh-micro mb-3">
         Bossové ze scénářů
         <span class="text-gray-600 normal-case font-normal ml-1">· {{ playerCount }} hráči · úroveň {{ scenarioLevel }}</span>
       </h3>
