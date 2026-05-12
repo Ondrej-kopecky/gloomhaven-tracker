@@ -111,22 +111,22 @@ function openScenario(id: string) {
     </div>
 
     <!-- Hero stats row -->
-    <div class="grid gap-4 mb-4 md:grid-cols-2 xl:grid-cols-[2fr_1fr_1fr_1fr]">
+    <div class="grid gap-3 sm:gap-4 mb-4 md:grid-cols-2 xl:grid-cols-[2fr_1fr_1fr_1fr]">
       <!-- Postup příběhu -->
-      <div class="gh-card p-5 sm:p-6">
+      <div class="gh-card p-4 sm:p-6">
         <div class="gh-micro mb-3">Postup příběhu</div>
         <div class="flex items-baseline gap-2.5">
           <span class="font-display text-4xl sm:text-5xl font-bold text-gh-primary leading-none">{{ counts.completed }}</span>
           <span class="text-gray-400 text-sm sm:text-base">/ {{ total || '?' }} scénářů</span>
         </div>
         <!-- multi-segment bar -->
-        <div class="mt-5 h-2 rounded-full bg-gh-border overflow-hidden flex">
+        <div class="mt-4 sm:mt-5 h-2 rounded-full bg-gh-border overflow-hidden flex">
           <div class="h-full bg-gradient-to-r from-gh-primary-dim to-gh-primary" :style="{ width: pct(counts.completed) + '%' }" />
           <div class="h-full bg-gh-available/60" :style="{ width: pct(counts.available) + '%' }" />
           <div class="h-full bg-gh-attempted/60" :style="{ width: pct(counts.attempted) + '%' }" />
           <div class="h-full bg-gh-required/60" :style="{ width: pct(counts.required) + '%' }" />
         </div>
-        <div class="mt-3.5 flex flex-wrap gap-x-4 gap-y-1.5">
+        <div class="mt-3 flex flex-wrap gap-x-3 sm:gap-x-4 gap-y-1.5">
           <StatusBadge state="completed" variant="dot" :label="`${counts.completed} dokončeno`" />
           <StatusBadge v-if="counts.available" state="available" variant="dot" :label="`${counts.available} dostupných`" />
           <StatusBadge v-if="counts.attempted" state="attempted" variant="dot" :label="`${counts.attempted} pokus`" />
@@ -135,43 +135,46 @@ function openScenario(id: string) {
         </div>
       </div>
 
-      <!-- Prosperita -->
-      <div class="gh-card p-5">
-        <div class="gh-micro mb-2">Prosperita</div>
-        <div class="flex items-baseline gap-1.5">
-          <span class="font-display text-3xl font-bold text-gh-primary leading-none">{{ prosperityLevel }}</span>
-          <span class="text-xs text-gh-dim">/ 9</span>
+      <!-- 3 malé staty: na mobilu vedle sebe v řádku, od md splynou do hlavního gridu -->
+      <div class="grid grid-cols-3 gap-2.5 md:contents">
+        <!-- Prosperita -->
+        <div class="gh-card p-3 sm:p-5">
+          <div class="gh-micro mb-1.5 sm:mb-2">Prosperita</div>
+          <div class="flex items-baseline gap-1">
+            <span class="font-display text-2xl sm:text-3xl font-bold text-gh-primary leading-none">{{ prosperityLevel }}</span>
+            <span class="text-[11px] sm:text-xs text-gh-dim">/ 9</span>
+          </div>
+          <div class="mt-3 sm:mt-3.5 h-1.5 rounded-full bg-gh-border overflow-hidden">
+            <div class="h-full bg-gh-primary-dim" :style="{ width: prosperityBarPct + '%' }" />
+          </div>
+          <div class="gh-micro mt-1.5 hidden sm:block">{{ prosperityIndex }} {{ prosperityIndex === 1 ? 'checkmark' : 'checkmarků' }}</div>
         </div>
-        <div class="mt-3.5 h-1.5 rounded-full bg-gh-border overflow-hidden">
-          <div class="h-full bg-gh-primary-dim" :style="{ width: prosperityBarPct + '%' }" />
-        </div>
-        <div class="gh-micro mt-1.5">{{ prosperityIndex }} {{ prosperityIndex === 1 ? 'checkmark' : 'checkmarků' }}</div>
-      </div>
 
-      <!-- Reputace -->
-      <div class="gh-card p-5">
-        <div class="gh-micro mb-2">Reputace</div>
-        <div class="flex items-baseline gap-1.5">
-          <span class="font-display text-3xl font-bold leading-none" :class="reputation >= 0 ? 'text-gh-completed' : 'text-gh-blocked'">{{ reputation > 0 ? '+' : '' }}{{ reputation }}</span>
-          <span class="text-xs text-gh-dim">/ ±20</span>
+        <!-- Reputace -->
+        <div class="gh-card p-3 sm:p-5">
+          <div class="gh-micro mb-1.5 sm:mb-2">Reputace</div>
+          <div class="flex items-baseline gap-1">
+            <span class="font-display text-2xl sm:text-3xl font-bold leading-none" :class="reputation >= 0 ? 'text-gh-completed' : 'text-gh-blocked'">{{ reputation > 0 ? '+' : '' }}{{ reputation }}</span>
+            <span class="text-[11px] sm:text-xs text-gh-dim">/ ±20</span>
+          </div>
+          <div class="mt-3 sm:mt-3.5 h-1.5 rounded-full bg-gh-border overflow-hidden">
+            <div class="h-full" :class="reputation >= 0 ? 'bg-gh-completed/70' : 'bg-gh-blocked/70'" :style="{ width: reputationBarPct + '%' }" />
+          </div>
+          <div class="gh-micro mt-1.5 hidden sm:block">sleva v obchodě: {{ partyStore.shopPriceModifier > 0 ? '+' : '' }}{{ partyStore.shopPriceModifier }}</div>
         </div>
-        <div class="mt-3.5 h-1.5 rounded-full bg-gh-border overflow-hidden">
-          <div class="h-full" :class="reputation >= 0 ? 'bg-gh-completed/70' : 'bg-gh-blocked/70'" :style="{ width: reputationBarPct + '%' }" />
-        </div>
-        <div class="gh-micro mt-1.5">sleva v obchodě: {{ partyStore.shopPriceModifier > 0 ? '+' : '' }}{{ partyStore.shopPriceModifier }}</div>
-      </div>
 
-      <!-- Doporučená úroveň scénáře -->
-      <div class="gh-card p-5">
-        <div class="gh-micro mb-2">Doporučená úr. scénáře</div>
-        <div class="flex items-baseline gap-1.5">
-          <span class="font-display text-3xl font-bold text-gh-primary leading-none">{{ scenarioLevel }}</span>
-          <span class="text-xs text-gh-dim">/ 7</span>
+        <!-- Doporučená úroveň scénáře -->
+        <div class="gh-card p-3 sm:p-5">
+          <div class="gh-micro mb-1.5 sm:mb-2">Úr. scénáře</div>
+          <div class="flex items-baseline gap-1">
+            <span class="font-display text-2xl sm:text-3xl font-bold text-gh-primary leading-none">{{ scenarioLevel }}</span>
+            <span class="text-[11px] sm:text-xs text-gh-dim">/ 7</span>
+          </div>
+          <div class="mt-3 sm:mt-3.5 flex gap-0.5 sm:gap-1">
+            <span v-for="n in 7" :key="n" class="h-1.5 flex-1 rounded-full" :class="n <= scenarioLevel ? 'bg-gh-primary' : 'bg-gh-border'" />
+          </div>
+          <div class="gh-micro mt-1.5 hidden sm:block">průměr postav ÷ 2</div>
         </div>
-        <div class="mt-3.5 flex gap-1">
-          <span v-for="n in 7" :key="n" class="h-1.5 flex-1 rounded-full" :class="n <= scenarioLevel ? 'bg-gh-primary' : 'bg-gh-border'" />
-        </div>
-        <div class="gh-micro mt-1.5">průměr postav ÷ 2</div>
       </div>
     </div>
 
