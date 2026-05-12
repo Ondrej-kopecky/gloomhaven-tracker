@@ -303,7 +303,7 @@ const availableClasses = computed(() => {
 
     <!-- Create form -->
     <div v-if="showCreate" class="gh-card p-6 mb-6">
-      <h3 class="font-display text-lg font-semibold text-gray-200 mb-5 tracking-wide flex items-center gap-2">
+      <h3 class="gh-h2 mb-5 flex items-center gap-2">
         <svg class="w-5 h-5 text-gh-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
         </svg>
@@ -416,7 +416,7 @@ const availableClasses = computed(() => {
             </div>
 
             <div class="flex-1 min-w-0">
-              <h3 class="font-display font-semibold text-gray-100 tracking-wide text-lg leading-tight">{{ char.playerName }}</h3>
+              <h3 class="gh-h2 text-gray-100 leading-tight">{{ char.playerName }}</h3>
               <p class="text-xs text-gray-500 mt-0.5 flex items-center gap-1">
                 <ClassIcon :class-id="char.classId" :size="12" class="opacity-60 shrink-0" />
                 <span class="truncate">{{ classNames[char.classId] }}</span>
