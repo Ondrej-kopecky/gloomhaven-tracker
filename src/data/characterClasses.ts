@@ -1,9 +1,8 @@
 import type { CharacterClass } from '@/models/types'
 
 /**
- * Sdílená metadata tříd postav (názvy + barvy).
- * Dřív byly tyhle mapy duplikované v CharactersPage / PartyPage — postupně
- * migrovat na tenhle modul.
+ * Sdílená metadata tříd postav (názvy, barvy, startovní třídy).
+ * Jediný zdroj pravdy — CharactersPage / PartyPage / OnboardingPage by sem měly mířit.
  */
 
 /** Oficiální CZ názvy tříd (rasa + třída), klíčované `CharacterClass`. */
@@ -57,4 +56,37 @@ export function classColor(classId: string): string {
 }
 export function className(classId: CharacterClass): string {
   return classNames[classId] ?? classId
+}
+
+/** 6 startovních tříd Gloomhavenu (krátké jméno, rasa, popis) — pro onboarding wizard ap. */
+const STARTING_DATA: { id: CharacterClass; name: string; race: string; desc: string }[] = [
+  { id: 'brute' as CharacterClass, name: 'Surovec', race: 'Inox', desc: 'Mlátička zblízka, hodně životů, snadný start.' },
+  { id: 'tinkerer' as CharacterClass, name: 'Kutil', race: 'Quatryl', desc: 'Léčení, pasti a podpora — drží družinu naživu.' },
+  { id: 'spellweaver' as CharacterClass, name: 'Čarovnice', race: 'Orchid', desc: 'Plošná kouzla a dosah, ale jen málo karet.' },
+  { id: 'scoundrel' as CharacterClass, name: 'Ničemnice', race: 'Člověk', desc: 'Jednociloví zabijáci z neviditelnosti, rychlá iniciativa.' },
+  { id: 'cragheart' as CharacterClass, name: 'Prasklivec', race: 'Savvas', desc: 'Tvaruje terén, kombinuje útok i podporu.' },
+  { id: 'mindthief' as CharacterClass, name: 'Zlodějka mysli', race: 'Krysák', desc: 'Ovládá mysl nepřátel a živly — křehká, ale chytrá.' },
+]
+
+export interface StartingClass {
+  id: CharacterClass
+  name: string
+  race: string
+  desc: string
+  color: string
+}
+
+/** Startovní třídy s doplněnou barvou (z `classColors`). */
+export function startingClasses(): StartingClass[] {
+  return STARTING_DATA.map((c) => ({ ...c, color: classColor(c.id) }))
+}
+
+/** Krátký popis třídy (jen u startovních; jinak `undefined`). */
+export function classShortDesc(classId: CharacterClass | string): string | undefined {
+  return STARTING_DATA.find((c) => c.id === classId)?.desc
+}
+
+/** Je to jedna ze 6 startovních tříd? */
+export function isStartingClass(classId: CharacterClass | string): boolean {
+  return STARTING_DATA.some((c) => c.id === classId)
 }

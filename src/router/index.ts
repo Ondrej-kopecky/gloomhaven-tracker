@@ -123,6 +123,11 @@ const router = createRouter({
       component: () => import('@/pages/PrivacyPage.vue'),
       meta: { title: 'Ochrana osobních údajů' },
     },
+    // 404 fallback — neplatná URL → landing (které samo přesměruje na /prehled, je-li kampaň)
+    {
+      path: '/:pathMatch(.*)*',
+      redirect: '/',
+    },
   ],
 })
 
