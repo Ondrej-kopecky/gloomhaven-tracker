@@ -92,7 +92,7 @@ function openScenario(id: string) {
 </script>
 
 <template>
-  <div v-if="campaignStore.hasCampaign" class="max-w-6xl mx-auto">
+  <div v-if="campaignStore.hasCampaign" class="max-w-6xl mx-auto overflow-x-hidden">
     <!-- Page header -->
     <div class="flex flex-wrap items-end justify-between gap-3 mb-7">
       <div class="gh-page-header !mb-0">
@@ -136,44 +136,44 @@ function openScenario(id: string) {
       </div>
 
       <!-- 3 malé staty: na mobilu vedle sebe v řádku, od md splynou do hlavního gridu -->
-      <div class="grid grid-cols-3 gap-2.5 md:contents">
+      <div class="grid grid-cols-3 gap-2 sm:gap-3 md:contents">
         <!-- Prosperita -->
-        <div class="gh-card p-3 sm:p-5">
-          <div class="gh-micro mb-1.5 sm:mb-2">Prosperita</div>
+        <div class="gh-card min-w-0 overflow-hidden p-2.5 sm:p-5">
+          <div class="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wide sm:tracking-[0.14em] text-gh-dim mb-1 sm:mb-2 truncate">Prosperita</div>
           <div class="flex items-baseline gap-1">
-            <span class="font-display text-2xl sm:text-3xl font-bold text-gh-primary leading-none">{{ prosperityLevel }}</span>
-            <span class="text-[11px] sm:text-xs text-gh-dim">/ 9</span>
+            <span class="font-display text-xl sm:text-3xl font-bold text-gh-primary leading-none">{{ prosperityLevel }}</span>
+            <span class="text-[10px] sm:text-xs text-gh-dim">/ 9</span>
           </div>
-          <div class="mt-3 sm:mt-3.5 h-1.5 rounded-full bg-gh-border overflow-hidden">
+          <div class="mt-2.5 sm:mt-3.5 h-1.5 rounded-full bg-gh-border overflow-hidden">
             <div class="h-full bg-gh-primary-dim" :style="{ width: prosperityBarPct + '%' }" />
           </div>
-          <div class="gh-micro mt-1.5 hidden sm:block">{{ prosperityIndex }} {{ prosperityIndex === 1 ? 'checkmark' : 'checkmarků' }}</div>
+          <div class="text-[10px] uppercase tracking-wide text-gh-dim mt-1.5 hidden sm:block">{{ prosperityIndex }} {{ prosperityIndex === 1 ? 'checkmark' : 'checkmarků' }}</div>
         </div>
 
         <!-- Reputace -->
-        <div class="gh-card p-3 sm:p-5">
-          <div class="gh-micro mb-1.5 sm:mb-2">Reputace</div>
+        <div class="gh-card min-w-0 overflow-hidden p-2.5 sm:p-5">
+          <div class="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wide sm:tracking-[0.14em] text-gh-dim mb-1 sm:mb-2 truncate">Reputace</div>
           <div class="flex items-baseline gap-1">
-            <span class="font-display text-2xl sm:text-3xl font-bold leading-none" :class="reputation >= 0 ? 'text-gh-completed' : 'text-gh-blocked'">{{ reputation > 0 ? '+' : '' }}{{ reputation }}</span>
-            <span class="text-[11px] sm:text-xs text-gh-dim">/ ±20</span>
+            <span class="font-display text-xl sm:text-3xl font-bold leading-none" :class="reputation >= 0 ? 'text-gh-completed' : 'text-gh-blocked'">{{ reputation > 0 ? '+' : '' }}{{ reputation }}</span>
+            <span class="text-[10px] sm:text-xs text-gh-dim">/ ±20</span>
           </div>
-          <div class="mt-3 sm:mt-3.5 h-1.5 rounded-full bg-gh-border overflow-hidden">
+          <div class="mt-2.5 sm:mt-3.5 h-1.5 rounded-full bg-gh-border overflow-hidden">
             <div class="h-full" :class="reputation >= 0 ? 'bg-gh-completed/70' : 'bg-gh-blocked/70'" :style="{ width: reputationBarPct + '%' }" />
           </div>
-          <div class="gh-micro mt-1.5 hidden sm:block">sleva v obchodě: {{ partyStore.shopPriceModifier > 0 ? '+' : '' }}{{ partyStore.shopPriceModifier }}</div>
+          <div class="text-[10px] uppercase tracking-wide text-gh-dim mt-1.5 hidden sm:block">sleva v obchodě: {{ partyStore.shopPriceModifier > 0 ? '+' : '' }}{{ partyStore.shopPriceModifier }}</div>
         </div>
 
         <!-- Doporučená úroveň scénáře -->
-        <div class="gh-card p-3 sm:p-5">
-          <div class="gh-micro mb-1.5 sm:mb-2">Úr. scénáře</div>
+        <div class="gh-card min-w-0 overflow-hidden p-2.5 sm:p-5">
+          <div class="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wide sm:tracking-[0.14em] text-gh-dim mb-1 sm:mb-2 truncate">Úr. scénáře</div>
           <div class="flex items-baseline gap-1">
-            <span class="font-display text-2xl sm:text-3xl font-bold text-gh-primary leading-none">{{ scenarioLevel }}</span>
-            <span class="text-[11px] sm:text-xs text-gh-dim">/ 7</span>
+            <span class="font-display text-xl sm:text-3xl font-bold text-gh-primary leading-none">{{ scenarioLevel }}</span>
+            <span class="text-[10px] sm:text-xs text-gh-dim">/ 7</span>
           </div>
-          <div class="mt-3 sm:mt-3.5 flex gap-0.5 sm:gap-1">
+          <div class="mt-2.5 sm:mt-3.5 flex gap-0.5 sm:gap-1">
             <span v-for="n in 7" :key="n" class="h-1.5 flex-1 rounded-full" :class="n <= scenarioLevel ? 'bg-gh-primary' : 'bg-gh-border'" />
           </div>
-          <div class="gh-micro mt-1.5 hidden sm:block">průměr postav ÷ 2</div>
+          <div class="text-[10px] uppercase tracking-wide text-gh-dim mt-1.5 hidden sm:block">průměr postav ÷ 2</div>
         </div>
       </div>
     </div>
@@ -192,28 +192,28 @@ function openScenario(id: string) {
             v-for="char in activeChars"
             :key="char.uuid"
             type="button"
-            class="w-full flex items-center gap-3.5 py-3 text-left hover:bg-white/[0.02] -mx-2 px-2 rounded-lg transition-colors"
+            class="w-full flex items-center gap-2.5 sm:gap-3.5 py-3 text-left hover:bg-white/[0.02] -mx-2 px-2 rounded-lg transition-colors"
             @click="router.push('/postavy')"
           >
-            <span class="w-10 h-10 rounded-full grid place-items-center shrink-0" :style="{ background: classColor(char.classId) + '22', border: '1px solid ' + classColor(char.classId) + '55' }">
-              <ClassIcon :class-id="char.classId" :size="24" />
+            <span class="w-9 h-9 sm:w-10 sm:h-10 rounded-full grid place-items-center shrink-0" :style="{ background: classColor(char.classId) + '22', border: '1px solid ' + classColor(char.classId) + '55' }">
+              <ClassIcon :class-id="char.classId" :size="22" />
             </span>
             <span class="min-w-0 flex-1">
               <span class="block text-sm font-medium text-gray-200 truncate">{{ char.playerName }}</span>
               <span class="block text-[11px] text-gh-dim truncate">{{ className(char.classId) }}</span>
             </span>
             <span class="text-right shrink-0">
-              <span class="gh-micro">Level</span>
-              <span class="block font-display font-bold text-lg leading-none" :style="{ color: classColor(char.classId) }">{{ char.level }}</span>
+              <span class="block text-[10px] uppercase tracking-wide text-gh-dim leading-none">Lvl</span>
+              <span class="block font-display font-bold text-base sm:text-lg leading-none mt-0.5" :style="{ color: classColor(char.classId) }">{{ char.level }}</span>
             </span>
-            <span class="text-right shrink-0 w-16">
-              <span class="gh-micro">XP</span>
-              <span class="block text-sm text-gray-300 leading-tight">{{ char.xp }}</span>
-              <span class="block mt-1 h-1 rounded-full bg-gh-border overflow-hidden"><span class="block h-full bg-gh-primary-dim" :style="{ width: levelProgress(char.xp) + '%' }" /></span>
+            <span class="text-right shrink-0 w-11 sm:w-16">
+              <span class="block text-[10px] uppercase tracking-wide text-gh-dim leading-none">XP</span>
+              <span class="block text-[13px] sm:text-sm text-gray-300 leading-tight mt-0.5">{{ char.xp }}</span>
+              <span class="hidden sm:block mt-1 h-1 rounded-full bg-gh-border overflow-hidden"><span class="block h-full bg-gh-primary-dim" :style="{ width: levelProgress(char.xp) + '%' }" /></span>
             </span>
-            <span class="text-right shrink-0 w-14">
-              <span class="gh-micro">Zlato</span>
-              <span class="block text-sm text-yellow-400/90 leading-tight">{{ char.gold }}</span>
+            <span class="text-right shrink-0 w-10 sm:w-14">
+              <span class="block text-[10px] uppercase tracking-wide text-gh-dim leading-none">Zl.</span>
+              <span class="block text-[13px] sm:text-sm text-yellow-400/90 leading-tight mt-0.5">{{ char.gold }}</span>
             </span>
           </button>
         </div>
