@@ -60,16 +60,28 @@ const maxHp = computed(() => {
 })
 
 const currentHp = ref(0)
+const history = ref<number[]>([])
+const canUndo = computed(() => history.value.length > 0)
 
 onMounted(() => {
   currentHp.value = maxHp.value
 })
 
 function adjust(delta: number) {
-  currentHp.value = Math.max(0, Math.min(maxHp.value, currentHp.value + delta))
+  const next = Math.max(0, Math.min(maxHp.value, currentHp.value + delta))
+  if (next === currentHp.value) return
+  history.value.push(currentHp.value)
+  if (history.value.length > 50) history.value.shift()
+  currentHp.value = next
+}
+
+function undo() {
+  const prev = history.value.pop()
+  if (prev !== undefined) currentHp.value = prev
 }
 
 function reset() {
+  if (currentHp.value !== maxHp.value) history.value.push(currentHp.value)
   currentHp.value = maxHp.value
 }
 
@@ -117,12 +129,24 @@ const ringGlow = computed(() => {
         <div class="font-display text-sm font-bold text-red-400 uppercase tracking-wider">{{ bossName }}</div>
         <div v-if="bossScenarioName" class="text-[10px] text-gray-600">{{ bossScenarioName }} · úr. {{ scenarioLevel }}</div>
       </div>
-      <button
-        class="text-sm text-gray-600 hover:text-gray-300 transition-colors min-h-[44px] pl-4"
-        @click="reset"
-      >
-        Reset
-      </button>
+      <div class="flex items-center gap-1">
+        <button
+          class="flex items-center gap-1 text-sm transition-colors min-h-[44px] px-2 disabled:opacity-30"
+          :class="canUndo ? 'text-gh-primary/80 hover:text-gh-primary' : 'text-gray-700'"
+          :disabled="!canUndo"
+          title="Vrátit poslední změnu"
+          @click="undo"
+        >
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14L4 9l5-5"/><path d="M4 9h11a6 6 0 0 1 0 12H7"/></svg>
+          <span class="hidden sm:inline">Zpět</span>
+        </button>
+        <button
+          class="text-sm text-gray-600 hover:text-gray-300 transition-colors min-h-[44px] px-2"
+          @click="reset"
+        >
+          Reset
+        </button>
+      </div>
     </div>
 
     <!-- PLUS zone (top half) -->
@@ -139,6 +163,13 @@ const ringGlow = computed(() => {
         @click.stop="adjust(5)"
       >
         +5
+      </div>
+      <!-- +10 -->
+      <div
+        class="absolute right-4 top-1/2 -translate-y-1/2 w-16 h-16 rounded-2xl bg-green-900/20 border border-green-900/30 text-green-400/70 text-xl font-bold flex items-center justify-center active:bg-green-900/40 transition-colors cursor-pointer"
+        @click.stop="adjust(10)"
+      >
+        +10
       </div>
     </div>
 
@@ -176,6 +207,13 @@ const ringGlow = computed(() => {
         @click.stop="adjust(-5)"
       >
         −5
+      </div>
+      <!-- -10 -->
+      <div
+        class="absolute right-4 top-1/2 -translate-y-1/2 w-16 h-16 rounded-2xl bg-red-900/20 border border-red-900/30 text-red-400/70 text-xl font-bold flex items-center justify-center active:bg-red-900/40 transition-colors cursor-pointer"
+        @click.stop="adjust(-10)"
+      >
+        −10
       </div>
     </div>
   </div>
