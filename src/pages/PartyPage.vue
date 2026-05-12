@@ -298,7 +298,7 @@ function getClassName(classId: string): string {
 
     <!-- ── Active members ── -->
     <div v-if="characterStore.activeCharacters.length > 0" class="mb-8">
-      <h2 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-3">Aktivní členové</h2>
+      <h2 class="gh-h2 mb-3">Aktivní členové</h2>
       <div class="grid grid-cols-2 sm:flex sm:flex-wrap gap-3">
         <div
           v-for="char in characterStore.activeCharacters"
@@ -317,6 +317,32 @@ function getClassName(classId: string): string {
           <div class="min-w-0">
             <div class="text-sm font-medium text-gray-200 truncate">{{ char.playerName || getClassName(char.classId) }}</div>
             <div class="text-[11px] text-gray-500">{{ getClassName(char.classId) }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Síň důchodců ── -->
+    <div v-if="characterStore.archivedCharacters.length > 0" class="mb-8">
+      <h2 class="gh-h2 mb-3 text-gray-300">
+        Síň důchodců
+        <span class="text-sm font-normal text-gh-dim ml-1.5">{{ characterStore.archivedCharacters.length }}</span>
+      </h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+        <div
+          v-for="char in characterStore.archivedCharacters"
+          :key="char.uuid"
+          class="flex items-center gap-3 bg-gh-card border border-gh-border rounded-xl px-4 py-3 opacity-70 hover:opacity-100 transition-opacity"
+        >
+          <div class="relative shrink-0">
+            <ClassIcon :class-id="char.classId" :size="30" />
+            <div class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full grid place-items-center text-[8px] font-bold border-2 border-gh-card bg-gh-dim text-gh-dark">
+              {{ char.level }}
+            </div>
+          </div>
+          <div class="min-w-0">
+            <div class="text-sm font-medium text-gray-300 truncate">{{ char.playerName || getClassName(char.classId) }}</div>
+            <div class="text-[11px] text-gh-dim truncate">{{ getClassName(char.classId) }} · v důchodu</div>
           </div>
         </div>
       </div>
