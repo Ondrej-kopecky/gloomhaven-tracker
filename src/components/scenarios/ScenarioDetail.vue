@@ -60,10 +60,6 @@ function removeItem(itemId: number) {
   campaignStore.removeItemDesign(itemId)
 }
 
-function getItemName(itemId: number): string {
-  return allItems.find((i) => i.id === itemId)?.name ?? `#${itemId}`
-}
-
 const scenarioUnlockedItems = computed(() => {
   return campaignStore.unlockedItemDesigns
     .map((id) => allItems.find((i) => i.id === id))
@@ -217,7 +213,7 @@ function inputValue(e: Event): string {
 // ── Monster data ──────────────────────────────────────────────────────
 
 const monsterMap = new Map(monstersData.map((m) => [m.id, m]))
-const monsterStats = monsterStatsData as Record<string, { count: number; flying: boolean; boss: boolean; immunities?: string[]; stats: { level: number; type: string; health: number | string; movement?: number; attack: number | string; range?: number; actions?: any[] }[] }>
+const monsterStats = monsterStatsData as unknown as Record<string, { count: number; flying: boolean; boss: boolean; immunities?: string[]; stats: { level: number; type: string; health: number | string; movement?: number; attack: number | string; range?: number; actions?: any[] }[] }>
 const allScenarioMonsters = scenarioMonstersData as Record<string, { monsters: string[]; rooms: { roomNumber: number; monster: { name: string; type?: string; player2?: string; player3?: string; player4?: string }[] }[] }>
 
 const expandedMonster = ref<string | null>(null)

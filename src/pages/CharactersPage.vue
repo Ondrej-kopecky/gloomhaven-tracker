@@ -253,7 +253,7 @@ function selectAllOnFocus(e: FocusEvent) {
   (e.target as HTMLInputElement).select()
 }
 
-const STARTING_CLASSES = new Set([
+const STARTING_CLASSES = new Set<CharacterClass>([
   CharacterClass.BRUTE, CharacterClass.CRAGHEART, CharacterClass.MINDTHIEF,
   CharacterClass.SCOUNDREL, CharacterClass.SPELLWEAVER, CharacterClass.TINKERER,
 ])

@@ -27,6 +27,7 @@ function setupCampaign() {
     archivedCharacters: [],
     scenarios: {},
     personalQuests: {},
+    players: [],
     notes: '',
   }
   return campaignStore

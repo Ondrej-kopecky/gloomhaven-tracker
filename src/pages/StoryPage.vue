@@ -73,7 +73,7 @@ function getQuestStoryText(quest: QuestProgress): string | null {
   const storyline = (questStorylines as Record<string, { sections: Record<string, string>, stages?: Record<string, string> }>)[String(quest.id)]
   if (!storyline?.sections || !storyline?.stages) return null
   // Use exact stage, or fall back to highest available stage (for completed quests)
-  let stagePattern = storyline.stages[String(quest.completedCount)]
+  let stagePattern: string | null | undefined = storyline.stages[String(quest.completedCount)]
   if (!stagePattern) {
     const keys = Object.keys(storyline.stages).map(Number).sort((a, b) => a - b)
     const best = keys.filter(k => k <= quest.completedCount).pop()

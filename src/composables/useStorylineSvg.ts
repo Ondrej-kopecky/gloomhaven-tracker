@@ -87,8 +87,8 @@ export function useStorylineSvg(containerRef: Ref<HTMLElement | null>) {
 
     container.addEventListener('touchstart', (e: TouchEvent) => {
       if (e.touches.length === 1) {
-        tapStartX = e.touches[0].clientX
-        tapStartY = e.touches[0].clientY
+        tapStartX = e.touches[0]!.clientX
+        tapStartY = e.touches[0]!.clientY
         tapStartTarget = e.target
         tapStartTime = Date.now()
       } else {
@@ -100,8 +100,8 @@ export function useStorylineSvg(containerRef: Ref<HTMLElement | null>) {
     container.addEventListener('touchend', (e: TouchEvent) => {
       if (!tapStartTarget || e.changedTouches.length !== 1) return
 
-      const dx = e.changedTouches[0].clientX - tapStartX
-      const dy = e.changedTouches[0].clientY - tapStartY
+      const dx = e.changedTouches[0]!.clientX - tapStartX
+      const dy = e.changedTouches[0]!.clientY - tapStartY
       const dist = Math.hypot(dx, dy)
       const elapsed = Date.now() - tapStartTime
 

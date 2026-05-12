@@ -133,7 +133,7 @@ onMounted(async () => {
   }
 })
 
-const SPOILER_VISIBLE_STATUSES = new Set([
+const SPOILER_VISIBLE_STATUSES = new Set<ScenarioStatus>([
   ScenarioStatus.AVAILABLE, ScenarioStatus.COMPLETED,
   ScenarioStatus.ATTEMPTED, ScenarioStatus.REQUIRED,
 ])
@@ -324,7 +324,7 @@ const selectedMonsterTotalCount = computed(() =>
 
 // Monster detail popup
 const selectedMonsterId = ref<string | null>(null)
-const allMonsterStats = monsterStatsData as Record<string, { count: number; flying: boolean; boss: boolean; immunities?: string[]; stats: { level: number; type: string; health: number | string; movement?: number; attack: number; range?: number; actions?: any[] }[] }>
+const allMonsterStats = monsterStatsData as unknown as Record<string, { count: number; flying: boolean; boss: boolean; immunities?: string[]; stats: { level: number; type: string; health: number | string; movement?: number; attack: number; range?: number; actions?: any[] }[] }>
 
 const scenarioLevel = computed(() => {
   const avg = characterStore.averageLevel
@@ -359,15 +359,6 @@ const CONDITION_LABELS: Record<string, string> = {
   pierce: 'Průraz',
   push: 'Odstrčení',
   pull: 'Přitažení',
-}
-
-function formatActions(actions?: any[]): string[] {
-  if (!actions) return []
-  return actions.map((a: any) => {
-    if (a.type === 'condition') return CONDITION_LABELS[a.value] ?? a.value
-    const label = ACTION_LABELS[a.type] ?? a.type
-    return `${label} ${a.value}`
-  })
 }
 
 const ACTION_ICONS: Record<string, string> = {

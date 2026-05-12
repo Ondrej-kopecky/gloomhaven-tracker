@@ -141,7 +141,7 @@ export const useCampaignStore = defineStore('campaign', () => {
           const owners = new Set(
             (campaign.characters ?? [])
               .map((c) => c.owner?.trim())
-              .filter(Boolean)
+              .filter((o): o is string => !!o)
           )
           campaign.players = [...owners]
         }
@@ -183,7 +183,7 @@ export const useCampaignStore = defineStore('campaign', () => {
       const snapshots: { ts: string; data: string }[] = raw ? JSON.parse(raw) : []
       const json = JSON.stringify(campaign)
       // Skip if same as last snapshot
-      if (snapshots.length > 0 && snapshots[0].data === json) return
+      if (snapshots.length > 0 && snapshots[0]!.data === json) return
       snapshots.unshift({ ts: new Date().toISOString(), data: json })
       if (snapshots.length > MAX_SNAPSHOTS) snapshots.length = MAX_SNAPSHOTS
       localStorage.setItem(key, JSON.stringify(snapshots))
