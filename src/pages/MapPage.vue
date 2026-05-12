@@ -7,6 +7,7 @@ import { useAchievementStore } from '@/stores/achievementStore'
 import { ScenarioStatus } from '@/models/types'
 import panzoom from 'panzoom'
 import type { PanZoom } from 'panzoom'
+import MapDiagramToggle from '@/components/flowchart/MapDiagramToggle.vue'
 
 const router = useRouter()
 const campaignStore = useCampaignStore()
@@ -534,6 +535,11 @@ function achievementUpgradeLevel(parentId: string): { current: number; max: numb
         </div>
       </transition>
     </Teleport>
+
+    <!-- View toggle (Mapa ⇄ Diagram) -->
+    <div class="absolute top-3 left-3 z-20" @click.stop>
+      <MapDiagramToggle />
+    </div>
 
     <!-- Legend -->
     <div class="absolute top-3 right-3 bg-gh-dark/90 backdrop-blur-sm rounded-xl p-3 border border-white/[0.06] z-20">
