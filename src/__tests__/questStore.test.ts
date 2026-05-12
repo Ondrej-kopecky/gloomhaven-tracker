@@ -28,12 +28,13 @@ function setupStoresWithScenarios(completedIds: string[], choices?: Record<strin
     archivedCharacters: [],
     scenarios: {},
     personalQuests: {},
+    players: [],
     notes: '',
   }
 
   // Set completed scenarios
   for (const id of completedIds) {
-    campaignStore.currentCampaign.scenarios[id] = {
+    campaignStore.currentCampaign!.scenarios[id] = {
       id,
       status: ScenarioStatus.COMPLETED,
       notes: '',

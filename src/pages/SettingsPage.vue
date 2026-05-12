@@ -3,7 +3,6 @@ import { ref, computed, onMounted, onUnmounted, nextTick, watch } from 'vue'
 import QRCode from 'qrcode'
 import { useRouter } from 'vue-router'
 import { useCampaignStore } from '@/stores/campaignStore'
-import { useProfileStore } from '@/stores/profileStore'
 import { usePartyStore } from '@/stores/partyStore'
 import { useCharacterStore } from '@/stores/characterStore'
 import { useAchievementStore } from '@/stores/achievementStore'
@@ -22,7 +21,6 @@ function restoreSnapshotConfirm(index: number) {
     toastStore.show('Záloha obnovena', 'info')
   }
 }
-const profileStore = useProfileStore()
 const authStore = useAuthStore()
 const partyStore = usePartyStore()
 const characterStore = useCharacterStore()
@@ -32,7 +30,6 @@ const scenarioStore = useScenarioStore()
 const btcQrCanvas = ref<HTMLCanvasElement | null>(null)
 const showBtc = ref(false)
 const showResetConfirm = ref(false)
-const showDeleteProfileConfirm = ref(false)
 const importError = ref('')
 const showSnapshots = ref(false)
 const exportSuccess = ref(false)
@@ -45,9 +42,6 @@ const shareCodeCopied = ref(false)
 const envelopeConfirm = ref<string | null>(null)
 
 const editingCampaignName = ref(false)
-const editingProfileName = ref(false)
-const newProfileName = ref('')
-const showNewProfile = ref(false)
 
 watch(showBtc, async (val) => {
   if (val) {
@@ -165,37 +159,6 @@ const envelopeList = [
   { key: 'moon', label: 'Obálka ☾', condition: 'Reputace -10 nebo míň', content: 'Odemkne třídu Nightshroud (Stínochodec)', color: 'text-purple-400', bg: 'bg-purple-500/15', border: 'border-purple-800/30' },
   { key: 'X', label: 'Obálka X', condition: 'Vyřešte puzzle z 10 vodítek ve hře', content: 'Odemkne tajnou třídu', color: 'text-gray-400', bg: 'bg-white/[0.06]', border: 'border-white/[0.08]' },
 ]
-
-/* ── Profile ── */
-function setProfileName(name: string) {
-  if (!name.trim()) return
-  profileStore.renameProfile(name.trim())
-}
-
-function createNewProfile() {
-  if (!newProfileName.value.trim()) return
-  const profile = profileStore.createProfile(newProfileName.value.trim())
-  newProfileName.value = ''
-  showNewProfile.value = false
-  profileStore.switchProfile(profile.id)
-  campaignStore.loadCampaignList()
-  router.push('/kampan')
-}
-
-function deleteCurrentProfile() {
-  const success = profileStore.deleteProfile(profileStore.activeProfileId)
-  if (success) {
-    showDeleteProfileConfirm.value = false
-    campaignStore.loadCampaignList()
-    router.push('/kampan')
-  }
-}
-
-function switchToProfile(id: string) {
-  profileStore.switchProfile(id)
-  campaignStore.loadCampaignList()
-  router.push('/kampan')
-}
 
 /* ── Statistics ── */
 const completedCount = computed(() => scenarioStore.completedScenarios.length)

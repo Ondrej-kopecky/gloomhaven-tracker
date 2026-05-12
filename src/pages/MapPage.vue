@@ -49,6 +49,9 @@ onUnmounted(() => {
 function initPanzoom() {
   if (!mapElement.value) return
   const minZoom = getMinZoom()
+  // `beforeTouch` není v typech `PanZoomOptions` — předáváme přes `as any`,
+  // aby se runtime chování nezměnilo (stickery mají vlastní @touchend.stop handlery,
+  // takže je to z velké části redundantní). TODO: ověřit proti `panzoom` API a vyčistit.
   pz = panzoom(mapElement.value, {
     minZoom,
     maxZoom: 4,
@@ -59,7 +62,7 @@ function initPanzoom() {
       const target = e.target as HTMLElement
       return target.tagName === 'IMG' && target.classList.contains('cursor-pointer')
     },
-  })
+  } as any)
   centerMap()
 }
 

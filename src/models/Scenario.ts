@@ -15,6 +15,8 @@ export interface ScenarioTreasure {
 /** Reward text strings from lang file */
 export interface ScenarioReward {
   gold?: number
+  /** 'collective' = zlato celkem pro družinu, jinak/undefined = každý */
+  goldType?: 'collective' | 'individual'
   xp?: number
   reputation?: number
   prosperity?: number

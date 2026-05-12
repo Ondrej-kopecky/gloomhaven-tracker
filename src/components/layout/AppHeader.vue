@@ -3,11 +3,9 @@ import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { onClickOutside, useOnline } from '@vueuse/core'
 import { useCampaignStore } from '@/stores/campaignStore'
-import { useAuthStore } from '@/stores/authStore'
 
 const route = useRoute()
 const campaignStore = useCampaignStore()
-const authStore = useAuthStore()
 const isOnline = useOnline()
 
 const mobileMenuOpen = ref(false)

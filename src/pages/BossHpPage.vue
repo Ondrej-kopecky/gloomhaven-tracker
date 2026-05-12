@@ -18,7 +18,7 @@ onMounted(() => {
 })
 
 const monsterMap = new Map(monstersData.map((m) => [m.id, m]))
-const monsterStats = monsterStatsData as Record<string, { stats: { level: number; type: string; health: number | string; movement?: number; attack: number | string; range?: number }[] }>
+const monsterStats = monsterStatsData as unknown as Record<string, { stats: { level: number; type: string; health: number | string; movement?: number; attack: number | string; range?: number }[] }>
 const allScenarioMonsters = scenarioMonstersData as Record<string, { monsters: string[]; rooms: { roomNumber: number; monster: { name: string; type?: string; player2?: string; player3?: string; player4?: string }[] }[] }>
 
 const playerCount = computed(() => {

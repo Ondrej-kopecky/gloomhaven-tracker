@@ -23,3 +23,6 @@ declare module '*.svg?raw' {
   const content: string
   export default content
 }
+
+// 'qrcode' nemá vlastní typy a @types/qrcode neinstalujeme — necháme any
+declare module 'qrcode'

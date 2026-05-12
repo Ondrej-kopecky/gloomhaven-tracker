@@ -233,7 +233,8 @@ export const useAuthStore = defineStore('auth', () => {
 
     const ts = new Date().toISOString()
     lastSyncAt.value = ts
-    try { localStorage.setItem(LAST_SYNC_KEY, ts) } catch { /* ignore quota */ }
+    // pozor: `localStorage` je v tomhle scope zastíněno `LocalStorageAdapter` (viz výše) — musíme na globální
+    try { window.localStorage.setItem(LAST_SYNC_KEY, ts) } catch { /* ignore quota */ }
 
     return { synced, pushed, pulled, unchanged, lastSyncAt: ts, error: null }
   }

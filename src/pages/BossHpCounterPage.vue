@@ -12,7 +12,7 @@ const characterStore = useCharacterStore()
 const scenarioStore = useScenarioStore()
 
 const monsterMap = new Map(monstersData.map((m) => [m.id, m]))
-const monsterStats = monsterStatsData as Record<string, { stats: { level: number; type: string; health: number | string; movement?: number; attack: number | string; range?: number }[] }>
+const monsterStats = monsterStatsData as unknown as Record<string, { stats: { level: number; type: string; health: number | string; movement?: number; attack: number | string; range?: number }[] }>
 
 const playerCount = computed(() => {
   const count = characterStore.activeCharacters.length
