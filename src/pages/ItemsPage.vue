@@ -419,8 +419,10 @@ function confirmBuy() {
       <h1 class="gh-h1">Předměty</h1>
     </div>
 
+    <!-- Sticky filter bar -->
+    <div class="sticky top-14 z-30 -mt-2 mb-4 pt-2 pb-3 bg-gh-dark/95 backdrop-blur-md">
     <!-- Filters -->
-    <div class="grid grid-cols-1 sm:grid-cols-[1fr_auto_auto] gap-3 mb-5">
+    <div class="grid grid-cols-1 sm:grid-cols-[1fr_auto_auto] gap-3 mb-3">
       <div class="relative">
         <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-600 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
@@ -500,7 +502,7 @@ function confirmBuy() {
     </div>
 
     <!-- Toggle & Stats -->
-    <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between mb-6">
+    <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
       <div class="flex gap-5 text-sm">
         <span class="text-gray-600">Celkem: <span class="text-gray-400">{{ stats.total }}</span></span>
         <span class="text-green-500/60">Dostupné: <span class="text-green-400">{{ stats.available }}</span></span>
@@ -518,6 +520,7 @@ function confirmBuy() {
         <span v-if="campaignStore.hideSpoilers" class="text-[10px] text-gh-primary/60">(spoiler mód)</span>
       </label>
     </div>
+    </div><!-- /sticky filter bar -->
 
     <!-- Items Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
