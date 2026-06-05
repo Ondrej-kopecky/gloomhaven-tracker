@@ -26,6 +26,7 @@ function createCampaign() {
     archivedCharacters: [],
     scenarios: {},
     personalQuests: {},
+    players: [],
     notes: '',
   }
   return campaignStore
@@ -238,7 +239,7 @@ describe('scenarioStore - actions', () => {
   })
 
   it('completeScenario awards achievements', () => {
-    const campaignStore = createCampaign()
+    createCampaign()
     const achStore = useAchievementStore()
     const store = useScenarioStore()
 
@@ -268,7 +269,7 @@ describe('scenarioStore - computed lists', () => {
   })
 
   it('allScenarios merges definition and state', () => {
-    const campaignStore = createCampaign()
+    createCampaign()
     const store = useScenarioStore()
 
     store.scenarioDefinitions = [
@@ -281,7 +282,7 @@ describe('scenarioStore - computed lists', () => {
   })
 
   it('completedScenarios filters correctly', () => {
-    const campaignStore = createCampaign()
+    createCampaign()
     const store = useScenarioStore()
 
     store.scenarioDefinitions = [
@@ -296,7 +297,7 @@ describe('scenarioStore - computed lists', () => {
   })
 
   it('availableScenarios filters correctly', () => {
-    const campaignStore = createCampaign()
+    createCampaign()
     const store = useScenarioStore()
 
     store.scenarioDefinitions = [

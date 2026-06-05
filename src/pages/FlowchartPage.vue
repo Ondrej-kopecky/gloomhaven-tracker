@@ -4,6 +4,7 @@ import { useRouter } from 'vue-router'
 import StorylineSvg from '@/components/flowchart/StorylineSvg.vue'
 import FlowchartControls from '@/components/flowchart/FlowchartControls.vue'
 import FlowchartLegend from '@/components/flowchart/FlowchartLegend.vue'
+import MapDiagramToggle from '@/components/flowchart/MapDiagramToggle.vue'
 import ScenarioDetail from '@/components/scenarios/ScenarioDetail.vue'
 import { useScenarioStore } from '@/stores/scenarioStore'
 import { useFlowchartStore } from '@/stores/flowchartStore'
@@ -75,13 +76,17 @@ function handleFitView() {
     <!-- Toolbar -->
     <div class="px-2 py-1.5 border-b border-gh-border bg-gh-dark shrink-0">
       <!-- Desktop: controls + legend side by side -->
-      <div class="hidden lg:flex items-center justify-between">
-        <FlowchartControls @fit-view="handleFitView" />
+      <div class="hidden lg:flex items-center justify-between gap-3">
+        <div class="flex items-center gap-2 shrink-0">
+          <MapDiagramToggle />
+          <FlowchartControls @fit-view="handleFitView" />
+        </div>
         <FlowchartLegend />
       </div>
       <!-- Mobile/tablet: controls scrollable, legend below -->
       <div class="lg:hidden">
         <div class="flex items-center gap-1 overflow-x-auto scrollbar-hide">
+          <MapDiagramToggle />
           <FlowchartControls @fit-view="handleFitView" />
         </div>
         <div class="mt-1.5 pt-1.5 border-t border-gh-border/30">

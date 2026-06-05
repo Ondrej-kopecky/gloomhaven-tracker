@@ -11,9 +11,15 @@ const router = createRouter({
     },
     {
       path: '/prehled',
+      name: 'dashboard',
+      component: () => import('@/pages/DashboardPage.vue'),
+      meta: { title: 'Přehled' },
+    },
+    {
+      path: '/diagram',
       name: 'flowchart',
       component: () => import('@/pages/FlowchartPage.vue'),
-      meta: { title: 'Přehled scénářů', icon: 'flowchart' },
+      meta: { title: 'Diagram scénářů', icon: 'flowchart' },
     },
     {
       path: '/mapa',
@@ -88,6 +94,12 @@ const router = createRouter({
       meta: { title: 'Výběr kampaně' },
     },
     {
+      path: '/onboarding',
+      name: 'onboarding',
+      component: () => import('@/pages/OnboardingPage.vue'),
+      meta: { title: 'Nová kampaň' },
+    },
+    {
       path: '/prihlaseni',
       name: 'login',
       component: () => import('@/pages/LoginPage.vue'),
@@ -110,6 +122,11 @@ const router = createRouter({
       name: 'privacy',
       component: () => import('@/pages/PrivacyPage.vue'),
       meta: { title: 'Ochrana osobních údajů' },
+    },
+    // 404 fallback — neplatná URL → landing (které samo přesměruje na /prehled, je-li kampaň)
+    {
+      path: '/:pathMatch(.*)*',
+      redirect: '/',
     },
   ],
 })

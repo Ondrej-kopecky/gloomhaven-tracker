@@ -1,19 +1,26 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { useCampaignStore } from '@/stores/campaignStore'
 import { useScenarioStore } from '@/stores/scenarioStore'
 import { useQuestStore } from '@/stores/questStore'
 import type { QuestProgress } from '@/stores/questStore'
-import { ScenarioStatus } from '@/models/types'
+import { useToastStore } from '@/stores/toastStore'
+import StatusBadge from '@/components/shared/StatusBadge.vue'
 import questStorylines from '@/data/questStorylines.json'
 
+const route = useRoute()
 const router = useRouter()
 const campaignStore = useCampaignStore()
 const scenarioStore = useScenarioStore()
 const questStore = useQuestStore()
+const toastStore = useToastStore()
 
-const activeTab = ref<'quests' | 'timeline'>('quests')
+// Aktivní tab je v URL (?tab=quests|timeline) — přežije navigaci pryč a zpět
+const activeTab = computed<'quests' | 'timeline'>({
+  get: () => (route.query.tab === 'timeline' ? 'timeline' : 'quests'),
+  set: (v) => router.replace({ query: { ...route.query, tab: v } }),
+})
 
 function humanizeCheck(expr: string): string {
   return expr
@@ -73,7 +80,7 @@ function getQuestStoryText(quest: QuestProgress): string | null {
   const storyline = (questStorylines as Record<string, { sections: Record<string, string>, stages?: Record<string, string> }>)[String(quest.id)]
   if (!storyline?.sections || !storyline?.stages) return null
   // Use exact stage, or fall back to highest available stage (for completed quests)
-  let stagePattern = storyline.stages[String(quest.completedCount)]
+  let stagePattern: string | null | undefined = storyline.stages[String(quest.completedCount)]
   if (!stagePattern) {
     const keys = Object.keys(storyline.stages).map(Number).sort((a, b) => a - b)
     const best = keys.filter(k => k <= quest.completedCount).pop()
@@ -86,31 +93,36 @@ function getQuestStoryText(quest: QuestProgress): string | null {
   }).trim() || null
 }
 
-const statusLabels: Record<string, string> = {
-  [ScenarioStatus.COMPLETED]: 'Dokončen',
-  [ScenarioStatus.AVAILABLE]: 'Dostupný',
-  [ScenarioStatus.ATTEMPTED]: 'Pokus',
-  [ScenarioStatus.LOCKED]: 'Zamčen',
-  [ScenarioStatus.BLOCKED]: 'Blokován',
-  [ScenarioStatus.REQUIRED]: 'Vyžadován',
-  [ScenarioStatus.HIDDEN]: 'Skrytý',
-}
+const campaignName = computed(
+  () => campaignStore.currentCampaign?.party?.name?.trim() || campaignStore.currentCampaign?.name || 'Kampaň',
+)
 
-const statusColors: Record<string, string> = {
-  [ScenarioStatus.COMPLETED]: 'text-green-400 bg-green-900/20 border-green-800/30',
-  [ScenarioStatus.AVAILABLE]: 'text-blue-400 bg-blue-900/20 border-blue-800/30',
-  [ScenarioStatus.ATTEMPTED]: 'text-yellow-400 bg-yellow-900/20 border-yellow-800/30',
-  [ScenarioStatus.LOCKED]: 'text-gray-500 bg-white/[0.03] border-white/[0.06]',
-  [ScenarioStatus.BLOCKED]: 'text-red-400/60 bg-red-900/10 border-red-800/20',
-  [ScenarioStatus.REQUIRED]: 'text-purple-400 bg-purple-900/20 border-purple-800/30',
-  [ScenarioStatus.HIDDEN]: 'text-gray-600 bg-white/[0.02] border-white/[0.04]',
+/** Export „kroniky" — otevře tisknutelný HTML přehled dokončených scénářů (bez auto-printu — uživatel klikne na tlačítko). */
+function exportChronicle() {
+  const w = window.open('', '_blank')
+  if (!w) {
+    toastStore.show('Povolte vyskakovací okna pro tuto stránku, ať se kronika otevře.', 'error')
+    return
+  }
+  const esc = (t: string) => t.replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]!))
+  const entries = completedScenarios.value
+    .map((s, i) => {
+      const date = s.state.completedAt ? formatDate(s.state.completedAt) : ''
+      return `<div class="e"><h3>${i + 1}. #${s.id} ${esc(s.displayName)}</h3>${s.location ? `<div class="loc">${esc(s.location)}${date ? ' · ' + date : ''}</div>` : date ? `<div class="loc">${date}</div>` : ''}${s.summary ? `<p>${esc(s.summary)}</p>` : ''}${s.state.notes ? `<p class="note">${esc(s.state.notes)}</p>` : ''}</div>`
+    })
+    .join('')
+  const title = `Kronika kampaně — ${esc(campaignName.value)}`
+  w.document.write(
+    `<!doctype html><html lang="cs"><head><meta charset="utf-8"><title>${title}</title><style>body{font-family:Georgia,'Times New Roman',serif;color:#1a1a1a;line-height:1.6;margin:0}.toolbar{position:sticky;top:0;background:#fff;border-bottom:1px solid #ddd;padding:10px 24px;text-align:right}.toolbar button{font:14px Georgia,serif;padding:6px 14px;cursor:pointer;border:1px solid #c4a35a;background:#f7f0dd;border-radius:4px}.page{max-width:680px;margin:40px auto;padding:0 24px}h1{font-size:30px;letter-spacing:.02em;border-bottom:2px solid #c4a35a;padding-bottom:10px;margin-top:0}.sub{color:#777;font-size:13px;margin:-8px 0 32px}.e{margin:0 0 22px;padding-left:16px;border-left:3px solid #c4a35a}h3{margin:0 0 2px;font-size:16px}.loc{font-size:11px;color:#999;margin-bottom:4px}p{margin:4px 0;font-style:italic;color:#555}p.note{font-style:normal;color:#777;font-size:13px;border-top:1px dashed #ddd;padding-top:4px}@media print{body{margin:0}.toolbar{display:none}.page{margin:0;max-width:none}}</style></head><body><div class="toolbar"><button onclick="window.print()">Vytisknout / Uložit jako PDF</button></div><div class="page"><h1>${title}</h1><div class="sub">${completedScenarios.value.length} dokončených scénářů · vygenerováno ${formatDate(new Date().toISOString())}</div>${entries || '<p>Zatím žádné dokončené scénáře.</p>'}</div></body></html>`,
+  )
+  w.document.close()
 }
 </script>
 
 <template>
   <div v-if="campaignStore.hasCampaign" class="max-w-3xl mx-auto">
     <div class="gh-page-header">
-      <h1 class="font-display text-2xl font-bold text-gh-primary tracking-wide">Příběh</h1>
+      <h1 class="gh-h1">Příběh</h1>
     </div>
 
     <!-- Tabs -->
@@ -149,7 +161,7 @@ const statusColors: Record<string, string> = {
     <div v-if="activeTab === 'quests'">
       <!-- Active Quests -->
       <div v-if="questStore.activeQuests.length" class="space-y-3 mb-8">
-        <h2 class="font-display text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">
+        <h2 class="gh-h3 text-gray-400 mb-3">
           Aktivní questy
         </h2>
         <div
@@ -208,7 +220,7 @@ const statusColors: Record<string, string> = {
             </p>
             <!-- Linked scenarios -->
             <div v-if="getScenariosForQuest(quest.id).length">
-              <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-2">
+              <h4 class="gh-micro mb-2">
                 Propojené scénáře
               </h4>
               <div class="space-y-1.5">
@@ -221,14 +233,7 @@ const statusColors: Record<string, string> = {
                     <span class="text-gh-primary font-display font-bold text-xs shrink-0">#{{ s.id }}</span>
                     <span class="text-sm text-gray-300 truncate">{{ s.displayName }}</span>
                   </div>
-                  <span
-                    :class="[
-                      'text-[10px] font-semibold px-2 py-0.5 rounded border shrink-0 ml-2',
-                      statusColors[s.computedStatus] ?? 'text-gray-600'
-                    ]"
-                  >
-                    {{ statusLabels[s.computedStatus] ?? s.computedStatus }}
-                  </span>
+                  <StatusBadge :state="s.computedStatus" class="shrink-0 ml-2" />
                 </div>
               </div>
             </div>
@@ -238,7 +243,7 @@ const statusColors: Record<string, string> = {
 
             <!-- Checkpoint details -->
             <div class="mt-4">
-              <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-2">
+              <h4 class="gh-micro mb-2">
                 Checkpointy
               </h4>
               <div class="space-y-1">
@@ -266,7 +271,7 @@ const statusColors: Record<string, string> = {
 
       <!-- Completed Quests -->
       <div v-if="questStore.completedQuests.length" class="space-y-3 mb-8">
-        <h2 class="font-display text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">
+        <h2 class="gh-h3 text-gray-400 mb-3">
           Dokončené questy
         </h2>
         <div
@@ -301,7 +306,7 @@ const statusColors: Record<string, string> = {
 
       <!-- Not Started (hidden in spoiler mode) -->
       <div v-if="questStore.notStartedQuests.length && !campaignStore.hideSpoilers">
-        <h2 class="font-display text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">
+        <h2 class="gh-h3 text-gray-400 mb-3">
           Neodkryté questy
         </h2>
         <p class="text-sm text-gray-600">
@@ -327,66 +332,78 @@ const statusColors: Record<string, string> = {
         <p class="text-gray-600 text-sm mt-2">Dokončete první scénář a příběh se začne vytvářet.</p>
       </div>
 
-      <!-- Timeline -->
-      <div v-else class="relative">
-        <!-- Vertical line -->
-        <div class="absolute left-5 top-0 bottom-0 w-px bg-gradient-to-b from-gh-primary/40 via-gh-border to-transparent" />
-
-        <div
-          v-for="(s, idx) in completedScenarios"
-          :key="s.id"
-          class="relative pl-14 pb-8"
-        >
-          <!-- Timeline dot -->
-          <div
-            class="absolute left-3 w-5 h-5 rounded-full border-2 border-gh-primary/60 bg-gh-dark flex items-center justify-center"
-          >
-            <div class="w-2 h-2 rounded-full bg-gh-primary" />
-          </div>
-
-          <!-- Counter badge -->
-          <span class="absolute left-0 -top-1 text-[9px] text-gray-600 font-display">{{ idx + 1 }}</span>
-
-          <!-- Card -->
-          <div class="gh-card p-5">
-            <div class="flex items-start justify-between mb-2">
-              <div>
-                <span class="text-gh-primary font-display font-bold text-sm">#{{ s.id }}</span>
-                <h3 class="font-display text-lg font-semibold text-gray-200 tracking-wide">{{ s.displayName }}</h3>
-                <p v-if="s.location" class="text-xs text-gray-600 mt-0.5">{{ s.location }}</p>
-              </div>
-              <span v-if="s.state.completedAt" class="text-[10px] text-gray-600 shrink-0 mt-1">
-                {{ formatDate(s.state.completedAt) }}
-              </span>
-            </div>
-
-            <p v-if="s.summary" class="text-sm text-gray-400 italic leading-relaxed mt-3 p-3 rounded-lg bg-white/[0.02] border-l-2 border-gh-primary/30">
-              {{ s.summary }}
-            </p>
-            <p v-else class="text-xs text-gray-600 italic mt-2">
-              Příběhový text zatím nebyl přidán.
-            </p>
-
-            <!-- Rewards summary -->
-            <div v-if="s.rewards" class="flex flex-wrap gap-2 mt-3">
-              <span v-if="s.rewards.gold" class="gh-badge bg-yellow-900/15 text-yellow-400/80 border border-yellow-800/20">
-                {{ s.rewards.gold }} zl. {{ s.rewards.goldType === 'collective' ? 'celkem' : 'každý' }}
-              </span>
-              <span v-if="s.rewards.xp" class="gh-badge bg-blue-900/15 text-blue-400/80 border border-blue-800/20">
-                {{ s.rewards.xp }} ZK
-              </span>
-              <span v-if="s.achievementsAwarded?.length" class="gh-badge bg-green-900/15 text-green-400/80 border border-green-800/20">
-                +{{ s.achievementsAwarded.length }} úspěch
-              </span>
-            </div>
-
-            <!-- Notes -->
-            <div v-if="s.state.notes" class="mt-3 pt-3 border-t border-gh-border/30">
-              <p class="text-xs text-gray-500">{{ s.state.notes }}</p>
-            </div>
-          </div>
+      <template v-else>
+        <!-- Export kroniky -->
+        <div class="flex justify-end mb-5">
+          <button class="gh-btn-secondary text-sm flex items-center gap-1.5" @click="exportChronicle">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/><path d="M14 2v5h5M9 13h6M9 17h6M9 9h2"/></svg>
+            Export kroniky
+          </button>
         </div>
-      </div>
+
+        <!-- Timeline -->
+        <div class="relative">
+          <!-- Vertical line -->
+          <div class="absolute left-5 top-0 bottom-0 w-px bg-gradient-to-b from-gh-primary/40 via-gh-border to-transparent" />
+
+          <template v-for="(s, idx) in completedScenarios" :key="s.id">
+            <div class="relative pl-14 pb-8">
+              <!-- Ornamental seal -->
+              <div class="absolute left-1.5 w-7 h-7 rounded-full border border-gh-primary/40 bg-gh-dark grid place-items-center font-display text-[11px] font-bold text-gh-primary/85 ring-2 ring-gh-dark shadow-[0_0_10px_rgba(196,163,90,0.18)]">{{ idx + 1 }}</div>
+
+              <!-- Card -->
+              <div class="gh-card p-5">
+                <div class="flex items-start justify-between mb-2">
+                  <div>
+                    <span class="text-gh-primary font-display font-bold text-sm">#{{ s.id }}</span>
+                    <h3 class="gh-h2">{{ s.displayName }}</h3>
+                    <p v-if="s.location" class="text-xs text-gray-600 mt-0.5">{{ s.location }}</p>
+                  </div>
+                  <span v-if="s.state.completedAt" class="text-[10px] text-gray-600 shrink-0 mt-1">
+                    {{ formatDate(s.state.completedAt) }}
+                  </span>
+                </div>
+
+                <p v-if="s.summary" class="text-sm text-gray-400 italic leading-relaxed mt-3 p-3 rounded-lg bg-white/[0.02] border-l-2 border-gh-primary/30">
+                  {{ s.summary }}
+                </p>
+                <p v-else class="text-xs text-gray-600 italic mt-2">
+                  Příběhový text zatím nebyl přidán.
+                </p>
+
+                <!-- Rewards summary -->
+                <div v-if="s.rewards" class="flex flex-wrap gap-2 mt-3">
+                  <span v-if="s.rewards.gold" class="gh-badge bg-yellow-900/15 text-yellow-400/80 border border-yellow-800/20">
+                    {{ s.rewards.gold }} zl. {{ s.rewards.goldType === 'collective' ? 'celkem' : 'každý' }}
+                  </span>
+                  <span v-if="s.rewards.xp" class="gh-badge bg-blue-900/15 text-blue-400/80 border border-blue-800/20">
+                    {{ s.rewards.xp }} ZK
+                  </span>
+                  <span v-if="s.achievementsAwarded?.length" class="gh-badge bg-green-900/15 text-green-400/80 border border-green-800/20">
+                    +{{ s.achievementsAwarded.length }} úspěch
+                  </span>
+                </div>
+
+                <!-- Notes -->
+                <div v-if="s.state.notes" class="mt-3 pt-3 border-t border-gh-border/30">
+                  <p class="text-xs text-gray-500">{{ s.state.notes }}</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Roundup po každých 10 -->
+            <div v-if="(idx + 1) % 10 === 0 && idx + 1 < completedScenarios.length" class="relative pl-14 pb-8">
+              <div class="absolute left-1.5 w-7 h-7 rounded-full border border-gh-primary bg-gh-primary/10 grid place-items-center text-gh-primary ring-2 ring-gh-dark">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22V4M4 4h11l-2 4 2 4H4"/></svg>
+              </div>
+              <div class="rounded-xl border border-gh-primary/25 bg-gh-primary/[0.04] px-5 py-3">
+                <div class="gh-micro text-gh-primary-light">Milník</div>
+                <p class="text-sm text-gray-300 mt-0.5">{{ idx + 1 }} scénářů za vámi — kronika roste.</p>
+              </div>
+            </div>
+          </template>
+        </div>
+      </template>
     </div>
   </div>
 </template>

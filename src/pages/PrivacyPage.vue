@@ -4,7 +4,7 @@
 <template>
   <div class="max-w-3xl mx-auto px-4 py-10">
     <div class="gh-page-header">
-      <h1 class="font-display text-2xl font-bold text-gh-primary tracking-wide">Ochrana osobních údajů</h1>
+      <h1 class="gh-h1">Ochrana osobních údajů</h1>
     </div>
 
     <div class="prose-privacy space-y-8 text-sm text-gray-300 leading-relaxed">

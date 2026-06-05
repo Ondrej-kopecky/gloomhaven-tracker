@@ -2,6 +2,7 @@
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { ScenarioStatus } from '@/models/types'
+import StatusBadge from '@/components/shared/StatusBadge.vue'
 import { useCampaignStore } from '@/stores/campaignStore'
 import { useScenarioStore } from '@/stores/scenarioStore'
 import { useFlowchartStore } from '@/stores/flowchartStore'
@@ -132,7 +133,7 @@ onMounted(async () => {
   }
 })
 
-const SPOILER_VISIBLE_STATUSES = new Set([
+const SPOILER_VISIBLE_STATUSES = new Set<ScenarioStatus>([
   ScenarioStatus.AVAILABLE, ScenarioStatus.COMPLETED,
   ScenarioStatus.ATTEMPTED, ScenarioStatus.REQUIRED,
 ])
@@ -161,14 +162,21 @@ const filteredScenarios = computed(() => {
   })
 })
 
-const statusLabels: Record<string, string> = {
-  [ScenarioStatus.HIDDEN]: 'Skryto',
-  [ScenarioStatus.COMPLETED]: 'Dokončeno',
-  [ScenarioStatus.AVAILABLE]: 'Dostupné',
-  [ScenarioStatus.LOCKED]: 'Zamčeno',
-  [ScenarioStatus.BLOCKED]: 'Blokováno',
-  [ScenarioStatus.REQUIRED]: 'Vyžadováno',
-  [ScenarioStatus.ATTEMPTED]: 'Pokus',
+const counts = computed(() => {
+  const c = { completed: 0, available: 0, attempted: 0, locked: 0, blocked: 0, required: 0 }
+  for (const s of scenarioStore.allScenarios) {
+    if (s.computedStatus === ScenarioStatus.COMPLETED) c.completed++
+    else if (s.computedStatus === ScenarioStatus.AVAILABLE) c.available++
+    else if (s.computedStatus === ScenarioStatus.ATTEMPTED) c.attempted++
+    else if (s.computedStatus === ScenarioStatus.REQUIRED) c.required++
+    else if (s.computedStatus === ScenarioStatus.BLOCKED) c.blocked++
+    else if (s.computedStatus === ScenarioStatus.LOCKED || s.computedStatus === ScenarioStatus.HIDDEN) c.locked++
+  }
+  return c
+})
+const totalScenarios = computed(() => scenarioStore.allScenarios.length)
+function pctOf(n: number) {
+  return totalScenarios.value === 0 ? 0 : (n / totalScenarios.value) * 100
 }
 
 const gameTagTranslations: Record<string, string> = {
@@ -208,16 +216,6 @@ const statusAccentColors: Record<string, string> = {
   [ScenarioStatus.ATTEMPTED]: 'bg-orange-500',
 }
 
-const statusBadgeColors: Record<string, string> = {
-  [ScenarioStatus.HIDDEN]: 'bg-gray-800/40 text-gray-600',
-  [ScenarioStatus.COMPLETED]: 'bg-green-900/25 text-green-400 border border-green-800/40',
-  [ScenarioStatus.AVAILABLE]: 'bg-blue-900/25 text-blue-400 border border-blue-800/40',
-  [ScenarioStatus.LOCKED]: 'bg-white/5 text-gray-500 border border-gh-border',
-  [ScenarioStatus.BLOCKED]: 'bg-red-900/25 text-red-400 border border-red-800/40',
-  [ScenarioStatus.REQUIRED]: 'bg-yellow-900/25 text-yellow-400 border border-yellow-800/40',
-  [ScenarioStatus.ATTEMPTED]: 'bg-orange-900/25 text-orange-400 border border-orange-800/40',
-}
-
 const statusCardBorder: Record<string, string> = {
   [ScenarioStatus.HIDDEN]: 'border-gh-border',
   [ScenarioStatus.COMPLETED]: 'border-green-800/30',
@@ -228,17 +226,13 @@ const statusCardBorder: Record<string, string> = {
   [ScenarioStatus.ATTEMPTED]: 'border-orange-800/30',
 }
 
-function pctBar(a: number, b: number): number {
-  return b === 0 ? 0 : Math.round((a / b) * 100)
-}
-
 function inputValue(e: Event): string {
   return (e.target as HTMLTextAreaElement).value
 }
 
 function goToFlowchart(id: string) {
   flowchartStore.selectNode(id)
-  router.push('/prehled')
+  router.push('/diagram')
 }
 
 // ── Monster data ──────────────────────────────────────────────────────
@@ -330,7 +324,7 @@ const selectedMonsterTotalCount = computed(() =>
 
 // Monster detail popup
 const selectedMonsterId = ref<string | null>(null)
-const allMonsterStats = monsterStatsData as Record<string, { count: number; flying: boolean; boss: boolean; immunities?: string[]; stats: { level: number; type: string; health: number | string; movement?: number; attack: number; range?: number; actions?: any[] }[] }>
+const allMonsterStats = monsterStatsData as unknown as Record<string, { count: number; flying: boolean; boss: boolean; immunities?: string[]; stats: { level: number; type: string; health: number | string; movement?: number; attack: number; range?: number; actions?: any[] }[] }>
 
 const scenarioLevel = computed(() => {
   const avg = characterStore.averageLevel
@@ -365,15 +359,6 @@ const CONDITION_LABELS: Record<string, string> = {
   pierce: 'Průraz',
   push: 'Odstrčení',
   pull: 'Přitažení',
-}
-
-function formatActions(actions?: any[]): string[] {
-  if (!actions) return []
-  return actions.map((a: any) => {
-    if (a.type === 'condition') return CONDITION_LABELS[a.value] ?? a.value
-    const label = ACTION_LABELS[a.type] ?? a.type
-    return `${label} ${a.value}`
-  })
 }
 
 const ACTION_ICONS: Record<string, string> = {
@@ -459,123 +444,115 @@ function closeMonsterDetail() {
   <div v-if="campaignStore.hasCampaign" class="max-w-4xl mx-auto">
     <!-- Page header -->
     <div class="gh-page-header">
-      <h1 class="font-display text-2xl font-bold text-gh-primary tracking-wide">Scénáře</h1>
+      <h1 class="gh-h1">Scénáře</h1>
     </div>
 
     <!-- ── Progress overview ── -->
-    <div class="bg-gh-card border border-gh-border rounded-2xl p-5 mb-6">
+    <div class="gh-card p-5 mb-5">
       <div class="flex items-center justify-between mb-3">
-        <span class="text-sm text-gray-400 font-medium">Postup kampaní</span>
-        <span class="font-display text-gh-primary text-lg font-bold">
-          {{ scenarioStore.completedScenarios.length }}<span class="text-gray-600">/{{ scenarioStore.allScenarios.length }}</span>
-        </span>
+        <span class="gh-h3">Postup kampaní</span>
+        <span class="font-display text-gh-primary text-lg font-bold">{{ counts.completed }}<span class="text-gh-faint">/{{ totalScenarios }}</span></span>
       </div>
-      <div class="w-full h-3 bg-white/[0.06] rounded-full overflow-hidden mb-4">
-        <div
-          class="h-full rounded-full transition-all duration-700 ease-out"
-          :style="{ width: pctBar(scenarioStore.completedScenarios.length, scenarioStore.allScenarios.length) + '%', background: 'linear-gradient(90deg, #c4a35a, #e8d48b)' }"
-        ></div>
+      <div class="w-full h-2.5 rounded-full bg-gh-border overflow-hidden flex">
+        <div class="h-full bg-gradient-to-r from-gh-primary-dim to-gh-primary" :style="{ width: pctOf(counts.completed) + '%' }" />
+        <div class="h-full bg-gh-available/60" :style="{ width: pctOf(counts.available) + '%' }" />
+        <div class="h-full bg-gh-attempted/60" :style="{ width: pctOf(counts.attempted) + '%' }" />
+        <div class="h-full bg-gh-required/60" :style="{ width: pctOf(counts.required) + '%' }" />
       </div>
-      <div class="flex flex-wrap gap-x-6 gap-y-1">
-        <div class="flex items-center gap-2">
-          <div class="w-2.5 h-2.5 rounded-full bg-green-500"></div>
-          <span class="text-xs text-gray-500">Dokončeno <span class="text-green-400 font-medium">{{ scenarioStore.completedScenarios.length }}</span></span>
-        </div>
-        <div class="flex items-center gap-2">
-          <div class="w-2.5 h-2.5 rounded-full bg-blue-500"></div>
-          <span class="text-xs text-gray-500">Dostupné <span class="text-blue-400 font-medium">{{ scenarioStore.availableScenarios.length }}</span></span>
-        </div>
-        <div class="flex items-center gap-2">
-          <div class="w-2.5 h-2.5 rounded-full bg-gray-600"></div>
-          <span class="text-xs text-gray-500">Zamčeno <span class="text-gray-400 font-medium">{{ scenarioStore.allScenarios.filter(s => s.computedStatus === 'locked' || s.computedStatus === 'hidden').length }}</span></span>
-        </div>
-        <div class="flex items-center gap-2" title="Doporučená úroveň scénáře (průměr úrovní postav ÷ 2)">
-          <div class="w-2.5 h-2.5 rounded-full bg-orange-500"></div>
-          <span class="text-xs text-gray-500">Doporučená úr. scénáře <span class="text-orange-400 font-medium">{{ scenarioLevel }}</span></span>
-        </div>
+      <div class="mt-3.5 flex flex-wrap items-center gap-x-5 gap-y-1.5">
+        <StatusBadge state="completed" variant="dot" :label="`${counts.completed} dokončeno`" />
+        <StatusBadge v-if="counts.available" state="available" variant="dot" :label="`${counts.available} dostupných`" />
+        <StatusBadge v-if="counts.attempted" state="attempted" variant="dot" :label="`${counts.attempted} pokus`" />
+        <StatusBadge v-if="counts.required" state="required" variant="dot" :label="`${counts.required} povinné`" />
+        <span class="text-[11px] text-gh-dim ml-auto" title="Doporučená úroveň scénáře (průměr úrovní postav ÷ 2)">Doporučená úr. scénáře <span class="text-gh-primary font-medium">{{ scenarioLevel }}</span></span>
       </div>
     </div>
 
-    <!-- ── Search ── -->
-    <div class="mb-4">
-      <div class="relative">
-        <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-600 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <!-- ── Search + filter ── -->
+    <div class="flex flex-col sm:flex-row sm:items-center gap-3 mb-5">
+      <div class="relative flex-1 sm:max-w-xs">
+        <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gh-faint pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
         </svg>
-        <input
-          v-model="search"
-          type="text"
-          placeholder="Hledat scénář..."
-          class="gh-input w-full !pl-10"
-        />
+        <input v-model="search" type="text" placeholder="Hledat scénář nebo číslo…" class="gh-input w-full !pl-10" />
       </div>
-    </div>
-
-    <!-- ── Filter tabs ── -->
-    <div class="flex overflow-x-auto scrollbar-hide gap-1.5 mb-6 bg-white/[0.03] rounded-xl p-1 w-fit">
-      <button
-        v-for="tab in filterTabs"
-        :key="tab.key"
-        class="px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 shrink-0"
-        :class="filterStatus === tab.key
-          ? 'bg-gh-primary/20 text-gh-primary'
-          : 'text-gray-500 hover:text-gray-300 hover:bg-white/[0.04]'"
-        @click="filterStatus = tab.key"
-      >
-        {{ tab.label }}
-      </button>
+      <div class="flex overflow-x-auto scrollbar-hide gap-1 bg-black/20 border border-gh-border rounded-xl p-1 w-fit shrink-0">
+        <button
+          v-for="tab in filterTabs"
+          :key="tab.key"
+          class="px-3 py-1.5 rounded-lg text-xs font-medium transition-colors shrink-0 whitespace-nowrap"
+          :class="filterStatus === tab.key ? 'bg-gh-primary/20 text-gh-primary' : 'text-gray-500 hover:text-gray-300 hover:bg-white/[0.04]'"
+          @click="filterStatus = tab.key"
+        >{{ tab.label }}</button>
+      </div>
     </div>
 
     <!-- ── Scenario cards ── -->
-    <div class="space-y-2.5">
+    <div class="space-y-2">
       <div
         v-for="s in filteredScenarios"
         :key="s.id"
-        class="group relative bg-gh-card border rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:bg-white/[0.02] active:scale-[0.995]"
+        class="group relative bg-gh-card border rounded-xl overflow-hidden cursor-pointer transition-colors hover:bg-white/[0.025]"
         :class="statusCardBorder[s.computedStatus] ?? 'border-gh-border'"
         @click="openModal(s)"
       >
-        <!-- left accent -->
-        <div
-          class="absolute left-0 top-0 bottom-0 w-[3px]"
-          :class="statusAccentColors[s.computedStatus] ?? 'bg-gray-700'"
-        ></div>
+        <!-- status stripe -->
+        <div class="absolute left-0 inset-y-0 w-1" :class="statusAccentColors[s.computedStatus] ?? 'bg-gray-700'"></div>
 
-        <div class="flex items-center gap-4 px-5 py-3.5">
+        <div class="flex items-center gap-3 sm:gap-4 pl-5 pr-3.5 py-3 min-h-[58px]">
           <!-- number -->
-          <div class="font-display font-bold text-lg text-gh-primary/60 w-8 text-center shrink-0">
-            {{ s.id }}
-          </div>
+          <div class="font-display font-bold text-base sm:text-lg text-gh-primary/55 w-7 sm:w-8 text-center shrink-0">{{ s.id }}</div>
 
           <!-- info -->
           <div class="flex-1 min-w-0">
-            <div class="flex items-center gap-2 mb-0.5">
-              <span class="text-sm font-medium text-gray-300 truncate">{{ s.displayName }}</span>
-              <span v-if="s.isSide" class="shrink-0 text-[10px] text-gray-500 bg-white/[0.04] px-1.5 py-0.5 rounded border border-white/[0.06]">vedlejší</span>
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-medium text-gray-200 truncate">{{ s.displayName }}</span>
+              <span v-if="s.isSide" class="shrink-0 text-[10px] text-gh-dim bg-white/[0.04] px-1.5 py-0.5 rounded border border-white/[0.06]">vedlejší</span>
+              <span v-if="s.hasBoss" class="shrink-0 text-[10px] text-red-400/70 bg-red-900/15 px-1.5 py-0.5 rounded border border-red-800/20">boss</span>
             </div>
-            <div class="flex items-center gap-3 text-[11px] text-gray-600">
-              <span v-if="s.location">{{ s.location }}</span>
-              <!-- reward hints (hidden for uncompleted scenarios in spoiler mode) -->
+            <div class="flex items-center gap-3 text-[11px] text-gh-dim mt-0.5">
+              <span v-if="s.location" class="truncate">{{ s.location }}</span>
               <template v-if="!campaignStore.hideSpoilers || s.computedStatus === 'completed'">
-                <span v-if="s.rewards.gold" class="flex items-center gap-0.5">
-                  <svg class="w-3 h-3 text-yellow-500/50" fill="currentColor" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8"/></svg>
-                  {{ s.rewards.gold }}
+                <span v-if="s.rewards.gold" class="flex items-center gap-0.5 shrink-0">
+                  <svg class="w-3 h-3 text-yellow-500/50" fill="currentColor" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8"/></svg>{{ s.rewards.gold }}
                 </span>
-                <span v-if="s.rewards.xp" class="flex items-center gap-0.5">
-                  <svg class="w-3 h-3 text-blue-400/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>
-                  {{ s.rewards.xp }} ZK
+                <span v-if="s.rewards.xp" class="flex items-center gap-0.5 shrink-0">
+                  <svg class="w-3 h-3 text-blue-400/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"/></svg>{{ s.rewards.xp }} ZK
                 </span>
               </template>
             </div>
           </div>
 
           <!-- status badge -->
-          <span
-            class="gh-badge shrink-0"
-            :class="statusBadgeColors[s.computedStatus] ?? 'bg-white/5 text-gray-500'"
-          >
-            {{ statusLabels[s.computedStatus] ?? s.computedStatus }}
-          </span>
+          <StatusBadge :state="s.computedStatus" class="shrink-0" />
+
+          <!-- quick actions (desktop) -->
+          <div class="hidden sm:flex items-center gap-1.5 shrink-0" @click.stop>
+            <button
+              v-if="s.computedStatus === 'available' || s.computedStatus === 'required'"
+              class="px-2 py-1 rounded-md text-[11px] font-medium bg-orange-600/12 text-orange-400 border border-orange-600/25 hover:bg-orange-600/22 transition-colors"
+              title="Označit jako pokus"
+              @click="scenarioStore.markAttempted(s.id)"
+            >Začít</button>
+            <button
+              v-if="s.computedStatus === 'available' || s.computedStatus === 'required' || s.computedStatus === 'attempted'"
+              class="px-2 py-1 rounded-md text-[11px] font-medium bg-green-600/12 text-green-400 border border-green-600/25 hover:bg-green-600/22 transition-colors flex items-center gap-1"
+              title="Označit jako dokončené"
+              @click="scenarioStore.completeScenario(s.id)"
+            ><svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.75l6 6 9-13.5"/></svg>Dokončit</button>
+            <button
+              v-if="s.computedStatus === 'completed' || s.computedStatus === 'attempted'"
+              class="p-1.5 rounded-md text-gray-600 hover:text-gray-300 hover:bg-white/[0.06] transition-colors"
+              title="Resetovat scénář"
+              @click="scenarioStore.resetScenario(s.id)"
+            ><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></button>
+            <button
+              v-if="s.computedStatus === 'locked' || s.computedStatus === 'blocked'"
+              class="px-2 py-1 rounded-md text-[11px] font-medium bg-blue-600/12 text-blue-400 border border-blue-600/25 hover:bg-blue-600/22 transition-colors"
+              title="Ručně odemknout"
+              @click="scenarioStore.unlockScenario(s.id)"
+            >Odemknout</button>
+          </div>
 
           <!-- arrow -->
           <svg class="w-4 h-4 text-gray-700 group-hover:text-gh-primary transition-colors shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -618,12 +595,7 @@ function closeMonsterDetail() {
                 <div class="min-w-0">
                   <div class="flex items-center gap-2 mb-1">
                     <span class="font-display text-gh-primary text-xl font-bold">#{{ selectedScenario.id }}</span>
-                    <span
-                      class="gh-badge text-[10px]"
-                      :class="statusBadgeColors[selectedScenario.computedStatus] ?? 'bg-white/5 text-gray-500'"
-                    >
-                      {{ statusLabels[selectedScenario.computedStatus] ?? selectedScenario.computedStatus }}
-                    </span>
+                    <StatusBadge :state="selectedScenario.computedStatus" />
                   </div>
                   <h2 class="text-lg font-semibold text-gray-200">{{ selectedScenario.displayName }}</h2>
                   <div class="flex items-center gap-2 mt-1">

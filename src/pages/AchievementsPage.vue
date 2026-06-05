@@ -10,6 +10,21 @@ const campaignStore = useCampaignStore()
 const achievementStore = useAchievementStore()
 const highlightId = ref<string | null>(null)
 
+// Krátký gold-shimmer v momentě udělení úspěchu
+const justUnlocked = ref<string | null>(null)
+function flash(id: string) {
+  justUnlocked.value = id
+  setTimeout(() => { if (justUnlocked.value === id) justUnlocked.value = null }, 1400)
+}
+function toggleGlobal(id: string) {
+  achievementStore.toggleGlobal(id)
+  if (achievementStore.isGlobalAchieved(id)) flash(id)
+}
+function toggleParty(id: string) {
+  achievementStore.toggleParty(id)
+  if (achievementStore.isPartyAchieved(id)) flash(id)
+}
+
 type Ach = (typeof achievementStore.globalDefinitions)[number]
 type FilterType = 'all' | 'done' | 'remaining'
 const filter = ref<FilterType>('all')
@@ -121,7 +136,7 @@ function pctBar(count: number, total: number): number {
 <template>
   <div v-if="campaignStore.hasCampaign" class="max-w-4xl mx-auto">
     <div class="gh-page-header">
-      <h1 class="font-display text-2xl font-bold text-gh-primary tracking-wide">Úspěchy</h1>
+      <h1 class="gh-h1">Úspěchy</h1>
     </div>
 
     <!-- ── Overall progress ── -->
@@ -192,7 +207,7 @@ function pctBar(count: number, total: number): number {
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" />
             </svg>
           </div>
-          <h2 class="text-sm font-semibold text-gray-300 uppercase tracking-wider">Globální úspěchy</h2>
+          <h2 class="gh-h2">Globální úspěchy</h2>
         </div>
         <div class="flex items-center gap-3">
           <div class="w-32 h-2.5 bg-white/[0.06] rounded-full overflow-hidden">
@@ -207,14 +222,15 @@ function pctBar(count: number, total: number): number {
           v-for="ach in globalFiltered"
           :key="ach.id"
           :id="'ach-' + ach.id"
-          class="group relative rounded-xl p-4 border cursor-pointer transition-all duration-300 active:scale-[0.98]"
+          class="group relative overflow-hidden rounded-xl p-4 border cursor-pointer transition-all duration-300 active:scale-[0.98]"
           :class="[
             achievementStore.isGlobalAchieved(ach.id)
               ? 'border-green-700/40 bg-green-900/15 gh-glow-green'
               : 'border-gh-border bg-gh-card hover:border-green-800/40 hover:bg-white/[0.03]',
-            highlightId === ach.id ? 'ring-2 ring-gh-primary ring-offset-2 ring-offset-gh-dark' : ''
+            highlightId === ach.id ? 'ring-2 ring-gh-primary ring-offset-2 ring-offset-gh-dark' : '',
+            justUnlocked === ach.id ? 'ach-shimmer' : ''
           ]"
-          @click="achievementStore.toggleGlobal(ach.id)"
+          @click="toggleGlobal(ach.id)"
         >
           <!-- left accent -->
           <div
@@ -278,7 +294,7 @@ function pctBar(count: number, total: number): number {
               <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
             </svg>
           </div>
-          <h2 class="text-sm font-semibold text-gray-300 uppercase tracking-wider">Úspěchy družiny</h2>
+          <h2 class="gh-h2">Úspěchy družiny</h2>
         </div>
         <div class="flex items-center gap-3">
           <div class="w-32 h-2.5 bg-white/[0.06] rounded-full overflow-hidden">
@@ -292,11 +308,14 @@ function pctBar(count: number, total: number): number {
         <div
           v-for="ach in partyFiltered"
           :key="ach.id"
-          class="group relative rounded-xl p-4 border cursor-pointer transition-all duration-300 active:scale-[0.98]"
-          :class="achievementStore.isPartyAchieved(ach.id)
-            ? 'border-blue-700/40 bg-blue-900/15 gh-glow-blue'
-            : 'border-gh-border bg-gh-card hover:border-blue-800/40 hover:bg-white/[0.03]'"
-          @click="achievementStore.toggleParty(ach.id)"
+          class="group relative overflow-hidden rounded-xl p-4 border cursor-pointer transition-all duration-300 active:scale-[0.98]"
+          :class="[
+            achievementStore.isPartyAchieved(ach.id)
+              ? 'border-blue-700/40 bg-blue-900/15 gh-glow-blue'
+              : 'border-gh-border bg-gh-card hover:border-blue-800/40 hover:bg-white/[0.03]',
+            justUnlocked === ach.id ? 'ach-shimmer' : ''
+          ]"
+          @click="toggleParty(ach.id)"
         >
           <!-- left accent -->
           <div
@@ -338,3 +357,19 @@ function pctBar(count: number, total: number): number {
     </div>
   </div>
 </template>
+
+<style scoped>
+/* Gold-shimmer v momentě udělení úspěchu */
+.ach-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 35%, rgba(217, 190, 120, 0.45) 50%, transparent 65%);
+  transform: translateX(-100%);
+  animation: ach-shimmer-sweep 1.1s ease-out forwards;
+}
+@keyframes ach-shimmer-sweep {
+  to { transform: translateX(100%); }
+}
+</style>

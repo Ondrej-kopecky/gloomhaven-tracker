@@ -6,6 +6,7 @@ import { useAchievementStore } from '@/stores/achievementStore'
 import { useCharacterStore } from '@/stores/characterStore'
 import { useCampaignStore } from '@/stores/campaignStore'
 import type { ItemDefinition } from '@/models/Item'
+import StatusBadge from '@/components/shared/StatusBadge.vue'
 import itemsData from '@/data/items.json'
 import monstersData from '@/data/source/monsters-gh.json'
 import monsterStatsData from '@/data/source/monster-stats-gh.json'
@@ -57,10 +58,6 @@ function unlockItem(itemId: number) {
 
 function removeItem(itemId: number) {
   campaignStore.removeItemDesign(itemId)
-}
-
-function getItemName(itemId: number): string {
-  return allItems.find((i) => i.id === itemId)?.name ?? `#${itemId}`
 }
 
 const scenarioUnlockedItems = computed(() => {
@@ -164,30 +161,30 @@ const requirementLabels = computed(() => {
   })
 })
 
-const statusLabels: Record<string, string> = {
-  [ScenarioStatus.HIDDEN]: 'Skryto',
-  [ScenarioStatus.COMPLETED]: 'Dokončeno',
-  [ScenarioStatus.AVAILABLE]: 'Dostupné',
-  [ScenarioStatus.LOCKED]: 'Zamčeno',
-  [ScenarioStatus.BLOCKED]: 'Blokováno',
-  [ScenarioStatus.REQUIRED]: 'Vyžadováno',
-  [ScenarioStatus.ATTEMPTED]: 'Pokus',
-}
-
-const statusColors: Record<string, string> = {
-  [ScenarioStatus.HIDDEN]: 'text-gray-600 bg-gray-900/50',
-  [ScenarioStatus.COMPLETED]: 'text-green-400 bg-green-900/25',
-  [ScenarioStatus.AVAILABLE]: 'text-blue-400 bg-blue-900/25',
-  [ScenarioStatus.LOCKED]: 'text-gray-400 bg-gray-800/50',
-  [ScenarioStatus.BLOCKED]: 'text-red-400 bg-red-900/25',
-  [ScenarioStatus.REQUIRED]: 'text-yellow-400 bg-yellow-900/25',
-  [ScenarioStatus.ATTEMPTED]: 'text-orange-400 bg-orange-900/25',
-}
-
 const isCompleted = computed(() => status.value === ScenarioStatus.COMPLETED)
 const isAvailable = computed(() => status.value === ScenarioStatus.AVAILABLE)
 const isAttempted = computed(() => status.value === ScenarioStatus.ATTEMPTED)
 const isLocked = computed(() => status.value === ScenarioStatus.LOCKED || status.value === ScenarioStatus.BLOCKED)
+
+function cz(n: number, one: string, few: string, many: string): string {
+  return n === 1 ? one : n >= 2 && n <= 4 ? few : many
+}
+// Náhled, co se odemkne po dokončení (spoiler-gated obsah) — ať je vidět, že tam něco je.
+const hiddenWhenIncomplete = computed<string[] | null>(() => {
+  const s = scenario.value
+  if (!s || isCompleted.value) return null
+  const parts: string[] = []
+  const r = s.rewards
+  const rewardCount =
+    (r?.gold ? 1 : 0) + (r?.xp ? 1 : 0) + (r?.reputation ? 1 : 0) + (r?.prosperity ? 1 : 0) +
+    (r?.text?.length ?? 0) + (r?.itemDesigns?.length ?? 0)
+  if (rewardCount) parts.push(`${rewardCount} ${cz(rewardCount, 'odměna', 'odměny', 'odměn')}`)
+  if (s.treasures.length) parts.push(`${s.treasures.length} ${cz(s.treasures.length, 'poklad', 'poklady', 'pokladů')}`)
+  if (s.achievementsAwarded?.length) parts.push(`${s.achievementsAwarded.length} ${cz(s.achievementsAwarded.length, 'úspěch', 'úspěchy', 'úspěchů')}`)
+  if (linksFrom.value.length) parts.push(`odemyká ${linksFrom.value.length} ${cz(linksFrom.value.length, 'scénář', 'scénáře', 'scénářů')}`)
+  if (s.choices?.length) parts.push('rozhodnutí')
+  return parts.length ? parts : null
+})
 
 function unlock() {
   scenarioStore.unlockScenario(props.scenarioId)
@@ -216,7 +213,7 @@ function inputValue(e: Event): string {
 // ── Monster data ──────────────────────────────────────────────────────
 
 const monsterMap = new Map(monstersData.map((m) => [m.id, m]))
-const monsterStats = monsterStatsData as Record<string, { count: number; flying: boolean; boss: boolean; immunities?: string[]; stats: { level: number; type: string; health: number | string; movement?: number; attack: number | string; range?: number; actions?: any[] }[] }>
+const monsterStats = monsterStatsData as unknown as Record<string, { count: number; flying: boolean; boss: boolean; immunities?: string[]; stats: { level: number; type: string; health: number | string; movement?: number; attack: number | string; range?: number; actions?: any[] }[] }>
 const allScenarioMonsters = scenarioMonstersData as Record<string, { monsters: string[]; rooms: { roomNumber: number; monster: { name: string; type?: string; player2?: string; player3?: string; player4?: string }[] }[] }>
 
 const expandedMonster = ref<string | null>(null)
@@ -338,11 +335,9 @@ const totalMonsterCount = computed(() =>
         <div>
           <div class="flex items-center gap-2.5">
             <span class="font-display text-2xl font-bold text-gh-primary">#{{ scenario.id }}</span>
-            <span :class="statusColors[status]" class="gh-badge">
-              {{ statusLabels[status] }}
-            </span>
+            <StatusBadge :state="status" />
           </div>
-          <h3 class="font-display text-lg font-semibold text-gray-200 mt-1.5 tracking-wide">{{ scenario.nameCz ?? scenario.name }}</h3>
+          <h3 class="gh-h2 mt-1.5">{{ scenario.nameCz ?? scenario.name }}</h3>
           <div class="flex items-center gap-2 mt-0.5">
             <p class="text-xs text-gray-500">{{ scenario.location }}</p>
             <span v-if="characterStore.activeCharacters.length > 0" class="text-xs text-gray-500">
@@ -379,6 +374,14 @@ const totalMonsterCount = computed(() =>
 
     <!-- Scrollable content -->
     <div class="flex-1 overflow-y-auto overscroll-contain px-5 pb-2 min-h-0">
+      <!-- Spoiler preview (until completed) -->
+      <div v-if="hiddenWhenIncomplete" class="mb-4 flex items-start gap-2 px-3 py-2 rounded-lg bg-gh-primary/[0.05] border border-gh-primary/15">
+        <svg class="w-3.5 h-3.5 text-gh-primary/60 shrink-0 mt-px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="5" y="11" width="14" height="10" rx="2" /><path d="M8 11V7a4 4 0 1 1 8 0v4" />
+        </svg>
+        <p class="text-[11px] text-gh-dim leading-relaxed">Po dokončení: <span class="text-gray-400">{{ hiddenWhenIncomplete.join(' · ') }}</span></p>
+      </div>
+
       <!-- Summary (only when completed) -->
       <div v-if="scenario.summary && isCompleted" class="mb-4 p-3 rounded-lg bg-white/[0.02] border border-gh-border/40">
         <p class="text-sm text-gray-400 italic leading-relaxed">{{ scenario.summary }}</p>
@@ -386,7 +389,7 @@ const totalMonsterCount = computed(() =>
 
       <!-- Requirements (conditions to play) -->
       <div v-if="requirementLabels.length > 0" class="mb-4">
-        <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-2">Podmínky pro zahrání</h4>
+        <h4 class="gh-micro mb-2">Podmínky pro zahrání</h4>
         <div v-for="(req, i) in requirementLabels" :key="i" class="text-sm py-0.5 flex items-center gap-1.5">
           <span v-if="req.met" class="text-green-400/90 flex items-center gap-1.5">
             <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
@@ -405,7 +408,7 @@ const totalMonsterCount = computed(() =>
 
       <!-- Monsters -->
       <div v-if="scenarioMonsters.length > 0" class="mb-4">
-        <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-2">
+        <h4 class="gh-micro mb-2">
           Příšery
           <span class="text-gray-600 normal-case font-normal ml-1">· {{ playerCount }} hráči · {{ totalMonsterCount }} celkem</span>
         </h4>
@@ -509,7 +512,7 @@ const totalMonsterCount = computed(() =>
 
       <!-- Rewards (hidden until completed) -->
       <div v-if="scenario.rewards && isCompleted" class="mb-4">
-        <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-2">Odměny</h4>
+        <h4 class="gh-micro mb-2">Odměny</h4>
         <div class="grid grid-cols-2 gap-1.5 text-sm">
           <div v-if="scenario.rewards.gold" class="text-yellow-400/90 flex items-center gap-1.5">
             <span class="w-1 h-1 rounded-full bg-yellow-400/60" />{{ scenario.rewards.gold }} zl. {{ scenario.rewards.goldType === 'collective' ? 'celkem' : 'každý' }}
@@ -540,7 +543,7 @@ const totalMonsterCount = computed(() =>
 
       <!-- Random item design picker (only for scenarios with random item treasures) -->
       <div v-if="isCompleted && hasRandomItemTreasure" class="mb-4">
-        <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-2">Vylosovaný předmět</h4>
+        <h4 class="gh-micro mb-2">Vylosovaný předmět</h4>
 
         <div v-if="scenarioUnlockedItems.length > 0" class="flex flex-col gap-1 mb-2">
           <div v-for="item in scenarioUnlockedItems" :key="item.id" class="flex items-center justify-between text-sm bg-white/[0.03] rounded-lg px-2.5 py-1.5 border border-gh-border/30">
@@ -592,7 +595,7 @@ const totalMonsterCount = computed(() =>
 
       <!-- Random scenario unlock (only for scenarios with random scenario treasures) -->
       <div v-if="isCompleted && hasRandomScenarioTreasure" class="mb-4">
-        <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-2">Vylosovaný scénář</h4>
+        <h4 class="gh-micro mb-2">Vylosovaný scénář</h4>
 
         <div v-if="manuallyUnlockedScenariosList.length > 0" class="flex flex-col gap-1 mb-2">
           <div v-for="s in manuallyUnlockedScenariosList" :key="s.id" class="flex items-center justify-between text-sm bg-white/[0.03] rounded-lg px-2.5 py-1.5 border border-gh-border/30">
@@ -643,7 +646,7 @@ const totalMonsterCount = computed(() =>
 
       <!-- Achievements awarded -->
       <div v-if="scenario.achievementsAwarded?.length" class="mb-4">
-        <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-2">Udělené úspěchy</h4>
+        <h4 class="gh-micro mb-2">Udělené úspěchy</h4>
         <div v-for="a in scenario.achievementsAwarded" :key="a" class="text-sm text-green-400/90 flex items-center gap-1.5">
           <span class="w-1 h-1 rounded-full bg-green-400/60" /> {{ achievementStore.getName(a) }}
         </div>
@@ -651,7 +654,7 @@ const totalMonsterCount = computed(() =>
 
       <!-- Achievements lost -->
       <div v-if="scenario.achievementsLost?.length" class="mb-4">
-        <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-2">Ztracené úspěchy</h4>
+        <h4 class="gh-micro mb-2">Ztracené úspěchy</h4>
         <div v-for="a in scenario.achievementsLost" :key="a" class="text-sm text-red-400/90 flex items-center gap-1.5">
           <span class="w-1 h-1 rounded-full bg-red-400/60" /> {{ achievementStore.getName(a) }}
         </div>
@@ -659,7 +662,7 @@ const totalMonsterCount = computed(() =>
 
       <!-- Treasures (hidden until completed) -->
       <div v-if="scenario.treasures.length > 0 && isCompleted" class="mb-4">
-        <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-2">Poklady</h4>
+        <h4 class="gh-micro mb-2">Poklady</h4>
         <div v-for="t in scenario.treasures" :key="t.id" class="flex items-center gap-2 text-sm py-1">
           <input
             type="checkbox"
@@ -673,7 +676,7 @@ const totalMonsterCount = computed(() =>
 
       <!-- Choices (decision prompt) -->
       <div v-if="scenario.choices?.length && isCompleted" class="mb-4">
-        <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-2">Rozhodnutí</h4>
+        <h4 class="gh-micro mb-2">Rozhodnutí</h4>
         <p v-if="scenario.prompt" class="text-xs text-gray-400 italic mb-2">{{ scenario.prompt }}</p>
         <div class="flex flex-col gap-1.5">
           <button
@@ -695,7 +698,7 @@ const totalMonsterCount = computed(() =>
 
       <!-- Connections: links to (hidden until completed) -->
       <div v-if="linksFrom.length > 0 && isCompleted" class="mb-4">
-        <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-2">Odemyká</h4>
+        <h4 class="gh-micro mb-2">Odemyká</h4>
         <div v-for="s in linksFrom" :key="s.id" class="text-sm text-gray-400 py-0.5">
           <span class="text-gh-primary/60 font-display">#{{ s.id }}</span>
           <span class="text-gray-600 ml-1">{{ s.nameCz ?? s.name }}</span>
@@ -704,7 +707,7 @@ const totalMonsterCount = computed(() =>
 
       <!-- Connections: linked from -->
       <div v-if="linksTo.length > 0" class="mb-4">
-        <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-2">Odemčeno z</h4>
+        <h4 class="gh-micro mb-2">Odemčeno z</h4>
         <div v-for="s in linksTo" :key="s.id" class="text-sm text-gray-400 py-0.5">
           <span class="text-gh-primary/60 font-display">#{{ s.id }}</span>
           <span class="text-gray-600 ml-1">{{ s.nameCz ?? s.name }}</span>
@@ -713,7 +716,7 @@ const totalMonsterCount = computed(() =>
 
       <!-- Notes -->
       <div class="mb-2">
-        <h4 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-2">Poznámky</h4>
+        <h4 class="gh-micro mb-2">Poznámky</h4>
         <textarea
           :value="state.notes"
           placeholder="Poznámky ke scénáři..."
