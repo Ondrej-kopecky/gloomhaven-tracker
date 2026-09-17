@@ -6,7 +6,7 @@ import autoChangelog from '@/data/changelog.json'
 <template>
   <div class="max-w-3xl mx-auto">
     <div class="gh-page-header">
-      <h1 class="font-display text-2xl font-bold text-gh-primary tracking-wide">Info</h1>
+      <h1 class="gh-h1">Info</h1>
     </div>
 
     <!-- Hero -->

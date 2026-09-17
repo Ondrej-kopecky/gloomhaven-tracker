@@ -28,12 +28,17 @@ test.describe('Campaign Flow', () => {
     await page.getByRole('button', { name: /Vytvořit/i }).click()
     await expect(page.getByText('Brutalus')).toBeVisible()
 
-    // 4. Navigate to Úspěchy
+    // 4. Navigate to Úspěchy (v dropdownu „Více ▾")
+    await page.locator('header').getByRole('button', { name: /Více/i }).click()
     await page.locator('header').getByText('Úspěchy').click()
+    await page.waitForURL('**/achievementy')
     await expect(page.getByRole('heading', { name: 'Úspěchy', exact: true })).toBeVisible()
 
-    // 5. Navigate to Nastavení
+    // 5. Navigate to Nastavení (počkat na dojetí page-transition, mode="out-in")
+    await page.waitForTimeout(300)
     await page.locator('header a[href="/nastaveni"]').first().click()
-    await expect(page.getByText('E2E Test')).toBeVisible()
+    await page.waitForURL('**/nastaveni')
+    await expect(page.getByRole('heading', { name: 'Nastavení' })).toBeVisible()
+    await expect(page.locator('main').getByText('E2E Test')).toBeVisible()
   })
 })

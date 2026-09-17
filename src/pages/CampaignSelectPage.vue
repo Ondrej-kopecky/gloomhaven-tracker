@@ -125,7 +125,7 @@ function formatDate(iso: string): string {
         <div class="absolute inset-0 bg-gh-primary/15 blur-2xl rounded-full" />
       </div>
 
-      <h1 class="font-display text-3xl sm:text-5xl font-bold text-gh-primary tracking-wider mb-3">
+      <h1 class="gh-display-l mb-3">
         GLOOMHAVEN
       </h1>
       <p class="text-sm text-gray-500 tracking-[0.25em] uppercase font-light">Tracker</p>

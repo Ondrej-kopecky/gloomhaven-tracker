@@ -3,7 +3,8 @@ import { test, expect } from '@playwright/test'
 test.describe('Navigation', () => {
   test('home loads without error', async ({ page }) => {
     await page.goto('/')
-    await expect(page.locator('header')).toBeVisible()
+    // Landing má vlastní layout bez app-headeru — kontrolujeme hero nadpis
+    await expect(page.getByRole('heading', { name: /Gloomhaven Tracker/i })).toBeVisible()
   })
 
   test('header shows branding', async ({ page }) => {

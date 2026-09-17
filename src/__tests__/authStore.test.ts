@@ -91,8 +91,8 @@ describe('LocalStorageAdapter', () => {
     const imported = await adapter.importCampaign(json)
 
     expect(imported.personalQuests).toBeDefined()
-    expect(imported.personalQuests['char-1'].questId).toBe(510)
-    expect(imported.personalQuests['char-1'].progress[0].checkboxValues[0]).toBe(true)
+    expect(imported.personalQuests?.['char-1']?.questId).toBe(510)
+    expect(imported.personalQuests?.['char-1']?.progress?.[0]?.checkboxValues?.[0]).toBe(true)
   })
 
   it('imports old campaign without personalQuests field', async () => {

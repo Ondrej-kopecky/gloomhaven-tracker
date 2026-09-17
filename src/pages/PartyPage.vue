@@ -7,6 +7,7 @@ import { useCharacterStore } from '@/stores/characterStore'
 import { useScenarioStore } from '@/stores/scenarioStore'
 import { useAchievementStore } from '@/stores/achievementStore'
 import { CharacterClass } from '@/models/types'
+import { classColor } from '@/data/characterClasses'
 import ClassIcon from '@/components/characters/ClassIcon.vue'
 import type { ItemDefinition } from '@/models/Item'
 import itemsData from '@/data/items.json'
@@ -262,28 +263,6 @@ function setDonations(val: number) {
   campaignStore.autoSave()
 }
 
-/* ── character colors ── */
-const classColors: Record<string, string> = {
-  [CharacterClass.BRUTE]: '#e74c3c',
-  [CharacterClass.CRAGHEART]: '#95a5a6',
-  [CharacterClass.MINDTHIEF]: '#9b59b6',
-  [CharacterClass.SCOUNDREL]: '#2ecc71',
-  [CharacterClass.SPELLWEAVER]: '#3498db',
-  [CharacterClass.TINKERER]: '#f39c12',
-  [CharacterClass.BEAST_TYRANT]: '#e67e22',
-  [CharacterClass.BERSERKER]: '#c0392b',
-  [CharacterClass.DOOMSTALKER]: '#27ae60',
-  [CharacterClass.ELEMENTALIST]: '#8e44ad',
-  [CharacterClass.NIGHTSHROUD]: '#2c3e50',
-  [CharacterClass.PLAGUEHERALD]: '#16a085',
-  [CharacterClass.QUARTERMASTER]: '#d4a847',
-  [CharacterClass.SAWBONES]: '#ecf0f1',
-  [CharacterClass.SOOTHSINGER]: '#e91e8c',
-  [CharacterClass.SUMMONER]: '#1abc9c',
-  [CharacterClass.SUNKEEPER]: '#f1c40f',
-  [CharacterClass.DIVINER]: '#a78bfa',
-}
-
 function getClassName(classId: string): string {
   const def = characterStore.getDefinition(classId as CharacterClass)
   return def?.name ?? classId
@@ -293,12 +272,12 @@ function getClassName(classId: string): string {
 <template>
   <div v-if="campaignStore.hasCampaign && partyStore.party" class="max-w-4xl mx-auto">
     <div class="gh-page-header">
-      <h1 class="font-display text-2xl font-bold text-gh-primary tracking-wide">Družina</h1>
+      <h1 class="gh-h1">Družina</h1>
     </div>
 
     <!-- ── Active members ── -->
     <div v-if="characterStore.activeCharacters.length > 0" class="mb-8">
-      <h2 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-3">Aktivní členové</h2>
+      <h2 class="gh-h2 mb-3">Aktivní členové</h2>
       <div class="grid grid-cols-2 sm:flex sm:flex-wrap gap-3">
         <div
           v-for="char in characterStore.activeCharacters"
@@ -309,7 +288,7 @@ function getClassName(classId: string): string {
             <ClassIcon :class-id="char.classId" :size="32" />
             <div
               class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-bold border-2 border-gh-card"
-              :style="{ backgroundColor: classColors[char.classId] ?? '#c4a35a', color: '#0a0813' }"
+              :style="{ backgroundColor: classColor(char.classId), color: '#0a0813' }"
             >
               {{ char.level }}
             </div>
@@ -317,6 +296,32 @@ function getClassName(classId: string): string {
           <div class="min-w-0">
             <div class="text-sm font-medium text-gray-200 truncate">{{ char.playerName || getClassName(char.classId) }}</div>
             <div class="text-[11px] text-gray-500">{{ getClassName(char.classId) }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Síň důchodců ── -->
+    <div v-if="characterStore.archivedCharacters.length > 0" class="mb-8">
+      <h2 class="gh-h2 mb-3 text-gray-300">
+        Síň důchodců
+        <span class="text-sm font-normal text-gh-dim ml-1.5">{{ characterStore.archivedCharacters.length }}</span>
+      </h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+        <div
+          v-for="char in characterStore.archivedCharacters"
+          :key="char.uuid"
+          class="flex items-center gap-3 bg-gh-card border border-gh-border rounded-xl px-4 py-3 opacity-70 hover:opacity-100 transition-opacity"
+        >
+          <div class="relative shrink-0">
+            <ClassIcon :class-id="char.classId" :size="30" />
+            <div class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full grid place-items-center text-[8px] font-bold border-2 border-gh-card bg-gh-dim text-gh-dark">
+              {{ char.level }}
+            </div>
+          </div>
+          <div class="min-w-0">
+            <div class="text-sm font-medium text-gray-300 truncate">{{ char.playerName || getClassName(char.classId) }}</div>
+            <div class="text-[11px] text-gh-dim truncate">{{ getClassName(char.classId) }} · v důchodu</div>
           </div>
         </div>
       </div>
